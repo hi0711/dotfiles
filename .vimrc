@@ -159,9 +159,9 @@ augroup END
 
  " Let NeoBundle manage NeoBundle
  " Required:
- NeoBundleFetch 'Shougo/neobundle.vim'
+  NeoBundleFetch 'Shougo/neobundle.vim'
 
-NeoBundle 'Shougo/unite.vim'
+  NeoBundle 'Shougo/unite.vim'
 
 " neosnippetプラグイン
   NeoBundle 'Shougo/neosnippet.vim'
