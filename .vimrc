@@ -1,21 +1,16 @@
 set t_Co=256
 set ruler
 set nu
-
 set encoding=utf-8
-set fenc=utf-8
-
+set fileencodings=iso-2022-jp,cp932,sjis,euc-jp,utf-8
 set backspace=2
-
 set list
 set listchars=tab:»-,trail:-,eol:↲,extends:>,precedes:<,nbsp:%
-
 set nowrap
 set textwidth=0
 set nowritebackup
 set nobackup
 set noswapfile
-
 set title
 set showmatch
 set matchtime=1
@@ -23,15 +18,14 @@ set tabstop=2
 set shiftwidth=2
 set smartindent
 set expandtab
-
 set ignorecase
 set smartcase
 set incsearch
 set wrapscan
-
 set clipboard=unnamed,autoselect
-
 set laststatus=2
+
+filetype plugin indent off
 
 if !exists('g:markrement_char')
    let g:markrement_char = [
@@ -52,8 +46,6 @@ if !exists('g:markrement_char')
 
 autocmd BufReadPost * delmarks!
 
-set nocompatible
-filetype plugin indent off
 
 if &term =~ "xterm"
     let &t_ti .= "\e[?2004h"
@@ -70,33 +62,6 @@ if &term =~ "xterm"
     cnoremap <special> <Esc>[200~ <nop>
     cnoremap <special> <Esc>[201~ <nop>
 endif
-
-" Yを行末までのヤンクにする
-nnoremap Y y$
-
-" スペースキー + . で.vimrcを開く
-nnoremap <Space>. :<C-u>tabedit ~/.vimrc<CR>
-
-" 検索語が画面の真ん中に来るようにする
-nmap n nzz
-nmap N Nzz
-nmap * *zz
-nmap # #zz
-nmap g* g*zz
-nmap g# g#zz
-
-": と ; 入れ替え
-noremap ; :
-noremap : ;
-
-" insertモードから抜ける
-inoremap <silent> <C-k><C-k> <ESC>
-
-" カーソル操作
-noremap! <C-a> <Home>
-noremap! <C-e> <End>
-noremap! <C-f> <Right>
-noremap! <C-b> <Left>
 
 " カーソルライン設定
 set cursorline
@@ -127,6 +92,31 @@ if has('syntax')
     call ZenkakuSpace()
 endif
 
+" ----------------------------------------
+"  キーマッピング設定
+" ----------------------------------------
+
+" Yを行末までのヤンクにする
+  nnoremap Y y$
+" スペースキー + . で.vimrcを開く
+  nnoremap <Space>. :<C-u>tabedit ~/.vimrc<CR>
+" 検索語が画面の真ん中に来るようにする
+  nmap n nzz
+  nmap N Nzz
+  nmap * *zz
+  nmap # #zz
+  nmap g* g*zz
+  nmap g# g#zz
+": と ; 入れ替え
+  noremap ; :
+  noremap : ;
+" insertモードから抜ける
+  inoremap <silent> <C-k><C-k> <ESC>
+" カーソル操作
+  noremap! <C-a> <Home>
+  noremap! <C-e> <End>
+  noremap! <C-f> <Right>
+  noremap! <C-b> <Left>
 
 " ----------------------------------------
 " HTML閉じタグ自動補完
