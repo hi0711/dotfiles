@@ -1,3 +1,4 @@
+set t_Co=256
 set ruler
 set nu
 
@@ -106,7 +107,7 @@ augroup cch
 augroup END
 hi clear CursorLine
 hi CursorLine gui=underline
-highlight Cursorline ctermbg=black guibg=white
+highlight Cursorline ctermbg=white guibg=white
 
 " 保存時に行末の空白を除去する
 autocmd BufWritePre * :%s/\s\+$//ge
@@ -231,6 +232,11 @@ augroup END
   NeoBundle 'jeffreyiacono/vim-colors-wombat'
 " jellybeans カラースキーム
   NeoBundle 'nanotech/jellybeans.vim'
+    let g:jellybeans_overrides = {
+    \    'Todo': { 'guifg': '303030', 'guibg': 'f0f000',
+    \              'ctermfg': 'Black', 'ctermbg': 'Yellow',
+    \              'attr': 'bold' },
+    \}
 " lucius カラースキーム
   NeoBundle 'vim-scripts/Lucius'
 " zenburn カラースキーム
@@ -279,6 +285,6 @@ NeoBundleCheck
 " End NeoBundle Settings
 " ----------------------------------------
 
-colorscheme Zenburn
+colorscheme jellybeans
 
 syntax on
