@@ -279,6 +279,6 @@ NeoBundleCheck
 " End NeoBundle Settings
 " ----------------------------------------
 
-colorscheme Tomorrow-Night-Blue
+colorscheme Zenburn
 
 syntax on
