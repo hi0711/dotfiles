@@ -1,15 +1,11 @@
-# brew cask省略
-alias cask="brew cask"
-# rm -rfコマンド省略
+# エイリアス
+alias cask='brew cask'
 alias rmdir='rm -rf'
-# ディレクトリを一つ上の階層に
-alias up="cd ..; ls -l"
-# ターミナルからfinderを開く
-alias f="open ."
-# desktopディレクトリに移動
+alias up='cd ..; ls -l'
+alias f='open .'
 alias desktop='cd ~/desktop'
-# homeディレクトリに移動
 alias home='cd ~'
+alias la='ls -a'
 # finderで開いているディレクトリに移動
 cdf () {
         target=`osascript -e 'tell application "Finder" to if (count of Finder windows) > 0 then get POSIX path of (target of front Finder window as text)'`
