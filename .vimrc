@@ -55,6 +55,15 @@ filetype plugin indent off
       call ZenkakuSpace()
   endif
 
+"ステータスラインに文字コードと改行文字を表示する
+  function! CharCount ()
+    if exists('b:charCounterCount')
+      return b:charCounterCount
+    else
+      return 0
+    endif
+  endfunc
+
 " ----------------------------------------
 "  キーマッピング設定
 " ----------------------------------------
@@ -90,6 +99,35 @@ filetype plugin indent off
   noremap gg ggzz
   noremap <C-d> <C-d>zz
   noremap <C-u> <C-u>zz
+" 全角で書かないようにする
+  inoremap （ (
+  inoremap ） )
+  inoremap ｛ {
+  inoremap ｝ }
+  inoremap ； ;
+  inoremap ： :
+  inoremap ｜ \|
+  inoremap ＜ <
+  inoremap ＞ >
+  inoremap ＊ *
+  inoremap ＠ @
+  inoremap － -
+  inoremap ％ %
+  inoremap ＃ #
+  inoremap ” "
+  inoremap ’ '
+  inoremap ＋ +
+  inoremap ０ 0
+  inoremap １ 1
+  inoremap ２ 2
+  inoremap ３ 3
+  inoremap ４ 4
+  inoremap ５ 5
+  inoremap ６ 6
+  inoremap ７ 7
+  inoremap ８ 8
+  inoremap ９ 9
+  inoremap ～ ~
 " キー入れ替え
   noremap ; :
   noremap : ;
