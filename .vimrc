@@ -2,10 +2,11 @@ set t_Co=256
 set ruler
 set nu
 set encoding=utf-8
-set fileencodings=iso-2022-jp,cp932,sjis,euc-jp,utf-8
+set fileencodings=utf-8
 set backspace=2
 set list
 set listchars=tab:»-,trail:-,eol:↲,extends:>,precedes:<,nbsp:%
+set showcmd
 set nowrap
 set textwidth=0
 set nowritebackup
@@ -77,11 +78,18 @@ filetype plugin indent off
   noremap! <C-f> <Right>
   noremap! <C-b> <Left>
   inoremap <> <><LEFT>
-" モード切替時にIMEを自動オフ
-  inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>
 " スペースキーを押した時、中心を保ってスクロール
   nnoremap <Space> jzz
   nnoremap <S-Space> kzz
+" 中央を維持しながら移動
+  noremap j gjzz
+  noremap k gkzz
+  noremap gj j
+  noremap gk k
+  noremap G Gzz
+  noremap gg ggzz
+  noremap <C-d> <C-d>zz
+  noremap <C-u> <C-u>zz
 " キー入れ替え
   noremap ; :
   noremap : ;
