@@ -1,8 +1,8 @@
 set t_Co=256
 set ruler
 set nu
-set encoding=utf-8
-set fileencodings=utf-8
+" set encoding=utf-8
+" set fileencodings=utf-8
 set backspace=2
 set list
 set listchars=tab:»-,trail:-,eol:↲,extends:>,precedes:<,nbsp:%
@@ -63,6 +63,12 @@ filetype plugin indent off
       return 0
     endif
   endfunc
+
+
+" エンコード設定
+command! -bang -nargs=? Utf8 edit<bang> ++enc=utf-8 <args>
+command! -bang -nargs=? Sjis edit<bang> ++enc=sjis <args>
+command! -bang -nargs=? Euc edit<bang> ++enc=euc-jp <args>
 
 " ----------------------------------------
 "  キーマッピング設定
