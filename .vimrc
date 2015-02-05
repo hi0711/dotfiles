@@ -65,7 +65,6 @@ filetype plugin indent off
 
 " エンコード設定
 set encoding=utf8
-set fileencodings=iso-2022-jp,sjis,utf8
 command! -bang -nargs=? Utf8 edit<bang> ++enc=utf-8 <args>
 command! -bang -nargs=? Sjis edit<bang> ++enc=sjis <args>
 command! -bang -nargs=? Euc edit<bang> ++enc=euc-jp <args>
