@@ -190,6 +190,13 @@ filetype plugin indent off
   inoremap ８ 8
   inoremap ９ 9
   inoremap ～ ~
+" ウインドウのフォーカス移動
+  map  wh <C-w>h
+  map  wl <C-w>l
+  map  wj <C-w>j
+  map  wk <C-w>k
+  map gl :macaction selectNextWindow:<CR>
+  map gh :macaction selectPreviousWindow:<CR>
 " キー入れ替え
   noremap ; :
   noremap : ;
