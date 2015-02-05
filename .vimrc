@@ -27,70 +27,32 @@ set laststatus=2
 
 filetype plugin indent off
 
-if !exists('g:markrement_char')
-   let g:markrement_char = [
-    \     'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
-    \     'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'
-    \ ]
-  endif
-  nnoremap <silent>m :<C-u>call <SID>AutoMarkrement()<CR>
-  function! s:AutoMarkrement()
-      if !exists('b:markrement_pos')
-          let b:markrement_pos = 0
-      else
-          let b:markrement_pos = (b:markrement_pos + 1) % len(g:markrement_char)
-      endif
-      execute 'mark' g:markrement_char[b:markrement_pos]
-      echo 'marked' g:markrement_char[b:markrement_pos]
-  endfunction
-
-autocmd BufReadPost * delmarks!
-
-
-if &term =~ "xterm"
-    let &t_ti .= "\e[?2004h"
-    let &t_te .= "\e[?2004l"
-    let &pastetoggle = "\e[201~"
-
-    function XTermPasteBegin(ret)
-        set paste
-        return a:ret
-    endfunction
-
-    noremap <special> <expr> <Esc>[200~ XTermPasteBegin("0i")
-    inoremap <special> <expr> <Esc>[200~ XTermPasteBegin("")
-    cnoremap <special> <Esc>[200~ <nop>
-    cnoremap <special> <Esc>[201~ <nop>
-endif
-
 " カーソルライン設定
-set cursorline
-augroup cch
-  autocmd! cch
-  autocmd WinLeave * set nocursorline
-  autocmd WinEnter,BufRead * set cursorline
-augroup END
-hi clear CursorLine
-hi CursorLine gui=underline
-highlight Cursorline ctermbg=white guibg=white
+  set cursorline
+  augroup cch
+    autocmd! cch
+    autocmd WinLeave * set nocursorline
+    autocmd WinEnter,BufRead * set cursorline
+  augroup END
+  hi clear CursorLine
+  hi CursorLine gui=underline
+  highlight Cursorline ctermbg=white guibg=white
 
 " 保存時に行末の空白を除去する
-autocmd BufWritePre * :%s/\s\+$//ge
+  autocmd BufWritePre * :%s/\s\+$//ge
 
 " 全角スペースの設定
-
-function! ZenkakuSpace()
-    highlight ZenkakuSpace cterm=reverse ctermfg=DarkMagenta gui=reverse guifg=DarkMagenta
-endfunction
-
-if has('syntax')
-    augroup ZenkakuSpace
-        autocmd!
-        autocmd ColorScheme       * call ZenkakuSpace()
-        autocmd VimEnter,WinEnter * match ZenkakuSpace /　/
-    augroup END
-    call ZenkakuSpace()
-endif
+  function! ZenkakuSpace()
+      highlight ZenkakuSpace cterm=reverse ctermfg=DarkMagenta gui=reverse guifg=DarkMagenta
+  endfunction
+  if has('syntax')
+      augroup ZenkakuSpace
+          autocmd!
+          autocmd ColorScheme       * call ZenkakuSpace()
+          autocmd VimEnter,WinEnter * match ZenkakuSpace /　/
+      augroup END
+      call ZenkakuSpace()
+  endif
 
 " ----------------------------------------
 "  キーマッピング設定
@@ -107,9 +69,6 @@ endif
   nmap # #zz
   nmap g* g*zz
   nmap g# g#zz
-": と ; 入れ替え
-  noremap ; :
-  noremap : ;
 " insertモードから抜ける
   inoremap <silent> <C-k><C-k> <ESC>
 " カーソル操作
@@ -117,6 +76,15 @@ endif
   noremap! <C-e> <End>
   noremap! <C-f> <Right>
   noremap! <C-b> <Left>
+  inoremap <> <><LEFT>
+" モード切替時にIMEを自動オフ
+  inoremap <silent> <ESC> <ESC>:set iminsert=0<CR>
+" スペースキーを押した時、中心を保ってスクロール
+  nnoremap <Space> jzz
+  nnoremap <S-Space> kzz
+" キー入れ替え
+  noremap ; :
+  noremap : ;
 
 " ----------------------------------------
 " HTML閉じタグ自動補完
