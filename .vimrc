@@ -1,8 +1,6 @@
 set t_Co=256
 set ruler
 set nu
-" set encoding=utf-8
-" set fileencodings=utf-8
 set backspace=2
 set list
 set listchars=tab:»-,trail:-,eol:↲,extends:>,precedes:<,nbsp:%
