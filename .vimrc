@@ -23,9 +23,7 @@ set incsearch
 set wrapscan
 set clipboard=unnamed,autoselect
 set laststatus=2
-
 filetype plugin indent off
-
 " カーソルライン設定
   set cursorline
   augroup cch
@@ -36,10 +34,8 @@ filetype plugin indent off
   hi clear CursorLine
   hi CursorLine gui=underline
   highlight Cursorline ctermbg=white guibg=white
-
 " 保存時に行末の空白を除去する
   autocmd BufWritePre * :%s/\s\+$//ge
-
 " 全角スペースの設定
   function! ZenkakuSpace()
       highlight ZenkakuSpace cterm=reverse ctermfg=DarkMagenta gui=reverse guifg=DarkMagenta
@@ -52,7 +48,6 @@ filetype plugin indent off
       augroup END
       call ZenkakuSpace()
   endif
-
 "ステータスラインに文字コードと改行文字を表示する
   function! CharCount ()
     if exists('b:charCounterCount')
@@ -61,8 +56,6 @@ filetype plugin indent off
       return 0
     endif
   endfunc
-
-
 " エンコード設定
   set encoding=utf-8
   set fileencodings=iso-2022-jp,sjis,euc-jp,utf-8
@@ -129,7 +122,6 @@ filetype plugin indent off
 " ----------------------------------------
 "  キーマッピング設定
 " ----------------------------------------
-
 " Yを行末までのヤンクにする
   nnoremap Y y$
 " スペースキー + . で.vimrcを開く
@@ -205,7 +197,6 @@ filetype plugin indent off
 " ----------------------------------------
 " HTML閉じタグ自動補完
 " ----------------------------------------
-
 augroup MyTag
   autocmd!
   autocmd Filetype xml inoremap <buffer> </ </<C-x><C-o>
@@ -216,31 +207,23 @@ augroup END
 " ----------------------------------------
 " Start NeoBundle Settings
 " ----------------------------------------
-
 " Note: Skip initialization for vim-tiny or vim-small.
- if !1 | finish | endif
-
- if has('vim_starting')
-   if &compatible
-     set nocompatible               " Be iMproved
-   endif
-
-   " Required:
-   set runtimepath+=~/.vim/bundle/neobundle.vim/
- endif
-
- " Required:
- call neobundle#begin(expand('~/.vim/bundle/'))
-
- " Let NeoBundle manage NeoBundle
- " Required:
-  NeoBundleFetch 'Shougo/neobundle.vim'
-
-  NeoBundle 'Shougo/unite.vim'
-
+  if !1 | finish | endif
+  if has('vim_starting')
+    if &compatible
+      set nocompatible               " Be iMproved
+    endif
+    " Required:
+    set runtimepath+=~/.vim/bundle/neobundle.vim/
+  endif
+  " Required:
+  call neobundle#begin(expand('~/.vim/bundle/'))
+  " Let NeoBundle manage NeoBundle
+  " Required:
+   NeoBundleFetch 'Shougo/neobundle.vim'
+   NeoBundle 'Shougo/unite.vim'
 " neosnippetプラグイン
   NeoBundle 'Shougo/neosnippet.vim'
-
 " neocompleteプラグイン
   NeoBundle 'Shougo/neocomplete'
   " Disable AutoComplPop.
@@ -265,56 +248,43 @@ augroup END
   if !exists('g:neocomplete#sources#omni#input_patterns')
     let g:neocomplete#sources#omni#input_patterns = {}
   endif
-
 " evervimプラグイン
   NeoBundle 'kakkyz81/evervim'
   let g:evervim_devtoken='S=s399:U=4676794:E=14dc6c37749:C=1466f124b4e:P=1cd:A=en-devtoken:V=2:H=ea3cbce5d9944497b6e6f7f05014b611'
   let g:evervim_splitoption=''
-
 " open-brouwserプラグイン
   NeoBundle 'tyru/open-browser.vim'
-
 " emmetプラグイン
   NeoBundle 'mattn/emmet-vim'
-
 " NERDTreeプラグイン
   NeoBundle 'scrooloose/nerdtree'
   nnoremap <C-e>e :NERDTreeToggle<CR>
   let NERDTreeShowHidden = 1
   autocmd vimenter * if !argc() | NERDTree | endif
-
 " indentLineプラグイン
   NeoBundle 'Yggdroot/indentLine'
   let g:indentLine_char='|'
-
 " easy-alignプラグイン
   NeoBundle 'junegunn/vim-easy-align'
   " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
   vmap <Enter> <Plug>(EasyAlign)
   " Start interactive EasyAlign for a motion/text object (e.g. gaip)
   nmap ga <Plug>(EasyAlign)
-
 "JpFormatプラグイン
   NeoBundle "fuenor/JpFormat.vim"
   nnoremap gL :JpFormatAll!<CR>
-
 " tlibプラグイン
   NeoBundle 'tomtom/tlib_vim'
 " ttocプラグイン
   NeoBundle 'tomtom/ttoc_vim'
-
 " unite-outlineプラグイン
   NeoBundle 'h1mesuke/unite-outline'
-
 " autocloseプラグイン
   NeoBundle 'Townk/vim-autoclose'
-
 " coffeescriptプラグイン
   NeoBundle 'kchmck/vim-coffee-script'
-
 " jadeプラグイン
   NeoBundle 'digitaltoad/vim-jade'
-
 " vim-matchitプラグイン
   NeoBundle 'tmhedberg/matchit'
 " solarized カラースキーム
@@ -348,18 +318,13 @@ augroup END
   NeoBundle 'vim-scripts/phd'
 " tomorrow カラースキーム
   NeoBundle 'chriskempson/vim-tomorrow-theme'
-
 call neobundle#end()
-
 " Required:
  filetype plugin indent on
-
-
 NeoBundleCheck
+
 " ----------------------------------------
 " End NeoBundle Settings
 " ----------------------------------------
-
 colorscheme jellybeans
-
 syntax on
