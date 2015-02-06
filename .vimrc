@@ -149,6 +149,7 @@ filetype plugin indent off
   noremap! <C-f> <Right>
   noremap! <C-b> <Left>
   inoremap <> <><LEFT>
+  inoremap '' ''<LEFT>
 " スペースキーを押した時、中心を保ってスクロール
   nnoremap <Space> jzz
   nnoremap <S-Space> kzz
@@ -297,6 +298,25 @@ augroup END
   NeoBundle "fuenor/JpFormat.vim"
   nnoremap gL :JpFormatAll!<CR>
 
+" tlibプラグイン
+  NeoBundle 'tomtom/tlib_vim'
+" ttocプラグイン
+  NeoBundle 'tomtom/ttoc_vim'
+
+" unite-outlineプラグイン
+  NeoBundle 'h1mesuke/unite-outline'
+
+" autocloseプラグイン
+  NeoBundle 'Townk/vim-autoclose'
+
+" coffeescriptプラグイン
+  NeoBundle 'kchmck/vim-coffee-script'
+
+" jadeプラグイン
+  NeoBundle 'digitaltoad/vim-jade'
+
+" vim-matchitプラグイン
+  NeoBundle 'tmhedberg/matchit'
 " solarized カラースキーム
   NeoBundle 'altercation/vim-colors-solarized'
 " mustang カラースキーム
@@ -328,24 +348,6 @@ augroup END
   NeoBundle 'vim-scripts/phd'
 " tomorrow カラースキーム
   NeoBundle 'chriskempson/vim-tomorrow-theme'
-
-" カラースキーム一覧表示に Unite.vim を使う
-  NeoBundle 'Shougo/unite.vim'
-  NeoBundle 'ujihisa/unite-colorscheme'
-
-" tlibプラグイン
-  NeoBundle 'tomtom/tlib_vim'
-" ttocプラグイン
-  NeoBundle 'tomtom/ttoc_vim'
-
-" unite-outlineプラグイン
-  NeoBundle 'h1mesuke/unite-outline'
-
-" autocloseプラグイン
-  NeoBundle 'Townk/vim-autoclose'
-
-" vim-matchitプラグイン
-  NeoBundle 'tmhedberg/matchit'
 
 call neobundle#end()
 
