@@ -320,7 +320,7 @@ augroup END
   NeoBundle 'chriskempson/vim-tomorrow-theme'
 call neobundle#end()
 " Required:
- filetype plugin indent on
+ "filetype plugin indent on
 NeoBundleCheck
 
 " ----------------------------------------
