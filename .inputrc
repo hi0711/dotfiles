@@ -1,1 +1,11 @@
+# キーバインド
+set editing-mode vi
+# 大文字・小文字を無視
 set completion-ignore-case on
+
+# history補完
+"\C-p": history-search-backward
+"\C-n": history-search-forward
+
+# ビープ音
+set bell-style visible
