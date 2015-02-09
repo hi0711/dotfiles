@@ -1,5 +1,3 @@
-# キーバインド
-set editing-mode vi
 # 大文字・小文字を無視
 set completion-ignore-case on
 
