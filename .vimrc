@@ -199,10 +199,10 @@ set linespace=4
   inoremap ９ 9
   inoremap ～ ~
 " ウインドウのフォーカス移動
-  map  wh <C-w>h
-  map  wl <C-w>l
-  map  wj <C-w>j
-  map  wk <C-w>k
+  map  bh <C-w>h
+  map  bl <C-w>l
+  map  bj <C-w>j
+  map  bk <C-w>k
   map gl :macaction selectNextWindow:<CR>
   map gh :macaction selectPreviousWindow:<CR>
 " キー入れ替え
