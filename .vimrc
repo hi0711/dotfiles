@@ -23,7 +23,7 @@ set incsearch
 set wrapscan
 set clipboard=unnamed,autoselect
 set laststatus=2
-filetype plugin indent off
+set linespace=4
 " カーソルライン設定
   set cursorline
   augroup cch
@@ -34,6 +34,13 @@ filetype plugin indent off
   hi clear CursorLine
   hi CursorLine gui=underline
   highlight Cursorline ctermbg=white guibg=white
+" insertモードでカーソルの形を変える
+  if !has('gui_running')
+    let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+    let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+  endif
+" IME制御
+
 " 保存時に行末の空白を除去する
   autocmd BufWritePre * :%s/\s\+$//ge
 " 全角スペースの設定
@@ -58,7 +65,9 @@ filetype plugin indent off
   endfunc
 " エンコード設定
   set encoding=utf-8
-  set fileencodings=iso-2022-jp,sjis,euc-jp,utf-8
+  set termencoding=utf-8
+  set fileencoding=utf-8
+  set fileencodings=utf-8,euc-jp,cp932
   command! -bang -nargs=? Utf8 edit<bang> ++enc=utf-8 <args>
   command! -bang -nargs=? Sjis edit<bang> ++enc=sjis <args>
   command! -bang -nargs=? Euc edit<bang> ++enc=euc-jp <args>
@@ -134,7 +143,8 @@ filetype plugin indent off
   nmap g* g*zz
   nmap g# g#zz
 " insertモードから抜ける
-  inoremap <silent> <C-k><C-k> <ESC>
+  inoremap jj <ESC>
+  inoremap <C-j> j
 " カーソル操作
   noremap! <C-a> <Home>
   noremap! <C-e> <End>
@@ -154,6 +164,13 @@ filetype plugin indent off
   noremap gg ggzz
   noremap <C-d> <C-d>zz
   noremap <C-u> <C-u>zz
+" insertモードで次の行に直接改行
+  inoremap <C-o> <Esc>o
+" カーソルキーでバッファのサイズ変更
+  nnoremap <silent><Down>  <C-w>-
+  nnoremap <silent><Up>    <C-w>+
+  nnoremap <silent><Left>  <C-w><
+  nnoremap <silent><Right> <C-w>>
 " 全角で書かないようにする
   inoremap （ (
   inoremap ） )
@@ -320,7 +337,7 @@ augroup END
   NeoBundle 'chriskempson/vim-tomorrow-theme'
 call neobundle#end()
 " Required:
- "filetype plugin indent on
+ filetype plugin indent on
 NeoBundleCheck
 
 " ----------------------------------------
