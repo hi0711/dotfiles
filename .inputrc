@@ -4,6 +4,11 @@ set completion-ignore-case on
 # チルダの展開
 set expand-tilde on
 
+# 日本語設定
+set output-meta on
+set input-meta on
+set convert-meta off
+
 # history補完
 "\C-p": history-search-backward
 "\C-n": history-search-forward
