@@ -1,6 +1,9 @@
 # 大文字・小文字を無視
 set completion-ignore-case on
 
+# チルダの展開
+set expand-tilde on
+
 # history補完
 "\C-p": history-search-backward
 "\C-n": history-search-forward
