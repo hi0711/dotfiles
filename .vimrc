@@ -338,7 +338,7 @@ call neobundle#end()
 " Required:
  filetype plugin indent on
 NeoBundleCheck
-# カラースキーム決定
+" カラースキーム決定
 colorscheme jellybeans
 " ----------------------------------------
 " End NeoBundle Settings
