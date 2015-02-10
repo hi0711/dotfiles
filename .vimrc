@@ -24,6 +24,7 @@ set wrapscan
 set clipboard=unnamed,autoselect
 set laststatus=2
 set linespace=4
+syntax on
 " カーソルライン設定
   set cursorline
   augroup cch
@@ -302,12 +303,12 @@ augroup END
   NeoBundle 'digitaltoad/vim-jade'
 " vim-matchitプラグイン
   NeoBundle 'tmhedberg/matchit'
-" solarized カラースキーム
-  NeoBundle 'altercation/vim-colors-solarized'
-" mustang カラースキーム
-  NeoBundle 'croaker/mustang-vim'
-" wombat カラースキーム
-  NeoBundle 'jeffreyiacono/vim-colors-wombat'
+"  " solarized カラースキーム
+"    NeoBundle 'altercation/vim-colors-solarized'
+"  " mustang カラースキーム
+"    NeoBundle 'croaker/mustang-vim'
+"  " wombat カラースキーム
+"    NeoBundle 'jeffreyiacono/vim-colors-wombat'
 " jellybeans カラースキーム
   NeoBundle 'nanotech/jellybeans.vim'
     let g:jellybeans_overrides = {
@@ -315,31 +316,30 @@ augroup END
     \              'ctermfg': 'Black', 'ctermbg': 'Yellow',
     \              'attr': 'bold' },
     \}
-" lucius カラースキーム
-  NeoBundle 'vim-scripts/Lucius'
-" zenburn カラースキーム
-  NeoBundle 'vim-scripts/Zenburn'
-" mrkn256 カラースキーム
-  NeoBundle 'mrkn/mrkn256.vim'
-" railscasts カラースキーム
-  NeoBundle 'jpo/vim-railscasts-theme'
-" pyte カラースキーム
-  NeoBundle 'therubymug/vim-pyte'
-" molokai カラースキーム
-  NeoBundle 'tomasr/molokai'
-" pyte カラースキーム
-  NeoBundle 'therubymug/vim-pyte'
-" phd カラースキーム
-  NeoBundle 'vim-scripts/phd'
-" tomorrow カラースキーム
-  NeoBundle 'chriskempson/vim-tomorrow-theme'
+"  " lucius カラースキーム
+"    NeoBundle 'vim-scripts/Lucius'
+"  " zenburn カラースキーム
+"    NeoBundle 'vim-scripts/Zenburn'
+"  " mrkn256 カラースキーム
+"    NeoBundle 'mrkn/mrkn256.vim'
+"  " railscasts カラースキーム
+"    NeoBundle 'jpo/vim-railscasts-theme'
+"  " pyte カラースキーム
+"    NeoBundle 'therubymug/vim-pyte'
+"  " molokai カラースキーム
+"    NeoBundle 'tomasr/molokai'
+"  " pyte カラースキーム
+"    NeoBundle 'therubymug/vim-pyte'
+"  " phd カラースキーム
+"    NeoBundle 'vim-scripts/phd'
+"  " tomorrow カラースキーム
+"    NeoBundle 'chriskempson/vim-tomorrow-theme'
 call neobundle#end()
 " Required:
  filetype plugin indent on
 NeoBundleCheck
-
+# カラースキーム決定
+colorscheme jellybeans
 " ----------------------------------------
 " End NeoBundle Settings
 " ----------------------------------------
-colorscheme jellybeans
-syntax on
