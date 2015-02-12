@@ -150,6 +150,7 @@ syntax on
   noremap! <C-b> <Left>
   inoremap <> <><LEFT>
   inoremap '' ''<LEFT>
+  inoremap "" ""<LEFT>
 " スペースキーを押した時、中心を保ってスクロール
   nnoremap <Space> jzz
   nnoremap <S-Space> kzz
