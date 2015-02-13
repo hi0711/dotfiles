@@ -268,7 +268,7 @@ augroup END
   NeoBundle 'kakkyz81/evervim'
   let g:evervim_devtoken='S=s399:U=4676794:E=14dc6c37749:C=1466f124b4e:P=1cd:A=en-devtoken:V=2:H=ea3cbce5d9944497b6e6f7f05014b611'
   let g:evervim_splitoption=''
-" open-brouwserプラグイン
+" open-browserプラグイン
   NeoBundle 'tyru/open-browser.vim'
 " emmetプラグイン
   NeoBundle 'mattn/emmet-vim'
@@ -303,19 +303,14 @@ augroup END
   NeoBundle 'digitaltoad/vim-jade'
 " vim-matchitプラグイン
   NeoBundle 'tmhedberg/matchit'
-"  " solarized カラースキーム
-"    NeoBundle 'altercation/vim-colors-solarized'
+" solarized カラースキーム
+  NeoBundle 'altercation/vim-colors-solarized'
 "  " mustang カラースキーム
 "    NeoBundle 'croaker/mustang-vim'
 "  " wombat カラースキーム
 "    NeoBundle 'jeffreyiacono/vim-colors-wombat'
-" jellybeans カラースキーム
-  NeoBundle 'nanotech/jellybeans.vim'
-    let g:jellybeans_overrides = {
-    \    'Todo': { 'guifg': '303030', 'guibg': 'f0f000',
-    \              'ctermfg': 'Black', 'ctermbg': 'Yellow',
-    \              'attr': 'bold' },
-    \}
+"  " jellybeans カラースキーム
+"   NeoBundle 'nanotech/jellybeans.vim'
 "  " lucius カラースキーム
 "    NeoBundle 'vim-scripts/Lucius'
 "  " zenburn カラースキーム
@@ -339,7 +334,9 @@ call neobundle#end()
  filetype plugin indent on
 NeoBundleCheck
 " カラースキーム決定
-colorscheme jellybeans
+  syntax enable
+  set background=dark
+  colorscheme solarized
 " ----------------------------------------
 " End NeoBundle Settings
 " ----------------------------------------
