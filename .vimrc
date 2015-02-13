@@ -303,14 +303,14 @@ augroup END
   NeoBundle 'digitaltoad/vim-jade'
 " vim-matchitプラグイン
   NeoBundle 'tmhedberg/matchit'
-" solarized カラースキーム
-  NeoBundle 'altercation/vim-colors-solarized'
+"  " solarized カラースキーム
+"    NeoBundle 'altercation/vim-colors-solarized'
 "  " mustang カラースキーム
 "    NeoBundle 'croaker/mustang-vim'
 "  " wombat カラースキーム
 "    NeoBundle 'jeffreyiacono/vim-colors-wombat'
 "  " jellybeans カラースキーム
-"   NeoBundle 'nanotech/jellybeans.vim'
+"    NeoBundle 'nanotech/jellybeans.vim'
 "  " lucius カラースキーム
 "    NeoBundle 'vim-scripts/Lucius'
 "  " zenburn カラースキーム
@@ -321,8 +321,8 @@ augroup END
 "    NeoBundle 'jpo/vim-railscasts-theme'
 "  " pyte カラースキーム
 "    NeoBundle 'therubymug/vim-pyte'
-"  " molokai カラースキーム
-"    NeoBundle 'tomasr/molokai'
+" molokai カラースキーム
+  NeoBundle 'tomasr/molokai'
 "  " pyte カラースキーム
 "    NeoBundle 'therubymug/vim-pyte'
 "  " phd カラースキーム
@@ -334,9 +334,8 @@ call neobundle#end()
  filetype plugin indent on
 NeoBundleCheck
 " カラースキーム決定
-  syntax enable
-  set background=dark
-  colorscheme solarized
+  colorscheme molokai
+  let g:molokai_original = 1
 " ----------------------------------------
 " End NeoBundle Settings
 " ----------------------------------------
