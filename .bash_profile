@@ -14,3 +14,5 @@ if [ -f ~/.bashrc ]; then
 fi
 ### alias設定
 source ~/.bashrc
+### git 助けて
+export PATH=$HOME/git-tasukete:$PATH

@@ -209,6 +209,11 @@ syntax on
 " キー入れ替え
   noremap ; :
   noremap : ;
+" vimgrep時の候補移動
+  nnoremap [q :cprevious<CR>   " 前へ
+  nnoremap ]q :cnext<CR>       " 次へ
+  nnoremap [Q :<C-u>cfirst<CR> " 最初へ
+  nnoremap ]Q :<C-u>clast<CR>  " 最後へ
 
 " ----------------------------------------
 " HTML閉じタグ自動補完
