@@ -6,5 +6,11 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 export PATH="$HOME/.nodebrew/current/bin:$PATH"
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+### pythonのPATHを通す
+export PATH=/usr/local/bin:/usr/local/share/python:$PATH
+### pythonの設定
+if [ -f ~/.bashrc ]; then
+     . ~/.bashrc
+fi
 ### alias設定
 source ~/.bashrc

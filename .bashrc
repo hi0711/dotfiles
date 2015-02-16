@@ -30,3 +30,6 @@ alias gfe='git fetch'
 alias gdi='git diff'
 alias gst='git status'
 alias gin='git init'
+# virtualenvs
+export WORKON_HOME=$HOME/.virtualenvs
+source /usr/local/bin/virtualenvwrapper.sh
