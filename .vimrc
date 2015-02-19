@@ -125,6 +125,8 @@ syntax on
   if exists('&ambiwidth')
     set ambiwidth=double
   endif
+"文字コード変更して再読み込み
+  nnoremap <silent> eu :<C-u>e ++enc=utf-8<CR>
 
 " ----------------------------------------
 "  キーマッピング設定
