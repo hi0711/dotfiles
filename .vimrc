@@ -243,32 +243,49 @@ augroup END
   " Required:
    NeoBundleFetch 'Shougo/neobundle.vim'
    NeoBundle 'Shougo/unite.vim'
-" neosnippetプラグイン
-  NeoBundle 'Shougo/neosnippet.vim'
 " neocompleteプラグイン
   NeoBundle 'Shougo/neocomplete'
   " Disable AutoComplPop.
-  let g:acp_enableAtStartup = 0
+    let g:acp_enableAtStartup = 0
   " Use neocomplete.
-  let g:neocomplete#enable_at_startup = 1
+   let g:neocomplete#enable_at_startup = 1
   " Use smartcase.
-  let g:neocomplete#enable_smart_case = 1
+   let g:neocomplete#enable_smart_case = 1
   " Set minimum syntax keyword length.
-  let g:neocomplete#sources#syntax#min_keyword_length = 3
-  let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+   let g:neocomplete#sources#syntax#min_keyword_length = 3
+   let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
   " Plugin key-mappings.
-  inoremap <expr><C-g>     neocomplete#undo_completion()
-  inoremap <expr><C-l>     neocomplete#complete_common_string()
+   inoremap <expr><C-g>     neocomplete#undo_completion()
+   inoremap <expr><C-l>     neocomplete#complete_common_string()
   " Enable omni completion.
-  autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-  autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-  autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-  autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-  autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+   autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+   autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+   autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+   autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+   autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
   " Enable heavy omni completion.
-  if !exists('g:neocomplete#sources#omni#input_patterns')
-    let g:neocomplete#sources#omni#input_patterns = {}
-  endif
+   if !exists('g:neocomplete#sources#omni#input_patterns')
+     let g:neocomplete#sources#omni#input_patterns = {}
+   endif
+" neosnippetプラグイン
+  NeoBundle 'Shougo/neosnippet.vim'
+  " Plugin key-mappings.
+    imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+    smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+    xmap <C-k>     <Plug>(neosnippet_expand_target)
+  " SuperTab like snippets behavior.
+    imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+    \ "\<Plug>(neosnippet_expand_or_jump)"
+    \: pumvisible() ? "\<C-n>" : "\<TAB>"
+    smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+    \ "\<Plug>(neosnippet_expand_or_jump)"
+    \: "\<TAB>"
+  " For snippet_complete marker.
+    if has('conceal')
+      set conceallevel=2 concealcursor=i
+    endif
+" neosnippet-snippetsプラグイン
+  NeoBundle 'Shougo/neosnippet-snippets'
 " evervimプラグイン
   NeoBundle 'kakkyz81/evervim'
   let g:evervim_devtoken='S=s399:U=4676794:E=14dc6c37749:C=1466f124b4e:P=1cd:A=en-devtoken:V=2:H=ea3cbce5d9944497b6e6f7f05014b611'
