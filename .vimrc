@@ -1,3 +1,137 @@
+" ----------------------------------------
+" Start NeoBundle Settings
+" ----------------------------------------
+" Note: Skip initialization for vim-tiny or vim-small.
+  if !1 | finish | endif
+  if has('vim_starting')
+    if &compatible
+      set nocompatible               " Be iMproved
+    endif
+    " Required:
+    set runtimepath+=~/.vim/bundle/neobundle.vim/
+  endif
+  " Required:
+  call neobundle#begin(expand('~/.vim/bundle/'))
+  " Let NeoBundle manage NeoBundle
+  " Required:
+   NeoBundleFetch 'Shougo/neobundle.vim'
+   NeoBundle 'Shougo/unite.vim'
+" neocompleteプラグイン
+  NeoBundle 'Shougo/neocomplete'
+  " Disable AutoComplPop.
+    let g:acp_enableAtStartup = 0
+  " Use neocomplete.
+   let g:neocomplete#enable_at_startup = 1
+  " Use smartcase.
+   let g:neocomplete#enable_smart_case = 1
+  " Set minimum syntax keyword length.
+   let g:neocomplete#sources#syntax#min_keyword_length = 1
+   let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+  " Plugin key-mappings.
+   inoremap <expr><C-g>     neocomplete#undo_completion()
+   inoremap <expr><C-l>     neocomplete#complete_common_string()
+  " Enable omni completion.
+   autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+   autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+   autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+   autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+   autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+  " Enable heavy omni completion.
+   if !exists('g:neocomplete#sources#omni#input_patterns')
+     let g:neocomplete#sources#omni#input_patterns = {}
+   endif
+" neosnippetプラグイン
+  NeoBundle 'Shougo/neosnippet.vim'
+  " Plugin key-mappings.
+    imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+    smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+    xmap <C-k>     <Plug>(neosnippet_expand_target)
+  " SuperTab like snippets behavior.
+    imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+    \ "\<Plug>(neosnippet_expand_or_jump)"
+    \: pumvisible() ? "\<C-n>" : "\<TAB>"
+    smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+    \ "\<Plug>(neosnippet_expand_or_jump)"
+    \: "\<TAB>"
+  " For snippet_complete marker.
+    if has('conceal')
+      set conceallevel=2 concealcursor=i
+    endif
+" neosnippet-snippetsプラグイン
+  NeoBundle 'Shougo/neosnippet-snippets'
+" evervimプラグイン
+  NeoBundle 'kakkyz81/evervim'
+  let g:evervim_devtoken='S=s399:U=4676794:E=14dc6c37749:C=1466f124b4e:P=1cd:A=en-devtoken:V=2:H=ea3cbce5d9944497b6e6f7f05014b611'
+  let g:evervim_splitoption=''
+" open-browserプラグイン
+  NeoBundle 'tyru/open-browser.vim'
+" emmetプラグイン
+  NeoBundle 'mattn/emmet-vim'
+" NERDTreeプラグイン
+  NeoBundle 'scrooloose/nerdtree'
+  nnoremap <C-e> :NERDTreeToggle<CR>
+  let NERDTreeShowHidden = 1
+  autocmd vimenter * if !argc() | NERDTree | endif
+" indentLineプラグイン
+  NeoBundle 'Yggdroot/indentLine'
+  let g:indentLine_char='|'
+" easy-alignプラグイン
+  NeoBundle 'junegunn/vim-easy-align'
+  " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
+  vmap <Enter> <Plug>(EasyAlign)
+  " Start interactive EasyAlign for a motion/text object (e.g. gaip)
+  nmap ga <Plug>(EasyAlign)
+"JpFormatプラグイン
+  NeoBundle "fuenor/JpFormat.vim"
+  nnoremap gL :JpFormatAll!<CR>
+" tlibプラグイン
+  NeoBundle 'tomtom/tlib_vim'
+" ttocプラグイン
+  NeoBundle 'tomtom/ttoc_vim'
+" unite-outlineプラグイン
+  NeoBundle 'h1mesuke/unite-outline'
+" autocloseプラグイン
+  NeoBundle 'Townk/vim-autoclose'
+" coffeescriptプラグイン
+  NeoBundle 'kchmck/vim-coffee-script'
+" jadeプラグイン
+  NeoBundle 'digitaltoad/vim-jade'
+" vim-matchitプラグイン
+  NeoBundle 'tmhedberg/matchit'
+"  " solarized カラースキーム
+"    NeoBundle 'altercation/vim-colors-solarized'
+"  " mustang カラースキーム
+"    NeoBundle 'croaker/mustang-vim'
+"  " wombat カラースキーム
+"    NeoBundle 'jeffreyiacono/vim-colors-wombat'
+"  " jellybeans カラースキーム
+"    NeoBundle 'nanotech/jellybeans.vim'
+"  " lucius カラースキーム
+"    NeoBundle 'vim-scripts/Lucius'
+"  " zenburn カラースキーム
+"    NeoBundle 'vim-scripts/Zenburn'
+"  " mrkn256 カラースキーム
+"    NeoBundle 'mrkn/mrkn256.vim'
+"  " railscasts カラースキーム
+"    NeoBundle 'jpo/vim-railscasts-theme'
+"  " pyte カラースキーム
+"    NeoBundle 'therubymug/vim-pyte'
+" molokai カラースキーム
+  NeoBundle 'tomasr/molokai'
+"  " pyte カラースキーム
+"    NeoBundle 'therubymug/vim-pyte'
+"  " phd カラースキーム
+"    NeoBundle 'vim-scripts/phd'
+"  " tomorrow カラースキーム
+"    NeoBundle 'chriskempson/vim-tomorrow-theme'
+call neobundle#end()
+" Required:
+ filetype plugin indent on
+NeoBundleCheck
+" ----------------------------------------
+" End NeoBundle Settings
+" ----------------------------------------
+
 set t_Co=256
 set ruler
 set nu
@@ -23,7 +157,6 @@ set incsearch
 set wrapscan
 set clipboard=unnamed,autoselect
 set laststatus=2
-syntax on
 " カーソルライン設定
   set cursorline
   augroup cch
@@ -227,139 +360,8 @@ augroup MyTag
   autocmd Filetype eruby inoremap <buffer> </ </<C-x><C-o>
 augroup END
 
-" ----------------------------------------
-" Start NeoBundle Settings
-" ----------------------------------------
-" Note: Skip initialization for vim-tiny or vim-small.
-  if !1 | finish | endif
-  if has('vim_starting')
-    if &compatible
-      set nocompatible               " Be iMproved
-    endif
-    " Required:
-    set runtimepath+=~/.vim/bundle/neobundle.vim/
-  endif
-  " Required:
-  call neobundle#begin(expand('~/.vim/bundle/'))
-  " Let NeoBundle manage NeoBundle
-  " Required:
-   NeoBundleFetch 'Shougo/neobundle.vim'
-   NeoBundle 'Shougo/unite.vim'
-" neocompleteプラグイン
-  NeoBundle 'Shougo/neocomplete'
-  " Disable AutoComplPop.
-    let g:acp_enableAtStartup = 0
-  " Use neocomplete.
-   let g:neocomplete#enable_at_startup = 1
-  " Use smartcase.
-   let g:neocomplete#enable_smart_case = 1
-  " Set minimum syntax keyword length.
-   let g:neocomplete#sources#syntax#min_keyword_length = 3
-   let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
-  " Plugin key-mappings.
-   inoremap <expr><C-g>     neocomplete#undo_completion()
-   inoremap <expr><C-l>     neocomplete#complete_common_string()
-  " Enable omni completion.
-   autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-   autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-   autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-   autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-   autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-  " Enable heavy omni completion.
-   if !exists('g:neocomplete#sources#omni#input_patterns')
-     let g:neocomplete#sources#omni#input_patterns = {}
-   endif
-" neosnippetプラグイン
-  NeoBundle 'Shougo/neosnippet.vim'
-  " Plugin key-mappings.
-    imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-    smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-    xmap <C-k>     <Plug>(neosnippet_expand_target)
-  " SuperTab like snippets behavior.
-    imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-    \ "\<Plug>(neosnippet_expand_or_jump)"
-    \: pumvisible() ? "\<C-n>" : "\<TAB>"
-    smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-    \ "\<Plug>(neosnippet_expand_or_jump)"
-    \: "\<TAB>"
-  " For snippet_complete marker.
-    if has('conceal')
-      set conceallevel=2 concealcursor=i
-    endif
-" neosnippet-snippetsプラグイン
-  NeoBundle 'Shougo/neosnippet-snippets'
-" evervimプラグイン
-  NeoBundle 'kakkyz81/evervim'
-  let g:evervim_devtoken='S=s399:U=4676794:E=14dc6c37749:C=1466f124b4e:P=1cd:A=en-devtoken:V=2:H=ea3cbce5d9944497b6e6f7f05014b611'
-  let g:evervim_splitoption=''
-" open-browserプラグイン
-  NeoBundle 'tyru/open-browser.vim'
-" emmetプラグイン
-  NeoBundle 'mattn/emmet-vim'
-" NERDTreeプラグイン
-  NeoBundle 'scrooloose/nerdtree'
-  nnoremap <C-e>e :NERDTreeToggle<CR>
-  let NERDTreeShowHidden = 1
-  autocmd vimenter * if !argc() | NERDTree | endif
-" indentLineプラグイン
-  NeoBundle 'Yggdroot/indentLine'
-  let g:indentLine_char='|'
-" easy-alignプラグイン
-  NeoBundle 'junegunn/vim-easy-align'
-  " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
-  vmap <Enter> <Plug>(EasyAlign)
-  " Start interactive EasyAlign for a motion/text object (e.g. gaip)
-  nmap ga <Plug>(EasyAlign)
-"JpFormatプラグイン
-  NeoBundle "fuenor/JpFormat.vim"
-  nnoremap gL :JpFormatAll!<CR>
-" tlibプラグイン
-  NeoBundle 'tomtom/tlib_vim'
-" ttocプラグイン
-  NeoBundle 'tomtom/ttoc_vim'
-" unite-outlineプラグイン
-  NeoBundle 'h1mesuke/unite-outline'
-" autocloseプラグイン
-  NeoBundle 'Townk/vim-autoclose'
-" coffeescriptプラグイン
-  NeoBundle 'kchmck/vim-coffee-script'
-" jadeプラグイン
-  NeoBundle 'digitaltoad/vim-jade'
-" vim-matchitプラグイン
-  NeoBundle 'tmhedberg/matchit'
-"  " solarized カラースキーム
-"    NeoBundle 'altercation/vim-colors-solarized'
-"  " mustang カラースキーム
-"    NeoBundle 'croaker/mustang-vim'
-"  " wombat カラースキーム
-"    NeoBundle 'jeffreyiacono/vim-colors-wombat'
-"  " jellybeans カラースキーム
-"    NeoBundle 'nanotech/jellybeans.vim'
-"  " lucius カラースキーム
-"    NeoBundle 'vim-scripts/Lucius'
-"  " zenburn カラースキーム
-"    NeoBundle 'vim-scripts/Zenburn'
-"  " mrkn256 カラースキーム
-"    NeoBundle 'mrkn/mrkn256.vim'
-"  " railscasts カラースキーム
-"    NeoBundle 'jpo/vim-railscasts-theme'
-"  " pyte カラースキーム
-"    NeoBundle 'therubymug/vim-pyte'
-" molokai カラースキーム
-  NeoBundle 'tomasr/molokai'
-"  " pyte カラースキーム
-"    NeoBundle 'therubymug/vim-pyte'
-"  " phd カラースキーム
-"    NeoBundle 'vim-scripts/phd'
-"  " tomorrow カラースキーム
-"    NeoBundle 'chriskempson/vim-tomorrow-theme'
-call neobundle#end()
-" Required:
- filetype plugin indent on
-NeoBundleCheck
 " カラースキーム決定
   colorscheme molokai
   let g:molokai_original = 1
-" ----------------------------------------
-" End NeoBundle Settings
-" ----------------------------------------
+" シンタックス設定
+  syntax on
