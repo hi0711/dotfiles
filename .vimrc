@@ -157,6 +157,7 @@ set incsearch
 set wrapscan
 set clipboard=unnamed,autoselect
 set laststatus=2
+set diffopt=vertical
 " カーソルライン設定
   set cursorline
   augroup cch
