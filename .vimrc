@@ -300,6 +300,8 @@ set laststatus=2
   noremap <C-u> <C-u>zz
 " insertモードで次の行に直接改行
   inoremap <C-o> <Esc>o
+" Enterキーで改行
+  noremap <Enter> o<Esc>
 " カーソルキーでバッファのサイズ変更
   nnoremap <silent><Down>  <C-w>-
   nnoremap <silent><Up>    <C-w>+
