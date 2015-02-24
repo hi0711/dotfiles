@@ -362,6 +362,5 @@ augroup END
 
 " カラースキーム決定
   colorscheme molokai
-  let g:molokai_original = 1
 " シンタックス設定
   syntax on
