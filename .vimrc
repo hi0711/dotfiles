@@ -132,7 +132,6 @@ NeoBundleCheck
 " End NeoBundle Settings
 " ----------------------------------------
 
-set t_Co=256
 set ruler
 set nu
 set backspace=2
@@ -269,6 +268,7 @@ set diffopt=vertical
     endif
   endfunction
   command! -bar -nargs=+ -complete=file Diff  call s:vimdiff_in_newtab(<f-args>)
+
 " ----------------------------------------
 "  キーマッピング設定
 " ----------------------------------------
@@ -374,6 +374,7 @@ augroup END
 "  色設定
 " ----------------------------------------
 " カラースキーム決定
+  set t_Co=256
   colorscheme molokai
 " シンタックス設定
   syntax on
