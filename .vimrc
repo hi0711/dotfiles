@@ -389,4 +389,4 @@ augroup END
   augroup END
   hi clear CursorLine
   hi CursorLine gui=underline
-  highlight Cursorline ctermbg=17 guibg=17
+  highlight Cursorline ctermbg=16 guibg=16
