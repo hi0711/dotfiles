@@ -378,7 +378,7 @@ augroup END
   syntax on
 " ビジュアルモード色設定
   hi clear Visual
-  hi Visual term=reverse ctermfg=253 ctermbg=202 guibg=202
+  hi Visual term=reverse ctermfg=253 ctermbg=202
 " カーソルライン設定
   set cursorline
   augroup cch
@@ -388,4 +388,4 @@ augroup END
   augroup END
   hi clear CursorLine
   hi CursorLine gui=underline
-  highlight Cursorline ctermbg=16 guibg=16
+  highlight Cursorline ctermbg=20
