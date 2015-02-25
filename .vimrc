@@ -158,16 +158,6 @@ set wrapscan
 set clipboard=unnamed,autoselect
 set laststatus=2
 set diffopt=vertical
-" カーソルライン設定
-  set cursorline
-  augroup cch
-    autocmd! cch
-    autocmd WinLeave * set nocursorline
-    autocmd WinEnter,BufRead * set cursorline
-  augroup END
-  hi clear CursorLine
-  hi CursorLine gui=underline
-  highlight Cursorline ctermbg=white guibg=white
 " insertモードでカーソルの形を変える
   if !has('gui_running')
     let &t_SI = "\<Esc>]50;CursorShape=1\x7"
@@ -266,7 +256,19 @@ set diffopt=vertical
   highlight DiffDelete cterm=bold ctermfg=10 ctermbg=52
   highlight DiffChange cterm=bold ctermfg=10 ctermbg=17
   highlight DiffText   cterm=bold ctermfg=10 ctermbg=21
-
+" vimdiffの設定
+  function! s:vimdiff_in_newtab(...)
+    if a:0 == 1
+      tabedit %:p
+      exec 'rightbelow vertical diffsplit ' . a:1
+    else
+      exec 'tabedit ' . a:1
+      for l:file in a:000[1 :]
+        exec 'rightbelow vertical diffsplit ' . l:file
+      endfor
+    endif
+  endfunction
+  command! -bar -nargs=+ -complete=file Diff  call s:vimdiff_in_newtab(<f-args>)
 " ----------------------------------------
 "  キーマッピング設定
 " ----------------------------------------
@@ -306,8 +308,8 @@ set diffopt=vertical
   noremap <C-u> <C-u>zz
 " insertモードで次の行に直接改行
   inoremap <C-o> <Esc>o
-" Enterキーで改行
-  noremap <Enter> o<Esc>
+" cntrl + n キーで改行
+  noremap <C-n> o<Esc>
 " カーソルキーでバッファのサイズ変更
   nnoremap <silent><Down>  <C-w>-
   nnoremap <silent><Up>    <C-w>+
@@ -368,7 +370,23 @@ augroup MyTag
   autocmd Filetype eruby inoremap <buffer> </ </<C-x><C-o>
 augroup END
 
+" ----------------------------------------
+"  色設定
+" ----------------------------------------
 " カラースキーム決定
   colorscheme molokai
 " シンタックス設定
   syntax on
+" ビジュアルモード色設定
+  hi clear Visual
+  hi Visual term=reverse ctermfg=253 ctermbg=202 guibg=202
+" カーソルライン設定
+  set cursorline
+  augroup cch
+    autocmd! cch
+    autocmd WinLeave * set nocursorline
+    autocmd WinEnter,BufRead * set cursorline
+  augroup END
+  hi clear CursorLine
+  hi CursorLine gui=underline
+  highlight Cursorline ctermbg=232 guibg=232
