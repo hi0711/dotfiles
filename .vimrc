@@ -167,7 +167,7 @@ set diffopt=vertical
   autocmd BufWritePre * :%s/\s\+$//ge
 " 全角スペースの設定
   function! ZenkakuSpace()
-      highlight ZenkakuSpace cterm=reverse ctermfg=DarkMagenta gui=reverse guifg=DarkMagenta
+      highlight ZenkakuSpace cterm=reverse ctermfg=darkgray gui=reverse guifg=darkgray
   endfunction
   if has('syntax')
       augroup ZenkakuSpace
@@ -389,4 +389,4 @@ augroup END
   augroup END
   hi clear CursorLine
   hi CursorLine gui=underline
-  highlight Cursorline ctermbg=232 guibg=232
+  highlight Cursorline ctermbg=17 guibg=17
