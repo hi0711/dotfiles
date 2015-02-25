@@ -88,8 +88,6 @@
   NeoBundle 'tomtom/tlib_vim'
 " ttocプラグイン
   NeoBundle 'tomtom/ttoc_vim'
-" unite-outlineプラグイン
-  NeoBundle 'h1mesuke/unite-outline'
 " autocloseプラグイン
   NeoBundle 'Townk/vim-autoclose'
 " coffeescriptプラグイン
