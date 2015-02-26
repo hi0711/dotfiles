@@ -98,32 +98,8 @@
   NeoBundle 'wookiehangover/jshint.vim'
 " vim-matchitプラグイン
   NeoBundle 'tmhedberg/matchit'
-"  " solarized カラースキーム
-"    NeoBundle 'altercation/vim-colors-solarized'
-"  " mustang カラースキーム
-"    NeoBundle 'croaker/mustang-vim'
-"  " wombat カラースキーム
-"    NeoBundle 'jeffreyiacono/vim-colors-wombat'
-"  " jellybeans カラースキーム
-"    NeoBundle 'nanotech/jellybeans.vim'
-"  " lucius カラースキーム
-"    NeoBundle 'vim-scripts/Lucius'
-"  " zenburn カラースキーム
-"    NeoBundle 'vim-scripts/Zenburn'
-"  " mrkn256 カラースキーム
-"    NeoBundle 'mrkn/mrkn256.vim'
-"  " railscasts カラースキーム
-"    NeoBundle 'jpo/vim-railscasts-theme'
-"  " pyte カラースキーム
-"    NeoBundle 'therubymug/vim-pyte'
 " molokai カラースキーム
   NeoBundle 'tomasr/molokai'
-"  " pyte カラースキーム
-"    NeoBundle 'therubymug/vim-pyte'
-"  " phd カラースキーム
-"    NeoBundle 'vim-scripts/phd'
-"  " tomorrow カラースキーム
-"    NeoBundle 'chriskempson/vim-tomorrow-theme'
 call neobundle#end()
 " Required:
  filetype plugin indent on
@@ -250,11 +226,6 @@ set diffopt=vertical
   endif
 "文字コード変更して再読み込み
   nnoremap <silent> eu :<C-u>e ++enc=utf-8<CR>
-" vimdiffの色設定
-  highlight DiffAdd    cterm=bold ctermfg=10 ctermbg=22
-  highlight DiffDelete cterm=bold ctermfg=10 ctermbg=52
-  highlight DiffChange cterm=bold ctermfg=10 ctermbg=17
-  highlight DiffText   cterm=bold ctermfg=10 ctermbg=21
 " vimdiffの設定
   function! s:vimdiff_in_newtab(...)
     if a:0 == 1
@@ -378,6 +349,11 @@ augroup END
   colorscheme molokai
 " シンタックス設定
   syntax on
+" vimdiffの色設定
+  highlight DiffAdd    cterm=bold ctermfg=10 ctermbg=22
+  highlight DiffDelete cterm=bold ctermfg=10 ctermbg=52
+  highlight DiffChange cterm=bold ctermfg=10 ctermbg=17
+  highlight DiffText   cterm=bold ctermfg=10 ctermbg=21
 " ビジュアルモード色設定
   hi clear Visual
   hi Visual term=reverse ctermfg=253 ctermbg=202
