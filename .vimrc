@@ -94,6 +94,8 @@
   NeoBundle 'kchmck/vim-coffee-script'
 " jadeプラグイン
   NeoBundle 'digitaltoad/vim-jade'
+" jshintプラグイン
+  NeoBundle 'wookiehangover/jshint.vim'
 " vim-matchitプラグイン
   NeoBundle 'tmhedberg/matchit'
 "  " solarized カラースキーム
