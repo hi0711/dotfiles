@@ -7,5 +7,6 @@
   "undef" : true,
   "browser" : true,
   "jquery" : true,
+  "node" : true,
   "devel" : true
 }
