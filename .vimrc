@@ -96,6 +96,8 @@
   NeoBundle 'digitaltoad/vim-jade'
 " jshintプラグイン
   NeoBundle 'wookiehangover/jshint.vim'
+" vim-lessプラグイン
+  NeoBundle 'groenewege/vim-less'
 " vim-matchitプラグイン
   NeoBundle 'tmhedberg/matchit'
 " molokai カラースキーム
