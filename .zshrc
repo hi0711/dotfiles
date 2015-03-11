@@ -12,8 +12,6 @@ HISTSIZE=1000000
 SAVEHIST=1000000
 
 # プロンプト
-# 1行表示
-# PROMPT="%~ %# "
 # 2行表示
 PROMPT="%{${fg[green]}%}[%n@%m]%{${reset_color}%} %~
 %# "
@@ -109,6 +107,10 @@ bindkey '^R' history-incremental-pattern-search-backward
 
 ########################################
 # エイリアス
+
+alias vi='vim'
+
+alias g='git'
 
 alias la='ls -a'
 alias ll='ls -l'

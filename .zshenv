@@ -12,7 +12,5 @@ export PATH=/usr/local/bin:/usr/local/share/python:$PATH
 if [ -f ~/.bashrc ]; then
      . ~/.bashrc
 fi
-### alias設定
-source ~/.bashrc
 ### git 助けて
 export PATH=$HOME/git-tasukete:$PATH
