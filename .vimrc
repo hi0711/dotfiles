@@ -377,4 +377,3 @@ augroup END
   augroup END
   hi clear CursorLine
   hi CursorLine cterm=underline ctermfg=NONE ctermbg=NONE
-  " highlight Cursorline ctermbg=20
