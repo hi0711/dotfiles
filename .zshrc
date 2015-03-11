@@ -18,6 +18,8 @@ SAVEHIST=1000000
 PROMPT="%{${fg[green]}%}[%n@%m]%{${reset_color}%} %~
 %# "
 
+#for zsh-completions
+fpath=(/usr/local/share/zsh-completions $fpath)
 
 # 単語の区切り文字を指定する
 autoload -Uz select-word-style
@@ -31,7 +33,7 @@ zstyle ':zle:*' word-style unspecified
 # 補完
 # 補完機能を有効にする
 autoload -Uz compinit
-compinit
+compinit -u
 
 # 補完で小文字でも大文字にマッチさせる
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
