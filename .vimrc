@@ -376,5 +376,5 @@ augroup END
     autocmd WinEnter,BufRead * set cursorline
   augroup END
   hi clear CursorLine
-  hi CursorLine gui=underline
-  highlight Cursorline ctermbg=20
+  hi CursorLine cterm=underline ctermfg=NONE ctermbg=NONE
+  " highlight Cursorline ctermbg=20

@@ -127,6 +127,8 @@ alias uuu='cd ../../../'
 
 alias q='exit'
 
+alias pwgen='pwgen -y'
+
 # sudo の後のコマンドでエイリアスを有効にする
 alias sudo='sudo '
 
