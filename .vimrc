@@ -59,6 +59,15 @@
     endif
 " neosnippet-snippetsプラグイン
   NeoBundle 'Shougo/neosnippet-snippets'
+" syntasticプラグイン
+  NeoBundle 'scrooloose/syntastic'
+  set statusline+=%#warningmsg#
+  set statusline+=%{SyntasticStatuslineFlag()}
+  set statusline+=%*
+  let g:syntastic_always_populate_loc_list = 1
+  let g:syntastic_auto_loc_list = 1
+  let g:syntastic_check_on_open = 1
+  let g:syntastic_check_on_wq = 0
 " evervimプラグイン
   NeoBundle 'kakkyz81/evervim'
   let g:evervim_devtoken='S=s399:U=4676794:E=14dc6c37749:C=1466f124b4e:P=1cd:A=en-devtoken:V=2:H=ea3cbce5d9944497b6e6f7f05014b611'
