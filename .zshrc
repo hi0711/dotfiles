@@ -107,10 +107,43 @@ bindkey '^R' history-incremental-pattern-search-backward
 
 ########################################
 # エイリアス
+# finderで開いているディレクトリに移動
+cdf () {
+        target=`osascript -e 'tell application "Finder" to if (count of Finder windows) > 0 then get POSIX path of (target of front Finder window as text)'`
+        if [ "$target" != "" ]
+        then
+                cd "$target"
+                pwd
+        else
+                echo 'No Finder window found' >&2
+        fi
+}
 
+# git関連コマンド
+alias gad='git add'
+alias gco='git commit'
+alias gpl='git pull'
+alias glo='git log'
+alias gbr='git branch'
+alias gch='git checkout'
+alias gme='git merge'
+alias gbr='git branch'
+alias gfe='git fetch'
+alias gdi='git diff'
+alias gst='git status'
+alias gin='git init'
+alias gre='git rebase'
 alias vi='vim'
-
 alias g='git'
+
+
+alias cask='brew cask'
+alias up='cd ..; ls -l'
+alias f='open .'
+alias desktop='cd ~/desktop'
+alias home='cd ~'
+alias pw='pwgen -y'
+
 
 alias la='ls -a'
 alias ll='ls -l'
@@ -118,6 +151,7 @@ alias ll='ls -l'
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
+alias rmdir='rm -rf'
 
 alias mkdir='mkdir -p'
 
@@ -126,8 +160,6 @@ alias uu='cd ../../'
 alias uuu='cd ../../../'
 
 alias q='exit'
-
-alias pwgen='pwgen -y'
 
 # sudo の後のコマンドでエイリアスを有効にする
 alias sudo='sudo '
