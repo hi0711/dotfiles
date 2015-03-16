@@ -14,3 +14,4 @@ if [ -f ~/.bashrc ]; then
 fi
 ### git 助けて
 export PATH=$HOME/git-tasukete:$PATH
+
