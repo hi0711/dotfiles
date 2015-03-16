@@ -125,7 +125,7 @@ set backspace=2
 set list
 set listchars=tab:»-,trail:-,eol:↲,extends:>,precedes:<,nbsp:%
 set showcmd
-set nowrap
+set wrap
 set textwidth=0
 set nowritebackup
 set nobackup
@@ -237,6 +237,11 @@ set diffopt=vertical
   endif
 "文字コード変更して再読み込み
   nnoremap <silent> eu :<C-u>e ++enc=utf-8<CR>
+" undo記憶
+  if has('persistent_undo')
+    set undodir=~/.vim/undo
+    set undofile
+  endif
 " vimdiffの設定
   function! s:vimdiff_in_newtab(...)
     if a:0 == 1
