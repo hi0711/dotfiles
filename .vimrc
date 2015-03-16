@@ -74,6 +74,8 @@
   let g:evervim_splitoption=''
 " open-browserプラグイン
   NeoBundle 'tyru/open-browser.vim'
+" ctrlpプラグイン
+  NeoBundle 'kien/ctrlp.vim'
 " emmetプラグイン
   NeoBundle 'mattn/emmet-vim'
 " NERDTreeプラグイン
@@ -143,6 +145,7 @@ set incsearch
 set wrapscan
 set clipboard=unnamed,autoselect
 set laststatus=2
+set nrformats-=octal
 set diffopt=vertical
 " insertモードでカーソルの形を変える
   if !has('gui_running')
