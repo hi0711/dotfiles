@@ -121,6 +121,7 @@ NeoBundleCheck
 " End NeoBundle Settings
 " ----------------------------------------
 
+let mapleader=","
 set ruler
 set nu
 set backspace=2
@@ -258,6 +259,11 @@ set diffopt=vertical
     endif
   endfunction
   command! -bar -nargs=+ -complete=file Diff  call s:vimdiff_in_newtab(<f-args>)
+" 日付の挿入
+  inoremap <Leader>date <C-R>=strftime('%Y/%m/%d')<CR>
+  inoremap <Leader>time <C-R>=strftime('%H:%M:%S')<CR>
+  inoremap <Leader>datetime <C-R>=strftime('%Y-%m-%d_%H%M%S')<CR>
+  inoremap <Leader>w3cd <C-R>=strftime('%Y-%m-%dT%H:%M:%S+09:00')<CR>
 
 " ----------------------------------------
 "  キーマッピング設定
@@ -274,7 +280,7 @@ set diffopt=vertical
   nmap g* g*zz
   nmap g# g#zz
 " insertモードから抜ける
-  inoremap jj <ESC>
+  inoremap jj <ESC>:up<CR>
   inoremap <C-j> j
 " カーソル操作
   noremap! <C-a> <Home>
@@ -349,6 +355,8 @@ set diffopt=vertical
   nnoremap ]q :cnext<CR>       " 次へ
   nnoremap [Q :<C-u>cfirst<CR> " 最初へ
   nnoremap ]Q :<C-u>clast<CR>  " 最後へ
+" grep後にcwinを表示
+  autocmd QuickFixCmdPost make,grep,grepadd,vimgrep,vimgrepadd cwin
 
 " ----------------------------------------
 " HTML閉じタグ自動補完
