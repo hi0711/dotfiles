@@ -1,4 +1,9 @@
 " ----------------------------------------
+"  Author: hi0711
+"  modified: 2015/03/17
+" ----------------------------------------
+
+" ----------------------------------------
 " Start NeoBundle Settings
 " ----------------------------------------
 " Note: Skip initialization for vim-tiny or vim-small.
@@ -145,6 +150,7 @@ set fdm=manual
 set ignorecase
 set smartcase
 set incsearch
+set hlsearch
 set wrapscan
 set clipboard=unnamed,autoselect
 set laststatus=2
@@ -157,7 +163,13 @@ set pumheight=10
     let &t_EI = "\<Esc>]50;CursorShape=0\x7"
   endif
 " 保存時に行末の空白を除去する
-  autocmd BufWritePre * :%s/\s\+$//ge
+  function! s:remove_dust()
+    let cursor = getpos(".")
+    %s/\s\+$//ge
+    call setpos(".", cursor)
+    unlet cursor
+  endfunction
+  autocmd BufWritePre * call <SID>remove_dust()
 " 全角スペースの設定
   function! ZenkakuSpace()
       highlight ZenkakuSpace cterm=reverse ctermfg=darkgray gui=reverse guifg=darkgray
@@ -316,6 +328,12 @@ set pumheight=10
   nnoremap <silent><Up>    <C-w>+
   nnoremap <silent><Left>  <C-w><
   nnoremap <silent><Right> <C-w>>
+" ファイル操作
+  nnoremap <Leader>w :<C-u>w<CR>
+  nnoremap <Leader>Q :<C-u>q!<CR>
+" 置換操作
+  nnoremap gs :<C-u>%s///g<Left><Left><Left>
+  vnoremap gs :s///g<Left><Left><Left>
 " 全角で書かないようにする
   inoremap （ (
   inoremap ） )
@@ -361,6 +379,10 @@ set pumheight=10
   nnoremap ]Q :<C-u>clast<CR>  " 最後へ
 " grep後にcwinを表示
   autocmd QuickFixCmdPost make,grep,grepadd,vimgrep,vimgrepadd cwin
+" hlsearchの解除
+  nnoremap <silent> <Esc><Esc> :<C-u>nohlsearch<CR>
+" .vimrcの再読み込み
+  nnoremap <Leader>source :<C-u>source ~/.vimrc<CR>
 
 " ----------------------------------------
 " HTML閉じタグ自動補完
