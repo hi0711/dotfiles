@@ -129,6 +129,7 @@ set list
 set listchars=tab:»-,trail:-,eol:↲,extends:>,precedes:<,nbsp:%
 set showcmd
 set wrap
+set display=lastline
 set textwidth=0
 set nowritebackup
 set nobackup
@@ -139,6 +140,7 @@ set matchtime=1
 set tabstop=2
 set shiftwidth=2
 set smartindent
+set fdm=indent
 set expandtab
 set ignorecase
 set smartcase
@@ -148,6 +150,7 @@ set clipboard=unnamed,autoselect
 set laststatus=2
 set nrformats-=octal
 set diffopt=vertical
+set pumheight=10
 " insertモードでカーソルの形を変える
   if !has('gui_running')
     let &t_SI = "\<Esc>]50;CursorShape=1\x7"
@@ -290,6 +293,8 @@ set diffopt=vertical
   inoremap <> <><LEFT>
   inoremap '' ''<LEFT>
   inoremap "" ""<LEFT>
+  inoremap {} {}<LEFT>
+  inoremap [] []<LEFT>
 " スペースキーを押した時、中心を保ってスクロール
   nnoremap <Space> jzz
   nnoremap <S-Space> kzz
@@ -339,7 +344,6 @@ set diffopt=vertical
   inoremap ７ 7
   inoremap ８ 8
   inoremap ９ 9
-  inoremap ～ ~
 " ウインドウのフォーカス移動
   map  bh <C-w>h
   map  bl <C-w>l
