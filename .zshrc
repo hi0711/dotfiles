@@ -246,4 +246,4 @@ fi
 
 # cask関連
 alias cask='brew cask'
-alias cask upgrade='brew file cask_upgrade -C'
+alias cask-upgrade='brew file cask_upgrade -C'
