@@ -122,10 +122,10 @@ call neobundle#end()
 " Required:
  filetype plugin indent on
 NeoBundleCheck
-" ----------------------------------------
-" End NeoBundle Settings
-" ----------------------------------------
 
+" ----------------------------------------
+"  Basic Setting
+" ----------------------------------------
 let mapleader=","
 set ruler
 set nu
@@ -175,12 +175,12 @@ set pumheight=10
       highlight ZenkakuSpace cterm=reverse ctermfg=darkgray gui=reverse guifg=darkgray
   endfunction
   if has('syntax')
-      augroup ZenkakuSpace
-          autocmd!
-          autocmd ColorScheme       * call ZenkakuSpace()
-          autocmd VimEnter,WinEnter * match ZenkakuSpace /　/
-      augroup END
-      call ZenkakuSpace()
+    augroup ZenkakuSpace
+        autocmd!
+        autocmd ColorScheme       * call ZenkakuSpace()
+        autocmd VimEnter,WinEnter * match ZenkakuSpace /　/
+    augroup END
+    call ZenkakuSpace()
   endif
 "ステータスラインに文字コードと改行文字を表示する
   function! CharCount ()
@@ -256,7 +256,7 @@ set pumheight=10
   endif
 "文字コード変更して再読み込み
   nnoremap <silent> eu :<C-u>e ++enc=utf-8<CR>
-" undo記憶
+" undo記憶、undoファイルの生成
   if has('persistent_undo')
     set undodir=~/.vim/undo
     set undofile
