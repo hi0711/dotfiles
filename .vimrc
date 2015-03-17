@@ -140,8 +140,8 @@ set matchtime=1
 set tabstop=2
 set shiftwidth=2
 set smartindent
-set fdm=indent
 set expandtab
+set fdm=manual
 set ignorecase
 set smartcase
 set incsearch
