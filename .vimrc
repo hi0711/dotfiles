@@ -302,11 +302,11 @@ set pumheight=10
   noremap! <C-e> <End>
   noremap! <C-f> <Right>
   noremap! <C-b> <Left>
-  inoremap <> <><LEFT>
-  inoremap '' ''<LEFT>
   inoremap "" ""<LEFT>
-  inoremap {} {}<LEFT>
+  inoremap '' ''<LEFT>
+  inoremap <> <><LEFT>
   inoremap [] []<LEFT>
+  inoremap {} {}<LEFT>
 " スペースキーを押した時、中心を保ってスクロール
   nnoremap <Space> jzz
   nnoremap <S-Space> kzz
