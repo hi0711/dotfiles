@@ -377,9 +377,8 @@ augroup END
 " ----------------------------------------
 " カラースキーム決定
   set t_Co=256
+  syntax enable
   colorscheme molokai
-" シンタックス設定
-  syntax on
 " vimdiffの色設定
   highlight DiffAdd    cterm=bold ctermfg=10 ctermbg=22
   highlight DiffDelete cterm=bold ctermfg=10 ctermbg=52
