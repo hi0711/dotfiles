@@ -122,7 +122,7 @@
   NeoBundle 'tomasr/molokai'
 call neobundle#end()
 " Required:
- filetype plugin indent on
+  filetype plugin indent on
 NeoBundleCheck
 
 " ----------------------------------------
