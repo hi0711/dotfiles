@@ -83,6 +83,7 @@
   NeoBundle 'kien/ctrlp.vim'
 " emmetプラグイン
   NeoBundle 'mattn/emmet-vim'
+  let g:user_emmet_leader_key='em'
 " NERDTreeプラグイン
   NeoBundle 'scrooloose/nerdtree'
   nnoremap <C-e> :NERDTreeToggle<CR>
@@ -406,10 +407,11 @@ augroup END
   syntax enable
   colorscheme molokai
 " vimdiffの色設定
-  highlight DiffAdd    cterm=bold ctermfg=10 ctermbg=22
-  highlight DiffDelete cterm=bold ctermfg=10 ctermbg=52
-  highlight DiffChange cterm=bold ctermfg=10 ctermbg=17
-  highlight DiffText   cterm=bold ctermfg=10 ctermbg=21
+  hi clear Diff
+  hi DiffAdd    cterm=bold ctermfg=10 ctermbg=22
+  hi DiffDelete cterm=bold ctermfg=10 ctermbg=52
+  hi DiffChange cterm=bold ctermfg=10 ctermbg=17
+  hi DiffText   cterm=bold ctermfg=10 ctermbg=21
 " ビジュアルモード色設定
   hi clear Visual
   hi Visual term=reverse ctermfg=253 ctermbg=202
