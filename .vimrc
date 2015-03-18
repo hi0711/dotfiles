@@ -124,7 +124,7 @@ call neobundle#end()
 NeoBundleCheck
 
 " ----------------------------------------
-"  Basic Setting
+"  Basic Settings
 " ----------------------------------------
 let mapleader=","
 set ruler
@@ -334,6 +334,10 @@ set pumheight=10
 " 置換操作
   nnoremap gs :<C-u>%s///g<Left><Left><Left>
   vnoremap gs :s///g<Left><Left><Left>
+" タブ操作
+  nnoremap <Leader>tab :<C-u>tabe<CR>
+  nnoremap <Leader>tn gt
+  nnoremap <Leader>tp gT
 " 全角で書かないようにする
   inoremap （ (
   inoremap ） )
