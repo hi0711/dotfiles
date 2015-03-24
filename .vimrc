@@ -67,13 +67,13 @@
   NeoBundle 'Shougo/neosnippet-snippets'
 " syntasticプラグイン
   NeoBundle 'scrooloose/syntastic'
-  set statusline+=%#warningmsg#
-  set statusline+=%{SyntasticStatuslineFlag()}
-  set statusline+=%*
-  let g:syntastic_always_populate_loc_list = 1
+  let g:syntastic_mode_map = {
+    \ 'mode': 'active',
+    \ 'active_filetypes': ['javascript'],
+    \ 'passive_filetypes': ['html']
+    \}
   let g:syntastic_auto_loc_list = 1
-  let g:syntastic_check_on_open = 1
-  let g:syntastic_check_on_wq = 0
+  let g:syntastic_javascript_checker = 'jshint'
 " evervimプラグイン
   NeoBundle 'kakkyz81/evervim'
   let g:evervim_devtoken='S=s399:U=4676794:E=14dc6c37749:C=1466f124b4e:P=1cd:A=en-devtoken:V=2:H=ea3cbce5d9944497b6e6f7f05014b611'
@@ -84,7 +84,7 @@
   NeoBundle 'kien/ctrlp.vim'
 " emmetプラグイン
   NeoBundle 'mattn/emmet-vim'
-  let g:user_emmet_leader_key='em'
+  let g:user_emmet_leader_key='<C-s>'
 " NERDTreeプラグイン
   NeoBundle 'scrooloose/nerdtree'
   nnoremap <C-e> :NERDTreeToggle<CR>
@@ -131,6 +131,8 @@ NeoBundleCheck
 let mapleader=","
 set ruler
 set nu
+set modifiable
+set write
 set backspace=2
 set list
 set listchars=tab:»-,trail:-,eol:↲,extends:>,precedes:<,nbsp:%
