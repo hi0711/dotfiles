@@ -185,7 +185,7 @@ cdf () {
 
 # git関連コマンド
 alias gad='git add'
-alias gco='git commit'
+alias gco='git commit -a'
 alias gpl='git pull'
 alias glo='git log'
 alias gbr='git branch'
@@ -223,6 +223,9 @@ alias uu='cd ../../'
 alias uuu='cd ../../../'
 
 alias q='exit'
+
+# ctagsの設定
+alias ctags='`brew --prefix`/bin/ctags'
 
 # sudo の後のコマンドでエイリアスを有効にする
 alias sudo='sudo '

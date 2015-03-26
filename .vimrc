@@ -84,7 +84,6 @@
   NeoBundle 'kien/ctrlp.vim'
 " emmetプラグイン
   NeoBundle 'mattn/emmet-vim'
-  let g:user_emmet_leader_key='<C-s>'
 " NERDTreeプラグイン
   NeoBundle 'scrooloose/nerdtree'
   nnoremap <C-e> :NERDTreeToggle<CR>
@@ -427,3 +426,6 @@ augroup END
   augroup END
   hi clear CursorLine
   hi CursorLine cterm=underline ctermfg=NONE ctermbg=NONE
+" エラー表示
+  hi clear SpellBad
+  hi SpellBad cterm=bold ctermfg=219 ctermbg=NONE
