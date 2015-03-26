@@ -1,0 +1,9 @@
+# aliasの設定
+alias ls "ls -la"
+#  通信の設定
+set ftp:ssl-auth TLS
+set ftp:ssl-force true
+set ftp:ssl-allow yes
+set ftp:ssl-protect-list yes
+set ftp:ssl-protect-data yes
+set ftp:ssl-protect-fxp yes
