@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module Compass::SassExtensions::Functions::Sprites - compass-1.0.3 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../";
+</script>
+
+<script src="../../../js/jquery.js"></script>
+<script src="../../../js/darkfish.js"></script>
+
+<link href="../../../css/fonts.css" rel="stylesheet">
+<link href="../../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    <div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><span class="include">Sass::Script::Value::Helpers</span>
+  
+  
+  </ul>
+</div>
+
+    <div id="extends-section" class="nav-section">
+  <h3>Extended With Modules</h3>
+
+  <ul class="link-list">
+    
+  
+    <li><a class="extend" href="SassDeclarationHelper.html">Compass::SassExtensions::Functions::SassDeclarationHelper</a>
+  
+  
+  
+    <li><span class="extend">Sass::Script::Value::Helpers</span>
+  
+  
+  
+    <li><a class="extend" href="Sprites/VariableReader.html">Compass::SassExtensions::Functions::Sprites::VariableReader</a>
+  
+  
+  </ul>
+</div>
+
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-convert_sprite_name">#convert_sprite_name</a>
+    
+    <li ><a href="#method-i-get_sprite_file">#get_sprite_file</a>
+    
+    <li ><a href="#method-i-inline_sprite">#inline_sprite</a>
+    
+    <li ><a href="#method-i-missing_image-21">#missing_image!</a>
+    
+    <li ><a href="#method-i-missing_sprite-21">#missing_sprite!</a>
+    
+    <li ><a href="#method-i-reversed_color_names">#reversed_color_names</a>
+    
+    <li ><a href="#method-i-sprite">#sprite</a>
+    
+    <li ><a href="#method-i-sprite_does_not_have_parent">#sprite_does_not_have_parent</a>
+    
+    <li ><a href="#method-i-sprite_file">#sprite_file</a>
+    
+    <li ><a href="#method-i-sprite_has_selector">#sprite_has_selector</a>
+    
+    <li ><a href="#method-i-sprite_has_valid_selector">#sprite_has_valid_selector</a>
+    
+    <li ><a href="#method-i-sprite_height">#sprite_height</a>
+    
+    <li ><a href="#method-i-sprite_map">#sprite_map</a>
+    
+    <li ><a href="#method-i-sprite_map_name">#sprite_map_name</a>
+    
+    <li ><a href="#method-i-sprite_names">#sprite_names</a>
+    
+    <li ><a href="#method-i-sprite_path">#sprite_path</a>
+    
+    <li ><a href="#method-i-sprite_position">#sprite_position</a>
+    
+    <li ><a href="#method-i-sprite_selector_file">#sprite_selector_file</a>
+    
+    <li ><a href="#method-i-sprite_url">#sprite_url</a>
+    
+    <li ><a href="#method-i-sprite_width">#sprite_width</a>
+    
+    <li ><a href="#method-i-verify_map">#verify_map</a>
+    
+    <li ><a href="#method-i-verify_sprite">#verify_sprite</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-Compass::SassExtensions::Functions::Sprites">
+  <h1 id="module-Compass::SassExtensions::Functions::Sprites" class="module">
+    module Compass::SassExtensions::Functions::Sprites
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="BOOL_FALSE">BOOL_FALSE
+        
+        <dd>
+        
+      
+        <dt id="IDENTIFIER_RX">IDENTIFIER_RX
+        
+        <dd><p>Determines if the CSS selector is valid</p>
+        
+      
+        <dt id="VALID_SELECTORS">VALID_SELECTORS
+        
+        <dd>
+        
+      
+        <dt id="ZERO">ZERO
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-inline_sprite" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">inline_sprite</span><span
+            class="method-args">(map)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the sprite file as an inline image</p>
+
+<pre>@include &quot;icon/*.png&quot;;
+ #{$icon-sprite-base-class} {
+   background-image: inline-sprite($icon-sprites);
+  }</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="inline_sprite-source">
+            <pre><span class="ruby-comment"># File lib/compass/sass_extensions/functions/sprites.rb, line 59</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">inline_sprite</span>(<span class="ruby-identifier">map</span>)
+  <span class="ruby-identifier">verify_map</span>(<span class="ruby-identifier">map</span>, <span class="ruby-string">&quot;sprite-url&quot;</span>)
+  <span class="ruby-identifier">map</span>.<span class="ruby-identifier">generate</span>
+  <span class="ruby-identifier">path</span> = <span class="ruby-identifier">map</span>.<span class="ruby-identifier">filename</span>
+  <span class="ruby-identifier">inline_image_string</span>(<span class="ruby-identifier">data</span>(<span class="ruby-identifier">path</span>), <span class="ruby-identifier">compute_mime_type</span>(<span class="ruby-identifier">path</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sprite" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sprite</span><span
+            class="method-args">(map, sprite, offset_x = ZERO, offset_y = ZERO, use_percentages = BOOL_FALSE)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the image and background position for use in a single shorthand
+property:</p>
+
+<pre>$icons: sprite-map(&quot;icons/*.png&quot;); // contains icons/new.png among others.
+background: sprite($icons, new) no-repeat;</pre>
+
+<p>Becomes:</p>
+
+<pre>background: url(&#39;/images/icons.png?12345678&#39;) 0 -24px no-repeat;</pre>
+
+<p>If the `use_percentages` parameter is passed as true, percentages will be
+used to position the sprite. Example output:</p>
+
+<pre>background: url(&#39;/images/icons.png?12345678&#39;) 0 50% no-repeat;</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="sprite-source">
+            <pre><span class="ruby-comment"># File lib/compass/sass_extensions/functions/sprites.rb, line 96</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sprite</span>(<span class="ruby-identifier">map</span>, <span class="ruby-identifier">sprite</span>, <span class="ruby-identifier">offset_x</span> = <span class="ruby-constant">ZERO</span>, <span class="ruby-identifier">offset_y</span> = <span class="ruby-constant">ZERO</span>, <span class="ruby-identifier">use_percentages</span> = <span class="ruby-constant">BOOL_FALSE</span>)
+  <span class="ruby-identifier">sprite</span> = <span class="ruby-identifier">convert_sprite_name</span>(<span class="ruby-identifier">sprite</span>)
+  <span class="ruby-identifier">verify_map</span>(<span class="ruby-identifier">map</span>)
+  <span class="ruby-identifier">verify_sprite</span>(<span class="ruby-identifier">sprite</span>)
+  <span class="ruby-identifier">url</span> = <span class="ruby-identifier">sprite_url</span>(<span class="ruby-identifier">map</span>)
+  <span class="ruby-identifier">position</span> = <span class="ruby-identifier">sprite_position</span>(<span class="ruby-identifier">map</span>, <span class="ruby-identifier">sprite</span>, <span class="ruby-identifier">offset_x</span>, <span class="ruby-identifier">offset_y</span>, <span class="ruby-identifier">use_percentages</span>)
+  <span class="ruby-identifier">list</span>([<span class="ruby-identifier">url</span>] <span class="ruby-operator">+</span> <span class="ruby-identifier">position</span>.<span class="ruby-identifier">value</span>, <span class="ruby-value">:space</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sprite_does_not_have_parent" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sprite_does_not_have_parent</span><span
+            class="method-args">(map, sprite)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns boolean if sprite has a parent</p>
+          
+          
+
+          
+          <div class="method-source-code" id="sprite_does_not_have_parent-source">
+            <pre><span class="ruby-comment"># File lib/compass/sass_extensions/functions/sprites.rb, line 133</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sprite_does_not_have_parent</span>(<span class="ruby-identifier">map</span>, <span class="ruby-identifier">sprite</span>)
+  <span class="ruby-identifier">sprite</span> = <span class="ruby-identifier">convert_sprite_name</span>(<span class="ruby-identifier">sprite</span>)
+  <span class="ruby-identifier">verify_map</span> <span class="ruby-identifier">map</span>
+  <span class="ruby-identifier">verify_sprite</span> <span class="ruby-identifier">sprite</span>
+  <span class="ruby-identifier">bool</span>(<span class="ruby-identifier">map</span>.<span class="ruby-identifier">image_for</span>(<span class="ruby-identifier">sprite</span>.<span class="ruby-identifier">value</span>).<span class="ruby-identifier">parent</span>.<span class="ruby-identifier">nil?</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sprite_file" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sprite_file</span><span
+            class="method-args">(map, sprite)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the path to the original image file for the sprite with the given
+name</p>
+          
+          
+
+          
+          <div class="method-source-code" id="sprite_file-source">
+            <pre><span class="ruby-comment"># File lib/compass/sass_extensions/functions/sprites.rb, line 118</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sprite_file</span>(<span class="ruby-identifier">map</span>, <span class="ruby-identifier">sprite</span>)
+  <span class="ruby-identifier">sprite</span> = <span class="ruby-identifier">convert_sprite_name</span>(<span class="ruby-identifier">sprite</span>)
+  <span class="ruby-identifier">verify_map</span>(<span class="ruby-identifier">map</span>, <span class="ruby-string">&quot;sprite&quot;</span>)
+  <span class="ruby-identifier">verify_sprite</span>(<span class="ruby-identifier">sprite</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">image</span> = <span class="ruby-identifier">map</span>.<span class="ruby-identifier">image_for</span>(<span class="ruby-identifier">sprite</span>.<span class="ruby-identifier">value</span>)
+    <span class="ruby-identifier">image_path</span> = <span class="ruby-constant">Pathname</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-identifier">image</span>.<span class="ruby-identifier">file</span>))
+    <span class="ruby-identifier">images_path</span> = <span class="ruby-constant">Pathname</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-constant">Compass</span>.<span class="ruby-identifier">configuration</span>.<span class="ruby-identifier">images_path</span>))
+    <span class="ruby-identifier">quoted_string</span>(<span class="ruby-identifier">image_path</span>.<span class="ruby-identifier">relative_path_from</span>(<span class="ruby-identifier">images_path</span>).<span class="ruby-identifier">to_s</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">missing_image!</span>(<span class="ruby-identifier">map</span>, <span class="ruby-identifier">sprite</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sprite_has_selector" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sprite_has_selector</span><span
+            class="method-args">(map, sprite, selector)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns boolean if sprite has the selector</p>
+          
+          
+
+          
+          <div class="method-source-code" id="sprite_has_selector-source">
+            <pre><span class="ruby-comment"># File lib/compass/sass_extensions/functions/sprites.rb, line 155</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sprite_has_selector</span>(<span class="ruby-identifier">map</span>, <span class="ruby-identifier">sprite</span>, <span class="ruby-identifier">selector</span>)
+  <span class="ruby-identifier">sprite</span> = <span class="ruby-identifier">convert_sprite_name</span>(<span class="ruby-identifier">sprite</span>)
+  <span class="ruby-identifier">verify_map</span> <span class="ruby-identifier">map</span>
+  <span class="ruby-identifier">verify_sprite</span> <span class="ruby-identifier">sprite</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-constant">VALID_SELECTORS</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">selector</span>.<span class="ruby-identifier">value</span>)
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">SyntaxError</span>, <span class="ruby-node">&quot;Invalid Selctor did you mean one of: #{VALID_SELECTORS.join(&#39;, &#39;)}&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">bool</span> <span class="ruby-identifier">map</span>.<span class="ruby-identifier">send</span>(<span class="ruby-value">:&quot;has_#{selector.value}?&quot;</span>, <span class="ruby-identifier">sprite</span>.<span class="ruby-identifier">value</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sprite_has_valid_selector" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sprite_has_valid_selector</span><span
+            class="method-args">(selector)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="sprite_has_valid_selector-source">
+            <pre><span class="ruby-comment"># File lib/compass/sass_extensions/functions/sprites.rb, line 169</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sprite_has_valid_selector</span>(<span class="ruby-identifier">selector</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">selector</span>.<span class="ruby-identifier">value</span> <span class="ruby-operator">=~</span> <span class="ruby-constant">IDENTIFIER_RX</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">SyntaxError</span>, <span class="ruby-node">&quot;#{selector} must be a legal css identifier&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">bool</span> <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sprite_height" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sprite_height</span><span
+            class="method-args">(map, sprite=nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the height of the generated sprite map</p>
+          
+          
+
+          
+          <div class="method-source-code" id="sprite_height-source">
+            <pre><span class="ruby-comment"># File lib/compass/sass_extensions/functions/sprites.rb, line 31</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sprite_height</span>(<span class="ruby-identifier">map</span>, <span class="ruby-identifier">sprite</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">verify_map</span>(<span class="ruby-identifier">map</span>, <span class="ruby-string">&#39;sprite-height&#39;</span>)
+  <span class="ruby-identifier">file</span> = <span class="ruby-identifier">get_sprite_file</span>(<span class="ruby-identifier">map</span>, <span class="ruby-identifier">sprite</span>)
+  <span class="ruby-identifier">_</span>, <span class="ruby-identifier">height</span> = <span class="ruby-identifier">image_dimensions</span>(<span class="ruby-identifier">file</span>)
+  <span class="ruby-identifier">number</span>(<span class="ruby-identifier">height</span>, <span class="ruby-string">&quot;px&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sprite_map" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sprite_map</span><span
+            class="method-args">(glob, kwargs = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Creates a <a
+href="../Sprites/SpriteMap.html">Compass::SassExtensions::Sprites::SpriteMap</a>
+object. A sprite map, when used in a property is the same as calling
+sprite-url. So the following background properties are equivalent:</p>
+
+<pre>$icons: sprite-map(&quot;icons/*.png&quot;);
+background: sprite-url($icons) no-repeat;
+background: $icons no-repeat;</pre>
+
+<p>The sprite map object will generate the sprite map image, if necessary, the
+first time it is converted to a url. Simply constructing it has no
+side-effects.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="sprite_map-source">
+            <pre><span class="ruby-comment"># File lib/compass/sass_extensions/functions/sprites.rb, line 76</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sprite_map</span>(<span class="ruby-identifier">glob</span>, <span class="ruby-identifier">kwargs</span> = {})
+  <span class="ruby-identifier">kwargs</span>.<span class="ruby-identifier">extend</span> <span class="ruby-constant">VariableReader</span>
+  <span class="ruby-constant">Compass</span><span class="ruby-operator">::</span><span class="ruby-constant">SassExtensions</span><span class="ruby-operator">::</span><span class="ruby-constant">Sprites</span><span class="ruby-operator">::</span><span class="ruby-constant">SpriteMap</span>.<span class="ruby-identifier">from_uri</span>(<span class="ruby-identifier">glob</span>, <span class="ruby-keyword">self</span>, <span class="ruby-identifier">kwargs</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sprite_map_name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sprite_map_name</span><span
+            class="method-args">(map)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the name of a sprite map The name is derived from the folder than
+contains the sprites.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="sprite_map_name-source">
+            <pre><span class="ruby-comment"># File lib/compass/sass_extensions/functions/sprites.rb, line 111</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sprite_map_name</span>(<span class="ruby-identifier">map</span>)
+  <span class="ruby-identifier">verify_map</span>(<span class="ruby-identifier">map</span>, <span class="ruby-string">&quot;sprite-map-name&quot;</span>)
+  <span class="ruby-identifier">identifier</span>(<span class="ruby-identifier">map</span>.<span class="ruby-identifier">name</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sprite_names" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sprite_names</span><span
+            class="method-args">(map)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns a list of all sprite names</p>
+          
+          
+
+          
+          <div class="method-source-code" id="sprite_names-source">
+            <pre><span class="ruby-comment"># File lib/compass/sass_extensions/functions/sprites.rb, line 41</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sprite_names</span>(<span class="ruby-identifier">map</span>)
+  <span class="ruby-identifier">verify_map</span>(<span class="ruby-identifier">map</span>, <span class="ruby-string">&#39;sprite-names&#39;</span>)
+  <span class="ruby-identifier">list</span>(<span class="ruby-identifier">map</span>.<span class="ruby-identifier">sprite_names</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-identifier">identifier</span>(<span class="ruby-identifier">f</span>) }, <span class="ruby-value">:comma</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sprite_path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sprite_path</span><span
+            class="method-args">(map)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the system path of the sprite file</p>
+          
+          
+
+          
+          <div class="method-source-code" id="sprite_path-source">
+            <pre><span class="ruby-comment"># File lib/compass/sass_extensions/functions/sprites.rb, line 48</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sprite_path</span>(<span class="ruby-identifier">map</span>)
+  <span class="ruby-identifier">verify_map</span>(<span class="ruby-identifier">map</span>, <span class="ruby-string">&#39;sprite-path&#39;</span>)
+  <span class="ruby-identifier">identifier</span>(<span class="ruby-identifier">map</span>.<span class="ruby-identifier">filename</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sprite_position" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sprite_position</span><span
+            class="method-args">(map, sprite = nil, offset_x = ZERO, offset_y = ZERO, use_percentages = BOOL_FALSE)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the position for the original image in the sprite. This is suitable
+for use as a value to background-position:</p>
+
+<pre>$icons: sprite-map(&quot;icons/*.png&quot;);
+background-position: sprite-position($icons, new);</pre>
+
+<p>Might generate something like:</p>
+
+<pre>background-position: 0 -34px;</pre>
+
+<p>You can adjust the background relative to this position by passing values
+for `$offset-x` and `$offset-y`:</p>
+
+<pre>$icons: sprite-map(&quot;icons/*.png&quot;);
+background-position: sprite-position($icons, new, 3px, -2px);</pre>
+
+<p>Would change the above output to:</p>
+
+<pre>background-position: 3px -36px;</pre>
+
+<p>If you set the `use_percentages` parameter to true, the position will be
+expressed in percentages. An example:</p>
+
+<pre>background-position: sprite-position($icons, new, 0, 0, true);</pre>
+
+<p>Would result in something like this:</p>
+
+<pre>background-position: 0 42%;</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="sprite_position-source">
+            <pre><span class="ruby-comment"># File lib/compass/sass_extensions/functions/sprites.rb, line 213</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sprite_position</span>(<span class="ruby-identifier">map</span>, <span class="ruby-identifier">sprite</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">offset_x</span> = <span class="ruby-constant">ZERO</span>, <span class="ruby-identifier">offset_y</span> = <span class="ruby-constant">ZERO</span>, <span class="ruby-identifier">use_percentages</span> = <span class="ruby-constant">BOOL_FALSE</span>)
+  <span class="ruby-identifier">assert_type</span> <span class="ruby-identifier">offset_x</span>, <span class="ruby-value">:Number</span>
+  <span class="ruby-identifier">assert_type</span> <span class="ruby-identifier">offset_y</span>, <span class="ruby-value">:Number</span>
+  <span class="ruby-identifier">sprite</span> = <span class="ruby-identifier">convert_sprite_name</span>(<span class="ruby-identifier">sprite</span>)
+  <span class="ruby-identifier">verify_map</span>(<span class="ruby-identifier">map</span>, <span class="ruby-string">&quot;sprite-position&quot;</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">sprite</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">Script</span><span class="ruby-operator">::</span><span class="ruby-constant">Value</span><span class="ruby-operator">::</span><span class="ruby-constant">String</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">sprite</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">Script</span><span class="ruby-operator">::</span><span class="ruby-constant">Value</span><span class="ruby-operator">::</span><span class="ruby-constant">Number</span>)
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">SyntaxError</span>, <span class="ruby-string">%Q(The second argument to sprite-position must be a sprite name. See http://beta.compass-style.org/help/tutorials/spriting/ for more information.)</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">image</span> = <span class="ruby-identifier">map</span>.<span class="ruby-identifier">image_for</span>(<span class="ruby-identifier">sprite</span>.<span class="ruby-identifier">value</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">image</span>
+    <span class="ruby-identifier">missing_image!</span>(<span class="ruby-identifier">map</span>, <span class="ruby-identifier">sprite</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">use_percentages</span>.<span class="ruby-identifier">value</span>
+    <span class="ruby-identifier">xdivis</span> = <span class="ruby-identifier">map</span>.<span class="ruby-identifier">width</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">image</span>.<span class="ruby-identifier">width</span>;
+    <span class="ruby-identifier">x</span> = (<span class="ruby-identifier">offset_x</span>.<span class="ruby-identifier">value</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">image</span>.<span class="ruby-identifier">left</span>.<span class="ruby-identifier">to_f</span>) <span class="ruby-operator">/</span> (<span class="ruby-identifier">xdivis</span>.<span class="ruby-identifier">nonzero?</span> <span class="ruby-operator">||</span> <span class="ruby-value">1</span>) <span class="ruby-operator">*</span> <span class="ruby-value">100</span>
+    <span class="ruby-identifier">x</span> = <span class="ruby-identifier">x</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">number</span>(<span class="ruby-identifier">x</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">number</span>(<span class="ruby-identifier">x</span>, <span class="ruby-string">&quot;%&quot;</span>)
+    <span class="ruby-identifier">ydivis</span> = <span class="ruby-identifier">map</span>.<span class="ruby-identifier">height</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">image</span>.<span class="ruby-identifier">height</span>;
+    <span class="ruby-identifier">y</span> = (<span class="ruby-identifier">offset_y</span>.<span class="ruby-identifier">value</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">image</span>.<span class="ruby-identifier">top</span>.<span class="ruby-identifier">to_f</span>) <span class="ruby-operator">/</span> (<span class="ruby-identifier">ydivis</span>.<span class="ruby-identifier">nonzero?</span> <span class="ruby-operator">||</span> <span class="ruby-value">1</span>) <span class="ruby-operator">*</span> <span class="ruby-value">100</span>
+    <span class="ruby-identifier">y</span> = <span class="ruby-identifier">y</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">number</span>(<span class="ruby-identifier">y</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">number</span>(<span class="ruby-identifier">y</span>, <span class="ruby-string">&quot;%&quot;</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">offset_x</span>.<span class="ruby-identifier">unit_str</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;%&quot;</span>
+      <span class="ruby-identifier">x</span> = <span class="ruby-identifier">offset_x</span> <span class="ruby-comment"># CE: Shouldn&#39;t this be a percentage of the total width?</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">x</span> = <span class="ruby-identifier">offset_x</span>.<span class="ruby-identifier">value</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">image</span>.<span class="ruby-identifier">left</span>
+      <span class="ruby-identifier">x</span> = <span class="ruby-identifier">x</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">number</span>(<span class="ruby-identifier">x</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">number</span>(<span class="ruby-identifier">x</span>, <span class="ruby-string">&quot;px&quot;</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">y</span> = <span class="ruby-identifier">offset_y</span>.<span class="ruby-identifier">value</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">image</span>.<span class="ruby-identifier">top</span>
+    <span class="ruby-identifier">y</span> = <span class="ruby-identifier">y</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">number</span>(<span class="ruby-identifier">y</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">number</span>(<span class="ruby-identifier">y</span>, <span class="ruby-string">&quot;px&quot;</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">list</span>(<span class="ruby-identifier">x</span>, <span class="ruby-identifier">y</span>, <span class="ruby-value">:space</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sprite_selector_file" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sprite_selector_file</span><span
+            class="method-args">(map, sprite, selector)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>return the name of the selector file</p>
+          
+          
+
+          
+          <div class="method-source-code" id="sprite_selector_file-source">
+            <pre><span class="ruby-comment"># File lib/compass/sass_extensions/functions/sprites.rb, line 142</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sprite_selector_file</span>(<span class="ruby-identifier">map</span>, <span class="ruby-identifier">sprite</span>, <span class="ruby-identifier">selector</span>)
+  <span class="ruby-identifier">sprite</span> = <span class="ruby-identifier">convert_sprite_name</span>(<span class="ruby-identifier">sprite</span>)
+  <span class="ruby-identifier">image</span> = <span class="ruby-identifier">map</span>.<span class="ruby-identifier">image_for</span>(<span class="ruby-identifier">sprite</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">map</span>.<span class="ruby-identifier">send</span>(<span class="ruby-value">:&quot;has_#{selector.value}?&quot;</span>, <span class="ruby-identifier">sprite</span>.<span class="ruby-identifier">value</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">identifier</span>(<span class="ruby-identifier">image</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">selector</span>.<span class="ruby-identifier">value</span>).<span class="ruby-identifier">name</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">SyntaxError</span>, <span class="ruby-node">&quot;Sprite: #{sprite.value} does not have a #{selector} state&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sprite_url" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sprite_url</span><span
+            class="method-args">(map)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns a url to the sprite image.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="sprite_url-source">
+            <pre><span class="ruby-comment"># File lib/compass/sass_extensions/functions/sprites.rb, line 177</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sprite_url</span>(<span class="ruby-identifier">map</span>)
+  <span class="ruby-identifier">verify_map</span>(<span class="ruby-identifier">map</span>, <span class="ruby-string">&quot;sprite-url&quot;</span>)
+  <span class="ruby-identifier">map</span>.<span class="ruby-identifier">generate</span>
+  <span class="ruby-identifier">generated_image_url</span>(<span class="ruby-identifier">identifier</span>(<span class="ruby-node">&quot;#{map.path}-s#{map.uniqueness_hash}.png&quot;</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sprite_width" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sprite_width</span><span
+            class="method-args">(map, sprite=nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the width of the generated sprite map</p>
+          
+          
+
+          
+          <div class="method-source-code" id="sprite_width-source">
+            <pre><span class="ruby-comment"># File lib/compass/sass_extensions/functions/sprites.rb, line 21</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sprite_width</span>(<span class="ruby-identifier">map</span>, <span class="ruby-identifier">sprite</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">verify_map</span>(<span class="ruby-identifier">map</span>, <span class="ruby-string">&#39;sprite-width&#39;</span>)
+  <span class="ruby-identifier">file</span> = <span class="ruby-identifier">get_sprite_file</span>(<span class="ruby-identifier">map</span>, <span class="ruby-identifier">sprite</span>)
+  <span class="ruby-identifier">width</span>, <span class="ruby-identifier">_</span> = <span class="ruby-identifier">image_dimensions</span>(<span class="ruby-identifier">file</span>)
+  <span class="ruby-identifier">number</span>(<span class="ruby-identifier">width</span>, <span class="ruby-string">&quot;px&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="protected-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Protected Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-convert_sprite_name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">convert_sprite_name</span><span
+            class="method-args">(sprite)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="convert_sprite_name-source">
+            <pre><span class="ruby-comment"># File lib/compass/sass_extensions/functions/sprites.rb, line 268</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">convert_sprite_name</span>(<span class="ruby-identifier">sprite</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">sprite</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">Script</span><span class="ruby-operator">::</span><span class="ruby-constant">Value</span><span class="ruby-operator">::</span><span class="ruby-constant">Color</span>
+      <span class="ruby-identifier">rgb</span> = <span class="ruby-keyword">if</span> <span class="ruby-identifier">reversed_color_names</span>.<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-value">3</span>
+              <span class="ruby-identifier">sprite</span>.<span class="ruby-identifier">rgb</span>
+            <span class="ruby-keyword">else</span>
+              <span class="ruby-comment"># Sass 3.3 includes the alpha channel</span>
+              <span class="ruby-identifier">sprite</span>.<span class="ruby-identifier">rgba</span>
+            <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">identifier</span>(<span class="ruby-identifier">reversed_color_names</span>[<span class="ruby-identifier">rgb</span>])
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">Script</span><span class="ruby-operator">::</span><span class="ruby-constant">Value</span><span class="ruby-operator">::</span><span class="ruby-constant">Bool</span>
+      <span class="ruby-identifier">identifier</span>(<span class="ruby-identifier">sprite</span>.<span class="ruby-identifier">to_s</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">sprite</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-get_sprite_file" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_sprite_file</span><span
+            class="method-args">(map, sprite=nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="get_sprite_file-source">
+            <pre><span class="ruby-comment"># File lib/compass/sass_extensions/functions/sprites.rb, line 252</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_sprite_file</span>(<span class="ruby-identifier">map</span>, <span class="ruby-identifier">sprite</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">sprite</span>
+    <span class="ruby-identifier">map</span>.<span class="ruby-identifier">image_for</span>(<span class="ruby-identifier">sprite</span>).<span class="ruby-identifier">file</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">map</span>.<span class="ruby-identifier">filename</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-missing_image-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">missing_image!</span><span
+            class="method-args">(map, sprite)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="missing_image-21-source">
+            <pre><span class="ruby-comment"># File lib/compass/sass_extensions/functions/sprites.rb, line 297</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">missing_image!</span>(<span class="ruby-identifier">map</span>, <span class="ruby-identifier">sprite</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">SyntaxError</span>, <span class="ruby-node">&quot;No sprite called #{sprite} found in sprite map #{map.path}/#{map.name}. Did you mean one of: #{map.sprite_names.join(&quot;, &quot;)}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-missing_sprite-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">missing_sprite!</span><span
+            class="method-args">(function_name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="missing_sprite-21-source">
+            <pre><span class="ruby-comment"># File lib/compass/sass_extensions/functions/sprites.rb, line 301</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">missing_sprite!</span>(<span class="ruby-identifier">function_name</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">SyntaxError</span>, <span class="ruby-node">%Q(The first argument to #{function_name}() must be a sprite map. See http://beta.compass-style.org/help/tutorials/spriting/ for more information.)</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-reversed_color_names" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">reversed_color_names</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="reversed_color_names-source">
+            <pre><span class="ruby-comment"># File lib/compass/sass_extensions/functions/sprites.rb, line 260</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">reversed_color_names</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">Script</span><span class="ruby-operator">::</span><span class="ruby-constant">Value</span><span class="ruby-operator">::</span><span class="ruby-constant">Color</span>.<span class="ruby-identifier">const_defined?</span>(<span class="ruby-value">:HTML4_COLORS_REVERSE</span>)
+    <span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">Script</span><span class="ruby-operator">::</span><span class="ruby-constant">Value</span><span class="ruby-operator">::</span><span class="ruby-constant">Color</span><span class="ruby-operator">::</span><span class="ruby-constant">HTML4_COLORS_REVERSE</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">Script</span><span class="ruby-operator">::</span><span class="ruby-constant">Value</span><span class="ruby-operator">::</span><span class="ruby-constant">Color</span><span class="ruby-operator">::</span><span class="ruby-constant">COLOR_NAMES_REVERSE</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-verify_map" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">verify_map</span><span
+            class="method-args">(map, error = "sprite")</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="verify_map-source">
+            <pre><span class="ruby-comment"># File lib/compass/sass_extensions/functions/sprites.rb, line 285</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">verify_map</span>(<span class="ruby-identifier">map</span>, <span class="ruby-identifier">error</span> = <span class="ruby-string">&quot;sprite&quot;</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">map</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Compass</span><span class="ruby-operator">::</span><span class="ruby-constant">SassExtensions</span><span class="ruby-operator">::</span><span class="ruby-constant">Sprites</span><span class="ruby-operator">::</span><span class="ruby-constant">SpriteMap</span>)
+    <span class="ruby-identifier">missing_sprite!</span>(<span class="ruby-identifier">error</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-verify_sprite" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">verify_sprite</span><span
+            class="method-args">(sprite)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="verify_sprite-source">
+            <pre><span class="ruby-comment"># File lib/compass/sass_extensions/functions/sprites.rb, line 291</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">verify_sprite</span>(<span class="ruby-identifier">sprite</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">sprite</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">Script</span><span class="ruby-operator">::</span><span class="ruby-constant">Value</span><span class="ruby-operator">::</span><span class="ruby-constant">String</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">sprite</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">Script</span><span class="ruby-operator">::</span><span class="ruby-constant">Value</span><span class="ruby-operator">::</span><span class="ruby-constant">Number</span>)
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">SyntaxError</span>, <span class="ruby-string">%Q(The second argument to sprite() must be a sprite name. See http://beta.compass-style.org/help/tutorials/spriting/ for more information.)</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

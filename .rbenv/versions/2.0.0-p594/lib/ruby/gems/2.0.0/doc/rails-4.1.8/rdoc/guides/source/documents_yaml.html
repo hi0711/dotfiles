@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>documents.yaml - rails-4.1.8 Documentation</title>
+
+<link href="../../fonts.css" rel="stylesheet">
+<link href="../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/navigation.js"></script>
+<script src="../../js/search_index.js"></script>
+<script src="../../js/search.js"></script>
+<script src="../../js/searcher.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../README_md.html">README</a>
+  
+    <li><a href="../../guides/CHANGELOG_md.html">CHANGELOG</a>
+  
+    <li><a href="../../guides/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../guides/assets/images/icons/README.html">README</a>
+  
+    <li><a href="../../guides/assets/javascripts/guides_js.html">guides.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/jquery_min_js.html">jquery.min.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/responsive-tables_js.html">responsive-tables.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushAS3_js.html">shBrushAS3.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushAppleScript_js.html">shBrushAppleScript.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushBash_js.html">shBrushBash.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushCSharp_js.html">shBrushCSharp.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushColdFusion_js.html">shBrushColdFusion.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushCpp_js.html">shBrushCpp.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushCss_js.html">shBrushCss.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushDelphi_js.html">shBrushDelphi.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushDiff_js.html">shBrushDiff.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushErlang_js.html">shBrushErlang.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushGroovy_js.html">shBrushGroovy.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushJScript_js.html">shBrushJScript.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushJava_js.html">shBrushJava.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushJavaFX_js.html">shBrushJavaFX.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushPerl_js.html">shBrushPerl.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushPhp_js.html">shBrushPhp.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushPlain_js.html">shBrushPlain.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushPowerShell_js.html">shBrushPowerShell.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushPython_js.html">shBrushPython.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushRuby_js.html">shBrushRuby.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushSass_js.html">shBrushSass.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushScala_js.html">shBrushScala.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushSql_js.html">shBrushSql.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushVb_js.html">shBrushVb.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushXml_js.html">shBrushXml.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shCore_js.html">shCore.js</a>
+  
+    <li><a href="../../guides/assets/stylesheets/fixes_css.html">fixes.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/kindle_css.html">kindle.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/main_css.html">main.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/print_css.html">print.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/reset_css.html">reset.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/responsive-tables_css.html">responsive-tables.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/style_css.html">style.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shCore_css.html">shCore.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shCoreDefault_css.html">shCoreDefault.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shCoreDjango_css.html">shCoreDjango.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shCoreEclipse_css.html">shCoreEclipse.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shCoreEmacs_css.html">shCoreEmacs.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shCoreFadeToGrey_css.html">shCoreFadeToGrey.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shCoreMDUltra_css.html">shCoreMDUltra.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shCoreMidnight_css.html">shCoreMidnight.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shCoreRDark_css.html">shCoreRDark.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shThemeDefault_css.html">shThemeDefault.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shThemeDjango_css.html">shThemeDjango.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shThemeEclipse_css.html">shThemeEclipse.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shThemeEmacs_css.html">shThemeEmacs.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shThemeFadeToGrey_css.html">shThemeFadeToGrey.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shThemeMDUltra_css.html">shThemeMDUltra.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shThemeMidnight_css.html">shThemeMidnight.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shThemeRDark_css.html">shThemeRDark.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shThemeRailsGuides_css.html">shThemeRailsGuides.css</a>
+  
+    <li><a href="../../guides/code/getting_started/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../guides/code/getting_started/Gemfile_lock.html">Gemfile.lock</a>
+  
+    <li><a href="../../guides/code/getting_started/README_rdoc.html">README</a>
+  
+    <li><a href="../../guides/code/getting_started/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../guides/code/getting_started/app/assets/javascripts/application_js.html">application.js</a>
+  
+    <li><a href="../../guides/code/getting_started/app/assets/javascripts/comments_js_coffee.html">comments.js.coffee</a>
+  
+    <li><a href="../../guides/code/getting_started/app/assets/javascripts/posts_js_coffee.html">posts.js.coffee</a>
+  
+    <li><a href="../../guides/code/getting_started/app/assets/javascripts/welcome_js_coffee.html">welcome.js.coffee</a>
+  
+    <li><a href="../../guides/code/getting_started/app/assets/stylesheets/application_css.html">application.css</a>
+  
+    <li><a href="../../guides/code/getting_started/app/assets/stylesheets/comments_css_scss.html">comments.css.scss</a>
+  
+    <li><a href="../../guides/code/getting_started/app/assets/stylesheets/posts_css_scss.html">posts.css.scss</a>
+  
+    <li><a href="../../guides/code/getting_started/app/assets/stylesheets/welcome_css_scss.html">welcome.css.scss</a>
+  
+    <li><a href="../../guides/code/getting_started/config_ru.html">config.ru</a>
+  
+    <li><a href="../../guides/code/getting_started/public/404_html.html">404.html</a>
+  
+    <li><a href="../../guides/code/getting_started/public/422_html.html">422.html</a>
+  
+    <li><a href="../../guides/code/getting_started/public/500_html.html">500.html</a>
+  
+    <li><a href="../../guides/code/getting_started/public/favicon_ico.html">favicon.ico</a>
+  
+    <li><a href="../../guides/code/getting_started/public/robots_txt.html">robots</a>
+  
+    <li><a href="../../guides/source/2_2_release_notes_md.html">2_2_release_notes</a>
+  
+    <li><a href="../../guides/source/2_3_release_notes_md.html">2_3_release_notes</a>
+  
+    <li><a href="../../guides/source/3_0_release_notes_md.html">3_0_release_notes</a>
+  
+    <li><a href="../../guides/source/3_1_release_notes_md.html">3_1_release_notes</a>
+  
+    <li><a href="../../guides/source/3_2_release_notes_md.html">3_2_release_notes</a>
+  
+    <li><a href="../../guides/source/4_0_release_notes_md.html">4_0_release_notes</a>
+  
+    <li><a href="../../guides/source/4_1_release_notes_md.html">4_1_release_notes</a>
+  
+    <li><a href="../../guides/source/action_controller_overview_md.html">action_controller_overview</a>
+  
+    <li><a href="../../guides/source/action_mailer_basics_md.html">action_mailer_basics</a>
+  
+    <li><a href="../../guides/source/action_view_overview_md.html">action_view_overview</a>
+  
+    <li><a href="../../guides/source/active_model_basics_md.html">active_model_basics</a>
+  
+    <li><a href="../../guides/source/active_record_basics_md.html">active_record_basics</a>
+  
+    <li><a href="../../guides/source/active_record_callbacks_md.html">active_record_callbacks</a>
+  
+    <li><a href="../../guides/source/active_record_querying_md.html">active_record_querying</a>
+  
+    <li><a href="../../guides/source/active_record_validations_md.html">active_record_validations</a>
+  
+    <li><a href="../../guides/source/active_support_core_extensions_md.html">active_support_core_extensions</a>
+  
+    <li><a href="../../guides/source/active_support_instrumentation_md.html">active_support_instrumentation</a>
+  
+    <li><a href="../../guides/source/api_documentation_guidelines_md.html">api_documentation_guidelines</a>
+  
+    <li><a href="../../guides/source/asset_pipeline_md.html">asset_pipeline</a>
+  
+    <li><a href="../../guides/source/association_basics_md.html">association_basics</a>
+  
+    <li><a href="../../guides/source/caching_with_rails_md.html">caching_with_rails</a>
+  
+    <li><a href="../../guides/source/command_line_md.html">command_line</a>
+  
+    <li><a href="../../guides/source/configuring_md.html">configuring</a>
+  
+    <li><a href="../../guides/source/contributing_to_ruby_on_rails_md.html">contributing_to_ruby_on_rails</a>
+  
+    <li><a href="../../guides/source/debugging_rails_applications_md.html">debugging_rails_applications</a>
+  
+    <li><a href="../../guides/source/development_dependencies_install_md.html">development_dependencies_install</a>
+  
+    <li><a href="../../guides/source/documents_yaml.html">documents.yaml</a>
+  
+    <li><a href="../../guides/source/engines_md.html">engines</a>
+  
+    <li><a href="../../guides/source/form_helpers_md.html">form_helpers</a>
+  
+    <li><a href="../../guides/source/generators_md.html">generators</a>
+  
+    <li><a href="../../guides/source/getting_started_md.html">getting_started</a>
+  
+    <li><a href="../../guides/source/i18n_md.html">i18n</a>
+  
+    <li><a href="../../guides/source/initialization_md.html">initialization</a>
+  
+    <li><a href="../../guides/source/layouts_and_rendering_md.html">layouts_and_rendering</a>
+  
+    <li><a href="../../guides/source/maintenance_policy_md.html">maintenance_policy</a>
+  
+    <li><a href="../../guides/source/migrations_md.html">migrations</a>
+  
+    <li><a href="../../guides/source/nested_model_forms_md.html">nested_model_forms</a>
+  
+    <li><a href="../../guides/source/plugins_md.html">plugins</a>
+  
+    <li><a href="../../guides/source/rails_application_templates_md.html">rails_application_templates</a>
+  
+    <li><a href="../../guides/source/rails_on_rack_md.html">rails_on_rack</a>
+  
+    <li><a href="../../guides/source/routing_md.html">routing</a>
+  
+    <li><a href="../../guides/source/ruby_on_rails_guides_guidelines_md.html">ruby_on_rails_guides_guidelines</a>
+  
+    <li><a href="../../guides/source/security_md.html">security</a>
+  
+    <li><a href="../../guides/source/testing_md.html">testing</a>
+  
+    <li><a href="../../guides/source/upgrading_ruby_on_rails_md.html">upgrading_ruby_on_rails</a>
+  
+    <li><a href="../../guides/source/working_with_javascript_in_rails_md.html">working_with_javascript_in_rails</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page guides/source/documents.yaml">
+
+<p>-</p>
+
+<pre>name: Start Here
+documents:
+  -
+    name: Getting Started with Rails
+    url: getting_started.html
+    description: Everything you need to know to install Rails and create your first application.</pre>
+
+<p>-</p>
+
+<pre>name: Models
+documents:
+  -
+    name: Active Record Basics
+    url: active_record_basics.html
+    description: This guide will get you started with models, persistence to database and the Active Record pattern and library.
+  -
+    name: Rails Database Migrations
+    url: migrations.html
+    description: This guide covers how you can use Active Record migrations to alter your database in a structured and organized manner.
+  -
+    name: Active Record Validations
+    url: active_record_validations.html
+    description: This guide covers how you can use Active Record validations
+  -
+    name: Active Record Callbacks
+    url: active_record_callbacks.html
+    description: This guide covers how you can use Active Record callbacks.
+  -
+    name: Active Record Associations
+    url: association_basics.html
+    description: This guide covers all the associations provided by Active Record.
+  -
+    name: Active Record Query Interface
+    url: active_record_querying.html
+    description: This guide covers the database query interface provided by Active Record.</pre>
+
+<p>-</p>
+
+<pre>name: Views
+documents:
+  -
+    name: Action View Overview
+    url: action_view_overview.html
+    description: This guide provides an introduction to Action View and introduces a few of the more common view helpers.
+    work_in_progress: true
+  -
+    name: Layouts and Rendering in Rails
+    url: layouts_and_rendering.html
+    description: This guide covers the basic layout features of Action Controller and Action View, including rendering and redirecting, using content_for blocks, and working with partials.
+  -
+    name: Action View Form Helpers
+    url: form_helpers.html
+    description: Guide to using built-in Form helpers.</pre>
+
+<p>-</p>
+
+<pre>name: Controllers
+documents:
+  -
+    name: Action Controller Overview
+    url: action_controller_overview.html
+    description: This guide covers how controllers work and how they fit into the request cycle in your application. It includes sessions, filters, and cookies, data streaming, and dealing with exceptions raised by a request, among other topics.
+  -
+    name: Rails Routing from the Outside In
+    url: routing.html
+    description: This guide covers the user-facing features of Rails routing. If you want to understand how to use routing in your own Rails applications, start here.</pre>
+
+<p>-</p>
+
+<pre>name: Digging Deeper
+documents:
+  -
+    name: Active Support Core Extensions
+    url: active_support_core_extensions.html
+    description: This guide documents the Ruby core extensions defined in Active Support.
+  -
+    name: Rails Internationalization API
+    url: i18n.html
+    description: This guide covers how to add internationalization to your applications. Your application will be able to translate content to different languages, change pluralization rules, use correct date formats for each country and so on.
+  -
+    name: Action Mailer Basics
+    url: action_mailer_basics.html
+    description: This guide describes how to use Action Mailer to send and receive emails.
+  -
+    name: Testing Rails Applications
+    url: testing.html
+    work_in_progress: true
+    description: This is a rather comprehensive guide to doing both unit and functional tests in Rails. It covers everything from &#39;What is a test?&#39; to the testing APIs. Enjoy.
+  -
+    name: Securing Rails Applications
+    url: security.html
+    description: This guide describes common security problems in web applications and how to avoid them with Rails.
+  -
+    name: Debugging Rails Applications
+    url: debugging_rails_applications.html
+    description: This guide describes how to debug Rails applications. It covers the different ways of achieving this and how to understand what is happening &quot;behind the scenes&quot; of your code.
+  -
+    name: Configuring Rails Applications
+    url: configuring.html
+    description: This guide covers the basic configuration settings for a Rails application.
+  -
+    name: Rails Command Line Tools and Rake Tasks
+    url: command_line.html
+    description: This guide covers the command line tools and rake tasks provided by Rails.
+  -
+    name: Caching with Rails
+    work_in_progress: true
+    url: caching_with_rails.html
+    description: Various caching techniques provided by Rails.
+  -
+    name: Asset Pipeline
+    url: asset_pipeline.html
+    description: This guide documents the asset pipeline.
+  -
+    name: Working with JavaScript in Rails
+    url: working_with_javascript_in_rails.html
+    description: This guide covers the built-in Ajax/JavaScript functionality of Rails.
+  -
+    name: Getting Started with Engines
+    url: engines.html
+    description: This guide explains how to write a mountable engine.
+    work_in_progress: true
+  -
+    name: The Rails Initialization Process
+    work_in_progress: true
+    url: initialization.html
+    description: This guide explains the internals of the Rails initialization process as of Rails 4</pre>
+
+<p>-</p>
+
+<pre>name: Extending Rails
+documents:
+  -
+    name: The Basics of Creating Rails Plugins
+    work_in_progress: true
+    url: plugins.html
+    description: This guide covers how to build a plugin to extend the functionality of Rails.
+  -
+    name: Rails on Rack
+    url: rails_on_rack.html
+    description: This guide covers Rails integration with Rack and interfacing with other Rack components.
+  -
+    name: Creating and Customizing Rails Generators
+    url: generators.html
+    description: This guide covers the process of adding a brand new generator to your extension or providing an alternative to an element of a built-in Rails generator (such as providing alternative test stubs for the scaffold generator).</pre>
+
+<p>-</p>
+
+<pre>name: Contributing to Ruby on Rails
+documents:
+  -
+    name: Contributing to Ruby on Rails
+    url: contributing_to_ruby_on_rails.html
+    description: Rails is not &#39;somebody else&#39;s framework.&#39; This guide covers a variety of ways that you can get involved in the ongoing development of Rails.
+  -
+    name: API Documentation Guidelines
+    url: api_documentation_guidelines.html
+    description: This guide documents the Ruby on Rails API documentation guidelines.
+  -
+    name: Ruby on Rails Guides Guidelines
+    url: ruby_on_rails_guides_guidelines.html
+    description: This guide documents the Ruby on Rails guides guidelines.</pre>
+
+<p>-</p>
+
+<pre>name: Maintenance Policy
+documents:
+  -
+    name: Maintenance Policy
+    url: maintenance_policy.html
+    description: What versions of Ruby on Rails are currently supported, and when to expect new versions.</pre>
+
+<p>-</p>
+
+<pre>name: Release Notes
+documents:
+  -
+    name: Upgrading Ruby on Rails
+    url: upgrading_ruby_on_rails.html
+    description: This guide helps in upgrading applications to latest Ruby on Rails versions.
+  -
+    name: Ruby on Rails 4.1 Release Notes
+    url: 4_1_release_notes.html
+    description: Release notes for Rails 4.1.
+  -
+    name: Ruby on Rails 4.0 Release Notes
+    url: 4_0_release_notes.html
+    description: Release notes for Rails 4.0.
+  -
+    name: Ruby on Rails 3.2 Release Notes
+    url: 3_2_release_notes.html
+    description: Release notes for Rails 3.2.
+  -
+    name: Ruby on Rails 3.1 Release Notes
+    url: 3_1_release_notes.html
+    description: Release notes for Rails 3.1.
+  -
+    name: Ruby on Rails 3.0 Release Notes
+    url: 3_0_release_notes.html
+    description: Release notes for Rails 3.0.
+  -
+    name: Ruby on Rails 2.3 Release Notes
+    url: 2_3_release_notes.html
+    description: Release notes for Rails 2.3.
+  -
+    name: Ruby on Rails 2.2 Release Notes
+    url: 2_2_release_notes.html
+    description: Release notes for Rails 2.2.</pre>
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

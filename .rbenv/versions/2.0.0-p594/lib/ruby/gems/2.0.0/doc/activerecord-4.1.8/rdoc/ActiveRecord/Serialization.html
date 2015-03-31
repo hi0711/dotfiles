@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module ActiveRecord::Serialization - activerecord-4.1.8 Documentation</title>
+
+<link href="../fonts.css" rel="stylesheet">
+<link href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/navigation.js"></script>
+<script src="../js/search_index.js"></script>
+<script src="../js/search.js"></script>
+<script src="../js/searcher.js"></script>
+<script src="../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    <div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><span class="include">ActiveModel::Serializers::JSON</span>
+  
+  
+  
+    <li><span class="include">ActiveModel::Serializers::Xml</span>
+  
+  
+  </ul>
+</div>
+
+    <div id="extends-section" class="nav-section">
+  <h3>Extended With Modules</h3>
+
+  <ul class="link-list">
+    
+  
+    <li><span class="extend">ActiveSupport::Concern</span>
+  
+  
+  </ul>
+</div>
+
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li class="calls-super" ><a href="#method-i-serializable_hash">#serializable_hash</a>
+    
+    <li ><a href="#method-i-to_xml">#to_xml</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-ActiveRecord::Serialization">
+  <h1 id="module-ActiveRecord::Serialization" class="module">
+    module ActiveRecord::Serialization
+  </h1>
+
+  <section class="description">
+    
+<h1 id="module-ActiveRecord::Serialization-label-Active+Record+Serialization">Active Record <a href="Serialization.html">Serialization</a><span><a href="#module-ActiveRecord::Serialization-label-Active+Record+Serialization">&para;</a> <a href="#documentation">&uarr;</a></span></h1>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-serializable_hash" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">serializable_hash</span><span
+            class="method-args">(options = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="serializable_hash-source">
+            <pre><span class="ruby-comment"># File lib/active_record/serialization.rb, line 11</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">serializable_hash</span>(<span class="ruby-identifier">options</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">options</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">try</span>(<span class="ruby-value">:clone</span>) <span class="ruby-operator">||</span> {}
+
+  <span class="ruby-identifier">options</span>[<span class="ruby-value">:except</span>] = <span class="ruby-constant">Array</span>(<span class="ruby-identifier">options</span>[<span class="ruby-value">:except</span>]).<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">n</span><span class="ruby-operator">|</span> <span class="ruby-identifier">n</span>.<span class="ruby-identifier">to_s</span> }
+  <span class="ruby-identifier">options</span>[<span class="ruby-value">:except</span>] <span class="ruby-operator">|=</span> <span class="ruby-constant">Array</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">inheritance_column</span>)
+
+  <span class="ruby-keyword">super</span>(<span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-to_xml" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_xml</span><span
+            class="method-args">(options = {}, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Builds an XML document to represent the model. Some configuration is
+available through <code>options</code>. However more complicated cases
+should override ActiveRecord::Base#to_xml.</p>
+
+<p>By default the generated XML document will include the processing
+instruction and all the object&#39;s attributes. For example:</p>
+
+<pre>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;topic&gt;
+  &lt;title&gt;The First Topic&lt;/title&gt;
+  &lt;author-name&gt;David&lt;/author-name&gt;
+  &lt;id type=&quot;integer&quot;&gt;1&lt;/id&gt;
+  &lt;approved type=&quot;boolean&quot;&gt;false&lt;/approved&gt;
+  &lt;replies-count type=&quot;integer&quot;&gt;0&lt;/replies-count&gt;
+  &lt;bonus-time type=&quot;dateTime&quot;&gt;2000-01-01T08:28:00+12:00&lt;/bonus-time&gt;
+  &lt;written-on type=&quot;dateTime&quot;&gt;2003-07-16T09:28:00+1200&lt;/written-on&gt;
+  &lt;content&gt;Have a nice day&lt;/content&gt;
+  &lt;author-email-address&gt;david@loudthinking.com&lt;/author-email-address&gt;
+  &lt;parent-id&gt;&lt;/parent-id&gt;
+  &lt;last-read type=&quot;date&quot;&gt;2004-04-15&lt;/last-read&gt;
+&lt;/topic&gt;</pre>
+
+<p>This behavior can be controlled with <code>:only</code>,
+<code>:except</code>, <code>:skip_instruct</code>,
+<code>:skip_types</code>, <code>:dasherize</code> and
+<code>:camelize</code> . The <code>:only</code> and <code>:except</code>
+options are the same as for the <code>attributes</code> method. The default
+is to dasherize all column names, but you can disable this setting
+<code>:dasherize</code> to <code>false</code>. Setting
+<code>:camelize</code> to <code>true</code> will camelize all column names
+- this also overrides <code>:dasherize</code>. To not have the column type
+included in the XML output set <code>:skip_types</code> to
+<code>true</code>.</p>
+
+<p>For instance:</p>
+
+<pre>topic.to_xml(skip_instruct: true, except: [ :id, :bonus_time, :written_on, :replies_count ])
+
+&lt;topic&gt;
+  &lt;title&gt;The First Topic&lt;/title&gt;
+  &lt;author-name&gt;David&lt;/author-name&gt;
+  &lt;approved type=&quot;boolean&quot;&gt;false&lt;/approved&gt;
+  &lt;content&gt;Have a nice day&lt;/content&gt;
+  &lt;author-email-address&gt;david@loudthinking.com&lt;/author-email-address&gt;
+  &lt;parent-id&gt;&lt;/parent-id&gt;
+  &lt;last-read type=&quot;date&quot;&gt;2004-04-15&lt;/last-read&gt;
+&lt;/topic&gt;</pre>
+
+<p>To include first level associations use <code>:include</code>:</p>
+
+<pre>firm.to_xml include: [ :account, :clients ]
+
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;firm&gt;
+  &lt;id type=&quot;integer&quot;&gt;1&lt;/id&gt;
+  &lt;rating type=&quot;integer&quot;&gt;1&lt;/rating&gt;
+  &lt;name&gt;37signals&lt;/name&gt;
+  &lt;clients type=&quot;array&quot;&gt;
+    &lt;client&gt;
+      &lt;rating type=&quot;integer&quot;&gt;1&lt;/rating&gt;
+      &lt;name&gt;Summit&lt;/name&gt;
+    &lt;/client&gt;
+    &lt;client&gt;
+      &lt;rating type=&quot;integer&quot;&gt;1&lt;/rating&gt;
+      &lt;name&gt;Microsoft&lt;/name&gt;
+    &lt;/client&gt;
+  &lt;/clients&gt;
+  &lt;account&gt;
+    &lt;id type=&quot;integer&quot;&gt;1&lt;/id&gt;
+    &lt;credit-limit type=&quot;integer&quot;&gt;50&lt;/credit-limit&gt;
+  &lt;/account&gt;
+&lt;/firm&gt;</pre>
+
+<p>Additionally, the record being serialized will be passed to a Proc&#39;s
+second parameter. This allows for ad hoc additions to the resultant
+document that incorporate the context of the record being serialized. And
+by leveraging the closure created by a Proc, <a
+href="Serialization.html#method-i-to_xml">#to_xml</a> can be used to add
+elements that normally fall outside of the scope of the model – for
+example, generating and appending URLs associated with models.</p>
+
+<pre class="ruby"><span class="ruby-identifier">proc</span> = <span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">options</span>, <span class="ruby-identifier">record</span><span class="ruby-operator">|</span> <span class="ruby-identifier">options</span>[:<span class="ruby-identifier">builder</span>].<span class="ruby-identifier">tag!</span>(<span class="ruby-string">&#39;name-reverse&#39;</span>, <span class="ruby-identifier">record</span>.<span class="ruby-identifier">name</span>.<span class="ruby-identifier">reverse</span>) }
+<span class="ruby-identifier">firm</span>.<span class="ruby-identifier">to_xml</span> <span class="ruby-identifier">procs</span><span class="ruby-operator">:</span> [ <span class="ruby-identifier">proc</span> ]
+
+<span class="ruby-operator">&lt;</span><span class="ruby-identifier">firm</span><span class="ruby-operator">&gt;</span>
+  <span class="ruby-comment"># ... normal attributes as shown above ...</span>
+  <span class="ruby-operator">&lt;</span><span class="ruby-identifier">name</span><span class="ruby-operator">-</span><span class="ruby-identifier">reverse</span><span class="ruby-operator">&gt;</span><span class="ruby-identifier">slangis73</span><span class="ruby-operator">&lt;</span><span class="ruby-regexp">/name-reverse&gt;
+&lt;/</span><span class="ruby-identifier">firm</span><span class="ruby-operator">&gt;</span>
+</pre>
+
+<p>To include deeper levels of associations pass a hash like this:</p>
+
+<pre>firm.to_xml include: {account: {}, clients: {include: :address}}
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;firm&gt;
+  &lt;id type=&quot;integer&quot;&gt;1&lt;/id&gt;
+  &lt;rating type=&quot;integer&quot;&gt;1&lt;/rating&gt;
+  &lt;name&gt;37signals&lt;/name&gt;
+  &lt;clients type=&quot;array&quot;&gt;
+    &lt;client&gt;
+      &lt;rating type=&quot;integer&quot;&gt;1&lt;/rating&gt;
+      &lt;name&gt;Summit&lt;/name&gt;
+      &lt;address&gt;
+        ...
+      &lt;/address&gt;
+    &lt;/client&gt;
+    &lt;client&gt;
+      &lt;rating type=&quot;integer&quot;&gt;1&lt;/rating&gt;
+      &lt;name&gt;Microsoft&lt;/name&gt;
+      &lt;address&gt;
+        ...
+      &lt;/address&gt;
+    &lt;/client&gt;
+  &lt;/clients&gt;
+  &lt;account&gt;
+    &lt;id type=&quot;integer&quot;&gt;1&lt;/id&gt;
+    &lt;credit-limit type=&quot;integer&quot;&gt;50&lt;/credit-limit&gt;
+  &lt;/account&gt;
+&lt;/firm&gt;</pre>
+
+<p>To include any methods on the model being called use <code>:methods</code>:</p>
+
+<pre>firm.to_xml methods: [ :calculated_earnings, :real_earnings ]
+
+&lt;firm&gt;
+  # ... normal attributes as shown above ...
+  &lt;calculated-earnings&gt;100000000000000000&lt;/calculated-earnings&gt;
+  &lt;real-earnings&gt;5&lt;/real-earnings&gt;
+&lt;/firm&gt;</pre>
+
+<p>To call any additional Procs use <code>:procs</code>. The Procs are passed
+a modified version of the options hash that was given to
+<code>to_xml</code>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">proc</span> = <span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">options</span><span class="ruby-operator">|</span> <span class="ruby-identifier">options</span>[:<span class="ruby-identifier">builder</span>].<span class="ruby-identifier">tag!</span>(<span class="ruby-string">&#39;abc&#39;</span>, <span class="ruby-string">&#39;def&#39;</span>) }
+<span class="ruby-identifier">firm</span>.<span class="ruby-identifier">to_xml</span> <span class="ruby-identifier">procs</span><span class="ruby-operator">:</span> [ <span class="ruby-identifier">proc</span> ]
+
+<span class="ruby-operator">&lt;</span><span class="ruby-identifier">firm</span><span class="ruby-operator">&gt;</span>
+  <span class="ruby-comment"># ... normal attributes as shown above ...</span>
+  <span class="ruby-operator">&lt;</span><span class="ruby-identifier">abc</span><span class="ruby-operator">&gt;</span><span class="ruby-keyword">def</span><span class="ruby-operator">&lt;</span><span class="ruby-operator">/</span><span class="ruby-identifier">abc</span><span class="ruby-operator">&gt;</span>
+<span class="ruby-operator">&lt;</span><span class="ruby-regexp">/firm&gt;
+</span></pre>
+
+<p>Alternatively, you can yield the builder object as part of the
+<code>to_xml</code> call:</p>
+
+<pre class="ruby"><span class="ruby-identifier">firm</span>.<span class="ruby-identifier">to_xml</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">xml</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">creator</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">first_name</span> <span class="ruby-string">&quot;David&quot;</span>
+    <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">last_name</span> <span class="ruby-string">&quot;Heinemeier Hansson&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-operator">&lt;</span><span class="ruby-identifier">firm</span><span class="ruby-operator">&gt;</span>
+  <span class="ruby-comment"># ... normal attributes as shown above ...</span>
+  <span class="ruby-operator">&lt;</span><span class="ruby-identifier">creator</span><span class="ruby-operator">&gt;</span>
+    <span class="ruby-operator">&lt;</span><span class="ruby-identifier">first_name</span><span class="ruby-operator">&gt;</span><span class="ruby-constant">David</span><span class="ruby-operator">&lt;</span><span class="ruby-regexp">/first_name&gt;
+    &lt;last_name&gt;Heinemeier Hansson&lt;/</span><span class="ruby-identifier">last_name</span><span class="ruby-operator">&gt;</span>
+  <span class="ruby-operator">&lt;</span><span class="ruby-regexp">/creator&gt;
+&lt;/</span><span class="ruby-identifier">firm</span><span class="ruby-operator">&gt;</span>
+</pre>
+
+<p>As noted above, you may override <code>to_xml</code> in your <a
+href="Base.html">ActiveRecord::Base</a> subclasses to have complete control
+about what&#39;s generated. The general form of doing this is:</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">IHaveMyOwnXML</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">to_xml</span>(<span class="ruby-identifier">options</span> = {})
+    <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;builder&#39;</span>
+    <span class="ruby-identifier">options</span>[:<span class="ruby-identifier">indent</span>] <span class="ruby-operator">||=</span> <span class="ruby-value">2</span>
+    <span class="ruby-identifier">xml</span> = <span class="ruby-identifier">options</span>[:<span class="ruby-identifier">builder</span>] <span class="ruby-operator">||=</span> <span class="ruby-operator">::</span><span class="ruby-constant">Builder</span><span class="ruby-operator">::</span><span class="ruby-constant">XmlMarkup</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">indent</span><span class="ruby-operator">:</span> <span class="ruby-identifier">options</span>[:<span class="ruby-identifier">indent</span>])
+    <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">instruct!</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">options</span>[:<span class="ruby-identifier">skip_instruct</span>]
+    <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">level_one</span> <span class="ruby-keyword">do</span>
+      <span class="ruby-identifier">xml</span>.<span class="ruby-identifier">tag!</span>(:<span class="ruby-identifier">second_level</span>, <span class="ruby-string">&#39;content&#39;</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="to_xml-source">
+            <pre><span class="ruby-comment"># File lib/active_record/serializers/xml_serializer.rb, line 174</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_xml</span>(<span class="ruby-identifier">options</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-constant">XmlSerializer</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>, <span class="ruby-identifier">options</span>).<span class="ruby-identifier">serialize</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

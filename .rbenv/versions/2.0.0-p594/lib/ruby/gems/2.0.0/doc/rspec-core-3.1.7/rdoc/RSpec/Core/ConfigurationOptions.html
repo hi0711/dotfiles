@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class RSpec::Core::ConfigurationOptions - rspec-core-3.1.7 Documentation</title>
+
+<link href="../../fonts.css" rel="stylesheet">
+<link href="../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/navigation.js"></script>
+<script src="../../js/search_index.js"></script>
+<script src="../../js/search.js"></script>
+<script src="../../js/searcher.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-args_from_options_file">#args_from_options_file</a>
+    
+    <li ><a href="#method-i-command_line_options">#command_line_options</a>
+    
+    <li ><a href="#method-i-configure">#configure</a>
+    
+    <li ><a href="#method-i-configure_filter_manager">#configure_filter_manager</a>
+    
+    <li ><a href="#method-i-custom_options">#custom_options</a>
+    
+    <li ><a href="#method-i-custom_options_file">#custom_options_file</a>
+    
+    <li ><a href="#method-i-env_options">#env_options</a>
+    
+    <li ><a href="#method-i-file_options">#file_options</a>
+    
+    <li ><a href="#method-i-force-3F">#force?</a>
+    
+    <li ><a href="#method-i-global_options">#global_options</a>
+    
+    <li ><a href="#method-i-global_options_file">#global_options_file</a>
+    
+    <li ><a href="#method-i-load_formatters_into">#load_formatters_into</a>
+    
+    <li ><a href="#method-i-local_options">#local_options</a>
+    
+    <li ><a href="#method-i-local_options_file">#local_options_file</a>
+    
+    <li ><a href="#method-i-options_file_as_erb_string">#options_file_as_erb_string</a>
+    
+    <li ><a href="#method-i-options_from">#options_from</a>
+    
+    <li ><a href="#method-i-order">#order</a>
+    
+    <li ><a href="#method-i-organize_options">#organize_options</a>
+    
+    <li ><a href="#method-i-process_options_into">#process_options_into</a>
+    
+    <li ><a href="#method-i-project_options">#project_options</a>
+    
+    <li ><a href="#method-i-project_options_file">#project_options_file</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-RSpec::Core::ConfigurationOptions">
+  <h1 id="class-RSpec::Core::ConfigurationOptions" class="class">
+    class RSpec::Core::ConfigurationOptions
+  </h1>
+
+  <section class="description">
+    
+<p>Responsible for utilizing externally provided configuration options,
+whether via the command line, `.rspec`, `~/.rspec`, `.rspec-local` or a
+custom options file.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="OPTIONS_ORDER">OPTIONS_ORDER
+        
+        <dd>
+        
+      
+        <dt id="UNFORCED_OPTIONS">UNFORCED_OPTIONS
+        
+        <dd>
+        
+      
+        <dt id="UNPROCESSABLE_OPTIONS">UNPROCESSABLE_OPTIONS
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-options" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">options</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>@return [Hash] the final merged options, drawn from all external sources</p>
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@param args [Array&lt;String&gt;] command line arguments</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/rspec/core/configuration_options.rb, line 12</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">args</span>)
+  <span class="ruby-ivar">@args</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">dup</span>
+  <span class="ruby-identifier">organize_options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-configure" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">configure</span><span
+            class="method-args">(config)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Updates the provided {Configuration} instance based on the provided
+external configuration options.</p>
+
+<p>@param config [Configuration] the configuration instance to update</p>
+          
+          
+
+          
+          <div class="method-source-code" id="configure-source">
+            <pre><span class="ruby-comment"># File lib/rspec/core/configuration_options.rb, line 21</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">configure</span>(<span class="ruby-identifier">config</span>)
+  <span class="ruby-identifier">process_options_into</span> <span class="ruby-identifier">config</span>
+  <span class="ruby-identifier">configure_filter_manager</span> <span class="ruby-identifier">config</span>.<span class="ruby-identifier">filter_manager</span>
+  <span class="ruby-identifier">load_formatters_into</span> <span class="ruby-identifier">config</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-configure_filter_manager" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">configure_filter_manager</span><span
+            class="method-args">(filter_manager)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@api private Updates the provided {FilterManager} based on the filter
+options. @param filter_manager [FilterManager] instance to update</p>
+          
+          
+
+          
+          <div class="method-source-code" id="configure_filter_manager-source">
+            <pre><span class="ruby-comment"># File lib/rspec/core/configuration_options.rb, line 30</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">configure_filter_manager</span>(<span class="ruby-identifier">filter_manager</span>)
+  <span class="ruby-ivar">@filter_manager_options</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">command</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">filter_manager</span>.<span class="ruby-identifier">__send__</span> <span class="ruby-identifier">command</span>, <span class="ruby-identifier">value</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-args_from_options_file" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">args_from_options_file</span><span
+            class="method-args">(path)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="args_from_options_file-source">
+            <pre><span class="ruby-comment"># File lib/rspec/core/configuration_options.rb, line 143</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">args_from_options_file</span>(<span class="ruby-identifier">path</span>)
+  <span class="ruby-keyword">return</span> [] <span class="ruby-keyword">unless</span> <span class="ruby-identifier">path</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">path</span>)
+  <span class="ruby-identifier">config_string</span> = <span class="ruby-identifier">options_file_as_erb_string</span>(<span class="ruby-identifier">path</span>)
+  <span class="ruby-constant">FlatMap</span>.<span class="ruby-identifier">flat_map</span>(<span class="ruby-identifier">config_string</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp">/\n+/</span>), <span class="ruby-operator">&amp;</span><span class="ruby-value">:shellsplit</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-command_line_options" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">command_line_options</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="command_line_options-source">
+            <pre><span class="ruby-comment"># File lib/rspec/core/configuration_options.rb, line 119</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">command_line_options</span>
+  <span class="ruby-ivar">@command_line_options</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Parser</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-ivar">@args</span>).<span class="ruby-identifier">merge</span> <span class="ruby-value">:files_or_directories_to_run</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@args</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-custom_options" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">custom_options</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="custom_options-source">
+            <pre><span class="ruby-comment"># File lib/rspec/core/configuration_options.rb, line 123</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">custom_options</span>
+  <span class="ruby-identifier">options_from</span>(<span class="ruby-identifier">custom_options_file</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-custom_options_file" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">custom_options_file</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="custom_options_file-source">
+            <pre><span class="ruby-comment"># File lib/rspec/core/configuration_options.rb, line 153</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">custom_options_file</span>
+  <span class="ruby-identifier">command_line_options</span>[<span class="ruby-value">:custom_options_file</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-env_options" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">env_options</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="env_options-source">
+            <pre><span class="ruby-comment"># File lib/rspec/core/configuration_options.rb, line 115</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">env_options</span>
+  <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;SPEC_OPTS&quot;</span>] <span class="ruby-operator">?</span> <span class="ruby-constant">Parser</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-constant">Shellwords</span>.<span class="ruby-identifier">split</span>(<span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;SPEC_OPTS&quot;</span>])) <span class="ruby-operator">:</span> {}
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-file_options" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">file_options</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="file_options-source">
+            <pre><span class="ruby-comment"># File lib/rspec/core/configuration_options.rb, line 111</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">file_options</span>
+  <span class="ruby-identifier">custom_options_file</span> <span class="ruby-operator">?</span> [<span class="ruby-identifier">custom_options</span>] <span class="ruby-operator">:</span> [<span class="ruby-identifier">global_options</span>, <span class="ruby-identifier">project_options</span>, <span class="ruby-identifier">local_options</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-force-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">force?</span><span
+            class="method-args">(key)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="force-3F-source">
+            <pre><span class="ruby-comment"># File lib/rspec/core/configuration_options.rb, line 63</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">force?</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-operator">!</span><span class="ruby-constant">UNFORCED_OPTIONS</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">key</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-global_options" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">global_options</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="global_options-source">
+            <pre><span class="ruby-comment"># File lib/rspec/core/configuration_options.rb, line 135</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">global_options</span>
+  <span class="ruby-ivar">@global_options</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">options_from</span>(<span class="ruby-identifier">global_options_file</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-global_options_file" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">global_options_file</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="global_options_file-source">
+            <pre><span class="ruby-comment"># File lib/rspec/core/configuration_options.rb, line 165</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">global_options_file</span>
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-string">&quot;~&quot;</span>), <span class="ruby-string">&quot;.rspec&quot;</span>)
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">ArgumentError</span>
+  <span class="ruby-constant">RSpec</span>.<span class="ruby-identifier">warning</span> <span class="ruby-string">&quot;Unable to find ~/.rspec because the HOME environment variable is not set&quot;</span>
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-load_formatters_into" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">load_formatters_into</span><span
+            class="method-args">(config)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="load_formatters_into-source">
+            <pre><span class="ruby-comment"># File lib/rspec/core/configuration_options.rb, line 107</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">load_formatters_into</span>(<span class="ruby-identifier">config</span>)
+  <span class="ruby-identifier">options</span>[<span class="ruby-value">:formatters</span>].<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">pair</span><span class="ruby-operator">|</span> <span class="ruby-identifier">config</span>.<span class="ruby-identifier">add_formatter</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">pair</span>) } <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:formatters</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-local_options" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">local_options</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="local_options-source">
+            <pre><span class="ruby-comment"># File lib/rspec/core/configuration_options.rb, line 127</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">local_options</span>
+  <span class="ruby-ivar">@local_options</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">options_from</span>(<span class="ruby-identifier">local_options_file</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-local_options_file" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">local_options_file</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="local_options_file-source">
+            <pre><span class="ruby-comment"># File lib/rspec/core/configuration_options.rb, line 161</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">local_options_file</span>
+  <span class="ruby-string">&quot;.rspec-local&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-options_file_as_erb_string" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">options_file_as_erb_string</span><span
+            class="method-args">(path)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="options_file_as_erb_string-source">
+            <pre><span class="ruby-comment"># File lib/rspec/core/configuration_options.rb, line 149</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">options_file_as_erb_string</span>(<span class="ruby-identifier">path</span>)
+  <span class="ruby-constant">ERB</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">path</span>), <span class="ruby-keyword">nil</span>, <span class="ruby-string">&#39;-&#39;</span>).<span class="ruby-identifier">result</span>(<span class="ruby-identifier">binding</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-options_from" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">options_from</span><span
+            class="method-args">(path)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="options_from-source">
+            <pre><span class="ruby-comment"># File lib/rspec/core/configuration_options.rb, line 139</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">options_from</span>(<span class="ruby-identifier">path</span>)
+  <span class="ruby-constant">Parser</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">args_from_options_file</span>(<span class="ruby-identifier">path</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-order" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">order</span><span
+            class="method-args">(keys)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="order-source">
+            <pre><span class="ruby-comment"># File lib/rspec/core/configuration_options.rb, line 67</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">order</span>(<span class="ruby-identifier">keys</span>)
+  <span class="ruby-constant">OPTIONS_ORDER</span>.<span class="ruby-identifier">reverse</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">keys</span>.<span class="ruby-identifier">unshift</span>(<span class="ruby-identifier">key</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">keys</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">keys</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-organize_options" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">organize_options</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="organize_options-source">
+            <pre><span class="ruby-comment"># File lib/rspec/core/configuration_options.rb, line 41</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">organize_options</span>
+  <span class="ruby-ivar">@filter_manager_options</span> = []
+
+  <span class="ruby-ivar">@options</span> = (<span class="ruby-identifier">file_options</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">command_line_options</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">env_options</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">opts</span><span class="ruby-operator">|</span>
+    <span class="ruby-ivar">@filter_manager_options</span> <span class="ruby-operator">&lt;&lt;</span> [<span class="ruby-value">:include</span>, <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:inclusion_filter</span>)] <span class="ruby-keyword">if</span> <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-value">:inclusion_filter</span>)
+    <span class="ruby-ivar">@filter_manager_options</span> <span class="ruby-operator">&lt;&lt;</span> [<span class="ruby-value">:exclude</span>, <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:exclusion_filter</span>)] <span class="ruby-keyword">if</span> <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-value">:exclusion_filter</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@options</span> = <span class="ruby-ivar">@options</span>.<span class="ruby-identifier">inject</span>(<span class="ruby-value">:libs</span> =<span class="ruby-operator">&gt;</span> [], <span class="ruby-value">:requires</span> =<span class="ruby-operator">&gt;</span> []) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">hash</span>, <span class="ruby-identifier">opts</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">opts</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">oldval</span>, <span class="ruby-identifier">newval</span><span class="ruby-operator">|</span>
+      [<span class="ruby-value">:libs</span>, <span class="ruby-value">:requires</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">key</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">oldval</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">newval</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">newval</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-process_options_into" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">process_options_into</span><span
+            class="method-args">(config)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="process_options_into-source">
+            <pre><span class="ruby-comment"># File lib/rspec/core/configuration_options.rb, line 99</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">process_options_into</span>(<span class="ruby-identifier">config</span>)
+  <span class="ruby-identifier">opts</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">reject</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>, <span class="ruby-identifier">_</span><span class="ruby-operator">|</span> <span class="ruby-constant">UNPROCESSABLE_OPTIONS</span>.<span class="ruby-identifier">include?</span> <span class="ruby-identifier">k</span> }
+
+  <span class="ruby-identifier">order</span>(<span class="ruby-identifier">opts</span>.<span class="ruby-identifier">keys</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">force?</span>(<span class="ruby-identifier">key</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">config</span>.<span class="ruby-identifier">force</span>(<span class="ruby-identifier">key</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">key</span>]) <span class="ruby-operator">:</span> <span class="ruby-identifier">config</span>.<span class="ruby-identifier">__send__</span>(<span class="ruby-node">&quot;#{key}=&quot;</span>, <span class="ruby-identifier">opts</span>[<span class="ruby-identifier">key</span>])
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-project_options" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">project_options</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="project_options-source">
+            <pre><span class="ruby-comment"># File lib/rspec/core/configuration_options.rb, line 131</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">project_options</span>
+  <span class="ruby-ivar">@project_options</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">options_from</span>(<span class="ruby-identifier">project_options_file</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-project_options_file" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">project_options_file</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="project_options_file-source">
+            <pre><span class="ruby-comment"># File lib/rspec/core/configuration_options.rb, line 157</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">project_options_file</span>
+  <span class="ruby-string">&quot;.rspec&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

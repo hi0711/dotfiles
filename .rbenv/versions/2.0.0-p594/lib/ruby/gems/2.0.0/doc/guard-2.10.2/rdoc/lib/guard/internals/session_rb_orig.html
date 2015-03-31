@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>session.rb.orig - guard-2.10.2 Documentation</title>
+
+<link href="../../../fonts.css" rel="stylesheet">
+<link href="../../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../";
+</script>
+
+<script src="../../../js/jquery.js"></script>
+<script src="../../../js/navigation.js"></script>
+<script src="../../../js/search_index.js"></script>
+<script src="../../../js/search.js"></script>
+<script src="../../../js/searcher.js"></script>
+<script src="../../../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../../lib/guard_rb_orig.html">guard.rb.orig</a>
+  
+    <li><a href="../../../lib/guard/compat/test/helper_rb_orig.html">helper.rb.orig</a>
+  
+    <li><a href="../../../lib/guard/dsl_rb_orig.html">dsl.rb.orig</a>
+  
+    <li><a href="../../../lib/guard/internals/session_rb_orig.html">session.rb.orig</a>
+  
+    <li><a href="../../../lib/guard/plugin_util_rb_orig.html">plugin_util.rb.orig</a>
+  
+    <li><a href="../../../lib/guard/templates/Guardfile.html">Guardfile</a>
+  
+    <li><a href="../../../lib/guard/ui_rb_orig.html">ui.rb.orig</a>
+  
+    <li><a href="../../../lib/guard/version_rb_orig.html">version.rb.orig</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page lib/guard/internals/session.rb.orig">
+
+<p>require “guard/internals/plugins” require “guard/internals/groups”</p>
+
+<p>require “guard/options”</p>
+
+<p>module Guard</p>
+
+<pre class="ruby"><span class="ruby-comment"># @private api</span>
+<span class="ruby-keyword">module</span> <span class="ruby-constant">Internals</span>
+  <span class="ruby-comment"># TODO: split into a commandline class and session (plugins, groups)</span>
+  <span class="ruby-comment"># TODO: swap session and metadata</span>
+  <span class="ruby-comment"># This class contains variables set during</span>
+  <span class="ruby-comment"># evaluation of the guardfile (and are reset</span>
+  <span class="ruby-comment"># before reevaluation)</span>
+  <span class="ruby-keyword">class</span> <span class="ruby-constant">Session</span>
+    <span class="ruby-identifier">attr_reader</span> :<span class="ruby-identifier">options</span>
+    <span class="ruby-identifier">attr_reader</span> :<span class="ruby-identifier">plugins</span>
+    <span class="ruby-identifier">attr_reader</span> :<span class="ruby-identifier">groups</span>
+
+    <span class="ruby-constant">DEFAULT_OPTIONS</span> = {
+      <span class="ruby-identifier">clear</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>,
+      <span class="ruby-identifier">debug</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>,
+      <span class="ruby-identifier">no_bundler_warning</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>,
+
+      <span class="ruby-comment"># User defined scopes</span>
+      <span class="ruby-identifier">group</span><span class="ruby-operator">:</span> [],
+      <span class="ruby-identifier">plugin</span><span class="ruby-operator">:</span> [],
+
+      <span class="ruby-comment"># Notifier</span>
+      <span class="ruby-identifier">notify</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>,
+
+      <span class="ruby-comment"># Interactor</span>
+      <span class="ruby-identifier">no_interactions</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>,
+
+      <span class="ruby-comment"># Guardfile options:</span>
+      <span class="ruby-comment"># guardfile_contents</span>
+      <span class="ruby-identifier">guardfile</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>,
+
+      <span class="ruby-comment"># Listener options</span>
+      <span class="ruby-comment"># TODO: rename to watchdirs?</span>
+      <span class="ruby-identifier">watchdir</span><span class="ruby-operator">:</span> <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">pwd</span>,
+      <span class="ruby-identifier">latency</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>,
+      <span class="ruby-identifier">force_polling</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>,
+      <span class="ruby-identifier">wait_for_delay</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>,
+      <span class="ruby-identifier">listen_on</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>
+    }
+
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">cmdline_groups</span>
+      <span class="ruby-ivar">@cmdline_groups</span>.<span class="ruby-identifier">dup</span>.<span class="ruby-identifier">freeze</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">cmdline_plugins</span>
+      <span class="ruby-ivar">@cmdline_plugins</span>.<span class="ruby-identifier">dup</span>.<span class="ruby-identifier">freeze</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">new_options</span>)
+      <span class="ruby-ivar">@options</span> = <span class="ruby-constant">Options</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">new_options</span>, <span class="ruby-constant">DEFAULT_OPTIONS</span>)
+
+      <span class="ruby-ivar">@plugins</span> = <span class="ruby-constant">Internals</span><span class="ruby-operator">::</span><span class="ruby-constant">Plugins</span>.<span class="ruby-identifier">new</span>
+      <span class="ruby-ivar">@groups</span> = <span class="ruby-constant">Internals</span><span class="ruby-operator">::</span><span class="ruby-constant">Groups</span>.<span class="ruby-identifier">new</span>
+
+      <span class="ruby-ivar">@cmdline_groups</span> = <span class="ruby-ivar">@options</span>[:<span class="ruby-identifier">group</span>]
+      <span class="ruby-ivar">@cmdline_plugins</span> = <span class="ruby-ivar">@options</span>[:<span class="ruby-identifier">plugin</span>]
+
+      <span class="ruby-ivar">@clear</span> = <span class="ruby-ivar">@options</span>[:<span class="ruby-identifier">clear</span>]
+      <span class="ruby-ivar">@debug</span> = <span class="ruby-ivar">@options</span>[:<span class="ruby-identifier">debug</span>]
+      <span class="ruby-ivar">@watchdirs</span> = <span class="ruby-constant">Array</span>(<span class="ruby-ivar">@options</span>[:<span class="ruby-identifier">watchdir</span>])
+      <span class="ruby-ivar">@notify</span> = <span class="ruby-ivar">@options</span>[:<span class="ruby-identifier">notify</span>]
+      <span class="ruby-ivar">@interactor_name</span> = <span class="ruby-ivar">@options</span>[:<span class="ruby-identifier">no_interactions</span>] <span class="ruby-operator">?</span> :<span class="ruby-identifier">sleep</span> <span class="ruby-operator">:</span> :<span class="ruby-identifier">pry_wrapper</span>
+
+      <span class="ruby-ivar">@guardfile_plugin_scope</span> = []
+      <span class="ruby-ivar">@guardfile_group_scope</span> = []
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">guardfile_scope</span>(<span class="ruby-identifier">scope</span>)
+      <span class="ruby-identifier">opts</span> = <span class="ruby-identifier">scope</span>.<span class="ruby-identifier">dup</span>
+      <span class="ruby-ivar">@guardfile_plugin_scope</span> = <span class="ruby-constant">Array</span>(<span class="ruby-identifier">opts</span>.<span class="ruby-identifier">delete</span>(:<span class="ruby-identifier">plugins</span>))
+      <span class="ruby-ivar">@guardfile_group_scope</span> = <span class="ruby-constant">Array</span>(<span class="ruby-identifier">opts</span>.<span class="ruby-identifier">delete</span>(:<span class="ruby-identifier">groups</span>))
+      <span class="ruby-identifier">fail</span> <span class="ruby-node">&quot;Unknown options: #{opts.inspect}&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">attr_reader</span> :<span class="ruby-identifier">guardfile_group_scope</span>
+    <span class="ruby-identifier">attr_reader</span> :<span class="ruby-identifier">guardfile_plugin_scope</span>
+
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">guardfile_ignore</span>
+      <span class="ruby-identifier">fail</span> <span class="ruby-constant">NotImplementedError</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">guardfile_ignore_bang</span>
+      <span class="ruby-identifier">fail</span> <span class="ruby-constant">NotImplementedError</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">clearing</span>(<span class="ruby-identifier">on</span>)
+      <span class="ruby-ivar">@clear</span> = <span class="ruby-identifier">on</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">clearing?</span>
+      <span class="ruby-ivar">@clear</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">alias</span> :<span class="ruby-identifier">clear?</span> <span class="ruby-operator">:</span><span class="ruby-identifier">clearing?</span>
+
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">debug?</span>
+      <span class="ruby-ivar">@debug</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">watchdirs</span>
+      <span class="ruby-ivar">@watchdirs_from_guardfile</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">nil</span>
+      <span class="ruby-ivar">@watchdirs_from_guardfile</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@watchdirs</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-comment"># set by Dsl with :directories() command</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">watchdirs=</span>(<span class="ruby-identifier">dirs</span>)
+      <span class="ruby-identifier">dirs</span> = [<span class="ruby-constant">Dir</span>.<span class="ruby-identifier">pwd</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">dirs</span>.<span class="ruby-identifier">empty?</span>
+      <span class="ruby-ivar">@watchdirs_from_guardfile</span> = <span class="ruby-identifier">dirs</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">dir</span><span class="ruby-operator">|</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span> <span class="ruby-identifier">dir</span> }
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">listener_args</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[:<span class="ruby-identifier">listen_on</span>]
+        [:<span class="ruby-identifier">on</span>, <span class="ruby-identifier">options</span>[:<span class="ruby-identifier">listen_on</span>]]
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">listener_options</span> = {}
+        [:<span class="ruby-identifier">latency</span>, :<span class="ruby-identifier">force_polling</span>, :<span class="ruby-identifier">wait_for_delay</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">option</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">listener_options</span>[<span class="ruby-identifier">option</span>] = <span class="ruby-identifier">options</span>[<span class="ruby-identifier">option</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-identifier">option</span>]
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">expanded_watchdirs</span> = <span class="ruby-identifier">watchdirs</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">dir</span><span class="ruby-operator">|</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span> <span class="ruby-identifier">dir</span> }
+        [:<span class="ruby-identifier">to</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">expanded_watchdirs</span>, <span class="ruby-identifier">listener_options</span>]
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">evaluator_options</span>
+      <span class="ruby-identifier">opts</span> = { <span class="ruby-identifier">guardfile</span><span class="ruby-operator">:</span> <span class="ruby-identifier">options</span>[:<span class="ruby-identifier">guardfile</span>] }
+      <span class="ruby-comment"># TODO: deprecate :guardfile_contents</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[:<span class="ruby-identifier">guardfile_contents</span>]
+        <span class="ruby-identifier">opts</span>[:<span class="ruby-identifier">contents</span>] = <span class="ruby-identifier">options</span>[:<span class="ruby-identifier">guardfile_contents</span>]
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">opts</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">notify_options</span>
+      { <span class="ruby-identifier">notify</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@options</span>[:<span class="ruby-identifier">notify</span>] }
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">interactor_name</span>
+      <span class="ruby-ivar">@interactor_name</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>end</p>
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

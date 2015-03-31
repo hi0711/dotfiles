@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"require_empty:ETI" SexpProcessor#require_empty;TI"RW;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"ARaise an exception if the Sexp is not empty after processing;T:
+@fileI"lib/sexp_processor.rb;T:0@omit_headings_from_table_of_contents_below0F@I"SexpProcessor;TcRDoc::NormalClass0

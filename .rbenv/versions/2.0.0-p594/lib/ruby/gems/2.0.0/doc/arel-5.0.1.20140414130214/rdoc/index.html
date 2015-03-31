@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>arel-5.0.1.20140414130214 Documentation</title>
+
+<link href="./fonts.css" rel="stylesheet">
+<link href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/navigation.js"></script>
+<script src="./js/search_index.js"></script>
+<script src="./js/search.js"></script>
+<script src="./js/searcher.js"></script>
+<script src="./js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./History_txt.html">History</a>
+  
+    <li><a href="./MIT-LICENSE_txt.html">MIT-LICENSE</a>
+  
+    <li><a href="./Manifest_txt.html">Manifest</a>
+  
+    <li><a href="./README_markdown.html">README.markdown</a>
+  
+  </ul>
+</div>
+
+    <div id="classindex-section" class="nav-section">
+  <h3>Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./Arel/AliasPredication.html">Arel::AliasPredication</a>
+  
+    <li><a href="./Arel/Attributes/Attribute.html">Arel::Attributes::Attribute</a>
+  
+    <li><a href="./Arel/Attributes/Boolean.html">Arel::Attributes::Boolean</a>
+  
+    <li><a href="./Arel/Attributes/Decimal.html">Arel::Attributes::Decimal</a>
+  
+    <li><a href="./Arel/Attributes/Float.html">Arel::Attributes::Float</a>
+  
+    <li><a href="./Arel/Attributes/Integer.html">Arel::Attributes::Integer</a>
+  
+    <li><a href="./Arel/Attributes/String.html">Arel::Attributes::String</a>
+  
+    <li><a href="./Arel/Attributes/Time.html">Arel::Attributes::Time</a>
+  
+    <li><a href="./Arel/Attributes/Undefined.html">Arel::Attributes::Undefined</a>
+  
+    <li><a href="./Arel/Compatibility.html">Arel::Compatibility</a>
+  
+    <li><a href="./Arel/Compatibility/Wheres.html">Arel::Compatibility::Wheres</a>
+  
+    <li><a href="./Arel/Compatibility/Wheres/Value.html">Arel::Compatibility::Wheres::Value</a>
+  
+    <li><a href="./Arel/Crud.html">Arel::Crud</a>
+  
+    <li><a href="./Arel/DeleteManager.html">Arel::DeleteManager</a>
+  
+    <li><a href="./Arel/Expression.html">Arel::Expression</a>
+  
+    <li><a href="./Arel/Expressions.html">Arel::Expressions</a>
+  
+    <li><a href="./Arel/FactoryMethods.html">Arel::FactoryMethods</a>
+  
+    <li><a href="./Arel/InsertManager.html">Arel::InsertManager</a>
+  
+    <li><a href="./Arel/Math.html">Arel::Math</a>
+  
+    <li><a href="./Arel/Nodes/Addition.html">Arel::Nodes::Addition</a>
+  
+    <li><a href="./Arel/Nodes/And.html">Arel::Nodes::And</a>
+  
+    <li><a href="./Arel/Nodes/Ascending.html">Arel::Nodes::Ascending</a>
+  
+    <li><a href="./Arel/Nodes/Binary.html">Arel::Nodes::Binary</a>
+  
+    <li><a href="./Arel/Nodes/BindParam.html">Arel::Nodes::BindParam</a>
+  
+    <li><a href="./Arel/Nodes/Count.html">Arel::Nodes::Count</a>
+  
+    <li><a href="./Arel/Nodes/DeleteStatement.html">Arel::Nodes::DeleteStatement</a>
+  
+    <li><a href="./Arel/Nodes/Descending.html">Arel::Nodes::Descending</a>
+  
+    <li><a href="./Arel/Nodes/Distinct.html">Arel::Nodes::Distinct</a>
+  
+    <li><a href="./Arel/Nodes/Division.html">Arel::Nodes::Division</a>
+  
+    <li><a href="./Arel/Nodes/Equality.html">Arel::Nodes::Equality</a>
+  
+    <li><a href="./Arel/Nodes/Extract.html">Arel::Nodes::Extract</a>
+  
+    <li><a href="./Arel/Nodes/False.html">Arel::Nodes::False</a>
+  
+    <li><a href="./Arel/Nodes/Function.html">Arel::Nodes::Function</a>
+  
+    <li><a href="./Arel/Nodes/Grouping.html">Arel::Nodes::Grouping</a>
+  
+    <li><a href="./Arel/Nodes/In.html">Arel::Nodes::In</a>
+  
+    <li><a href="./Arel/Nodes/InfixOperation.html">Arel::Nodes::InfixOperation</a>
+  
+    <li><a href="./Arel/Nodes/InnerJoin.html">Arel::Nodes::InnerJoin</a>
+  
+    <li><a href="./Arel/Nodes/InsertStatement.html">Arel::Nodes::InsertStatement</a>
+  
+    <li><a href="./Arel/Nodes/JoinSource.html">Arel::Nodes::JoinSource</a>
+  
+    <li><a href="./Arel/Nodes/Multiplication.html">Arel::Nodes::Multiplication</a>
+  
+    <li><a href="./Arel/Nodes/NamedFunction.html">Arel::Nodes::NamedFunction</a>
+  
+    <li><a href="./Arel/Nodes/Node.html">Arel::Nodes::Node</a>
+  
+    <li><a href="./Arel/Nodes/OuterJoin.html">Arel::Nodes::OuterJoin</a>
+  
+    <li><a href="./Arel/Nodes/Over.html">Arel::Nodes::Over</a>
+  
+    <li><a href="./Arel/Nodes/SelectCore.html">Arel::Nodes::SelectCore</a>
+  
+    <li><a href="./Arel/Nodes/SelectStatement.html">Arel::Nodes::SelectStatement</a>
+  
+    <li><a href="./Arel/Nodes/SqlLiteral.html">Arel::Nodes::SqlLiteral</a>
+  
+    <li><a href="./Arel/Nodes/StringJoin.html">Arel::Nodes::StringJoin</a>
+  
+    <li><a href="./Arel/Nodes/Subtraction.html">Arel::Nodes::Subtraction</a>
+  
+    <li><a href="./Arel/Nodes/TableAlias.html">Arel::Nodes::TableAlias</a>
+  
+    <li><a href="./Arel/Nodes/True.html">Arel::Nodes::True</a>
+  
+    <li><a href="./Arel/Nodes/Unary.html">Arel::Nodes::Unary</a>
+  
+    <li><a href="./Arel/Nodes/UnqualifiedColumn.html">Arel::Nodes::UnqualifiedColumn</a>
+  
+    <li><a href="./Arel/Nodes/UpdateStatement.html">Arel::Nodes::UpdateStatement</a>
+  
+    <li><a href="./Arel/Nodes/Values.html">Arel::Nodes::Values</a>
+  
+    <li><a href="./Arel/Nodes/Window.html">Arel::Nodes::Window</a>
+  
+    <li><a href="./Arel/Nodes/With.html">Arel::Nodes::With</a>
+  
+    <li><a href="./Arel/Nodes/WithRecursive.html">Arel::Nodes::WithRecursive</a>
+  
+    <li><a href="./Arel/OrderPredications.html">Arel::OrderPredications</a>
+  
+    <li><a href="./Arel/Predications.html">Arel::Predications</a>
+  
+    <li><a href="./Arel/SelectManager.html">Arel::SelectManager</a>
+  
+    <li><a href="./Arel/SelectManager/Row.html">Arel::SelectManager::Row</a>
+  
+    <li><a href="./Arel/Sql.html">Arel::Sql</a>
+  
+    <li><a href="./Arel/Sql/Engine.html">Arel::Sql::Engine</a>
+  
+    <li><a href="./Arel/SqlLiteral.html">Arel::SqlLiteral</a>
+  
+    <li><a href="./Arel/Table.html">Arel::Table</a>
+  
+    <li><a href="./Arel/TreeManager.html">Arel::TreeManager</a>
+  
+    <li><a href="./Arel/UpdateManager.html">Arel::UpdateManager</a>
+  
+    <li><a href="./Arel/Visitors.html">Arel::Visitors</a>
+  
+    <li><a href="./Arel/Visitors/BindVisitor.html">Arel::Visitors::BindVisitor</a>
+  
+    <li><a href="./Arel/Visitors/DepthFirst.html">Arel::Visitors::DepthFirst</a>
+  
+    <li><a href="./Arel/Visitors/Dot.html">Arel::Visitors::Dot</a>
+  
+    <li><a href="./Arel/Visitors/Dot/Edge.html">Arel::Visitors::Dot::Edge</a>
+  
+    <li><a href="./Arel/Visitors/Dot/Node.html">Arel::Visitors::Dot::Node</a>
+  
+    <li><a href="./Arel/Visitors/IBM_DB.html">Arel::Visitors::IBM_DB</a>
+  
+    <li><a href="./Arel/Visitors/Informix.html">Arel::Visitors::Informix</a>
+  
+    <li><a href="./Arel/Visitors/JoinSql.html">Arel::Visitors::JoinSql</a>
+  
+    <li><a href="./Arel/Visitors/MSSQL.html">Arel::Visitors::MSSQL</a>
+  
+    <li><a href="./Arel/Visitors/MySQL.html">Arel::Visitors::MySQL</a>
+  
+    <li><a href="./Arel/Visitors/Oracle.html">Arel::Visitors::Oracle</a>
+  
+    <li><a href="./Arel/Visitors/OrderClauses.html">Arel::Visitors::OrderClauses</a>
+  
+    <li><a href="./Arel/Visitors/PostgreSQL.html">Arel::Visitors::PostgreSQL</a>
+  
+    <li><a href="./Arel/Visitors/SQLite.html">Arel::Visitors::SQLite</a>
+  
+    <li><a href="./Arel/Visitors/ToSql.html">Arel::Visitors::ToSql</a>
+  
+    <li><a href="./Arel/Visitors/Visitor.html">Arel::Visitors::Visitor</a>
+  
+    <li><a href="./Arel/Visitors/WhereSql.html">Arel::Visitors::WhereSql</a>
+  
+    <li><a href="./Arel/WindowPredications.html">Arel::WindowPredications</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main">
+
+
+<h1 id="label-Arel+rdoc-image%3Ahttps%3A%2F%2Fsecure.travis-ci.org%2Frails%2Farel.png+rdoc-image%3Ahttps%3A%2F%2Fgemnasium.com%2Frails%2Farel.png">Arel <a href="http://travis-ci.org/rails/arel"><img src="https://secure.travis-ci.org/rails/arel.png"></a> <a href="https://gemnasium.com/rails/arel"><img src="https://gemnasium.com/rails/arel.png"></a><span><a href="#label-Arel+rdoc-image%3Ahttps%3A%2F%2Fsecure.travis-ci.org%2Frails%2Farel.png+rdoc-image%3Ahttps%3A%2F%2Fgemnasium.com%2Frails%2Farel.png">&para;</a> <a href="#documentation">&uarr;</a></span></h1>
+<ul><li>
+<p><a href="http://github.com/rails/arel">github.com/rails/arel</a></p>
+</li></ul>
+
+<h2 id="label-DESCRIPTION">DESCRIPTION<span><a href="#label-DESCRIPTION">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>Arel is a SQL AST manager for Ruby. It</p>
+<ol><li>
+<p>Simplifies the generation of complex SQL queries</p>
+</li><li>
+<p>Adapts to various RDBMSes</p>
+</li></ol>
+
+<p>It is intended to be a framework framework; that is, you can build your own
+ORM with it, focusing on innovative object and collection modeling as
+opposed to database compatibility and query generation.</p>
+
+<h2 id="label-Status">Status<span><a href="#label-Status">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>For the moment, Arel uses Active Record&#39;s connection adapters to
+connect to the various engines, connection pooling, perform quoting, and do
+type conversion.</p>
+
+<h2 id="label-A+Gentle+Introduction">A Gentle Introduction<span><a href="#label-A+Gentle+Introduction">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>Generating a query with Arel is simple. For example, in order to produce</p>
+
+<pre>SELECT * FROM users</pre>
+
+<p>you construct a table relation and convert it to sql:</p>
+
+<pre class="ruby"><span class="ruby-identifier">users</span> = <span class="ruby-constant">Arel</span><span class="ruby-operator">::</span><span class="ruby-constant">Table</span>.<span class="ruby-identifier">new</span>(:<span class="ruby-identifier">users</span>)
+<span class="ruby-identifier">query</span> = <span class="ruby-identifier">users</span>.<span class="ruby-identifier">project</span>(<span class="ruby-constant">Arel</span>.<span class="ruby-identifier">sql</span>(<span class="ruby-string">&#39;*&#39;</span>))
+<span class="ruby-identifier">query</span>.<span class="ruby-identifier">to_sql</span>
+</pre>
+
+<h3 id="label-More+Sophisticated+Queries">More Sophisticated Queries<span><a href="#label-More+Sophisticated+Queries">&para;</a> <a href="#documentation">&uarr;</a></span></h3>
+
+<p>Here is a whirlwind tour through the most common relational operators.
+These will probably cover 80% of all interaction with the database.</p>
+
+<p>First is the &#39;restriction&#39; operator, <code>where</code>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">users</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">users</span>[:<span class="ruby-identifier">name</span>].<span class="ruby-identifier">eq</span>(<span class="ruby-string">&#39;amy&#39;</span>))
+<span class="ruby-comment"># =&gt; SELECT * FROM users WHERE users.name = &#39;amy&#39;</span>
+</pre>
+
+<p>What would, in SQL, be part of the <code>SELECT</code> clause is called in
+Arel a <code>projection</code>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">users</span>.<span class="ruby-identifier">project</span>(<span class="ruby-identifier">users</span>[:<span class="ruby-identifier">id</span>])
+<span class="ruby-comment"># =&gt; SELECT users.id FROM users</span>
+</pre>
+
+<p>Joins resemble SQL strongly:</p>
+
+<pre class="ruby"><span class="ruby-identifier">users</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">photos</span>).<span class="ruby-identifier">on</span>(<span class="ruby-identifier">users</span>[:<span class="ruby-identifier">id</span>].<span class="ruby-identifier">eq</span>(<span class="ruby-identifier">photos</span>[:<span class="ruby-identifier">user_id</span>]))
+<span class="ruby-comment"># =&gt; SELECT * FROM users INNER JOIN photos ON users.id = photos.user_id</span>
+</pre>
+
+<p>What are called <code>LIMIT</code> and <code>OFFSET</code> in SQL are
+called <code>take</code> and <code>skip</code> in Arel:</p>
+
+<pre class="ruby"><span class="ruby-identifier">users</span>.<span class="ruby-identifier">take</span>(<span class="ruby-value">5</span>) <span class="ruby-comment"># =&gt; SELECT * FROM users LIMIT 5</span>
+<span class="ruby-identifier">users</span>.<span class="ruby-identifier">skip</span>(<span class="ruby-value">4</span>) <span class="ruby-comment"># =&gt; SELECT * FROM users OFFSET 4</span>
+</pre>
+
+<p><code>GROUP BY</code> is called <code>group</code>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">users</span>.<span class="ruby-identifier">project</span>(<span class="ruby-identifier">users</span>[:<span class="ruby-identifier">name</span>]).<span class="ruby-identifier">group</span>(<span class="ruby-identifier">users</span>[:<span class="ruby-identifier">name</span>])
+<span class="ruby-comment"># =&gt; SELECT users.name FROM users GROUP BY users.name</span>
+</pre>
+
+<p>The best property of the Relational Algebra is its “composability”, or
+closure under all operations. For example, to restrict AND project, just
+“chain” the method invocations:</p>
+
+<pre class="ruby"><span class="ruby-identifier">users</span>                                    .<span class="ruby-identifier">where</span>(<span class="ruby-identifier">users</span>[:<span class="ruby-identifier">name</span>].<span class="ruby-identifier">eq</span>(<span class="ruby-string">&#39;amy&#39;</span>))         .<span class="ruby-identifier">project</span>(<span class="ruby-identifier">users</span>[:<span class="ruby-identifier">id</span>])                 <span class="ruby-comment"># =&gt; SELECT users.id FROM users WHERE users.name = &#39;amy&#39;</span>
+</pre>
+
+<p>All operators are chainable in this way, and they are chainable any number
+of times, in any order.</p>
+
+<pre class="ruby"><span class="ruby-identifier">users</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">users</span>[:<span class="ruby-identifier">name</span>].<span class="ruby-identifier">eq</span>(<span class="ruby-string">&#39;bob&#39;</span>)).<span class="ruby-identifier">where</span>(<span class="ruby-identifier">users</span>[:<span class="ruby-identifier">age</span>].<span class="ruby-identifier">lt</span>(<span class="ruby-value">25</span>))
+</pre>
+
+<p>The <code>OR</code> operator works like this:</p>
+
+<pre class="ruby"><span class="ruby-identifier">users</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">users</span>[:<span class="ruby-identifier">name</span>].<span class="ruby-identifier">eq</span>(<span class="ruby-string">&#39;bob&#39;</span>).<span class="ruby-identifier">or</span>(<span class="ruby-identifier">users</span>[:<span class="ruby-identifier">age</span>].<span class="ruby-identifier">lt</span>(<span class="ruby-value">25</span>)))
+</pre>
+
+<p>The <code>AND</code> operator behaves similarly.</p>
+
+<h3 id="label-The+Crazy+Features">The Crazy Features<span><a href="#label-The+Crazy+Features">&para;</a> <a href="#documentation">&uarr;</a></span></h3>
+
+<p>The examples above are fairly simple and other libraries match or come
+close to matching the expressiveness of Arel (e.g., <code>Sequel</code> in
+Ruby).</p>
+
+<h4 id="label-Inline+math+operations">Inline math operations<span><a href="#label-Inline+math+operations">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
+
+<p>Suppose we have a table <code>products</code> with prices in different
+currencies. And we have a table <code>currency_rates</code>, of constantly
+changing currency rates. In Arel:</p>
+
+<pre class="ruby"><span class="ruby-identifier">products</span> = <span class="ruby-constant">Arel</span><span class="ruby-operator">::</span><span class="ruby-constant">Table</span>.<span class="ruby-identifier">new</span>(:<span class="ruby-identifier">products</span>)
+<span class="ruby-comment"># Attributes: [:id, :name, :price, :currency_id]</span>
+
+<span class="ruby-identifier">currency_rates</span> = <span class="ruby-constant">Arel</span><span class="ruby-operator">::</span><span class="ruby-constant">Table</span>.<span class="ruby-identifier">new</span>(:<span class="ruby-identifier">currency_rates</span>)
+<span class="ruby-comment"># Attributes: [:from_id, :to_id, :date, :rate]</span>
+</pre>
+
+<p>Now, to order products by price in user preferred currency simply call:</p>
+
+<pre class="ruby"><span class="ruby-identifier">products</span>.
+  <span class="ruby-identifier">join</span>(:<span class="ruby-identifier">currency_rates</span>).<span class="ruby-identifier">on</span>(<span class="ruby-identifier">products</span>[:<span class="ruby-identifier">currency_id</span>].<span class="ruby-identifier">eq</span>(<span class="ruby-identifier">currency_rates</span>[:<span class="ruby-identifier">from_id</span>])).
+  <span class="ruby-identifier">where</span>(<span class="ruby-identifier">currency_rates</span>[:<span class="ruby-identifier">to_id</span>].<span class="ruby-identifier">eq</span>(<span class="ruby-identifier">user_preferred_currency</span>), <span class="ruby-identifier">currency_rates</span>[:<span class="ruby-identifier">date</span>].<span class="ruby-identifier">eq</span>(<span class="ruby-constant">Date</span>.<span class="ruby-identifier">today</span>)).
+  <span class="ruby-identifier">order</span>(<span class="ruby-identifier">products</span>[:<span class="ruby-identifier">price</span>] <span class="ruby-operator">*</span> <span class="ruby-identifier">currency_rates</span>[:<span class="ruby-identifier">rate</span>])
+</pre>
+
+<h4 id="label-Complex+Joins">Complex Joins<span><a href="#label-Complex+Joins">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
+
+<p>Where Arel really shines in its ability to handle complex joins and
+aggregations. As a first example, let&#39;s consider an “adjacency list”, a
+tree represented in a table. Suppose we have a table <code>comments</code>,
+representing a threaded discussion:</p>
+
+<pre class="ruby"><span class="ruby-identifier">comments</span> = <span class="ruby-constant">Arel</span><span class="ruby-operator">::</span><span class="ruby-constant">Table</span>.<span class="ruby-identifier">new</span>(:<span class="ruby-identifier">comments</span>)
+</pre>
+
+<p>And this table has the following attributes:</p>
+
+<pre class="ruby"><span class="ruby-comment"># [:id, :body, :parent_id]</span>
+</pre>
+
+<p>The <code>parent_id</code> column is a foreign key from the
+<code>comments</code> table to itself. Now, joining a table to itself
+requires aliasing in SQL. In fact, you may alias in Arel as well:</p>
+
+<pre class="ruby"><span class="ruby-identifier">replies</span> = <span class="ruby-identifier">comments</span>.<span class="ruby-identifier">alias</span>
+<span class="ruby-identifier">comments_with_replies</span> =    <span class="ruby-identifier">comments</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">replies</span>).<span class="ruby-identifier">on</span>(<span class="ruby-identifier">replies</span>[:<span class="ruby-identifier">parent_id</span>].<span class="ruby-identifier">eq</span>(<span class="ruby-identifier">comments</span>[:<span class="ruby-identifier">id</span>]))
+<span class="ruby-comment"># =&gt; SELECT * FROM comments INNER JOIN comments AS comments_2 WHERE comments_2.parent_id = comments.id</span>
+</pre>
+
+<p>This will return the first comment&#39;s reply&#39;s body.</p>
+
+<h3 id="label-License">License<span><a href="#label-License">&para;</a> <a href="#documentation">&uarr;</a></span></h3>
+
+<p>Arel is released under the <a href="http://opensource.org/licenses/MIT">MIT
+License</a>.</p>
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

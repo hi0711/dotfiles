@@ -1,0 +1,14 @@
+/Users/hi0711/.rbenv/versions/2.1.4/bin/ruby extconf.rb
+checking for labs() in stdlib.h... yes
+checking for llabs() in stdlib.h... yes
+creating Makefile
+
+make "DESTDIR=" clean
+
+make "DESTDIR="
+compiling bigdecimal.c
+linking shared-object bigdecimal.bundle
+
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 bigdecimal.bundle ./.gem.20141211-61472-15qlrae
+installing default bigdecimal libraries

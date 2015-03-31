@@ -1,0 +1,3 @@
+U:RDoc::Attr[iI"backports_memo:ETI"'Enumerator::Yielder#backports_memo;TI"RW;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[
+I"BCurrent API for Lazy Enumerator does not provide an easy way ;TI"Mto handle internal state. We "cheat" and use yielder to hold it for us. ;TI"CA new yielder is created when generating or after a `rewind`. ;TI"IThis way we avoid issues like http://bugs.ruby-lang.org/issues/7691 ;TI"-or http://bugs.ruby-lang.org/issues/7696;T:
+@fileI"+lib/backports/2.0.0/enumerable/lazy.rb;T:0@omit_headings_from_table_of_contents_below0F@I"Enumerator::Yielder;TcRDoc::NormalClass0

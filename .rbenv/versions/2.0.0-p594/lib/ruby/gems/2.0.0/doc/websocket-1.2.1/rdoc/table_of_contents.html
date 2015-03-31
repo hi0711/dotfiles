@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>Table of Contents - websocket-1.2.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" class="table-of-contents">
+<main role="main">
+<h1 class="class">Table of Contents - websocket-1.2.1 Documentation</h1>
+
+
+<h2 id="classes">Classes and Modules</h2>
+<ul>
+  <li class="module">
+    <a href="WebSocket.html">WebSocket</a>
+  </li>
+  <li class="class">
+    <a href="WebSocket/Error.html">WebSocket::Error</a>
+  </li>
+  <li class="class">
+    <a href="WebSocket/Error/Frame.html">WebSocket::Error::Frame</a>
+  </li>
+  <li class="class">
+    <a href="WebSocket/Error/Frame/ControlFramePayloadTooLong.html">WebSocket::Error::Frame::ControlFramePayloadTooLong</a>
+  </li>
+  <li class="class">
+    <a href="WebSocket/Error/Frame/DataFrameInsteadContinuation.html">WebSocket::Error::Frame::DataFrameInsteadContinuation</a>
+  </li>
+  <li class="class">
+    <a href="WebSocket/Error/Frame/FragmentedControlFrame.html">WebSocket::Error::Frame::FragmentedControlFrame</a>
+  </li>
+  <li class="class">
+    <a href="WebSocket/Error/Frame/Invalid.html">WebSocket::Error::Frame::Invalid</a>
+  </li>
+  <li class="class">
+    <a href="WebSocket/Error/Frame/InvalidPayloadEncoding.html">WebSocket::Error::Frame::InvalidPayloadEncoding</a>
+  </li>
+  <li class="class">
+    <a href="WebSocket/Error/Frame/MaskTooShort.html">WebSocket::Error::Frame::MaskTooShort</a>
+  </li>
+  <li class="class">
+    <a href="WebSocket/Error/Frame/ReservedBitUsed.html">WebSocket::Error::Frame::ReservedBitUsed</a>
+  </li>
+  <li class="class">
+    <a href="WebSocket/Error/Frame/TooLong.html">WebSocket::Error::Frame::TooLong</a>
+  </li>
+  <li class="class">
+    <a href="WebSocket/Error/Frame/UnexpectedContinuationFrame.html">WebSocket::Error::Frame::UnexpectedContinuationFrame</a>
+  </li>
+  <li class="class">
+    <a href="WebSocket/Error/Frame/UnknownCloseCode.html">WebSocket::Error::Frame::UnknownCloseCode</a>
+  </li>
+  <li class="class">
+    <a href="WebSocket/Error/Frame/UnknownFrameType.html">WebSocket::Error::Frame::UnknownFrameType</a>
+  </li>
+  <li class="class">
+    <a href="WebSocket/Error/Frame/UnknownOpcode.html">WebSocket::Error::Frame::UnknownOpcode</a>
+  </li>
+  <li class="class">
+    <a href="WebSocket/Error/Frame/UnknownVersion.html">WebSocket::Error::Frame::UnknownVersion</a>
+  </li>
+  <li class="class">
+    <a href="WebSocket/Error/Handshake.html">WebSocket::Error::Handshake</a>
+  </li>
+  <li class="class">
+    <a href="WebSocket/Error/Handshake/GetRequestRequired.html">WebSocket::Error::Handshake::GetRequestRequired</a>
+  </li>
+  <li class="class">
+    <a href="WebSocket/Error/Handshake/InvalidAuthentication.html">WebSocket::Error::Handshake::InvalidAuthentication</a>
+  </li>
+  <li class="class">
+    <a href="WebSocket/Error/Handshake/InvalidHeader.html">WebSocket::Error::Handshake::InvalidHeader</a>
+  </li>
+  <li class="class">
+    <a href="WebSocket/Error/Handshake/InvalidStatusCode.html">WebSocket::Error::Handshake::InvalidStatusCode</a>
+  </li>
+  <li class="class">
+    <a href="WebSocket/Error/Handshake/NoHostProvided.html">WebSocket::Error::Handshake::NoHostProvided</a>
+  </li>
+  <li class="class">
+    <a href="WebSocket/Error/Handshake/UnknownVersion.html">WebSocket::Error::Handshake::UnknownVersion</a>
+  </li>
+  <li class="module">
+    <a href="WebSocket/ExceptionHandler.html">WebSocket::ExceptionHandler</a>
+  </li>
+  <li class="module">
+    <a href="WebSocket/ExceptionHandler/ClassMethods.html">WebSocket::ExceptionHandler::ClassMethods</a>
+  </li>
+  <li class="module">
+    <a href="WebSocket/Frame.html">WebSocket::Frame</a>
+  </li>
+  <li class="class">
+    <a href="WebSocket/Frame/Base.html">WebSocket::Frame::Base</a>
+  </li>
+  <li class="class">
+    <a href="WebSocket/Frame/Data.html">WebSocket::Frame::Data</a>
+  </li>
+  <li class="module">
+    <a href="WebSocket/Frame/Handler.html">WebSocket::Frame::Handler</a>
+  </li>
+  <li class="class">
+    <a href="WebSocket/Frame/Handler/Base.html">WebSocket::Frame::Handler::Base</a>
+  </li>
+  <li class="class">
+    <a href="WebSocket/Frame/Handler/Handler03.html">WebSocket::Frame::Handler::Handler03</a>
+  </li>
+  <li class="class">
+    <a href="WebSocket/Frame/Handler/Handler04.html">WebSocket::Frame::Handler::Handler04</a>
+  </li>
+  <li class="class">
+    <a href="WebSocket/Frame/Handler/Handler05.html">WebSocket::Frame::Handler::Handler05</a>
+  </li>
+  <li class="class">
+    <a href="WebSocket/Frame/Handler/Handler07.html">WebSocket::Frame::Handler::Handler07</a>
+  </li>
+  <li class="class">
+    <a href="WebSocket/Frame/Handler/Handler75.html">WebSocket::Frame::Handler::Handler75</a>
+  </li>
+  <li class="class">
+    <a href="WebSocket/Frame/Incoming.html">WebSocket::Frame::Incoming</a>
+  </li>
+  <li class="class">
+    <a href="WebSocket/Frame/Incoming/Client.html">WebSocket::Frame::Incoming::Client</a>
+  </li>
+  <li class="class">
+    <a href="WebSocket/Frame/Incoming/Server.html">WebSocket::Frame::Incoming::Server</a>
+  </li>
+  <li class="class">
+    <a href="WebSocket/Frame/Outgoing.html">WebSocket::Frame::Outgoing</a>
+  </li>
+  <li class="class">
+    <a href="WebSocket/Frame/Outgoing/Client.html">WebSocket::Frame::Outgoing::Client</a>
+  </li>
+  <li class="class">
+    <a href="WebSocket/Frame/Outgoing/Server.html">WebSocket::Frame::Outgoing::Server</a>
+  </li>
+  <li class="module">
+    <a href="WebSocket/Handshake.html">WebSocket::Handshake</a>
+  </li>
+  <li class="class">
+    <a href="WebSocket/Handshake/Base.html">WebSocket::Handshake::Base</a>
+  </li>
+  <li class="class">
+    <a href="WebSocket/Handshake/Client.html">WebSocket::Handshake::Client</a>
+  </li>
+  <li class="module">
+    <a href="WebSocket/Handshake/Handler.html">WebSocket::Handshake::Handler</a>
+  </li>
+  <li class="class">
+    <a href="WebSocket/Handshake/Handler/Base.html">WebSocket::Handshake::Handler::Base</a>
+  </li>
+  <li class="class">
+    <a href="WebSocket/Handshake/Handler/Client.html">WebSocket::Handshake::Handler::Client</a>
+  </li>
+  <li class="class">
+    <a href="WebSocket/Handshake/Handler/Client01.html">WebSocket::Handshake::Handler::Client01</a>
+  </li>
+  <li class="class">
+    <a href="WebSocket/Handshake/Handler/Client04.html">WebSocket::Handshake::Handler::Client04</a>
+  </li>
+  <li class="class">
+    <a href="WebSocket/Handshake/Handler/Client75.html">WebSocket::Handshake::Handler::Client75</a>
+  </li>
+  <li class="class">
+    <a href="WebSocket/Handshake/Handler/Client76.html">WebSocket::Handshake::Handler::Client76</a>
+  </li>
+  <li class="class">
+    <a href="WebSocket/Handshake/Handler/Server.html">WebSocket::Handshake::Handler::Server</a>
+  </li>
+  <li class="class">
+    <a href="WebSocket/Handshake/Handler/Server04.html">WebSocket::Handshake::Handler::Server04</a>
+  </li>
+  <li class="class">
+    <a href="WebSocket/Handshake/Handler/Server75.html">WebSocket::Handshake::Handler::Server75</a>
+  </li>
+  <li class="class">
+    <a href="WebSocket/Handshake/Handler/Server76.html">WebSocket::Handshake::Handler::Server76</a>
+  </li>
+  <li class="class">
+    <a href="WebSocket/Handshake/Server.html">WebSocket::Handshake::Server</a>
+  </li>
+</ul>
+
+<h2 id="methods">Methods</h2>
+<ul>
+
+  <li class="method">
+    <a href="WebSocket/ExceptionHandler.html#method-c-included">::included</a>
+    &mdash;
+    <span class="container">WebSocket::ExceptionHandler</span>
+
+  <li class="method">
+    <a href="WebSocket.html#method-c-max_frame_size">::max_frame_size</a>
+    &mdash;
+    <span class="container">WebSocket</span>
+
+  <li class="method">
+    <a href="WebSocket.html#method-c-max_frame_size-3D">::max_frame_size=</a>
+    &mdash;
+    <span class="container">WebSocket</span>
+
+  <li class="method">
+    <a href="WebSocket/Frame/Data.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">WebSocket::Frame::Data</span>
+
+  <li class="method">
+    <a href="WebSocket/Frame/Base.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">WebSocket::Frame::Base</span>
+
+  <li class="method">
+    <a href="WebSocket/Frame/Handler/Base.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">WebSocket::Frame::Handler::Base</span>
+
+  <li class="method">
+    <a href="WebSocket/Handshake/Client.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">WebSocket::Handshake::Client</span>
+
+  <li class="method">
+    <a href="WebSocket/Frame/Incoming.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">WebSocket::Frame::Incoming</span>
+
+  <li class="method">
+    <a href="WebSocket/Handshake/Handler/Base.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">WebSocket::Handshake::Handler::Base</span>
+
+  <li class="method">
+    <a href="WebSocket/Handshake/Base.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">WebSocket::Handshake::Base</span>
+
+  <li class="method">
+    <a href="WebSocket/Handshake/Server.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">WebSocket::Handshake::Server</span>
+
+  <li class="method">
+    <a href="WebSocket.html#method-c-should_raise">::should_raise</a>
+    &mdash;
+    <span class="container">WebSocket</span>
+
+  <li class="method">
+    <a href="WebSocket.html#method-c-should_raise-3D">::should_raise=</a>
+    &mdash;
+    <span class="container">WebSocket</span>
+
+  <li class="method">
+    <a href="WebSocket/Handshake/Client.html#method-i-3C-3C">#&lt;&lt;</a>
+    &mdash;
+    <span class="container">WebSocket::Handshake::Client</span>
+
+  <li class="method">
+    <a href="WebSocket/Handshake/Base.html#method-i-3C-3C">#&lt;&lt;</a>
+    &mdash;
+    <span class="container">WebSocket::Handshake::Base</span>
+
+  <li class="method">
+    <a href="WebSocket/Frame/Data.html#method-i-3C-3C">#&lt;&lt;</a>
+    &mdash;
+    <span class="container">WebSocket::Frame::Data</span>
+
+  <li class="method">
+    <a href="WebSocket/Handshake/Server.html#method-i-3C-3C">#&lt;&lt;</a>
+    &mdash;
+    <span class="container">WebSocket::Handshake::Server</span>
+
+  <li class="method">
+    <a href="WebSocket/Frame/Incoming.html#method-i-3C-3C">#&lt;&lt;</a>
+    &mdash;
+    <span class="container">WebSocket::Frame::Incoming</span>
+
+  <li class="method">
+    <a href="WebSocket/Handshake/Handler/Client04.html#method-i-accept">#accept</a>
+    &mdash;
+    <span class="container">WebSocket::Handshake::Handler::Client04</span>
+
+  <li class="method">
+    <a href="WebSocket/Handshake/Handler/Client76.html#method-i-challenge">#challenge</a>
+    &mdash;
+    <span class="container">WebSocket::Handshake::Handler::Client76</span>
+
+  <li class="method">
+    <a href="WebSocket/Handshake/Handler/Server76.html#method-i-challenge_response">#challenge_response</a>
+    &mdash;
+    <span class="container">WebSocket::Handshake::Handler::Server76</span>
+
+  <li class="method">
+    <a href="WebSocket/Frame/Handler/Base.html#method-i-control_frame-3F">#control_frame?</a>
+    &mdash;
+    <span class="container">WebSocket::Frame::Handler::Base</span>
+
+  <li class="method">
+    <a href="WebSocket/Frame/Data.html#method-i-convert_args">#convert_args</a>
+    &mdash;
+    <span class="container">WebSocket::Frame::Data</span>
+
+  <li class="method">
+    <a href="WebSocket/Frame/Handler/Base.html#method-i-data_frame-3F">#data_frame?</a>
+    &mdash;
+    <span class="container">WebSocket::Frame::Handler::Base</span>
+
+  <li class="method">
+    <a href="WebSocket/Frame/Handler/Base.html#method-i-decode_frame">#decode_frame</a>
+    &mdash;
+    <span class="container">WebSocket::Frame::Handler::Base</span>
+
+  <li class="method">
+    <a href="WebSocket/Frame/Handler/Handler03.html#method-i-decode_frame">#decode_frame</a>
+    &mdash;
+    <span class="container">WebSocket::Frame::Handler::Handler03</span>
+
+  <li class="method">
+    <a href="WebSocket/Frame/Handler/Handler75.html#method-i-decode_frame">#decode_frame</a>
+    &mdash;
+    <span class="container">WebSocket::Frame::Handler::Handler75</span>
+
+  <li class="method">
+    <a href="WebSocket/Frame/Handler/Handler07.html#method-i-decode_frame">#decode_frame</a>
+    &mdash;
+    <span class="container">WebSocket::Frame::Handler::Handler07</span>
+
+  <li class="method">
+    <a href="WebSocket/Frame/Incoming.html#method-i-decoded-3F">#decoded?</a>
+    &mdash;
+    <span class="container">WebSocket::Frame::Incoming</span>
+
+  <li class="method">
+    <a href="WebSocket/Frame/Handler/Handler07.html#method-i-encode_frame">#encode_frame</a>
+    &mdash;
+    <span class="container">WebSocket::Frame::Handler::Handler07</span>
+
+  <li class="method">
+    <a href="WebSocket/Frame/Handler/Handler03.html#method-i-encode_frame">#encode_frame</a>
+    &mdash;
+    <span class="container">WebSocket::Frame::Handler::Handler03</span>
+
+  <li class="method">
+    <a href="WebSocket/Frame/Handler/Base.html#method-i-encode_frame">#encode_frame</a>
+    &mdash;
+    <span class="container">WebSocket::Frame::Handler::Base</span>
+
+  <li class="method">
+    <a href="WebSocket/Frame/Handler/Handler75.html#method-i-encode_frame">#encode_frame</a>
+    &mdash;
+    <span class="container">WebSocket::Frame::Handler::Handler75</span>
+
+  <li class="method">
+    <a href="WebSocket/Frame/Base.html#method-i-error-3F">#error?</a>
+    &mdash;
+    <span class="container">WebSocket::Frame::Base</span>
+
+  <li class="method">
+    <a href="WebSocket/Frame/Handler/Handler03.html#method-i-fin">#fin</a>
+    &mdash;
+    <span class="container">WebSocket::Frame::Handler::Handler03</span>
+
+  <li class="method">
+    <a href="WebSocket/Frame/Handler/Handler04.html#method-i-fin">#fin</a>
+    &mdash;
+    <span class="container">WebSocket::Frame::Handler::Handler04</span>
+
+  <li class="method">
+    <a href="WebSocket/Handshake/Base.html#method-i-finished-3F">#finished?</a>
+    &mdash;
+    <span class="container">WebSocket::Handshake::Base</span>
+
+  <li class="method">
+    <a href="WebSocket/Handshake/Handler/Client76.html#method-i-finishing_line">#finishing_line</a>
+    &mdash;
+    <span class="container">WebSocket::Handshake::Handler::Client76</span>
+
+  <li class="method">
+    <a href="WebSocket/Handshake/Handler/Base.html#method-i-finishing_line">#finishing_line</a>
+    &mdash;
+    <span class="container">WebSocket::Handshake::Handler::Base</span>
+
+  <li class="method">
+    <a href="WebSocket/Handshake/Handler/Server76.html#method-i-finishing_line">#finishing_line</a>
+    &mdash;
+    <span class="container">WebSocket::Handshake::Handler::Server76</span>
+
+  <li class="method">
+    <a href="WebSocket/Handshake/Server.html#method-i-from_hash">#from_hash</a>
+    &mdash;
+    <span class="container">WebSocket::Handshake::Server</span>
+
+  <li class="method">
+    <a href="WebSocket/Handshake/Server.html#method-i-from_rack">#from_rack</a>
+    &mdash;
+    <span class="container">WebSocket::Handshake::Server</span>
+
+  <li class="method">
+    <a href="WebSocket/Handshake/Handler/Client76.html#method-i-generate_key">#generate_key</a>
+    &mdash;
+    <span class="container">WebSocket::Handshake::Handler::Client76</span>
+
+  <li class="method">
+    <a href="WebSocket/Handshake/Handler/Client76.html#method-i-generate_key3">#generate_key3</a>
+    &mdash;
+    <span class="container">WebSocket::Handshake::Handler::Client76</span>
+
+  <li class="method">
+    <a href="WebSocket/Frame/Data.html#method-i-getbytes">#getbytes</a>
+    &mdash;
+    <span class="container">WebSocket::Frame::Data</span>
+
+  <li class="method">
+    <a href="WebSocket/Handshake/Handler/Client75.html#method-i-handshake_keys">#handshake_keys</a>
+    &mdash;
+    <span class="container">WebSocket::Handshake::Handler::Client75</span>
+
+  <li class="method">
+    <a href="WebSocket/Handshake/Handler/Client01.html#method-i-handshake_keys">#handshake_keys</a>
+    &mdash;
+    <span class="container">WebSocket::Handshake::Handler::Client01</span>
+
+  <li class="method">
+    <a href="WebSocket/Handshake/Handler/Base.html#method-i-handshake_keys">#handshake_keys</a>
+    &mdash;
+    <span class="container">WebSocket::Handshake::Handler::Base</span>
+
+  <li class="method">
+    <a href="WebSocket/Handshake/Handler/Server75.html#method-i-handshake_keys">#handshake_keys</a>
+    &mdash;
+    <span class="container">WebSocket::Handshake::Handler::Server75</span>
+
+  <li class="method">
+    <a href="WebSocket/Handshake/Handler/Client76.html#method-i-handshake_keys">#handshake_keys</a>
+    &mdash;
+    <span class="container">WebSocket::Handshake::Handler::Client76</span>
+
+  <li class="method">
+    <a href="WebSocket/Handshake/Handler/Server76.html#method-i-handshake_keys">#handshake_keys</a>
+    &mdash;
+    <span class="container">WebSocket::Handshake::Handler::Server76</span>
+
+  <li class="method">
+    <a href="WebSocket/Handshake/Handler/Client04.html#method-i-handshake_keys">#handshake_keys</a>
+    &mdash;
+    <span class="container">WebSocket::Handshake::Handler::Client04</span>
+
+  <li class="method">
+    <a href="WebSocket/Handshake/Handler/Client.html#method-i-handshake_keys">#handshake_keys</a>
+    &mdash;
+    <span class="container">WebSocket::Handshake::Handler::Client</span>
+
+  <li class="method">
+    <a href="WebSocket/Handshake/Handler/Server04.html#method-i-handshake_keys">#handshake_keys</a>
+    &mdash;
+    <span class="container">WebSocket::Handshake::Handler::Server04</span>
+
+  <li class="method">
+    <a href="WebSocket/Frame/Handler/Handler07.html#method-i-has_close_code-3F">#has_close_code?</a>
+    &mdash;
+    <span class="container">WebSocket::Frame::Handler::Handler07</span>
+
+  <li class="method">
+    <a href="WebSocket/Handshake/Handler/Client.html#method-i-header_line">#header_line</a>
+    &mdash;
+    <span class="container">WebSocket::Handshake::Handler::Client</span>
+
+  <li class="method">
+    <a href="WebSocket/Handshake/Handler/Base.html#method-i-header_line">#header_line</a>
+    &mdash;
+    <span class="container">WebSocket::Handshake::Handler::Base</span>
+
+  <li class="method">
+    <a href="WebSocket/Handshake/Handler/Server04.html#method-i-header_line">#header_line</a>
+    &mdash;
+    <span class="container">WebSocket::Handshake::Handler::Server04</span>
+
+  <li class="method">
+    <a href="WebSocket/Handshake/Handler/Server75.html#method-i-header_line">#header_line</a>
+    &mdash;
+    <span class="container">WebSocket::Handshake::Handler::Server75</span>
+
+  <li class="method">
+    <a href="WebSocket/Handshake/Handler/Server76.html#method-i-header_line">#header_line</a>
+    &mdash;
+    <span class="container">WebSocket::Handshake::Handler::Server76</span>
+
+  <li class="method">
+    <a href="WebSocket/Handshake/Server.html#method-i-host">#host</a>
+    &mdash;
+    <span class="container">WebSocket::Handshake::Server</span>
+
+  <li class="method">
+    <a href="WebSocket/Frame/Base.html#method-i-include_version">#include_version</a>
+    &mdash;
+    <span class="container">WebSocket::Frame::Base</span>
+
+  <li class="method">
+    <a href="WebSocket/Handshake/Server.html#method-i-include_version">#include_version</a>
+    &mdash;
+    <span class="container">WebSocket::Handshake::Server</span>
+
+  <li class="method">
+    <a href="WebSocket/Handshake/Client.html#method-i-include_version">#include_version</a>
+    &mdash;
+    <span class="container">WebSocket::Handshake::Client</span>
+
+  <li class="method">
+    <a href="WebSocket/Frame/Incoming/Client.html#method-i-incoming_masking-3F">#incoming_masking?</a>
+    &mdash;
+    <span class="container">WebSocket::Frame::Incoming::Client</span>
+
+  <li class="method">
+    <a href="WebSocket/Frame/Outgoing/Server.html#method-i-incoming_masking-3F">#incoming_masking?</a>
+    &mdash;
+    <span class="container">WebSocket::Frame::Outgoing::Server</span>
+
+  <li class="method">
+    <a href="WebSocket/Frame/Incoming/Server.html#method-i-incoming_masking-3F">#incoming_masking?</a>
+    &mdash;
+    <span class="container">WebSocket::Frame::Incoming::Server</span>
+
+  <li class="method">
+    <a href="WebSocket/Frame/Outgoing/Client.html#method-i-incoming_masking-3F">#incoming_masking?</a>
+    &mdash;
+    <span class="container">WebSocket::Frame::Outgoing::Client</span>
+
+  <li class="method">
+    <a href="WebSocket/Frame/Base.html#method-i-inspect">#inspect</a>
+    &mdash;
+    <span class="container">WebSocket::Frame::Base</span>
+
+  <li class="method">
+    <a href="WebSocket/Handshake/Base.html#method-i-inspect">#inspect</a>
+    &mdash;
+    <span class="container">WebSocket::Handshake::Base</span>
+
+  <li class="method">
+    <a href="WebSocket/Handshake/Handler/Client04.html#method-i-key">#key</a>
+    &mdash;
+    <span class="container">WebSocket::Handshake::Handler::Client04</span>
+
+  <li class="method">
+    <a href="WebSocket/Handshake/Handler/Server04.html#method-i-key">#key</a>
+    &mdash;
+    <span class="container">WebSocket::Handshake::Handler::Server04</span>
+
+  <li class="method">
+    <a href="WebSocket/Handshake/Handler/Client76.html#method-i-key1">#key1</a>
+    &mdash;
+    <span class="container">WebSocket::Handshake::Handler::Client76</span>
+
+  <li class="method">
+    <a href="WebSocket/Handshake/Handler/Client76.html#method-i-key2">#key2</a>
+    &mdash;
+    <span class="container">WebSocket::Handshake::Handler::Client76</span>
+
+  <li class="method">
+    <a href="WebSocket/Handshake/Handler/Client76.html#method-i-key3">#key3</a>
+    &mdash;
+    <span class="container">WebSocket::Handshake::Handler::Client76</span>
+
+  <li class="method">
+    <a href="WebSocket/Handshake/Base.html#method-i-leftovers">#leftovers</a>
+    &mdash;
+    <span class="container">WebSocket::Handshake::Base</span>
+
+  <li class="method">
+    <a href="WebSocket/Frame/Data.html#method-i-mask">#mask</a>
+    &mdash;
+    <span class="container">WebSocket::Frame::Data</span>
+
+  <li class="method">
+    <a href="WebSocket/Frame/Handler/Handler05.html#method-i-masking-3F">#masking?</a>
+    &mdash;
+    <span class="container">WebSocket::Frame::Handler::Handler05</span>
+
+  <li class="method">
+    <a href="WebSocket/Frame/Handler/Handler03.html#method-i-masking-3F">#masking?</a>
+    &mdash;
+    <span class="container">WebSocket::Frame::Handler::Handler03</span>
+
+  <li class="method">
+    <a href="WebSocket/Error/Frame/ControlFramePayloadTooLong.html#method-i-message">#message</a>
+    &mdash;
+    <span class="container">WebSocket::Error::Frame::ControlFramePayloadTooLong</span>
+
+  <li class="method">
+    <a href="WebSocket/Error/Handshake/NoHostProvided.html#method-i-message">#message</a>
+    &mdash;
+    <span class="container">WebSocket::Error::Handshake::NoHostProvided</span>
+
+  <li class="method">
+    <a href="WebSocket/Error/Frame/DataFrameInsteadContinuation.html#method-i-message">#message</a>
+    &mdash;
+    <span class="container">WebSocket::Error::Frame::DataFrameInsteadContinuation</span>
+
+  <li class="method">
+    <a href="WebSocket/Error/Frame/FragmentedControlFrame.html#method-i-message">#message</a>
+    &mdash;
+    <span class="container">WebSocket::Error::Frame::FragmentedControlFrame</span>
+
+  <li class="method">
+    <a href="WebSocket/Error/Handshake/InvalidStatusCode.html#method-i-message">#message</a>
+    &mdash;
+    <span class="container">WebSocket::Error::Handshake::InvalidStatusCode</span>
+
+  <li class="method">
+    <a href="WebSocket/Error/Frame/Invalid.html#method-i-message">#message</a>
+    &mdash;
+    <span class="container">WebSocket::Error::Frame::Invalid</span>
+
+  <li class="method">
+    <a href="WebSocket/Error/Frame/InvalidPayloadEncoding.html#method-i-message">#message</a>
+    &mdash;
+    <span class="container">WebSocket::Error::Frame::InvalidPayloadEncoding</span>
+
+  <li class="method">
+    <a href="WebSocket/Error/Frame/MaskTooShort.html#method-i-message">#message</a>
+    &mdash;
+    <span class="container">WebSocket::Error::Frame::MaskTooShort</span>
+
+  <li class="method">
+    <a href="WebSocket/Error/Frame/UnknownOpcode.html#method-i-message">#message</a>
+    &mdash;
+    <span class="container">WebSocket::Error::Frame::UnknownOpcode</span>
+
+  <li class="method">
+    <a href="WebSocket/Error/Handshake/InvalidHeader.html#method-i-message">#message</a>
+    &mdash;
+    <span class="container">WebSocket::Error::Handshake::InvalidHeader</span>
+
+  <li class="method">
+    <a href="WebSocket/Error/Handshake/InvalidAuthentication.html#method-i-message">#message</a>
+    &mdash;
+    <span class="container">WebSocket::Error::Handshake::InvalidAuthentication</span>
+
+  <li class="method">
+    <a href="WebSocket/Error/Handshake/GetRequestRequired.html#method-i-message">#message</a>
+    &mdash;
+    <span class="container">WebSocket::Error::Handshake::GetRequestRequired</span>
+
+  <li class="method">
+    <a href="WebSocket/Error/Frame/UnexpectedContinuationFrame.html#method-i-message">#message</a>
+    &mdash;
+    <span class="container">WebSocket::Error::Frame::UnexpectedContinuationFrame</span>
+
+  <li class="method">
+    <a href="WebSocket/Error/Frame/UnknownVersion.html#method-i-message">#message</a>
+    &mdash;
+    <span class="container">WebSocket::Error::Frame::UnknownVersion</span>
+
+  <li class="method">
+    <a href="WebSocket/Error/Frame/UnknownFrameType.html#method-i-message">#message</a>
+    &mdash;
+    <span class="container">WebSocket::Error::Frame::UnknownFrameType</span>
+
+  <li class="method">
+    <a href="WebSocket/Error/Frame/TooLong.html#method-i-message">#message</a>
+    &mdash;
+    <span class="container">WebSocket::Error::Frame::TooLong</span>
+
+  <li class="method">
+    <a href="WebSocket/Error/Frame/UnknownCloseCode.html#method-i-message">#message</a>
+    &mdash;
+    <span class="container">WebSocket::Error::Frame::UnknownCloseCode</span>
+
+  <li class="method">
+    <a href="WebSocket/Error/Handshake/UnknownVersion.html#method-i-message">#message</a>
+    &mdash;
+    <span class="container">WebSocket::Error::Handshake::UnknownVersion</span>
+
+  <li class="method">
+    <a href="WebSocket/Error/Frame/ReservedBitUsed.html#method-i-message">#message</a>
+    &mdash;
+    <span class="container">WebSocket::Error::Frame::ReservedBitUsed</span>
+
+  <li class="method">
+    <a href="WebSocket/Frame/Incoming.html#method-i-next">#next</a>
+    &mdash;
+    <span class="container">WebSocket::Frame::Incoming</span>
+
+  <li class="method">
+    <a href="WebSocket/Handshake/Handler/Server76.html#method-i-numbers_over_spaces">#numbers_over_spaces</a>
+    &mdash;
+    <span class="container">WebSocket::Handshake::Handler::Server76</span>
+
+  <li class="method">
+    <a href="WebSocket/Frame/Handler/Handler03.html#method-i-opcode_to_type">#opcode_to_type</a>
+    &mdash;
+    <span class="container">WebSocket::Frame::Handler::Handler03</span>
+
+  <li class="method">
+    <a href="WebSocket/Frame/Handler/Handler07.html#method-i-opcode_to_type">#opcode_to_type</a>
+    &mdash;
+    <span class="container">WebSocket::Frame::Handler::Handler07</span>
+
+  <li class="method">
+    <a href="WebSocket/Frame/Incoming/Server.html#method-i-outgoing_masking-3F">#outgoing_masking?</a>
+    &mdash;
+    <span class="container">WebSocket::Frame::Incoming::Server</span>
+
+  <li class="method">
+    <a href="WebSocket/Frame/Incoming/Client.html#method-i-outgoing_masking-3F">#outgoing_masking?</a>
+    &mdash;
+    <span class="container">WebSocket::Frame::Incoming::Client</span>
+
+  <li class="method">
+    <a href="WebSocket/Frame/Outgoing/Client.html#method-i-outgoing_masking-3F">#outgoing_masking?</a>
+    &mdash;
+    <span class="container">WebSocket::Frame::Outgoing::Client</span>
+
+  <li class="method">
+    <a href="WebSocket/Frame/Outgoing/Server.html#method-i-outgoing_masking-3F">#outgoing_masking?</a>
+    &mdash;
+    <span class="container">WebSocket::Frame::Outgoing::Server</span>
+
+  <li class="method">
+    <a href="WebSocket/Handshake/Base.html#method-i-parse_data">#parse_data</a>
+    &mdash;
+    <span class="container">WebSocket::Handshake::Base</span>
+
+  <li class="method">
+    <a href="WebSocket/Handshake/Server.html#method-i-parse_first_line">#parse_first_line</a>
+    &mdash;
+    <span class="container">WebSocket::Handshake::Server</span>
+
+  <li class="method">
+    <a href="WebSocket/Handshake/Client.html#method-i-parse_first_line">#parse_first_line</a>
+    &mdash;
+    <span class="container">WebSocket::Handshake::Client</span>
+
+  <li class="method">
+    <a href="WebSocket/Handshake/Server.html#method-i-port">#port</a>
+    &mdash;
+    <span class="container">WebSocket::Handshake::Server</span>
+
+  <li class="method">
+    <a href="WebSocket/Frame/Outgoing.html#method-i-require_sending-3F">#require_sending?</a>
+    &mdash;
+    <span class="container">WebSocket::Frame::Outgoing</span>
+
+  <li class="method">
+    <a href="WebSocket/ExceptionHandler/ClassMethods.html#method-i-rescue_method">#rescue_method</a>
+    &mdash;
+    <span class="container">WebSocket::ExceptionHandler::ClassMethods</span>
+
+  <li class="method">
+    <a href="WebSocket/Handshake/Handler/Client76.html#method-i-reserved_leftover_lines">#reserved_leftover_lines</a>
+    &mdash;
+    <span class="container">WebSocket::Handshake::Handler::Client76</span>
+
+  <li class="method">
+    <a href="WebSocket/Handshake/Base.html#method-i-reserved_leftover_lines">#reserved_leftover_lines</a>
+    &mdash;
+    <span class="container">WebSocket::Handshake::Base</span>
+
+  <li class="method">
+    <a href="WebSocket/Handshake/Handler/Server76.html#method-i-reserved_leftover_lines">#reserved_leftover_lines</a>
+    &mdash;
+    <span class="container">WebSocket::Handshake::Handler::Server76</span>
+
+  <li class="method">
+    <a href="WebSocket/Handshake/Base.html#method-i-set_error">#set_error</a>
+    &mdash;
+    <span class="container">WebSocket::Handshake::Base</span>
+
+  <li class="method">
+    <a href="WebSocket/ExceptionHandler.html#method-i-set_error">#set_error</a>
+    &mdash;
+    <span class="container">WebSocket::ExceptionHandler</span>
+
+  <li class="method">
+    <a href="WebSocket/Frame/Data.html#method-i-set_mask">#set_mask</a>
+    &mdash;
+    <span class="container">WebSocket::Frame::Data</span>
+
+  <li class="method">
+    <a href="WebSocket/Handshake/Server.html#method-i-set_version">#set_version</a>
+    &mdash;
+    <span class="container">WebSocket::Handshake::Server</span>
+
+  <li class="method">
+    <a href="WebSocket/Handshake/Client.html#method-i-should_respond-3F">#should_respond?</a>
+    &mdash;
+    <span class="container">WebSocket::Handshake::Client</span>
+
+  <li class="method">
+    <a href="WebSocket/Handshake/Base.html#method-i-should_respond-3F">#should_respond?</a>
+    &mdash;
+    <span class="container">WebSocket::Handshake::Base</span>
+
+  <li class="method">
+    <a href="WebSocket/Handshake/Server.html#method-i-should_respond-3F">#should_respond?</a>
+    &mdash;
+    <span class="container">WebSocket::Handshake::Server</span>
+
+  <li class="method">
+    <a href="WebSocket/Handshake/Handler/Server04.html#method-i-signature">#signature</a>
+    &mdash;
+    <span class="container">WebSocket::Handshake::Handler::Server04</span>
+
+  <li class="method">
+    <a href="WebSocket/Frame/Base.html#method-i-support_type-3F">#support_type?</a>
+    &mdash;
+    <span class="container">WebSocket::Frame::Base</span>
+
+  <li class="method">
+    <a href="WebSocket/Frame/Outgoing.html#method-i-supported-3F">#supported?</a>
+    &mdash;
+    <span class="container">WebSocket::Frame::Outgoing</span>
+
+  <li class="method">
+    <a href="WebSocket/Frame/Handler/Handler03.html#method-i-supported_frames">#supported_frames</a>
+    &mdash;
+    <span class="container">WebSocket::Frame::Handler::Handler03</span>
+
+  <li class="method">
+    <a href="WebSocket/Frame/Handler/Handler75.html#method-i-supported_frames">#supported_frames</a>
+    &mdash;
+    <span class="container">WebSocket::Frame::Handler::Handler75</span>
+
+  <li class="method">
+    <a href="WebSocket/Frame/Base.html#method-i-supported_frames">#supported_frames</a>
+    &mdash;
+    <span class="container">WebSocket::Frame::Base</span>
+
+  <li class="method">
+    <a href="WebSocket/Frame/Incoming.html#method-i-to_s">#to_s</a>
+    &mdash;
+    <span class="container">WebSocket::Frame::Incoming</span>
+
+  <li class="method">
+    <a href="WebSocket/Handshake/Base.html#method-i-to_s">#to_s</a>
+    &mdash;
+    <span class="container">WebSocket::Handshake::Base</span>
+
+  <li class="method">
+    <a href="WebSocket/Frame/Outgoing.html#method-i-to_s">#to_s</a>
+    &mdash;
+    <span class="container">WebSocket::Frame::Outgoing</span>
+
+  <li class="method">
+    <a href="WebSocket/Handshake/Handler/Base.html#method-i-to_s">#to_s</a>
+    &mdash;
+    <span class="container">WebSocket::Handshake::Handler::Base</span>
+
+  <li class="method">
+    <a href="WebSocket/Frame/Handler/Handler03.html#method-i-type_to_opcode">#type_to_opcode</a>
+    &mdash;
+    <span class="container">WebSocket::Frame::Handler::Handler03</span>
+
+  <li class="method">
+    <a href="WebSocket/Frame/Handler/Handler07.html#method-i-type_to_opcode">#type_to_opcode</a>
+    &mdash;
+    <span class="container">WebSocket::Frame::Handler::Handler07</span>
+
+  <li class="method">
+    <a href="WebSocket/Frame/Data.html#method-i-unset_mask">#unset_mask</a>
+    &mdash;
+    <span class="container">WebSocket::Frame::Data</span>
+
+  <li class="method">
+    <a href="WebSocket/Handshake/Base.html#method-i-uri">#uri</a>
+    &mdash;
+    <span class="container">WebSocket::Handshake::Base</span>
+
+  <li class="method">
+    <a href="WebSocket/Handshake/Handler/Client04.html#method-i-valid-3F">#valid?</a>
+    &mdash;
+    <span class="container">WebSocket::Handshake::Handler::Client04</span>
+
+  <li class="method">
+    <a href="WebSocket/Handshake/Handler/Server04.html#method-i-valid-3F">#valid?</a>
+    &mdash;
+    <span class="container">WebSocket::Handshake::Handler::Server04</span>
+
+  <li class="method">
+    <a href="WebSocket/Handshake/Handler/Base.html#method-i-valid-3F">#valid?</a>
+    &mdash;
+    <span class="container">WebSocket::Handshake::Handler::Base</span>
+
+  <li class="method">
+    <a href="WebSocket/Handshake/Handler/Client76.html#method-i-valid-3F">#valid?</a>
+    &mdash;
+    <span class="container">WebSocket::Handshake::Handler::Client76</span>
+
+  <li class="method">
+    <a href="WebSocket/Handshake/Handler/Server76.html#method-i-valid-3F">#valid?</a>
+    &mdash;
+    <span class="container">WebSocket::Handshake::Handler::Server76</span>
+
+  <li class="method">
+    <a href="WebSocket/Handshake/Base.html#method-i-valid-3F">#valid?</a>
+    &mdash;
+    <span class="container">WebSocket::Handshake::Base</span>
+
+  <li class="method">
+    <a href="WebSocket/Frame/Handler/Handler07.html#method-i-valid_code-3F">#valid_code?</a>
+    &mdash;
+    <span class="container">WebSocket::Frame::Handler::Handler07</span>
+
+  <li class="method">
+    <a href="WebSocket/Frame/Handler/Handler07.html#method-i-valid_encoding-3F">#valid_encoding?</a>
+    &mdash;
+    <span class="container">WebSocket::Frame::Handler::Handler07</span>
+
+  <li class="method">
+    <a href="WebSocket/Handshake/Handler/Client04.html#method-i-verify_accept">#verify_accept</a>
+    &mdash;
+    <span class="container">WebSocket::Handshake::Handler::Client04</span>
+
+  <li class="method">
+    <a href="WebSocket/Handshake/Handler/Client76.html#method-i-verify_challenge">#verify_challenge</a>
+    &mdash;
+    <span class="container">WebSocket::Handshake::Handler::Client76</span>
+
+  <li class="method">
+    <a href="WebSocket/Handshake/Handler/Server04.html#method-i-verify_key">#verify_key</a>
+    &mdash;
+    <span class="container">WebSocket::Handshake::Handler::Server04</span>
+</ul>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

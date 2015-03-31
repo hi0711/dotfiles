@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>README - TZInfo</title>
+
+<link href="./fonts.css" rel="stylesheet">
+<link href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/navigation.js"></script>
+<script src="./js/search_index.js"></script>
+<script src="./js/search.js"></script>
+<script src="./js/searcher.js"></script>
+<script src="./js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#label-TZInfo+-+Ruby+Timezone+Library">TZInfo - Ruby Timezone Library</a>
+    <li><a href="#label-Data+Sources">Data Sources</a>
+    <li><a href="#label-Installation">Installation</a>
+    <li><a href="#label-Example+Usage">Example Usage</a>
+    <li><a href="#label-Thread-Safety">Thread-Safety</a>
+    <li><a href="#label-Documentation">Documentation</a>
+    <li><a href="#label-License">License</a>
+    <li><a href="#label-Source+Code">Source Code</a>
+    <li><a href="#label-Issue+Tracker">Issue Tracker</a>
+  </ul>
+</div>
+
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./CHANGES_md.html">CHANGES</a>
+  
+    <li><a href="./LICENSE.html">LICENSE</a>
+  
+    <li><a href="./README_md.html">README</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page README.md">
+
+<h1 id="label-TZInfo+-+Ruby+Timezone+Library"><a href="TZInfo.html">TZInfo</a> - Ruby Timezone Library<span><a href="#label-TZInfo+-+Ruby+Timezone+Library">&para;</a> <a href="#documentation">&uarr;</a></span></h1>
+
+<p><a href="http://badge.fury.io/rb/tzinfo"><img
+src="https://badge.fury.io/rb/tzinfo.svg"></a> <a
+href="https://travis-ci.org/tzinfo/tzinfo"><img
+src="https://travis-ci.org/tzinfo/tzinfo.svg?branch=master"></a></p>
+
+<p><a href="http://tzinfo.github.io">TZInfo</a> provides daylight savings
+aware transformations between times in different timezones.</p>
+
+<h2 id="label-Data+Sources">Data Sources<span><a href="#label-Data+Sources">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p><a href="TZInfo.html">TZInfo</a> requires a source of timezone data. There
+are two built-in options:</p>
+<ol><li>
+<p>The TZInfo::Data library (the tzinfo-data gem). TZInfo::Data contains a set
+of Ruby modules that are generated from the <a
+href="http://www.iana.org/time-zones">IANA Time Zone Database</a>.</p>
+</li><li>
+<p>A zoneinfo directory. Most Unix-like systems include a zoneinfo directory 
+containing timezone definitions. These are also generated from the  <a
+href="http://www.iana.org/time-zones">IANA Time Zone Database</a>.</p>
+</li></ol>
+
+<p>By default, TZInfo::Data will be used. If TZInfo::Data is not available
+(i.e. if <code>require &#39;tzinfo/data&#39;</code> fails), then <a
+href="TZInfo.html">TZInfo</a> will search for a zoneinfo directory instead
+(using the search path specified by
+<code>TZInfo::ZoneinfoDataSource::DEFAULT_SEARCH_PATH</code>).</p>
+
+<p>If no data source can be found, a <code>TZInfo::DataSourceNotFound</code>
+exception will be raised when <a href="TZInfo.html">TZInfo</a> is used.
+Further information is available <a
+href="http://tzinfo.github.io/datasourcenotfound">in the wiki</a> to help
+with resolving <code>TZInfo::DataSourceNotFound</code> errors.</p>
+
+<p>The default data source selection can be overridden using
+<code>TZInfo::DataSource.set</code>.</p>
+
+<p>Custom data sources can also be used. See
+<code>TZInfo::DataSource.set</code> for further details.</p>
+
+<h2 id="label-Installation">Installation<span><a href="#label-Installation">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>The <a href="TZInfo.html">TZInfo</a> gem can be installed by running:</p>
+
+<pre>gem install tzinfo</pre>
+
+<p>To use the Ruby modules as the data source, TZInfo::Data will also need to
+be installed:</p>
+
+<pre>gem install tzinfo-data</pre>
+
+<h2 id="label-Example+Usage">Example Usage<span><a href="#label-Example+Usage">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>The following code will obtain the America/New_York timezone (as an
+instance of <code>TZInfo::Timezone</code>) and convert a time in UTC to
+local New York time:</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;tzinfo&#39;</span>
+
+<span class="ruby-identifier">tz</span> = <span class="ruby-constant">TZInfo</span><span class="ruby-operator">::</span><span class="ruby-constant">Timezone</span>.<span class="ruby-identifier">get</span>(<span class="ruby-string">&#39;America/New_York&#39;</span>)
+<span class="ruby-identifier">local</span> = <span class="ruby-identifier">tz</span>.<span class="ruby-identifier">utc_to_local</span>(<span class="ruby-constant">Time</span>.<span class="ruby-identifier">utc</span>(<span class="ruby-value">2005</span>,<span class="ruby-value">8</span>,<span class="ruby-value">29</span>,<span class="ruby-value">15</span>,<span class="ruby-value">35</span>,<span class="ruby-value">0</span>))
+</pre>
+
+<p>Note that the local Time returned will have a UTC timezone
+(<code>local.zone</code> will return <code>&quot;UTC&quot;</code>). This is
+because the Ruby Time class only supports two timezones: UTC and the
+current system local timezone.</p>
+
+<p>To convert from a local time to UTC, the <code>local_to_utc</code> method
+can be used as follows:</p>
+
+<pre>utc = tz.local_to_utc(local)</pre>
+
+<p>Note that the timezone information of the local Time object is ignored
+(TZInfo will just read the date and time and treat them as if there were in
+the <code>tz</code> timezone). The following two lines will return the same
+result regardless of the system&#39;s local timezone:</p>
+
+<pre>tz.local_to_utc(Time.local(2006,6,26,1,0,0))
+tz.local_to_utc(Time.utc(2006,6,26,1,0,0))</pre>
+
+<p>To obtain information about the rules in force at a particular UTC or local
+time, the <code>TZInfo::Timezone.period_for_utc</code> and
+<code>TZInfo::Timezone.period_for_local</code> methods can be used. Both of
+these methods return <code>TZInfo::TimezonePeriod</code> objects. The
+following gets the identifier for the period (in this case EDT).</p>
+
+<pre>period = tz.period_for_utc(Time.utc(2005,8,29,15,35,0))
+id = period.zone_identifier</pre>
+
+<p>The current local time in a <code>Timezone</code> can be obtained with the
+<code>TZInfo::Timezone#now</code> method:</p>
+
+<pre>now = tz.now</pre>
+
+<p>All methods in <a href="TZInfo.html">TZInfo</a> that operate on a time can
+be used with either <code>Time</code> or <code>DateTime</code> instances or
+with Integer timestamps (i.e. as returned by <code>Time#to_i</code>). The
+type of the values returned will match the type passed in.</p>
+
+<p>A list of all the available timezone identifiers can be obtained using the
+<code>TZInfo::Timezone.all_identifiers</code> method.
+<code>TZInfo::Timezone.all</code> can be called to get an
+<code>Array</code> of all the <code>TZInfo::Timezone</code> instances.</p>
+
+<p>Timezones can also be accessed by country (using an ISO 3166-1 alpha-2
+country code). The following code retrieves the
+<code>TZInfo::Country</code> instance representing the USA (country code
+&#39;US&#39;) and then gets all the timezone identifiers used in the USA.</p>
+
+<pre>us = TZInfo::Country.get(&#39;US&#39;)
+timezones = us.zone_identifiers</pre>
+
+<p>The <code>TZInfo::Country#zone_info</code> method provides an additional
+description and geographic location for each timezone in a country.</p>
+
+<p>A list of all the available country codes can be obtained using the
+<code>TZInfo::Country.all_codes</code> method.
+<code>TZInfo::Country.all</code> can be called to get an <code>Array</code>
+of all the <code>Country</code> instances.</p>
+
+<p>For further detail, please refer to the API documentation for the
+<code>TZInfo::Timezone</code> and <code>TZInfo::Country</code> classes.</p>
+
+<h2 id="label-Thread-Safety">Thread-Safety<span><a href="#label-Thread-Safety">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>The <code>TZInfo::Country</code> and <code>TZInfo::Timezone</code> classes
+are thread-safe. It is safe to use class and instance methods of
+<code>TZInfo::Country</code> and <code>TZInfo::Timezone</code> in
+concurrently executing threads. Instances of both classes can be shared
+across thread boundaries.</p>
+
+<h2 id="label-Documentation">Documentation<span><a href="#label-Documentation">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>API documentation for <a href="TZInfo.html">TZInfo</a> is available on <a
+href="http://rubydoc.info/gems/tzinfo/frames">RubyDoc.info</a>.</p>
+
+<h2 id="label-License">License<span><a href="#label-License">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p><a href="TZInfo.html">TZInfo</a> is released under the MIT license, see <a
+href="LICENSE.html">LICENSE</a> for details.</p>
+
+<h2 id="label-Source+Code">Source Code<span><a href="#label-Source+Code">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>Source code for <a href="TZInfo.html">TZInfo</a> is available on <a
+href="https://github.com/tzinfo/tzinfo">GitHub</a>.</p>
+
+<h2 id="label-Issue+Tracker">Issue Tracker<span><a href="#label-Issue+Tracker">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>Please post any bugs, issues, feature requests or questions to the <a
+href="https://github.com/tzinfo/tzinfo/issues">GitHub issue tracker</a>.</p>
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

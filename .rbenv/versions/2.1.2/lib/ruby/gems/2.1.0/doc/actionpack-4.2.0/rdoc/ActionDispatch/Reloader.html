@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class ActionDispatch::Reloader - actionpack-4.2.0 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">Object
+  
+</div>
+
+    <div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><span class="include">ActiveSupport::Callbacks</span>
+  
+  
+  
+    <li><span class="include">ActiveSupport::Deprecation::Reporting</span>
+  
+  
+  </ul>
+</div>
+
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-cleanup-21">::cleanup!</a>
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-c-prepare-21">::prepare!</a>
+    
+    <li ><a href="#method-c-to_cleanup">::to_cleanup</a>
+    
+    <li ><a href="#method-c-to_prepare">::to_prepare</a>
+    
+    <li ><a href="#method-i-call">#call</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-ActionDispatch::Reloader">
+  <h1 id="class-ActionDispatch::Reloader" class="class">
+    class ActionDispatch::Reloader
+  </h1>
+
+  <section class="description">
+    
+<p><a href="Reloader.html">ActionDispatch::Reloader</a> provides prepare and
+cleanup callbacks, intended to assist with code reloading during
+development.</p>
+
+<p>Prepare callbacks are run before each request, and cleanup callbacks after
+each request. In this respect they are analogs of
+ActionDispatch::Callback&#39;s before and after callbacks. However, cleanup
+callbacks are not called until the request is fully complete – that is,
+after close has been called on the response body. This is important for
+streaming responses such as the following:</p>
+
+<pre class="ruby"><span class="ruby-keyword">self</span>.<span class="ruby-identifier">response_body</span> = <span class="ruby-identifier">lambda</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">response</span>, <span class="ruby-identifier">output</span><span class="ruby-operator">|</span>
+  <span class="ruby-comment"># code here which refers to application models</span>
+}
+</pre>
+
+<p>Cleanup callbacks will not be called until after the response_body lambda
+is evaluated, ensuring that it can refer to application models and other
+classes before they are unloaded.</p>
+
+<p>By default, <a href="Reloader.html">ActionDispatch::Reloader</a> is
+included in the middleware stack only in the development environment;
+specifically, when <code>config.cache_classes</code> is false. <a
+href="Callbacks.html">Callbacks</a> may be registered even when it is not
+included in the middleware stack, but are executed only when
+<code>ActionDispatch::Reloader.prepare!</code> or
+<code>ActionDispatch::Reloader.cleanup!</code> are called manually.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-cleanup-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">cleanup!</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Execute all cleanup callbacks.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="cleanup-21-source">
+            <pre><span class="ruby-comment"># File lib/action_dispatch/middleware/reloader.rb, line 59</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">cleanup!</span>
+  <span class="ruby-identifier">new</span>(<span class="ruby-keyword">nil</span>).<span class="ruby-identifier">cleanup!</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(app, condition=nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/action_dispatch/middleware/reloader.rb, line 63</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">app</span>, <span class="ruby-identifier">condition</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@app</span> = <span class="ruby-identifier">app</span>
+  <span class="ruby-ivar">@condition</span> = <span class="ruby-identifier">condition</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">lambda</span> { <span class="ruby-keyword">true</span> }
+  <span class="ruby-ivar">@validated</span> = <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-prepare-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">prepare!</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Execute all prepare callbacks.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="prepare-21-source">
+            <pre><span class="ruby-comment"># File lib/action_dispatch/middleware/reloader.rb, line 54</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">prepare!</span>
+  <span class="ruby-identifier">new</span>(<span class="ruby-keyword">nil</span>).<span class="ruby-identifier">prepare!</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-to_cleanup" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_cleanup</span><span
+            class="method-args">(*args, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Add a cleanup callback. Cleanup callbacks are run after each request is
+complete (after close is called on the response body).</p>
+          
+          
+
+          
+          <div class="method-source-code" id="to_cleanup-source">
+            <pre><span class="ruby-comment"># File lib/action_dispatch/middleware/reloader.rb, line 46</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">to_cleanup</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">block_given?</span>
+    <span class="ruby-identifier">warn</span> <span class="ruby-string">&quot;to_cleanup without a block is deprecated. Please use a block&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">set_callback</span>(<span class="ruby-value">:cleanup</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-to_prepare" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_prepare</span><span
+            class="method-args">(*args, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Add a prepare callback. Prepare callbacks are run before each request,
+prior to ActionDispatch::Callback&#39;s before callbacks.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="to_prepare-source">
+            <pre><span class="ruby-comment"># File lib/action_dispatch/middleware/reloader.rb, line 37</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">to_prepare</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">block_given?</span>
+    <span class="ruby-identifier">warn</span> <span class="ruby-string">&quot;to_prepare without a block is deprecated. Please use a block&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">set_callback</span>(<span class="ruby-value">:prepare</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-call" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">call</span><span
+            class="method-args">(env)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="call-source">
+            <pre><span class="ruby-comment"># File lib/action_dispatch/middleware/reloader.rb, line 69</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">call</span>(<span class="ruby-identifier">env</span>)
+  <span class="ruby-ivar">@validated</span> = <span class="ruby-ivar">@condition</span>.<span class="ruby-identifier">call</span>
+  <span class="ruby-identifier">prepare!</span>
+
+  <span class="ruby-identifier">response</span> = <span class="ruby-ivar">@app</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">env</span>)
+  <span class="ruby-identifier">response</span>[<span class="ruby-value">2</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">Rack</span><span class="ruby-operator">::</span><span class="ruby-constant">BodyProxy</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">response</span>[<span class="ruby-value">2</span>]) { <span class="ruby-identifier">cleanup!</span> }
+
+  <span class="ruby-identifier">response</span>
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span>
+  <span class="ruby-identifier">cleanup!</span>
+  <span class="ruby-identifier">raise</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

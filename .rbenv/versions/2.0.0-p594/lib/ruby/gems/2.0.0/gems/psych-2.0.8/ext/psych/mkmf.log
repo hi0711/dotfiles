@@ -1,0 +1,194 @@
+find_header: checking for yaml.h... -------------------- no
+
+"clang -o conftest -I/Users/hi0711/.rbenv/versions/2.0.0-p594/include/ruby-2.0.0/x86_64-darwin13.4.0 -I/Users/hi0711/.rbenv/versions/2.0.0-p594/include/ruby-2.0.0/ruby/backward -I/Users/hi0711/.rbenv/versions/2.0.0-p594/include/ruby-2.0.0 -I. -I/Users/hi0711/.rbenv/versions/2.0.0-p594/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/hi0711/.rbenv/versions/2.0.0-p594/lib -L. -L/Users/hi0711/.rbenv/versions/2.0.0-p594/lib      -lruby-static  -lpthread -ldl -lobjc "
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return 0;
+6: }
+/* end */
+
+"clang -E -I/Users/hi0711/.rbenv/versions/2.0.0-p594/include/ruby-2.0.0/x86_64-darwin13.4.0 -I/Users/hi0711/.rbenv/versions/2.0.0-p594/include/ruby-2.0.0/ruby/backward -I/Users/hi0711/.rbenv/versions/2.0.0-p594/include/ruby-2.0.0 -I. -I/Users/hi0711/.rbenv/versions/2.0.0-p594/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe  conftest.c -o conftest.i"
+conftest.c:3:10: fatal error: 'yaml.h' file not found
+#include <yaml.h>
+         ^
+1 error generated.
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <yaml.h>
+/* end */
+
+--------------------
+
+have_macro: checking for _WIN32... -------------------- no
+
+"clang -I/Users/hi0711/.rbenv/versions/2.0.0-p594/include/ruby-2.0.0/x86_64-darwin13.4.0 -I/Users/hi0711/.rbenv/versions/2.0.0-p594/include/ruby-2.0.0/ruby/backward -I/Users/hi0711/.rbenv/versions/2.0.0-p594/include/ruby-2.0.0 -I. -I./yaml -I/Users/hi0711/.rbenv/versions/2.0.0-p594/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe   -c conftest.c"
+conftest.c:5:3: error: 
+# error
+  ^
+conftest.c:6:1: error: expected identifier or '('
+|:/ === _WIN32 undefined === /:|
+^
+2 errors generated.
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: /*top*/
+4: #ifndef _WIN32
+5: # error
+6: |:/ === _WIN32 undefined === /:|
+7: #endif
+/* end */
+
+--------------------
+
+have_header: checking for dlfcn.h... -------------------- yes
+
+"clang -E -I/Users/hi0711/.rbenv/versions/2.0.0-p594/include/ruby-2.0.0/x86_64-darwin13.4.0 -I/Users/hi0711/.rbenv/versions/2.0.0-p594/include/ruby-2.0.0/ruby/backward -I/Users/hi0711/.rbenv/versions/2.0.0-p594/include/ruby-2.0.0 -I. -I./yaml -I/Users/hi0711/.rbenv/versions/2.0.0-p594/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <dlfcn.h>
+/* end */
+
+--------------------
+
+have_header: checking for inttypes.h... -------------------- yes
+
+"clang -E -I/Users/hi0711/.rbenv/versions/2.0.0-p594/include/ruby-2.0.0/x86_64-darwin13.4.0 -I/Users/hi0711/.rbenv/versions/2.0.0-p594/include/ruby-2.0.0/ruby/backward -I/Users/hi0711/.rbenv/versions/2.0.0-p594/include/ruby-2.0.0 -I. -I./yaml -I/Users/hi0711/.rbenv/versions/2.0.0-p594/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <inttypes.h>
+/* end */
+
+--------------------
+
+have_header: checking for memory.h... -------------------- yes
+
+"clang -E -I/Users/hi0711/.rbenv/versions/2.0.0-p594/include/ruby-2.0.0/x86_64-darwin13.4.0 -I/Users/hi0711/.rbenv/versions/2.0.0-p594/include/ruby-2.0.0/ruby/backward -I/Users/hi0711/.rbenv/versions/2.0.0-p594/include/ruby-2.0.0 -I. -I./yaml -I/Users/hi0711/.rbenv/versions/2.0.0-p594/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <memory.h>
+/* end */
+
+--------------------
+
+have_header: checking for stdint.h... -------------------- yes
+
+"clang -E -I/Users/hi0711/.rbenv/versions/2.0.0-p594/include/ruby-2.0.0/x86_64-darwin13.4.0 -I/Users/hi0711/.rbenv/versions/2.0.0-p594/include/ruby-2.0.0/ruby/backward -I/Users/hi0711/.rbenv/versions/2.0.0-p594/include/ruby-2.0.0 -I. -I./yaml -I/Users/hi0711/.rbenv/versions/2.0.0-p594/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <stdint.h>
+/* end */
+
+--------------------
+
+have_header: checking for stdlib.h... -------------------- yes
+
+"clang -E -I/Users/hi0711/.rbenv/versions/2.0.0-p594/include/ruby-2.0.0/x86_64-darwin13.4.0 -I/Users/hi0711/.rbenv/versions/2.0.0-p594/include/ruby-2.0.0/ruby/backward -I/Users/hi0711/.rbenv/versions/2.0.0-p594/include/ruby-2.0.0 -I. -I./yaml -I/Users/hi0711/.rbenv/versions/2.0.0-p594/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <stdlib.h>
+/* end */
+
+--------------------
+
+have_header: checking for strings.h... -------------------- yes
+
+"clang -E -I/Users/hi0711/.rbenv/versions/2.0.0-p594/include/ruby-2.0.0/x86_64-darwin13.4.0 -I/Users/hi0711/.rbenv/versions/2.0.0-p594/include/ruby-2.0.0/ruby/backward -I/Users/hi0711/.rbenv/versions/2.0.0-p594/include/ruby-2.0.0 -I. -I./yaml -I/Users/hi0711/.rbenv/versions/2.0.0-p594/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <strings.h>
+/* end */
+
+--------------------
+
+have_header: checking for string.h... -------------------- yes
+
+"clang -E -I/Users/hi0711/.rbenv/versions/2.0.0-p594/include/ruby-2.0.0/x86_64-darwin13.4.0 -I/Users/hi0711/.rbenv/versions/2.0.0-p594/include/ruby-2.0.0/ruby/backward -I/Users/hi0711/.rbenv/versions/2.0.0-p594/include/ruby-2.0.0 -I. -I./yaml -I/Users/hi0711/.rbenv/versions/2.0.0-p594/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <string.h>
+/* end */
+
+--------------------
+
+have_header: checking for sys/stat.h... -------------------- yes
+
+"clang -E -I/Users/hi0711/.rbenv/versions/2.0.0-p594/include/ruby-2.0.0/x86_64-darwin13.4.0 -I/Users/hi0711/.rbenv/versions/2.0.0-p594/include/ruby-2.0.0/ruby/backward -I/Users/hi0711/.rbenv/versions/2.0.0-p594/include/ruby-2.0.0 -I. -I./yaml -I/Users/hi0711/.rbenv/versions/2.0.0-p594/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <sys/stat.h>
+/* end */
+
+--------------------
+
+have_header: checking for sys/types.h... -------------------- yes
+
+"clang -E -I/Users/hi0711/.rbenv/versions/2.0.0-p594/include/ruby-2.0.0/x86_64-darwin13.4.0 -I/Users/hi0711/.rbenv/versions/2.0.0-p594/include/ruby-2.0.0/ruby/backward -I/Users/hi0711/.rbenv/versions/2.0.0-p594/include/ruby-2.0.0 -I. -I./yaml -I/Users/hi0711/.rbenv/versions/2.0.0-p594/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <sys/types.h>
+/* end */
+
+--------------------
+
+have_header: checking for unistd.h... -------------------- yes
+
+"clang -E -I/Users/hi0711/.rbenv/versions/2.0.0-p594/include/ruby-2.0.0/x86_64-darwin13.4.0 -I/Users/hi0711/.rbenv/versions/2.0.0-p594/include/ruby-2.0.0/ruby/backward -I/Users/hi0711/.rbenv/versions/2.0.0-p594/include/ruby-2.0.0 -I. -I./yaml -I/Users/hi0711/.rbenv/versions/2.0.0-p594/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <unistd.h>
+/* end */
+
+--------------------
+
+find_header: checking for yaml.h... -------------------- yes
+
+"clang -E -I/Users/hi0711/.rbenv/versions/2.0.0-p594/include/ruby-2.0.0/x86_64-darwin13.4.0 -I/Users/hi0711/.rbenv/versions/2.0.0-p594/include/ruby-2.0.0/ruby/backward -I/Users/hi0711/.rbenv/versions/2.0.0-p594/include/ruby-2.0.0 -I. -I./yaml -I/Users/hi0711/.rbenv/versions/2.0.0-p594/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <yaml.h>
+/* end */
+
+--------------------
+
+have_header: checking for config.h... -------------------- yes
+
+"clang -E -I/Users/hi0711/.rbenv/versions/2.0.0-p594/include/ruby-2.0.0/x86_64-darwin13.4.0 -I/Users/hi0711/.rbenv/versions/2.0.0-p594/include/ruby-2.0.0/ruby/backward -I/Users/hi0711/.rbenv/versions/2.0.0-p594/include/ruby-2.0.0 -I. -I./yaml -I/Users/hi0711/.rbenv/versions/2.0.0-p594/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <config.h>
+/* end */
+
+--------------------
+

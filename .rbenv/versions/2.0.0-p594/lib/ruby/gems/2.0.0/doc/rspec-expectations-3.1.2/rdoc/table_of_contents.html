@@ -1,0 +1,2399 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>Table of Contents - rspec-expectations-3.1.2 Documentation</title>
+
+<link href="./fonts.css" rel="stylesheet">
+<link href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/navigation.js"></script>
+<script src="./js/search_index.js"></script>
+<script src="./js/search.js"></script>
+<script src="./js/searcher.js"></script>
+<script src="./js/darkfish.js"></script>
+
+
+<body id="top" class="table-of-contents">
+<main role="main">
+<h1 class="class">Table of Contents - rspec-expectations-3.1.2 Documentation</h1>
+
+
+<h2 id="classes">Classes and Modules</h2>
+<ul>
+  <li class="class">
+    <a href="Object.html">Object</a>
+  </li>
+  <li class="module">
+    <a href="RSpec/Expectations/ExpectationHelper.html">RSpec::Expectations::ExpectationHelper</a>
+  </li>
+  <li class="class">
+    <a href="RSpec/Expectations/ExpectationTarget.html">RSpec::Expectations::ExpectationTarget</a>
+  </li>
+  <li class="class">
+    <a href="RSpec/Expectations/LegacyMacherAdapter.html">RSpec::Expectations::LegacyMacherAdapter</a>
+  </li>
+  <li class="class">
+    <a href="RSpec/Expectations/LegacyMatcherAdapter.html">RSpec::Expectations::LegacyMatcherAdapter</a>
+  </li>
+  <li class="class">
+    <a href="RSpec/Expectations/LegacyMatcherAdapter/RSpec1.html">RSpec::Expectations::LegacyMatcherAdapter::RSpec1</a>
+  </li>
+  <li class="class">
+    <a href="RSpec/Expectations/LegacyMatcherAdapter/RSpec2.html">RSpec::Expectations::LegacyMatcherAdapter::RSpec2</a>
+  </li>
+  <li class="class">
+    <a href="RSpec/Expectations/NegativeExpectationHandler.html">RSpec::Expectations::NegativeExpectationHandler</a>
+  </li>
+  <li class="class">
+    <a href="RSpec/Expectations/PositiveExpectationHandler.html">RSpec::Expectations::PositiveExpectationHandler</a>
+  </li>
+  <li class="module">
+    <a href="RSpec/Expectations/Syntax.html">RSpec::Expectations::Syntax</a>
+  </li>
+  <li class="module">
+    <a href="RSpec/Expectations/Version.html">RSpec::Expectations::Version</a>
+  </li>
+  <li class="class">
+    <a href="RSpec/Matchers/AliasedMatcher.html">RSpec::Matchers::AliasedMatcher</a>
+  </li>
+  <li class="class">
+    <a href="RSpec/Matchers/AliasedMatcherWithOperatorSupport.html">RSpec::Matchers::AliasedMatcherWithOperatorSupport</a>
+  </li>
+  <li class="class">
+    <a href="RSpec/Matchers/AliasedNegatedMatcher.html">RSpec::Matchers::AliasedNegatedMatcher</a>
+  </li>
+  <li class="class">
+    <a href="RSpec/Matchers/BuiltIn/All.html">RSpec::Matchers::BuiltIn::All</a>
+  </li>
+  <li class="class">
+    <a href="RSpec/Matchers/BuiltIn/BaseMatcher.html">RSpec::Matchers::BuiltIn::BaseMatcher</a>
+  </li>
+  <li class="module">
+    <a href="RSpec/Matchers/BuiltIn/BaseMatcher/DefaultFailureMessages.html">RSpec::Matchers::BuiltIn::BaseMatcher::DefaultFailureMessages</a>
+  </li>
+  <li class="class">
+    <a href="RSpec/Matchers/BuiltIn/Be.html">RSpec::Matchers::BuiltIn::Be</a>
+  </li>
+  <li class="class">
+    <a href="RSpec/Matchers/BuiltIn/BeAKindOf.html">RSpec::Matchers::BuiltIn::BeAKindOf</a>
+  </li>
+  <li class="class">
+    <a href="RSpec/Matchers/BuiltIn/BeAnInstanceOf.html">RSpec::Matchers::BuiltIn::BeAnInstanceOf</a>
+  </li>
+  <li class="class">
+    <a href="RSpec/Matchers/BuiltIn/BeBetween.html">RSpec::Matchers::BuiltIn::BeBetween</a>
+  </li>
+  <li class="class">
+    <a href="RSpec/Matchers/BuiltIn/BeComparedTo.html">RSpec::Matchers::BuiltIn::BeComparedTo</a>
+  </li>
+  <li class="class">
+    <a href="RSpec/Matchers/BuiltIn/BeFalsey.html">RSpec::Matchers::BuiltIn::BeFalsey</a>
+  </li>
+  <li class="module">
+    <a href="RSpec/Matchers/BuiltIn/BeHelpers.html">RSpec::Matchers::BuiltIn::BeHelpers</a>
+  </li>
+  <li class="class">
+    <a href="RSpec/Matchers/BuiltIn/BeNil.html">RSpec::Matchers::BuiltIn::BeNil</a>
+  </li>
+  <li class="class">
+    <a href="RSpec/Matchers/BuiltIn/BePredicate.html">RSpec::Matchers::BuiltIn::BePredicate</a>
+  </li>
+  <li class="class">
+    <a href="RSpec/Matchers/BuiltIn/BeTruthy.html">RSpec::Matchers::BuiltIn::BeTruthy</a>
+  </li>
+  <li class="class">
+    <a href="RSpec/Matchers/BuiltIn/BeWithin.html">RSpec::Matchers::BuiltIn::BeWithin</a>
+  </li>
+  <li class="module">
+    <a href="RSpec/Matchers/BuiltIn/CaptureStderr.html">RSpec::Matchers::BuiltIn::CaptureStderr</a>
+  </li>
+  <li class="module">
+    <a href="RSpec/Matchers/BuiltIn/CaptureStdout.html">RSpec::Matchers::BuiltIn::CaptureStdout</a>
+  </li>
+  <li class="class">
+    <a href="RSpec/Matchers/BuiltIn/Change.html">RSpec::Matchers::BuiltIn::Change</a>
+  </li>
+  <li class="class">
+    <a href="RSpec/Matchers/BuiltIn/ChangeDetails.html">RSpec::Matchers::BuiltIn::ChangeDetails</a>
+  </li>
+  <li class="class">
+    <a href="RSpec/Matchers/BuiltIn/ChangeFromValue.html">RSpec::Matchers::BuiltIn::ChangeFromValue</a>
+  </li>
+  <li class="class">
+    <a href="RSpec/Matchers/BuiltIn/ChangeRelatively.html">RSpec::Matchers::BuiltIn::ChangeRelatively</a>
+  </li>
+  <li class="class">
+    <a href="RSpec/Matchers/BuiltIn/ChangeToValue.html">RSpec::Matchers::BuiltIn::ChangeToValue</a>
+  </li>
+  <li class="class">
+    <a href="RSpec/Matchers/BuiltIn/Compound.html">RSpec::Matchers::BuiltIn::Compound</a>
+  </li>
+  <li class="class">
+    <a href="RSpec/Matchers/BuiltIn/Compound/And.html">RSpec::Matchers::BuiltIn::Compound::And</a>
+  </li>
+  <li class="class">
+    <a href="RSpec/Matchers/BuiltIn/Compound/NestedEvaluator.html">RSpec::Matchers::BuiltIn::Compound::NestedEvaluator</a>
+  </li>
+  <li class="class">
+    <a href="RSpec/Matchers/BuiltIn/Compound/Or.html">RSpec::Matchers::BuiltIn::Compound::Or</a>
+  </li>
+  <li class="class">
+    <a href="RSpec/Matchers/BuiltIn/Compound/SequentialEvaluator.html">RSpec::Matchers::BuiltIn::Compound::SequentialEvaluator</a>
+  </li>
+  <li class="class">
+    <a href="RSpec/Matchers/BuiltIn/ContainExactly.html">RSpec::Matchers::BuiltIn::ContainExactly</a>
+  </li>
+  <li class="class">
+    <a href="RSpec/Matchers/BuiltIn/ContainExactly/PairingsMaximizer.html">RSpec::Matchers::BuiltIn::ContainExactly::PairingsMaximizer</a>
+  </li>
+  <li class="class">
+    <a href="RSpec/Matchers/BuiltIn/Cover.html">RSpec::Matchers::BuiltIn::Cover</a>
+  </li>
+  <li class="class">
+    <a href="RSpec/Matchers/BuiltIn/EndWith.html">RSpec::Matchers::BuiltIn::EndWith</a>
+  </li>
+  <li class="class">
+    <a href="RSpec/Matchers/BuiltIn/Eq.html">RSpec::Matchers::BuiltIn::Eq</a>
+  </li>
+  <li class="class">
+    <a href="RSpec/Matchers/BuiltIn/Eql.html">RSpec::Matchers::BuiltIn::Eql</a>
+  </li>
+  <li class="class">
+    <a href="RSpec/Matchers/BuiltIn/Equal.html">RSpec::Matchers::BuiltIn::Equal</a>
+  </li>
+  <li class="class">
+    <a href="RSpec/Matchers/BuiltIn/Exist.html">RSpec::Matchers::BuiltIn::Exist</a>
+  </li>
+  <li class="class">
+    <a href="RSpec/Matchers/BuiltIn/Exist/ExistenceTest.html">RSpec::Matchers::BuiltIn::Exist::ExistenceTest</a>
+  </li>
+  <li class="class">
+    <a href="RSpec/Matchers/BuiltIn/Has.html">RSpec::Matchers::BuiltIn::Has</a>
+  </li>
+  <li class="class">
+    <a href="RSpec/Matchers/BuiltIn/HaveAttributes.html">RSpec::Matchers::BuiltIn::HaveAttributes</a>
+  </li>
+  <li class="class">
+    <a href="RSpec/Matchers/BuiltIn/Include.html">RSpec::Matchers::BuiltIn::Include</a>
+  </li>
+  <li class="class">
+    <a href="RSpec/Matchers/BuiltIn/Match.html">RSpec::Matchers::BuiltIn::Match</a>
+  </li>
+  <li class="module">
+    <a href="RSpec/Matchers/BuiltIn/NullCapture.html">RSpec::Matchers::BuiltIn::NullCapture</a>
+  </li>
+  <li class="class">
+    <a href="RSpec/Matchers/BuiltIn/OperatorMatcher.html">RSpec::Matchers::BuiltIn::OperatorMatcher</a>
+  </li>
+  <li class="class">
+    <a href="RSpec/Matchers/BuiltIn/Output.html">RSpec::Matchers::BuiltIn::Output</a>
+  </li>
+  <li class="class">
+    <a href="RSpec/Matchers/BuiltIn/RaiseError.html">RSpec::Matchers::BuiltIn::RaiseError</a>
+  </li>
+  <li class="class">
+    <a href="RSpec/Matchers/BuiltIn/Satisfy.html">RSpec::Matchers::BuiltIn::Satisfy</a>
+  </li>
+  <li class="class">
+    <a href="RSpec/Matchers/BuiltIn/SpecificValuesChange.html">RSpec::Matchers::BuiltIn::SpecificValuesChange</a>
+  </li>
+  <li class="class">
+    <a href="RSpec/Matchers/BuiltIn/StartAndEndWith.html">RSpec::Matchers::BuiltIn::StartAndEndWith</a>
+  </li>
+  <li class="class">
+    <a href="RSpec/Matchers/BuiltIn/StartWith.html">RSpec::Matchers::BuiltIn::StartWith</a>
+  </li>
+  <li class="class">
+    <a href="RSpec/Matchers/BuiltIn/ThrowSymbol.html">RSpec::Matchers::BuiltIn::ThrowSymbol</a>
+  </li>
+  <li class="module">
+    <a href="RSpec/Matchers/DSL.html">RSpec::Matchers::DSL</a>
+  </li>
+  <li class="module">
+    <a href="RSpec/Matchers/DSL/DefaultImplementations.html">RSpec::Matchers::DSL::DefaultImplementations</a>
+  </li>
+  <li class="module">
+    <a href="RSpec/Matchers/DSL/Macros.html">RSpec::Matchers::DSL::Macros</a>
+  </li>
+  <li class="module">
+    <a href="RSpec/Matchers/DSL/Macros/Deprecated.html">RSpec::Matchers::DSL::Macros::Deprecated</a>
+  </li>
+  <li class="class">
+    <a href="RSpec/Matchers/DSL/Matcher.html">RSpec::Matchers::DSL::Matcher</a>
+  </li>
+  <li class="class">
+    <a href="RSpec/Matchers/MatcherDelegator.html">RSpec::Matchers::MatcherDelegator</a>
+  </li>
+  <li class="class">
+    <a href="RSpec/Matchers/MatcherProtocol.html">RSpec::Matchers::MatcherProtocol</a>
+  </li>
+  <li class="module">
+    <a href="RSpec/Matchers/Pretty.html">RSpec::Matchers::Pretty</a>
+  </li>
+</ul>
+
+<h2 id="methods">Methods</h2>
+<ul>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/CaptureStdout.html#method-c-capture">::capture</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::CaptureStdout</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/NullCapture.html#method-c-capture">::capture</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::NullCapture</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/CaptureStderr.html#method-c-capture">::capture</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::CaptureStderr</span>
+
+  <li class="method">
+    <a href="RSpec/Expectations/ExpectationHelper.html#method-c-check_message">::check_message</a>
+    &mdash;
+    <span class="container">RSpec::Expectations::ExpectationHelper</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers.html#method-c-clear_generated_description">::clear_generated_description</a>
+    &mdash;
+    <span class="container">RSpec::Matchers</span>
+
+  <li class="method">
+    <a href="RSpec/Expectations/NegativeExpectationHandler.html#method-c-does_not_match-3F">::does_not_match?</a>
+    &mdash;
+    <span class="container">RSpec::Expectations::NegativeExpectationHandler</span>
+
+  <li class="method">
+    <a href="RSpec/Expectations/ExpectationTarget.html#method-c-for">::for</a>
+    &mdash;
+    <span class="container">RSpec::Expectations::ExpectationTarget</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers.html#method-c-generated_description">::generated_description</a>
+    &mdash;
+    <span class="container">RSpec::Matchers</span>
+
+  <li class="method">
+    <a href="RSpec/Expectations/ExpectationHelper.html#method-c-handle_failure">::handle_failure</a>
+    &mdash;
+    <span class="container">RSpec::Expectations::ExpectationHelper</span>
+
+  <li class="method">
+    <a href="RSpec/Expectations/PositiveExpectationHandler.html#method-c-handle_matcher">::handle_matcher</a>
+    &mdash;
+    <span class="container">RSpec::Expectations::PositiveExpectationHandler</span>
+
+  <li class="method">
+    <a href="RSpec/Expectations/NegativeExpectationHandler.html#method-c-handle_matcher">::handle_matcher</a>
+    &mdash;
+    <span class="container">RSpec::Expectations::NegativeExpectationHandler</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/BaseMatcher/DefaultFailureMessages.html#method-c-has_default_failure_messages-3F">::has_default_failure_messages?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::BaseMatcher::DefaultFailureMessages</span>
+
+  <li class="method">
+    <a href="RSpec/Expectations/LegacyMatcherAdapter/RSpec1.html#method-c-interface_matches-3F">::interface_matches?</a>
+    &mdash;
+    <span class="container">RSpec::Expectations::LegacyMatcherAdapter::RSpec1</span>
+
+  <li class="method">
+    <a href="RSpec/Expectations/LegacyMatcherAdapter/RSpec2.html#method-c-interface_matches-3F">::interface_matches?</a>
+    &mdash;
+    <span class="container">RSpec::Expectations::LegacyMatcherAdapter::RSpec2</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers.html#method-c-last_description">::last_description</a>
+    &mdash;
+    <span class="container">RSpec::Matchers</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Compound/NestedEvaluator.html#method-c-matcher_expects_call_stack_jump-3F">::matcher_expects_call_stack_jump?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Compound::NestedEvaluator</span>
+
+  <li class="method">
+    <a href="RSpec/Expectations/ExpectationHelper.html#method-c-modern_matcher_from">::modern_matcher_from</a>
+    &mdash;
+    <span class="container">RSpec::Expectations::ExpectationHelper</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/CaptureStderr.html#method-c-name">::name</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::CaptureStderr</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/NullCapture.html#method-c-name">::name</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::NullCapture</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/CaptureStdout.html#method-c-name">::name</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::CaptureStdout</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/AliasedMatcher.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::AliasedMatcher</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/ChangeRelatively.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::ChangeRelatively</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Include.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Include</span>
+
+  <li class="method">
+    <a href="RSpec/Expectations/LegacyMatcherAdapter.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RSpec::Expectations::LegacyMatcherAdapter</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Change.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Change</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/OperatorMatcher.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::OperatorMatcher</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/SpecificValuesChange.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::SpecificValuesChange</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Output.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Output</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/RaiseError.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::RaiseError</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/BeWithin.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::BeWithin</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/HaveAttributes.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::HaveAttributes</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/ChangeFromValue.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::ChangeFromValue</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/BeBetween.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::BeBetween</span>
+
+  <li class="method">
+    <a href="RSpec/Expectations/LegacyMatcherAdapter.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RSpec::Expectations::LegacyMatcherAdapter</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/ChangeToValue.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::ChangeToValue</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Has.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Has</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/All.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::All</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Satisfy.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Satisfy</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/ChangeDetails.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::ChangeDetails</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/StartAndEndWith.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::StartAndEndWith</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/ThrowSymbol.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::ThrowSymbol</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/BePredicate.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::BePredicate</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/BeComparedTo.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::BeComparedTo</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/DSL/Matcher.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::DSL::Matcher</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Compound.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Compound</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Exist.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Exist</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Compound/SequentialEvaluator.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Compound::SequentialEvaluator</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Compound/NestedEvaluator.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Compound::NestedEvaluator</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Cover.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Cover</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Be.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Be</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/MatcherDelegator.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::MatcherDelegator</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/ContainExactly/PairingsMaximizer.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::ContainExactly::PairingsMaximizer</span>
+
+  <li class="method">
+    <a href="RSpec/Expectations/ExpectationTarget.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RSpec::Expectations::ExpectationTarget</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/BaseMatcher.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::BaseMatcher</span>
+
+  <li class="method">
+    <a href="RSpec/Expectations/NegativeExpectationHandler.html#method-c-opposite_should_method">::opposite_should_method</a>
+    &mdash;
+    <span class="container">RSpec::Expectations::NegativeExpectationHandler</span>
+
+  <li class="method">
+    <a href="RSpec/Expectations/PositiveExpectationHandler.html#method-c-opposite_should_method">::opposite_should_method</a>
+    &mdash;
+    <span class="container">RSpec::Expectations::PositiveExpectationHandler</span>
+
+  <li class="method">
+    <a href="RSpec/Expectations/ExpectationHelper.html#method-c-setup">::setup</a>
+    &mdash;
+    <span class="container">RSpec::Expectations::ExpectationHelper</span>
+
+  <li class="method">
+    <a href="RSpec/Expectations/PositiveExpectationHandler.html#method-c-should_method">::should_method</a>
+    &mdash;
+    <span class="container">RSpec::Expectations::PositiveExpectationHandler</span>
+
+  <li class="method">
+    <a href="RSpec/Expectations/NegativeExpectationHandler.html#method-c-should_method">::should_method</a>
+    &mdash;
+    <span class="container">RSpec::Expectations::NegativeExpectationHandler</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/Pretty.html#method-c-split_words">::split_words</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::Pretty</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/OperatorMatcher.html#method-c-use_custom_matcher_or_delegate">::use_custom_matcher_or_delegate</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::OperatorMatcher</span>
+
+  <li class="method">
+    <a href="RSpec/Expectations/NegativeExpectationHandler.html#method-c-verb">::verb</a>
+    &mdash;
+    <span class="container">RSpec::Expectations::NegativeExpectationHandler</span>
+
+  <li class="method">
+    <a href="RSpec/Expectations/PositiveExpectationHandler.html#method-c-verb">::verb</a>
+    &mdash;
+    <span class="container">RSpec::Expectations::PositiveExpectationHandler</span>
+
+  <li class="method">
+    <a href="RSpec/Expectations/LegacyMatcherAdapter.html#method-c-wrap">::wrap</a>
+    &mdash;
+    <span class="container">RSpec::Expectations::LegacyMatcherAdapter</span>
+
+  <li class="method">
+    <a href="RSpec/Expectations/LegacyMatcherAdapter.html#method-c-wrap">::wrap</a>
+    &mdash;
+    <span class="container">RSpec::Expectations::LegacyMatcherAdapter</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/DSL/Matcher.html#method-i-actual_arg_for">#actual_arg_for</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::DSL::Matcher</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Include.html#method-i-actual_collection_includes-3F">#actual_collection_includes?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Include</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/ChangeDetails.html#method-i-actual_delta">#actual_delta</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::ChangeDetails</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Exist/ExistenceTest.html#method-i-actual_exists-3F">#actual_exists?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Exist::ExistenceTest</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/HaveAttributes.html#method-i-actual_has_attribute-3F">#actual_has_attribute?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::HaveAttributes</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Include.html#method-i-actual_hash_has_key-3F">#actual_hash_has_key?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Include</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Include.html#method-i-actual_hash_includes-3F">#actual_hash_includes?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Include</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Equal.html#method-i-actual_inspected">#actual_inspected</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Equal</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/StartAndEndWith.html#method-i-actual_is_unordered">#actual_is_unordered</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::StartAndEndWith</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Output.html#method-i-actual_output_description">#actual_output_description</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Output</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/ThrowSymbol.html#method-i-actual_result">#actual_result</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::ThrowSymbol</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/All.html#method-i-add_new_line_if_needed">#add_new_line_if_needed</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::All</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/SpecificValuesChange.html#method-i-after_value_failure">#after_value_failure</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::SpecificValuesChange</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/ContainExactly/PairingsMaximizer.html#method-i-apply_pairing_to">#apply_pairing_to</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::ContainExactly::PairingsMaximizer</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Has.html#method-i-args_description">#args_description</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Has</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/BeHelpers.html#method-i-args_to_s">#args_to_s</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::BeHelpers</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/BeHelpers.html#method-i-args_to_sentence">#args_to_sentence</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::BeHelpers</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/BaseMatcher.html#method-i-assert_ivars">#assert_ivars</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::BaseMatcher</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/SpecificValuesChange.html#method-i-before_value_failure">#before_value_failure</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::SpecificValuesChange</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/ContainExactly.html#method-i-best_solution">#best_solution</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::ContainExactly</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/ContainExactly/PairingsMaximizer.html#method-i-best_solution_for_pairing">#best_solution_for_pairing</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::ContainExactly::PairingsMaximizer</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/RaiseError.html#method-i-block_matches-3F">#block_matches?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::RaiseError</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Change.html#method-i-by">#by</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Change</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Change.html#method-i-by_at_least">#by_at_least</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Change</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Change.html#method-i-by_at_most">#by_at_most</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Change</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Output.html#method-i-captured-3F">#captured?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Output</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/ContainExactly/PairingsMaximizer.html#method-i-categorize_indexes">#categorize_indexes</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::ContainExactly::PairingsMaximizer</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/ThrowSymbol.html#method-i-caught">#caught</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::ThrowSymbol</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/DSL/Macros.html#method-i-chain">#chain</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::DSL::Macros</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/DSL/DefaultImplementations.html#method-i-chained_method_clause_sentences">#chained_method_clause_sentences</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::DSL::DefaultImplementations</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/ChangeToValue.html#method-i-change_description">#change_description</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::ChangeToValue</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/ChangeFromValue.html#method-i-change_description">#change_description</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::ChangeFromValue</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/ChangeDetails.html#method-i-changed-3F">#changed?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::ChangeDetails</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/BeBetween.html#method-i-comparable-3F">#comparable?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::BeBetween</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/BeBetween.html#method-i-compare">#compare</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::BeBetween</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Include.html#method-i-comparing_hash_keys-3F">#comparing_hash_keys?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Include</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Include.html#method-i-comparing_hash_to_a_subset-3F">#comparing_hash_to_a_subset?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Include</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Compound.html#method-i-compound_failure_message">#compound_failure_message</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Compound</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Compound/And.html#method-i-conjunction">#conjunction</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Compound::And</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Compound/Or.html#method-i-conjunction">#conjunction</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Compound::Or</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/ContainExactly.html#method-i-convert_actual_to_an_array">#convert_actual_to_an_array</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::ContainExactly</span>
+
+  <li class="method">
+    <a href="RSpec/Expectations/Syntax.html#method-i-default_should_host">#default_should_host</a>
+    &mdash;
+    <span class="container">RSpec::Expectations::Syntax</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/DSL.html#method-i-define">#define</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::DSL</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/DSL/Macros.html#method-i-define_user_override">#define_user_override</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::DSL::Macros</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Compound.html#method-i-description">#description</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Compound</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Output.html#method-i-description">#description</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Output</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/DSL/Macros.html#method-i-description">#description</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::DSL::Macros</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/ContainExactly.html#method-i-description">#description</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::ContainExactly</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/DSL/DefaultImplementations.html#method-i-description">#description</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::DSL::DefaultImplementations</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Eq.html#method-i-description">#description</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Eq</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/BeAnInstanceOf.html#method-i-description">#description</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::BeAnInstanceOf</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/OperatorMatcher.html#method-i-description">#description</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::OperatorMatcher</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/RaiseError.html#method-i-description">#description</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::RaiseError</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/BaseMatcher.html#method-i-description">#description</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::BaseMatcher</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/AliasedMatcher.html#method-i-description">#description</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::AliasedMatcher</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/BeWithin.html#method-i-description">#description</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::BeWithin</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Match.html#method-i-description">#description</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Match</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Change.html#method-i-description">#description</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Change</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/BeBetween.html#method-i-description">#description</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::BeBetween</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/BeComparedTo.html#method-i-description">#description</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::BeComparedTo</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/ThrowSymbol.html#method-i-description">#description</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::ThrowSymbol</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/BePredicate.html#method-i-description">#description</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::BePredicate</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Has.html#method-i-description">#description</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Has</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/StartAndEndWith.html#method-i-description">#description</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::StartAndEndWith</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/All.html#method-i-description">#description</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::All</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Satisfy.html#method-i-description">#description</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Satisfy</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/HaveAttributes.html#method-i-description">#description</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::HaveAttributes</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/ChangeRelatively.html#method-i-description">#description</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::ChangeRelatively</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Include.html#method-i-description">#description</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Include</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/SpecificValuesChange.html#method-i-description">#description</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::SpecificValuesChange</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Equal.html#method-i-detailed_failure_message">#detailed_failure_message</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Equal</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/SpecificValuesChange.html#method-i-did_change_failure">#did_change_failure</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::SpecificValuesChange</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/SpecificValuesChange.html#method-i-did_not_change_failure">#did_not_change_failure</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::SpecificValuesChange</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/DSL/Macros.html#method-i-diffable">#diffable</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::DSL::Macros</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/DSL/DefaultImplementations.html#method-i-diffable-3F">#diffable?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::DSL::DefaultImplementations</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Eq.html#method-i-diffable-3F">#diffable?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Eq</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Eql.html#method-i-diffable-3F">#diffable?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Eql</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Output.html#method-i-diffable-3F">#diffable?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Output</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Include.html#method-i-diffable-3F">#diffable?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Include</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Equal.html#method-i-diffable-3F">#diffable?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Equal</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Match.html#method-i-diffable-3F">#diffable?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Match</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/BaseMatcher.html#method-i-diffable-3F">#diffable?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::BaseMatcher</span>
+
+  <li class="method">
+    <a href="RSpec/Expectations/Syntax.html#method-i-disable_expect">#disable_expect</a>
+    &mdash;
+    <span class="container">RSpec::Expectations::Syntax</span>
+
+  <li class="method">
+    <a href="RSpec/Expectations/Syntax.html#method-i-disable_should">#disable_should</a>
+    &mdash;
+    <span class="container">RSpec::Expectations::Syntax</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Has.html#method-i-does_not_match-3F">#does_not_match?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Has</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/ChangeFromValue.html#method-i-does_not_match-3F">#does_not_match?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::ChangeFromValue</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Output.html#method-i-does_not_match-3F">#does_not_match?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Output</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/AliasedNegatedMatcher.html#method-i-does_not_match-3F">#does_not_match?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::AliasedNegatedMatcher</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/RaiseError.html#method-i-does_not_match-3F">#does_not_match?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::RaiseError</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/ThrowSymbol.html#method-i-does_not_match-3F">#does_not_match?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::ThrowSymbol</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Cover.html#method-i-does_not_match-3F">#does_not_match?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Cover</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/BePredicate.html#method-i-does_not_match-3F">#does_not_match?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::BePredicate</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/All.html#method-i-does_not_match-3F">#does_not_match?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::All</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/HaveAttributes.html#method-i-does_not_match-3F">#does_not_match?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::HaveAttributes</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/ChangeRelatively.html#method-i-does_not_match-3F">#does_not_match?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::ChangeRelatively</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Include.html#method-i-does_not_match-3F">#does_not_match?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Include</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Change.html#method-i-does_not_match-3F">#does_not_match?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Change</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Exist.html#method-i-does_not_match-3F">#does_not_match?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Exist</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/ChangeToValue.html#method-i-does_not_match-3F">#does_not_match?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::ChangeToValue</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Compound.html#method-i-does_not_match-3F">#does_not_match?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Compound</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/EndWith.html#method-i-element_matches-3F">#element_matches?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::EndWith</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/StartWith.html#method-i-element_matches-3F">#element_matches?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::StartWith</span>
+
+  <li class="method">
+    <a href="RSpec/Expectations/Syntax.html#method-i-enable_expect">#enable_expect</a>
+    &mdash;
+    <span class="container">RSpec::Expectations::Syntax</span>
+
+  <li class="method">
+    <a href="RSpec/Expectations/Syntax.html#method-i-enable_should">#enable_should</a>
+    &mdash;
+    <span class="container">RSpec::Expectations::Syntax</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/RaiseError.html#method-i-error_and_message_match-3F">#error_and_message_match?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::RaiseError</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/RaiseError.html#method-i-eval_block">#eval_block</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::RaiseError</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/OperatorMatcher.html#method-i-eval_match">#eval_match</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::OperatorMatcher</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/ChangeDetails.html#method-i-evaluate_value_proc">#evaluate_value_proc</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::ChangeDetails</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/BeBetween.html#method-i-exclusive">#exclusive</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::BeBetween</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Exist/ExistenceTest.html#method-i-existence_values">#existence_values</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Exist::ExistenceTest</span>
+
+  <li class="method">
+    <a href="RSpec/Expectations/Syntax.html#method-i-expect">#expect</a>
+    &mdash;
+    <span class="container">RSpec::Expectations::Syntax</span>
+
+  <li class="method">
+    <a href="Object.html#method-i-expect">#expect</a>
+    &mdash;
+    <span class="container">Object</span>
+
+  <li class="method">
+    <a href="RSpec/Expectations/Syntax.html#method-i-expect_enabled-3F">#expect_enabled?</a>
+    &mdash;
+    <span class="container">RSpec::Expectations::Syntax</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/RaiseError.html#method-i-expectation_matched-3F">#expectation_matched?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::RaiseError</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/ThrowSymbol.html#method-i-expected">#expected</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::ThrowSymbol</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/DSL/Matcher.html#method-i-expected">#expected</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::DSL::Matcher</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/RaiseError.html#method-i-expected_error">#expected_error</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::RaiseError</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Equal.html#method-i-expected_is_a_literal_singleton-3F">#expected_is_a_literal_singleton?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Equal</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/BeHelpers.html#method-i-expected_to_sentence">#expected_to_sentence</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::BeHelpers</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/RaiseError.html#method-i-expecting_specific_exception-3F">#expecting_specific_exception?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::RaiseError</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/DSL/DefaultImplementations.html#method-i-expects_call_stack_jump-3F">#expects_call_stack_jump?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::DSL::DefaultImplementations</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/ThrowSymbol.html#method-i-expects_call_stack_jump-3F">#expects_call_stack_jump?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::ThrowSymbol</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/RaiseError.html#method-i-expects_call_stack_jump-3F">#expects_call_stack_jump?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::RaiseError</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Compound.html#method-i-expects_call_stack_jump-3F">#expects_call_stack_jump?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Compound</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/BaseMatcher.html#method-i-expects_call_stack_jump-3F">#expects_call_stack_jump?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::BaseMatcher</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/ContainExactly.html#method-i-extra_items">#extra_items</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::ContainExactly</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/OperatorMatcher.html#method-i-fail_with_message">#fail_with_message</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::OperatorMatcher</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/RaiseError.html#method-i-failure_message">#failure_message</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::RaiseError</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/ChangeRelatively.html#method-i-failure_message">#failure_message</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::ChangeRelatively</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/SpecificValuesChange.html#method-i-failure_message">#failure_message</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::SpecificValuesChange</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/HaveAttributes.html#method-i-failure_message">#failure_message</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::HaveAttributes</span>
+
+  <li class="method">
+    <a href="RSpec/Expectations/LegacyMatcherAdapter/RSpec1.html#method-i-failure_message">#failure_message</a>
+    &mdash;
+    <span class="container">RSpec::Expectations::LegacyMatcherAdapter::RSpec1</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Include.html#method-i-failure_message">#failure_message</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Include</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Compound/Or.html#method-i-failure_message">#failure_message</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Compound::Or</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Change.html#method-i-failure_message">#failure_message</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Change</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/ContainExactly.html#method-i-failure_message">#failure_message</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::ContainExactly</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Output.html#method-i-failure_message">#failure_message</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Output</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Compound/And.html#method-i-failure_message">#failure_message</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Compound::And</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/DSL/Macros.html#method-i-failure_message">#failure_message</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::DSL::Macros</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/AliasedMatcher.html#method-i-failure_message">#failure_message</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::AliasedMatcher</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/BeWithin.html#method-i-failure_message">#failure_message</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::BeWithin</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/AliasedNegatedMatcher.html#method-i-failure_message">#failure_message</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::AliasedNegatedMatcher</span>
+
+  <li class="method">
+    <a href="RSpec/Expectations/LegacyMatcherAdapter/RSpec2.html#method-i-failure_message">#failure_message</a>
+    &mdash;
+    <span class="container">RSpec::Expectations::LegacyMatcherAdapter::RSpec2</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/All.html#method-i-failure_message">#failure_message</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::All</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/BeNil.html#method-i-failure_message">#failure_message</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::BeNil</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/BeBetween.html#method-i-failure_message">#failure_message</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::BeBetween</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Has.html#method-i-failure_message">#failure_message</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Has</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Satisfy.html#method-i-failure_message">#failure_message</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Satisfy</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/BaseMatcher/DefaultFailureMessages.html#method-i-failure_message">#failure_message</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::BaseMatcher::DefaultFailureMessages</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/StartAndEndWith.html#method-i-failure_message">#failure_message</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::StartAndEndWith</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/ThrowSymbol.html#method-i-failure_message">#failure_message</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::ThrowSymbol</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Exist.html#method-i-failure_message">#failure_message</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Exist</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Eql.html#method-i-failure_message">#failure_message</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Eql</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/BePredicate.html#method-i-failure_message">#failure_message</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::BePredicate</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/BeTruthy.html#method-i-failure_message">#failure_message</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::BeTruthy</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/BeComparedTo.html#method-i-failure_message">#failure_message</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::BeComparedTo</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Equal.html#method-i-failure_message">#failure_message</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Equal</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Be.html#method-i-failure_message">#failure_message</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Be</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/BeFalsey.html#method-i-failure_message">#failure_message</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::BeFalsey</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Eq.html#method-i-failure_message">#failure_message</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Eq</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Has.html#method-i-failure_message_args_description">#failure_message_args_description</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Has</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/BePredicate.html#method-i-failure_message_expecting">#failure_message_expecting</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::BePredicate</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/All.html#method-i-failure_message_for_item">#failure_message_for_item</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::All</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/DSL/Macros/Deprecated.html#method-i-failure_message_for_should">#failure_message_for_should</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::DSL::Macros::Deprecated</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/DSL/Macros/Deprecated.html#method-i-failure_message_for_should_not">#failure_message_for_should_not</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::DSL::Macros::Deprecated</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/BeFalsey.html#method-i-failure_message_when_negated">#failure_message_when_negated</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::BeFalsey</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Eql.html#method-i-failure_message_when_negated">#failure_message_when_negated</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Eql</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/ThrowSymbol.html#method-i-failure_message_when_negated">#failure_message_when_negated</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::ThrowSymbol</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/ContainExactly.html#method-i-failure_message_when_negated">#failure_message_when_negated</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::ContainExactly</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Exist.html#method-i-failure_message_when_negated">#failure_message_when_negated</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Exist</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Include.html#method-i-failure_message_when_negated">#failure_message_when_negated</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Include</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/BePredicate.html#method-i-failure_message_when_negated">#failure_message_when_negated</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::BePredicate</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/BeNil.html#method-i-failure_message_when_negated">#failure_message_when_negated</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::BeNil</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Satisfy.html#method-i-failure_message_when_negated">#failure_message_when_negated</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Satisfy</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/BaseMatcher/DefaultFailureMessages.html#method-i-failure_message_when_negated">#failure_message_when_negated</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::BaseMatcher::DefaultFailureMessages</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Equal.html#method-i-failure_message_when_negated">#failure_message_when_negated</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Equal</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Change.html#method-i-failure_message_when_negated">#failure_message_when_negated</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Change</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/HaveAttributes.html#method-i-failure_message_when_negated">#failure_message_when_negated</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::HaveAttributes</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/ChangeFromValue.html#method-i-failure_message_when_negated">#failure_message_when_negated</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::ChangeFromValue</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/BeTruthy.html#method-i-failure_message_when_negated">#failure_message_when_negated</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::BeTruthy</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Has.html#method-i-failure_message_when_negated">#failure_message_when_negated</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Has</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/BeComparedTo.html#method-i-failure_message_when_negated">#failure_message_when_negated</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::BeComparedTo</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Eq.html#method-i-failure_message_when_negated">#failure_message_when_negated</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Eq</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/RaiseError.html#method-i-failure_message_when_negated">#failure_message_when_negated</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::RaiseError</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/DSL/Macros.html#method-i-failure_message_when_negated">#failure_message_when_negated</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::DSL::Macros</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/AliasedMatcher.html#method-i-failure_message_when_negated">#failure_message_when_negated</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::AliasedMatcher</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/BeWithin.html#method-i-failure_message_when_negated">#failure_message_when_negated</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::BeWithin</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Output.html#method-i-failure_message_when_negated">#failure_message_when_negated</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Output</span>
+
+  <li class="method">
+    <a href="RSpec/Expectations/LegacyMatcherAdapter/RSpec2.html#method-i-failure_message_when_negated">#failure_message_when_negated</a>
+    &mdash;
+    <span class="container">RSpec::Expectations::LegacyMatcherAdapter::RSpec2</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Be.html#method-i-failure_message_when_negated">#failure_message_when_negated</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Be</span>
+
+  <li class="method">
+    <a href="RSpec/Expectations/LegacyMatcherAdapter/RSpec1.html#method-i-failure_message_when_negated">#failure_message_when_negated</a>
+    &mdash;
+    <span class="container">RSpec::Expectations::LegacyMatcherAdapter::RSpec1</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/AliasedNegatedMatcher.html#method-i-failure_message_when_negated">#failure_message_when_negated</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::AliasedNegatedMatcher</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/ChangeRelatively.html#method-i-failure_reason">#failure_reason</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::ChangeRelatively</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/ContainExactly/PairingsMaximizer.html#method-i-find_best_solution">#find_best_solution</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::ContainExactly::PairingsMaximizer</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/RaiseError.html#method-i-format_backtrace">#format_backtrace</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::RaiseError</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Eq.html#method-i-format_date_time">#format_date_time</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Eq</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Eq.html#method-i-format_object">#format_object</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Eq</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Eq.html#method-i-format_time">#format_time</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Eq</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/ChangeToValue.html#method-i-from">#from</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::ChangeToValue</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Change.html#method-i-from">#from</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Change</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/OperatorMatcher.html#method-i-get">#get</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::OperatorMatcher</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/RaiseError.html#method-i-given_error">#given_error</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::RaiseError</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/OperatorMatcher.html#method-i-has_non_generic_implementation_of-3F">#has_non_generic_implementation_of?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::OperatorMatcher</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/Pretty.html#method-i-improve_hash_formatting">#improve_hash_formatting</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::Pretty</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/BeBetween.html#method-i-inclusive">#inclusive</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::BeBetween</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/All.html#method-i-indent_multiline_message">#indent_multiline_message</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::All</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Compound.html#method-i-indent_multiline_message">#indent_multiline_message</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Compound</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/All.html#method-i-index_failed_objects">#index_failed_objects</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::All</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/All.html#method-i-initialize_copy">#initialize_copy</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::All</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Compound.html#method-i-initialize_copy">#initialize_copy</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Compound</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/MatcherDelegator.html#method-i-initialize_copy">#initialize_copy</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::MatcherDelegator</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Compound/NestedEvaluator.html#method-i-inner_matcher_block">#inner_matcher_block</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Compound::NestedEvaluator</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/DSL/Matcher.html#method-i-inspect">#inspect</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::DSL::Matcher</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Equal.html#method-i-inspect_object">#inspect_object</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Equal</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/BeHelpers.html#method-i-inspected_args">#inspected_args</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::BeHelpers</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Include.html#method-i-invalid_type_message">#invalid_type_message</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Include</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/Pretty.html#method-i-is_matcher_with_description-3F">#is_matcher_with_description?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::Pretty</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/All.html#method-i-iterable-3F">#iterable?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::All</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/ContainExactly.html#method-i-match">#match</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::ContainExactly</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Compound/And.html#method-i-match">#match</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Compound::And</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Eq.html#method-i-match">#match</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Eq</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/BeAnInstanceOf.html#method-i-match">#match</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::BeAnInstanceOf</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/BeNil.html#method-i-match">#match</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::BeNil</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Compound/Or.html#method-i-match">#match</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Compound::Or</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/BeFalsey.html#method-i-match">#match</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::BeFalsey</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Equal.html#method-i-match">#match</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Equal</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/DSL/Macros.html#method-i-match">#match</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::DSL::Macros</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Match.html#method-i-match">#match</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Match</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Compound.html#method-i-match">#match</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Compound</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/StartAndEndWith.html#method-i-match">#match</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::StartAndEndWith</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/BeTruthy.html#method-i-match">#match</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::BeTruthy</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Eql.html#method-i-match">#match</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Eql</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/All.html#method-i-match">#match</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::All</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Be.html#method-i-match">#match</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Be</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/BeAKindOf.html#method-i-match">#match</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::BeAKindOf</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/DSL/Macros/Deprecated.html#method-i-match_for_should">#match_for_should</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::DSL::Macros::Deprecated</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/DSL/Macros/Deprecated.html#method-i-match_for_should_not">#match_for_should_not</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::DSL::Macros::Deprecated</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/BaseMatcher.html#method-i-match_unless_raises">#match_unless_raises</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::BaseMatcher</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/DSL/Macros.html#method-i-match_unless_raises">#match_unless_raises</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::DSL::Macros</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/DSL/Macros.html#method-i-match_when_negated">#match_when_negated</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::DSL::Macros</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/ContainExactly.html#method-i-match_when_sorted-3F">#match_when_sorted?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::ContainExactly</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/DSL.html#method-i-matcher">#matcher</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::DSL</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Compound.html#method-i-matcher_1_matches-3F">#matcher_1_matches?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Compound</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Compound.html#method-i-matcher_2_matches-3F">#matcher_2_matches?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Compound</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Compound/SequentialEvaluator.html#method-i-matcher_matches-3F">#matcher_matches?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Compound::SequentialEvaluator</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Compound/NestedEvaluator.html#method-i-matcher_matches-3F">#matcher_matches?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Compound::NestedEvaluator</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Compound.html#method-i-matcher_supports_block_expectations-3F">#matcher_supports_block_expectations?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Compound</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/ChangeRelatively.html#method-i-matches-3F">#matches?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::ChangeRelatively</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Exist.html#method-i-matches-3F">#matches?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Exist</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/SpecificValuesChange.html#method-i-matches-3F">#matches?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::SpecificValuesChange</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/RaiseError.html#method-i-matches-3F">#matches?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::RaiseError</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/BaseMatcher.html#method-i-matches-3F">#matches?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::BaseMatcher</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/ThrowSymbol.html#method-i-matches-3F">#matches?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::ThrowSymbol</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/BeBetween.html#method-i-matches-3F">#matches?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::BeBetween</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/BeWithin.html#method-i-matches-3F">#matches?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::BeWithin</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Cover.html#method-i-matches-3F">#matches?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Cover</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/AliasedNegatedMatcher.html#method-i-matches-3F">#matches?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::AliasedNegatedMatcher</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Output.html#method-i-matches-3F">#matches?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Output</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/BeComparedTo.html#method-i-matches-3F">#matches?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::BeComparedTo</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Has.html#method-i-matches-3F">#matches?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Has</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/HaveAttributes.html#method-i-matches-3F">#matches?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::HaveAttributes</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Change.html#method-i-matches-3F">#matches?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Change</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Satisfy.html#method-i-matches-3F">#matches?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Satisfy</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/BePredicate.html#method-i-matches-3F">#matches?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::BePredicate</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Include.html#method-i-matches-3F">#matches?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Include</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/SpecificValuesChange.html#method-i-matches_after-3F">#matches_after?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::SpecificValuesChange</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/SpecificValuesChange.html#method-i-matches_before-3F">#matches_before?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::SpecificValuesChange</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Has.html#method-i-method_description">#method_description</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Has</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/AliasedMatcher.html#method-i-method_missing">#method_missing</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::AliasedMatcher</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/DSL/Matcher.html#method-i-method_missing">#method_missing</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::DSL::Matcher</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/MatcherDelegator.html#method-i-method_missing">#method_missing</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::MatcherDelegator</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/ContainExactly.html#method-i-missing_items">#missing_items</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::ContainExactly</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Compound.html#method-i-multiline-3F">#multiline?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Compound</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Compound.html#method-i-multiline_message">#multiline_message</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Compound</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/Pretty.html#method-i-name">#name</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::Pretty</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/Pretty.html#method-i-name_to_sentence">#name_to_sentence</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::Pretty</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/BeWithin.html#method-i-needs_expected">#needs_expected</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::BeWithin</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Output.html#method-i-negative_failure_reason">#negative_failure_reason</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Output</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Change.html#method-i-negative_failure_reason">#negative_failure_reason</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Change</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/BeBetween.html#method-i-not_comparable_clause">#not_comparable_clause</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::BeBetween</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/SpecificValuesChange.html#method-i-not_given_a_block_failure">#not_given_a_block_failure</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::SpecificValuesChange</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/BeWithin.html#method-i-not_numeric_clause">#not_numeric_clause</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::BeWithin</span>
+
+  <li class="method">
+    <a href="RSpec/Expectations/ExpectationTarget.html#method-i-not_to">#not_to</a>
+    &mdash;
+    <span class="container">RSpec::Expectations::ExpectationTarget</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/BeWithin.html#method-i-numeric-3F">#numeric?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::BeWithin</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/BeWithin.html#method-i-of">#of</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::BeWithin</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/AliasedNegatedMatcher.html#method-i-optimal_failure_message">#optimal_failure_message</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::AliasedNegatedMatcher</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Compound/NestedEvaluator.html#method-i-order_block_matchers">#order_block_matchers</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Compound::NestedEvaluator</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/ContainExactly.html#method-i-pairings_maximizer">#pairings_maximizer</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::ContainExactly</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/BeHelpers.html#method-i-parenthesize">#parenthesize</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::BeHelpers</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/BePredicate.html#method-i-parse_expected">#parse_expected</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::BePredicate</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/BeWithin.html#method-i-percent_of">#percent_of</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::BeWithin</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/ChangeDetails.html#method-i-perform_change">#perform_change</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::ChangeDetails</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/HaveAttributes.html#method-i-perform_match">#perform_match</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::HaveAttributes</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Include.html#method-i-perform_match">#perform_match</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Include</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Change.html#method-i-positive_failure_reason">#positive_failure_reason</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Change</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Output.html#method-i-positive_failure_reason">#positive_failure_reason</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Output</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/BePredicate.html#method-i-predicate">#predicate</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::BePredicate</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Has.html#method-i-predicate">#predicate</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Has</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/BePredicate.html#method-i-predicate_accessible-3F">#predicate_accessible?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::BePredicate</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Has.html#method-i-predicate_accessible-3F">#predicate_accessible?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Has</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/BePredicate.html#method-i-predicate_exists-3F">#predicate_exists?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::BePredicate</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Has.html#method-i-predicate_exists-3F">#predicate_exists?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Has</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/BePredicate.html#method-i-predicate_matches-3F">#predicate_matches?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::BePredicate</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Has.html#method-i-predicate_matches-3F">#predicate_matches?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Has</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Exist/ExistenceTest.html#method-i-predicates">#predicates</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Exist::ExistenceTest</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/BePredicate.html#method-i-prefix_and_expected">#prefix_and_expected</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::BePredicate</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/BePredicate.html#method-i-prefix_to_sentence">#prefix_to_sentence</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::BePredicate</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/BaseMatcher.html#method-i-present_ivars">#present_ivars</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::BaseMatcher</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/BePredicate.html#method-i-present_tense_predicate">#present_tense_predicate</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::BePredicate</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/RaiseError.html#method-i-prevent_invalid_expectations">#prevent_invalid_expectations</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::RaiseError</span>
+
+  <li class="method">
+    <a href="RSpec/Expectations/ExpectationTarget.html#method-i-prevent_operator_matchers">#prevent_operator_matchers</a>
+    &mdash;
+    <span class="container">RSpec::Expectations::ExpectationTarget</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Has.html#method-i-private_predicate-3F">#private_predicate?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Has</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/BePredicate.html#method-i-private_predicate-3F">#private_predicate?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::BePredicate</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Change.html#method-i-raise_block_syntax_error">#raise_block_syntax_error</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Change</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/RaiseError.html#method-i-raise_message_already_set">#raise_message_already_set</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::RaiseError</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/ContainExactly/PairingsMaximizer.html#method-i-reciprocal_single_match-3F">#reciprocal_single_match?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::ContainExactly::PairingsMaximizer</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/OperatorMatcher.html#method-i-register">#register</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::OperatorMatcher</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/OperatorMatcher.html#method-i-registry">#registry</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::OperatorMatcher</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/MatcherDelegator.html#method-i-respond_to-3F">#respond_to?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::MatcherDelegator</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/DSL/Matcher.html#method-i-respond_to-3F">#respond_to?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::DSL::Matcher</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/HaveAttributes.html#method-i-respond_to_attributes-3F">#respond_to_attributes?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::HaveAttributes</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/HaveAttributes.html#method-i-respond_to_failure_message_or">#respond_to_failure_message_or</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::HaveAttributes</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/HaveAttributes.html#method-i-respond_to_matcher">#respond_to_matcher</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::HaveAttributes</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/MatcherDelegator.html#method-i-respond_to_missing-3F">#respond_to_missing?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::MatcherDelegator</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/DSL/Matcher.html#method-i-respond_to_missing-3F">#respond_to_missing?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::DSL::Matcher</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/ContainExactly.html#method-i-safe_sort">#safe_sort</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::ContainExactly</span>
+
+  <li class="method">
+    <a href="RSpec/Expectations/Syntax.html#method-i-should">#should</a>
+    &mdash;
+    <span class="container">RSpec::Expectations::Syntax</span>
+
+  <li class="method">
+    <a href="RSpec/Expectations/Syntax.html#method-i-should_enabled-3F">#should_enabled?</a>
+    &mdash;
+    <span class="container">RSpec::Expectations::Syntax</span>
+
+  <li class="method">
+    <a href="RSpec/Expectations/Syntax.html#method-i-should_not">#should_not</a>
+    &mdash;
+    <span class="container">RSpec::Expectations::Syntax</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Equal.html#method-i-simple_failure_message">#simple_failure_message</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Equal</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Compound.html#method-i-singleline_message">#singleline_message</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Compound</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/Pretty.html#method-i-split_words">#split_words</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::Pretty</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/StartWith.html#method-i-subset_matches-3F">#subset_matches?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::StartWith</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/EndWith.html#method-i-subset_matches-3F">#subset_matches?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::EndWith</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/DSL/Macros.html#method-i-supports_block_expectations">#supports_block_expectations</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::DSL::Macros</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Compound.html#method-i-supports_block_expectations-3F">#supports_block_expectations?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Compound</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/RaiseError.html#method-i-supports_block_expectations-3F">#supports_block_expectations?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::RaiseError</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/ChangeRelatively.html#method-i-supports_block_expectations-3F">#supports_block_expectations?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::ChangeRelatively</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Output.html#method-i-supports_block_expectations-3F">#supports_block_expectations?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Output</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/DSL/DefaultImplementations.html#method-i-supports_block_expectations-3F">#supports_block_expectations?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::DSL::DefaultImplementations</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Change.html#method-i-supports_block_expectations-3F">#supports_block_expectations?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Change</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/SpecificValuesChange.html#method-i-supports_block_expectations-3F">#supports_block_expectations?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::SpecificValuesChange</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/ThrowSymbol.html#method-i-supports_block_expectations-3F">#supports_block_expectations?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::ThrowSymbol</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/BaseMatcher.html#method-i-supports_block_expectations-3F">#supports_block_expectations?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::BaseMatcher</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/ThrowSymbol.html#method-i-throw_description">#throw_description</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::ThrowSymbol</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Change.html#method-i-to">#to</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Change</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/ChangeFromValue.html#method-i-to">#to</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::ChangeFromValue</span>
+
+  <li class="method">
+    <a href="RSpec/Expectations/ExpectationTarget.html#method-i-to">#to</a>
+    &mdash;
+    <span class="container">RSpec::Expectations::ExpectationTarget</span>
+
+  <li class="method">
+    <a href="RSpec/Expectations/ExpectationTarget.html#method-i-to_not">#to_not</a>
+    &mdash;
+    <span class="container">RSpec::Expectations::ExpectationTarget</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/Pretty.html#method-i-to_sentence">#to_sentence</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::Pretty</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Output.html#method-i-to_stderr">#to_stderr</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Output</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Output.html#method-i-to_stdout">#to_stdout</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Output</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/Pretty.html#method-i-to_word">#to_word</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::Pretty</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/Pretty.html#method-i-underscore">#underscore</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::Pretty</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Exist/ExistenceTest.html#method-i-uniq_truthy_values">#uniq_truthy_values</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Exist::ExistenceTest</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/OperatorMatcher.html#method-i-unregister">#unregister</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::OperatorMatcher</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Exist/ExistenceTest.html#method-i-valid_test-3F">#valid_test?</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Exist::ExistenceTest</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/BePredicate.html#method-i-validity_message">#validity_message</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::BePredicate</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Exist/ExistenceTest.html#method-i-validity_message">#validity_message</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Exist::ExistenceTest</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/Has.html#method-i-validity_message">#validity_message</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::Has</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/RaiseError.html#method-i-verify_message">#verify_message</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::RaiseError</span>
+
+  <li class="method">
+    <a href="RSpec/Expectations/Syntax.html#method-i-warn_about_should-21">#warn_about_should!</a>
+    &mdash;
+    <span class="container">RSpec::Expectations::Syntax</span>
+
+  <li class="method">
+    <a href="RSpec/Expectations/Syntax.html#method-i-warn_about_should_unless_configured">#warn_about_should_unless_configured</a>
+    &mdash;
+    <span class="container">RSpec::Expectations::Syntax</span>
+
+  <li class="method">
+    <a href="RSpec/Matchers/BuiltIn/RaiseError.html#method-i-with_message">#with_message</a>
+    &mdash;
+    <span class="container">RSpec::Matchers::BuiltIn::RaiseError</span>
+</ul>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

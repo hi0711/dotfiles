@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module Rails::Dom::Testing::Assertions::TagAssertions - rails-dom-testing-1.0.6 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../../";
+</script>
+
+<script src="../../../../js/jquery.js"></script>
+<script src="../../../../js/darkfish.js"></script>
+
+<link href="../../../../css/fonts.css" rel="stylesheet">
+<link href="../../../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-_find_tag">#_find_tag</a>
+    
+    <li ><a href="#method-i-assert_no_tag">#assert_no_tag</a>
+    
+    <li ><a href="#method-i-assert_tag">#assert_tag</a>
+    
+    <li ><a href="#method-i-find_all_tag">#find_all_tag</a>
+    
+    <li ><a href="#method-i-find_tag">#find_tag</a>
+    
+    <li ><a href="#method-i-html_scanner_document">#html_scanner_document</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-Rails::Dom::Testing::Assertions::TagAssertions">
+  <h1 id="module-Rails::Dom::Testing::Assertions::TagAssertions" class="module">
+    module Rails::Dom::Testing::Assertions::TagAssertions
+  </h1>
+
+  <section class="description">
+    
+<p>Pair of assertions to testing elements in the HTML output of the response.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-assert_no_tag" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">assert_no_tag</span><span
+            class="method-args">(*opts)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Identical to <code>assert_tag</code>, but asserts that a matching tag does
+<em>not</em> exist. (See <code>assert_tag</code> for a full discussion of
+the syntax.)</p>
+
+<pre class="ruby"><span class="ruby-comment"># Assert that there is not a &quot;div&quot; containing a &quot;p&quot;</span>
+<span class="ruby-identifier">assert_no_tag</span> <span class="ruby-identifier">tag</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;div&quot;</span>, <span class="ruby-identifier">descendant</span><span class="ruby-operator">:</span> { <span class="ruby-identifier">tag</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;p&quot;</span> }
+
+<span class="ruby-comment"># Assert that an unordered list is empty</span>
+<span class="ruby-identifier">assert_no_tag</span> <span class="ruby-identifier">tag</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;ul&quot;</span>, <span class="ruby-identifier">descendant</span><span class="ruby-operator">:</span> { <span class="ruby-identifier">tag</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;li&quot;</span> }
+
+<span class="ruby-comment"># Assert that there is not a &quot;p&quot; tag with between 1 to 3 &quot;img&quot; tags</span>
+<span class="ruby-comment"># as immediate children</span>
+<span class="ruby-identifier">assert_no_tag</span> <span class="ruby-identifier">tag</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;p&quot;</span>,
+           <span class="ruby-identifier">children</span><span class="ruby-operator">:</span> { <span class="ruby-identifier">count</span><span class="ruby-operator">:</span> <span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">3</span>, <span class="ruby-identifier">only</span><span class="ruby-operator">:</span> { <span class="ruby-identifier">tag</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;img&quot;</span> } }
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="assert_no_tag-source">
+            <pre><span class="ruby-comment"># File lib/rails/dom/testing/assertions/tag_assertions.rb, line 121</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">assert_no_tag</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">opts</span>)
+  <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">Deprecation</span>.<span class="ruby-identifier">warn</span>(<span class="ruby-string">&quot;assert_no_tag is deprecated and will be removed at Rails 5. Use assert_select to get the same feature.&quot;</span>)
+
+  <span class="ruby-identifier">opts</span> = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">merge</span>({ <span class="ruby-identifier">tag</span><span class="ruby-operator">:</span> <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">to_s</span> }) <span class="ruby-operator">:</span> <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">first</span>
+  <span class="ruby-identifier">tag</span> = <span class="ruby-identifier">_find_tag</span>(<span class="ruby-identifier">opts</span>)
+
+  <span class="ruby-identifier">assert</span> <span class="ruby-operator">!</span><span class="ruby-identifier">tag</span>, <span class="ruby-node">&quot;expected no tag, but found tag matching #{opts.inspect} in:\n#{@response.body.inspect}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-assert_tag" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">assert_tag</span><span
+            class="method-args">(*opts)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Asserts that there is a tag/node/element in the body of the response that
+meets all of the given conditions. The <code>conditions</code> parameter
+must be a hash of any of the following keys (all are optional):</p>
+<ul><li>
+<p><code>:tag</code>: the node type must match the corresponding value</p>
+</li><li>
+<p><code>:attributes</code>: a hash. The node&#39;s attributes must match the
+corresponding values in the hash.</p>
+</li><li>
+<p><code>:parent</code>: a hash. The node&#39;s parent must match the
+corresponding hash.</p>
+</li><li>
+<p><code>:child</code>: a hash. At least one of the node&#39;s immediate
+children must meet the criteria described by the hash.</p>
+</li><li>
+<p><code>:ancestor</code>: a hash. At least one of the node&#39;s ancestors
+must meet the criteria described by the hash.</p>
+</li><li>
+<p><code>:descendant</code>: a hash. At least one of the node&#39;s
+descendants must meet the criteria described by the hash.</p>
+</li><li>
+<p><code>:sibling</code>: a hash. At least one of the node&#39;s siblings must
+meet the criteria described by the hash.</p>
+</li><li>
+<p><code>:after</code>: a hash. The node must be after any sibling meeting the
+criteria described by the hash, and at least one sibling must match.</p>
+</li><li>
+<p><code>:before</code>: a hash. The node must be before any sibling meeting
+the criteria described by the hash, and at least one sibling must match.</p>
+</li><li>
+<p><code>:children</code>: a hash, for counting children of a node. Accepts
+the keys:</p>
+<ul><li>
+<p><code>:count</code>: either a number or a range which must equal (or
+include) the number of children that match.</p>
+</li><li>
+<p><code>:less_than</code>: the number of matching children must be less than
+this number.</p>
+</li><li>
+<p><code>:greater_than</code>: the number of matching children must be greater
+than this number.</p>
+</li><li>
+<p><code>:only</code>: another hash consisting of the keys to use to match on
+the children, and only matching children will be counted.</p>
+</li></ul>
+</li><li>
+<p><code>:content</code>: the textual content of the node must match the given
+value. This will not match HTML tags in the body of a tag–only text.</p>
+</li></ul>
+
+<p>Conditions are matched using the following algorithm:</p>
+<ul><li>
+<p>if the condition is a string, it must be a substring of the value.</p>
+</li><li>
+<p>if the condition is a regexp, it must match the value.</p>
+</li><li>
+<p>if the condition is a number, the value must match number.to_s.</p>
+</li><li>
+<p>if the condition is <code>true</code>, the value must not be
+<code>nil</code>.</p>
+</li><li>
+<p>if the condition is <code>false</code> or <code>nil</code>, the value must
+be <code>nil</code>.</p>
+
+<p># Assert that there is a “span” tag <a
+href="TagAssertions.html#method-i-assert_tag">#assert_tag</a> tag: “span”</p>
+
+<p># Assert that there is a “span” tag with id=“x” <a
+href="TagAssertions.html#method-i-assert_tag">#assert_tag</a> tag: “span”,
+attributes: { id: “x” }</p>
+
+<p># Assert that there is a “span” tag using the short-hand <a
+href="TagAssertions.html#method-i-assert_tag">#assert_tag</a> :span</p>
+
+<p># Assert that there is a “span” tag with id=“x” using the short-hand <a
+href="TagAssertions.html#method-i-assert_tag">#assert_tag</a> :span,
+attributes: { id: “x” }</p>
+
+<p># Assert that there is a “span” inside of a “div” <a
+href="TagAssertions.html#method-i-assert_tag">#assert_tag</a> tag: “span”,
+parent: { tag: “div” }</p>
+
+<p># Assert that there is a “span” somewhere inside a table <a
+href="TagAssertions.html#method-i-assert_tag">#assert_tag</a> tag: “span”,
+ancestor: { tag: “table” }</p>
+
+<p># Assert that there is a “span” with at least one “em” child <a
+href="TagAssertions.html#method-i-assert_tag">#assert_tag</a> tag: “span”,
+child: { tag: “em” }</p>
+
+<p># Assert that there is a “span” containing a (possibly nested) # “strong”
+tag. <a href="TagAssertions.html#method-i-assert_tag">#assert_tag</a> tag:
+“span”, descendant: { tag: “strong” }</p>
+
+<p># Assert that there is a “span” containing between 2 and 4 “em” tags # as
+immediate children <a
+href="TagAssertions.html#method-i-assert_tag">#assert_tag</a> tag: “span”,</p>
+
+<pre>children: { count: 2..4, only: { tag: &quot;em&quot; } }</pre>
+
+<p># Get funky: assert that there is a “div”, with an “ul” ancestor # and an
+“li” parent (with “class” = “enum”), and containing a # “span” descendant
+that contains text matching /hello world/ <a
+href="TagAssertions.html#method-i-assert_tag">#assert_tag</a> tag: “div”,</p>
+
+<pre>ancestor: { tag: &quot;ul&quot; },
+parent: { tag: &quot;li&quot;,
+             attributes: { class: &quot;enum&quot; } },
+descendant: { tag: &quot;span&quot;,
+                 child: /hello world/ }</pre>
+</li></ul>
+
+<p><strong>Please note</strong>: <code>assert_tag</code> and
+<code>assert_no_tag</code> only work with well-formed XHTML. They recognize
+a few tags as implicitly self-closing (like br and hr and such) but will
+not work correctly with tags that allow optional closing tags (p, li, td).
+<em>You must explicitly close all of your tags to use these
+assertions.</em></p>
+          
+          
+
+          
+          <div class="method-source-code" id="assert_tag-source">
+            <pre><span class="ruby-comment"># File lib/rails/dom/testing/assertions/tag_assertions.rb, line 99</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">assert_tag</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">opts</span>)
+  <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">Deprecation</span>.<span class="ruby-identifier">warn</span>(<span class="ruby-string">&quot;assert_tag is deprecated and will be removed at Rails 5. Use assert_select to get the same feature.&quot;</span>)
+
+  <span class="ruby-identifier">opts</span> = <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">merge</span>({ <span class="ruby-identifier">tag</span><span class="ruby-operator">:</span> <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">to_s</span> }) <span class="ruby-operator">:</span> <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">first</span>
+  <span class="ruby-identifier">tag</span> = <span class="ruby-identifier">_find_tag</span>(<span class="ruby-identifier">opts</span>)
+
+  <span class="ruby-identifier">assert</span> <span class="ruby-identifier">tag</span>, <span class="ruby-node">&quot;expected tag, but no tag found matching #{opts.inspect} in:\n#{@response.body.inspect}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-find_all_tag" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">find_all_tag</span><span
+            class="method-args">(conditions)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="find_all_tag-source">
+            <pre><span class="ruby-comment"># File lib/rails/dom/testing/assertions/tag_assertions.rb, line 136</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">find_all_tag</span>(<span class="ruby-identifier">conditions</span>)
+  <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">Deprecation</span>.<span class="ruby-identifier">warn</span>(<span class="ruby-string">&quot;find_all_tag is deprecated and will be removed at Rails 5 without replacement. Use assert_select to get the same feature.&quot;</span>)
+
+  <span class="ruby-identifier">html_scanner_document</span>.<span class="ruby-identifier">find_all</span>(<span class="ruby-identifier">conditions</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-find_tag" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">find_tag</span><span
+            class="method-args">(conditions)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="find_tag-source">
+            <pre><span class="ruby-comment"># File lib/rails/dom/testing/assertions/tag_assertions.rb, line 130</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">find_tag</span>(<span class="ruby-identifier">conditions</span>)
+  <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">Deprecation</span>.<span class="ruby-identifier">warn</span>(<span class="ruby-string">&quot;find_tag is deprecated and will be removed at Rails 5 without replacement.&quot;</span>)
+
+  <span class="ruby-identifier">_find_tag</span>(<span class="ruby-identifier">conditions</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-_find_tag" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">_find_tag</span><span
+            class="method-args">(conditions)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="_find_tag-source">
+            <pre><span class="ruby-comment"># File lib/rails/dom/testing/assertions/tag_assertions.rb, line 143</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">_find_tag</span>(<span class="ruby-identifier">conditions</span>)
+  <span class="ruby-identifier">html_scanner_document</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">conditions</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-html_scanner_document" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">html_scanner_document</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="html_scanner_document-source">
+            <pre><span class="ruby-comment"># File lib/rails/dom/testing/assertions/tag_assertions.rb, line 147</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">html_scanner_document</span>
+  <span class="ruby-identifier">xml</span> = <span class="ruby-ivar">@response</span>.<span class="ruby-identifier">content_type</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/xml$/</span>
+  <span class="ruby-ivar">@html_document</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">HTML</span><span class="ruby-operator">::</span><span class="ruby-constant">Document</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@response</span>.<span class="ruby-identifier">body</span>, <span class="ruby-keyword">false</span>, <span class="ruby-identifier">xml</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

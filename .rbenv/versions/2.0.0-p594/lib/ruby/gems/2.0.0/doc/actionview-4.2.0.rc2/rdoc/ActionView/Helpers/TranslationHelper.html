@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module ActionView::Helpers::TranslationHelper - actionview-4.2.0.rc2 Documentation</title>
+
+<link href="../../fonts.css" rel="stylesheet">
+<link href="../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/navigation.js"></script>
+<script src="../../js/search_index.js"></script>
+<script src="../../js/search.js"></script>
+<script src="../../js/searcher.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    <div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><a class="include" href="TagHelper.html">ActionView::Helpers::TagHelper</a>
+  
+  
+  </ul>
+</div>
+
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-html_safe_translation_key-3F">#html_safe_translation_key?</a>
+    
+    <li ><a href="#method-i-l">#l</a>
+    
+    <li ><a href="#method-i-localize">#localize</a>
+    
+    <li ><a href="#method-i-scope_key_by_partial">#scope_key_by_partial</a>
+    
+    <li ><a href="#method-i-t">#t</a>
+    
+    <li ><a href="#method-i-translate">#translate</a>
+    
+    <li ><a href="#method-i-wrap_translate_defaults">#wrap_translate_defaults</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-ActionView::Helpers::TranslationHelper">
+  <h1 id="module-ActionView::Helpers::TranslationHelper" class="module">
+    module ActionView::Helpers::TranslationHelper
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-l" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">l</span><span
+            class="method-args">(*args)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="TranslationHelper.html#method-i-localize">localize</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-localize" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">localize</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Delegates to <code>I18n.localize</code> with no additional functionality.</p>
+
+<p>See <a
+href="http://rubydoc.info/github/svenfuchs/i18n/master/I18n/Backend/Base:localize">rubydoc.info/github/svenfuchs/i18n/master/I18n/Backend/Base:localize</a>
+for more information.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="localize-source">
+            <pre><span class="ruby-comment"># File lib/action_view/helpers/translation_helper.rb, line 76</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">localize</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">localize</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="TranslationHelper.html#method-i-l">l</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-t" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">t</span><span
+            class="method-args">(key, options = {})</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="TranslationHelper.html#method-i-translate">translate</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-translate" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">translate</span><span
+            class="method-args">(key, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Delegates to <code>I18n#translate</code> but also performs three additional
+functions.</p>
+
+<p>First, it will ensure that any thrown <code>MissingTranslation</code>
+messages will be turned into inline spans that:</p>
+
+<pre class="ruby"><span class="ruby-operator">*</span> <span class="ruby-identifier">have</span> <span class="ruby-identifier">a</span> <span class="ruby-string">&quot;translation-missing&quot;</span> <span class="ruby-keyword">class</span> <span class="ruby-identifier">set</span>,
+<span class="ruby-operator">*</span> <span class="ruby-identifier">contain</span> <span class="ruby-identifier">the</span> <span class="ruby-identifier">missing</span> <span class="ruby-identifier">key</span> <span class="ruby-identifier">as</span> <span class="ruby-identifier">a</span> <span class="ruby-identifier">title</span> <span class="ruby-identifier">attribute</span> <span class="ruby-keyword">and</span>
+<span class="ruby-operator">*</span> <span class="ruby-identifier">a</span> <span class="ruby-identifier">titleized</span> <span class="ruby-identifier">version</span> <span class="ruby-identifier">of</span> <span class="ruby-identifier">the</span> <span class="ruby-identifier">last</span> <span class="ruby-identifier">key</span> <span class="ruby-identifier">segment</span> <span class="ruby-identifier">as</span> <span class="ruby-identifier">a</span> <span class="ruby-identifier">text</span>.
+</pre>
+
+<p>E.g. the value returned for a missing translation key :“blog.post.title”
+will be &lt;span class=“translation_missing” title=“translation missing:
+en.blog.post.title”&gt;Title&lt;/span&gt;. This way your views will display
+rather reasonable strings but it will still be easy to spot missing
+translations.</p>
+
+<p>Second, it&#39;ll scope the key by the current partial if the key starts
+with a period. So if you call <code>translate(&quot;.foo&quot;)</code> from
+the <code>people/index.html.erb</code> template, you&#39;ll actually be
+calling <code>I18n.translate(&quot;people.index.foo&quot;)</code>. This
+makes it less repetitive to translate many keys within the same partials
+and gives you a simple framework for scoping them consistently. If you
+don&#39;t prepend the key with a period, nothing is converted.</p>
+
+<p>Third, it&#39;ll mark the translation as safe HTML if the key has the
+suffix “_html” or the last element of the key is the word “html”. For
+example, calling translate(“footer_html”) or translate(“footer.html”) will
+return a safe HTML string that won&#39;t be escaped by other HTML helper
+methods. This naming convention helps to identify translations that include
+HTML tags so that you know what kind of output to expect when you call
+translate in a template.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="translate-source">
+            <pre><span class="ruby-comment"># File lib/action_view/helpers/translation_helper.rb, line 38</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">translate</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">options</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">dup</span>
+  <span class="ruby-identifier">options</span>[<span class="ruby-value">:default</span>] = <span class="ruby-identifier">wrap_translate_defaults</span>(<span class="ruby-identifier">options</span>[<span class="ruby-value">:default</span>]) <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:default</span>]
+
+  <span class="ruby-comment"># If the user has specified rescue_format then pass it all through, otherwise use</span>
+  <span class="ruby-comment"># raise and do the work ourselves</span>
+  <span class="ruby-identifier">options</span>[<span class="ruby-value">:raise</span>] <span class="ruby-operator">||=</span> <span class="ruby-constant">ActionView</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">raise_on_missing_translations</span>
+
+  <span class="ruby-identifier">raise_error</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:raise</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-value">:rescue_format</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">raise_error</span>
+    <span class="ruby-identifier">options</span>[<span class="ruby-value">:raise</span>] = <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">html_safe_translation_key?</span>(<span class="ruby-identifier">key</span>)
+    <span class="ruby-identifier">html_safe_options</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">dup</span>
+    <span class="ruby-identifier">options</span>.<span class="ruby-identifier">except</span>(<span class="ruby-operator">*</span><span class="ruby-constant">I18n</span><span class="ruby-operator">::</span><span class="ruby-constant">RESERVED_KEYS</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">name</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">unless</span> <span class="ruby-identifier">name</span> <span class="ruby-operator">==</span> <span class="ruby-value">:count</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Numeric</span>)
+        <span class="ruby-identifier">html_safe_options</span>[<span class="ruby-identifier">name</span>] = <span class="ruby-constant">ERB</span><span class="ruby-operator">::</span><span class="ruby-constant">Util</span>.<span class="ruby-identifier">html_escape</span>(<span class="ruby-identifier">value</span>.<span class="ruby-identifier">to_s</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">translation</span> = <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">translate</span>(<span class="ruby-identifier">scope_key_by_partial</span>(<span class="ruby-identifier">key</span>), <span class="ruby-identifier">html_safe_options</span>)
+
+    <span class="ruby-identifier">translation</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:html_safe</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">translation</span>.<span class="ruby-identifier">html_safe</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">translation</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">translate</span>(<span class="ruby-identifier">scope_key_by_partial</span>(<span class="ruby-identifier">key</span>), <span class="ruby-identifier">options</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">I18n</span><span class="ruby-operator">::</span><span class="ruby-constant">MissingTranslationData</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-identifier">e</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">raise_error</span>
+
+  <span class="ruby-identifier">keys</span> = <span class="ruby-constant">I18n</span>.<span class="ruby-identifier">normalize_keys</span>(<span class="ruby-identifier">e</span>.<span class="ruby-identifier">locale</span>, <span class="ruby-identifier">e</span>.<span class="ruby-identifier">key</span>, <span class="ruby-identifier">e</span>.<span class="ruby-identifier">options</span>[<span class="ruby-value">:scope</span>])
+  <span class="ruby-identifier">content_tag</span>(<span class="ruby-string">&#39;span&#39;</span>, <span class="ruby-identifier">keys</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">titleize</span>, <span class="ruby-value">:class</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;translation_missing&#39;</span>, <span class="ruby-value">:title</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;translation missing: #{keys.join(&#39;.&#39;)}&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="TranslationHelper.html#method-i-t">t</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-html_safe_translation_key-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">html_safe_translation_key?</span><span
+            class="method-args">(key)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="html_safe_translation_key-3F-source">
+            <pre><span class="ruby-comment"># File lib/action_view/helpers/translation_helper.rb, line 94</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">html_safe_translation_key?</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/(\b|_|\.)html$/</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-scope_key_by_partial" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">scope_key_by_partial</span><span
+            class="method-args">(key)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="scope_key_by_partial-source">
+            <pre><span class="ruby-comment"># File lib/action_view/helpers/translation_helper.rb, line 82</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">scope_key_by_partial</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">first</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;.&quot;</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@virtual_path</span>
+      <span class="ruby-ivar">@virtual_path</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">%r{/_?}</span>, <span class="ruby-string">&quot;.&quot;</span>) <span class="ruby-operator">+</span> <span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_s</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Cannot use t(#{key.inspect}) shortcut because path is not available&quot;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">key</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-wrap_translate_defaults" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">wrap_translate_defaults</span><span
+            class="method-args">(defaults)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="wrap_translate_defaults-source">
+            <pre><span class="ruby-comment"># File lib/action_view/helpers/translation_helper.rb, line 98</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">wrap_translate_defaults</span>(<span class="ruby-identifier">defaults</span>)
+  <span class="ruby-identifier">new_defaults</span> = []
+  <span class="ruby-identifier">defaults</span>     = <span class="ruby-constant">Array</span>(<span class="ruby-identifier">defaults</span>)
+  <span class="ruby-keyword">while</span> <span class="ruby-identifier">key</span> = <span class="ruby-identifier">defaults</span>.<span class="ruby-identifier">shift</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">key</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Symbol</span>)
+      <span class="ruby-identifier">new_defaults</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">lambda</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">_</span>, <span class="ruby-identifier">options</span><span class="ruby-operator">|</span> <span class="ruby-identifier">translate</span> <span class="ruby-identifier">key</span>, <span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-value">:default</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">defaults</span>) }
+      <span class="ruby-keyword">break</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">new_defaults</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">key</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">new_defaults</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module ActionDispatch::Http::FilterParameters - actionpack-4.2.0.rc2 Documentation</title>
+
+<link href="../../fonts.css" rel="stylesheet">
+<link href="../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/navigation.js"></script>
+<script src="../../js/search_index.js"></script>
+<script src="../../js/search.js"></script>
+<script src="../../js/searcher.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li class="calls-super" ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-env_filter">#env_filter</a>
+    
+    <li ><a href="#method-i-filtered_env">#filtered_env</a>
+    
+    <li ><a href="#method-i-filtered_parameters">#filtered_parameters</a>
+    
+    <li ><a href="#method-i-filtered_path">#filtered_path</a>
+    
+    <li ><a href="#method-i-filtered_query_string">#filtered_query_string</a>
+    
+    <li ><a href="#method-i-parameter_filter">#parameter_filter</a>
+    
+    <li ><a href="#method-i-parameter_filter_for">#parameter_filter_for</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-ActionDispatch::Http::FilterParameters">
+  <h1 id="module-ActionDispatch::Http::FilterParameters" class="module">
+    module ActionDispatch::Http::FilterParameters
+  </h1>
+
+  <section class="description">
+    
+<p>Allows you to specify sensitive parameters which will be replaced from the
+request log by looking in the query string of the request and all
+sub-hashes of the params hash to filter. If a block is given, each key and
+value of the params hash and all sub-hashes is passed to it, the value or
+key can be replaced using String#replace or similar method.</p>
+
+<pre class="ruby"><span class="ruby-identifier">env</span>[<span class="ruby-string">&quot;action_dispatch.parameter_filter&quot;</span>] = [:<span class="ruby-identifier">password</span>]
+=<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">replaces</span> <span class="ruby-identifier">the</span> <span class="ruby-identifier">value</span> <span class="ruby-identifier">to</span> <span class="ruby-identifier">all</span> <span class="ruby-identifier">keys</span> <span class="ruby-identifier">matching</span> <span class="ruby-regexp">/password/i</span> <span class="ruby-identifier">with</span> <span class="ruby-string">&quot;[FILTERED]&quot;</span>
+
+<span class="ruby-identifier">env</span>[<span class="ruby-string">&quot;action_dispatch.parameter_filter&quot;</span>] = [:<span class="ruby-identifier">foo</span>, <span class="ruby-string">&quot;bar&quot;</span>]
+=<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">replaces</span> <span class="ruby-identifier">the</span> <span class="ruby-identifier">value</span> <span class="ruby-identifier">to</span> <span class="ruby-identifier">all</span> <span class="ruby-identifier">keys</span> <span class="ruby-identifier">matching</span> <span class="ruby-regexp">/foo|bar/i</span> <span class="ruby-identifier">with</span> <span class="ruby-string">&quot;[FILTERED]&quot;</span>
+
+<span class="ruby-identifier">env</span>[<span class="ruby-string">&quot;action_dispatch.parameter_filter&quot;</span>] = <span class="ruby-identifier">lambda</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>,<span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">v</span>.<span class="ruby-identifier">reverse!</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">k</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/secret/i</span>
+<span class="ruby-keyword">end</span>
+=<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">reverses</span> <span class="ruby-identifier">the</span> <span class="ruby-identifier">value</span> <span class="ruby-identifier">to</span> <span class="ruby-identifier">all</span> <span class="ruby-identifier">keys</span> <span class="ruby-identifier">matching</span> <span class="ruby-regexp">/secret/i</span>
+</pre>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="KV_RE">KV_RE
+        
+        <dd>
+        
+      
+        <dt id="PAIR_RE">PAIR_RE
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(env)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/action_dispatch/http/filter_parameters.rb, line 28</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">env</span>)
+  <span class="ruby-keyword">super</span>
+  <span class="ruby-ivar">@filtered_parameters</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@filtered_env</span>        = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@filtered_path</span>       = <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-filtered_env" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">filtered_env</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Return a hash of request.env with all sensitive data replaced.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="filtered_env-source">
+            <pre><span class="ruby-comment"># File lib/action_dispatch/http/filter_parameters.rb, line 41</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">filtered_env</span>
+  <span class="ruby-ivar">@filtered_env</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">env_filter</span>.<span class="ruby-identifier">filter</span>(<span class="ruby-ivar">@env</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-filtered_parameters" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">filtered_parameters</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Return a hash of parameters with all sensitive data replaced.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="filtered_parameters-source">
+            <pre><span class="ruby-comment"># File lib/action_dispatch/http/filter_parameters.rb, line 36</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">filtered_parameters</span>
+  <span class="ruby-ivar">@filtered_parameters</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">parameter_filter</span>.<span class="ruby-identifier">filter</span>(<span class="ruby-identifier">parameters</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-filtered_path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">filtered_path</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Reconstructed a path with all sensitive GET parameters replaced.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="filtered_path-source">
+            <pre><span class="ruby-comment"># File lib/action_dispatch/http/filter_parameters.rb, line 46</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">filtered_path</span>
+  <span class="ruby-ivar">@filtered_path</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">query_string</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">path</span> <span class="ruby-operator">:</span> <span class="ruby-node">&quot;#{path}?#{filtered_query_string}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="protected-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Protected Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-env_filter" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">env_filter</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="env_filter-source">
+            <pre><span class="ruby-comment"># File lib/action_dispatch/http/filter_parameters.rb, line 58</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">env_filter</span>
+  <span class="ruby-identifier">user_key</span> = <span class="ruby-ivar">@env</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;action_dispatch.parameter_filter&quot;</span>) {
+    <span class="ruby-keyword">return</span> <span class="ruby-constant">NULL_ENV_FILTER</span>
+  }
+  <span class="ruby-identifier">parameter_filter_for</span>(<span class="ruby-constant">Array</span>(<span class="ruby-identifier">user_key</span>) <span class="ruby-operator">+</span> <span class="ruby-constant">ENV_MATCH</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-filtered_query_string" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">filtered_query_string</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="filtered_query_string-source">
+            <pre><span class="ruby-comment"># File lib/action_dispatch/http/filter_parameters.rb, line 71</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">filtered_query_string</span>
+  <span class="ruby-identifier">query_string</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-constant">PAIR_RE</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">_</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">parameter_filter</span>.<span class="ruby-identifier">filter</span>([[<span class="ruby-node">$1</span>, <span class="ruby-node">$2</span>]]).<span class="ruby-identifier">first</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;=&quot;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-parameter_filter" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parameter_filter</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="parameter_filter-source">
+            <pre><span class="ruby-comment"># File lib/action_dispatch/http/filter_parameters.rb, line 52</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">parameter_filter</span>
+  <span class="ruby-identifier">parameter_filter_for</span> <span class="ruby-ivar">@env</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-string">&quot;action_dispatch.parameter_filter&quot;</span>) {
+    <span class="ruby-keyword">return</span> <span class="ruby-constant">NULL_PARAM_FILTER</span>
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-parameter_filter_for" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parameter_filter_for</span><span
+            class="method-args">(filters)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="parameter_filter_for-source">
+            <pre><span class="ruby-comment"># File lib/action_dispatch/http/filter_parameters.rb, line 65</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">parameter_filter_for</span>(<span class="ruby-identifier">filters</span>)
+  <span class="ruby-constant">ParameterFilter</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">filters</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

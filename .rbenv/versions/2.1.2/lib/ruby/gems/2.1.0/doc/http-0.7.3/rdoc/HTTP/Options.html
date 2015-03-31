@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class HTTP::Options - http-0.7.3 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li class="calls-super" ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-5B-5D">#[]</a>
+    
+    <li ><a href="#method-i-argument_error-21">#argument_error!</a>
+    
+    <li class="calls-super" ><a href="#method-i-dup">#dup</a>
+    
+    <li ><a href="#method-i-merge">#merge</a>
+    
+    <li ><a href="#method-i-to_hash">#to_hash</a>
+    
+    <li ><a href="#method-i-with_headers">#with_headers</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-HTTP::Options">
+  <h1 id="class-HTTP::Options" class="class">
+    class HTTP::Options
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-c-default_socket_class" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">default_socket_class</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-c-default_ssl_socket_class" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">default_ssl_socket_class</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-body" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">body</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Explicit request body of the request</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-follow" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">follow</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Follow redirects</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-form" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">form</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Form data to embed in the request</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-headers" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">headers</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p><a href="../HTTP.html">HTTP</a> headers to include in the request</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-json" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">json</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>JSON data to embed in the request</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-params" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">params</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Query string params to add to the url</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-proxy" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">proxy</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p><a href="../HTTP.html">HTTP</a> proxy to route request</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-response" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">response</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>How to format the response [:object, :body, :parse_body]</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-socket_class" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">socket_class</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Socket classes</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-ssl_context" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">ssl_context</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>SSL context</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-ssl_socket_class" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">ssl_socket_class</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Socket classes</p>
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/http/options.rb, line 45</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">new</span>(<span class="ruby-identifier">options</span> = {})
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">options</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-keyword">self</span>)
+  <span class="ruby-keyword">super</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/http/options.rb, line 51</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">options</span> = {})
+  <span class="ruby-ivar">@response</span>  = <span class="ruby-identifier">options</span>[<span class="ruby-value">:response</span>]  <span class="ruby-operator">||</span> <span class="ruby-value">:auto</span>
+  <span class="ruby-ivar">@proxy</span>     = <span class="ruby-identifier">options</span>[<span class="ruby-value">:proxy</span>]     <span class="ruby-operator">||</span> {}
+  <span class="ruby-ivar">@body</span>      = <span class="ruby-identifier">options</span>[<span class="ruby-value">:body</span>]
+  <span class="ruby-ivar">@params</span>    = <span class="ruby-identifier">options</span>[<span class="ruby-value">:params</span>]
+  <span class="ruby-ivar">@form</span>      = <span class="ruby-identifier">options</span>[<span class="ruby-value">:form</span>]
+  <span class="ruby-ivar">@json</span>      = <span class="ruby-identifier">options</span>[<span class="ruby-value">:json</span>]
+  <span class="ruby-ivar">@follow</span>    = <span class="ruby-identifier">options</span>[<span class="ruby-value">:follow</span>]
+
+  <span class="ruby-ivar">@headers</span>   = <span class="ruby-constant">HTTP</span><span class="ruby-operator">::</span><span class="ruby-constant">Headers</span>.<span class="ruby-identifier">coerce</span>(<span class="ruby-identifier">options</span>[<span class="ruby-value">:headers</span>] <span class="ruby-operator">||</span> {})
+
+  <span class="ruby-ivar">@socket_class</span>     = <span class="ruby-identifier">options</span>[<span class="ruby-value">:socket_class</span>]     <span class="ruby-operator">||</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">default_socket_class</span>
+  <span class="ruby-ivar">@ssl_socket_class</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:ssl_socket_class</span>] <span class="ruby-operator">||</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">default_ssl_socket_class</span>
+  <span class="ruby-ivar">@ssl_context</span>      = <span class="ruby-identifier">options</span>[<span class="ruby-value">:ssl_context</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-5B-5D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">[]</span><span
+            class="method-args">(option)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="5B-5D-source">
+            <pre><span class="ruby-comment"># File lib/http/options.rb, line 81</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">[]</span>(<span class="ruby-identifier">option</span>)
+  <span class="ruby-identifier">send</span>(<span class="ruby-identifier">option</span>) <span class="ruby-keyword">rescue</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-dup" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">dup</span><span
+            class="method-args">() { |dupped| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="dup-source">
+            <pre><span class="ruby-comment"># File lib/http/options.rb, line 118</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">dup</span>
+  <span class="ruby-identifier">dupped</span> = <span class="ruby-keyword">super</span>
+  <span class="ruby-keyword">yield</span>(<span class="ruby-identifier">dupped</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+  <span class="ruby-identifier">dupped</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-merge" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">merge</span><span
+            class="method-args">(other)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="merge-source">
+            <pre><span class="ruby-comment"># File lib/http/options.rb, line 85</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">merge</span>(<span class="ruby-identifier">other</span>)
+  <span class="ruby-identifier">h1</span>, <span class="ruby-identifier">h2</span> = <span class="ruby-identifier">to_hash</span>, <span class="ruby-identifier">other</span>.<span class="ruby-identifier">to_hash</span>
+  <span class="ruby-identifier">merged</span> = <span class="ruby-identifier">h1</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">h2</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>, <span class="ruby-identifier">v1</span>, <span class="ruby-identifier">v2</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">k</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:headers</span>
+      <span class="ruby-identifier">v1</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">v2</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">v2</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">merged</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-to_hash" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_hash</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="to_hash-source">
+            <pre><span class="ruby-comment"># File lib/http/options.rb, line 99</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_hash</span>
+  <span class="ruby-comment"># FIXME: hardcoding these fields blows! We should have a declarative</span>
+  <span class="ruby-comment"># way of specifying all the options fields, and ensure they *all*</span>
+  <span class="ruby-comment"># get serialized here, rather than manually having to add them each time</span>
+  {
+    <span class="ruby-value">:response</span>         =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">response</span>,
+    <span class="ruby-value">:headers</span>          =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">headers</span>.<span class="ruby-identifier">to_h</span>,
+    <span class="ruby-value">:proxy</span>            =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">proxy</span>,
+    <span class="ruby-value">:params</span>           =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">params</span>,
+    <span class="ruby-value">:form</span>             =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">form</span>,
+    <span class="ruby-value">:json</span>             =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">json</span>,
+    <span class="ruby-value">:body</span>             =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">body</span>,
+    <span class="ruby-value">:follow</span>           =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">follow</span>,
+    <span class="ruby-value">:socket_class</span>     =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">socket_class</span>,
+    <span class="ruby-value">:ssl_socket_class</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ssl_socket_class</span>,
+    <span class="ruby-value">:ssl_context</span>      =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ssl_context</span>
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-with_headers" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">with_headers</span><span
+            class="method-args">(headers)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="with_headers-source">
+            <pre><span class="ruby-comment"># File lib/http/options.rb, line 67</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">with_headers</span>(<span class="ruby-identifier">headers</span>)
+  <span class="ruby-identifier">dup</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">opts</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">headers</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">headers</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">headers</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-argument_error-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">argument_error!</span><span
+            class="method-args">(message)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="argument_error-21-source">
+            <pre><span class="ruby-comment"># File lib/http/options.rb, line 126</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">argument_error!</span>(<span class="ruby-identifier">message</span>)
+  <span class="ruby-identifier">fail</span>(<span class="ruby-constant">Error</span>, <span class="ruby-identifier">message</span>, <span class="ruby-identifier">caller</span>[<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>])
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

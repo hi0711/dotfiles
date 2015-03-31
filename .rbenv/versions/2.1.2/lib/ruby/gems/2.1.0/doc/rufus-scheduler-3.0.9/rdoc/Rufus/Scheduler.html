@@ -1,0 +1,3167 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Rufus::Scheduler - rufus-scheduler-3.0.9 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">Object
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-h_to_s">::h_to_s</a>
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-c-parse">::parse</a>
+    
+    <li ><a href="#method-c-parse_at">::parse_at</a>
+    
+    <li ><a href="#method-c-parse_cron">::parse_cron</a>
+    
+    <li ><a href="#method-c-parse_duration">::parse_duration</a>
+    
+    <li ><a href="#method-c-parse_duration_string">::parse_duration_string</a>
+    
+    <li ><a href="#method-c-parse_in">::parse_in</a>
+    
+    <li ><a href="#method-c-parse_time_string">::parse_time_string</a>
+    
+    <li ><a href="#method-c-parse_to_time">::parse_to_time</a>
+    
+    <li ><a href="#method-c-s">::s</a>
+    
+    <li ><a href="#method-c-singleton">::singleton</a>
+    
+    <li ><a href="#method-c-start_new">::start_new</a>
+    
+    <li ><a href="#method-c-to_duration">::to_duration</a>
+    
+    <li ><a href="#method-c-to_duration_hash">::to_duration_hash</a>
+    
+    <li ><a href="#method-c-to_duration_string">::to_duration_string</a>
+    
+    <li ><a href="#method-c-to_time_string">::to_time_string</a>
+    
+    <li ><a href="#method-c-utc_to_s">::utc_to_s</a>
+    
+    <li ><a href="#method-i-at">#at</a>
+    
+    <li ><a href="#method-i-at_jobs">#at_jobs</a>
+    
+    <li ><a href="#method-i-confirm_lock">#confirm_lock</a>
+    
+    <li ><a href="#method-i-cron">#cron</a>
+    
+    <li ><a href="#method-i-cron_jobs">#cron_jobs</a>
+    
+    <li ><a href="#method-i-do_schedule">#do_schedule</a>
+    
+    <li ><a href="#method-i-down-3F">#down?</a>
+    
+    <li ><a href="#method-i-every">#every</a>
+    
+    <li ><a href="#method-i-every_jobs">#every_jobs</a>
+    
+    <li ><a href="#method-i-fetch">#fetch</a>
+    
+    <li ><a href="#method-i-in">#in</a>
+    
+    <li ><a href="#method-i-in_jobs">#in_jobs</a>
+    
+    <li ><a href="#method-i-interval">#interval</a>
+    
+    <li ><a href="#method-i-interval_jobs">#interval_jobs</a>
+    
+    <li ><a href="#method-i-job">#job</a>
+    
+    <li ><a href="#method-i-jobs">#jobs</a>
+    
+    <li ><a href="#method-i-join">#join</a>
+    
+    <li ><a href="#method-i-join_all_work_threads">#join_all_work_threads</a>
+    
+    <li ><a href="#method-i-kill_all_work_threads">#kill_all_work_threads</a>
+    
+    <li ><a href="#method-i-lock">#lock</a>
+    
+    <li ><a href="#method-i-occurrences">#occurrences</a>
+    
+    <li ><a href="#method-i-on_error">#on_error</a>
+    
+    <li ><a href="#method-i-pause">#pause</a>
+    
+    <li ><a href="#method-i-paused-3F">#paused?</a>
+    
+    <li ><a href="#method-i-repeat">#repeat</a>
+    
+    <li ><a href="#method-i-resume">#resume</a>
+    
+    <li ><a href="#method-i-running_jobs">#running_jobs</a>
+    
+    <li ><a href="#method-i-schedule">#schedule</a>
+    
+    <li ><a href="#method-i-schedule_at">#schedule_at</a>
+    
+    <li ><a href="#method-i-schedule_cron">#schedule_cron</a>
+    
+    <li ><a href="#method-i-schedule_every">#schedule_every</a>
+    
+    <li ><a href="#method-i-schedule_in">#schedule_in</a>
+    
+    <li ><a href="#method-i-schedule_interval">#schedule_interval</a>
+    
+    <li ><a href="#method-i-scheduled-3F">#scheduled?</a>
+    
+    <li ><a href="#method-i-shutdown">#shutdown</a>
+    
+    <li ><a href="#method-i-start">#start</a>
+    
+    <li ><a href="#method-i-stop">#stop</a>
+    
+    <li ><a href="#method-i-terminate_all_jobs">#terminate_all_jobs</a>
+    
+    <li ><a href="#method-i-threads">#threads</a>
+    
+    <li ><a href="#method-i-timeline">#timeline</a>
+    
+    <li ><a href="#method-i-timeout_jobs">#timeout_jobs</a>
+    
+    <li ><a href="#method-i-trigger_jobs">#trigger_jobs</a>
+    
+    <li ><a href="#method-i-unlock">#unlock</a>
+    
+    <li ><a href="#method-i-unschedule">#unschedule</a>
+    
+    <li ><a href="#method-i-unschedule_jobs">#unschedule_jobs</a>
+    
+    <li ><a href="#method-i-up-3F">#up?</a>
+    
+    <li ><a href="#method-i-uptime">#uptime</a>
+    
+    <li ><a href="#method-i-uptime_s">#uptime_s</a>
+    
+    <li ><a href="#method-i-work_threads">#work_threads</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Rufus::Scheduler">
+  <h1 id="class-Rufus::Scheduler" class="class">
+    class Rufus::Scheduler
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="DURATIONS">DURATIONS
+        
+        <dd>
+        
+      
+        <dt id="DURATIONS2">DURATIONS2
+        
+        <dd>
+        
+      
+        <dt id="DURATIONS2M">DURATIONS2M
+        
+        <dd>
+        
+      
+        <dt id="DURATION_LETTERS">DURATION_LETTERS
+        
+        <dd>
+        
+      
+        <dt id="DU_KEYS">DU_KEYS
+        
+        <dd>
+        
+      
+        <dt id="MAX_WORK_THREADS">MAX_WORK_THREADS
+        
+        <dd><p>MIN_WORK_THREADS = 3</p>
+        
+      
+        <dt id="TZ_REGEX">TZ_REGEX
+        
+        <dd>
+        
+      
+        <dt id="VERSION">VERSION
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-frequency" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">frequency</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-max_work_threads" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">max_work_threads</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>attr_accessor :min_work_threads</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-mutexes" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">mutexes</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-started_at" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">started_at</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-stderr" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">stderr</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-thread" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">thread</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-thread_key" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">thread_key</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-work_queue" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">work_queue</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-h_to_s" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">h_to_s</span><span
+            class="method-args">(t=Time.now)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Produces a hour/min/sec/milli string representation of Time instance</p>
+          
+          
+
+          
+          <div class="method-source-code" id="h_to_s-source">
+            <pre><span class="ruby-comment"># File lib/rufus/scheduler/util.rb, line 316</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">h_to_s</span>(<span class="ruby-identifier">t</span>=<span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>)
+
+  <span class="ruby-node">&quot;#{t.strftime(&#39;%H:%M:%S&#39;)}.#{sprintf(&#39;%06d&#39;, t.usec)}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(opts={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/rufus/scheduler.rb, line 75</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">opts</span>={})
+
+  <span class="ruby-ivar">@opts</span> = <span class="ruby-identifier">opts</span>
+
+  <span class="ruby-ivar">@started_at</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@paused</span> = <span class="ruby-keyword">false</span>
+
+  <span class="ruby-ivar">@jobs</span> = <span class="ruby-constant">JobArray</span>.<span class="ruby-identifier">new</span>
+
+  <span class="ruby-ivar">@frequency</span> = <span class="ruby-constant">Rufus</span><span class="ruby-operator">::</span><span class="ruby-constant">Scheduler</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">opts</span>[<span class="ruby-value">:frequency</span>] <span class="ruby-operator">||</span> <span class="ruby-value">0.300</span>)
+  <span class="ruby-ivar">@mutexes</span> = {}
+
+  <span class="ruby-ivar">@work_queue</span> = <span class="ruby-constant">Queue</span>.<span class="ruby-identifier">new</span>
+
+  <span class="ruby-comment">#@min_work_threads = opts[:min_work_threads] || MIN_WORK_THREADS</span>
+  <span class="ruby-ivar">@max_work_threads</span> = <span class="ruby-identifier">opts</span>[<span class="ruby-value">:max_work_threads</span>] <span class="ruby-operator">||</span> <span class="ruby-constant">MAX_WORK_THREADS</span>
+
+  <span class="ruby-ivar">@stderr</span> = <span class="ruby-identifier">$stderr</span>
+
+  <span class="ruby-ivar">@thread_key</span> = <span class="ruby-node">&quot;rufus_scheduler_#{self.object_id}&quot;</span>
+
+  <span class="ruby-ivar">@scheduler_lock</span> =
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">lockfile</span> = <span class="ruby-identifier">opts</span>[<span class="ruby-value">:lockfile</span>]
+      <span class="ruby-constant">Rufus</span><span class="ruby-operator">::</span><span class="ruby-constant">Scheduler</span><span class="ruby-operator">::</span><span class="ruby-constant">FileLock</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">lockfile</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">opts</span>[<span class="ruby-value">:scheduler_lock</span>] <span class="ruby-operator">||</span> <span class="ruby-constant">Rufus</span><span class="ruby-operator">::</span><span class="ruby-constant">Scheduler</span><span class="ruby-operator">::</span><span class="ruby-constant">NullLock</span>.<span class="ruby-identifier">new</span>
+    <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@trigger_lock</span> = <span class="ruby-identifier">opts</span>[<span class="ruby-value">:trigger_lock</span>] <span class="ruby-operator">||</span> <span class="ruby-constant">Rufus</span><span class="ruby-operator">::</span><span class="ruby-constant">Scheduler</span><span class="ruby-operator">::</span><span class="ruby-constant">NullLock</span>.<span class="ruby-identifier">new</span>
+
+  <span class="ruby-comment"># If we can&#39;t grab the @scheduler_lock, don&#39;t run.</span>
+  <span class="ruby-ivar">@scheduler_lock</span>.<span class="ruby-identifier">lock</span> <span class="ruby-operator">||</span> <span class="ruby-keyword">return</span>
+
+  <span class="ruby-identifier">start</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-parse" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parse</span><span
+            class="method-args">(o, opts={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="parse-source">
+            <pre><span class="ruby-comment"># File lib/rufus/scheduler/util.rb, line 34</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">o</span>, <span class="ruby-identifier">opts</span>={})
+
+  <span class="ruby-identifier">opts</span>[<span class="ruby-value">:no_error</span>] = <span class="ruby-keyword">true</span>
+
+  <span class="ruby-identifier">parse_cron</span>(<span class="ruby-identifier">o</span>, <span class="ruby-identifier">opts</span>) <span class="ruby-operator">||</span>
+  <span class="ruby-identifier">parse_in</span>(<span class="ruby-identifier">o</span>, <span class="ruby-identifier">opts</span>) <span class="ruby-operator">||</span> <span class="ruby-comment"># covers &#39;every&#39; schedule strings</span>
+  <span class="ruby-identifier">parse_at</span>(<span class="ruby-identifier">o</span>, <span class="ruby-identifier">opts</span>) <span class="ruby-operator">||</span>
+  <span class="ruby-identifier">raise</span>(<span class="ruby-constant">ArgumentError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;couldn&#39;t parse \&quot;#{o}\&quot;&quot;</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-parse_at" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parse_at</span><span
+            class="method-args">(o, opts={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="parse_at-source">
+            <pre><span class="ruby-comment"># File lib/rufus/scheduler/util.rb, line 51</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">parse_at</span>(<span class="ruby-identifier">o</span>, <span class="ruby-identifier">opts</span>={})
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">o</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">o</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Time</span>)
+
+  <span class="ruby-comment"># TODO: deal with tz if suffixed to Chronic string?</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">Chronic</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">o</span>, <span class="ruby-identifier">opts</span>) <span class="ruby-keyword">if</span> <span class="ruby-keyword">defined?</span>(<span class="ruby-constant">Chronic</span>)
+
+  <span class="ruby-identifier">tz</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">s</span> =
+    <span class="ruby-identifier">o</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-constant">TZ_REGEX</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">m</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">t</span> = <span class="ruby-constant">TZInfo</span><span class="ruby-operator">::</span><span class="ruby-constant">Timezone</span>.<span class="ruby-identifier">get</span>(<span class="ruby-identifier">m</span>) <span class="ruby-keyword">rescue</span> <span class="ruby-keyword">nil</span>
+      <span class="ruby-identifier">tz</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">t</span>
+      <span class="ruby-identifier">t</span> <span class="ruby-operator">?</span> <span class="ruby-string">&#39;&#39;</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">m</span>
+    }
+
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">o</span>)
+  <span class="ruby-keyword">rescue</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;no time information in #{o.inspect}&quot;</span>
+  <span class="ruby-keyword">end</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">RUBY_VERSION</span> <span class="ruby-operator">&lt;</span> <span class="ruby-string">&#39;1.9.0&#39;</span>
+
+  <span class="ruby-identifier">t</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">s</span>)
+
+  <span class="ruby-identifier">tz</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">tz</span>.<span class="ruby-identifier">local_to_utc</span>(<span class="ruby-identifier">t</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">t</span>
+
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">StandardError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">se</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">opts</span>[<span class="ruby-value">:no_error</span>]
+  <span class="ruby-identifier">raise</span> <span class="ruby-identifier">se</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-parse_cron" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parse_cron</span><span
+            class="method-args">(o, opts)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="parse_cron-source">
+            <pre><span class="ruby-comment"># File lib/rufus/scheduler/util.rb, line 82</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">parse_cron</span>(<span class="ruby-identifier">o</span>, <span class="ruby-identifier">opts</span>)
+
+  <span class="ruby-constant">CronLine</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">o</span>)
+
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">ArgumentError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">ae</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">opts</span>[<span class="ruby-value">:no_error</span>]
+  <span class="ruby-identifier">raise</span> <span class="ruby-identifier">ae</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-parse_duration" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parse_duration</span><span
+            class="method-args">(string, opts={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Turns a string like &#39;1m10s&#39; into a float like &#39;70.0&#39;, more
+formally, turns a time duration expressed as a string into a Float instance
+(millisecond count).</p>
+
+<p>w -&gt; week d -&gt; day h -&gt; hour m -&gt; minute s -&gt; second M -&gt;
+month y -&gt; year &#39;nada&#39; -&gt; millisecond</p>
+
+<p>Some examples:</p>
+
+<pre class="ruby"><span class="ruby-constant">Rufus</span><span class="ruby-operator">::</span><span class="ruby-constant">Scheduler</span>.<span class="ruby-identifier">parse_duration</span> <span class="ruby-string">&quot;0.5&quot;</span>    <span class="ruby-comment"># =&gt; 0.5</span>
+<span class="ruby-constant">Rufus</span><span class="ruby-operator">::</span><span class="ruby-constant">Scheduler</span>.<span class="ruby-identifier">parse_duration</span> <span class="ruby-string">&quot;500&quot;</span>    <span class="ruby-comment"># =&gt; 0.5</span>
+<span class="ruby-constant">Rufus</span><span class="ruby-operator">::</span><span class="ruby-constant">Scheduler</span>.<span class="ruby-identifier">parse_duration</span> <span class="ruby-string">&quot;1000&quot;</span>   <span class="ruby-comment"># =&gt; 1.0</span>
+<span class="ruby-constant">Rufus</span><span class="ruby-operator">::</span><span class="ruby-constant">Scheduler</span>.<span class="ruby-identifier">parse_duration</span> <span class="ruby-string">&quot;1h&quot;</span>     <span class="ruby-comment"># =&gt; 3600.0</span>
+<span class="ruby-constant">Rufus</span><span class="ruby-operator">::</span><span class="ruby-constant">Scheduler</span>.<span class="ruby-identifier">parse_duration</span> <span class="ruby-string">&quot;1h10s&quot;</span>  <span class="ruby-comment"># =&gt; 3610.0</span>
+<span class="ruby-constant">Rufus</span><span class="ruby-operator">::</span><span class="ruby-constant">Scheduler</span>.<span class="ruby-identifier">parse_duration</span> <span class="ruby-string">&quot;1w2d&quot;</span>   <span class="ruby-comment"># =&gt; 777600.0</span>
+</pre>
+
+<p>Negative time strings are OK (Thanks Danny Fullerton):</p>
+
+<pre class="ruby"><span class="ruby-constant">Rufus</span><span class="ruby-operator">::</span><span class="ruby-constant">Scheduler</span>.<span class="ruby-identifier">parse_duration</span> <span class="ruby-string">&quot;-0.5&quot;</span>   <span class="ruby-comment"># =&gt; -0.5</span>
+<span class="ruby-constant">Rufus</span><span class="ruby-operator">::</span><span class="ruby-constant">Scheduler</span>.<span class="ruby-identifier">parse_duration</span> <span class="ruby-string">&quot;-1h&quot;</span>    <span class="ruby-comment"># =&gt; -3600.0</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="parse_duration-source">
+            <pre><span class="ruby-comment"># File lib/rufus/scheduler/util.rb, line 149</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">parse_duration</span>(<span class="ruby-identifier">string</span>, <span class="ruby-identifier">opts</span>={})
+
+  <span class="ruby-identifier">string</span> = <span class="ruby-identifier">string</span>.<span class="ruby-identifier">to_s</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-value">0.0</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">string</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;&#39;</span>
+
+  <span class="ruby-identifier">m</span> = <span class="ruby-identifier">string</span>.<span class="ruby-identifier">match</span>(<span class="ruby-node">/^(-?)([\d\.#{DURATION_LETTERS}]+)$/</span>)
+
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">m</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">opts</span>[<span class="ruby-value">:no_error</span>]
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;cannot parse &#39;#{string}&#39;&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">m</span>.<span class="ruby-identifier">nil?</span>
+
+  <span class="ruby-identifier">mod</span> = <span class="ruby-identifier">m</span>[<span class="ruby-value">1</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&#39;-&#39;</span> <span class="ruby-operator">?</span> <span class="ruby-value">-1.0</span> <span class="ruby-operator">:</span> <span class="ruby-value">1.0</span>
+  <span class="ruby-identifier">val</span> = <span class="ruby-value">0.0</span>
+
+  <span class="ruby-identifier">s</span> = <span class="ruby-identifier">m</span>[<span class="ruby-value">2</span>]
+
+  <span class="ruby-keyword">while</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+    <span class="ruby-identifier">m</span> = <span class="ruby-keyword">nil</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">m</span> = <span class="ruby-identifier">s</span>.<span class="ruby-identifier">match</span>(<span class="ruby-node">/^(\d+|\d+\.\d*|\d*\.\d+)([#{DURATION_LETTERS}])(.*)$/</span>)
+      <span class="ruby-identifier">val</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">m</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">to_f</span> <span class="ruby-operator">*</span> <span class="ruby-constant">DURATIONS</span>[<span class="ruby-identifier">m</span>[<span class="ruby-value">2</span>]]
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/^\d+$/</span>)
+      <span class="ruby-identifier">val</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">to_i</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/^\d*\.\d*$/</span>)
+      <span class="ruby-identifier">val</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">to_f</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">opts</span>[<span class="ruby-value">:no_error</span>]
+      <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>.<span class="ruby-identifier">new</span>(
+        <span class="ruby-node">&quot;cannot parse &#39;#{string}&#39; (especially &#39;#{s}&#39;)&quot;</span>
+      )
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">break</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">m</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">m</span>[<span class="ruby-value">3</span>]
+    <span class="ruby-identifier">s</span> = <span class="ruby-identifier">m</span>[<span class="ruby-value">3</span>]
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">mod</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">val</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Scheduler.html#method-c-parse_duration_string">parse_duration_string</a>, <a href="Scheduler.html#method-c-parse_time_string">parse_time_string</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-parse_duration_string" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">parse_duration_string</span><span
+            class="method-args">(string, opts={})</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>-</p>
+
+<pre>for compatibility with rufus-scheduler 2.x</pre>
+
+<p>+</p>
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Scheduler.html#method-c-parse_duration">parse_duration</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-c-parse_in" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parse_in</span><span
+            class="method-args">(o, opts={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="parse_in-source">
+            <pre><span class="ruby-comment"># File lib/rufus/scheduler/util.rb, line 44</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">parse_in</span>(<span class="ruby-identifier">o</span>, <span class="ruby-identifier">opts</span>={})
+
+  <span class="ruby-identifier">o</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">parse_duration</span>(<span class="ruby-identifier">o</span>, <span class="ruby-identifier">opts</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">o</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-parse_time_string" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">parse_time_string</span><span
+            class="method-args">(string, opts={})</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Scheduler.html#method-c-parse_duration">parse_duration</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-c-parse_to_time" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parse_to_time</span><span
+            class="method-args">(o)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="parse_to_time-source">
+            <pre><span class="ruby-comment"># File lib/rufus/scheduler/util.rb, line 92</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">parse_to_time</span>(<span class="ruby-identifier">o</span>)
+
+  <span class="ruby-identifier">t</span> = <span class="ruby-identifier">o</span>
+  <span class="ruby-identifier">t</span> = <span class="ruby-identifier">parse</span>(<span class="ruby-identifier">t</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>)
+  <span class="ruby-identifier">t</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">t</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Numeric</span>)
+
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>.<span class="ruby-identifier">new</span>(
+    <span class="ruby-node">&quot;cannot turn #{o.inspect} to a point in time, doesn&#39;t make sense&quot;</span>
+  ) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Time</span>)
+
+  <span class="ruby-identifier">t</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-s" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">s</span><span
+            class="method-args">(opts={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Alias for <a href="Scheduler.html#method-c-singleton">::singleton</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="s-source">
+            <pre><span class="ruby-comment"># File lib/rufus/scheduler.rb, line 120</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">s</span>(<span class="ruby-identifier">opts</span>={}); <span class="ruby-identifier">singleton</span>(<span class="ruby-identifier">opts</span>); <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-singleton" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">singleton</span><span
+            class="method-args">(opts={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns a singleton <a href="Scheduler.html">Rufus::Scheduler</a> instance</p>
+          
+          
+
+          
+          <div class="method-source-code" id="singleton-source">
+            <pre><span class="ruby-comment"># File lib/rufus/scheduler.rb, line 113</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">singleton</span>(<span class="ruby-identifier">opts</span>={})
+
+  <span class="ruby-ivar">@singleton</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Rufus</span><span class="ruby-operator">::</span><span class="ruby-constant">Scheduler</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">opts</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-start_new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">start_new</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Releasing the gem would probably require redirecting .start_new to .new and
+emit a simple deprecation message.</p>
+
+<p>For now, let&#39;s assume the people pointing at rufus-scheduler/master on
+GitHub know what they do…</p>
+          
+          
+
+          
+          <div class="method-source-code" id="start_new-source">
+            <pre><span class="ruby-comment"># File lib/rufus/scheduler.rb, line 128</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">start_new</span>
+
+  <span class="ruby-identifier">fail</span> <span class="ruby-string">&quot;this is rufus-scheduler 3.0, use .new instead of .start_new&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-to_duration" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_duration</span><span
+            class="method-args">(seconds, options={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Turns a number of seconds into a a time string</p>
+
+<pre class="ruby"><span class="ruby-constant">Rufus</span>.<span class="ruby-identifier">to_duration</span> <span class="ruby-value">0</span>                    <span class="ruby-comment"># =&gt; &#39;0s&#39;</span>
+<span class="ruby-constant">Rufus</span>.<span class="ruby-identifier">to_duration</span> <span class="ruby-value">60</span>                   <span class="ruby-comment"># =&gt; &#39;1m&#39;</span>
+<span class="ruby-constant">Rufus</span>.<span class="ruby-identifier">to_duration</span> <span class="ruby-value">3661</span>                 <span class="ruby-comment"># =&gt; &#39;1h1m1s&#39;</span>
+<span class="ruby-constant">Rufus</span>.<span class="ruby-identifier">to_duration</span> <span class="ruby-value">7</span> <span class="ruby-operator">*</span> <span class="ruby-value">24</span> <span class="ruby-operator">*</span> <span class="ruby-value">3600</span>        <span class="ruby-comment"># =&gt; &#39;1w&#39;</span>
+<span class="ruby-constant">Rufus</span>.<span class="ruby-identifier">to_duration</span> <span class="ruby-value">30</span> <span class="ruby-operator">*</span> <span class="ruby-value">24</span> <span class="ruby-operator">*</span> <span class="ruby-value">3600</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>   <span class="ruby-comment"># =&gt; &quot;4w2d1s&quot;</span>
+</pre>
+
+<p>It goes from seconds to the year. Months are not counted (as they are of
+variable length). Weeks are counted.</p>
+
+<p>For 30 days months to be counted, the second parameter of this method can
+be set to true.</p>
+
+<pre class="ruby"><span class="ruby-constant">Rufus</span>.<span class="ruby-identifier">to_duration</span> <span class="ruby-value">30</span> <span class="ruby-operator">*</span> <span class="ruby-value">24</span> <span class="ruby-operator">*</span> <span class="ruby-value">3600</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>, <span class="ruby-keyword">true</span>   <span class="ruby-comment"># =&gt; &quot;1M1s&quot;</span>
+</pre>
+
+<p>If a Float value is passed, milliseconds will be displayed without
+&#39;marker&#39;</p>
+
+<pre class="ruby"><span class="ruby-constant">Rufus</span>.<span class="ruby-identifier">to_duration</span> <span class="ruby-value">0.051</span>                       <span class="ruby-comment"># =&gt; &quot;51&quot;</span>
+<span class="ruby-constant">Rufus</span>.<span class="ruby-identifier">to_duration</span> <span class="ruby-value">7.051</span>                       <span class="ruby-comment"># =&gt; &quot;7s51&quot;</span>
+<span class="ruby-constant">Rufus</span>.<span class="ruby-identifier">to_duration</span> <span class="ruby-value">0.120</span> <span class="ruby-operator">+</span> <span class="ruby-value">30</span> <span class="ruby-operator">*</span> <span class="ruby-value">24</span> <span class="ruby-operator">*</span> <span class="ruby-value">3600</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>  <span class="ruby-comment"># =&gt; &quot;4w2d1s120&quot;</span>
+</pre>
+
+<p>(this behaviour mirrors the one found for <a
+href="Scheduler.html#method-c-parse_time_string">::parse_time_string</a>()).</p>
+
+<p>Options are :</p>
+<ul><li>
+<p>:months, if set to true, months (M) of 30 days will be taken into account
+when building up the result</p>
+</li><li>
+<p>:drop_seconds, if set to true, seconds and milliseconds will be trimmed
+from the result</p>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="to_duration-source">
+            <pre><span class="ruby-comment"># File lib/rufus/scheduler/util.rb, line 228</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">to_duration</span>(<span class="ruby-identifier">seconds</span>, <span class="ruby-identifier">options</span>={})
+
+  <span class="ruby-identifier">h</span> = <span class="ruby-identifier">to_duration_hash</span>(<span class="ruby-identifier">seconds</span>, <span class="ruby-identifier">options</span>)
+
+  <span class="ruby-keyword">return</span> (<span class="ruby-identifier">options</span>[<span class="ruby-value">:drop_seconds</span>] <span class="ruby-operator">?</span> <span class="ruby-string">&#39;0m&#39;</span> <span class="ruby-operator">:</span> <span class="ruby-string">&#39;0s&#39;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">h</span>.<span class="ruby-identifier">empty?</span>
+
+  <span class="ruby-identifier">s</span> =
+    <span class="ruby-constant">DU_KEYS</span>.<span class="ruby-identifier">inject</span>(<span class="ruby-string">&#39;&#39;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">r</span>, <span class="ruby-identifier">key</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">count</span> = <span class="ruby-identifier">h</span>[<span class="ruby-identifier">key</span>]
+      <span class="ruby-identifier">count</span> = <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">count</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+      <span class="ruby-identifier">r</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;#{count}#{key}&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">count</span>
+      <span class="ruby-identifier">r</span>
+    }
+
+  <span class="ruby-identifier">ms</span> = <span class="ruby-identifier">h</span>[<span class="ruby-value">:ms</span>]
+  <span class="ruby-identifier">s</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">ms</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">ms</span>
+
+  <span class="ruby-identifier">s</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Scheduler.html#method-c-to_duration_string">to_duration_string</a>, <a href="Scheduler.html#method-c-to_time_string">to_time_string</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-to_duration_hash" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_duration_hash</span><span
+            class="method-args">(seconds, options={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Turns a number of seconds (integer or Float) into a hash like in :</p>
+
+<pre class="ruby"><span class="ruby-constant">Rufus</span>.<span class="ruby-identifier">to_duration_hash</span> <span class="ruby-value">0.051</span>
+  <span class="ruby-comment"># =&gt; { :ms =&gt; &quot;51&quot; }</span>
+<span class="ruby-constant">Rufus</span>.<span class="ruby-identifier">to_duration_hash</span> <span class="ruby-value">7.051</span>
+  <span class="ruby-comment"># =&gt; { :s =&gt; 7, :ms =&gt; &quot;51&quot; }</span>
+<span class="ruby-constant">Rufus</span>.<span class="ruby-identifier">to_duration_hash</span> <span class="ruby-value">0.120</span> <span class="ruby-operator">+</span> <span class="ruby-value">30</span> <span class="ruby-operator">*</span> <span class="ruby-value">24</span> <span class="ruby-operator">*</span> <span class="ruby-value">3600</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
+  <span class="ruby-comment"># =&gt; { :w =&gt; 4, :d =&gt; 2, :s =&gt; 1, :ms =&gt; &quot;120&quot; }</span>
+</pre>
+
+<p>This method is used by <a
+href="Scheduler.html#method-c-to_duration">::to_duration</a> behind the
+scenes.</p>
+
+<p>Options are :</p>
+<ul><li>
+<p>:months, if set to true, months (M) of 30 days will be taken into account
+when building up the result</p>
+</li><li>
+<p>:drop_seconds, if set to true, seconds and milliseconds will be trimmed
+from the result</p>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="to_duration_hash-source">
+            <pre><span class="ruby-comment"># File lib/rufus/scheduler/util.rb, line 274</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">to_duration_hash</span>(<span class="ruby-identifier">seconds</span>, <span class="ruby-identifier">options</span>={})
+
+  <span class="ruby-identifier">h</span> = {}
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">seconds</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Float</span>)
+    <span class="ruby-identifier">h</span>[<span class="ruby-value">:ms</span>] = (<span class="ruby-identifier">seconds</span> <span class="ruby-operator">%</span> <span class="ruby-value">1</span> <span class="ruby-operator">*</span> <span class="ruby-value">1000</span>).<span class="ruby-identifier">to_i</span>
+    <span class="ruby-identifier">seconds</span> = <span class="ruby-identifier">seconds</span>.<span class="ruby-identifier">to_i</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:drop_seconds</span>]
+    <span class="ruby-identifier">h</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:ms</span>)
+    <span class="ruby-identifier">seconds</span> = (<span class="ruby-identifier">seconds</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">seconds</span> <span class="ruby-operator">%</span> <span class="ruby-value">60</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">durations</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:months</span>] <span class="ruby-operator">?</span> <span class="ruby-constant">DURATIONS2M</span> <span class="ruby-operator">:</span> <span class="ruby-constant">DURATIONS2</span>
+
+  <span class="ruby-identifier">durations</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">key</span>, <span class="ruby-identifier">duration</span><span class="ruby-operator">|</span>
+
+    <span class="ruby-identifier">count</span> = <span class="ruby-identifier">seconds</span> <span class="ruby-operator">/</span> <span class="ruby-identifier">duration</span>
+    <span class="ruby-identifier">seconds</span> = <span class="ruby-identifier">seconds</span> <span class="ruby-operator">%</span> <span class="ruby-identifier">duration</span>
+
+    <span class="ruby-identifier">h</span>[<span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_sym</span>] = <span class="ruby-identifier">count</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">count</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">h</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-to_duration_string" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">to_duration_string</span><span
+            class="method-args">(seconds, options={})</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>-</p>
+
+<pre>for compatibility with rufus-scheduler 2.x</pre>
+
+<p>+</p>
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Scheduler.html#method-c-to_duration">to_duration</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-c-to_time_string" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">to_time_string</span><span
+            class="method-args">(seconds, options={})</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Scheduler.html#method-c-to_duration">to_duration</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-c-utc_to_s" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">utc_to_s</span><span
+            class="method-args">(t=Time.now)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Produces the UTC string representation of a Time instance</p>
+
+<p>like “2009/11/23 11:11:50.947109 UTC”</p>
+          
+          
+
+          
+          <div class="method-source-code" id="utc_to_s-source">
+            <pre><span class="ruby-comment"># File lib/rufus/scheduler/util.rb, line 309</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">utc_to_s</span>(<span class="ruby-identifier">t</span>=<span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>)
+
+  <span class="ruby-node">&quot;#{t.utc.strftime(&#39;%Y-%m-%d %H:%M:%S&#39;)}.#{sprintf(&#39;%06d&#39;, t.usec)} UTC&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-at" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">at</span><span
+            class="method-args">(time, callable=nil, opts={}, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="at-source">
+            <pre><span class="ruby-comment"># File lib/rufus/scheduler.rb, line 202</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">at</span>(<span class="ruby-identifier">time</span>, <span class="ruby-identifier">callable</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">opts</span>={}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+
+  <span class="ruby-identifier">do_schedule</span>(<span class="ruby-value">:once</span>, <span class="ruby-identifier">time</span>, <span class="ruby-identifier">callable</span>, <span class="ruby-identifier">opts</span>, <span class="ruby-identifier">opts</span>[<span class="ruby-value">:job</span>], <span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-at_jobs" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">at_jobs</span><span
+            class="method-args">(opts={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="at_jobs-source">
+            <pre><span class="ruby-comment"># File lib/rufus/scheduler.rb, line 307</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">at_jobs</span>(<span class="ruby-identifier">opts</span>={})
+
+  <span class="ruby-identifier">jobs</span>(<span class="ruby-identifier">opts</span>).<span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">j</span><span class="ruby-operator">|</span> <span class="ruby-identifier">j</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Rufus</span><span class="ruby-operator">::</span><span class="ruby-constant">Scheduler</span><span class="ruby-operator">::</span><span class="ruby-constant">AtJob</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-confirm_lock" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">confirm_lock</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Callback called when a job is triggered. If the lock cannot be acquired,
+the job won&#39;t run (though it&#39;ll still be scheduled to run again if
+necessary).</p>
+          
+          
+
+          
+          <div class="method-source-code" id="confirm_lock-source">
+            <pre><span class="ruby-comment"># File lib/rufus/scheduler.rb, line 375</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">confirm_lock</span>
+
+  <span class="ruby-ivar">@trigger_lock</span>.<span class="ruby-identifier">lock</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-cron" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">cron</span><span
+            class="method-args">(cronline, callable=nil, opts={}, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="cron-source">
+            <pre><span class="ruby-comment"># File lib/rufus/scheduler.rb, line 242</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">cron</span>(<span class="ruby-identifier">cronline</span>, <span class="ruby-identifier">callable</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">opts</span>={}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+
+  <span class="ruby-identifier">do_schedule</span>(<span class="ruby-value">:cron</span>, <span class="ruby-identifier">cronline</span>, <span class="ruby-identifier">callable</span>, <span class="ruby-identifier">opts</span>, <span class="ruby-identifier">opts</span>[<span class="ruby-value">:job</span>], <span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-cron_jobs" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">cron_jobs</span><span
+            class="method-args">(opts={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="cron_jobs-source">
+            <pre><span class="ruby-comment"># File lib/rufus/scheduler.rb, line 327</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">cron_jobs</span>(<span class="ruby-identifier">opts</span>={})
+
+  <span class="ruby-identifier">jobs</span>(<span class="ruby-identifier">opts</span>).<span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">j</span><span class="ruby-operator">|</span> <span class="ruby-identifier">j</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Rufus</span><span class="ruby-operator">::</span><span class="ruby-constant">Scheduler</span><span class="ruby-operator">::</span><span class="ruby-constant">CronJob</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-down-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">down?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="down-3F-source">
+            <pre><span class="ruby-comment"># File lib/rufus/scheduler.rb, line 173</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">down?</span>
+
+  <span class="ruby-operator">!</span> <span class="ruby-ivar">@started_at</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-every" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">every</span><span
+            class="method-args">(duration, callable=nil, opts={}, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="every-source">
+            <pre><span class="ruby-comment"># File lib/rufus/scheduler.rb, line 222</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">every</span>(<span class="ruby-identifier">duration</span>, <span class="ruby-identifier">callable</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">opts</span>={}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+
+  <span class="ruby-identifier">do_schedule</span>(<span class="ruby-value">:every</span>, <span class="ruby-identifier">duration</span>, <span class="ruby-identifier">callable</span>, <span class="ruby-identifier">opts</span>, <span class="ruby-identifier">opts</span>[<span class="ruby-value">:job</span>], <span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-every_jobs" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">every_jobs</span><span
+            class="method-args">(opts={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="every_jobs-source">
+            <pre><span class="ruby-comment"># File lib/rufus/scheduler.rb, line 317</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">every_jobs</span>(<span class="ruby-identifier">opts</span>={})
+
+  <span class="ruby-identifier">jobs</span>(<span class="ruby-identifier">opts</span>).<span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">j</span><span class="ruby-operator">|</span> <span class="ruby-identifier">j</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Rufus</span><span class="ruby-operator">::</span><span class="ruby-constant">Scheduler</span><span class="ruby-operator">::</span><span class="ruby-constant">EveryJob</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-in" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">in</span><span
+            class="method-args">(duration, callable=nil, opts={}, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="in-source">
+            <pre><span class="ruby-comment"># File lib/rufus/scheduler.rb, line 212</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">in</span>(<span class="ruby-identifier">duration</span>, <span class="ruby-identifier">callable</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">opts</span>={}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+
+  <span class="ruby-identifier">do_schedule</span>(<span class="ruby-value">:once</span>, <span class="ruby-identifier">duration</span>, <span class="ruby-identifier">callable</span>, <span class="ruby-identifier">opts</span>, <span class="ruby-identifier">opts</span>[<span class="ruby-value">:job</span>], <span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-in_jobs" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">in_jobs</span><span
+            class="method-args">(opts={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="in_jobs-source">
+            <pre><span class="ruby-comment"># File lib/rufus/scheduler.rb, line 312</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">in_jobs</span>(<span class="ruby-identifier">opts</span>={})
+
+  <span class="ruby-identifier">jobs</span>(<span class="ruby-identifier">opts</span>).<span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">j</span><span class="ruby-operator">|</span> <span class="ruby-identifier">j</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Rufus</span><span class="ruby-operator">::</span><span class="ruby-constant">Scheduler</span><span class="ruby-operator">::</span><span class="ruby-constant">InJob</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-interval" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">interval</span><span
+            class="method-args">(duration, callable=nil, opts={}, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="interval-source">
+            <pre><span class="ruby-comment"># File lib/rufus/scheduler.rb, line 232</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">interval</span>(<span class="ruby-identifier">duration</span>, <span class="ruby-identifier">callable</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">opts</span>={}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+
+  <span class="ruby-identifier">do_schedule</span>(<span class="ruby-value">:interval</span>, <span class="ruby-identifier">duration</span>, <span class="ruby-identifier">callable</span>, <span class="ruby-identifier">opts</span>, <span class="ruby-identifier">opts</span>[<span class="ruby-value">:job</span>], <span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-interval_jobs" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">interval_jobs</span><span
+            class="method-args">(opts={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="interval_jobs-source">
+            <pre><span class="ruby-comment"># File lib/rufus/scheduler.rb, line 322</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">interval_jobs</span>(<span class="ruby-identifier">opts</span>={})
+
+  <span class="ruby-identifier">jobs</span>(<span class="ruby-identifier">opts</span>).<span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">j</span><span class="ruby-operator">|</span> <span class="ruby-identifier">j</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Rufus</span><span class="ruby-operator">::</span><span class="ruby-constant">Scheduler</span><span class="ruby-operator">::</span><span class="ruby-constant">IntervalJob</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-job" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">job</span><span
+            class="method-args">(job_id)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="job-source">
+            <pre><span class="ruby-comment"># File lib/rufus/scheduler.rb, line 332</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">job</span>(<span class="ruby-identifier">job_id</span>)
+
+  <span class="ruby-ivar">@jobs</span>[<span class="ruby-identifier">job_id</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-jobs" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">jobs</span><span
+            class="method-args">(opts={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns all the scheduled jobs (even those right before re-schedule).</p>
+          
+          
+
+          
+          <div class="method-source-code" id="jobs-source">
+            <pre><span class="ruby-comment"># File lib/rufus/scheduler.rb, line 289</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">jobs</span>(<span class="ruby-identifier">opts</span>={})
+
+  <span class="ruby-identifier">opts</span> = { <span class="ruby-identifier">opts</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span> } <span class="ruby-keyword">if</span> <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Symbol</span>)
+
+  <span class="ruby-identifier">jobs</span> = <span class="ruby-ivar">@jobs</span>.<span class="ruby-identifier">to_a</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">opts</span>[<span class="ruby-value">:running</span>]
+    <span class="ruby-identifier">jobs</span> = <span class="ruby-identifier">jobs</span>.<span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">j</span><span class="ruby-operator">|</span> <span class="ruby-identifier">j</span>.<span class="ruby-identifier">running?</span> }
+  <span class="ruby-keyword">elsif</span> <span class="ruby-operator">!</span> <span class="ruby-identifier">opts</span>[<span class="ruby-value">:all</span>]
+    <span class="ruby-identifier">jobs</span> = <span class="ruby-identifier">jobs</span>.<span class="ruby-identifier">reject</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">j</span><span class="ruby-operator">|</span> <span class="ruby-identifier">j</span>.<span class="ruby-identifier">next_time</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">j</span>.<span class="ruby-identifier">unscheduled_at</span> }
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">tags</span> = <span class="ruby-constant">Array</span>(<span class="ruby-identifier">opts</span>[<span class="ruby-value">:tag</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">opts</span>[<span class="ruby-value">:tags</span>]).<span class="ruby-identifier">collect</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">to_s</span> }
+  <span class="ruby-identifier">jobs</span> = <span class="ruby-identifier">jobs</span>.<span class="ruby-identifier">reject</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">j</span><span class="ruby-operator">|</span> <span class="ruby-identifier">tags</span>.<span class="ruby-identifier">find</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-operator">!</span> <span class="ruby-identifier">j</span>.<span class="ruby-identifier">tags</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">t</span>) } }
+
+  <span class="ruby-identifier">jobs</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-join" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">join</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="join-source">
+            <pre><span class="ruby-comment"># File lib/rufus/scheduler.rb, line 164</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">join</span>
+
+  <span class="ruby-identifier">fail</span> <span class="ruby-constant">NotRunningError</span>.<span class="ruby-identifier">new</span>(
+    <span class="ruby-string">&#39;cannot join scheduler that is not running&#39;</span>
+  ) <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@thread</span>
+
+  <span class="ruby-ivar">@thread</span>.<span class="ruby-identifier">join</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-lock" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">lock</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns true if the scheduler has acquired the [exclusive] lock and thus
+may run.</p>
+
+<p>Most of the time, a scheduler is run alone and this method should return
+true. It is useful in cases where among a group of applications only one of
+them should run the scheduler. For schedulers that should not run, the
+method should return false.</p>
+
+<p>Out of the box, rufus-scheduler proposes the :lockfile =&gt;
+&#39;path/to/lock/file&#39; scheduler start option. It makes it easy for
+schedulers on the same machine to determine which should run (the first to
+write the lockfile and lock it). It uses “man 2 flock” so it probably
+won&#39;t work reliably on distributed file systems.</p>
+
+<p>If one needs to use a special/different locking mechanism, the scheduler
+accepts :scheduler_lock =&gt; lock_object. lock_object only needs to
+respond to <a href="Scheduler.html#method-i-lock">lock</a> and <a
+href="Scheduler.html#method-i-unlock">unlock</a>, and both of these methods
+should be idempotent.</p>
+
+<p>Look at rufus/scheduler/locks.rb for an example.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="lock-source">
+            <pre><span class="ruby-comment"># File lib/rufus/scheduler.rb, line 358</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">lock</span>
+
+  <span class="ruby-ivar">@scheduler_lock</span>.<span class="ruby-identifier">lock</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-occurrences" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">occurrences</span><span
+            class="method-args">(time0, time1, format=:per_job)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="occurrences-source">
+            <pre><span class="ruby-comment"># File lib/rufus/scheduler.rb, line 431</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">occurrences</span>(<span class="ruby-identifier">time0</span>, <span class="ruby-identifier">time1</span>, <span class="ruby-identifier">format</span>=<span class="ruby-value">:per_job</span>)
+
+  <span class="ruby-identifier">h</span> = {}
+
+  <span class="ruby-identifier">jobs</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">j</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">os</span> = <span class="ruby-identifier">j</span>.<span class="ruby-identifier">occurrences</span>(<span class="ruby-identifier">time0</span>, <span class="ruby-identifier">time1</span>)
+    <span class="ruby-identifier">h</span>[<span class="ruby-identifier">j</span>] = <span class="ruby-identifier">os</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">os</span>.<span class="ruby-identifier">any?</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">format</span> <span class="ruby-operator">==</span> <span class="ruby-value">:timeline</span>
+    <span class="ruby-identifier">a</span> = []
+    <span class="ruby-identifier">h</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">j</span>, <span class="ruby-identifier">ts</span><span class="ruby-operator">|</span> <span class="ruby-identifier">ts</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-identifier">a</span> <span class="ruby-operator">&lt;&lt;</span> [ <span class="ruby-identifier">t</span>, <span class="ruby-identifier">j</span> ] } }
+    <span class="ruby-identifier">a</span>.<span class="ruby-identifier">sort_by</span> { <span class="ruby-operator">|</span>(<span class="ruby-identifier">t</span>, <span class="ruby-identifier">j</span>)<span class="ruby-operator">|</span> <span class="ruby-identifier">t</span> }
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">h</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-on_error" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">on_error</span><span
+            class="method-args">(job, err)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="on_error-source">
+            <pre><span class="ruby-comment"># File lib/rufus/scheduler.rb, line 454</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">on_error</span>(<span class="ruby-identifier">job</span>, <span class="ruby-identifier">err</span>)
+
+  <span class="ruby-identifier">pre</span> = <span class="ruby-identifier">err</span>.<span class="ruby-identifier">object_id</span>.<span class="ruby-identifier">to_s</span>
+
+  <span class="ruby-identifier">ms</span> = {}; <span class="ruby-identifier">mutexes</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>, <span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-identifier">ms</span>[<span class="ruby-identifier">k</span>] = <span class="ruby-identifier">v</span>.<span class="ruby-identifier">locked?</span> }
+
+  <span class="ruby-identifier">stderr</span>.<span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;{ #{pre} rufus-scheduler intercepted an error:&quot;</span>)
+  <span class="ruby-identifier">stderr</span>.<span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;  #{pre}   job:&quot;</span>)
+  <span class="ruby-identifier">stderr</span>.<span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;  #{pre}     #{job.class} #{job.original.inspect} #{job.opts.inspect}&quot;</span>)
+  <span class="ruby-comment"># TODO: eventually use a Job#detail or something like that</span>
+  <span class="ruby-identifier">stderr</span>.<span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;  #{pre}   error:&quot;</span>)
+  <span class="ruby-identifier">stderr</span>.<span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;  #{pre}     #{err.object_id}&quot;</span>)
+  <span class="ruby-identifier">stderr</span>.<span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;  #{pre}     #{err.class}&quot;</span>)
+  <span class="ruby-identifier">stderr</span>.<span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;  #{pre}     #{err}&quot;</span>)
+  <span class="ruby-identifier">err</span>.<span class="ruby-identifier">backtrace</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">l</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">stderr</span>.<span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;  #{pre}       #{l}&quot;</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">stderr</span>.<span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;  #{pre}   tz:&quot;</span>)
+  <span class="ruby-identifier">stderr</span>.<span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;  #{pre}     ENV[&#39;TZ&#39;]: #{ENV[&#39;TZ&#39;]}&quot;</span>)
+  <span class="ruby-identifier">stderr</span>.<span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;  #{pre}     Time.now: #{Time.now}&quot;</span>)
+  <span class="ruby-identifier">stderr</span>.<span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;  #{pre}   scheduler:&quot;</span>)
+  <span class="ruby-identifier">stderr</span>.<span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;  #{pre}     object_id: #{object_id}&quot;</span>)
+  <span class="ruby-identifier">stderr</span>.<span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;  #{pre}     opts:&quot;</span>)
+  <span class="ruby-identifier">stderr</span>.<span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;  #{pre}       #{@opts.inspect}&quot;</span>)
+  <span class="ruby-identifier">stderr</span>.<span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;  #{pre}       frequency: #{self.frequency}&quot;</span>)
+  <span class="ruby-identifier">stderr</span>.<span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;  #{pre}       scheduler_lock: #{@scheduler_lock.inspect}&quot;</span>)
+  <span class="ruby-identifier">stderr</span>.<span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;  #{pre}       trigger_lock: #{@trigger_lock.inspect}&quot;</span>)
+  <span class="ruby-identifier">stderr</span>.<span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;  #{pre}     uptime: #{uptime} (#{uptime_s})&quot;</span>)
+  <span class="ruby-identifier">stderr</span>.<span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;  #{pre}     down?: #{down?}&quot;</span>)
+  <span class="ruby-identifier">stderr</span>.<span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;  #{pre}     threads: #{self.threads.size}&quot;</span>)
+  <span class="ruby-identifier">stderr</span>.<span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;  #{pre}       thread: #{self.thread}&quot;</span>)
+  <span class="ruby-identifier">stderr</span>.<span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;  #{pre}       thread_key: #{self.thread_key}&quot;</span>)
+  <span class="ruby-identifier">stderr</span>.<span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;  #{pre}       work_threads: #{work_threads.size}&quot;</span>)
+  <span class="ruby-identifier">stderr</span>.<span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;  #{pre}         active: #{work_threads(:active).size}&quot;</span>)
+  <span class="ruby-identifier">stderr</span>.<span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;  #{pre}         vacant: #{work_threads(:vacant).size}&quot;</span>)
+  <span class="ruby-identifier">stderr</span>.<span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;  #{pre}         max_work_threads: #{max_work_threads}&quot;</span>)
+  <span class="ruby-identifier">stderr</span>.<span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;  #{pre}       mutexes: #{ms.inspect}&quot;</span>)
+  <span class="ruby-identifier">stderr</span>.<span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;  #{pre}     jobs: #{jobs.size}&quot;</span>)
+  <span class="ruby-identifier">stderr</span>.<span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;  #{pre}       at_jobs: #{at_jobs.size}&quot;</span>)
+  <span class="ruby-identifier">stderr</span>.<span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;  #{pre}       in_jobs: #{in_jobs.size}&quot;</span>)
+  <span class="ruby-identifier">stderr</span>.<span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;  #{pre}       every_jobs: #{every_jobs.size}&quot;</span>)
+  <span class="ruby-identifier">stderr</span>.<span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;  #{pre}       interval_jobs: #{interval_jobs.size}&quot;</span>)
+  <span class="ruby-identifier">stderr</span>.<span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;  #{pre}       cron_jobs: #{cron_jobs.size}&quot;</span>)
+  <span class="ruby-identifier">stderr</span>.<span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;  #{pre}     running_jobs: #{running_jobs.size}&quot;</span>)
+  <span class="ruby-identifier">stderr</span>.<span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;  #{pre}     work_queue: #{work_queue.size}&quot;</span>)
+  <span class="ruby-identifier">stderr</span>.<span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;} #{pre} .&quot;</span>)
+
+<span class="ruby-keyword">rescue</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+
+  <span class="ruby-identifier">stderr</span>.<span class="ruby-identifier">puts</span>(<span class="ruby-node">&quot;failure in #on_error itself:&quot;</span>)
+  <span class="ruby-identifier">stderr</span>.<span class="ruby-identifier">puts</span>(<span class="ruby-identifier">e</span>.<span class="ruby-identifier">inspect</span>)
+  <span class="ruby-identifier">stderr</span>.<span class="ruby-identifier">puts</span>(<span class="ruby-identifier">e</span>.<span class="ruby-identifier">backtrace</span>)
+
+<span class="ruby-keyword">ensure</span>
+
+  <span class="ruby-identifier">stderr</span>.<span class="ruby-identifier">flush</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-pause" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">pause</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="pause-source">
+            <pre><span class="ruby-comment"># File lib/rufus/scheduler.rb, line 188</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">pause</span>
+
+  <span class="ruby-ivar">@paused</span> = <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-paused-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">paused?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="paused-3F-source">
+            <pre><span class="ruby-comment"># File lib/rufus/scheduler.rb, line 183</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">paused?</span>
+
+  <span class="ruby-ivar">@paused</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-repeat" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">repeat</span><span
+            class="method-args">(arg, callable=nil, opts={}, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="repeat-source">
+            <pre><span class="ruby-comment"># File lib/rufus/scheduler.rb, line 263</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">repeat</span>(<span class="ruby-identifier">arg</span>, <span class="ruby-identifier">callable</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">opts</span>={}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+
+  <span class="ruby-identifier">opts</span>[<span class="ruby-value">:_t</span>] = <span class="ruby-constant">Scheduler</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">arg</span>, <span class="ruby-identifier">opts</span>)
+
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">opts</span>[<span class="ruby-value">:_t</span>]
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">CronLine</span> <span class="ruby-keyword">then</span> <span class="ruby-identifier">schedule_cron</span>(<span class="ruby-identifier">arg</span>, <span class="ruby-identifier">callable</span>, <span class="ruby-identifier">opts</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+    <span class="ruby-keyword">else</span> <span class="ruby-identifier">schedule_every</span>(<span class="ruby-identifier">arg</span>, <span class="ruby-identifier">callable</span>, <span class="ruby-identifier">opts</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-resume" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">resume</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="resume-source">
+            <pre><span class="ruby-comment"># File lib/rufus/scheduler.rb, line 193</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">resume</span>
+
+  <span class="ruby-ivar">@paused</span> = <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-running_jobs" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">running_jobs</span><span
+            class="method-args">(opts={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="running_jobs-source">
+            <pre><span class="ruby-comment"># File lib/rufus/scheduler.rb, line 426</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">running_jobs</span>(<span class="ruby-identifier">opts</span>={})
+
+  <span class="ruby-identifier">jobs</span>(<span class="ruby-identifier">opts</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-value">:running</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-schedule" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">schedule</span><span
+            class="method-args">(arg, callable=nil, opts={}, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="schedule-source">
+            <pre><span class="ruby-comment"># File lib/rufus/scheduler.rb, line 252</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">schedule</span>(<span class="ruby-identifier">arg</span>, <span class="ruby-identifier">callable</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">opts</span>={}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+
+  <span class="ruby-identifier">opts</span>[<span class="ruby-value">:_t</span>] = <span class="ruby-constant">Scheduler</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">arg</span>, <span class="ruby-identifier">opts</span>)
+
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">opts</span>[<span class="ruby-value">:_t</span>]
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">CronLine</span> <span class="ruby-keyword">then</span> <span class="ruby-identifier">schedule_cron</span>(<span class="ruby-identifier">arg</span>, <span class="ruby-identifier">callable</span>, <span class="ruby-identifier">opts</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">Time</span> <span class="ruby-keyword">then</span> <span class="ruby-identifier">schedule_at</span>(<span class="ruby-identifier">arg</span>, <span class="ruby-identifier">callable</span>, <span class="ruby-identifier">opts</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+    <span class="ruby-keyword">else</span> <span class="ruby-identifier">schedule_in</span>(<span class="ruby-identifier">arg</span>, <span class="ruby-identifier">callable</span>, <span class="ruby-identifier">opts</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-schedule_at" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">schedule_at</span><span
+            class="method-args">(time, callable=nil, opts={}, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="schedule_at-source">
+            <pre><span class="ruby-comment"># File lib/rufus/scheduler.rb, line 207</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">schedule_at</span>(<span class="ruby-identifier">time</span>, <span class="ruby-identifier">callable</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">opts</span>={}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+
+  <span class="ruby-identifier">do_schedule</span>(<span class="ruby-value">:once</span>, <span class="ruby-identifier">time</span>, <span class="ruby-identifier">callable</span>, <span class="ruby-identifier">opts</span>, <span class="ruby-keyword">true</span>, <span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-schedule_cron" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">schedule_cron</span><span
+            class="method-args">(cronline, callable=nil, opts={}, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="schedule_cron-source">
+            <pre><span class="ruby-comment"># File lib/rufus/scheduler.rb, line 247</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">schedule_cron</span>(<span class="ruby-identifier">cronline</span>, <span class="ruby-identifier">callable</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">opts</span>={}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+
+  <span class="ruby-identifier">do_schedule</span>(<span class="ruby-value">:cron</span>, <span class="ruby-identifier">cronline</span>, <span class="ruby-identifier">callable</span>, <span class="ruby-identifier">opts</span>, <span class="ruby-keyword">true</span>, <span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-schedule_every" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">schedule_every</span><span
+            class="method-args">(duration, callable=nil, opts={}, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="schedule_every-source">
+            <pre><span class="ruby-comment"># File lib/rufus/scheduler.rb, line 227</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">schedule_every</span>(<span class="ruby-identifier">duration</span>, <span class="ruby-identifier">callable</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">opts</span>={}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+
+  <span class="ruby-identifier">do_schedule</span>(<span class="ruby-value">:every</span>, <span class="ruby-identifier">duration</span>, <span class="ruby-identifier">callable</span>, <span class="ruby-identifier">opts</span>, <span class="ruby-keyword">true</span>, <span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-schedule_in" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">schedule_in</span><span
+            class="method-args">(duration, callable=nil, opts={}, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="schedule_in-source">
+            <pre><span class="ruby-comment"># File lib/rufus/scheduler.rb, line 217</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">schedule_in</span>(<span class="ruby-identifier">duration</span>, <span class="ruby-identifier">callable</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">opts</span>={}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+
+  <span class="ruby-identifier">do_schedule</span>(<span class="ruby-value">:once</span>, <span class="ruby-identifier">duration</span>, <span class="ruby-identifier">callable</span>, <span class="ruby-identifier">opts</span>, <span class="ruby-keyword">true</span>, <span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-schedule_interval" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">schedule_interval</span><span
+            class="method-args">(duration, callable=nil, opts={}, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="schedule_interval-source">
+            <pre><span class="ruby-comment"># File lib/rufus/scheduler.rb, line 237</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">schedule_interval</span>(<span class="ruby-identifier">duration</span>, <span class="ruby-identifier">callable</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">opts</span>={}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+
+  <span class="ruby-identifier">do_schedule</span>(<span class="ruby-value">:interval</span>, <span class="ruby-identifier">duration</span>, <span class="ruby-identifier">callable</span>, <span class="ruby-identifier">opts</span>, <span class="ruby-keyword">true</span>, <span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-scheduled-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">scheduled?</span><span
+            class="method-args">(job_or_job_id)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns true if this job is currently scheduled.</p>
+
+<p>Takes extra care to answer true if the job is a repeat job currently
+firing.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="scheduled-3F-source">
+            <pre><span class="ruby-comment"># File lib/rufus/scheduler.rb, line 385</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">scheduled?</span>(<span class="ruby-identifier">job_or_job_id</span>)
+
+  <span class="ruby-identifier">job</span>, <span class="ruby-identifier">job_id</span> = <span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">job_or_job_id</span>)
+
+  <span class="ruby-operator">!</span><span class="ruby-operator">!</span> (<span class="ruby-identifier">job</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">job</span>.<span class="ruby-identifier">next_time</span> <span class="ruby-operator">!=</span> <span class="ruby-keyword">nil</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-shutdown" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">shutdown</span><span
+            class="method-args">(opt=nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="shutdown-source">
+            <pre><span class="ruby-comment"># File lib/rufus/scheduler.rb, line 133</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">shutdown</span>(<span class="ruby-identifier">opt</span>=<span class="ruby-keyword">nil</span>)
+
+  <span class="ruby-ivar">@started_at</span> = <span class="ruby-keyword">nil</span>
+
+  <span class="ruby-comment">#jobs.each { |j| j.unschedule }</span>
+    <span class="ruby-comment"># provokes https://github.com/jmettraux/rufus-scheduler/issue/98</span>
+  <span class="ruby-ivar">@jobs</span>.<span class="ruby-identifier">array</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">j</span><span class="ruby-operator">|</span> <span class="ruby-identifier">j</span>.<span class="ruby-identifier">unschedule</span> }
+
+  <span class="ruby-ivar">@work_queue</span>.<span class="ruby-identifier">clear</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">opt</span> <span class="ruby-operator">==</span> <span class="ruby-value">:wait</span>
+    <span class="ruby-identifier">join_all_work_threads</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">opt</span> <span class="ruby-operator">==</span> <span class="ruby-value">:kill</span>
+    <span class="ruby-identifier">kill_all_work_threads</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">unlock</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Scheduler.html#method-i-stop">stop</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-stop" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">stop</span><span
+            class="method-args">(opt=nil)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Scheduler.html#method-i-shutdown">shutdown</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-threads" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">threads</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Lists all the threads associated with this scheduler.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="threads-source">
+            <pre><span class="ruby-comment"># File lib/rufus/scheduler.rb, line 394</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">threads</span>
+
+  <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">list</span>.<span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-identifier">t</span>[<span class="ruby-identifier">thread_key</span>] }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-timeline" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">timeline</span><span
+            class="method-args">(time0, time1)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="timeline-source">
+            <pre><span class="ruby-comment"># File lib/rufus/scheduler.rb, line 449</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">timeline</span>(<span class="ruby-identifier">time0</span>, <span class="ruby-identifier">time1</span>)
+
+  <span class="ruby-identifier">occurrences</span>(<span class="ruby-identifier">time0</span>, <span class="ruby-identifier">time1</span>, <span class="ruby-value">:timeline</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-unlock" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">unlock</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Sister method to <a href="Scheduler.html#method-i-lock">lock</a>, is called
+when the scheduler shuts down.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="unlock-source">
+            <pre><span class="ruby-comment"># File lib/rufus/scheduler.rb, line 365</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">unlock</span>
+
+  <span class="ruby-ivar">@trigger_lock</span>.<span class="ruby-identifier">unlock</span>
+  <span class="ruby-ivar">@scheduler_lock</span>.<span class="ruby-identifier">unlock</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-unschedule" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">unschedule</span><span
+            class="method-args">(job_or_job_id)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="unschedule-source">
+            <pre><span class="ruby-comment"># File lib/rufus/scheduler.rb, line 273</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">unschedule</span>(<span class="ruby-identifier">job_or_job_id</span>)
+
+  <span class="ruby-identifier">job</span>, <span class="ruby-identifier">job_id</span> = <span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">job_or_job_id</span>)
+
+  <span class="ruby-identifier">fail</span> <span class="ruby-constant">ArgumentError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;no job found with id &#39;#{job_id}&#39;&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">job</span>
+
+  <span class="ruby-identifier">job</span>.<span class="ruby-identifier">unschedule</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">job</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-up-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">up?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="up-3F-source">
+            <pre><span class="ruby-comment"># File lib/rufus/scheduler.rb, line 178</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">up?</span>
+
+  <span class="ruby-operator">!</span><span class="ruby-operator">!</span> <span class="ruby-ivar">@started_at</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-uptime" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">uptime</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="uptime-source">
+            <pre><span class="ruby-comment"># File lib/rufus/scheduler.rb, line 154</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">uptime</span>
+
+  <span class="ruby-ivar">@started_at</span> <span class="ruby-operator">?</span> <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span> <span class="ruby-operator">-</span> <span class="ruby-ivar">@started_at</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-uptime_s" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">uptime_s</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="uptime_s-source">
+            <pre><span class="ruby-comment"># File lib/rufus/scheduler.rb, line 159</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">uptime_s</span>
+
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">to_duration</span>(<span class="ruby-identifier">uptime</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-work_threads" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">work_threads</span><span
+            class="method-args">(query=:all)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Lists all the work threads (the ones actually running the scheduled block
+code)</p>
+
+<p>Accepts a query option, which can be set to:</p>
+<ul><li>
+<p>:all (default), returns all the threads that are work threads or are
+currently running a job</p>
+</li><li>
+<p>:active, returns all threads that are currenly running a job</p>
+</li><li>
+<p>:vacant, returns the threads that are not running a job</p>
+</li></ul>
+
+<p>If, thanks to :blocking =&gt; true, a job is scheduled to monopolize the
+main scheduler thread, that thread will get returned when :active or :all.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="work_threads-source">
+            <pre><span class="ruby-comment"># File lib/rufus/scheduler.rb, line 412</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">work_threads</span>(<span class="ruby-identifier">query</span>=<span class="ruby-value">:all</span>)
+
+  <span class="ruby-identifier">ts</span> =
+    <span class="ruby-identifier">threads</span>.<span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">t</span>[<span class="ruby-value">:rufus_scheduler_job</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">t</span>[<span class="ruby-value">:rufus_scheduler_work_thread</span>]
+    }
+
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">query</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:active</span> <span class="ruby-keyword">then</span> <span class="ruby-identifier">ts</span>.<span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-identifier">t</span>[<span class="ruby-value">:rufus_scheduler_job</span>] }
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:vacant</span> <span class="ruby-keyword">then</span> <span class="ruby-identifier">ts</span>.<span class="ruby-identifier">reject</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-identifier">t</span>[<span class="ruby-value">:rufus_scheduler_job</span>] }
+    <span class="ruby-keyword">else</span> <span class="ruby-identifier">ts</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="protected-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Protected Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-do_schedule" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">do_schedule</span><span
+            class="method-args">(job_type, t, callable, opts, return_job_instance, block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="do_schedule-source">
+            <pre><span class="ruby-comment"># File lib/rufus/scheduler.rb, line 607</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">do_schedule</span>(<span class="ruby-identifier">job_type</span>, <span class="ruby-identifier">t</span>, <span class="ruby-identifier">callable</span>, <span class="ruby-identifier">opts</span>, <span class="ruby-identifier">return_job_instance</span>, <span class="ruby-identifier">block</span>)
+
+  <span class="ruby-identifier">fail</span> <span class="ruby-constant">NotRunningError</span>.<span class="ruby-identifier">new</span>(
+    <span class="ruby-string">&#39;cannot schedule, scheduler is down or shutting down&#39;</span>
+  ) <span class="ruby-keyword">if</span> <span class="ruby-ivar">@started_at</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">nil</span>
+
+  <span class="ruby-identifier">callable</span>, <span class="ruby-identifier">opts</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">callable</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">callable</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>)
+  <span class="ruby-identifier">return_job_instance</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">opts</span>[<span class="ruby-value">:job</span>]
+
+  <span class="ruby-identifier">job_class</span> =
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">job_type</span>
+      <span class="ruby-keyword">when</span> <span class="ruby-value">:once</span>
+        <span class="ruby-identifier">opts</span>[<span class="ruby-value">:_t</span>] <span class="ruby-operator">||=</span> <span class="ruby-constant">Rufus</span><span class="ruby-operator">::</span><span class="ruby-constant">Scheduler</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">t</span>, <span class="ruby-identifier">opts</span>)
+        <span class="ruby-identifier">opts</span>[<span class="ruby-value">:_t</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Time</span>) <span class="ruby-operator">?</span> <span class="ruby-constant">AtJob</span> <span class="ruby-operator">:</span> <span class="ruby-constant">InJob</span>
+      <span class="ruby-keyword">when</span> <span class="ruby-value">:every</span>
+        <span class="ruby-constant">EveryJob</span>
+      <span class="ruby-keyword">when</span> <span class="ruby-value">:interval</span>
+        <span class="ruby-constant">IntervalJob</span>
+      <span class="ruby-keyword">when</span> <span class="ruby-value">:cron</span>
+        <span class="ruby-constant">CronJob</span>
+    <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">job</span> = <span class="ruby-identifier">job_class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>, <span class="ruby-identifier">t</span>, <span class="ruby-identifier">opts</span>, <span class="ruby-identifier">block</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">callable</span>)
+
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>.<span class="ruby-identifier">new</span>(
+    <span class="ruby-node">&quot;job frequency (#{job.frequency}) is higher than &quot;</span> <span class="ruby-operator">+</span>
+    <span class="ruby-node">&quot;scheduler frequency (#{@frequency})&quot;</span>
+  ) <span class="ruby-keyword">if</span> <span class="ruby-identifier">job</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:frequency</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">job</span>.<span class="ruby-identifier">frequency</span> <span class="ruby-operator">&lt;</span> <span class="ruby-ivar">@frequency</span>
+
+  <span class="ruby-ivar">@jobs</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">job</span>)
+
+  <span class="ruby-identifier">return_job_instance</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">job</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">job</span>.<span class="ruby-identifier">job_id</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-fetch" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">fetch</span><span
+            class="method-args">(job_or_job_id)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns [ job, job_id ]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="fetch-source">
+            <pre><span class="ruby-comment"># File lib/rufus/scheduler.rb, line 516</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">job_or_job_id</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">job_or_job_id</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:job_id</span>)
+    [ <span class="ruby-identifier">job_or_job_id</span>, <span class="ruby-identifier">job_or_job_id</span>.<span class="ruby-identifier">job_id</span> ]
+  <span class="ruby-keyword">else</span>
+    [ <span class="ruby-identifier">job</span>(<span class="ruby-identifier">job_or_job_id</span>), <span class="ruby-identifier">job_or_job_id</span> ]
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-join_all_work_threads" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">join_all_work_threads</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="join_all_work_threads-source">
+            <pre><span class="ruby-comment"># File lib/rufus/scheduler.rb, line 532</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">join_all_work_threads</span>
+
+  <span class="ruby-identifier">work_threads</span>.<span class="ruby-identifier">size</span>.<span class="ruby-identifier">times</span> { <span class="ruby-ivar">@work_queue</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">:sayonara</span> }
+
+  <span class="ruby-identifier">work_threads</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">join</span> }
+
+  <span class="ruby-ivar">@work_queue</span>.<span class="ruby-identifier">clear</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-kill_all_work_threads" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">kill_all_work_threads</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="kill_all_work_threads-source">
+            <pre><span class="ruby-comment"># File lib/rufus/scheduler.rb, line 541</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">kill_all_work_threads</span>
+
+  <span class="ruby-identifier">work_threads</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">kill</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-start" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">start</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>def free_all_work_threads</p>
+
+<pre class="ruby"><span class="ruby-identifier">work_threads</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span> <span class="ruby-identifier">t</span>.<span class="ruby-identifier">raise</span>(<span class="ruby-constant">KillSignal</span>) }
+</pre>
+
+<p>end</p>
+          
+          
+
+          
+          <div class="method-source-code" id="start-source">
+            <pre><span class="ruby-comment"># File lib/rufus/scheduler.rb, line 551</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">start</span>
+
+  <span class="ruby-ivar">@started_at</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>
+
+  <span class="ruby-ivar">@thread</span> =
+    <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span>
+
+      <span class="ruby-keyword">while</span> <span class="ruby-ivar">@started_at</span> <span class="ruby-keyword">do</span>
+
+        <span class="ruby-identifier">unschedule_jobs</span>
+        <span class="ruby-identifier">trigger_jobs</span> <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@paused</span>
+        <span class="ruby-identifier">timeout_jobs</span>
+
+        <span class="ruby-identifier">sleep</span>(<span class="ruby-ivar">@frequency</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@thread</span>[<span class="ruby-ivar">@thread_key</span>] = <span class="ruby-keyword">true</span>
+  <span class="ruby-ivar">@thread</span>[<span class="ruby-value">:rufus_scheduler</span>] = <span class="ruby-keyword">self</span>
+  <span class="ruby-ivar">@thread</span>[<span class="ruby-value">:name</span>] = <span class="ruby-ivar">@opts</span>[<span class="ruby-value">:thread_name</span>] <span class="ruby-operator">||</span> <span class="ruby-node">&quot;#{@thread_key}_scheduler&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-terminate_all_jobs" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">terminate_all_jobs</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="terminate_all_jobs-source">
+            <pre><span class="ruby-comment"># File lib/rufus/scheduler.rb, line 525</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">terminate_all_jobs</span>
+
+  <span class="ruby-identifier">jobs</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">j</span><span class="ruby-operator">|</span> <span class="ruby-identifier">j</span>.<span class="ruby-identifier">unschedule</span> }
+
+  <span class="ruby-identifier">sleep</span> <span class="ruby-value">0.01</span> <span class="ruby-keyword">while</span> <span class="ruby-identifier">running_jobs</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-timeout_jobs" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">timeout_jobs</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="timeout_jobs-source">
+            <pre><span class="ruby-comment"># File lib/rufus/scheduler.rb, line 588</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">timeout_jobs</span>
+
+  <span class="ruby-identifier">work_threads</span>(<span class="ruby-value">:active</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
+
+    <span class="ruby-identifier">job</span> = <span class="ruby-identifier">t</span>[<span class="ruby-value">:rufus_scheduler_job</span>]
+    <span class="ruby-identifier">to</span> = <span class="ruby-identifier">t</span>[<span class="ruby-value">:rufus_scheduler_timeout</span>]
+
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">job</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">to</span>
+      <span class="ruby-comment"># thread might just have become inactive (job -&gt; nil)</span>
+
+    <span class="ruby-identifier">ts</span> = <span class="ruby-identifier">t</span>[<span class="ruby-value">:rufus_scheduler_time</span>]
+    <span class="ruby-identifier">to</span> = <span class="ruby-identifier">to</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Time</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">to</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">ts</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">to</span>
+
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">to</span> <span class="ruby-operator">&gt;</span> <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>
+
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">raise</span>(<span class="ruby-constant">Rufus</span><span class="ruby-operator">::</span><span class="ruby-constant">Scheduler</span><span class="ruby-operator">::</span><span class="ruby-constant">TimeoutError</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-trigger_jobs" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">trigger_jobs</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="trigger_jobs-source">
+            <pre><span class="ruby-comment"># File lib/rufus/scheduler.rb, line 578</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">trigger_jobs</span>
+
+  <span class="ruby-identifier">now</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>
+
+  <span class="ruby-ivar">@jobs</span>.<span class="ruby-identifier">each</span>(<span class="ruby-identifier">now</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">job</span><span class="ruby-operator">|</span>
+
+    <span class="ruby-identifier">job</span>.<span class="ruby-identifier">trigger</span>(<span class="ruby-identifier">now</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-unschedule_jobs" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">unschedule_jobs</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="unschedule_jobs-source">
+            <pre><span class="ruby-comment"># File lib/rufus/scheduler.rb, line 573</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">unschedule_jobs</span>
+
+  <span class="ruby-ivar">@jobs</span>.<span class="ruby-identifier">delete_unscheduled</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

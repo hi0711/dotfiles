@@ -1,0 +1,1551 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module Compass::Configuration::Defaults - compass-core-1.0.3 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-default_cache">#default_cache</a>
+    
+    <li ><a href="#method-i-default_cache_dir">#default_cache_dir</a>
+    
+    <li ><a href="#method-i-default_cache_path">#default_cache_path</a>
+    
+    <li ><a href="#method-i-default_chunky_png_options">#default_chunky_png_options</a>
+    
+    <li ><a href="#method-i-default_color_output">#default_color_output</a>
+    
+    <li ><a href="#method-i-default_css_dir">#default_css_dir</a>
+    
+    <li ><a href="#method-i-default_css_path">#default_css_path</a>
+    
+    <li ><a href="#method-i-default_environment">#default_environment</a>
+    
+    <li ><a href="#method-i-default_extensions_dir">#default_extensions_dir</a>
+    
+    <li ><a href="#method-i-default_extensions_path">#default_extensions_path</a>
+    
+    <li ><a href="#method-i-default_fonts_dir">#default_fonts_dir</a>
+    
+    <li ><a href="#method-i-default_fonts_path">#default_fonts_path</a>
+    
+    <li ><a href="#method-i-default_generated_images_dir">#default_generated_images_dir</a>
+    
+    <li ><a href="#method-i-default_generated_images_path">#default_generated_images_path</a>
+    
+    <li ><a href="#method-i-default_http_fonts_dir">#default_http_fonts_dir</a>
+    
+    <li ><a href="#method-i-default_http_fonts_path">#default_http_fonts_path</a>
+    
+    <li ><a href="#method-i-default_http_generated_images_dir">#default_http_generated_images_dir</a>
+    
+    <li ><a href="#method-i-default_http_generated_images_path">#default_http_generated_images_path</a>
+    
+    <li ><a href="#method-i-default_http_images_dir">#default_http_images_dir</a>
+    
+    <li ><a href="#method-i-default_http_images_path">#default_http_images_path</a>
+    
+    <li ><a href="#method-i-default_http_javascripts_dir">#default_http_javascripts_dir</a>
+    
+    <li ><a href="#method-i-default_http_javascripts_path">#default_http_javascripts_path</a>
+    
+    <li ><a href="#method-i-default_http_path">#default_http_path</a>
+    
+    <li ><a href="#method-i-default_http_stylesheets_dir">#default_http_stylesheets_dir</a>
+    
+    <li ><a href="#method-i-default_http_stylesheets_path">#default_http_stylesheets_path</a>
+    
+    <li ><a href="#method-i-default_images_dir">#default_images_dir</a>
+    
+    <li ><a href="#method-i-default_images_path">#default_images_path</a>
+    
+    <li ><a href="#method-i-default_javascripts_path">#default_javascripts_path</a>
+    
+    <li ><a href="#method-i-default_line_comments">#default_line_comments</a>
+    
+    <li ><a href="#method-i-default_output_style">#default_output_style</a>
+    
+    <li ><a href="#method-i-default_preferred_syntax">#default_preferred_syntax</a>
+    
+    <li ><a href="#method-i-default_project_path">#default_project_path</a>
+    
+    <li ><a href="#method-i-default_project_type">#default_project_type</a>
+    
+    <li ><a href="#method-i-default_sass_dir">#default_sass_dir</a>
+    
+    <li ><a href="#method-i-default_sass_path">#default_sass_path</a>
+    
+    <li ><a href="#method-i-default_sprite_engine">#default_sprite_engine</a>
+    
+    <li ><a href="#method-i-default_sprite_load_path">#default_sprite_load_path</a>
+    
+    <li ><a href="#method-i-http_join">#http_join</a>
+    
+    <li ><a href="#method-i-http_pathify">#http_pathify</a>
+    
+    <li ><a href="#method-i-http_root_relative">#http_root_relative</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-Compass::Configuration::Defaults">
+  <h1 id="module-Compass::Configuration::Defaults" class="module">
+    module Compass::Configuration::Defaults
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-default_cache" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default_cache</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="default_cache-source">
+            <pre><span class="ruby-comment"># File lib/compass/configuration/defaults.rb, line 164</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">default_cache</span>
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-default_cache_dir" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default_cache_dir</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="default_cache_dir-source">
+            <pre><span class="ruby-comment"># File lib/compass/configuration/defaults.rb, line 100</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">default_cache_dir</span>
+  <span class="ruby-string">&quot;.sass-cache&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-default_cache_path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default_cache_path</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="default_cache_path-source">
+            <pre><span class="ruby-comment"># File lib/compass/configuration/defaults.rb, line 104</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">default_cache_path</span>
+  <span class="ruby-keyword">if</span> (<span class="ruby-identifier">pp</span> = <span class="ruby-identifier">top_level</span>.<span class="ruby-identifier">project_path</span>) <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-identifier">dir</span> = <span class="ruby-identifier">top_level</span>.<span class="ruby-identifier">cache_dir_without_default</span>)
+    <span class="ruby-constant">Compass</span>.<span class="ruby-identifier">projectize</span>(<span class="ruby-identifier">dir</span>, <span class="ruby-identifier">pp</span>)
+  <span class="ruby-comment"># TODO We should make Sass::Plugin.options a configuration source instead of</span>
+  <span class="ruby-comment"># TODO one-offing it like this.</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-keyword">defined?</span>(<span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">Plugin</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">Plugin</span>.<span class="ruby-identifier">options</span>[<span class="ruby-value">:cache_location</span>]
+    <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">Plugin</span>.<span class="ruby-identifier">options</span>[<span class="ruby-value">:cache_location</span>])
+  <span class="ruby-keyword">elsif</span> (<span class="ruby-identifier">pp</span> = <span class="ruby-identifier">top_level</span>.<span class="ruby-identifier">project_path</span>) <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-identifier">dir</span> = <span class="ruby-identifier">top_level</span>.<span class="ruby-identifier">cache_dir</span>)
+    <span class="ruby-constant">Compass</span>.<span class="ruby-identifier">projectize</span>(<span class="ruby-identifier">dir</span>, <span class="ruby-identifier">pp</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-default_chunky_png_options" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default_chunky_png_options</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="default_chunky_png_options-source">
+            <pre><span class="ruby-comment"># File lib/compass/configuration/defaults.rb, line 176</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">default_chunky_png_options</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">defined?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Zlib</span>)
+    {<span class="ruby-value">:compression</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Zlib</span><span class="ruby-operator">::</span><span class="ruby-constant">BEST_COMPRESSION</span>}
+  <span class="ruby-keyword">else</span>
+    {}
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-default_color_output" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default_color_output</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="default_color_output-source">
+            <pre><span class="ruby-comment"># File lib/compass/configuration/defaults.rb, line 52</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">default_color_output</span>
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-default_css_dir" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default_css_dir</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="default_css_dir-source">
+            <pre><span class="ruby-comment"># File lib/compass/configuration/defaults.rb, line 20</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">default_css_dir</span>
+  <span class="ruby-string">&quot;stylesheets&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-default_css_path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default_css_path</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="default_css_path-source">
+            <pre><span class="ruby-comment"># File lib/compass/configuration/defaults.rb, line 62</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">default_css_path</span>
+  <span class="ruby-keyword">if</span> (<span class="ruby-identifier">pp</span> = <span class="ruby-identifier">top_level</span>.<span class="ruby-identifier">project_path</span>) <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-identifier">dir</span> = <span class="ruby-identifier">top_level</span>.<span class="ruby-identifier">css_dir</span>)
+    <span class="ruby-constant">Compass</span>.<span class="ruby-identifier">projectize</span>(<span class="ruby-identifier">dir</span>, <span class="ruby-identifier">pp</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-default_environment" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default_environment</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="default_environment-source">
+            <pre><span class="ruby-comment"># File lib/compass/configuration/defaults.rb, line 36</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">default_environment</span>
+  <span class="ruby-value">:development</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-default_extensions_dir" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default_extensions_dir</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="default_extensions_dir-source">
+            <pre><span class="ruby-comment"># File lib/compass/configuration/defaults.rb, line 16</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">default_extensions_dir</span>
+  <span class="ruby-string">&quot;extensions&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-default_extensions_path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default_extensions_path</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="default_extensions_path-source">
+            <pre><span class="ruby-comment"># File lib/compass/configuration/defaults.rb, line 88</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">default_extensions_path</span>
+  <span class="ruby-keyword">if</span> (<span class="ruby-identifier">pp</span> = <span class="ruby-identifier">top_level</span>.<span class="ruby-identifier">project_path</span>) <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-identifier">dir</span> = <span class="ruby-identifier">top_level</span>.<span class="ruby-identifier">extensions_dir</span>)
+    <span class="ruby-constant">Compass</span>.<span class="ruby-identifier">projectize</span>(<span class="ruby-identifier">dir</span>, <span class="ruby-identifier">pp</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-default_fonts_dir" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default_fonts_dir</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="default_fonts_dir-source">
+            <pre><span class="ruby-comment"># File lib/compass/configuration/defaults.rb, line 28</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">default_fonts_dir</span>
+  <span class="ruby-string">&quot;fonts&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-default_fonts_path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default_fonts_path</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="default_fonts_path-source">
+            <pre><span class="ruby-comment"># File lib/compass/configuration/defaults.rb, line 94</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">default_fonts_path</span>
+  <span class="ruby-keyword">if</span> (<span class="ruby-identifier">pp</span> = <span class="ruby-identifier">top_level</span>.<span class="ruby-identifier">project_path</span>) <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-identifier">dir</span> = <span class="ruby-identifier">top_level</span>.<span class="ruby-identifier">fonts_dir</span>)
+    <span class="ruby-constant">Compass</span>.<span class="ruby-identifier">projectize</span>(<span class="ruby-identifier">dir</span>, <span class="ruby-identifier">pp</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-default_generated_images_dir" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default_generated_images_dir</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="default_generated_images_dir-source">
+            <pre><span class="ruby-comment"># File lib/compass/configuration/defaults.rb, line 116</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">default_generated_images_dir</span>
+  <span class="ruby-identifier">top_level</span>.<span class="ruby-identifier">images_dir</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-default_generated_images_path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default_generated_images_path</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="default_generated_images_path-source">
+            <pre><span class="ruby-comment"># File lib/compass/configuration/defaults.rb, line 74</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">default_generated_images_path</span>
+  <span class="ruby-keyword">if</span> (<span class="ruby-identifier">pp</span> = <span class="ruby-identifier">top_level</span>.<span class="ruby-identifier">project_path</span>) <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-identifier">dir</span> = <span class="ruby-identifier">top_level</span>.<span class="ruby-identifier">generated_images_dir</span>)
+    <span class="ruby-constant">Compass</span>.<span class="ruby-identifier">projectize</span>(<span class="ruby-identifier">dir</span>, <span class="ruby-identifier">pp</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">top_level</span>.<span class="ruby-identifier">images_path</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-default_http_fonts_dir" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default_http_fonts_dir</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="default_http_fonts_dir-source">
+            <pre><span class="ruby-comment"># File lib/compass/configuration/defaults.rb, line 148</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">default_http_fonts_dir</span>
+  <span class="ruby-identifier">top_level</span>.<span class="ruby-identifier">fonts_dir</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-default_http_fonts_path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default_http_fonts_path</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="default_http_fonts_path-source">
+            <pre><span class="ruby-comment"># File lib/compass/configuration/defaults.rb, line 152</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">default_http_fonts_path</span>
+  <span class="ruby-identifier">http_root_relative</span> <span class="ruby-identifier">top_level</span>.<span class="ruby-identifier">http_fonts_dir</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-default_http_generated_images_dir" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default_http_generated_images_dir</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="default_http_generated_images_dir-source">
+            <pre><span class="ruby-comment"># File lib/compass/configuration/defaults.rb, line 120</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">default_http_generated_images_dir</span>
+  <span class="ruby-identifier">top_level</span>.<span class="ruby-identifier">http_images_dir</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-default_http_generated_images_path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default_http_generated_images_path</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="default_http_generated_images_path-source">
+            <pre><span class="ruby-comment"># File lib/compass/configuration/defaults.rb, line 144</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">default_http_generated_images_path</span>
+  <span class="ruby-identifier">http_root_relative</span> <span class="ruby-identifier">top_level</span>.<span class="ruby-identifier">http_generated_images_dir</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-default_http_images_dir" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default_http_images_dir</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="default_http_images_dir-source">
+            <pre><span class="ruby-comment"># File lib/compass/configuration/defaults.rb, line 124</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">default_http_images_dir</span>
+  <span class="ruby-identifier">top_level</span>.<span class="ruby-identifier">images_dir</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-default_http_images_path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default_http_images_path</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="default_http_images_path-source">
+            <pre><span class="ruby-comment"># File lib/compass/configuration/defaults.rb, line 132</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">default_http_images_path</span>
+  <span class="ruby-identifier">http_root_relative</span> <span class="ruby-identifier">top_level</span>.<span class="ruby-identifier">http_images_dir</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-default_http_javascripts_dir" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default_http_javascripts_dir</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="default_http_javascripts_dir-source">
+            <pre><span class="ruby-comment"># File lib/compass/configuration/defaults.rb, line 156</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">default_http_javascripts_dir</span>
+  <span class="ruby-identifier">top_level</span>.<span class="ruby-identifier">javascripts_dir</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-default_http_javascripts_path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default_http_javascripts_path</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="default_http_javascripts_path-source">
+            <pre><span class="ruby-comment"># File lib/compass/configuration/defaults.rb, line 160</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">default_http_javascripts_path</span>
+  <span class="ruby-identifier">http_root_relative</span> <span class="ruby-identifier">top_level</span>.<span class="ruby-identifier">http_javascripts_dir</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-default_http_path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default_http_path</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="default_http_path-source">
+            <pre><span class="ruby-comment"># File lib/compass/configuration/defaults.rb, line 12</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">default_http_path</span>
+  <span class="ruby-string">&quot;/&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-default_http_stylesheets_dir" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default_http_stylesheets_dir</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="default_http_stylesheets_dir-source">
+            <pre><span class="ruby-comment"># File lib/compass/configuration/defaults.rb, line 136</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">default_http_stylesheets_dir</span>
+  <span class="ruby-identifier">top_level</span>.<span class="ruby-identifier">css_dir</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-default_http_stylesheets_path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default_http_stylesheets_path</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="default_http_stylesheets_path-source">
+            <pre><span class="ruby-comment"># File lib/compass/configuration/defaults.rb, line 140</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">default_http_stylesheets_path</span>
+  <span class="ruby-identifier">http_root_relative</span> <span class="ruby-identifier">top_level</span>.<span class="ruby-identifier">http_stylesheets_dir</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-default_images_dir" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default_images_dir</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="default_images_dir-source">
+            <pre><span class="ruby-comment"># File lib/compass/configuration/defaults.rb, line 32</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">default_images_dir</span>
+  <span class="ruby-string">&quot;images&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-default_images_path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default_images_path</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="default_images_path-source">
+            <pre><span class="ruby-comment"># File lib/compass/configuration/defaults.rb, line 68</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">default_images_path</span>
+  <span class="ruby-keyword">if</span> (<span class="ruby-identifier">pp</span> = <span class="ruby-identifier">top_level</span>.<span class="ruby-identifier">project_path</span>) <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-identifier">dir</span> = <span class="ruby-identifier">top_level</span>.<span class="ruby-identifier">images_dir</span>)
+    <span class="ruby-constant">Compass</span>.<span class="ruby-identifier">projectize</span>(<span class="ruby-identifier">dir</span>, <span class="ruby-identifier">pp</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-default_javascripts_path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default_javascripts_path</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="default_javascripts_path-source">
+            <pre><span class="ruby-comment"># File lib/compass/configuration/defaults.rb, line 82</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">default_javascripts_path</span>
+  <span class="ruby-keyword">if</span> (<span class="ruby-identifier">pp</span> = <span class="ruby-identifier">top_level</span>.<span class="ruby-identifier">project_path</span>) <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-identifier">dir</span> = <span class="ruby-identifier">top_level</span>.<span class="ruby-identifier">javascripts_dir</span>)
+    <span class="ruby-constant">Compass</span>.<span class="ruby-identifier">projectize</span>(<span class="ruby-identifier">dir</span>, <span class="ruby-identifier">pp</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-default_line_comments" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default_line_comments</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="default_line_comments-source">
+            <pre><span class="ruby-comment"># File lib/compass/configuration/defaults.rb, line 48</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">default_line_comments</span>
+  <span class="ruby-identifier">top_level</span>.<span class="ruby-identifier">environment</span> <span class="ruby-operator">==</span> <span class="ruby-value">:development</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-default_output_style" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default_output_style</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="default_output_style-source">
+            <pre><span class="ruby-comment"># File lib/compass/configuration/defaults.rb, line 40</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">default_output_style</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">top_level</span>.<span class="ruby-identifier">environment</span> <span class="ruby-operator">==</span> <span class="ruby-value">:development</span>
+    <span class="ruby-value">:expanded</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-value">:compressed</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-default_preferred_syntax" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default_preferred_syntax</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="default_preferred_syntax-source">
+            <pre><span class="ruby-comment"># File lib/compass/configuration/defaults.rb, line 168</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">default_preferred_syntax</span>
+  <span class="ruby-value">:scss</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-default_project_path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default_project_path</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="default_project_path-source">
+            <pre><span class="ruby-comment"># File lib/compass/configuration/defaults.rb, line 4</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">default_project_path</span>
+  <span class="ruby-string">&quot;.&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-default_project_type" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default_project_type</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="default_project_type-source">
+            <pre><span class="ruby-comment"># File lib/compass/configuration/defaults.rb, line 8</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">default_project_type</span>
+  <span class="ruby-value">:stand_alone</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-default_sass_dir" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default_sass_dir</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="default_sass_dir-source">
+            <pre><span class="ruby-comment"># File lib/compass/configuration/defaults.rb, line 24</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">default_sass_dir</span>
+  <span class="ruby-string">&quot;sass&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-default_sass_path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default_sass_path</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="default_sass_path-source">
+            <pre><span class="ruby-comment"># File lib/compass/configuration/defaults.rb, line 56</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">default_sass_path</span>
+  <span class="ruby-keyword">if</span> (<span class="ruby-identifier">pp</span> = <span class="ruby-identifier">top_level</span>.<span class="ruby-identifier">project_path</span>) <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-identifier">dir</span> = <span class="ruby-identifier">top_level</span>.<span class="ruby-identifier">sass_dir</span>)
+    <span class="ruby-constant">Compass</span>.<span class="ruby-identifier">projectize</span>(<span class="ruby-identifier">dir</span>, <span class="ruby-identifier">pp</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-default_sprite_engine" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default_sprite_engine</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="default_sprite_engine-source">
+            <pre><span class="ruby-comment"># File lib/compass/configuration/defaults.rb, line 172</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">default_sprite_engine</span>
+  <span class="ruby-value">:chunky_png</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-default_sprite_load_path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default_sprite_load_path</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="default_sprite_load_path-source">
+            <pre><span class="ruby-comment"># File lib/compass/configuration/defaults.rb, line 128</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">default_sprite_load_path</span>
+  [<span class="ruby-identifier">top_level</span>.<span class="ruby-identifier">images_path</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-http_join" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">http_join</span><span
+            class="method-args">(*segments)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>helper functions</p>
+          
+          
+
+          
+          <div class="method-source-code" id="http_join-source">
+            <pre><span class="ruby-comment"># File lib/compass/configuration/defaults.rb, line 186</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">http_join</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">segments</span>)
+  <span class="ruby-identifier">segments</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">segment</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">segment</span>
+    <span class="ruby-identifier">segment</span> = <span class="ruby-identifier">http_pathify</span>(<span class="ruby-identifier">segment</span>)
+    <span class="ruby-identifier">segment</span>[<span class="ruby-value">-1</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&quot;/&quot;</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">segment</span>[<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-value">-2</span>] <span class="ruby-operator">:</span> <span class="ruby-identifier">segment</span>
+  <span class="ruby-keyword">end</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;/&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-http_pathify" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">http_pathify</span><span
+            class="method-args">(path)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="http_pathify-source">
+            <pre><span class="ruby-comment"># File lib/compass/configuration/defaults.rb, line 194</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">http_pathify</span>(<span class="ruby-identifier">path</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">SEPARATOR</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;/&quot;</span>
+    <span class="ruby-identifier">path</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">path</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">SEPARATOR</span>, <span class="ruby-string">&quot;/&quot;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-http_root_relative" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">http_root_relative</span><span
+            class="method-args">(path)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="http_root_relative-source">
+            <pre><span class="ruby-comment"># File lib/compass/configuration/defaults.rb, line 202</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">http_root_relative</span>(<span class="ruby-identifier">path</span>)
+  <span class="ruby-identifier">http_join</span> <span class="ruby-identifier">top_level</span>.<span class="ruby-identifier">http_path</span>, <span class="ruby-identifier">path</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

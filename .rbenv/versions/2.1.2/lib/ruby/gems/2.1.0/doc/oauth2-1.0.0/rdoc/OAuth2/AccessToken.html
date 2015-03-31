@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class OAuth2::AccessToken - oauth2-1.0.0 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">Object
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-from_hash">::from_hash</a>
+    
+    <li ><a href="#method-c-from_kvform">::from_kvform</a>
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-5B-5D">#[]</a>
+    
+    <li ><a href="#method-i-delete">#delete</a>
+    
+    <li ><a href="#method-i-expired-3F">#expired?</a>
+    
+    <li ><a href="#method-i-expires-3F">#expires?</a>
+    
+    <li ><a href="#method-i-get">#get</a>
+    
+    <li ><a href="#method-i-headers">#headers</a>
+    
+    <li ><a href="#method-i-patch">#patch</a>
+    
+    <li ><a href="#method-i-post">#post</a>
+    
+    <li ><a href="#method-i-put">#put</a>
+    
+    <li ><a href="#method-i-refresh-21">#refresh!</a>
+    
+    <li ><a href="#method-i-request">#request</a>
+    
+    <li ><a href="#method-i-to_hash">#to_hash</a>
+    
+    <li ><a href="#method-i-token-3D">#token=</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-OAuth2::AccessToken">
+  <h1 id="class-OAuth2::AccessToken" class="class">
+    class OAuth2::AccessToken
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-client" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">client</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-expires_at" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">expires_at</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-expires_in" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">expires_in</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-options" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">options</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-params" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">params</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-refresh_token" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">refresh_token</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-token" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">token</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-from_hash" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">from_hash</span><span
+            class="method-args">(client, hash)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Initializes an <a href="AccessToken.html">AccessToken</a> from a Hash</p>
+
+<p>@param [Client] the <a href="Client.html">OAuth2::Client</a> instance
+@param [Hash] a hash of <a href="AccessToken.html">AccessToken</a> property
+values @return [AccessToken] the initalized <a
+href="AccessToken.html">AccessToken</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="from_hash-source">
+            <pre><span class="ruby-comment"># File lib/oauth2/access_token.rb, line 12</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">from_hash</span>(<span class="ruby-identifier">client</span>, <span class="ruby-identifier">hash</span>)
+  <span class="ruby-identifier">new</span>(<span class="ruby-identifier">client</span>, <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&#39;access_token&#39;</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:access_token</span>), <span class="ruby-identifier">hash</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-from_kvform" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">from_kvform</span><span
+            class="method-args">(client, kvform)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Initializes an <a href="AccessToken.html">AccessToken</a> from a key/value
+application/x-www-form-urlencoded string</p>
+
+<p>@param [Client] client the <a href="Client.html">OAuth2::Client</a>
+instance @param [String] kvform the application/x-www-form-urlencoded
+string @return [AccessToken] the initalized <a
+href="AccessToken.html">AccessToken</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="from_kvform-source">
+            <pre><span class="ruby-comment"># File lib/oauth2/access_token.rb, line 21</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">from_kvform</span>(<span class="ruby-identifier">client</span>, <span class="ruby-identifier">kvform</span>)
+  <span class="ruby-identifier">from_hash</span>(<span class="ruby-identifier">client</span>, <span class="ruby-constant">Rack</span><span class="ruby-operator">::</span><span class="ruby-constant">Utils</span>.<span class="ruby-identifier">parse_query</span>(<span class="ruby-identifier">kvform</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(client, token, opts = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Initalize an <a href="AccessToken.html">AccessToken</a></p>
+
+<p>@param [Client] client the <a href="Client.html">OAuth2::Client</a>
+instance @param [String] token the Access Token value @param [Hash] opts
+the options to create the Access Token with @option opts [String]
+:refresh_token (nil) the <a
+href="AccessToken.html#attribute-i-refresh_token">#refresh_token</a> value
+@option opts [FixNum, String] :expires_in (nil) the number of seconds in
+which the <a href="AccessToken.html">AccessToken</a> will expire @option
+opts [FixNum, String] :expires_at (nil) the epoch time in seconds in which
+<a href="AccessToken.html">AccessToken</a> will expire @option opts
+[Symbol] :mode (:header) the transmission mode of the Access Token
+parameter value</p>
+
+<pre class="ruby"><span class="ruby-identifier">one</span> <span class="ruby-identifier">of</span> :<span class="ruby-identifier">header</span>, :<span class="ruby-identifier">body</span> <span class="ruby-keyword">or</span> :<span class="ruby-identifier">query</span>
+</pre>
+
+<p>@option opts [String] :header_format (&#39;Bearer %s&#39;) the string
+format to use for the Authorization header @option opts [String]
+:param_name (&#39;access_token&#39;) the parameter name to use for
+transmission of the</p>
+
+<pre>Access Token value in :body or :query transmission mode</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/oauth2/access_token.rb, line 39</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">client</span>, <span class="ruby-identifier">token</span>, <span class="ruby-identifier">opts</span> = {})
+  <span class="ruby-ivar">@client</span> = <span class="ruby-identifier">client</span>
+  <span class="ruby-ivar">@token</span> = <span class="ruby-identifier">token</span>.<span class="ruby-identifier">to_s</span>
+  [<span class="ruby-value">:refresh_token</span>, <span class="ruby-value">:expires_in</span>, <span class="ruby-value">:expires_at</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">arg</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">instance_variable_set</span>(<span class="ruby-node">&quot;@#{arg}&quot;</span>, <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">arg</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">arg</span>.<span class="ruby-identifier">to_s</span>))
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@expires_in</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&#39;expires&#39;</span>)
+  <span class="ruby-ivar">@expires_in</span> <span class="ruby-operator">&amp;&amp;=</span> <span class="ruby-ivar">@expires_in</span>.<span class="ruby-identifier">to_i</span>
+  <span class="ruby-ivar">@expires_at</span> <span class="ruby-operator">&amp;&amp;=</span> <span class="ruby-ivar">@expires_at</span>.<span class="ruby-identifier">to_i</span>
+  <span class="ruby-ivar">@expires_at</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">to_i</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@expires_in</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@expires_in</span>
+  <span class="ruby-ivar">@options</span> = {<span class="ruby-value">:mode</span>          =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:mode</span>) <span class="ruby-operator">||</span> <span class="ruby-value">:header</span>,
+              <span class="ruby-value">:header_format</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:header_format</span>) <span class="ruby-operator">||</span> <span class="ruby-string">&#39;Bearer %s&#39;</span>,
+              <span class="ruby-value">:param_name</span>    =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">opts</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:param_name</span>) <span class="ruby-operator">||</span> <span class="ruby-string">&#39;access_token&#39;</span>}
+  <span class="ruby-ivar">@params</span> = <span class="ruby-identifier">opts</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-5B-5D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">[]</span><span
+            class="method-args">(key)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Indexer to additional params present in token response</p>
+
+<p>@param [String] key entry key to Hash</p>
+          
+          
+
+          
+          <div class="method-source-code" id="5B-5D-source">
+            <pre><span class="ruby-comment"># File lib/oauth2/access_token.rb, line 58</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">[]</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-ivar">@params</span>[<span class="ruby-identifier">key</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-delete" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">delete</span><span
+            class="method-args">(path, opts = {}, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Make a DELETE request with the Access Token</p>
+
+<p>@see <a href="AccessToken.html#method-i-request">#request</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="delete-source">
+            <pre><span class="ruby-comment"># File lib/oauth2/access_token.rb, line 141</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">delete</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">opts</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">request</span>(<span class="ruby-value">:delete</span>, <span class="ruby-identifier">path</span>, <span class="ruby-identifier">opts</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-expired-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">expired?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Whether or not the token is expired</p>
+
+<p>@return [Boolean]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="expired-3F-source">
+            <pre><span class="ruby-comment"># File lib/oauth2/access_token.rb, line 72</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">expired?</span>
+  <span class="ruby-identifier">expires?</span> <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-identifier">expires_at</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">to_i</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-expires-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">expires?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Whether or not the token expires</p>
+
+<p>@return [Boolean]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="expires-3F-source">
+            <pre><span class="ruby-comment"># File lib/oauth2/access_token.rb, line 65</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">expires?</span>
+  <span class="ruby-operator">!</span><span class="ruby-operator">!</span><span class="ruby-ivar">@expires_at</span> <span class="ruby-comment"># rubocop:disable DoubleNegation</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-get" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get</span><span
+            class="method-args">(path, opts = {}, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Make a GET request with the Access Token</p>
+
+<p>@see <a href="AccessToken.html#method-i-request">#request</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="get-source">
+            <pre><span class="ruby-comment"># File lib/oauth2/access_token.rb, line 113</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">opts</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">request</span>(<span class="ruby-value">:get</span>, <span class="ruby-identifier">path</span>, <span class="ruby-identifier">opts</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-headers" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">headers</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Get the headers hash (includes Authorization token)</p>
+          
+          
+
+          
+          <div class="method-source-code" id="headers-source">
+            <pre><span class="ruby-comment"># File lib/oauth2/access_token.rb, line 146</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">headers</span>
+  {<span class="ruby-string">&#39;Authorization&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:header_format</span>] <span class="ruby-operator">%</span> <span class="ruby-identifier">token</span>}
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-patch" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">patch</span><span
+            class="method-args">(path, opts = {}, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Make a PATCH request with the Access Token</p>
+
+<p>@see <a href="AccessToken.html#method-i-request">#request</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="patch-source">
+            <pre><span class="ruby-comment"># File lib/oauth2/access_token.rb, line 134</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">patch</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">opts</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">request</span>(<span class="ruby-value">:patch</span>, <span class="ruby-identifier">path</span>, <span class="ruby-identifier">opts</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-post" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">post</span><span
+            class="method-args">(path, opts = {}, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Make a POST request with the Access Token</p>
+
+<p>@see <a href="AccessToken.html#method-i-request">#request</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="post-source">
+            <pre><span class="ruby-comment"># File lib/oauth2/access_token.rb, line 120</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">post</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">opts</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">request</span>(<span class="ruby-value">:post</span>, <span class="ruby-identifier">path</span>, <span class="ruby-identifier">opts</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-put" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">put</span><span
+            class="method-args">(path, opts = {}, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Make a PUT request with the Access Token</p>
+
+<p>@see <a href="AccessToken.html#method-i-request">#request</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="put-source">
+            <pre><span class="ruby-comment"># File lib/oauth2/access_token.rb, line 127</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">put</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">opts</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">request</span>(<span class="ruby-value">:put</span>, <span class="ruby-identifier">path</span>, <span class="ruby-identifier">opts</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-refresh-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">refresh!</span><span
+            class="method-args">(params = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Refreshes the current Access Token</p>
+
+<p>@return [AccessToken] a new <a href="AccessToken.html">AccessToken</a>
+@note options should be carried over to the new <a
+href="AccessToken.html">AccessToken</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="refresh-21-source">
+            <pre><span class="ruby-comment"># File lib/oauth2/access_token.rb, line 80</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">refresh!</span>(<span class="ruby-identifier">params</span> = {})
+  <span class="ruby-identifier">fail</span>(<span class="ruby-string">&#39;A refresh_token is not available&#39;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">refresh_token</span>
+  <span class="ruby-identifier">params</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-value">:client_id</span>      =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">id</span>,
+                <span class="ruby-value">:client_secret</span>  =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">secret</span>,
+                <span class="ruby-value">:grant_type</span>     =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;refresh_token&#39;</span>,
+                <span class="ruby-value">:refresh_token</span>  =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">refresh_token</span>)
+  <span class="ruby-identifier">new_token</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">get_token</span>(<span class="ruby-identifier">params</span>)
+  <span class="ruby-identifier">new_token</span>.<span class="ruby-identifier">options</span> = <span class="ruby-identifier">options</span>
+  <span class="ruby-identifier">new_token</span>.<span class="ruby-identifier">refresh_token</span> = <span class="ruby-identifier">refresh_token</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">new_token</span>.<span class="ruby-identifier">refresh_token</span>
+  <span class="ruby-identifier">new_token</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-request" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">request</span><span
+            class="method-args">(verb, path, opts = {}, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Make a request with the Access Token</p>
+
+<p>@param [Symbol] verb the HTTP request method @param [String] path the HTTP
+URL path of the request @param [Hash] opts the options to make the request
+with @see <a href="Client.html#method-i-request">OAuth2::Client#request</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="request-source">
+            <pre><span class="ruby-comment"># File lib/oauth2/access_token.rb, line 105</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">request</span>(<span class="ruby-identifier">verb</span>, <span class="ruby-identifier">path</span>, <span class="ruby-identifier">opts</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">token</span> = <span class="ruby-identifier">opts</span>
+  <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">request</span>(<span class="ruby-identifier">verb</span>, <span class="ruby-identifier">path</span>, <span class="ruby-identifier">opts</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-to_hash" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_hash</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Convert <a href="AccessToken.html">AccessToken</a> to a hash which can be
+used to rebuild itself with <a
+href="AccessToken.html#method-c-from_hash">::from_hash</a></p>
+
+<p>@return [Hash] a hash of <a href="AccessToken.html">AccessToken</a>
+property values</p>
+          
+          
+
+          
+          <div class="method-source-code" id="to_hash-source">
+            <pre><span class="ruby-comment"># File lib/oauth2/access_token.rb, line 95</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_hash</span>
+  <span class="ruby-identifier">params</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-value">:access_token</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">token</span>, <span class="ruby-value">:refresh_token</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">refresh_token</span>, <span class="ruby-value">:expires_at</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">expires_at</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-token-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">token=</span><span
+            class="method-args">(opts)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="token-3D-source">
+            <pre><span class="ruby-comment"># File lib/oauth2/access_token.rb, line 152</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">token=</span>(<span class="ruby-identifier">opts</span>) <span class="ruby-comment"># rubocop:disable MethodLength</span>
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:mode</span>]
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:header</span>
+    <span class="ruby-identifier">opts</span>[<span class="ruby-value">:headers</span>] <span class="ruby-operator">||=</span> {}
+    <span class="ruby-identifier">opts</span>[<span class="ruby-value">:headers</span>].<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">headers</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:query</span>
+    <span class="ruby-identifier">opts</span>[<span class="ruby-value">:params</span>] <span class="ruby-operator">||=</span> {}
+    <span class="ruby-identifier">opts</span>[<span class="ruby-value">:params</span>][<span class="ruby-identifier">options</span>[<span class="ruby-value">:param_name</span>]] = <span class="ruby-identifier">token</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:body</span>
+    <span class="ruby-identifier">opts</span>[<span class="ruby-value">:body</span>] <span class="ruby-operator">||=</span> {}
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">opts</span>[<span class="ruby-value">:body</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>)
+      <span class="ruby-identifier">opts</span>[<span class="ruby-value">:body</span>][<span class="ruby-identifier">options</span>[<span class="ruby-value">:param_name</span>]] = <span class="ruby-identifier">token</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">opts</span>[<span class="ruby-value">:body</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;&amp;#{options[:param_name]}=#{token}&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-comment"># @todo support for multi-part (file uploads)</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">fail</span>(<span class="ruby-node">&quot;invalid :mode option of #{options[:mode]}&quot;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

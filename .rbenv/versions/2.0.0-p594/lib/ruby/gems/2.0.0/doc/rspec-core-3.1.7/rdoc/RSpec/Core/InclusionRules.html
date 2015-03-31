@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class RSpec::Core::InclusionRules - rspec-core-3.1.7 Documentation</title>
+
+<link href="../../fonts.css" rel="stylesheet">
+<link href="../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/navigation.js"></script>
+<script src="../../js/search_index.js"></script>
+<script src="../../js/search.js"></script>
+<script src="../../js/searcher.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="FilterRules.html">RSpec::Core::FilterRules</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li class="calls-super" ><a href="#method-i-add">#add</a>
+    
+    <li ><a href="#method-i-add_location">#add_location</a>
+    
+    <li class="calls-super" ><a href="#method-i-add_with_low_priority">#add_with_low_priority</a>
+    
+    <li ><a href="#method-i-apply_standalone_filter">#apply_standalone_filter</a>
+    
+    <li ><a href="#method-i-include_example-3F">#include_example?</a>
+    
+    <li ><a href="#method-i-is_standalone_filter-3F">#is_standalone_filter?</a>
+    
+    <li ><a href="#method-i-replace_filters">#replace_filters</a>
+    
+    <li ><a href="#method-i-standalone-3F">#standalone?</a>
+    
+    <li class="calls-super" ><a href="#method-i-use">#use</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-RSpec::Core::InclusionRules">
+  <h1 id="class-RSpec::Core::InclusionRules" class="class">
+    class RSpec::Core::InclusionRules
+  </h1>
+
+  <section class="description">
+    
+<p>@private</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="STANDALONE_FILTERS">STANDALONE_FILTERS
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-add" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              <a href="FilterRules.html#method-i-add">RSpec::Core::FilterRules#add</a>
+            </div>
+          
+
+          
+          <div class="method-source-code" id="add-source">
+            <pre><span class="ruby-comment"># File lib/rspec/core/filter_manager.rb, line 207</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">add</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">apply_standalone_filter</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>) <span class="ruby-operator">||</span> <span class="ruby-keyword">super</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-add_location" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add_location</span><span
+            class="method-args">(locations)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="add_location-source">
+            <pre><span class="ruby-comment"># File lib/rspec/core/filter_manager.rb, line 203</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">add_location</span>(<span class="ruby-identifier">locations</span>)
+  <span class="ruby-identifier">replace_filters</span>(<span class="ruby-value">:locations</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">locations</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-add_with_low_priority" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add_with_low_priority</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              <a href="FilterRules.html#method-i-add_with_low_priority">RSpec::Core::FilterRules#add_with_low_priority</a>
+            </div>
+          
+
+          
+          <div class="method-source-code" id="add_with_low_priority-source">
+            <pre><span class="ruby-comment"># File lib/rspec/core/filter_manager.rb, line 211</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">add_with_low_priority</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">apply_standalone_filter</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>) <span class="ruby-operator">||</span> <span class="ruby-keyword">super</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-include_example-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">include_example?</span><span
+            class="method-args">(example)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="include_example-3F-source">
+            <pre><span class="ruby-comment"># File lib/rspec/core/filter_manager.rb, line 219</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">include_example?</span>(<span class="ruby-identifier">example</span>)
+  <span class="ruby-ivar">@rules</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">?</span> <span class="ruby-keyword">true</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">example</span>.<span class="ruby-identifier">any_apply?</span>(<span class="ruby-ivar">@rules</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-standalone-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">standalone?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="standalone-3F-source">
+            <pre><span class="ruby-comment"># File lib/rspec/core/filter_manager.rb, line 223</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">standalone?</span>
+  <span class="ruby-identifier">is_standalone_filter?</span>(<span class="ruby-ivar">@rules</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-use" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">use</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="use-source">
+            <pre><span class="ruby-comment"># File lib/rspec/core/filter_manager.rb, line 215</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">use</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">apply_standalone_filter</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>) <span class="ruby-operator">||</span> <span class="ruby-keyword">super</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-apply_standalone_filter" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">apply_standalone_filter</span><span
+            class="method-args">(updated)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="apply_standalone_filter-source">
+            <pre><span class="ruby-comment"># File lib/rspec/core/filter_manager.rb, line 229</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">apply_standalone_filter</span>(<span class="ruby-identifier">updated</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">standalone?</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">is_standalone_filter?</span>(<span class="ruby-identifier">updated</span>)
+
+  <span class="ruby-identifier">replace_filters</span>(<span class="ruby-identifier">updated</span>)
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-is_standalone_filter-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">is_standalone_filter?</span><span
+            class="method-args">(rules)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="is_standalone_filter-3F-source">
+            <pre><span class="ruby-comment"># File lib/rspec/core/filter_manager.rb, line 242</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">is_standalone_filter?</span>(<span class="ruby-identifier">rules</span>)
+  <span class="ruby-constant">STANDALONE_FILTERS</span>.<span class="ruby-identifier">any?</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">key</span><span class="ruby-operator">|</span> <span class="ruby-identifier">rules</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-identifier">key</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-replace_filters" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">replace_filters</span><span
+            class="method-args">(new_rules)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="replace_filters-source">
+            <pre><span class="ruby-comment"># File lib/rspec/core/filter_manager.rb, line 237</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">replace_filters</span>(<span class="ruby-identifier">new_rules</span>)
+  <span class="ruby-ivar">@rules</span>.<span class="ruby-identifier">replace</span>(<span class="ruby-identifier">new_rules</span>)
+  <span class="ruby-identifier">opposite</span>.<span class="ruby-identifier">clear</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

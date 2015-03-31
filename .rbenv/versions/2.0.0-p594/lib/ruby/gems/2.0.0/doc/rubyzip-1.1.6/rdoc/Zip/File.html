@@ -1,0 +1,1654 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Zip::File - rubyzip-1.1.6 Documentation</title>
+
+<link href="../fonts.css" rel="stylesheet">
+<link href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/navigation.js"></script>
+<script src="../js/search_index.js"></script>
+<script src="../js/search.js"></script>
+<script src="../js/searcher.js"></script>
+<script src="../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="CentralDirectory.html">Zip::CentralDirectory</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li class="calls-super" ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-add">#add</a>
+    
+    <li ><a href="#method-i-add_buffer">#add_buffer</a>
+    
+    <li ><a href="#method-i-check_entry_exists">#check_entry_exists</a>
+    
+    <li ><a href="#method-i-check_file">#check_file</a>
+    
+    <li ><a href="#method-i-close">#close</a>
+    
+    <li ><a href="#method-i-commit">#commit</a>
+    
+    <li ><a href="#method-i-commit_required-3F">#commit_required?</a>
+    
+    <li ><a href="#method-i-extract">#extract</a>
+    
+    <li ><a href="#method-i-find_entry">#find_entry</a>
+    
+    <li ><a href="#method-i-foreach">#foreach</a>
+    
+    <li ><a href="#method-i-get_entry">#get_entry</a>
+    
+    <li ><a href="#method-i-get_input_stream">#get_input_stream</a>
+    
+    <li ><a href="#method-i-get_output_stream">#get_output_stream</a>
+    
+    <li ><a href="#method-i-get_partial_zip_file_name">#get_partial_zip_file_name</a>
+    
+    <li ><a href="#method-i-get_segment_count_for_split">#get_segment_count_for_split</a>
+    
+    <li ><a href="#method-i-get_segment_size_for_split">#get_segment_size_for_split</a>
+    
+    <li ><a href="#method-i-get_tempfile">#get_tempfile</a>
+    
+    <li ><a href="#method-i-glob">#glob</a>
+    
+    <li ><a href="#method-i-is_directory">#is_directory</a>
+    
+    <li ><a href="#method-i-mkdir">#mkdir</a>
+    
+    <li ><a href="#method-i-on_success_replace">#on_success_replace</a>
+    
+    <li ><a href="#method-i-open">#open</a>
+    
+    <li ><a href="#method-i-open_buffer">#open_buffer</a>
+    
+    <li ><a href="#method-i-put_split_signature">#put_split_signature</a>
+    
+    <li ><a href="#method-i-read">#read</a>
+    
+    <li ><a href="#method-i-remove">#remove</a>
+    
+    <li ><a href="#method-i-rename">#rename</a>
+    
+    <li ><a href="#method-i-replace">#replace</a>
+    
+    <li ><a href="#method-i-save_splited_part">#save_splited_part</a>
+    
+    <li ><a href="#method-i-split">#split</a>
+    
+    <li ><a href="#method-i-to_s">#to_s</a>
+    
+    <li ><a href="#method-i-write_buffer">#write_buffer</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Zip::File">
+  <h1 id="class-Zip::File" class="class">
+    class Zip::File
+  </h1>
+
+  <section class="description">
+    
+<p>ZipFile is modeled after java.util.zip.ZipFile from the Java SDK. The most
+important methods are those inherited from ZipCentralDirectory for
+accessing information about the entries in the archive and methods such as
+<a href="File.html#method-i-get_input_stream">#get_input_stream</a> and <a
+href="File.html#method-i-get_output_stream">#get_output_stream</a> for
+reading from and writing entries to the archive. The class includes a few
+convenience methods such as <a
+href="File.html#method-i-extract">extract</a> for extracting entries to the
+filesystem, and <a href="File.html#method-i-remove">remove</a>, <a
+href="File.html#method-i-replace">replace</a>, <a
+href="File.html#method-i-rename">rename</a> and <a
+href="File.html#method-i-mkdir">mkdir</a> for making simple modifications
+to the archive.</p>
+
+<p>Modifications to a zip archive are not committed until <a
+href="File.html#method-i-commit">commit</a> or <a
+href="File.html#method-i-close">close</a> is called. The method <a
+href="File.html#method-i-open">open</a> accepts a block following the
+pattern from <a href="File.html#method-i-open">#open</a> offering a simple
+way to automatically close the archive when the block returns.</p>
+
+<p>The following example opens zip archive <code>my.zip</code> (creating it if
+it doesn&#39;t exist) and adds an entry <code>first.txt</code> and a
+directory entry <code>a_dir</code> to it.</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;zip&#39;</span>
+
+<span class="ruby-constant">Zip</span><span class="ruby-operator">::</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-string">&quot;my.zip&quot;</span>, <span class="ruby-constant">Zip</span><span class="ruby-operator">::</span><span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">CREATE</span>) {
+ <span class="ruby-operator">|</span><span class="ruby-identifier">zipfile</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">zipfile</span>.<span class="ruby-identifier">get_output_stream</span>(<span class="ruby-string">&quot;first.txt&quot;</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-identifier">f</span>.<span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Hello from ZipFile&quot;</span> }
+  <span class="ruby-identifier">zipfile</span>.<span class="ruby-identifier">mkdir</span>(<span class="ruby-string">&quot;a_dir&quot;</span>)
+}
+</pre>
+
+<p>The next example reopens <code>my.zip</code> writes the contents of
+<code>first.txt</code> to standard out and deletes the entry from the
+archive.</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;zip&#39;</span>
+
+<span class="ruby-constant">Zip</span><span class="ruby-operator">::</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-string">&quot;my.zip&quot;</span>, <span class="ruby-constant">Zip</span><span class="ruby-operator">::</span><span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">CREATE</span>) {
+  <span class="ruby-operator">|</span><span class="ruby-identifier">zipfile</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-identifier">zipfile</span>.<span class="ruby-identifier">read</span>(<span class="ruby-string">&quot;first.txt&quot;</span>)
+  <span class="ruby-identifier">zipfile</span>.<span class="ruby-identifier">remove</span>(<span class="ruby-string">&quot;first.txt&quot;</span>)
+}
+</pre>
+
+<p>ZipFileSystem offers an alternative API that emulates ruby&#39;s interface
+for accessing the filesystem, ie. the File and Dir classes.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="CREATE">CREATE
+        
+        <dd>
+        
+      
+        <dt id="DATA_BUFFER_SIZE">DATA_BUFFER_SIZE
+        
+        <dd>
+        
+      
+        <dt id="MAX_SEGMENT_SIZE">MAX_SEGMENT_SIZE
+        
+        <dd>
+        
+      
+        <dt id="MIN_SEGMENT_SIZE">MIN_SEGMENT_SIZE
+        
+        <dd>
+        
+      
+        <dt id="SPLIT_SIGNATURE">SPLIT_SIGNATURE
+        
+        <dd>
+        
+      
+        <dt id="ZIP64_EOCD_SIGNATURE">ZIP64_EOCD_SIGNATURE
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-comment" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">comment</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Returns the zip files comment, if it has one</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-name" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">name</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-restore_ownership" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">restore_ownership</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>default -&gt; false</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-restore_permissions" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">restore_permissions</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>default -&gt; false</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-restore_times" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">restore_times</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>default -&gt; true</p>
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(file_name, create = nil, buffer = false, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Opens a zip archive. Pass true as the second parameter to create a new
+archive if it doesn&#39;t exist already.</p>
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/zip/file.rb, line 67</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">file_name</span>, <span class="ruby-identifier">create</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">buffer</span> = <span class="ruby-keyword">false</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-keyword">super</span>()
+  <span class="ruby-ivar">@name</span>    = <span class="ruby-identifier">file_name</span>
+  <span class="ruby-ivar">@comment</span> = <span class="ruby-string">&#39;&#39;</span>
+  <span class="ruby-ivar">@create</span>  = <span class="ruby-identifier">create</span>
+  <span class="ruby-keyword">case</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-operator">!</span><span class="ruby-identifier">buffer</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">::</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">size?</span>(<span class="ruby-identifier">file_name</span>)
+    <span class="ruby-ivar">@create</span> = <span class="ruby-keyword">nil</span>
+    <span class="ruby-ivar">@exist_file_perms</span> = <span class="ruby-operator">::</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">stat</span>(<span class="ruby-identifier">file_name</span>).<span class="ruby-identifier">mode</span>
+    <span class="ruby-operator">::</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">name</span>, <span class="ruby-string">&#39;rb&#39;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">read_from_stream</span>(<span class="ruby-identifier">f</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-identifier">create</span>
+    <span class="ruby-ivar">@entry_set</span> = <span class="ruby-constant">EntrySet</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">Error</span>, <span class="ruby-node">&quot;File #{file_name} not found&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@stored_entries</span>      = <span class="ruby-ivar">@entry_set</span>.<span class="ruby-identifier">dup</span>
+  <span class="ruby-ivar">@stored_comment</span>      = <span class="ruby-ivar">@comment</span>
+  <span class="ruby-ivar">@restore_ownership</span>   = <span class="ruby-identifier">options</span>[<span class="ruby-value">:restore_ownership</span>]    <span class="ruby-operator">||</span> <span class="ruby-keyword">false</span>
+  <span class="ruby-ivar">@restore_permissions</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:restore_permissions</span>]  <span class="ruby-operator">||</span> <span class="ruby-keyword">true</span>
+  <span class="ruby-ivar">@restore_times</span>       = <span class="ruby-identifier">options</span>[<span class="ruby-value">:restore_times</span>]        <span class="ruby-operator">||</span> <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-add" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add</span><span
+            class="method-args">(entry, src_path, &continue_on_exists_proc)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Convenience method for adding the contents of a file to the archive</p>
+          
+          
+
+          
+          <div class="method-source-code" id="add-source">
+            <pre><span class="ruby-comment"># File lib/zip/file.rb, line 259</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">add</span>(<span class="ruby-identifier">entry</span>, <span class="ruby-identifier">src_path</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">continue_on_exists_proc</span>)
+  <span class="ruby-identifier">continue_on_exists_proc</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">proc</span> { <span class="ruby-operator">::</span><span class="ruby-constant">Zip</span>.<span class="ruby-identifier">continue_on_exists_proc</span> }
+  <span class="ruby-identifier">check_entry_exists</span>(<span class="ruby-identifier">entry</span>, <span class="ruby-identifier">continue_on_exists_proc</span>, <span class="ruby-string">&quot;add&quot;</span>)
+  <span class="ruby-identifier">new_entry</span> = <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Zip</span><span class="ruby-operator">::</span><span class="ruby-constant">Entry</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">entry</span> <span class="ruby-operator">:</span> <span class="ruby-operator">::</span><span class="ruby-constant">Zip</span><span class="ruby-operator">::</span><span class="ruby-constant">Entry</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@name</span>, <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">to_s</span>)
+  <span class="ruby-identifier">new_entry</span>.<span class="ruby-identifier">gather_fileinfo_from_srcpath</span>(<span class="ruby-identifier">src_path</span>)
+  <span class="ruby-identifier">new_entry</span>.<span class="ruby-identifier">dirty</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-ivar">@entry_set</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">new_entry</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-add_buffer" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add_buffer</span><span
+            class="method-args">() { |zf| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Same as <a href="File.html#method-i-open">open</a>. But outputs data to a
+buffer instead of a file</p>
+          
+          
+
+          
+          <div class="method-source-code" id="add_buffer-source">
+            <pre><span class="ruby-comment"># File lib/zip/file.rb, line 106</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">add_buffer</span>
+  <span class="ruby-identifier">io</span> = <span class="ruby-operator">::</span><span class="ruby-constant">StringIO</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;&#39;</span>)
+  <span class="ruby-identifier">zf</span> = <span class="ruby-operator">::</span><span class="ruby-constant">Zip</span><span class="ruby-operator">::</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">io</span>, <span class="ruby-keyword">true</span>, <span class="ruby-keyword">true</span>)
+  <span class="ruby-keyword">yield</span> <span class="ruby-identifier">zf</span>
+  <span class="ruby-identifier">zf</span>.<span class="ruby-identifier">write_buffer</span>(<span class="ruby-identifier">io</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-close" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">close</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Closes the zip file committing any changes that has been made.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="close-source">
+            <pre><span class="ruby-comment"># File lib/zip/file.rb, line 324</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">close</span>
+  <span class="ruby-identifier">commit</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-commit" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">commit</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Commits changes that has been made since the previous commit to the zip
+archive.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="commit-source">
+            <pre><span class="ruby-comment"># File lib/zip/file.rb, line 299</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">commit</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">commit_required?</span>
+  <span class="ruby-identifier">on_success_replace</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">tmp_file</span><span class="ruby-operator">|</span>
+    <span class="ruby-operator">::</span><span class="ruby-constant">Zip</span><span class="ruby-operator">::</span><span class="ruby-constant">OutputStream</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">tmp_file</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">zos</span><span class="ruby-operator">|</span>
+      <span class="ruby-ivar">@entry_set</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">e</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">e</span>.<span class="ruby-identifier">write_to_zip_output_stream</span>(<span class="ruby-identifier">zos</span>)
+        <span class="ruby-identifier">e</span>.<span class="ruby-identifier">dirty</span> = <span class="ruby-keyword">false</span>
+        <span class="ruby-identifier">e</span>.<span class="ruby-identifier">clean_up</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">zos</span>.<span class="ruby-identifier">comment</span> = <span class="ruby-identifier">comment</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">name</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-commit_required-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">commit_required?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns true if any changes has been made to this archive since the
+previous commit</p>
+          
+          
+
+          
+          <div class="method-source-code" id="commit_required-3F-source">
+            <pre><span class="ruby-comment"># File lib/zip/file.rb, line 330</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">commit_required?</span>
+  <span class="ruby-ivar">@entry_set</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">e</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">dirty</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@comment</span> <span class="ruby-operator">!=</span> <span class="ruby-ivar">@stored_comment</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@entry_set</span> <span class="ruby-operator">!=</span> <span class="ruby-ivar">@stored_entries</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@create</span> <span class="ruby-operator">==</span> <span class="ruby-operator">::</span><span class="ruby-constant">Zip</span><span class="ruby-operator">::</span><span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">CREATE</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-extract" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">extract</span><span
+            class="method-args">(entry, dest_path, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Extracts entry to file dest_path.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="extract-source">
+            <pre><span class="ruby-comment"># File lib/zip/file.rb, line 291</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">extract</span>(<span class="ruby-identifier">entry</span>, <span class="ruby-identifier">dest_path</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">block</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">proc</span> { <span class="ruby-operator">::</span><span class="ruby-constant">Zip</span>.<span class="ruby-identifier">on_exists_proc</span> }
+  <span class="ruby-identifier">found_entry</span> = <span class="ruby-identifier">get_entry</span>(<span class="ruby-identifier">entry</span>)
+  <span class="ruby-identifier">found_entry</span>.<span class="ruby-identifier">extract</span>(<span class="ruby-identifier">dest_path</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-find_entry" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">find_entry</span><span
+            class="method-args">(entry_name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Searches for entry with the specified name. Returns nil if no entry is
+found. See also <a href="File.html#method-i-get_entry">#get_entry</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="find_entry-source">
+            <pre><span class="ruby-comment"># File lib/zip/file.rb, line 339</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">find_entry</span>(<span class="ruby-identifier">entry_name</span>)
+  <span class="ruby-ivar">@entry_set</span>.<span class="ruby-identifier">find_entry</span>(<span class="ruby-identifier">entry_name</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-foreach" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">foreach</span><span
+            class="method-args">(aZipFileName, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Iterates over the contents of the ZipFile. This is more efficient than
+using a ZipInputStream since this methods simply iterates through the
+entries in the central directory structure in the archive whereas
+ZipInputStream jumps through the entire archive accessing the local entry
+headers (which contain the same information as the central directory).</p>
+          
+          
+
+          
+          <div class="method-source-code" id="foreach-source">
+            <pre><span class="ruby-comment"># File lib/zip/file.rb, line 137</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">foreach</span>(<span class="ruby-identifier">aZipFileName</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">open</span>(<span class="ruby-identifier">aZipFileName</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">zipFile</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">zipFile</span>.<span class="ruby-identifier">each</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-get_entry" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_entry</span><span
+            class="method-args">(entry)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Searches for an entry just as <a
+href="File.html#method-i-find_entry">#find_entry</a>, but throws
+Errno::ENOENT if no entry is found.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="get_entry-source">
+            <pre><span class="ruby-comment"># File lib/zip/file.rb, line 350</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_entry</span>(<span class="ruby-identifier">entry</span>)
+  <span class="ruby-identifier">selected_entry</span> = <span class="ruby-identifier">find_entry</span>(<span class="ruby-identifier">entry</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">selected_entry</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">Errno</span><span class="ruby-operator">::</span><span class="ruby-constant">ENOENT</span>, <span class="ruby-identifier">entry</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">selected_entry</span>.<span class="ruby-identifier">restore_ownership</span>   = <span class="ruby-ivar">@restore_ownership</span>
+  <span class="ruby-identifier">selected_entry</span>.<span class="ruby-identifier">restore_permissions</span> = <span class="ruby-ivar">@restore_permissions</span>
+  <span class="ruby-identifier">selected_entry</span>.<span class="ruby-identifier">restore_times</span>       = <span class="ruby-ivar">@restore_times</span>
+  <span class="ruby-identifier">selected_entry</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-get_input_stream" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_input_stream</span><span
+            class="method-args">(entry, &aProc)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns an input stream to the specified entry. If a block is passed the
+stream object is passed to the block and the stream is automatically closed
+afterwards just as with ruby&#39;s builtin <a
+href="File.html#method-i-open">#open</a> method.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="get_input_stream-source">
+            <pre><span class="ruby-comment"># File lib/zip/file.rb, line 222</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_input_stream</span>(<span class="ruby-identifier">entry</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">aProc</span>)
+  <span class="ruby-identifier">get_entry</span>(<span class="ruby-identifier">entry</span>).<span class="ruby-identifier">get_input_stream</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">aProc</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-get_output_stream" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_output_stream</span><span
+            class="method-args">(entry, permission_int = nil, comment = nil, extra = nil, compressed_size = nil, crc = nil, compression_method = nil, size = nil, time = nil, &aProc)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns an output stream to the specified entry. If entry is not an
+instance of Zip::Entry, a new Zip::Entry will be initialized using the
+arguments specified. If a block is passed the stream object is passed to
+the block and the stream is automatically closed afterwards just as with
+ruby&#39;s builtin <a href="File.html#method-i-open">#open</a> method.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="get_output_stream-source">
+            <pre><span class="ruby-comment"># File lib/zip/file.rb, line 231</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_output_stream</span>(<span class="ruby-identifier">entry</span>, <span class="ruby-identifier">permission_int</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">comment</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">extra</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">compressed_size</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">crc</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">compression_method</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">size</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">time</span> = <span class="ruby-keyword">nil</span>,  <span class="ruby-operator">&amp;</span><span class="ruby-identifier">aProc</span>)
+  <span class="ruby-identifier">new_entry</span> =
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Entry</span>)
+      <span class="ruby-identifier">entry</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-constant">Entry</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@name</span>, <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">comment</span>, <span class="ruby-identifier">extra</span>, <span class="ruby-identifier">compressed_size</span>, <span class="ruby-identifier">crc</span>, <span class="ruby-identifier">compression_method</span>, <span class="ruby-identifier">size</span>, <span class="ruby-identifier">time</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">new_entry</span>.<span class="ruby-identifier">directory?</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>,
+          <span class="ruby-node">&quot;cannot open stream to directory entry - &#39;#{new_entry}&#39;&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">new_entry</span>.<span class="ruby-identifier">unix_perms</span> = <span class="ruby-identifier">permission_int</span>
+  <span class="ruby-identifier">zip_streamable_entry</span> = <span class="ruby-constant">StreamableStream</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">new_entry</span>)
+  <span class="ruby-ivar">@entry_set</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">zip_streamable_entry</span>
+  <span class="ruby-identifier">zip_streamable_entry</span>.<span class="ruby-identifier">get_output_stream</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">aProc</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-get_partial_zip_file_name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_partial_zip_file_name</span><span
+            class="method-args">(zip_file_name, partial_zip_file_name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="get_partial_zip_file_name-source">
+            <pre><span class="ruby-comment"># File lib/zip/file.rb, line 154</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_partial_zip_file_name</span>(<span class="ruby-identifier">zip_file_name</span>, <span class="ruby-identifier">partial_zip_file_name</span>)
+  <span class="ruby-identifier">partial_zip_file_name</span> = <span class="ruby-identifier">zip_file_name</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-node">/#{::File.basename(zip_file_name)}\z/</span>,
+                                            <span class="ruby-identifier">partial_zip_file_name</span> <span class="ruby-operator">+</span> <span class="ruby-operator">::</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">extname</span>(<span class="ruby-identifier">zip_file_name</span>)) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">partial_zip_file_name</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-identifier">partial_zip_file_name</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">zip_file_name</span>
+  <span class="ruby-identifier">partial_zip_file_name</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-get_segment_count_for_split" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_segment_count_for_split</span><span
+            class="method-args">(zip_file_size, segment_size)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="get_segment_count_for_split-source">
+            <pre><span class="ruby-comment"># File lib/zip/file.rb, line 161</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_segment_count_for_split</span>(<span class="ruby-identifier">zip_file_size</span>, <span class="ruby-identifier">segment_size</span>)
+  (<span class="ruby-identifier">zip_file_size</span> <span class="ruby-operator">/</span> <span class="ruby-identifier">segment_size</span>).<span class="ruby-identifier">to_i</span> <span class="ruby-operator">+</span> (<span class="ruby-identifier">zip_file_size</span> <span class="ruby-operator">%</span> <span class="ruby-identifier">segment_size</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span> <span class="ruby-operator">?</span> <span class="ruby-value">0</span> <span class="ruby-operator">:</span> <span class="ruby-value">1</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-get_segment_size_for_split" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_segment_size_for_split</span><span
+            class="method-args">(segment_size)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="get_segment_size_for_split-source">
+            <pre><span class="ruby-comment"># File lib/zip/file.rb, line 143</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_segment_size_for_split</span>(<span class="ruby-identifier">segment_size</span>)
+  <span class="ruby-keyword">case</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">MIN_SEGMENT_SIZE</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">segment_size</span>
+    <span class="ruby-constant">MIN_SEGMENT_SIZE</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">MAX_SEGMENT_SIZE</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">segment_size</span>
+    <span class="ruby-constant">MAX_SEGMENT_SIZE</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">segment_size</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-glob" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">glob</span><span
+            class="method-args">(*args, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Searches for entries given a glob</p>
+          
+          
+
+          
+          <div class="method-source-code" id="glob-source">
+            <pre><span class="ruby-comment"># File lib/zip/file.rb, line 344</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">glob</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-ivar">@entry_set</span>.<span class="ruby-identifier">glob</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-mkdir" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">mkdir</span><span
+            class="method-args">(entryName, permissionInt = 0755)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Creates a directory</p>
+          
+          
+
+          
+          <div class="method-source-code" id="mkdir-source">
+            <pre><span class="ruby-comment"># File lib/zip/file.rb, line 362</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">mkdir</span>(<span class="ruby-identifier">entryName</span>, <span class="ruby-identifier">permissionInt</span> = <span class="ruby-value">0755</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">find_entry</span>(<span class="ruby-identifier">entryName</span>)
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">Errno</span><span class="ruby-operator">::</span><span class="ruby-constant">EEXIST</span>, <span class="ruby-node">&quot;File exists - #{entryName}&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">entryName</span> = <span class="ruby-identifier">entryName</span>.<span class="ruby-identifier">dup</span>.<span class="ruby-identifier">to_s</span>
+  <span class="ruby-identifier">entryName</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&#39;/&#39;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">entryName</span>.<span class="ruby-identifier">end_with?</span>(<span class="ruby-string">&#39;/&#39;</span>)
+  <span class="ruby-ivar">@entry_set</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-operator">::</span><span class="ruby-constant">Zip</span><span class="ruby-operator">::</span><span class="ruby-constant">StreamableDirectory</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@name</span>, <span class="ruby-identifier">entryName</span>, <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">permissionInt</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-open" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">open</span><span
+            class="method-args">(file_name, create = nil) { |zf| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Same as new. If a block is passed the ZipFile object is passed to the block
+and is automatically closed afterwards just as with ruby&#39;s builtin <a
+href="File.html#method-i-open">#open</a> method.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="open-source">
+            <pre><span class="ruby-comment"># File lib/zip/file.rb, line 95</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">open</span>(<span class="ruby-identifier">file_name</span>, <span class="ruby-identifier">create</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">zf</span> = <span class="ruby-operator">::</span><span class="ruby-constant">Zip</span><span class="ruby-operator">::</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">file_name</span>, <span class="ruby-identifier">create</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">zf</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">block_given?</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-keyword">yield</span> <span class="ruby-identifier">zf</span>
+  <span class="ruby-keyword">ensure</span>
+    <span class="ruby-identifier">zf</span>.<span class="ruby-identifier">close</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-open_buffer" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">open_buffer</span><span
+            class="method-args">(io, options = {}) { |zf| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Like <a href="File.html#method-i-open">open</a>, but reads zip archive
+contents from a String or open IO stream, and outputs data to a buffer.
+(This can be used to extract data from a downloaded zip archive without
+first saving it to disk.)</p>
+          
+          
+
+          
+          <div class="method-source-code" id="open_buffer-source">
+            <pre><span class="ruby-comment"># File lib/zip/file.rb, line 117</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">open_buffer</span>(<span class="ruby-identifier">io</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">io</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">IO</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">io</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">io</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Tempfile</span>)
+    <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Zip::File.open_buffer expects an argument of class String, IO, or Tempfile. Found: #{io.class}&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">io</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">String</span>)
+    <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;stringio&#39;</span>
+    <span class="ruby-identifier">io</span> = <span class="ruby-operator">::</span><span class="ruby-constant">StringIO</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">io</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">zf</span> = <span class="ruby-operator">::</span><span class="ruby-constant">Zip</span><span class="ruby-operator">::</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">io</span>, <span class="ruby-keyword">true</span>, <span class="ruby-keyword">true</span>, <span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">zf</span>.<span class="ruby-identifier">read_from_stream</span>(<span class="ruby-identifier">io</span>)
+  <span class="ruby-keyword">yield</span> <span class="ruby-identifier">zf</span>
+  <span class="ruby-identifier">zf</span>.<span class="ruby-identifier">write_buffer</span>(<span class="ruby-identifier">io</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-put_split_signature" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">put_split_signature</span><span
+            class="method-args">(szip_file, segment_size)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="put_split_signature-source">
+            <pre><span class="ruby-comment"># File lib/zip/file.rb, line 165</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">put_split_signature</span>(<span class="ruby-identifier">szip_file</span>, <span class="ruby-identifier">segment_size</span>)
+  <span class="ruby-identifier">signature_packed</span> = [<span class="ruby-constant">SPLIT_SIGNATURE</span>].<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;V&#39;</span>)
+  <span class="ruby-identifier">szip_file</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">signature_packed</span>
+  <span class="ruby-identifier">segment_size</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">signature_packed</span>.<span class="ruby-identifier">size</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-read" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">read</span><span
+            class="method-args">(entry)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns a string containing the contents of the specified entry</p>
+          
+          
+
+          
+          <div class="method-source-code" id="read-source">
+            <pre><span class="ruby-comment"># File lib/zip/file.rb, line 254</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">read</span>(<span class="ruby-identifier">entry</span>)
+  <span class="ruby-identifier">get_input_stream</span>(<span class="ruby-identifier">entry</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">is</span><span class="ruby-operator">|</span> <span class="ruby-identifier">is</span>.<span class="ruby-identifier">read</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-remove" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">remove</span><span
+            class="method-args">(entry)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Removes the specified entry.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="remove-source">
+            <pre><span class="ruby-comment"># File lib/zip/file.rb, line 269</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">remove</span>(<span class="ruby-identifier">entry</span>)
+  <span class="ruby-ivar">@entry_set</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">get_entry</span>(<span class="ruby-identifier">entry</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-rename" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">rename</span><span
+            class="method-args">(entry, new_name, &continue_on_exists_proc)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Renames the specified entry.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="rename-source">
+            <pre><span class="ruby-comment"># File lib/zip/file.rb, line 274</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">rename</span>(<span class="ruby-identifier">entry</span>, <span class="ruby-identifier">new_name</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">continue_on_exists_proc</span>)
+  <span class="ruby-identifier">foundEntry</span> = <span class="ruby-identifier">get_entry</span>(<span class="ruby-identifier">entry</span>)
+  <span class="ruby-identifier">check_entry_exists</span>(<span class="ruby-identifier">new_name</span>, <span class="ruby-identifier">continue_on_exists_proc</span>, <span class="ruby-string">&#39;rename&#39;</span>)
+  <span class="ruby-ivar">@entry_set</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">foundEntry</span>)
+  <span class="ruby-identifier">foundEntry</span>.<span class="ruby-identifier">name</span> = <span class="ruby-identifier">new_name</span>
+  <span class="ruby-ivar">@entry_set</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">foundEntry</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-replace" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">replace</span><span
+            class="method-args">(entry, srcPath)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Replaces the specified entry with the contents of srcPath (from the file
+system).</p>
+          
+          
+
+          
+          <div class="method-source-code" id="replace-source">
+            <pre><span class="ruby-comment"># File lib/zip/file.rb, line 284</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">replace</span>(<span class="ruby-identifier">entry</span>, <span class="ruby-identifier">srcPath</span>)
+  <span class="ruby-identifier">check_file</span>(<span class="ruby-identifier">srcPath</span>)
+  <span class="ruby-identifier">remove</span>(<span class="ruby-identifier">entry</span>)
+  <span class="ruby-identifier">add</span>(<span class="ruby-identifier">entry</span>, <span class="ruby-identifier">srcPath</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-save_splited_part" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">save_splited_part</span><span
+            class="method-args">(zip_file, partial_zip_file_name, zip_file_size, szip_file_index, segment_size, segment_count) { |segment_count, szip_file_index, chunk_bytes, ssegment_size| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>TODO: Make the code more understandable</p>
+          
+          
+
+          
+          <div class="method-source-code" id="save_splited_part-source">
+            <pre><span class="ruby-comment"># File lib/zip/file.rb, line 174</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">save_splited_part</span>(<span class="ruby-identifier">zip_file</span>, <span class="ruby-identifier">partial_zip_file_name</span>, <span class="ruby-identifier">zip_file_size</span>, <span class="ruby-identifier">szip_file_index</span>, <span class="ruby-identifier">segment_size</span>, <span class="ruby-identifier">segment_count</span>)
+  <span class="ruby-identifier">ssegment_size</span>  = <span class="ruby-identifier">zip_file_size</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">zip_file</span>.<span class="ruby-identifier">pos</span>
+  <span class="ruby-identifier">ssegment_size</span>  = <span class="ruby-identifier">segment_size</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">ssegment_size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">segment_size</span>
+  <span class="ruby-identifier">szip_file_name</span> = <span class="ruby-node">&quot;#{partial_zip_file_name}.#{&#39;%03d&#39;%(szip_file_index)}&quot;</span>
+  <span class="ruby-operator">::</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">szip_file_name</span>, <span class="ruby-string">&#39;wb&#39;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">szip_file</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">szip_file_index</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
+      <span class="ruby-identifier">ssegment_size</span> = <span class="ruby-identifier">put_split_signature</span>(<span class="ruby-identifier">szip_file</span>, <span class="ruby-identifier">segment_size</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">chunk_bytes</span> = <span class="ruby-value">0</span>
+    <span class="ruby-keyword">until</span> <span class="ruby-identifier">ssegment_size</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">chunk_bytes</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">zip_file</span>.<span class="ruby-identifier">eof?</span>
+      <span class="ruby-identifier">segment_bytes_left</span> = <span class="ruby-identifier">ssegment_size</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">chunk_bytes</span>
+      <span class="ruby-identifier">buffer_size</span>        = <span class="ruby-identifier">segment_bytes_left</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">DATA_BUFFER_SIZE</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">segment_bytes_left</span> <span class="ruby-operator">:</span> <span class="ruby-constant">DATA_BUFFER_SIZE</span>
+      <span class="ruby-identifier">chunk</span>              = <span class="ruby-identifier">zip_file</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">buffer_size</span>)
+      <span class="ruby-identifier">chunk_bytes</span>        <span class="ruby-operator">+=</span> <span class="ruby-identifier">buffer_size</span>
+      <span class="ruby-identifier">szip_file</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">chunk</span>
+      <span class="ruby-comment"># Info for track splitting</span>
+      <span class="ruby-keyword">yield</span> <span class="ruby-identifier">segment_count</span>, <span class="ruby-identifier">szip_file_index</span>, <span class="ruby-identifier">chunk_bytes</span>, <span class="ruby-identifier">ssegment_size</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-split" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">split</span><span
+            class="method-args">(zip_file_name, segment_size = MAX_SEGMENT_SIZE, delete_zip_file = true, partial_zip_file_name = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Splits an archive into parts with segment size</p>
+          
+          
+
+          
+          <div class="method-source-code" id="split-source">
+            <pre><span class="ruby-comment"># File lib/zip/file.rb, line 196</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">split</span>(<span class="ruby-identifier">zip_file_name</span>, <span class="ruby-identifier">segment_size</span> = <span class="ruby-constant">MAX_SEGMENT_SIZE</span>, <span class="ruby-identifier">delete_zip_file</span> = <span class="ruby-keyword">true</span>, <span class="ruby-identifier">partial_zip_file_name</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">Error</span>, <span class="ruby-node">&quot;File #{zip_file_name} not found&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-operator">::</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">zip_file_name</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">Errno</span><span class="ruby-operator">::</span><span class="ruby-constant">ENOENT</span>, <span class="ruby-identifier">zip_file_name</span> <span class="ruby-keyword">unless</span> <span class="ruby-operator">::</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">readable?</span>(<span class="ruby-identifier">zip_file_name</span>)
+  <span class="ruby-identifier">zip_file_size</span> = <span class="ruby-operator">::</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">size</span>(<span class="ruby-identifier">zip_file_name</span>)
+  <span class="ruby-identifier">segment_size</span>  = <span class="ruby-identifier">get_segment_size_for_split</span>(<span class="ruby-identifier">segment_size</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">zip_file_size</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-identifier">segment_size</span>
+  <span class="ruby-identifier">segment_count</span> = <span class="ruby-identifier">get_segment_count_for_split</span>(<span class="ruby-identifier">zip_file_size</span>, <span class="ruby-identifier">segment_size</span>)
+  <span class="ruby-comment"># Checking for correct zip structure</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">zip_file_name</span>) {}
+  <span class="ruby-identifier">partial_zip_file_name</span> = <span class="ruby-identifier">get_partial_zip_file_name</span>(<span class="ruby-identifier">zip_file_name</span>, <span class="ruby-identifier">partial_zip_file_name</span>)
+  <span class="ruby-identifier">szip_file_index</span>       = <span class="ruby-value">0</span>
+  <span class="ruby-operator">::</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">zip_file_name</span>, <span class="ruby-string">&#39;rb&#39;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">zip_file</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">until</span> <span class="ruby-identifier">zip_file</span>.<span class="ruby-identifier">eof?</span>
+      <span class="ruby-identifier">szip_file_index</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+      <span class="ruby-identifier">save_splited_part</span>(<span class="ruby-identifier">zip_file</span>, <span class="ruby-identifier">partial_zip_file_name</span>, <span class="ruby-identifier">zip_file_size</span>, <span class="ruby-identifier">szip_file_index</span>, <span class="ruby-identifier">segment_size</span>, <span class="ruby-identifier">segment_count</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-operator">::</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">zip_file_name</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">delete_zip_file</span>
+  <span class="ruby-identifier">szip_file_index</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-to_s" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_s</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the name of the zip archive</p>
+          
+          
+
+          
+          <div class="method-source-code" id="to_s-source">
+            <pre><span class="ruby-comment"># File lib/zip/file.rb, line 249</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_s</span>
+  <span class="ruby-ivar">@name</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-write_buffer" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">write_buffer</span><span
+            class="method-args">(io = ::StringIO.new(''))</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Write buffer write changes to buffer and return</p>
+          
+          
+
+          
+          <div class="method-source-code" id="write_buffer-source">
+            <pre><span class="ruby-comment"># File lib/zip/file.rb, line 316</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">write_buffer</span>(<span class="ruby-identifier">io</span> = <span class="ruby-operator">::</span><span class="ruby-constant">StringIO</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;&#39;</span>))
+  <span class="ruby-operator">::</span><span class="ruby-constant">Zip</span><span class="ruby-operator">::</span><span class="ruby-constant">OutputStream</span>.<span class="ruby-identifier">write_buffer</span>(<span class="ruby-identifier">io</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">zos</span><span class="ruby-operator">|</span>
+    <span class="ruby-ivar">@entry_set</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">e</span><span class="ruby-operator">|</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">write_to_zip_output_stream</span>(<span class="ruby-identifier">zos</span>) }
+    <span class="ruby-identifier">zos</span>.<span class="ruby-identifier">comment</span> = <span class="ruby-identifier">comment</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-check_entry_exists" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">check_entry_exists</span><span
+            class="method-args">(entryName, continue_on_exists_proc, procedureName)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="check_entry_exists-source">
+            <pre><span class="ruby-comment"># File lib/zip/file.rb, line 385</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">check_entry_exists</span>(<span class="ruby-identifier">entryName</span>, <span class="ruby-identifier">continue_on_exists_proc</span>, <span class="ruby-identifier">procedureName</span>)
+  <span class="ruby-identifier">continue_on_exists_proc</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">proc</span> { <span class="ruby-constant">Zip</span>.<span class="ruby-identifier">continue_on_exists_proc</span> }
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@entry_set</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">entryName</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">continue_on_exists_proc</span>.<span class="ruby-identifier">call</span>
+      <span class="ruby-identifier">remove</span> <span class="ruby-identifier">get_entry</span>(<span class="ruby-identifier">entryName</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-operator">::</span><span class="ruby-constant">Zip</span><span class="ruby-operator">::</span><span class="ruby-constant">EntryExistsError</span>,
+            <span class="ruby-identifier">procedureName</span> <span class="ruby-operator">+</span> <span class="ruby-node">&quot; failed. Entry #{entryName} already exists&quot;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-check_file" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">check_file</span><span
+            class="method-args">(path)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="check_file-source">
+            <pre><span class="ruby-comment"># File lib/zip/file.rb, line 397</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">check_file</span>(<span class="ruby-identifier">path</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-operator">::</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">readable?</span>(<span class="ruby-identifier">path</span>)
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">Errno</span><span class="ruby-operator">::</span><span class="ruby-constant">ENOENT</span>, <span class="ruby-identifier">path</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-get_tempfile" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_tempfile</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="get_tempfile-source">
+            <pre><span class="ruby-comment"># File lib/zip/file.rb, line 415</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_tempfile</span>
+  <span class="ruby-identifier">temp_file</span> = <span class="ruby-constant">Tempfile</span>.<span class="ruby-identifier">new</span>(<span class="ruby-operator">::</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>(<span class="ruby-identifier">name</span>), <span class="ruby-operator">::</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-identifier">name</span>))
+  <span class="ruby-identifier">temp_file</span>.<span class="ruby-identifier">binmode</span>
+  <span class="ruby-identifier">temp_file</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-is_directory" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">is_directory</span><span
+            class="method-args">(newEntry, srcPath)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="is_directory-source">
+            <pre><span class="ruby-comment"># File lib/zip/file.rb, line 373</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">is_directory</span>(<span class="ruby-identifier">newEntry</span>, <span class="ruby-identifier">srcPath</span>)
+  <span class="ruby-identifier">srcPathIsDirectory</span> = <span class="ruby-operator">::</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">directory?</span>(<span class="ruby-identifier">srcPath</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">newEntry</span>.<span class="ruby-identifier">is_directory</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">srcPathIsDirectory</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>,
+          <span class="ruby-node">&quot;entry name &#39;#{newEntry}&#39; indicates directory entry, but &quot;</span><span class="ruby-operator">+</span>
+            <span class="ruby-node">&quot;&#39;#{srcPath}&#39; is not a directory&quot;</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-operator">!</span><span class="ruby-identifier">newEntry</span>.<span class="ruby-identifier">is_directory</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">srcPathIsDirectory</span>
+    <span class="ruby-identifier">newEntry</span>.<span class="ruby-identifier">name</span> <span class="ruby-operator">+=</span> <span class="ruby-string">&quot;/&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">newEntry</span>.<span class="ruby-identifier">is_directory</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">srcPathIsDirectory</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-on_success_replace" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">on_success_replace</span><span
+            class="method-args">() { |tmp_filename| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="on_success_replace-source">
+            <pre><span class="ruby-comment"># File lib/zip/file.rb, line 403</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">on_success_replace</span>
+  <span class="ruby-identifier">tmpfile</span>      = <span class="ruby-identifier">get_tempfile</span>
+  <span class="ruby-identifier">tmp_filename</span> = <span class="ruby-identifier">tmpfile</span>.<span class="ruby-identifier">path</span>
+  <span class="ruby-identifier">tmpfile</span>.<span class="ruby-identifier">close</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">yield</span> <span class="ruby-identifier">tmp_filename</span>
+    <span class="ruby-operator">::</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">rename</span>(<span class="ruby-identifier">tmp_filename</span>, <span class="ruby-keyword">self</span>.<span class="ruby-identifier">name</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-keyword">defined?</span>(<span class="ruby-ivar">@exist_file_perms</span>)
+      <span class="ruby-operator">::</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">chmod</span>(<span class="ruby-ivar">@exist_file_perms</span>, <span class="ruby-keyword">self</span>.<span class="ruby-identifier">name</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class RailsGuides::Generator - rails-4.2.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    <div id="extends-section" class="nav-section">
+  <h3>Extended With Modules</h3>
+
+  <ul class="link-list">
+    
+  
+    <li><a class="extend" href="Helpers.html">RailsGuides::Helpers</a>
+  
+  
+  </ul>
+</div>
+
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-check_for_kindlegen">#check_for_kindlegen</a>
+    
+    <li ><a href="#method-i-check_fragment_identifiers">#check_fragment_identifiers</a>
+    
+    <li ><a href="#method-i-copy_assets">#copy_assets</a>
+    
+    <li ><a href="#method-i-create_output_dir_if_needed">#create_output_dir_if_needed</a>
+    
+    <li ><a href="#method-i-extract_anchors">#extract_anchors</a>
+    
+    <li ><a href="#method-i-generate">#generate</a>
+    
+    <li ><a href="#method-i-generate-3F">#generate?</a>
+    
+    <li ><a href="#method-i-generate_guide">#generate_guide</a>
+    
+    <li ><a href="#method-i-generate_guides">#generate_guides</a>
+    
+    <li ><a href="#method-i-generate_mobi">#generate_mobi</a>
+    
+    <li ><a href="#method-i-guides_to_generate">#guides_to_generate</a>
+    
+    <li ><a href="#method-i-initialize_dirs">#initialize_dirs</a>
+    
+    <li ><a href="#method-i-kindle-3F">#kindle?</a>
+    
+    <li ><a href="#method-i-mobi">#mobi</a>
+    
+    <li ><a href="#method-i-output_file_for">#output_file_for</a>
+    
+    <li ><a href="#method-i-output_path_for">#output_path_for</a>
+    
+    <li ><a href="#method-i-register_kindle_mime_types">#register_kindle_mime_types</a>
+    
+    <li ><a href="#method-i-select_only">#select_only</a>
+    
+    <li ><a href="#method-i-set_flags_from_environment">#set_flags_from_environment</a>
+    
+    <li ><a href="#method-i-warn_about_broken_links">#warn_about_broken_links</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-RailsGuides::Generator">
+  <h1 id="class-RailsGuides::Generator" class="class">
+    class RailsGuides::Generator
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="GUIDES_RE">GUIDES_RE
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-all" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">all</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-edge" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">edge</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-guides_dir" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">guides_dir</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-output_dir" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">output_dir</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-source_dir" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">source_dir</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-warnings" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">warnings</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(output=nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File guides/rails_guides/generator.rb, line 70</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">output</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">set_flags_from_environment</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">kindle?</span>
+    <span class="ruby-identifier">check_for_kindlegen</span>
+    <span class="ruby-identifier">register_kindle_mime_types</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">initialize_dirs</span>(<span class="ruby-identifier">output</span>)
+  <span class="ruby-identifier">create_output_dir_if_needed</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-generate" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">generate</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="generate-source">
+            <pre><span class="ruby-comment"># File guides/rails_guides/generator.rb, line 96</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">generate</span>
+  <span class="ruby-identifier">generate_guides</span>
+  <span class="ruby-identifier">copy_assets</span>
+  <span class="ruby-identifier">generate_mobi</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">kindle?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-register_kindle_mime_types" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">register_kindle_mime_types</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="register_kindle_mime_types-source">
+            <pre><span class="ruby-comment"># File guides/rails_guides/generator.rb, line 91</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">register_kindle_mime_types</span>
+  <span class="ruby-constant">Mime</span><span class="ruby-operator">::</span><span class="ruby-constant">Type</span>.<span class="ruby-identifier">register_alias</span>(<span class="ruby-string">&quot;application/xml&quot;</span>, <span class="ruby-value">:opf</span>, <span class="ruby-node">%w(opf)</span>)
+  <span class="ruby-constant">Mime</span><span class="ruby-operator">::</span><span class="ruby-constant">Type</span>.<span class="ruby-identifier">register_alias</span>(<span class="ruby-string">&quot;application/xml&quot;</span>, <span class="ruby-value">:ncx</span>, <span class="ruby-node">%w(ncx)</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-set_flags_from_environment" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">set_flags_from_environment</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="set_flags_from_environment-source">
+            <pre><span class="ruby-comment"># File guides/rails_guides/generator.rb, line 82</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">set_flags_from_environment</span>
+  <span class="ruby-ivar">@edge</span>     = <span class="ruby-constant">ENV</span>[<span class="ruby-string">&#39;EDGE&#39;</span>]     <span class="ruby-operator">==</span> <span class="ruby-string">&#39;1&#39;</span>
+  <span class="ruby-ivar">@warnings</span> = <span class="ruby-constant">ENV</span>[<span class="ruby-string">&#39;WARNINGS&#39;</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&#39;1&#39;</span>
+  <span class="ruby-ivar">@all</span>      = <span class="ruby-constant">ENV</span>[<span class="ruby-string">&#39;ALL&#39;</span>]      <span class="ruby-operator">==</span> <span class="ruby-string">&#39;1&#39;</span>
+  <span class="ruby-ivar">@kindle</span>   = <span class="ruby-constant">ENV</span>[<span class="ruby-string">&#39;KINDLE&#39;</span>]   <span class="ruby-operator">==</span> <span class="ruby-string">&#39;1&#39;</span>
+  <span class="ruby-ivar">@version</span>  = <span class="ruby-constant">ENV</span>[<span class="ruby-string">&#39;RAILS_VERSION&#39;</span>] <span class="ruby-operator">||</span> <span class="ruby-string">&#39;local&#39;</span>
+  <span class="ruby-ivar">@lang</span>     = <span class="ruby-constant">ENV</span>[<span class="ruby-string">&#39;GUIDES_LANGUAGE&#39;</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-check_for_kindlegen" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">check_for_kindlegen</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="check_for_kindlegen-source">
+            <pre><span class="ruby-comment"># File guides/rails_guides/generator.rb, line 108</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">check_for_kindlegen</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-value">%x`which kindlegen`</span>.<span class="ruby-identifier">blank?</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;Can&#39;t create a kindle version without `kindlegen`.&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-check_fragment_identifiers" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">check_fragment_identifiers</span><span
+            class="method-args">(html, anchors)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="check_fragment_identifiers-source">
+            <pre><span class="ruby-comment"># File guides/rails_guides/generator.rb, line 236</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">check_fragment_identifiers</span>(<span class="ruby-identifier">html</span>, <span class="ruby-identifier">anchors</span>)
+  <span class="ruby-identifier">html</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-node">/&lt;a\s+href=&quot;#([^&quot;]+)/</span>).<span class="ruby-identifier">flatten</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">fragment_identifier</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">fragment_identifier</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;mainCol&#39;</span> <span class="ruby-comment"># in layout, jumps to some DIV</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">anchors</span>.<span class="ruby-identifier">member?</span>(<span class="ruby-identifier">fragment_identifier</span>)
+      <span class="ruby-identifier">guess</span> = <span class="ruby-identifier">anchors</span>.<span class="ruby-identifier">min</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">a</span>, <span class="ruby-identifier">b</span><span class="ruby-operator">|</span>
+        <span class="ruby-constant">Levenshtein</span>.<span class="ruby-identifier">distance</span>(<span class="ruby-identifier">fragment_identifier</span>, <span class="ruby-identifier">a</span>) <span class="ruby-operator">&lt;=&gt;</span> <span class="ruby-constant">Levenshtein</span>.<span class="ruby-identifier">distance</span>(<span class="ruby-identifier">fragment_identifier</span>, <span class="ruby-identifier">b</span>)
+      }
+      <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;*** BROKEN LINK: ##{fragment_identifier}, perhaps you meant ##{guess}.&quot;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-copy_assets" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">copy_assets</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="copy_assets-source">
+            <pre><span class="ruby-comment"># File guides/rails_guides/generator.rb, line 168</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">copy_assets</span>
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">cp_r</span>(<span class="ruby-constant">Dir</span>.<span class="ruby-identifier">glob</span>(<span class="ruby-node">&quot;#{guides_dir}/assets/*&quot;</span>), <span class="ruby-identifier">output_dir</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-create_output_dir_if_needed" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create_output_dir_if_needed</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="create_output_dir_if_needed-source">
+            <pre><span class="ruby-comment"># File guides/rails_guides/generator.rb, line 137</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create_output_dir_if_needed</span>
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mkdir_p</span>(<span class="ruby-identifier">output_dir</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-extract_anchors" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">extract_anchors</span><span
+            class="method-args">(html)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="extract_anchors-source">
+            <pre><span class="ruby-comment"># File guides/rails_guides/generator.rb, line 219</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">extract_anchors</span>(<span class="ruby-identifier">html</span>)
+  <span class="ruby-comment"># Markdown generates headers with IDs computed from titles.</span>
+  <span class="ruby-identifier">anchors</span> = <span class="ruby-constant">Set</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">html</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-regexp">/&lt;h\d\s+id=&quot;([^&quot;]+)/</span>).<span class="ruby-identifier">flatten</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">anchor</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">anchors</span>.<span class="ruby-identifier">member?</span>(<span class="ruby-identifier">anchor</span>)
+      <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;*** DUPLICATE ID: #{anchor}, please make sure that there&#39;re no headings with the same name at the same level.&quot;</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">anchors</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">anchor</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># Footnotes.</span>
+  <span class="ruby-identifier">anchors</span> <span class="ruby-operator">+=</span> <span class="ruby-constant">Set</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">html</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-regexp">/&lt;p\s+class=&quot;footnote&quot;\s+id=&quot;([^&quot;]+)/</span>).<span class="ruby-identifier">flatten</span>)
+  <span class="ruby-identifier">anchors</span> <span class="ruby-operator">+=</span> <span class="ruby-constant">Set</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">html</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-regexp">/&lt;sup\s+class=&quot;footnote&quot;\s+id=&quot;([^&quot;]+)/</span>).<span class="ruby-identifier">flatten</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">anchors</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-generate-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">generate?</span><span
+            class="method-args">(source_file, output_file)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="generate-3F-source">
+            <pre><span class="ruby-comment"># File guides/rails_guides/generator.rb, line 184</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">generate?</span>(<span class="ruby-identifier">source_file</span>, <span class="ruby-identifier">output_file</span>)
+  <span class="ruby-identifier">fin</span>  = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">source_dir</span>, <span class="ruby-identifier">source_file</span>)
+  <span class="ruby-identifier">fout</span> = <span class="ruby-identifier">output_path_for</span>(<span class="ruby-identifier">output_file</span>)
+  <span class="ruby-identifier">all</span> <span class="ruby-operator">||</span> <span class="ruby-operator">!</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">fout</span>) <span class="ruby-operator">||</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">mtime</span>(<span class="ruby-identifier">fout</span>) <span class="ruby-operator">&lt;</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">mtime</span>(<span class="ruby-identifier">fin</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-generate_guide" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">generate_guide</span><span
+            class="method-args">(guide, output_file)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="generate_guide-source">
+            <pre><span class="ruby-comment"># File guides/rails_guides/generator.rb, line 190</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">generate_guide</span>(<span class="ruby-identifier">guide</span>, <span class="ruby-identifier">output_file</span>)
+  <span class="ruby-identifier">output_path</span> = <span class="ruby-identifier">output_path_for</span>(<span class="ruby-identifier">output_file</span>)
+  <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Generating #{guide} as #{output_file}&quot;</span>
+  <span class="ruby-identifier">layout</span> = <span class="ruby-identifier">kindle?</span> <span class="ruby-operator">?</span> <span class="ruby-string">&#39;kindle/layout&#39;</span> <span class="ruby-operator">:</span> <span class="ruby-string">&#39;layout&#39;</span>
+
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">output_path</span>, <span class="ruby-string">&#39;w&#39;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">view</span> = <span class="ruby-constant">ActionView</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">source_dir</span>, <span class="ruby-value">:edge</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@edge</span>, <span class="ruby-value">:version</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@version</span>, <span class="ruby-value">:mobi</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">&quot;kindle/#{mobi}&quot;</span>)
+    <span class="ruby-identifier">view</span>.<span class="ruby-identifier">extend</span>(<span class="ruby-constant">Helpers</span>)
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">guide</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/\.(\w+)\.erb$/</span>
+      <span class="ruby-comment"># Generate the special pages like the home.</span>
+      <span class="ruby-comment"># Passing a template handler in the template name is deprecated. So pass the file name without the extension.</span>
+      <span class="ruby-identifier">result</span> = <span class="ruby-identifier">view</span>.<span class="ruby-identifier">render</span>(<span class="ruby-value">:layout</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">layout</span>, <span class="ruby-value">:formats</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-node">$1</span>], <span class="ruby-value">:file</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-node">$`</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">body</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">source_dir</span>, <span class="ruby-identifier">guide</span>))
+      <span class="ruby-identifier">result</span> = <span class="ruby-constant">RailsGuides</span><span class="ruby-operator">::</span><span class="ruby-constant">Markdown</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">view</span>, <span class="ruby-identifier">layout</span>).<span class="ruby-identifier">render</span>(<span class="ruby-identifier">body</span>)
+
+      <span class="ruby-identifier">warn_about_broken_links</span>(<span class="ruby-identifier">result</span>) <span class="ruby-keyword">if</span> <span class="ruby-ivar">@warnings</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">f</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">result</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-generate_guides" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">generate_guides</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="generate_guides-source">
+            <pre><span class="ruby-comment"># File guides/rails_guides/generator.rb, line 141</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">generate_guides</span>
+  <span class="ruby-identifier">guides_to_generate</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">guide</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">output_file</span> = <span class="ruby-identifier">output_file_for</span>(<span class="ruby-identifier">guide</span>)
+    <span class="ruby-identifier">generate_guide</span>(<span class="ruby-identifier">guide</span>, <span class="ruby-identifier">output_file</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">generate?</span>(<span class="ruby-identifier">guide</span>, <span class="ruby-identifier">output_file</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-generate_mobi" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">generate_mobi</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="generate_mobi-source">
+            <pre><span class="ruby-comment"># File guides/rails_guides/generator.rb, line 114</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">generate_mobi</span>
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;rails_guides/kindle&#39;</span>
+  <span class="ruby-identifier">out</span> = <span class="ruby-node">&quot;#{output_dir}/kindlegen.out&quot;</span>
+  <span class="ruby-constant">Kindle</span>.<span class="ruby-identifier">generate</span>(<span class="ruby-identifier">output_dir</span>, <span class="ruby-identifier">mobi</span>, <span class="ruby-identifier">out</span>)
+  <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;(kindlegen log at #{out}).&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-guides_to_generate" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">guides_to_generate</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="guides_to_generate-source">
+            <pre><span class="ruby-comment"># File guides/rails_guides/generator.rb, line 148</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">guides_to_generate</span>
+  <span class="ruby-identifier">guides</span> = <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">entries</span>(<span class="ruby-identifier">source_dir</span>).<span class="ruby-identifier">grep</span>(<span class="ruby-constant">GUIDES_RE</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">kindle?</span>
+    <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">entries</span>(<span class="ruby-node">&quot;#{source_dir}/kindle&quot;</span>).<span class="ruby-identifier">grep</span>(<span class="ruby-constant">GUIDES_RE</span>).<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">entry</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">entry</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;KINDLE.md&#39;</span>
+      <span class="ruby-identifier">guides</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;kindle/#{entry}&quot;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-constant">ENV</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-string">&#39;ONLY&#39;</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">select_only</span>(<span class="ruby-identifier">guides</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">guides</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-initialize_dirs" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">initialize_dirs</span><span
+            class="method-args">(output)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="initialize_dirs-source">
+            <pre><span class="ruby-comment"># File guides/rails_guides/generator.rb, line 125</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize_dirs</span>(<span class="ruby-identifier">output</span>)
+  <span class="ruby-ivar">@guides_dir</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-keyword">__FILE__</span>), <span class="ruby-string">&#39;..&#39;</span>)
+  <span class="ruby-ivar">@source_dir</span> = <span class="ruby-node">&quot;#@guides_dir/source/#@lang&quot;</span>
+  <span class="ruby-ivar">@output_dir</span> = <span class="ruby-keyword">if</span> <span class="ruby-identifier">output</span>
+    <span class="ruby-identifier">output</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">kindle?</span>
+    <span class="ruby-node">&quot;#@guides_dir/output/kindle/#@lang&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-node">&quot;#@guides_dir/output/#@lang&quot;</span>
+  <span class="ruby-keyword">end</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-regexp">%r&lt;/$&gt;</span>, <span class="ruby-string">&#39;&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-kindle-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">kindle?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="kindle-3F-source">
+            <pre><span class="ruby-comment"># File guides/rails_guides/generator.rb, line 104</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">kindle?</span>
+  <span class="ruby-ivar">@kindle</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-mobi" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">mobi</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="mobi-source">
+            <pre><span class="ruby-comment"># File guides/rails_guides/generator.rb, line 121</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">mobi</span>
+  <span class="ruby-node">&quot;ruby_on_rails_guides_#@version%s.mobi&quot;</span> <span class="ruby-operator">%</span> (<span class="ruby-ivar">@lang</span>.<span class="ruby-identifier">present?</span> <span class="ruby-operator">?</span> <span class="ruby-node">&quot;.#@lang&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-string">&#39;&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-output_file_for" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">output_file_for</span><span
+            class="method-args">(guide)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="output_file_for-source">
+            <pre><span class="ruby-comment"># File guides/rails_guides/generator.rb, line 172</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">output_file_for</span>(<span class="ruby-identifier">guide</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">guide</span>.<span class="ruby-identifier">end_with?</span>(<span class="ruby-string">&#39;.md&#39;</span>)
+    <span class="ruby-identifier">guide</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-regexp">/md\z/</span>, <span class="ruby-string">&#39;html&#39;</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">guide</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-regexp">/\.erb\z/</span>, <span class="ruby-string">&#39;&#39;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-output_path_for" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">output_path_for</span><span
+            class="method-args">(output_file)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="output_path_for-source">
+            <pre><span class="ruby-comment"># File guides/rails_guides/generator.rb, line 180</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">output_path_for</span>(<span class="ruby-identifier">output_file</span>)
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">output_dir</span>, <span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>(<span class="ruby-identifier">output_file</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-select_only" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">select_only</span><span
+            class="method-args">(guides)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="select_only-source">
+            <pre><span class="ruby-comment"># File guides/rails_guides/generator.rb, line 161</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">select_only</span>(<span class="ruby-identifier">guides</span>)
+  <span class="ruby-identifier">prefixes</span> = <span class="ruby-constant">ENV</span>[<span class="ruby-string">&#39;ONLY&#39;</span>].<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;,&quot;</span>).<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:strip</span>)
+  <span class="ruby-identifier">guides</span>.<span class="ruby-identifier">select</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">guide</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">prefixes</span>.<span class="ruby-identifier">any?</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span> <span class="ruby-identifier">guide</span>.<span class="ruby-identifier">start_with?</span>(<span class="ruby-identifier">p</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">guide</span>.<span class="ruby-identifier">start_with?</span>(<span class="ruby-string">&quot;kindle&quot;</span>) }
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-warn_about_broken_links" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">warn_about_broken_links</span><span
+            class="method-args">(html)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="warn_about_broken_links-source">
+            <pre><span class="ruby-comment"># File guides/rails_guides/generator.rb, line 214</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">warn_about_broken_links</span>(<span class="ruby-identifier">html</span>)
+  <span class="ruby-identifier">anchors</span> = <span class="ruby-identifier">extract_anchors</span>(<span class="ruby-identifier">html</span>)
+  <span class="ruby-identifier">check_fragment_identifiers</span>(<span class="ruby-identifier">html</span>, <span class="ruby-identifier">anchors</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

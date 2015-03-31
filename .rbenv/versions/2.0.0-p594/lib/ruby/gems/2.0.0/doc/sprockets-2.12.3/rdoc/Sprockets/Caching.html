@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module Sprockets::Caching - sprockets-2.12.3 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-cache_asset">#cache_asset</a>
+    
+    <li ><a href="#method-i-cache_get">#cache_get</a>
+    
+    <li ><a href="#method-i-cache_get_hash">#cache_get_hash</a>
+    
+    <li ><a href="#method-i-cache_set">#cache_set</a>
+    
+    <li ><a href="#method-i-cache_set_hash">#cache_set_hash</a>
+    
+    <li ><a href="#method-i-expand_cache_key">#expand_cache_key</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-Sprockets::Caching">
+  <h1 id="module-Sprockets::Caching" class="module">
+    module Sprockets::Caching
+  </h1>
+
+  <section class="description">
+    
+<p>`Caching` is an internal mixin whose public methods are exposed on the
+`Environment` and `Index` classes.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-cache_get" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">cache_get</span><span
+            class="method-args">(key)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Low level cache getter for `key`. Checks a number of supported cache
+interfaces.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="cache_get-source">
+            <pre><span class="ruby-comment"># File lib/sprockets/caching.rb, line 7</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">cache_get</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-comment"># `Cache#get(key)` for Memcache</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">cache</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:get</span>)
+    <span class="ruby-identifier">cache</span>.<span class="ruby-identifier">get</span>(<span class="ruby-identifier">key</span>)
+
+  <span class="ruby-comment"># `Cache#[key]` so `Hash` can be used</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">cache</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:[]</span>)
+    <span class="ruby-identifier">cache</span>[<span class="ruby-identifier">key</span>]
+
+  <span class="ruby-comment"># `Cache#read(key)` for `ActiveSupport::Cache` support</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">cache</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:read</span>)
+    <span class="ruby-identifier">cache</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">key</span>)
+
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-cache_set" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">cache_set</span><span
+            class="method-args">(key, value)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Low level cache setter for `key`. Checks a number of supported cache
+interfaces.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="cache_set-source">
+            <pre><span class="ruby-comment"># File lib/sprockets/caching.rb, line 27</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">cache_set</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>)
+  <span class="ruby-comment"># `Cache#set(key, value)` for Memcache</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">cache</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:set</span>)
+    <span class="ruby-identifier">cache</span>.<span class="ruby-identifier">set</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>)
+
+  <span class="ruby-comment"># `Cache#[key]=value` so `Hash` can be used</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">cache</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:[]=</span>)
+    <span class="ruby-identifier">cache</span>[<span class="ruby-identifier">key</span>] = <span class="ruby-identifier">value</span>
+
+  <span class="ruby-comment"># `Cache#write(key, value)` for `ActiveSupport::Cache` support</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">cache</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:write</span>)
+    <span class="ruby-identifier">cache</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">value</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">value</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="protected-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Protected Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-cache_asset" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">cache_asset</span><span
+            class="method-args">(path) { || ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="Cache.html">Cache</a> helper method. Takes a `path` argument which
+maybe a logical path or fully expanded path. The `&amp;block` is passed for
+finding and building the asset if its not in cache.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="cache_asset-source">
+            <pre><span class="ruby-comment"># File lib/sprockets/caching.rb, line 48</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">cache_asset</span>(<span class="ruby-identifier">path</span>)
+  <span class="ruby-comment"># If `cache` is not set, return fast</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">cache</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-keyword">yield</span>
+
+  <span class="ruby-comment"># Check cache for `path`</span>
+  <span class="ruby-keyword">elsif</span> (<span class="ruby-identifier">asset</span> = <span class="ruby-constant">Asset</span>.<span class="ruby-identifier">from_hash</span>(<span class="ruby-keyword">self</span>, <span class="ruby-identifier">cache_get_hash</span>(<span class="ruby-identifier">path</span>.<span class="ruby-identifier">to_s</span>))) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">asset</span>.<span class="ruby-identifier">fresh?</span>(<span class="ruby-keyword">self</span>)
+    <span class="ruby-identifier">asset</span>
+
+   <span class="ruby-comment"># Otherwise yield block that slowly finds and builds the asset</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">asset</span> = <span class="ruby-keyword">yield</span>
+    <span class="ruby-identifier">hash</span> = {}
+    <span class="ruby-identifier">asset</span>.<span class="ruby-identifier">encode_with</span>(<span class="ruby-identifier">hash</span>)
+
+    <span class="ruby-comment"># Save the asset to its path</span>
+    <span class="ruby-identifier">cache_set_hash</span>(<span class="ruby-identifier">path</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">hash</span>)
+
+    <span class="ruby-comment"># Since path maybe a logical or full pathname, save the</span>
+    <span class="ruby-comment"># asset its its full path too</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">path</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">asset</span>.<span class="ruby-identifier">pathname</span>.<span class="ruby-identifier">to_s</span>
+      <span class="ruby-identifier">cache_set_hash</span>(<span class="ruby-identifier">asset</span>.<span class="ruby-identifier">pathname</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">hash</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">asset</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-cache_get_hash" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">cache_get_hash</span><span
+            class="method-args">(key)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="cache_get_hash-source">
+            <pre><span class="ruby-comment"># File lib/sprockets/caching.rb, line 83</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">cache_get_hash</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-identifier">hash</span> = <span class="ruby-identifier">cache_get</span>(<span class="ruby-identifier">expand_cache_key</span>(<span class="ruby-identifier">key</span>))
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">digest</span>.<span class="ruby-identifier">hexdigest</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">hash</span>[<span class="ruby-string">&#39;_version&#39;</span>]
+    <span class="ruby-identifier">hash</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-cache_set_hash" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">cache_set_hash</span><span
+            class="method-args">(key, hash)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="cache_set_hash-source">
+            <pre><span class="ruby-comment"># File lib/sprockets/caching.rb, line 90</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">cache_set_hash</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">hash</span>)
+  <span class="ruby-identifier">hash</span>[<span class="ruby-string">&#39;_version&#39;</span>] = <span class="ruby-identifier">digest</span>.<span class="ruby-identifier">hexdigest</span>
+  <span class="ruby-identifier">cache_set</span>(<span class="ruby-identifier">expand_cache_key</span>(<span class="ruby-identifier">key</span>), <span class="ruby-identifier">hash</span>)
+  <span class="ruby-identifier">hash</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-expand_cache_key" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">expand_cache_key</span><span
+            class="method-args">(key)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Strips `Environment#root` from key to make the key work consisently across
+different servers. The key is also hashed so it does not exceed 250
+characters.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="expand_cache_key-source">
+            <pre><span class="ruby-comment"># File lib/sprockets/caching.rb, line 79</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">expand_cache_key</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39;sprockets&#39;</span>, <span class="ruby-identifier">digest_class</span>.<span class="ruby-identifier">hexdigest</span>(<span class="ruby-identifier">key</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-identifier">root</span>, <span class="ruby-string">&#39;&#39;</span>)))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

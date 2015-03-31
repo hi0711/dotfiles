@@ -1,0 +1,1489 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module Capybara::Node::Matchers - capybara-2.4.4 Documentation</title>
+
+<link href="../../fonts.css" rel="stylesheet">
+<link href="../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/navigation.js"></script>
+<script src="../../js/search_index.js"></script>
+<script src="../../js/search.js"></script>
+<script src="../../js/searcher.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-3D-3D">#==</a>
+    
+    <li ><a href="#method-i-assert_no_selector">#assert_no_selector</a>
+    
+    <li ><a href="#method-i-assert_no_text">#assert_no_text</a>
+    
+    <li ><a href="#method-i-assert_selector">#assert_selector</a>
+    
+    <li ><a href="#method-i-assert_text">#assert_text</a>
+    
+    <li ><a href="#method-i-has_button-3F">#has_button?</a>
+    
+    <li ><a href="#method-i-has_checked_field-3F">#has_checked_field?</a>
+    
+    <li ><a href="#method-i-has_content-3F">#has_content?</a>
+    
+    <li ><a href="#method-i-has_css-3F">#has_css?</a>
+    
+    <li ><a href="#method-i-has_field-3F">#has_field?</a>
+    
+    <li ><a href="#method-i-has_link-3F">#has_link?</a>
+    
+    <li ><a href="#method-i-has_no_button-3F">#has_no_button?</a>
+    
+    <li ><a href="#method-i-has_no_checked_field-3F">#has_no_checked_field?</a>
+    
+    <li ><a href="#method-i-has_no_content-3F">#has_no_content?</a>
+    
+    <li ><a href="#method-i-has_no_css-3F">#has_no_css?</a>
+    
+    <li ><a href="#method-i-has_no_field-3F">#has_no_field?</a>
+    
+    <li ><a href="#method-i-has_no_link-3F">#has_no_link?</a>
+    
+    <li ><a href="#method-i-has_no_select-3F">#has_no_select?</a>
+    
+    <li ><a href="#method-i-has_no_selector-3F">#has_no_selector?</a>
+    
+    <li ><a href="#method-i-has_no_table-3F">#has_no_table?</a>
+    
+    <li ><a href="#method-i-has_no_text-3F">#has_no_text?</a>
+    
+    <li ><a href="#method-i-has_no_unchecked_field-3F">#has_no_unchecked_field?</a>
+    
+    <li ><a href="#method-i-has_no_xpath-3F">#has_no_xpath?</a>
+    
+    <li ><a href="#method-i-has_select-3F">#has_select?</a>
+    
+    <li ><a href="#method-i-has_selector-3F">#has_selector?</a>
+    
+    <li ><a href="#method-i-has_table-3F">#has_table?</a>
+    
+    <li ><a href="#method-i-has_text-3F">#has_text?</a>
+    
+    <li ><a href="#method-i-has_unchecked_field-3F">#has_unchecked_field?</a>
+    
+    <li ><a href="#method-i-has_xpath-3F">#has_xpath?</a>
+    
+    <li ><a href="#method-i-refute_selector">#refute_selector</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-Capybara::Node::Matchers">
+  <h1 id="module-Capybara::Node::Matchers" class="module">
+    module Capybara::Node::Matchers
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-3D-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">==</span><span
+            class="method-args">(other)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="3D-3D-source">
+            <pre><span class="ruby-comment"># File lib/capybara/node/matchers.rb, line 522</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">==</span>(<span class="ruby-identifier">other</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">eql?</span>(<span class="ruby-identifier">other</span>) <span class="ruby-operator">||</span> (<span class="ruby-identifier">other</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:base</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">base</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">base</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-assert_no_selector" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">assert_no_selector</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Asserts that a given selector is not on the page or current node. Usage is
+identical to <a
+href="Matchers.html#method-i-assert_selector">#assert_selector</a></p>
+
+<p><a href="../Query.html">Query</a> options such as :count, :minimum,
+:maximum, and :between are considered to be an integral part of the
+selector. This will return true, for example, if a page contains 4 anchors
+but the query expects 5:</p>
+
+<pre class="ruby"><span class="ruby-identifier">page</span>.<span class="ruby-identifier">assert_no_selector</span>(<span class="ruby-string">&#39;a&#39;</span>, :<span class="ruby-identifier">minimum</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>) <span class="ruby-comment"># Found, raises Capybara::ExpectationNotMet</span>
+<span class="ruby-identifier">page</span>.<span class="ruby-identifier">assert_no_selector</span>(<span class="ruby-string">&#39;a&#39;</span>, :<span class="ruby-identifier">count</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">4</span>)   <span class="ruby-comment"># Found, raises Capybara::ExpectationNotMet</span>
+<span class="ruby-identifier">page</span>.<span class="ruby-identifier">assert_no_selector</span>(<span class="ruby-string">&#39;a&#39;</span>, :<span class="ruby-identifier">count</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">5</span>)   <span class="ruby-comment"># Not Found, returns true</span>
+</pre>
+
+<p>@param (see Capybara::Node::Finders#assert_selector) @raise
+[Capybara::ExpectationNotMet]      If the selector exists</p>
+          
+          
+
+          
+          <div class="method-source-code" id="assert_no_selector-source">
+            <pre><span class="ruby-comment"># File lib/capybara/node/matchers.rb, line 119</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">assert_no_selector</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">query</span> = <span class="ruby-constant">Capybara</span><span class="ruby-operator">::</span><span class="ruby-constant">Query</span>.<span class="ruby-identifier">new</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">synchronize</span>(<span class="ruby-identifier">query</span>.<span class="ruby-identifier">wait</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">result</span> = <span class="ruby-identifier">query</span>.<span class="ruby-identifier">resolve_for</span>(<span class="ruby-keyword">self</span>)
+    <span class="ruby-identifier">matches_count</span> = <span class="ruby-constant">Capybara</span><span class="ruby-operator">::</span><span class="ruby-constant">Helpers</span>.<span class="ruby-identifier">matches_count?</span>(<span class="ruby-identifier">result</span>.<span class="ruby-identifier">size</span>, <span class="ruby-identifier">query</span>.<span class="ruby-identifier">options</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">matches_count</span> <span class="ruby-operator">&amp;&amp;</span> ((<span class="ruby-identifier">result</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>) <span class="ruby-operator">||</span> <span class="ruby-constant">Capybara</span><span class="ruby-operator">::</span><span class="ruby-constant">Helpers</span>.<span class="ruby-identifier">expects_none?</span>(<span class="ruby-identifier">query</span>.<span class="ruby-identifier">options</span>))
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">Capybara</span><span class="ruby-operator">::</span><span class="ruby-constant">ExpectationNotMet</span>, <span class="ruby-identifier">result</span>.<span class="ruby-identifier">negative_failure_message</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Matchers.html#method-i-refute_selector">refute_selector</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-assert_no_text" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">assert_no_text</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Asserts that the page or current node doesn&#39;t have the given text
+content, ignoring any HTML tags.</p>
+
+<p>@macro text_query_params @raise [Capybara::ExpectationNotMet] if the
+assertion hasn&#39;t succeeded during wait time @return [true]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="assert_no_text-source">
+            <pre><span class="ruby-comment"># File lib/capybara/node/matchers.rb, line 471</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">assert_no_text</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">query</span> = <span class="ruby-constant">Capybara</span><span class="ruby-operator">::</span><span class="ruby-constant">Queries</span><span class="ruby-operator">::</span><span class="ruby-constant">TextQuery</span>.<span class="ruby-identifier">new</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">synchronize</span>(<span class="ruby-identifier">query</span>.<span class="ruby-identifier">wait</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">count</span> = <span class="ruby-identifier">query</span>.<span class="ruby-identifier">resolve_for</span>(<span class="ruby-keyword">self</span>)
+    <span class="ruby-identifier">matches_count</span> = <span class="ruby-constant">Capybara</span><span class="ruby-operator">::</span><span class="ruby-constant">Helpers</span>.<span class="ruby-identifier">matches_count?</span>(<span class="ruby-identifier">count</span>, <span class="ruby-identifier">query</span>.<span class="ruby-identifier">options</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">matches_count</span> <span class="ruby-operator">&amp;&amp;</span> ((<span class="ruby-identifier">count</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>) <span class="ruby-operator">||</span> <span class="ruby-constant">Capybara</span><span class="ruby-operator">::</span><span class="ruby-constant">Helpers</span>.<span class="ruby-identifier">expects_none?</span>(<span class="ruby-identifier">query</span>.<span class="ruby-identifier">options</span>))
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">Capybara</span><span class="ruby-operator">::</span><span class="ruby-constant">ExpectationNotMet</span>, <span class="ruby-identifier">query</span>.<span class="ruby-identifier">negative_failure_message</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-assert_selector" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">assert_selector</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Asserts that a given selector is on the page or current node.</p>
+
+<pre>page.assert_selector(&#39;p#foo&#39;)
+page.assert_selector(:xpath, &#39;.//p[@id=&quot;foo&quot;]&#39;)
+page.assert_selector(:foo)</pre>
+
+<p>By default it will check if the expression occurs at least once, but a
+different number can be specified.</p>
+
+<pre class="ruby"><span class="ruby-identifier">page</span>.<span class="ruby-identifier">assert_selector</span>(<span class="ruby-string">&#39;p#foo&#39;</span>, :<span class="ruby-identifier">count</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">4</span>)
+</pre>
+
+<p>This will check if the expression occurs exactly 4 times. See
+{Capybara::Node::Finders#all} for other available result size options.</p>
+
+<p>If a :count of 0 is specified, it will behave like {#assert_no_selector};
+however, use of that method is preferred over this one.</p>
+
+<p>It also accepts all options that {Capybara::Node::Finders#all} accepts,
+such as :text and :visible.</p>
+
+<pre class="ruby"><span class="ruby-identifier">page</span>.<span class="ruby-identifier">assert_selector</span>(<span class="ruby-string">&#39;li&#39;</span>, :<span class="ruby-identifier">text</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;Horse&#39;</span>, :<span class="ruby-identifier">visible</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>)
+</pre>
+
+<p>`assert_selector` can also accept XPath expressions generated by the XPath
+gem:</p>
+
+<pre>page.assert_selector(:xpath, XPath.descendant(:p))</pre>
+
+<p>@param (see <a
+href="Finders.html#method-i-all">Capybara::Node::Finders#all</a>) @option
+options [Integer] :count (nil)    Number of times the expression should
+occur @raise [Capybara::ExpectationNotMet]      If the selector does not
+exist</p>
+          
+          
+
+          
+          <div class="method-source-code" id="assert_selector-source">
+            <pre><span class="ruby-comment"># File lib/capybara/node/matchers.rb, line 91</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">assert_selector</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">query</span> = <span class="ruby-constant">Capybara</span><span class="ruby-operator">::</span><span class="ruby-constant">Query</span>.<span class="ruby-identifier">new</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">synchronize</span>(<span class="ruby-identifier">query</span>.<span class="ruby-identifier">wait</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">result</span> = <span class="ruby-identifier">query</span>.<span class="ruby-identifier">resolve_for</span>(<span class="ruby-keyword">self</span>)
+    <span class="ruby-identifier">matches_count</span> = <span class="ruby-constant">Capybara</span><span class="ruby-operator">::</span><span class="ruby-constant">Helpers</span>.<span class="ruby-identifier">matches_count?</span>(<span class="ruby-identifier">result</span>.<span class="ruby-identifier">size</span>, <span class="ruby-identifier">query</span>.<span class="ruby-identifier">options</span>)
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">matches_count</span> <span class="ruby-operator">&amp;&amp;</span> ((<span class="ruby-identifier">result</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>) <span class="ruby-operator">||</span> <span class="ruby-constant">Capybara</span><span class="ruby-operator">::</span><span class="ruby-constant">Helpers</span>.<span class="ruby-identifier">expects_none?</span>(<span class="ruby-identifier">query</span>.<span class="ruby-identifier">options</span>))
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">Capybara</span><span class="ruby-operator">::</span><span class="ruby-constant">ExpectationNotMet</span>, <span class="ruby-identifier">result</span>.<span class="ruby-identifier">failure_message</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-assert_text" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">assert_text</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Asserts that the page or current node has the given text content, ignoring
+any HTML tags.</p>
+
+<p>@!macro text_query_params</p>
+
+<pre>@overload $0(type, text, options = {})
+  @param [:all, :visible] type               Whether to check for only visible or all text
+  @param [String, Regexp] text               The string/regexp to check for. If it&#39;s a string, text is expected to include it. If it&#39;s a regexp, text is expected to match it.
+  @option options [Integer] :count (nil)     Number of times the text is expected to occur
+  @option options [Integer] :minimum (nil)   Minimum number of times the text is expected to occur
+  @option options [Integer] :maximum (nil)   Maximum number of times the text is expected to occur
+  @option options [Range]   :between (nil)   Range of times that is expected to contain number of times text occurs
+  @option options [Numeric] :wait (Capybara.default_wait_time)      Time that Capybara will wait for text to eq/match given string/regexp argument
+@overload $0(text, options = {})
+  @param [String, Regexp] text               The string/regexp to check for. If it&#39;s a string, text is expected to include it. If it&#39;s a regexp, text is expected to match it.
+  @option options [Integer] :count (nil)     Number of times the text is expected to occur
+  @option options [Integer] :minimum (nil)   Minimum number of times the text is expected to occur
+  @option options [Integer] :maximum (nil)   Maximum number of times the text is expected to occur
+  @option options [Range]   :between (nil)   Range of times that is expected to contain number of times text occurs
+  @option options [Numeric] :wait (Capybara.default_wait_time)      Time that Capybara will wait for text to eq/match given string/regexp argument</pre>
+
+<p>@raise [Capybara::ExpectationNotMet] if the assertion hasn&#39;t succeeded
+during wait time @return [true]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="assert_text-source">
+            <pre><span class="ruby-comment"># File lib/capybara/node/matchers.rb, line 451</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">assert_text</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">query</span> = <span class="ruby-constant">Capybara</span><span class="ruby-operator">::</span><span class="ruby-constant">Queries</span><span class="ruby-operator">::</span><span class="ruby-constant">TextQuery</span>.<span class="ruby-identifier">new</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">synchronize</span>(<span class="ruby-identifier">query</span>.<span class="ruby-identifier">wait</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">count</span> = <span class="ruby-identifier">query</span>.<span class="ruby-identifier">resolve_for</span>(<span class="ruby-keyword">self</span>)
+    <span class="ruby-identifier">matches_count</span> = <span class="ruby-constant">Capybara</span><span class="ruby-operator">::</span><span class="ruby-constant">Helpers</span>.<span class="ruby-identifier">matches_count?</span>(<span class="ruby-identifier">count</span>, <span class="ruby-identifier">query</span>.<span class="ruby-identifier">options</span>)
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">matches_count</span> <span class="ruby-operator">&amp;&amp;</span> ((<span class="ruby-identifier">count</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>) <span class="ruby-operator">||</span> <span class="ruby-constant">Capybara</span><span class="ruby-operator">::</span><span class="ruby-constant">Helpers</span>.<span class="ruby-identifier">expects_none?</span>(<span class="ruby-identifier">query</span>.<span class="ruby-identifier">options</span>))
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">Capybara</span><span class="ruby-operator">::</span><span class="ruby-constant">ExpectationNotMet</span>, <span class="ruby-identifier">query</span>.<span class="ruby-identifier">failure_message</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-has_button-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">has_button?</span><span
+            class="method-args">(locator, options={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Checks if the page or current node has a button with the given text, value
+or id.</p>
+
+<p>@param [String] locator      The text, value or id of a button to check for
+@return [Boolean]            Whether it exists</p>
+          
+          
+
+          
+          <div class="method-source-code" id="has_button-3F-source">
+            <pre><span class="ruby-comment"># File lib/capybara/node/matchers.rb, line 250</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">has_button?</span>(<span class="ruby-identifier">locator</span>, <span class="ruby-identifier">options</span>={})
+  <span class="ruby-identifier">has_selector?</span>(<span class="ruby-value">:button</span>, <span class="ruby-identifier">locator</span>, <span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-has_checked_field-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">has_checked_field?</span><span
+            class="method-args">(locator, options={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Checks if the page or current node has a radio button or checkbox with the
+given label, value or id, that is currently checked.</p>
+
+<p>@param [String] locator           The label, name or id of a checked field
+@return [Boolean]                 Whether it exists</p>
+          
+          
+
+          
+          <div class="method-source-code" id="has_checked_field-3F-source">
+            <pre><span class="ruby-comment"># File lib/capybara/node/matchers.rb, line 315</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">has_checked_field?</span>(<span class="ruby-identifier">locator</span>, <span class="ruby-identifier">options</span>={})
+  <span class="ruby-identifier">has_selector?</span>(<span class="ruby-value">:field</span>, <span class="ruby-identifier">locator</span>, <span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-value">:checked</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-has_content-3F" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">has_content?</span><span
+            class="method-args">(*args)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Matchers.html#method-i-has_text-3F">has_text?</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-has_css-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">has_css?</span><span
+            class="method-args">(path, options={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Checks if a given CSS selector is on the page or current node.</p>
+
+<pre>page.has_css?(&#39;p#foo&#39;)</pre>
+
+<p>By default it will check if the selector occurs at least once, but a
+different number can be specified.</p>
+
+<pre class="ruby"><span class="ruby-identifier">page</span>.<span class="ruby-identifier">has_css?</span>(<span class="ruby-string">&#39;p#foo&#39;</span>, :<span class="ruby-identifier">count</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">4</span>)
+</pre>
+
+<p>This will check if the selector occurs exactly 4 times.</p>
+
+<p>It also accepts all options that {Capybara::Node::Finders#all} accepts,
+such as :text and :visible.</p>
+
+<pre class="ruby"><span class="ruby-identifier">page</span>.<span class="ruby-identifier">has_css?</span>(<span class="ruby-string">&#39;li&#39;</span>, :<span class="ruby-identifier">text</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;Horse&#39;</span>, :<span class="ruby-identifier">visible</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>)
+</pre>
+
+<p>@param [String] path                      A CSS selector @param options    
+(see <a href="Finders.html#method-i-all">Capybara::Node::Finders#all</a>)
+@option options [Integer] :count (nil)    Number of times the selector
+should occur @return [Boolean]                         If the selector
+exists</p>
+          
+          
+
+          
+          <div class="method-source-code" id="has_css-3F-source">
+            <pre><span class="ruby-comment"># File lib/capybara/node/matchers.rb, line 200</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">has_css?</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">options</span>={})
+  <span class="ruby-identifier">has_selector?</span>(<span class="ruby-value">:css</span>, <span class="ruby-identifier">path</span>, <span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-has_field-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">has_field?</span><span
+            class="method-args">(locator, options={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Checks if the page or current node has a form field with the given label,
+name or id.</p>
+
+<p>For text fields and other textual fields, such as textareas and HTML5
+email/url/etc. fields, it&#39;s possible to specify a :with option to
+specify the text the field should contain:</p>
+
+<pre class="ruby"><span class="ruby-identifier">page</span>.<span class="ruby-identifier">has_field?</span>(<span class="ruby-string">&#39;Name&#39;</span>, :<span class="ruby-identifier">with</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;Jonas&#39;</span>)
+</pre>
+
+<p>It is also possible to filter by the field type attribute:</p>
+
+<pre class="ruby"><span class="ruby-identifier">page</span>.<span class="ruby-identifier">has_field?</span>(<span class="ruby-string">&#39;Email&#39;</span>, :<span class="ruby-identifier">type</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;email&#39;</span>)
+</pre>
+
+<p>Note: &#39;textarea&#39; and &#39;select&#39; are valid type values,
+matching the associated tag names.</p>
+
+<p>@param [String] locator           The label, name or id of a field to check
+for @option options [String] :with    The text content of the field @option
+options [String] :type    The type attribute of the field @return [Boolean]
+Whether it exists</p>
+          
+          
+
+          
+          <div class="method-source-code" id="has_field-3F-source">
+            <pre><span class="ruby-comment"># File lib/capybara/node/matchers.rb, line 288</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">has_field?</span>(<span class="ruby-identifier">locator</span>, <span class="ruby-identifier">options</span>={})
+  <span class="ruby-identifier">has_selector?</span>(<span class="ruby-value">:field</span>, <span class="ruby-identifier">locator</span>, <span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-has_link-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">has_link?</span><span
+            class="method-args">(locator, options={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Checks if the page or current node has a link with the given text or id.</p>
+
+<p>@param [String] locator           The text or id of a link to check for
+@param options @option options [String] :href    The value the href
+attribute must be @return [Boolean]                 Whether it exists</p>
+          
+          
+
+          
+          <div class="method-source-code" id="has_link-3F-source">
+            <pre><span class="ruby-comment"># File lib/capybara/node/matchers.rb, line 226</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">has_link?</span>(<span class="ruby-identifier">locator</span>, <span class="ruby-identifier">options</span>={})
+  <span class="ruby-identifier">has_selector?</span>(<span class="ruby-value">:link</span>, <span class="ruby-identifier">locator</span>, <span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-has_no_button-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">has_no_button?</span><span
+            class="method-args">(locator, options={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Checks if the page or current node has no button with the given text, value
+or id.</p>
+
+<p>@param [String] locator      The text, value or id of a button to check for
+@return [Boolean]            Whether it doesn&#39;t exist</p>
+          
+          
+
+          
+          <div class="method-source-code" id="has_no_button-3F-source">
+            <pre><span class="ruby-comment"># File lib/capybara/node/matchers.rb, line 262</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">has_no_button?</span>(<span class="ruby-identifier">locator</span>, <span class="ruby-identifier">options</span>={})
+  <span class="ruby-identifier">has_no_selector?</span>(<span class="ruby-value">:button</span>, <span class="ruby-identifier">locator</span>, <span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-has_no_checked_field-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">has_no_checked_field?</span><span
+            class="method-args">(locator, options={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Checks if the page or current node has no radio button or checkbox with the
+given label, value or id, that is currently checked.</p>
+
+<p>@param [String] locator           The label, name or id of a checked field
+@return [Boolean]                 Whether it doesn&#39;t exist</p>
+          
+          
+
+          
+          <div class="method-source-code" id="has_no_checked_field-3F-source">
+            <pre><span class="ruby-comment"># File lib/capybara/node/matchers.rb, line 328</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">has_no_checked_field?</span>(<span class="ruby-identifier">locator</span>, <span class="ruby-identifier">options</span>={})
+  <span class="ruby-identifier">has_no_selector?</span>(<span class="ruby-value">:field</span>, <span class="ruby-identifier">locator</span>, <span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-value">:checked</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-has_no_content-3F" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">has_no_content?</span><span
+            class="method-args">(*args)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Matchers.html#method-i-has_no_text-3F">has_no_text?</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-has_no_css-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">has_no_css?</span><span
+            class="method-args">(path, options={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Checks if a given CSS selector is not on the page or current node. Usage is
+identical to <a href="Matchers.html#method-i-has_css-3F">#has_css?</a></p>
+
+<p>@param (see Capybara::Node::Finders#has_css?) @return [Boolean]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="has_no_css-3F-source">
+            <pre><span class="ruby-comment"># File lib/capybara/node/matchers.rb, line 212</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">has_no_css?</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">options</span>={})
+  <span class="ruby-identifier">has_no_selector?</span>(<span class="ruby-value">:css</span>, <span class="ruby-identifier">path</span>, <span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-has_no_field-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">has_no_field?</span><span
+            class="method-args">(locator, options={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Checks if the page or current node has no form field with the given label,
+name or id. See {Capybara::Node::Matchers#has_field?}.</p>
+
+<p>@param [String] locator           The label, name or id of a field to check
+for @option options [String] :with    The text content of the field @option
+options [String] :type    The type attribute of the field @return [Boolean]
+Whether it doesn&#39;t exist</p>
+          
+          
+
+          
+          <div class="method-source-code" id="has_no_field-3F-source">
+            <pre><span class="ruby-comment"># File lib/capybara/node/matchers.rb, line 302</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">has_no_field?</span>(<span class="ruby-identifier">locator</span>, <span class="ruby-identifier">options</span>={})
+  <span class="ruby-identifier">has_no_selector?</span>(<span class="ruby-value">:field</span>, <span class="ruby-identifier">locator</span>, <span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-has_no_link-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">has_no_link?</span><span
+            class="method-args">(locator, options={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Checks if the page or current node has no link with the given text or id.</p>
+
+<p>@param (see Capybara::Node::Finders#has_link?) @return [Boolean]           
+Whether it doesn&#39;t exist</p>
+          
+          
+
+          
+          <div class="method-source-code" id="has_no_link-3F-source">
+            <pre><span class="ruby-comment"># File lib/capybara/node/matchers.rb, line 238</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">has_no_link?</span>(<span class="ruby-identifier">locator</span>, <span class="ruby-identifier">options</span>={})
+  <span class="ruby-identifier">has_no_selector?</span>(<span class="ruby-value">:link</span>, <span class="ruby-identifier">locator</span>, <span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-has_no_select-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">has_no_select?</span><span
+            class="method-args">(locator, options={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Checks if the page or current node has no select field with the given
+label, name or id. See {Capybara::Node::Matchers#has_select?}.</p>
+
+<p>@param (see <a
+href="Matchers.html#method-i-has_select-3F">#has_select?</a>) @return
+[Boolean]     Whether it doesn&#39;t exist</p>
+          
+          
+
+          
+          <div class="method-source-code" id="has_no_select-3F-source">
+            <pre><span class="ruby-comment"># File lib/capybara/node/matchers.rb, line 398</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">has_no_select?</span>(<span class="ruby-identifier">locator</span>, <span class="ruby-identifier">options</span>={})
+  <span class="ruby-identifier">has_no_selector?</span>(<span class="ruby-value">:select</span>, <span class="ruby-identifier">locator</span>, <span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-has_no_selector-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">has_no_selector?</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Checks if a given selector is not on the page or current node. Usage is
+identical to <a
+href="Matchers.html#method-i-has_selector-3F">#has_selector?</a></p>
+
+<p>@param (see Capybara::Node::Finders#has_selector?) @return [Boolean]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="has_no_selector-3F-source">
+            <pre><span class="ruby-comment"># File lib/capybara/node/matchers.rb, line 52</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">has_no_selector?</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">assert_no_selector</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">Capybara</span><span class="ruby-operator">::</span><span class="ruby-constant">ExpectationNotMet</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-has_no_table-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">has_no_table?</span><span
+            class="method-args">(locator, options={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Checks if the page or current node has no table with the given id or
+caption. See {Capybara::Node::Matchers#has_table?}.</p>
+
+<p>@param (see <a href="Matchers.html#method-i-has_table-3F">#has_table?</a>)
+@return [Boolean]       Whether it doesn&#39;t exist</p>
+          
+          
+
+          
+          <div class="method-source-code" id="has_no_table-3F-source">
+            <pre><span class="ruby-comment"># File lib/capybara/node/matchers.rb, line 424</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">has_no_table?</span>(<span class="ruby-identifier">locator</span>, <span class="ruby-identifier">options</span>={})
+  <span class="ruby-identifier">has_no_selector?</span>(<span class="ruby-value">:table</span>, <span class="ruby-identifier">locator</span>, <span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-has_no_text-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">has_no_text?</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Checks if the page or current node does not have the given text content,
+ignoring any HTML tags and normalizing whitespace.</p>
+
+<p>@macro text_query_params @return [Boolean]  Whether it doesn&#39;t exist</p>
+          
+          
+
+          
+          <div class="method-source-code" id="has_no_text-3F-source">
+            <pre><span class="ruby-comment"># File lib/capybara/node/matchers.rb, line 515</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">has_no_text?</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">assert_no_text</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">Capybara</span><span class="ruby-operator">::</span><span class="ruby-constant">ExpectationNotMet</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Matchers.html#method-i-has_no_content-3F">has_no_content?</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-has_no_unchecked_field-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">has_no_unchecked_field?</span><span
+            class="method-args">(locator, options={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Checks if the page or current node has no radio button or checkbox with the
+given label, value or id, that is currently unchecked.</p>
+
+<p>@param [String] locator           The label, name or id of an unchecked
+field @return [Boolean]                 Whether it doesn&#39;t exist</p>
+          
+          
+
+          
+          <div class="method-source-code" id="has_no_unchecked_field-3F-source">
+            <pre><span class="ruby-comment"># File lib/capybara/node/matchers.rb, line 354</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">has_no_unchecked_field?</span>(<span class="ruby-identifier">locator</span>, <span class="ruby-identifier">options</span>={})
+  <span class="ruby-identifier">has_no_selector?</span>(<span class="ruby-value">:field</span>, <span class="ruby-identifier">locator</span>, <span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-value">:unchecked</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-has_no_xpath-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">has_no_xpath?</span><span
+            class="method-args">(path, options={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Checks if a given XPath expression is not on the page or current node.
+Usage is identical to <a
+href="Matchers.html#method-i-has_xpath-3F">#has_xpath?</a></p>
+
+<p>@param (see Capybara::Node::Finders#has_xpath?) @return [Boolean]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="has_no_xpath-3F-source">
+            <pre><span class="ruby-comment"># File lib/capybara/node/matchers.rb, line 173</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">has_no_xpath?</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">options</span>={})
+  <span class="ruby-identifier">has_no_selector?</span>(<span class="ruby-value">:xpath</span>, <span class="ruby-identifier">path</span>, <span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-has_select-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">has_select?</span><span
+            class="method-args">(locator, options={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Checks if the page or current node has a select field with the given label,
+name or id.</p>
+
+<p>It can be specified which option should currently be selected:</p>
+
+<pre class="ruby"><span class="ruby-identifier">page</span>.<span class="ruby-identifier">has_select?</span>(<span class="ruby-string">&#39;Language&#39;</span>, :<span class="ruby-identifier">selected</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;German&#39;</span>)
+</pre>
+
+<p>For multiple select boxes, several options may be specified:</p>
+
+<pre class="ruby"><span class="ruby-identifier">page</span>.<span class="ruby-identifier">has_select?</span>(<span class="ruby-string">&#39;Language&#39;</span>, :<span class="ruby-identifier">selected</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-string">&#39;English&#39;</span>, <span class="ruby-string">&#39;German&#39;</span>])
+</pre>
+
+<p>It&#39;s also possible to check if the exact set of options exists for this
+select box:</p>
+
+<pre class="ruby"><span class="ruby-identifier">page</span>.<span class="ruby-identifier">has_select?</span>(<span class="ruby-string">&#39;Language&#39;</span>, :<span class="ruby-identifier">options</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-string">&#39;English&#39;</span>, <span class="ruby-string">&#39;German&#39;</span>, <span class="ruby-string">&#39;Spanish&#39;</span>])
+</pre>
+
+<p>You can also check for a partial set of options:</p>
+
+<pre class="ruby"><span class="ruby-identifier">page</span>.<span class="ruby-identifier">has_select?</span>(<span class="ruby-string">&#39;Language&#39;</span>, :<span class="ruby-identifier">with_options</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-string">&#39;English&#39;</span>, <span class="ruby-string">&#39;German&#39;</span>])
+</pre>
+
+<p>@param [String] locator                      The label, name or id of a
+select box @option options [Array] :options             Options which
+should be contained in this select box @option options [Array]
+:with_options        Partial set of options which should be contained in
+this select box @option options [String, Array] :selected    Options which
+should be selected @return [Boolean]                            Whether it
+exists</p>
+          
+          
+
+          
+          <div class="method-source-code" id="has_select-3F-source">
+            <pre><span class="ruby-comment"># File lib/capybara/node/matchers.rb, line 386</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">has_select?</span>(<span class="ruby-identifier">locator</span>, <span class="ruby-identifier">options</span>={})
+  <span class="ruby-identifier">has_selector?</span>(<span class="ruby-value">:select</span>, <span class="ruby-identifier">locator</span>, <span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-has_selector-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">has_selector?</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Checks if a given selector is on the page or current node.</p>
+
+<pre>page.has_selector?(&#39;p#foo&#39;)
+page.has_selector?(:xpath, &#39;.//p[@id=&quot;foo&quot;]&#39;)
+page.has_selector?(:foo)</pre>
+
+<p>By default it will check if the expression occurs at least once, but a
+different number can be specified.</p>
+
+<pre class="ruby"><span class="ruby-identifier">page</span>.<span class="ruby-identifier">has_selector?</span>(<span class="ruby-string">&#39;p.foo&#39;</span>, :<span class="ruby-identifier">count</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">4</span>)
+</pre>
+
+<p>This will check if the expression occurs exactly 4 times.</p>
+
+<p>It also accepts all options that {Capybara::Node::Finders#all} accepts,
+such as :text and :visible.</p>
+
+<pre class="ruby"><span class="ruby-identifier">page</span>.<span class="ruby-identifier">has_selector?</span>(<span class="ruby-string">&#39;li&#39;</span>, :<span class="ruby-identifier">text</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;Horse&#39;</span>, :<span class="ruby-identifier">visible</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>)
+</pre>
+
+<p>has_selector? can also accept XPath expressions generated by the XPath gem:</p>
+
+<pre>page.has_selector?(:xpath, XPath.descendant(:p))</pre>
+
+<p>@param (see <a
+href="Finders.html#method-i-all">Capybara::Node::Finders#all</a>) @param
+args @option args [Integer] :count (nil)     Number of times the text
+should occur @option args [Integer] :minimum (nil)   Minimum number of
+times the text should occur @option args [Integer] :maximum (nil)   Maximum
+number of times the text should occur @option args [Range]   :between (nil)
+Range of times that should contain number of times text occurs @return
+[Boolean]                       If the expression exists</p>
+          
+          
+
+          
+          <div class="method-source-code" id="has_selector-3F-source">
+            <pre><span class="ruby-comment"># File lib/capybara/node/matchers.rb, line 38</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">has_selector?</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">assert_selector</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">Capybara</span><span class="ruby-operator">::</span><span class="ruby-constant">ExpectationNotMet</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-has_table-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">has_table?</span><span
+            class="method-args">(locator, options={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Checks if the page or current node has a table with the given id or
+caption:</p>
+
+<pre>page.has_table?(&#39;People&#39;)</pre>
+
+<p>@param [String] locator                        The id or caption of a table
+@return [Boolean]                              Whether it exist</p>
+          
+          
+
+          
+          <div class="method-source-code" id="has_table-3F-source">
+            <pre><span class="ruby-comment"># File lib/capybara/node/matchers.rb, line 412</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">has_table?</span>(<span class="ruby-identifier">locator</span>, <span class="ruby-identifier">options</span>={})
+  <span class="ruby-identifier">has_selector?</span>(<span class="ruby-value">:table</span>, <span class="ruby-identifier">locator</span>, <span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-has_text-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">has_text?</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Checks if the page or current node has the given text content, ignoring any
+HTML tags.</p>
+
+<p>Whitespaces are normalized in both node&#39;s text and passed text
+parameter. Note that whitespace isn&#39;t normalized in passed regexp as
+normalizing whitespace in regexp isn&#39;t easy and doesn&#39;t seem to be
+worth it.</p>
+
+<p>By default it will check if the text occurs at least once, but a different
+number can be specified.</p>
+
+<pre>page.has_text?(&#39;lorem ipsum&#39;, between: 2..4)</pre>
+
+<p>This will check if the text occurs from 2 to 4 times.</p>
+
+<p>@macro text_query_params @return [Boolean]                           
+Whether it exists</p>
+          
+          
+
+          
+          <div class="method-source-code" id="has_text-3F-source">
+            <pre><span class="ruby-comment"># File lib/capybara/node/matchers.rb, line 501</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">has_text?</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">assert_text</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">Capybara</span><span class="ruby-operator">::</span><span class="ruby-constant">ExpectationNotMet</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Matchers.html#method-i-has_content-3F">has_content?</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-has_unchecked_field-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">has_unchecked_field?</span><span
+            class="method-args">(locator, options={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Checks if the page or current node has a radio button or checkbox with the
+given label, value or id, that is currently unchecked.</p>
+
+<p>@param [String] locator           The label, name or id of an unchecked
+field @return [Boolean]                 Whether it exists</p>
+          
+          
+
+          
+          <div class="method-source-code" id="has_unchecked_field-3F-source">
+            <pre><span class="ruby-comment"># File lib/capybara/node/matchers.rb, line 341</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">has_unchecked_field?</span>(<span class="ruby-identifier">locator</span>, <span class="ruby-identifier">options</span>={})
+  <span class="ruby-identifier">has_selector?</span>(<span class="ruby-value">:field</span>, <span class="ruby-identifier">locator</span>, <span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-value">:unchecked</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-has_xpath-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">has_xpath?</span><span
+            class="method-args">(path, options={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Checks if a given XPath expression is on the page or current node.</p>
+
+<pre>page.has_xpath?(&#39;.//p[@id=&quot;foo&quot;]&#39;)</pre>
+
+<p>By default it will check if the expression occurs at least once, but a
+different number can be specified.</p>
+
+<pre class="ruby"><span class="ruby-identifier">page</span>.<span class="ruby-identifier">has_xpath?</span>(<span class="ruby-string">&#39;.//p[@id=&quot;foo&quot;]&#39;</span>, :<span class="ruby-identifier">count</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">4</span>)
+</pre>
+
+<p>This will check if the expression occurs exactly 4 times.</p>
+
+<p>It also accepts all options that {Capybara::Node::Finders#all} accepts,
+such as :text and :visible.</p>
+
+<pre class="ruby"><span class="ruby-identifier">page</span>.<span class="ruby-identifier">has_xpath?</span>(<span class="ruby-string">&#39;.//li&#39;</span>, :<span class="ruby-identifier">text</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;Horse&#39;</span>, :<span class="ruby-identifier">visible</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>)
+</pre>
+
+<p>has_xpath? can also accept XPath expressions generate by the XPath gem:</p>
+
+<pre class="ruby"><span class="ruby-identifier">xpath</span> = <span class="ruby-constant">XPath</span>.<span class="ruby-identifier">generate</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span> <span class="ruby-identifier">x</span>.<span class="ruby-identifier">descendant</span>(:<span class="ruby-identifier">p</span>) }
+<span class="ruby-identifier">page</span>.<span class="ruby-identifier">has_xpath?</span>(<span class="ruby-identifier">xpath</span>)
+</pre>
+
+<p>@param [String] path                      An XPath expression @param
+options                            (see <a
+href="Finders.html#method-i-all">Capybara::Node::Finders#all</a>) @option
+options [Integer] :count (nil)    Number of times the expression should
+occur @return [Boolean]                         If the expression exists</p>
+          
+          
+
+          
+          <div class="method-source-code" id="has_xpath-3F-source">
+            <pre><span class="ruby-comment"># File lib/capybara/node/matchers.rb, line 161</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">has_xpath?</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">options</span>={})
+  <span class="ruby-identifier">has_selector?</span>(<span class="ruby-value">:xpath</span>, <span class="ruby-identifier">path</span>, <span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-refute_selector" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">refute_selector</span><span
+            class="method-args">(*args)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Matchers.html#method-i-assert_no_selector">assert_no_selector</a>
+        </div>
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

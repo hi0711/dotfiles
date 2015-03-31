@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module Compass::Configuration::Inheritance::ClassMethods - compass-core-1.0.3 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../";
+</script>
+
+<script src="../../../js/jquery.js"></script>
+<script src="../../../js/darkfish.js"></script>
+
+<link href="../../../css/fonts.css" rel="stylesheet">
+<link href="../../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-chained_method">#chained_method</a>
+    
+    <li ><a href="#method-i-inherited_accessor">#inherited_accessor</a>
+    
+    <li ><a href="#method-i-inherited_array">#inherited_array</a>
+    
+    <li ><a href="#method-i-inherited_reader">#inherited_reader</a>
+    
+    <li ><a href="#method-i-inherited_writer">#inherited_writer</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-Compass::Configuration::Inheritance::ClassMethods">
+  <h1 id="module-Compass::Configuration::Inheritance::ClassMethods" class="module">
+    module Compass::Configuration::Inheritance::ClassMethods
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-chained_method" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">chained_method</span><span
+            class="method-args">(method)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="chained_method-source">
+            <pre><span class="ruby-comment"># File lib/compass/configuration/inheritance.rb, line 162</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">chained_method</span>(<span class="ruby-identifier">method</span>)
+  <span class="ruby-identifier">line</span> = <span class="ruby-keyword">__LINE__</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
+  <span class="ruby-identifier">class_eval</span> <span class="ruby-node">%Q{
+    alias_method :_chained_#{method}, method
+    def #{method}(*args, &amp;block)
+      _chained_#{method}(*args, &amp;block)
+      if inherited_data
+        inherited_data.#{method}(*args, &amp;block)
+      end
+    end
+  }</span>, <span class="ruby-keyword">__FILE__</span>, <span class="ruby-identifier">line</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-inherited_accessor" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">inherited_accessor</span><span
+            class="method-args">(*attributes)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="inherited_accessor-source">
+            <pre><span class="ruby-comment"># File lib/compass/configuration/inheritance.rb, line 59</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">inherited_accessor</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">attributes</span>)
+  <span class="ruby-identifier">inherited_reader</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">attributes</span>)
+  <span class="ruby-identifier">inherited_writer</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">attributes</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-inherited_array" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">inherited_array</span><span
+            class="method-args">(*attributes)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="inherited_array-source">
+            <pre><span class="ruby-comment"># File lib/compass/configuration/inheritance.rb, line 112</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">inherited_array</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">attributes</span>)
+  <span class="ruby-identifier">options</span> = <span class="ruby-identifier">attributes</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">attributes</span>.<span class="ruby-identifier">pop</span> <span class="ruby-operator">:</span> {}
+  <span class="ruby-identifier">inherited_reader</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">attributes</span>)
+  <span class="ruby-identifier">inherited_writer</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">attributes</span>)
+  <span class="ruby-identifier">attributes</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">attr</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">line</span> = <span class="ruby-keyword">__LINE__</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
+    <span class="ruby-identifier">class_eval</span> <span class="ruby-node">%Q{
+      def #{attr}                                          # def sprite_load_paths
+        ArrayProxy.new(self, #{attr.inspect})              #   ArrayProxy.new(self, :sprite_load_paths)
+      end                                                  # end
+      def #{attr}=(value)                                  # def sprite_load_paths=(value)
+        @set_attributes ||= {}                             #   @set_attributes ||= {}
+        @set_attributes[#{attr.inspect}] = true            #   @set_attributes[:sprite_load_paths] = true
+        @#{attr} = Array(value)                            #   @sprite_load_paths = Array(value)
+        @added_to_#{attr} = []                             #   @added_to_sprite_load_paths = []
+        @removed_from_#{attr} = []                         #   @removed_from_sprite_load_paths = []
+      end                                                  # end
+      def read_inherited_#{attr}_array                     # def read_inherited_sprite_load_paths_array
+        value = if inherited_data                          #   value = if inherited_data
+          if #{!!options[:clobbers]} &amp;&amp; #{attr}_set?
+            Array(@#{attr})                                #     Array(@#{attr})
+          else
+            Array(@#{attr}) + inherited_data.read_inherited_#{attr}_array  #      inherited_data.read_inherited_sprite_load_paths_array + Array(@sprite_load_paths)
+          end
+        elsif #{attr}_set?                                 #   elsif sprite_load_paths_set?
+          Array(@#{attr})                                  #     Array(@#{attr})
+        else                                               #   else
+          top_level.default_for(#{attr.inspect}) || []     #     top_level.default_for(:sprite_load_paths) || []
+        end                                                #   end
+        value -= Array(@removed_from_#{attr})              #   value -= Array(@removed_from_sprite_load_paths)
+        Array(@added_to_#{attr}) + value                   #   Array(@added_to_sprite_load_paths) + value
+      end                                                  # end
+      def add_to_#{attr}(v)                                # def add_to_sprite_load_paths(v)
+        if #{attr}_set?                                    #   if sprite_load_paths_set?
+          raw_#{attr} &lt;&lt; v                                 #     raw_sprite_load_paths &lt;&lt; v
+        else                                               #   else
+          (@added_to_#{attr} ||= []) &lt;&lt; v                  #     (@added_to_sprite_load_paths ||= []) &lt;&lt; v
+        end                                                #   end
+      end                                                  # end
+      def remove_from_#{attr}(v)                           # def remove_from_sprite_load_paths(v)
+        if #{attr}_set?                                    #   if sprite_load_paths_set?
+          raw_#{attr}.reject!{|e| e == v}                  #     raw_sprite_load_path.reject!{|e| e == v}s
+        else                                               #   else
+          (@removed_from_#{attr} ||= []) &lt;&lt; v              #     (@removed_from_sprite_load_paths ||= []) &lt;&lt; v
+        end                                                #   end
+      end                                                  # end
+    }</span>, <span class="ruby-keyword">__FILE__</span>, <span class="ruby-identifier">line</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-inherited_reader" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">inherited_reader</span><span
+            class="method-args">(*attributes)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Defines the default reader to be an <a
+href="ClassMethods.html#method-i-inherited_reader">#inherited_reader</a>
+that will look at the inherited_data for its value when not set. The
+inherited reader calls to a raw reader that acts like a normal attribute
+reader but prefixes the attribute name with “raw_”.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="inherited_reader-source">
+            <pre><span class="ruby-comment"># File lib/compass/configuration/inheritance.rb, line 42</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">inherited_reader</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">attributes</span>)
+  <span class="ruby-identifier">attributes</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">attribute</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">line</span> = <span class="ruby-keyword">__LINE__</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
+    <span class="ruby-identifier">class_eval</span> <span class="ruby-node">%Q{
+      def raw_#{attribute}                         # def raw_css_dir
+        @#{attribute}                              #   @css_dir
+      end                                          # end
+      def #{attribute}_without_default             # def css_dir_without_default
+        read_without_default(#{attribute.inspect}) #  read_without_default(:css_dir)
+      end                                          # end
+      def #{attribute}                             # def css_dir
+        read(#{attribute.inspect})                 #  read(:css_dir)
+      end                                          # end
+    }</span>, <span class="ruby-keyword">__FILE__</span>, <span class="ruby-identifier">line</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-inherited_writer" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">inherited_writer</span><span
+            class="method-args">(*attributes)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="inherited_writer-source">
+            <pre><span class="ruby-comment"># File lib/compass/configuration/inheritance.rb, line 18</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">inherited_writer</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">attributes</span>)
+  <span class="ruby-identifier">attributes</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">attribute</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">line</span> = <span class="ruby-keyword">__LINE__</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
+    <span class="ruby-identifier">class_eval</span> <span class="ruby-node">%Q{
+      def #{attribute}=(value)                        # def css_dir=(value)
+        @set_attributes ||= {}                        #   @set_attributes ||= {}
+        @set_attributes[#{attribute.inspect}] = true  #   @set_attributes[:css_dir] = true
+        @#{attribute} = value                         #   @css_dir = value
+      end                                             # end
+
+      def unset_#{attribute}!                         # def unset_css_dir!
+        unset!(#{attribute.inspect})                  #   unset!(:css_dir)
+      end                                             # end
+
+      def #{attribute}_set?                           # def css_dir_set?
+        set?(#{attribute.inspect})                    #   set?(:css_dir)
+      end                                             # end
+    }</span>, <span class="ruby-keyword">__FILE__</span>, <span class="ruby-identifier">line</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

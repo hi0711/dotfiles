@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Rspec::Generators::ScaffoldGenerator - rspec-rails-3.1.0 Documentation</title>
+
+<link href="../../fonts.css" rel="stylesheet">
+<link href="../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/navigation.js"></script>
+<script src="../../js/search_index.js"></script>
+<script src="../../js/search.js"></script>
+<script src="../../js/searcher.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="Base.html">Rspec::Generators::Base</a>
+  
+</div>
+
+    <div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><span class="include">::Rails::Generators::ResourceHelpers</span>
+  
+  
+  </ul>
+</div>
+
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-banner">#banner</a>
+    
+    <li ><a href="#method-i-copy_view">#copy_view</a>
+    
+    <li ><a href="#method-i-formatted_hash">#formatted_hash</a>
+    
+    <li ><a href="#method-i-generate_controller_spec">#generate_controller_spec</a>
+    
+    <li ><a href="#method-i-generate_routing_spec">#generate_routing_spec</a>
+    
+    <li ><a href="#method-i-generate_view_specs">#generate_view_specs</a>
+    
+    <li ><a href="#method-i-mock_file_name">#mock_file_name</a>
+    
+    <li ><a href="#method-i-ns_file_name">#ns_file_name</a>
+    
+    <li ><a href="#method-i-ns_parts">#ns_parts</a>
+    
+    <li ><a href="#method-i-ns_table_name">#ns_table_name</a>
+    
+    <li ><a href="#method-i-raw_value_for">#raw_value_for</a>
+    
+    <li ><a href="#method-i-should_receive">#should_receive</a>
+    
+    <li ><a href="#method-i-stub">#stub</a>
+    
+    <li ><a href="#method-i-stub_or_should_chain">#stub_or_should_chain</a>
+    
+    <li ><a href="#method-i-value_for">#value_for</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Rspec::Generators::ScaffoldGenerator">
+  <h1 id="class-Rspec::Generators::ScaffoldGenerator" class="class">
+    class Rspec::Generators::ScaffoldGenerator
+  </h1>
+
+  <section class="description">
+    
+<p>@private</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-generate_controller_spec" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">generate_controller_spec</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="generate_controller_spec-source">
+            <pre><span class="ruby-comment"># File lib/generators/rspec/scaffold/scaffold_generator.rb, line 21</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">generate_controller_spec</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:controller_specs</span>]
+
+  <span class="ruby-identifier">template_file</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(
+    <span class="ruby-string">&#39;spec/controllers&#39;</span>,
+    <span class="ruby-identifier">controller_class_path</span>,
+    <span class="ruby-node">&quot;#{controller_file_name}_controller_spec.rb&quot;</span>
+  )
+  <span class="ruby-identifier">template</span> <span class="ruby-string">&#39;controller_spec.rb&#39;</span>, <span class="ruby-identifier">template_file</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-generate_routing_spec" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">generate_routing_spec</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="generate_routing_spec-source">
+            <pre><span class="ruby-comment"># File lib/generators/rspec/scaffold/scaffold_generator.rb, line 41</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">generate_routing_spec</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:routing_specs</span>]
+
+  <span class="ruby-identifier">template_file</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(
+    <span class="ruby-string">&#39;spec/routing&#39;</span>,
+    <span class="ruby-identifier">controller_class_path</span>,
+    <span class="ruby-node">&quot;#{controller_file_name}_routing_spec.rb&quot;</span>
+  )
+  <span class="ruby-identifier">template</span> <span class="ruby-string">&#39;routing_spec.rb&#39;</span>, <span class="ruby-identifier">template_file</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-generate_view_specs" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">generate_view_specs</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="generate_view_specs-source">
+            <pre><span class="ruby-comment"># File lib/generators/rspec/scaffold/scaffold_generator.rb, line 32</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">generate_view_specs</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:view_specs</span>] <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:template_engine</span>]
+
+  <span class="ruby-identifier">copy_view</span> <span class="ruby-value">:edit</span>
+  <span class="ruby-identifier">copy_view</span> <span class="ruby-value">:index</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:singleton</span>]
+  <span class="ruby-identifier">copy_view</span> <span class="ruby-value">:new</span>
+  <span class="ruby-identifier">copy_view</span> <span class="ruby-value">:show</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="protected-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Protected Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-banner" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">banner</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="banner-source">
+            <pre><span class="ruby-comment"># File lib/generators/rspec/scaffold/scaffold_generator.rb, line 161</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">banner</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">banner</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-copy_view" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">copy_view</span><span
+            class="method-args">(view)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="copy_view-source">
+            <pre><span class="ruby-comment"># File lib/generators/rspec/scaffold/scaffold_generator.rb, line 56</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">copy_view</span>(<span class="ruby-identifier">view</span>)
+  <span class="ruby-identifier">template</span> <span class="ruby-node">&quot;#{view}_spec.rb&quot;</span>,
+           <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;spec/views&quot;</span>, <span class="ruby-identifier">controller_file_path</span>, <span class="ruby-node">&quot;#{view}.html.#{options[:template_engine]}_spec.rb&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-formatted_hash" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">formatted_hash</span><span
+            class="method-args">(hash)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="formatted_hash-source">
+            <pre><span class="ruby-comment"># File lib/generators/rspec/scaffold/scaffold_generator.rb, line 61</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">formatted_hash</span>(<span class="ruby-identifier">hash</span>)
+  <span class="ruby-identifier">formatted</span> = <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">inspect</span>
+  <span class="ruby-identifier">formatted</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-string">&quot;{&quot;</span>, <span class="ruby-string">&quot;{ &quot;</span>)
+  <span class="ruby-identifier">formatted</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-string">&quot;}&quot;</span>, <span class="ruby-string">&quot; }&quot;</span>)
+  <span class="ruby-identifier">formatted</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-string">&quot;=&gt;&quot;</span>, <span class="ruby-string">&quot; =&gt; &quot;</span>)
+  <span class="ruby-identifier">formatted</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-mock_file_name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">mock_file_name</span><span
+            class="method-args">(hash = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the name of the mock. For example, if the file name is user, it
+returns mock_user.</p>
+
+<p>If a hash is given, it uses the hash key as the ORM method and the value as
+response. So, for ActiveRecord and file name “User”:</p>
+
+<pre class="ruby"><span class="ruby-identifier">mock_file_name</span>(:<span class="ruby-identifier">save</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>)
+<span class="ruby-comment">#=&gt; mock_user(:save =&gt; true)</span>
+</pre>
+
+<p>If another ORM is being used and another method instead of save is called,
+it will be the one used.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="mock_file_name-source">
+            <pre><span class="ruby-comment"># File lib/generators/rspec/scaffold/scaffold_generator.rb, line 98</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">mock_file_name</span>(<span class="ruby-identifier">hash</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">hash</span>
+    <span class="ruby-identifier">method</span>, <span class="ruby-identifier">and_return</span> = <span class="ruby-identifier">hash</span>.<span class="ruby-identifier">to_a</span>.<span class="ruby-identifier">first</span>
+    <span class="ruby-identifier">method</span> = <span class="ruby-identifier">orm_instance</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">method</span>).<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;.&#39;</span>).<span class="ruby-identifier">last</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/\(.*?\)/</span>, <span class="ruby-string">&#39;&#39;</span>)
+    <span class="ruby-node">&quot;mock_#{ns_file_name}(:#{method} =&gt; #{and_return})&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-node">&quot;mock_#{ns_file_name}&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ns_file_name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ns_file_name</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>support for namespaced-resources</p>
+          
+          
+
+          
+          <div class="method-source-code" id="ns_file_name-source">
+            <pre><span class="ruby-comment"># File lib/generators/rspec/scaffold/scaffold_generator.rb, line 70</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ns_file_name</span>
+  <span class="ruby-identifier">ns_parts</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">file_name</span> <span class="ruby-operator">:</span> <span class="ruby-node">&quot;#{ns_parts[0].underscore}_#{ns_parts[1].singularize.underscore}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ns_parts" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ns_parts</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="ns_parts-source">
+            <pre><span class="ruby-comment"># File lib/generators/rspec/scaffold/scaffold_generator.rb, line 79</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ns_parts</span>
+  <span class="ruby-ivar">@ns_parts</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">begin</span>
+                  <span class="ruby-identifier">matches</span> = <span class="ruby-constant">ARGV</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/\A(\w+)(?:\/|::)(\w+)/</span>)
+                  <span class="ruby-identifier">matches</span> <span class="ruby-operator">?</span> [<span class="ruby-identifier">matches</span>[<span class="ruby-value">1</span>], <span class="ruby-identifier">matches</span>[<span class="ruby-value">2</span>]] <span class="ruby-operator">:</span> []
+                <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ns_table_name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ns_table_name</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>support for namespaced-resources</p>
+          
+          
+
+          
+          <div class="method-source-code" id="ns_table_name-source">
+            <pre><span class="ruby-comment"># File lib/generators/rspec/scaffold/scaffold_generator.rb, line 75</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ns_table_name</span>
+  <span class="ruby-identifier">ns_parts</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">table_name</span> <span class="ruby-operator">:</span> <span class="ruby-node">&quot;#{ns_parts[0].underscore}/#{ns_parts[1].tableize}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-raw_value_for" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">raw_value_for</span><span
+            class="method-args">(attribute)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="raw_value_for-source">
+            <pre><span class="ruby-comment"># File lib/generators/rspec/scaffold/scaffold_generator.rb, line 149</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">raw_value_for</span>(<span class="ruby-identifier">attribute</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">attribute</span>.<span class="ruby-identifier">type</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:string</span>
+    <span class="ruby-identifier">attribute</span>.<span class="ruby-identifier">name</span>.<span class="ruby-identifier">titleize</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:integer</span>
+    <span class="ruby-ivar">@attribute_id_map</span> <span class="ruby-operator">||=</span> {}
+    <span class="ruby-ivar">@attribute_id_map</span>[<span class="ruby-identifier">attribute</span>] <span class="ruby-operator">||=</span> <span class="ruby-ivar">@attribute_id_map</span>.<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">size</span>.<span class="ruby-identifier">next</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">attribute</span>.<span class="ruby-identifier">default</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-should_receive" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">should_receive</span><span
+            class="method-args">(chain)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Receives the ORM chain and convert to expects. For ActiveRecord:</p>
+
+<pre class="ruby"><span class="ruby-identifier">should!</span> <span class="ruby-identifier">orm_class</span>.<span class="ruby-identifier">find</span>(<span class="ruby-constant">User</span>, <span class="ruby-string">&quot;37&quot;</span>)
+<span class="ruby-comment">#=&gt; User.should_receive(:find).with(37)</span>
+</pre>
+
+<p>For Datamapper:</p>
+
+<pre class="ruby"><span class="ruby-identifier">should!</span> <span class="ruby-identifier">orm_class</span>.<span class="ruby-identifier">find</span>(<span class="ruby-constant">User</span>, <span class="ruby-string">&quot;37&quot;</span>)
+<span class="ruby-comment">#=&gt; User.should_receive(:get).with(37)</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="should_receive-source">
+            <pre><span class="ruby-comment"># File lib/generators/rspec/scaffold/scaffold_generator.rb, line 118</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">should_receive</span>(<span class="ruby-identifier">chain</span>)
+  <span class="ruby-identifier">stub_or_should_chain</span>(<span class="ruby-value">:should_receive</span>, <span class="ruby-identifier">chain</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-stub" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">stub</span><span
+            class="method-args">(chain)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Receives the ORM chain and convert to stub. For ActiveRecord:</p>
+
+<pre class="ruby"><span class="ruby-identifier">stub</span> <span class="ruby-identifier">orm_class</span>.<span class="ruby-identifier">find</span>(<span class="ruby-constant">User</span>, <span class="ruby-string">&quot;37&quot;</span>)
+<span class="ruby-comment">#=&gt; User.stub(:find).with(37)</span>
+</pre>
+
+<p>For Datamapper:</p>
+
+<pre class="ruby"><span class="ruby-identifier">stub</span> <span class="ruby-identifier">orm_class</span>.<span class="ruby-identifier">find</span>(<span class="ruby-constant">User</span>, <span class="ruby-string">&quot;37&quot;</span>)
+<span class="ruby-comment">#=&gt; User.stub(:get).with(37)</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="stub-source">
+            <pre><span class="ruby-comment"># File lib/generators/rspec/scaffold/scaffold_generator.rb, line 132</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">stub</span>(<span class="ruby-identifier">chain</span>)
+  <span class="ruby-identifier">stub_or_should_chain</span>(<span class="ruby-value">:stub</span>, <span class="ruby-identifier">chain</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-stub_or_should_chain" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">stub_or_should_chain</span><span
+            class="method-args">(mode, chain)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="stub_or_should_chain-source">
+            <pre><span class="ruby-comment"># File lib/generators/rspec/scaffold/scaffold_generator.rb, line 136</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">stub_or_should_chain</span>(<span class="ruby-identifier">mode</span>, <span class="ruby-identifier">chain</span>)
+  <span class="ruby-identifier">receiver</span>, <span class="ruby-identifier">method</span> = <span class="ruby-identifier">chain</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;.&quot;</span>)
+  <span class="ruby-identifier">method</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-regexp">/\((.*?)\)/</span>, <span class="ruby-string">&#39;&#39;</span>)
+
+  <span class="ruby-identifier">response</span> = <span class="ruby-node">&quot;#{receiver}.#{mode}(:#{method})&quot;</span>
+  <span class="ruby-identifier">response</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;.with(#{$1})&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-node">$1</span>.<span class="ruby-identifier">blank?</span>
+  <span class="ruby-identifier">response</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-value_for" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">value_for</span><span
+            class="method-args">(attribute)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="value_for-source">
+            <pre><span class="ruby-comment"># File lib/generators/rspec/scaffold/scaffold_generator.rb, line 145</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">value_for</span>(<span class="ruby-identifier">attribute</span>)
+  <span class="ruby-identifier">raw_value_for</span>(<span class="ruby-identifier">attribute</span>).<span class="ruby-identifier">inspect</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

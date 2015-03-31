@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class RSpec::Core::FilterManager - rspec-core-3.1.7 Documentation</title>
+
+<link href="../../fonts.css" rel="stylesheet">
+<link href="../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/navigation.js"></script>
+<script src="../../js/search_index.js"></script>
+<script src="../../js/search.js"></script>
+<script src="../../js/searcher.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-add_location">#add_location</a>
+    
+    <li ><a href="#method-i-empty-3F">#empty?</a>
+    
+    <li ><a href="#method-i-exclude">#exclude</a>
+    
+    <li ><a href="#method-i-exclude-3F">#exclude?</a>
+    
+    <li ><a href="#method-i-exclude_only">#exclude_only</a>
+    
+    <li ><a href="#method-i-exclude_with_low_priority">#exclude_with_low_priority</a>
+    
+    <li ><a href="#method-i-include">#include</a>
+    
+    <li ><a href="#method-i-include-3F">#include?</a>
+    
+    <li ><a href="#method-i-include_only">#include_only</a>
+    
+    <li ><a href="#method-i-include_with_low_priority">#include_with_low_priority</a>
+    
+    <li ><a href="#method-i-prune">#prune</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-RSpec::Core::FilterManager">
+  <h1 id="class-RSpec::Core::FilterManager" class="class">
+    class RSpec::Core::FilterManager
+  </h1>
+
+  <section class="description">
+    
+<p>@private Manages the filtering of examples and groups by matching tags
+declared on the command line or options files, or filters declared via
+`RSpec.configure`, with hash key/values submitted within example group
+and/or example declarations. For example, given this declaration:</p>
+
+<pre class="ruby"><span class="ruby-identifier">describe</span> <span class="ruby-constant">Thing</span>, :<span class="ruby-identifier">awesome</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span> <span class="ruby-keyword">do</span>
+  <span class="ruby-identifier">it</span> <span class="ruby-string">&quot;does something&quot;</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-comment"># ...</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>That group (or any other with `:awesome =&gt; true`) would be filtered in
+with any of the following commands:</p>
+
+<pre>rspec --tag awesome:true
+rspec --tag awesome
+rspec -t awesome:true
+rspec -t awesome</pre>
+
+<p>Prefixing the tag names with `~` negates the tags, thus excluding this
+group with any of:</p>
+
+<pre>rspec --tag ~awesome:true
+rspec --tag ~awesome
+rspec -t ~awesome:true
+rspec -t ~awesome</pre>
+
+<p>## Options files and command line overrides</p>
+
+<p>Tag declarations can be stored in `.rspec`, `~/.rspec`, or a custom options
+file.  This is useful for storing defaults. For example, let&#39;s say
+you&#39;ve got some slow specs that you want to suppress most of the time.
+You can tag them like this:</p>
+
+<pre class="ruby"><span class="ruby-identifier">describe</span> <span class="ruby-constant">Something</span>, :<span class="ruby-identifier">slow</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span> <span class="ruby-keyword">do</span>
+</pre>
+
+<p>And then store this in `.rspec`:</p>
+
+<pre>--tag ~slow:true</pre>
+
+<p>Now when you run `rspec`, that group will be excluded.</p>
+
+<p>## Overriding</p>
+
+<p>Of course, you probably want to run them sometimes, so you can override
+this tag on the command line like this:</p>
+
+<pre>rspec --tag slow:true</pre>
+
+<p>## RSpec.configure</p>
+
+<p>You can also store default tags with `RSpec.configure`. We use `tag` on the
+command line (and in options files like `.rspec`), but for historical
+reasons we use the term `filter` in `RSpec.configure:</p>
+
+<pre class="ruby"><span class="ruby-constant">RSpec</span>.<span class="ruby-identifier">configure</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">c</span>.<span class="ruby-identifier">filter_run_including</span> :<span class="ruby-identifier">foo</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">bar</span>
+  <span class="ruby-identifier">c</span>.<span class="ruby-identifier">filter_run_excluding</span> :<span class="ruby-identifier">foo</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">bar</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>These declarations can also be overridden from the command line.</p>
+
+<p>@see RSpec.configure @see Configuration#filter_run_including @see
+Configuration#filter_run_excluding</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-exclusions" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">exclusions</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-inclusions" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">inclusions</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/rspec/core/filter_manager.rb, line 72</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>
+  <span class="ruby-ivar">@exclusions</span>, <span class="ruby-ivar">@inclusions</span> = <span class="ruby-constant">FilterRules</span>.<span class="ruby-identifier">build</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-add_location" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add_location</span><span
+            class="method-args">(file_path, line_numbers)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@api private</p>
+
+<p>@param file_path [String] @param line_numbers [Array]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="add_location-source">
+            <pre><span class="ruby-comment"># File lib/rspec/core/filter_manager.rb, line 80</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">add_location</span>(<span class="ruby-identifier">file_path</span>, <span class="ruby-identifier">line_numbers</span>)
+  <span class="ruby-comment"># locations is a hash of expanded paths to arrays of line</span>
+  <span class="ruby-comment"># numbers to match against. e.g.</span>
+  <span class="ruby-comment">#   { &quot;path/to/file.rb&quot; =&gt; [37, 42] }</span>
+  <span class="ruby-identifier">locations</span> = <span class="ruby-identifier">inclusions</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:locations</span>) <span class="ruby-operator">||</span> <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">h</span>, <span class="ruby-identifier">k</span><span class="ruby-operator">|</span> <span class="ruby-identifier">h</span>[<span class="ruby-identifier">k</span>] = [] }
+  <span class="ruby-identifier">locations</span>[<span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-identifier">file_path</span>)].<span class="ruby-identifier">push</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">line_numbers</span>)
+  <span class="ruby-identifier">inclusions</span>.<span class="ruby-identifier">add_location</span>(<span class="ruby-identifier">locations</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-empty-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">empty?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="empty-3F-source">
+            <pre><span class="ruby-comment"># File lib/rspec/core/filter_manager.rb, line 89</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">empty?</span>
+  <span class="ruby-identifier">inclusions</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">exclusions</span>.<span class="ruby-identifier">empty?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-exclude" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">exclude</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="exclude-source">
+            <pre><span class="ruby-comment"># File lib/rspec/core/filter_manager.rb, line 102</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">exclude</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">exclusions</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">args</span>.<span class="ruby-identifier">last</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-exclude-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">exclude?</span><span
+            class="method-args">(example)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="exclude-3F-source">
+            <pre><span class="ruby-comment"># File lib/rspec/core/filter_manager.rb, line 114</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">exclude?</span>(<span class="ruby-identifier">example</span>)
+  <span class="ruby-identifier">exclusions</span>.<span class="ruby-identifier">include_example?</span>(<span class="ruby-identifier">example</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-exclude_only" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">exclude_only</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="exclude_only-source">
+            <pre><span class="ruby-comment"># File lib/rspec/core/filter_manager.rb, line 106</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">exclude_only</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">exclusions</span>.<span class="ruby-identifier">use_only</span>(<span class="ruby-identifier">args</span>.<span class="ruby-identifier">last</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-exclude_with_low_priority" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">exclude_with_low_priority</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="exclude_with_low_priority-source">
+            <pre><span class="ruby-comment"># File lib/rspec/core/filter_manager.rb, line 110</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">exclude_with_low_priority</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">exclusions</span>.<span class="ruby-identifier">add_with_low_priority</span>(<span class="ruby-identifier">args</span>.<span class="ruby-identifier">last</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-include" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">include</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="include-source">
+            <pre><span class="ruby-comment"># File lib/rspec/core/filter_manager.rb, line 118</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">include</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">inclusions</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">args</span>.<span class="ruby-identifier">last</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-include-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">include?</span><span
+            class="method-args">(example)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="include-3F-source">
+            <pre><span class="ruby-comment"># File lib/rspec/core/filter_manager.rb, line 130</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">include?</span>(<span class="ruby-identifier">example</span>)
+  <span class="ruby-identifier">inclusions</span>.<span class="ruby-identifier">include_example?</span>(<span class="ruby-identifier">example</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-include_only" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">include_only</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="include_only-source">
+            <pre><span class="ruby-comment"># File lib/rspec/core/filter_manager.rb, line 122</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">include_only</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">inclusions</span>.<span class="ruby-identifier">use_only</span>(<span class="ruby-identifier">args</span>.<span class="ruby-identifier">last</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-include_with_low_priority" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">include_with_low_priority</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="include_with_low_priority-source">
+            <pre><span class="ruby-comment"># File lib/rspec/core/filter_manager.rb, line 126</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">include_with_low_priority</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">inclusions</span>.<span class="ruby-identifier">add_with_low_priority</span>(<span class="ruby-identifier">args</span>.<span class="ruby-identifier">last</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-prune" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">prune</span><span
+            class="method-args">(examples)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="prune-source">
+            <pre><span class="ruby-comment"># File lib/rspec/core/filter_manager.rb, line 93</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">prune</span>(<span class="ruby-identifier">examples</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">inclusions</span>.<span class="ruby-identifier">standalone?</span>
+    <span class="ruby-identifier">base_exclusions</span> = <span class="ruby-constant">ExclusionRules</span>.<span class="ruby-identifier">new</span>
+    <span class="ruby-identifier">examples</span>.<span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">e</span><span class="ruby-operator">|</span> <span class="ruby-operator">!</span><span class="ruby-identifier">base_exclusions</span>.<span class="ruby-identifier">include_example?</span>(<span class="ruby-identifier">e</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">include?</span>(<span class="ruby-identifier">e</span>) }
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">examples</span>.<span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">e</span><span class="ruby-operator">|</span> <span class="ruby-operator">!</span><span class="ruby-identifier">exclude?</span>(<span class="ruby-identifier">e</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">include?</span>(<span class="ruby-identifier">e</span>) }
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

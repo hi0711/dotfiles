@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"compiler_class:ETI"!Haml::Options#compiler_class;FI"RW;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I";The compiler class to use. Defaults to Haml::Compiler.;T:
+@fileI"lib/haml/options.rb;T:0@omit_headings_from_table_of_contents_below0F@I"Haml::Options;FcRDoc::NormalClass0

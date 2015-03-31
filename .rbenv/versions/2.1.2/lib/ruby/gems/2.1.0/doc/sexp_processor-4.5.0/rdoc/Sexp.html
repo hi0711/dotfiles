@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Sexp - sexp_processor-4.5.0 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">Array
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-from_array">::from_array</a>
+    
+    <li class="calls-super" ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-3D-3D-3D">#===</a>
+    
+    <li ><a href="#method-i-3D-7E">#=~</a>
+    
+    <li ><a href="#method-i-array_type-3F">#array_type?</a>
+    
+    <li ><a href="#method-i-deep_each">#deep_each</a>
+    
+    <li ><a href="#method-i-each_of_type">#each_of_type</a>
+    
+    <li ><a href="#method-i-each_sexp">#each_sexp</a>
+    
+    <li ><a href="#method-i-find_and_replace_all">#find_and_replace_all</a>
+    
+    <li ><a href="#method-i-find_node">#find_node</a>
+    
+    <li ><a href="#method-i-find_nodes">#find_nodes</a>
+    
+    <li ><a href="#method-i-gsub">#gsub</a>
+    
+    <li ><a href="#method-i-head">#head</a>
+    
+    <li ><a href="#method-i-line">#line</a>
+    
+    <li ><a href="#method-i-mass">#mass</a>
+    
+    <li ><a href="#method-i-method_missing">#method_missing</a>
+    
+    <li ><a href="#method-i-rest">#rest</a>
+    
+    <li ><a href="#method-i-sexp_body">#sexp_body</a>
+    
+    <li ><a href="#method-i-sexp_type">#sexp_type</a>
+    
+    <li class="calls-super" ><a href="#method-i-shift">#shift</a>
+    
+    <li ><a href="#method-i-structure">#structure</a>
+    
+    <li ><a href="#method-i-sub">#sub</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Sexp">
+  <h1 id="class-Sexp" class="class">
+    class Sexp
+  </h1>
+
+  <section class="description">
+    
+<p>Sexps are the basic storage mechanism of <a
+href="SexpProcessor.html">SexpProcessor</a>.  Sexps have a
+<code>type</code> (to be renamed <code>node_type</code>) which is the first
+element of the <a href="Sexp.html">Sexp</a>. The type is used by <a
+href="SexpProcessor.html">SexpProcessor</a> to determine whom to dispatch
+the <a href="Sexp.html">Sexp</a> to for processing.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-comments" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">comments</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-file" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">file</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-line" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">line</span><span
+            class="attribute-access-type">[W]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-from_array" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">from_array</span><span
+            class="method-args">(a)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Creates a new <a href="Sexp.html">Sexp</a> from Array <code>a</code>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="from_array-source">
+            <pre><span class="ruby-comment"># File lib/sexp.rb, line 26</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">from_array</span>(<span class="ruby-identifier">a</span>)
+  <span class="ruby-identifier">ary</span> = <span class="ruby-constant">Array</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">a</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">a</span> <span class="ruby-operator">:</span> [<span class="ruby-identifier">a</span>]
+
+  <span class="ruby-identifier">result</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">new</span>
+
+  <span class="ruby-identifier">ary</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">x</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">Sexp</span>
+      <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">x</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">Array</span>
+      <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">from_array</span>(<span class="ruby-identifier">x</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">x</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Create a new <a href="Sexp.html">Sexp</a> containing <code>args</code>.</p>
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/sexp.rb, line 19</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-keyword">super</span>(<span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-3D-3D-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">===</span><span
+            class="method-args">(sexp)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns true if this Sexp&#39;s pattern matches <code>sexp</code>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="3D-3D-3D-source">
+            <pre><span class="ruby-comment"># File lib/sexp.rb, line 52</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">===</span>(<span class="ruby-identifier">sexp</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">Sexp</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">sexp</span>
+  <span class="ruby-identifier">pattern</span> = <span class="ruby-keyword">self</span> <span class="ruby-comment"># this is just for my brain</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">pattern</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">sexp</span>
+
+  <span class="ruby-identifier">sexp</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">subset</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">pattern</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">subset</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-3D-7E" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">=~</span><span
+            class="method-args">(pattern)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns true if this <a href="Sexp.html">Sexp</a> matches
+<code>pattern</code>.  (Opposite of <a
+href="Sexp.html#method-i-3D-3D-3D">===</a>.)</p>
+          
+          
+
+          
+          <div class="method-source-code" id="3D-7E-source">
+            <pre><span class="ruby-comment"># File lib/sexp.rb, line 68</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">=~</span>(<span class="ruby-identifier">pattern</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">pattern</span> <span class="ruby-operator">===</span> <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-array_type-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">array_type?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns true if the node_type is <code>array</code> or <code>args</code>.</p>
+
+<p>REFACTOR: to TypedSexp - we only care when we have units.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="array_type-3F-source">
+            <pre><span class="ruby-comment"># File lib/sexp.rb, line 77</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">array_type?</span>
+  <span class="ruby-identifier">type</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">first</span>
+  <span class="ruby-identifier">@@array_types</span>.<span class="ruby-identifier">include?</span> <span class="ruby-identifier">type</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-deep_each" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">deep_each</span><span
+            class="method-args">(&block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Recursively enumerates the sexp yielding to <code>block</code> for every
+element. TODO: test</p>
+          
+          
+
+          
+          <div class="method-source-code" id="deep_each-source">
+            <pre><span class="ruby-comment"># File lib/sexp.rb, line 90</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">deep_each</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">each_sexp</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">sexp</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">block</span>[<span class="ruby-identifier">sexp</span>]
+    <span class="ruby-identifier">sexp</span>.<span class="ruby-identifier">deep_each</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-each_of_type" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">each_of_type</span><span
+            class="method-args">(t, &b)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Enumeratates the sexp yielding to <code>b</code> when the node_type ==
+<code>t</code>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="each_of_type-source">
+            <pre><span class="ruby-comment"># File lib/sexp.rb, line 100</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">each_of_type</span>(<span class="ruby-identifier">t</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">b</span>)
+  <span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span> <span class="ruby-identifier">elem</span> <span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-constant">Sexp</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">elem</span> <span class="ruby-keyword">then</span>
+      <span class="ruby-identifier">elem</span>.<span class="ruby-identifier">each_of_type</span>(<span class="ruby-identifier">t</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">b</span>)
+      <span class="ruby-identifier">b</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">elem</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">elem</span>.<span class="ruby-identifier">first</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">t</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-each_sexp" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">each_sexp</span><span
+            class="method-args">() { |sexp| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Recursively enumerates all sub-sexps skipping non-Sexp elements. TODO: test</p>
+          
+          
+
+          
+          <div class="method-source-code" id="each_sexp-source">
+            <pre><span class="ruby-comment"># File lib/sexp.rb, line 113</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">each_sexp</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">sexp</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">Sexp</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">sexp</span>
+
+    <span class="ruby-keyword">yield</span> <span class="ruby-identifier">sexp</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-find_and_replace_all" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">find_and_replace_all</span><span
+            class="method-args">(from, to)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Replaces all elements whose node_type is <code>from</code> with
+<code>to</code>. Used only for the most trivial of rewrites.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="find_and_replace_all-source">
+            <pre><span class="ruby-comment"># File lib/sexp.rb, line 125</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">find_and_replace_all</span>(<span class="ruby-identifier">from</span>, <span class="ruby-identifier">to</span>)
+  <span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span> <span class="ruby-identifier">elem</span>, <span class="ruby-identifier">index</span> <span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-constant">Sexp</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">elem</span> <span class="ruby-keyword">then</span>
+      <span class="ruby-identifier">elem</span>.<span class="ruby-identifier">find_and_replace_all</span>(<span class="ruby-identifier">from</span>, <span class="ruby-identifier">to</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-keyword">self</span>[<span class="ruby-identifier">index</span>] = <span class="ruby-identifier">to</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">elem</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">from</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-find_node" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">find_node</span><span
+            class="method-args">(name, delete = false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="find_node-source">
+            <pre><span class="ruby-comment"># File lib/sexp.rb, line 162</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">find_node</span> <span class="ruby-identifier">name</span>, <span class="ruby-identifier">delete</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-identifier">matches</span> = <span class="ruby-identifier">find_nodes</span> <span class="ruby-identifier">name</span>
+
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">matches</span>.<span class="ruby-identifier">size</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">0</span> <span class="ruby-keyword">then</span>
+    <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">1</span> <span class="ruby-keyword">then</span>
+    <span class="ruby-identifier">match</span> = <span class="ruby-identifier">matches</span>.<span class="ruby-identifier">first</span>
+    <span class="ruby-identifier">delete</span> <span class="ruby-identifier">match</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">delete</span>
+    <span class="ruby-identifier">match</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">NoMethodError</span>, <span class="ruby-node">&quot;multiple nodes for #{name} were found in #{inspect}&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-find_nodes" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">find_nodes</span><span
+            class="method-args">(name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Find every node with type <code>name</code>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="find_nodes-source">
+            <pre><span class="ruby-comment"># File lib/sexp.rb, line 180</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">find_nodes</span> <span class="ruby-identifier">name</span>
+  <span class="ruby-identifier">find_all</span> { <span class="ruby-operator">|</span> <span class="ruby-identifier">sexp</span> <span class="ruby-operator">|</span> <span class="ruby-constant">Sexp</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">sexp</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">sexp</span>.<span class="ruby-identifier">first</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">name</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-gsub" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">gsub</span><span
+            class="method-args">(pattern, repl)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Replaces all Sexps matching <code>pattern</code> with <a
+href="Sexp.html">Sexp</a> <code>repl</code>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="gsub-source">
+            <pre><span class="ruby-comment"># File lib/sexp.rb, line 138</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">gsub</span>(<span class="ruby-identifier">pattern</span>, <span class="ruby-identifier">repl</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">repl</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">pattern</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">self</span>
+
+  <span class="ruby-identifier">new</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">subset</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">subset</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-constant">Sexp</span> <span class="ruby-keyword">then</span>
+      <span class="ruby-identifier">subset</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-identifier">pattern</span>, <span class="ruby-identifier">repl</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">subset</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">Sexp</span>.<span class="ruby-identifier">from_array</span>(<span class="ruby-identifier">new</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-head" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">head</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Sexp.html#method-i-sexp_type">sexp_type</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-line" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">line</span><span
+            class="method-args">(n=nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>If passed a line number, sets the line and returns self. Otherwise returns
+the line number. This allows you to do message cascades and still get the
+sexp back.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="line-source">
+            <pre><span class="ruby-comment"># File lib/sexp.rb, line 189</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">line</span>(<span class="ruby-identifier">n</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">n</span> <span class="ruby-keyword">then</span>
+    <span class="ruby-ivar">@line</span> = <span class="ruby-identifier">n</span>
+    <span class="ruby-keyword">self</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@line</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-mass" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">mass</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the size of the sexp, flattened.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="mass-source">
+            <pre><span class="ruby-comment"># File lib/sexp.rb, line 201</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">mass</span>
+  <span class="ruby-ivar">@mass</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">structure</span>.<span class="ruby-identifier">flatten</span>.<span class="ruby-identifier">size</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-method_missing" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">method_missing</span><span
+            class="method-args">(meth, delete = false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the node named <code>node</code>, deleting it if
+<code>delete</code> is true.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="method_missing-source">
+            <pre><span class="ruby-comment"># File lib/sexp.rb, line 208</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">method_missing</span> <span class="ruby-identifier">meth</span>, <span class="ruby-identifier">delete</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-identifier">find_node</span> <span class="ruby-identifier">meth</span>, <span class="ruby-identifier">delete</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-rest" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">rest</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Sexp.html#method-i-sexp_body">sexp_body</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-sexp_body" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sexp_body</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the <a href="Sexp.html">Sexp</a> body, ie the values without the
+node type.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="sexp_body-source">
+            <pre><span class="ruby-comment"># File lib/sexp.rb, line 236</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sexp_body</span>
+  <span class="ruby-keyword">self</span>[<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Sexp.html#method-i-rest">rest</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sexp_type" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sexp_type</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the node type of the <a href="Sexp.html">Sexp</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="sexp_type-source">
+            <pre><span class="ruby-comment"># File lib/sexp.rb, line 229</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sexp_type</span>
+  <span class="ruby-identifier">first</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Sexp.html#method-i-head">head</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-shift" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">shift</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>If run with debug, <a href="Sexp.html">Sexp</a> will raise if you shift on
+an empty <a href="Sexp.html">Sexp</a>. Helps with debugging.</p>
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="shift-source">
+            <pre><span class="ruby-comment"># File lib/sexp.rb, line 247</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">shift</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;I&#39;m empty&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">empty?</span>
+  <span class="ruby-keyword">super</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-structure" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">structure</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the bare bones structure of the sexp. s(:a, :b, s(:c, :d), :e)
+=&gt; s(:a, s(:c))</p>
+          
+          
+
+          
+          <div class="method-source-code" id="structure-source">
+            <pre><span class="ruby-comment"># File lib/sexp.rb, line 256</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">structure</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">Array</span> <span class="ruby-operator">===</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">first</span> <span class="ruby-keyword">then</span>
+    <span class="ruby-identifier">s</span>(<span class="ruby-value">:bogus</span>, <span class="ruby-operator">*</span><span class="ruby-keyword">self</span>).<span class="ruby-identifier">structure</span> <span class="ruby-comment"># TODO: remove &gt;= 4.2.0</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">result</span> = <span class="ruby-identifier">s</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">first</span>)
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">subexp</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">subexp</span>.<span class="ruby-identifier">structure</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">Sexp</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">subexp</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">result</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sub" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sub</span><span
+            class="method-args">(pattern, repl)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Replaces the <a href="Sexp.html">Sexp</a> matching <code>pattern</code>
+with <code>repl</code>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="sub-source">
+            <pre><span class="ruby-comment"># File lib/sexp.rb, line 271</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sub</span>(<span class="ruby-identifier">pattern</span>, <span class="ruby-identifier">repl</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">repl</span>.<span class="ruby-identifier">dup</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">pattern</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">self</span>
+
+  <span class="ruby-identifier">done</span> = <span class="ruby-keyword">false</span>
+
+  <span class="ruby-identifier">new</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">subset</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">done</span> <span class="ruby-keyword">then</span>
+      <span class="ruby-identifier">subset</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-keyword">case</span> <span class="ruby-identifier">subset</span>
+      <span class="ruby-keyword">when</span> <span class="ruby-constant">Sexp</span> <span class="ruby-keyword">then</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">pattern</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">subset</span> <span class="ruby-keyword">then</span>
+          <span class="ruby-identifier">done</span> = <span class="ruby-keyword">true</span>
+          <span class="ruby-identifier">repl</span>.<span class="ruby-identifier">dup</span>
+        <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">pattern</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">subset</span> <span class="ruby-keyword">then</span>
+          <span class="ruby-identifier">done</span> = <span class="ruby-keyword">true</span>
+          <span class="ruby-identifier">subset</span>.<span class="ruby-identifier">sub</span> <span class="ruby-identifier">pattern</span>, <span class="ruby-identifier">repl</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">subset</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">subset</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">Sexp</span>.<span class="ruby-identifier">from_array</span>(<span class="ruby-identifier">new</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

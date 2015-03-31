@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Byebug::ListCommand - byebug-4.0.4 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="Command.html">Byebug::Command</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-description">::description</a>
+    
+    <li ><a href="#method-c-names">::names</a>
+    
+    <li ><a href="#method-i-amend">#amend</a>
+    
+    <li ><a href="#method-i-display_lines">#display_lines</a>
+    
+    <li ><a href="#method-i-execute">#execute</a>
+    
+    <li ><a href="#method-i-lower">#lower</a>
+    
+    <li ><a href="#method-i-move">#move</a>
+    
+    <li ><a href="#method-i-parse_range">#parse_range</a>
+    
+    <li ><a href="#method-i-range">#range</a>
+    
+    <li ><a href="#method-i-regexp">#regexp</a>
+    
+    <li ><a href="#method-i-set_range">#set_range</a>
+    
+    <li ><a href="#method-i-valid_range-3F">#valid_range?</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Byebug::ListCommand">
+  <h1 id="class-Byebug::ListCommand" class="class">
+    class Byebug::ListCommand
+  </h1>
+
+  <section class="description">
+    
+<p>List parts of the source code.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-description" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">description</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="description-source">
+            <pre><span class="ruby-comment"># File lib/byebug/commands/list.rb, line 31</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">description</span>
+  <span class="ruby-identifier">prettify</span> <span class="ruby-value">&lt;&lt;-EOD
+    l[ist][[-=]][ nn-mm]
+
+    Lists lines of code forward from current line or from the place where
+    code was last listed. If &quot;list-&quot; is specified, lists backwards
+    instead. If &quot;list=&quot; is specified, lists from current line regardless
+    of where code was last listed. A line range can also be specified to
+    list specific sections of code.
+  EOD</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-names" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">names</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="names-source">
+            <pre><span class="ruby-comment"># File lib/byebug/commands/list.rb, line 27</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">names</span>
+  <span class="ruby-node">%w(list)</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-execute" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">execute</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="execute-source">
+            <pre><span class="ruby-comment"># File lib/byebug/commands/list.rb, line 12</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">execute</span>
+  <span class="ruby-identifier">exist</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-ivar">@state</span>.<span class="ruby-identifier">file</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">errmsg</span> <span class="ruby-node">&quot;No sourcefile available for #{@state.file}\n&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">exist</span>
+
+  <span class="ruby-ivar">@match</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">match</span>(<span class="ruby-string">&#39;list&#39;</span>)
+  <span class="ruby-identifier">max_lines</span> = <span class="ruby-identifier">n_lines</span>(<span class="ruby-ivar">@state</span>.<span class="ruby-identifier">file</span>)
+  <span class="ruby-identifier">b</span>, <span class="ruby-identifier">e</span> = <span class="ruby-identifier">range</span>(<span class="ruby-ivar">@match</span>[<span class="ruby-value">2</span>], <span class="ruby-identifier">max_lines</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">errmsg</span>(<span class="ruby-string">&#39;Invalid line range&#39;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">valid_range?</span>(<span class="ruby-identifier">b</span>, <span class="ruby-identifier">e</span>, <span class="ruby-identifier">max_lines</span>)
+
+  <span class="ruby-identifier">display_lines</span>(<span class="ruby-identifier">b</span>, <span class="ruby-identifier">e</span>)
+
+  <span class="ruby-ivar">@state</span>.<span class="ruby-identifier">prev_line</span> = <span class="ruby-identifier">b</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-regexp" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">regexp</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="regexp-source">
+            <pre><span class="ruby-comment"># File lib/byebug/commands/list.rb, line 8</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">regexp</span>
+  <span class="ruby-regexp">/^\s* l(?:ist)? (?:\s*([-=])|\s+(\S+))? \s*$/x</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-amend" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">amend</span><span
+            class="method-args">(line, max_line)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="amend-source">
+            <pre><span class="ruby-comment"># File lib/byebug/commands/list.rb, line 96</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">amend</span>(<span class="ruby-identifier">line</span>, <span class="ruby-identifier">max_line</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-value">1</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">line</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">1</span>
+
+  [<span class="ruby-identifier">max_line</span>, <span class="ruby-identifier">line</span>].<span class="ruby-identifier">min</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-display_lines" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">display_lines</span><span
+            class="method-args">(min, max)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Show lines in @state.file from line number &lt;min&gt; to line number
+&lt;max&gt;.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="display_lines-source">
+            <pre><span class="ruby-comment"># File lib/byebug/commands/list.rb, line 115</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">display_lines</span>(<span class="ruby-identifier">min</span>, <span class="ruby-identifier">max</span>)
+  <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;\n[#{min}, #{max}] in #{@state.file}&quot;</span>
+
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">foreach</span>(<span class="ruby-ivar">@state</span>.<span class="ruby-identifier">file</span>).<span class="ruby-identifier">with_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">line</span>, <span class="ruby-identifier">lineno</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">lineno</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">max</span>
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">unless</span> (<span class="ruby-identifier">min</span><span class="ruby-operator">..</span><span class="ruby-identifier">max</span>).<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">lineno</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>)
+
+    <span class="ruby-identifier">mark</span> = <span class="ruby-identifier">lineno</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span> <span class="ruby-operator">==</span> <span class="ruby-ivar">@state</span>.<span class="ruby-identifier">line</span> <span class="ruby-operator">?</span> <span class="ruby-string">&#39;=&gt; &#39;</span> <span class="ruby-operator">:</span> <span class="ruby-string">&#39;   &#39;</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-identifier">format</span>(<span class="ruby-node">&quot;#{mark}%#{max.to_s.size}d: %s&quot;</span>, <span class="ruby-identifier">lineno</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>, <span class="ruby-identifier">line</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-lower" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">lower</span><span
+            class="method-args">(size, direction = '+')</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="lower-source">
+            <pre><span class="ruby-comment"># File lib/byebug/commands/list.rb, line 102</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">lower</span>(<span class="ruby-identifier">size</span>, <span class="ruby-identifier">direction</span> = <span class="ruby-string">&#39;+&#39;</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-ivar">@state</span>.<span class="ruby-identifier">line</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">size</span> <span class="ruby-operator">/</span> <span class="ruby-value">2</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">direction</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;=&#39;</span> <span class="ruby-operator">||</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@state</span>.<span class="ruby-identifier">prev_line</span>
+
+  <span class="ruby-identifier">move</span>(<span class="ruby-ivar">@state</span>.<span class="ruby-identifier">prev_line</span>, <span class="ruby-identifier">size</span>, <span class="ruby-identifier">direction</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-move" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">move</span><span
+            class="method-args">(line, size, direction = '+')</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="move-source">
+            <pre><span class="ruby-comment"># File lib/byebug/commands/list.rb, line 108</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">move</span>(<span class="ruby-identifier">line</span>, <span class="ruby-identifier">size</span>, <span class="ruby-identifier">direction</span> = <span class="ruby-string">&#39;+&#39;</span>)
+  <span class="ruby-identifier">line</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">direction</span>, <span class="ruby-identifier">size</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-parse_range" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">parse_range</span><span
+            class="method-args">(input, size, max_line)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="parse_range-source">
+            <pre><span class="ruby-comment"># File lib/byebug/commands/list.rb, line 80</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">parse_range</span>(<span class="ruby-identifier">input</span>, <span class="ruby-identifier">size</span>, <span class="ruby-identifier">max_line</span>)
+  <span class="ruby-identifier">first</span>, <span class="ruby-identifier">err</span> = <span class="ruby-identifier">get_int</span>(<span class="ruby-identifier">input</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp">/[-,]/</span>)[<span class="ruby-value">0</span>], <span class="ruby-string">&#39;List&#39;</span>, <span class="ruby-value">1</span>, <span class="ruby-identifier">max_line</span>)
+  <span class="ruby-keyword">return</span> [<span class="ruby-value">-1</span>, <span class="ruby-value">-1</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">err</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">input</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp">/[-,]/</span>)[<span class="ruby-value">1</span>]
+    <span class="ruby-identifier">last</span>, <span class="ruby-identifier">_</span> = <span class="ruby-identifier">get_int</span>(<span class="ruby-identifier">input</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp">/[-,]/</span>)[<span class="ruby-value">1</span>], <span class="ruby-string">&#39;List&#39;</span>, <span class="ruby-value">1</span>, <span class="ruby-identifier">max_line</span>)
+    <span class="ruby-keyword">return</span> [<span class="ruby-value">-1</span>, <span class="ruby-value">-1</span>] <span class="ruby-keyword">unless</span> <span class="ruby-identifier">last</span>
+
+    <span class="ruby-identifier">last</span> = <span class="ruby-identifier">amend</span>(<span class="ruby-identifier">last</span>, <span class="ruby-identifier">max_line</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">first</span> <span class="ruby-operator">-=</span> (<span class="ruby-identifier">size</span> <span class="ruby-operator">/</span> <span class="ruby-value">2</span>)
+  <span class="ruby-keyword">end</span>
+
+  [<span class="ruby-identifier">first</span>, <span class="ruby-identifier">last</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">move</span>(<span class="ruby-identifier">first</span>, <span class="ruby-identifier">size</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>)]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-range" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">range</span><span
+            class="method-args">(input, max_line)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Line range to be printed by `list`.</p>
+
+<p>If &lt;input&gt; is set, range is parsed from it.</p>
+
+<p>Otherwise it&#39;s automatically chosen.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="range-source">
+            <pre><span class="ruby-comment"># File lib/byebug/commands/list.rb, line 53</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">range</span>(<span class="ruby-identifier">input</span>, <span class="ruby-identifier">max_line</span>)
+  <span class="ruby-identifier">size</span> = [<span class="ruby-constant">Setting</span>[<span class="ruby-value">:listsize</span>], <span class="ruby-identifier">max_line</span>].<span class="ruby-identifier">min</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">set_range</span>(<span class="ruby-identifier">size</span>, <span class="ruby-identifier">max_line</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">input</span>
+
+  <span class="ruby-identifier">parse_range</span>(<span class="ruby-identifier">input</span>, <span class="ruby-identifier">size</span>, <span class="ruby-identifier">max_line</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-set_range" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">set_range</span><span
+            class="method-args">(size, max_line)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Set line range to be printed by list</p>
+
+<p>@param size - number of lines to be printed @param max_line - max line
+number that can be printed</p>
+
+<p>@return first line number to list @return last line number to list</p>
+          
+          
+
+          
+          <div class="method-source-code" id="set_range-source">
+            <pre><span class="ruby-comment"># File lib/byebug/commands/list.rb, line 74</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">set_range</span>(<span class="ruby-identifier">size</span>, <span class="ruby-identifier">max_line</span>)
+  <span class="ruby-identifier">first</span> = <span class="ruby-identifier">amend</span>(<span class="ruby-identifier">lower</span>(<span class="ruby-identifier">size</span>, <span class="ruby-ivar">@match</span>[<span class="ruby-value">1</span>] <span class="ruby-operator">||</span> <span class="ruby-string">&#39;+&#39;</span>), <span class="ruby-identifier">max_line</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">size</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>)
+
+  [<span class="ruby-identifier">first</span>, <span class="ruby-identifier">move</span>(<span class="ruby-identifier">first</span>, <span class="ruby-identifier">size</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>)]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-valid_range-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">valid_range?</span><span
+            class="method-args">(first, last, max)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="valid_range-3F-source">
+            <pre><span class="ruby-comment"># File lib/byebug/commands/list.rb, line 61</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">valid_range?</span>(<span class="ruby-identifier">first</span>, <span class="ruby-identifier">last</span>, <span class="ruby-identifier">max</span>)
+  <span class="ruby-identifier">first</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-identifier">last</span> <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-identifier">max</span>).<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">first</span>) <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-identifier">max</span>).<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">last</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

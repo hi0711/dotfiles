@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"lex_state:ETI"RubyLexer#lex_state;TI"RW;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"CAdditional context surrounding tokens that both the lexer and ;TI"grammar use.;T:
+@fileI"lib/ruby_lexer.rb;T:0@omit_headings_from_table_of_contents_below0F@I"RubyLexer;TcRDoc::NormalClass0

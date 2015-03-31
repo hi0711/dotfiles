@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>CONTRIBUTING - chunky_png</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#label-Contributing+to+ChunkyPNG">Contributing to ChunkyPNG</a>
+    <li><a href="#label-Project+scope">Project scope</a>
+    <li><a href="#label-Reporting+bugs">Reporting bugs</a>
+    <li><a href="#label-Pull+requests">Pull requests</a>
+    <li><a href="#label-Releases">Releases</a>
+  </ul>
+</div>
+
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./BENCHMARKING_rdoc.html">BENCHMARKING</a>
+  
+    <li><a href="./CHANGELOG_rdoc.html">CHANGELOG</a>
+  
+    <li><a href="./CONTRIBUTING_rdoc.html">CONTRIBUTING</a>
+  
+    <li><a href="./README_rdoc.html">README</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page CONTRIBUTING.rdoc">
+
+<h1 id="label-Contributing+to+ChunkyPNG">Contributing to <a href="ChunkyPNG.html">ChunkyPNG</a><span><a href="#label-Contributing+to+ChunkyPNG">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<p>I will gladly accept any contributions from anybody to improve this
+library. However, I like to keep the scope and complexity of this project
+relatively small. This way, with the limited amount of time I dedicate to
+this project, this library remains a solid piece of software that many
+people rely on in their workflow.</p>
+
+<h2 id="label-Project+scope">Project scope<span><a href="#label-Project+scope">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>The scope of this library is defined as:</p>
+<ol><li>
+<p>Reading and writing any PNG image that conforms to the spec, with proper
+handling of images that do not.</p>
+</li><li>
+<p>Basic canvas drawing and compositing operations to create new or edit
+existing images.</p>
+</li><li>
+<p>Remain compatible with Ruby versions that are widely used.</p>
+</li></ol>
+
+<p>I will close issues and pull requests that go beyond this scope. If you
+want to work on something, but are not sure if it will be in scope, feel
+free to reach out to me!</p>
+
+<h2 id="label-Reporting+bugs">Reporting bugs<span><a href="#label-Reporting+bugs">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>First, see if somebody else has reported the problem already.</p>
+</li><li>
+<p>Try to include as much relevant information as possible, so I can recreate
+the problem.</p>
+</li><li>
+<p>If possible, include the PNG image that is causing the issue.</p>
+</li><li>
+<p>If possible, include a code snippet that exposes the problem.</p>
+</li></ul>
+
+<h2 id="label-Pull+requests">Pull requests<span><a href="#label-Pull+requests">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Title and description:</p>
+<ul><li>
+<p>If you are not yet done, please include <code>[WIP]</code> in the title of
+your pull request.</p>
+</li><li>
+<p>Explain why your changes are relevant in the description of your pull
+request.</p>
+</li><li>
+<p>If your changes improve performance, include benchmark methodology and
+results in the PR. See <a
+href="BENCHMARKING_rdoc.html">BENCHMARKING.rdoc</a> for more information.</p>
+</li></ul>
+
+<p>Code:</p>
+<ul><li>
+<p>Don&#39;t break backwards compatibility.</p>
+</li><li>
+<p>Follow code conventions. They are not defined, so look at the code around
+you.</p>
+</li><li>
+<p>Add Yardoc comments as documentation.</p>
+</li></ul>
+
+<p>Specs:</p>
+<ul><li>
+<p>Always include specs that test your changes, to prevent me from breaking
+your code later.</p>
+</li><li>
+<p>If your specs use PNG files, try to keep them as small as possible to keep
+the test suite snappy.</p>
+</li><li>
+<p>Make sure that the specs are passing for all Rubies on Travis CI: <a
+href="https://travis-ci.org/wvanbergen/chunky_png">travis-ci.org/wvanbergen/chunky_png</a>/</p>
+</li></ul>
+
+<p>Misc:</p>
+<ul><li>
+<p>Add an entry to <a href="CHANGELOG_rdoc.html">CHANGELOG.rdoc</a>.</p>
+</li><li>
+<p>Do not change <code>ChunkyPNG::VERSION</code></p>
+</li></ul>
+
+<h2 id="label-Releases">Releases<span><a href="#label-Releases">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>Ensure the latest master is passing on Travis CI.</p>
+</li><li>
+<p>Update <code>CHANGELOG.rdoc</code></p>
+</li><li>
+<p>Update <code>ChunkyPNG::VERSION</code></p>
+</li><li>
+<p>Run <code>bundle exec rake release</code></p>
+</li></ul>
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

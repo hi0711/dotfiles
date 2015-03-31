@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class ActionDispatch::TestRequest - actionpack-4.2.0.rc2 Documentation</title>
+
+<link href="../fonts.css" rel="stylesheet">
+<link href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/navigation.js"></script>
+<script src="../js/search_index.js"></script>
+<script src="../js/search.js"></script>
+<script src="../js/searcher.js"></script>
+<script src="../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="Request.html">ActionDispatch::Request</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li class="calls-super" ><a href="#method-c-new">::new</a>
+    
+    <li class="calls-super" ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-accept-3D">#accept=</a>
+    
+    <li ><a href="#method-i-action-3D">#action=</a>
+    
+    <li ><a href="#method-i-cookies">#cookies</a>
+    
+    <li ><a href="#method-i-default_env">#default_env</a>
+    
+    <li ><a href="#method-i-host-3D">#host=</a>
+    
+    <li ><a href="#method-i-if_modified_since-3D">#if_modified_since=</a>
+    
+    <li ><a href="#method-i-if_none_match-3D">#if_none_match=</a>
+    
+    <li ><a href="#method-i-path-3D">#path=</a>
+    
+    <li ><a href="#method-i-port-3D">#port=</a>
+    
+    <li ><a href="#method-i-rack_cookies">#rack_cookies</a>
+    
+    <li ><a href="#method-i-remote_addr-3D">#remote_addr=</a>
+    
+    <li ><a href="#method-i-request_method-3D">#request_method=</a>
+    
+    <li ><a href="#method-i-request_uri-3D">#request_uri=</a>
+    
+    <li ><a href="#method-i-user_agent-3D">#user_agent=</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-ActionDispatch::TestRequest">
+  <h1 id="class-ActionDispatch::TestRequest" class="class">
+    class ActionDispatch::TestRequest
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="DEFAULT_ENV">DEFAULT_ENV
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(env = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              <a href="Request.html#method-c-new">ActionDispatch::Request.new</a>
+            </div>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/action_dispatch/testing/test_request.rb, line 12</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">env</span> = {})
+  <span class="ruby-keyword">super</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(env = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              <a href="Request.html#method-c-new">ActionDispatch::Request.new</a>
+            </div>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/action_dispatch/testing/test_request.rb, line 16</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">env</span> = {})
+  <span class="ruby-identifier">env</span> = <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">application</span>.<span class="ruby-identifier">env_config</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">env</span>) <span class="ruby-keyword">if</span> <span class="ruby-keyword">defined?</span>(<span class="ruby-constant">Rails</span>.<span class="ruby-identifier">application</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">application</span>
+  <span class="ruby-keyword">super</span>(<span class="ruby-identifier">default_env</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">env</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-accept-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">accept=</span><span
+            class="method-args">(mime_types)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="accept-3D-source">
+            <pre><span class="ruby-comment"># File lib/action_dispatch/testing/test_request.rb, line 61</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">accept=</span>(<span class="ruby-identifier">mime_types</span>)
+  <span class="ruby-ivar">@env</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-string">&#39;action_dispatch.request.accepts&#39;</span>)
+  <span class="ruby-ivar">@env</span>[<span class="ruby-string">&#39;HTTP_ACCEPT&#39;</span>] = <span class="ruby-constant">Array</span>(<span class="ruby-identifier">mime_types</span>).<span class="ruby-identifier">collect</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">mime_type</span><span class="ruby-operator">|</span> <span class="ruby-identifier">mime_type</span>.<span class="ruby-identifier">to_s</span> }.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;,&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-action-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">action=</span><span
+            class="method-args">(action_name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="action-3D-source">
+            <pre><span class="ruby-comment"># File lib/action_dispatch/testing/test_request.rb, line 41</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">action=</span>(<span class="ruby-identifier">action_name</span>)
+  <span class="ruby-identifier">path_parameters</span>[<span class="ruby-value">:action</span>] = <span class="ruby-identifier">action_name</span>.<span class="ruby-identifier">to_s</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-cookies" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">cookies</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="cookies-source">
+            <pre><span class="ruby-comment"># File lib/action_dispatch/testing/test_request.rb, line 68</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">cookies</span>
+  <span class="ruby-ivar">@cookies</span> <span class="ruby-operator">||=</span> {}.<span class="ruby-identifier">with_indifferent_access</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="TestRequest.html#method-i-rack_cookies">rack_cookies</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-host-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">host=</span><span
+            class="method-args">(host)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="host-3D-source">
+            <pre><span class="ruby-comment"># File lib/action_dispatch/testing/test_request.rb, line 25</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">host=</span>(<span class="ruby-identifier">host</span>)
+  <span class="ruby-ivar">@env</span>[<span class="ruby-string">&#39;HTTP_HOST&#39;</span>] = <span class="ruby-identifier">host</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-if_modified_since-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">if_modified_since=</span><span
+            class="method-args">(last_modified)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="if_modified_since-3D-source">
+            <pre><span class="ruby-comment"># File lib/action_dispatch/testing/test_request.rb, line 45</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">if_modified_since=</span>(<span class="ruby-identifier">last_modified</span>)
+  <span class="ruby-ivar">@env</span>[<span class="ruby-string">&#39;HTTP_IF_MODIFIED_SINCE&#39;</span>] = <span class="ruby-identifier">last_modified</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-if_none_match-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">if_none_match=</span><span
+            class="method-args">(etag)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="if_none_match-3D-source">
+            <pre><span class="ruby-comment"># File lib/action_dispatch/testing/test_request.rb, line 49</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">if_none_match=</span>(<span class="ruby-identifier">etag</span>)
+  <span class="ruby-ivar">@env</span>[<span class="ruby-string">&#39;HTTP_IF_NONE_MATCH&#39;</span>] = <span class="ruby-identifier">etag</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-path-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">path=</span><span
+            class="method-args">(path)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="path-3D-source">
+            <pre><span class="ruby-comment"># File lib/action_dispatch/testing/test_request.rb, line 37</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">path=</span>(<span class="ruby-identifier">path</span>)
+  <span class="ruby-ivar">@env</span>[<span class="ruby-string">&#39;PATH_INFO&#39;</span>] = <span class="ruby-identifier">path</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-port-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">port=</span><span
+            class="method-args">(number)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="port-3D-source">
+            <pre><span class="ruby-comment"># File lib/action_dispatch/testing/test_request.rb, line 29</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">port=</span>(<span class="ruby-identifier">number</span>)
+  <span class="ruby-ivar">@env</span>[<span class="ruby-string">&#39;SERVER_PORT&#39;</span>] = <span class="ruby-identifier">number</span>.<span class="ruby-identifier">to_i</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-rack_cookies" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">rack_cookies</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="TestRequest.html#method-i-cookies">cookies</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-remote_addr-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">remote_addr=</span><span
+            class="method-args">(addr)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="remote_addr-3D-source">
+            <pre><span class="ruby-comment"># File lib/action_dispatch/testing/test_request.rb, line 53</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">remote_addr=</span>(<span class="ruby-identifier">addr</span>)
+  <span class="ruby-ivar">@env</span>[<span class="ruby-string">&#39;REMOTE_ADDR&#39;</span>] = <span class="ruby-identifier">addr</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-request_method-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">request_method=</span><span
+            class="method-args">(method)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="request_method-3D-source">
+            <pre><span class="ruby-comment"># File lib/action_dispatch/testing/test_request.rb, line 21</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">request_method=</span>(<span class="ruby-identifier">method</span>)
+  <span class="ruby-ivar">@env</span>[<span class="ruby-string">&#39;REQUEST_METHOD&#39;</span>] = <span class="ruby-identifier">method</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">upcase</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-request_uri-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">request_uri=</span><span
+            class="method-args">(uri)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="request_uri-3D-source">
+            <pre><span class="ruby-comment"># File lib/action_dispatch/testing/test_request.rb, line 33</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">request_uri=</span>(<span class="ruby-identifier">uri</span>)
+  <span class="ruby-ivar">@env</span>[<span class="ruby-string">&#39;REQUEST_URI&#39;</span>] = <span class="ruby-identifier">uri</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-user_agent-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">user_agent=</span><span
+            class="method-args">(user_agent)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="user_agent-3D-source">
+            <pre><span class="ruby-comment"># File lib/action_dispatch/testing/test_request.rb, line 57</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">user_agent=</span>(<span class="ruby-identifier">user_agent</span>)
+  <span class="ruby-ivar">@env</span>[<span class="ruby-string">&#39;HTTP_USER_AGENT&#39;</span>] = <span class="ruby-identifier">user_agent</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-default_env" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default_env</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="default_env-source">
+            <pre><span class="ruby-comment"># File lib/action_dispatch/testing/test_request.rb, line 74</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">default_env</span>
+  <span class="ruby-constant">DEFAULT_ENV</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

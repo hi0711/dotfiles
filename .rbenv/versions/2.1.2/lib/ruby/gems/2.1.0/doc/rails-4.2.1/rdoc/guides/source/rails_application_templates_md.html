@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>rails_application_templates - rails-4.2.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#label-Rails+Application+Templates">Rails Application Templates</a>
+    <li><a href="#label-Usage">Usage</a>
+    <li><a href="#label-Template+API">Template API</a>
+    <li><a href="#label-gem-28-2Aargs-29">gem(*args)</a>
+    <li><a href="#label-gem_group-28-2Anames-2C+-26block-29">gem_group(*names, &amp;block)</a>
+    <li><a href="#label-add_source-28source-2C+options+-3D+-7B-7D-29">add_source(source, options = {})</a>
+    <li><a href="#label-environment-2Fapplication-28data-3Dnil-2C+options-3D-7B-7D-2C+-26block-29">environment/application(data=nil, options={}, &amp;block)</a>
+    <li><a href="#label-vendor-2Flib-2Ffile-2Finitializer-28filename-2C+data+-3D+nil-2C+-26block-29">vendor/lib/file/initializer(filename, data = nil, &amp;block)</a>
+    <li><a href="#label-rakefile-28filename-2C+data+-3D+nil-2C+-26block-29">rakefile(filename, data = nil, &amp;block)</a>
+    <li><a href="#label-generate-28what-2C+-2Aargs-29">generate(what, *args)</a>
+    <li><a href="#label-run-28command-29">run(command)</a>
+    <li><a href="#label-rake-28command-2C+options+-3D+-7B-7D-29">rake(command, options = {})</a>
+    <li><a href="#label-route-28routing_code-29">route(routing_code)</a>
+    <li><a href="#label-inside-28dir-29">inside(dir)</a>
+    <li><a href="#label-ask-28question-29">ask(question)</a>
+    <li><a href="#label-yes-3F-28question-29+or+no-3F-28question-29">yes?(question) or no?(question)</a>
+    <li><a href="#label-git-28-3Acommand-29">git(:command)</a>
+    <li><a href="#label-after_bundle-28-26block-29">after_bundle(&amp;block)</a>
+    <li><a href="#label-Advanced+Usage">Advanced Usage</a>
+  </ul>
+</div>
+
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../README_md.html">README</a>
+  
+    <li><a href="../../guides/CHANGELOG_md.html">CHANGELOG</a>
+  
+    <li><a href="../../guides/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../guides/assets/images/icons/README.html">README</a>
+  
+    <li><a href="../../guides/assets/javascripts/guides_js.html">guides.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/jquery_min_js.html">jquery.min.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/responsive-tables_js.html">responsive-tables.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushAS3_js.html">shBrushAS3.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushAppleScript_js.html">shBrushAppleScript.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushBash_js.html">shBrushBash.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushCSharp_js.html">shBrushCSharp.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushColdFusion_js.html">shBrushColdFusion.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushCpp_js.html">shBrushCpp.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushCss_js.html">shBrushCss.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushDelphi_js.html">shBrushDelphi.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushDiff_js.html">shBrushDiff.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushErlang_js.html">shBrushErlang.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushGroovy_js.html">shBrushGroovy.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushJScript_js.html">shBrushJScript.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushJava_js.html">shBrushJava.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushJavaFX_js.html">shBrushJavaFX.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushPerl_js.html">shBrushPerl.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushPhp_js.html">shBrushPhp.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushPlain_js.html">shBrushPlain.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushPowerShell_js.html">shBrushPowerShell.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushPython_js.html">shBrushPython.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushRuby_js.html">shBrushRuby.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushSass_js.html">shBrushSass.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushScala_js.html">shBrushScala.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushSql_js.html">shBrushSql.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushVb_js.html">shBrushVb.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushXml_js.html">shBrushXml.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shCore_js.html">shCore.js</a>
+  
+    <li><a href="../../guides/assets/stylesheets/fixes_css.html">fixes.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/kindle_css.html">kindle.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/main_css.html">main.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/print_css.html">print.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/reset_css.html">reset.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/responsive-tables_css.html">responsive-tables.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/style_css.html">style.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shCore_css.html">shCore.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shCoreDefault_css.html">shCoreDefault.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shCoreDjango_css.html">shCoreDjango.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shCoreEclipse_css.html">shCoreEclipse.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shCoreEmacs_css.html">shCoreEmacs.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shCoreFadeToGrey_css.html">shCoreFadeToGrey.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shCoreMDUltra_css.html">shCoreMDUltra.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shCoreMidnight_css.html">shCoreMidnight.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shCoreRDark_css.html">shCoreRDark.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shThemeDefault_css.html">shThemeDefault.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shThemeDjango_css.html">shThemeDjango.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shThemeEclipse_css.html">shThemeEclipse.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shThemeEmacs_css.html">shThemeEmacs.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shThemeFadeToGrey_css.html">shThemeFadeToGrey.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shThemeMDUltra_css.html">shThemeMDUltra.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shThemeMidnight_css.html">shThemeMidnight.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shThemeRDark_css.html">shThemeRDark.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shThemeRailsGuides_css.html">shThemeRailsGuides.css</a>
+  
+    <li><a href="../../guides/source/2_2_release_notes_md.html">2_2_release_notes</a>
+  
+    <li><a href="../../guides/source/2_3_release_notes_md.html">2_3_release_notes</a>
+  
+    <li><a href="../../guides/source/3_0_release_notes_md.html">3_0_release_notes</a>
+  
+    <li><a href="../../guides/source/3_1_release_notes_md.html">3_1_release_notes</a>
+  
+    <li><a href="../../guides/source/3_2_release_notes_md.html">3_2_release_notes</a>
+  
+    <li><a href="../../guides/source/4_0_release_notes_md.html">4_0_release_notes</a>
+  
+    <li><a href="../../guides/source/4_1_release_notes_md.html">4_1_release_notes</a>
+  
+    <li><a href="../../guides/source/4_2_release_notes_md.html">4_2_release_notes</a>
+  
+    <li><a href="../../guides/source/action_controller_overview_md.html">action_controller_overview</a>
+  
+    <li><a href="../../guides/source/action_mailer_basics_md.html">action_mailer_basics</a>
+  
+    <li><a href="../../guides/source/action_view_overview_md.html">action_view_overview</a>
+  
+    <li><a href="../../guides/source/active_job_basics_md.html">active_job_basics</a>
+  
+    <li><a href="../../guides/source/active_model_basics_md.html">active_model_basics</a>
+  
+    <li><a href="../../guides/source/active_record_basics_md.html">active_record_basics</a>
+  
+    <li><a href="../../guides/source/active_record_callbacks_md.html">active_record_callbacks</a>
+  
+    <li><a href="../../guides/source/active_record_migrations_md.html">active_record_migrations</a>
+  
+    <li><a href="../../guides/source/active_record_postgresql_md.html">active_record_postgresql</a>
+  
+    <li><a href="../../guides/source/active_record_querying_md.html">active_record_querying</a>
+  
+    <li><a href="../../guides/source/active_record_validations_md.html">active_record_validations</a>
+  
+    <li><a href="../../guides/source/active_support_core_extensions_md.html">active_support_core_extensions</a>
+  
+    <li><a href="../../guides/source/active_support_instrumentation_md.html">active_support_instrumentation</a>
+  
+    <li><a href="../../guides/source/api_documentation_guidelines_md.html">api_documentation_guidelines</a>
+  
+    <li><a href="../../guides/source/asset_pipeline_md.html">asset_pipeline</a>
+  
+    <li><a href="../../guides/source/association_basics_md.html">association_basics</a>
+  
+    <li><a href="../../guides/source/autoloading_and_reloading_constants_md.html">autoloading_and_reloading_constants</a>
+  
+    <li><a href="../../guides/source/caching_with_rails_md.html">caching_with_rails</a>
+  
+    <li><a href="../../guides/source/command_line_md.html">command_line</a>
+  
+    <li><a href="../../guides/source/configuring_md.html">configuring</a>
+  
+    <li><a href="../../guides/source/contributing_to_ruby_on_rails_md.html">contributing_to_ruby_on_rails</a>
+  
+    <li><a href="../../guides/source/debugging_rails_applications_md.html">debugging_rails_applications</a>
+  
+    <li><a href="../../guides/source/development_dependencies_install_md.html">development_dependencies_install</a>
+  
+    <li><a href="../../guides/source/documents_yaml.html">documents.yaml</a>
+  
+    <li><a href="../../guides/source/engines_md.html">engines</a>
+  
+    <li><a href="../../guides/source/form_helpers_md.html">form_helpers</a>
+  
+    <li><a href="../../guides/source/generators_md.html">generators</a>
+  
+    <li><a href="../../guides/source/getting_started_md.html">getting_started</a>
+  
+    <li><a href="../../guides/source/i18n_md.html">i18n</a>
+  
+    <li><a href="../../guides/source/initialization_md.html">initialization</a>
+  
+    <li><a href="../../guides/source/layouts_and_rendering_md.html">layouts_and_rendering</a>
+  
+    <li><a href="../../guides/source/maintenance_policy_md.html">maintenance_policy</a>
+  
+    <li><a href="../../guides/source/nested_model_forms_md.html">nested_model_forms</a>
+  
+    <li><a href="../../guides/source/plugins_md.html">plugins</a>
+  
+    <li><a href="../../guides/source/rails_application_templates_md.html">rails_application_templates</a>
+  
+    <li><a href="../../guides/source/rails_on_rack_md.html">rails_on_rack</a>
+  
+    <li><a href="../../guides/source/routing_md.html">routing</a>
+  
+    <li><a href="../../guides/source/ruby_on_rails_guides_guidelines_md.html">ruby_on_rails_guides_guidelines</a>
+  
+    <li><a href="../../guides/source/security_md.html">security</a>
+  
+    <li><a href="../../guides/source/testing_md.html">testing</a>
+  
+    <li><a href="../../guides/source/upgrading_ruby_on_rails_md.html">upgrading_ruby_on_rails</a>
+  
+    <li><a href="../../guides/source/working_with_javascript_in_rails_md.html">working_with_javascript_in_rails</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page guides/source/rails_application_templates.md">
+
+<h1 id="label-Rails+Application+Templates">Rails Application Templates<span><a href="#label-Rails+Application+Templates">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<p>Application templates are simple Ruby files containing DSL for adding
+gems/initializers etc. to your freshly created Rails project or an existing
+Rails project.</p>
+
+<p>After reading this guide, you will know:</p>
+<ul><li>
+<p>How to use templates to generate/customize Rails applications.</p>
+</li><li>
+<p>How to write your own reusable application templates using the Rails
+template API.</p>
+</li></ul>
+<hr>
+
+<h2 id="label-Usage">Usage<span><a href="#label-Usage">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>To apply a template, you need to provide the Rails generator with the
+location of the template you wish to apply using the -m option. This can
+either be a path to a file or a URL.</p>
+
+<pre>$ rails new blog -m ~/template.rb
+$ rails new blog -m http://example.com/template.rb</pre>
+
+<p>You can use the rake task <code>rails:template</code> to apply templates to
+an existing Rails application. The location of the template needs to be
+passed in to an environment variable named LOCATION. Again, this can either
+be path to a file or a URL.</p>
+
+<pre>$ bin/rake rails:template LOCATION=~/template.rb
+$ bin/rake rails:template LOCATION=http://example.com/template.rb</pre>
+
+<h2 id="label-Template+API">Template API<span><a href="#label-Template+API">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>The Rails templates API is easy to understand. Here&#39;s an example of a
+typical Rails template:</p>
+
+<pre class="ruby"><span class="ruby-comment"># template.rb</span>
+<span class="ruby-identifier">generate</span>(:<span class="ruby-identifier">scaffold</span>, <span class="ruby-string">&quot;person name:string&quot;</span>)
+<span class="ruby-identifier">route</span> <span class="ruby-node">&quot;root to: &#39;people#index&#39;&quot;</span>
+<span class="ruby-identifier">rake</span>(<span class="ruby-string">&quot;db:migrate&quot;</span>)
+
+<span class="ruby-identifier">after_bundle</span> <span class="ruby-keyword">do</span>
+  <span class="ruby-identifier">git</span> :<span class="ruby-identifier">init</span>
+  <span class="ruby-identifier">git</span> <span class="ruby-identifier">add</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;.&quot;</span>
+  <span class="ruby-identifier">git</span> <span class="ruby-identifier">commit</span><span class="ruby-operator">:</span> <span class="ruby-string">%Q{ -m &#39;Initial commit&#39; }</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>The following sections outline the primary methods provided by the API:</p>
+
+<h3 id="label-gem-28-2Aargs-29">gem(*args)<span><a href="#label-gem-28-2Aargs-29">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Adds a <code>gem</code> entry for the supplied gem to the generated
+application&#39;s <code>Gemfile</code>.</p>
+
+<p>For example, if your application depends on the gems <code>bj</code> and
+<code>nokogiri</code>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">gem</span> <span class="ruby-string">&quot;bj&quot;</span>
+<span class="ruby-identifier">gem</span> <span class="ruby-string">&quot;nokogiri&quot;</span>
+</pre>
+
+<p>Please note that this will NOT install the gems for you and you will have
+to run <code>bundle install</code> to do that.</p>
+
+<pre class="ruby"><span class="ruby-identifier">bundle</span> <span class="ruby-identifier">install</span>
+</pre>
+
+<h3 id="label-gem_group-28-2Anames-2C+-26block-29">gem_group(*names, &amp;block)<span><a href="#label-gem_group-28-2Anames-2C+-26block-29">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Wraps gem entries inside a group.</p>
+
+<p>For example, if you want to load <code>rspec-rails</code> only in the
+<code>development</code> and <code>test</code> groups:</p>
+
+<pre class="ruby"><span class="ruby-identifier">gem_group</span> :<span class="ruby-identifier">development</span>, :<span class="ruby-identifier">test</span> <span class="ruby-keyword">do</span>
+  <span class="ruby-identifier">gem</span> <span class="ruby-string">&quot;rspec-rails&quot;</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<h3 id="label-add_source-28source-2C+options+-3D+-7B-7D-29">add_source(source, options = {})<span><a href="#label-add_source-28source-2C+options+-3D+-7B-7D-29">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Adds the given source to the generated application&#39;s
+<code>Gemfile</code>.</p>
+
+<p>For example, if you need to source a gem from
+<code>&quot;http://code.whytheluckystiff.net&quot;</code>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">add_source</span> <span class="ruby-string">&quot;http://code.whytheluckystiff.net&quot;</span>
+</pre>
+
+<h3 id="label-environment-2Fapplication-28data-3Dnil-2C+options-3D-7B-7D-2C+-26block-29">environment/application(data=nil, options={}, &amp;block)<span><a href="#label-environment-2Fapplication-28data-3Dnil-2C+options-3D-7B-7D-2C+-26block-29">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Adds a line inside the <code>Application</code> class for
+<code>config/application.rb</code>.</p>
+
+<p>If <code>options[:env]</code> is specified, the line is appended to the
+corresponding file in <code>config/environments</code>.</p>
+
+<pre class="ruby"><span class="ruby-identifier">environment</span> <span class="ruby-string">&#39;config.action_mailer.default_url_options = {host: &quot;http://yourwebsite.example.com&quot;}&#39;</span>, <span class="ruby-identifier">env</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;production&#39;</span>
+</pre>
+
+<p>A block can be used in place of the <code>data</code> argument.</p>
+
+<h3 id="label-vendor-2Flib-2Ffile-2Finitializer-28filename-2C+data+-3D+nil-2C+-26block-29">vendor/lib/file/initializer(filename, data = nil, &amp;block)<span><a href="#label-vendor-2Flib-2Ffile-2Finitializer-28filename-2C+data+-3D+nil-2C+-26block-29">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Adds an initializer to the generated application&#39;s
+<code>config/initializers</code> directory.</p>
+
+<p>Let&#39;s say you like using <code>Object#not_nil?</code> and
+<code>Object#not_blank?</code>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">initializer</span> <span class="ruby-string">&#39;bloatlol.rb&#39;</span>, <span class="ruby-value">&lt;&lt;-CODE
+  class Object
+    def not_nil?
+      !nil?
+    end
+
+    def not_blank?
+      !blank?
+    end
+  end
+CODE</span>
+</pre>
+
+<p>Similarly, <code>lib()</code> creates a file in the <code>lib/</code>
+directory and <code>vendor()</code> creates a file in the
+<code>vendor/</code> directory.</p>
+
+<p>There is even <code>file()</code>, which accepts a relative path from
+<code>Rails.root</code> and creates all the directories/files needed:</p>
+
+<pre class="ruby"><span class="ruby-identifier">file</span> <span class="ruby-string">&#39;app/components/foo.rb&#39;</span>, <span class="ruby-value">&lt;&lt;-CODE
+  class Foo
+  end
+CODE</span>
+</pre>
+
+<p>That&#39;ll create the <code>app/components</code> directory and put
+<code>foo.rb</code> in there.</p>
+
+<h3 id="label-rakefile-28filename-2C+data+-3D+nil-2C+-26block-29">rakefile(filename, data = nil, &amp;block)<span><a href="#label-rakefile-28filename-2C+data+-3D+nil-2C+-26block-29">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Creates a new rake file under <code>lib/tasks</code> with the supplied
+tasks:</p>
+
+<pre class="ruby"><span class="ruby-identifier">rakefile</span>(<span class="ruby-string">&quot;bootstrap.rake&quot;</span>) <span class="ruby-keyword">do</span>
+  <span class="ruby-value">&lt;&lt;-TASK
+    namespace :boot do
+      task :strap do
+        puts &quot;i like boots!&quot;
+      end
+    end
+  TASK</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>The above creates <code>lib/tasks/bootstrap.rake</code> with a
+<code>boot:strap</code> rake task.</p>
+
+<h3 id="label-generate-28what-2C+-2Aargs-29">generate(what, *args)<span><a href="#label-generate-28what-2C+-2Aargs-29">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Runs the supplied rails generator with given arguments.</p>
+
+<pre class="ruby"><span class="ruby-identifier">generate</span>(:<span class="ruby-identifier">scaffold</span>, <span class="ruby-string">&quot;person&quot;</span>, <span class="ruby-string">&quot;name:string&quot;</span>, <span class="ruby-string">&quot;address:text&quot;</span>, <span class="ruby-string">&quot;age:number&quot;</span>)
+</pre>
+
+<h3 id="label-run-28command-29">run(command)<span><a href="#label-run-28command-29">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Executes an arbitrary command. Just like the backticks. Let&#39;s say you
+want to remove the <code>README.rdoc</code> file:</p>
+
+<pre class="ruby"><span class="ruby-identifier">run</span> <span class="ruby-string">&quot;rm README.rdoc&quot;</span>
+</pre>
+
+<h3 id="label-rake-28command-2C+options+-3D+-7B-7D-29">rake(command, options = {})<span><a href="#label-rake-28command-2C+options+-3D+-7B-7D-29">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Runs the supplied rake tasks in the Rails application. Let&#39;s say you
+want to migrate the database:</p>
+
+<pre class="ruby"><span class="ruby-identifier">rake</span> <span class="ruby-string">&quot;db:migrate&quot;</span>
+</pre>
+
+<p>You can also run rake tasks with a different Rails environment:</p>
+
+<pre class="ruby"><span class="ruby-identifier">rake</span> <span class="ruby-string">&quot;db:migrate&quot;</span>, <span class="ruby-identifier">env</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;production&#39;</span>
+</pre>
+
+<h3 id="label-route-28routing_code-29">route(routing_code)<span><a href="#label-route-28routing_code-29">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Adds a routing entry to the <code>config/routes.rb</code> file. In the
+steps above, we generated a person scaffold and also removed
+<code>README.rdoc</code>. Now, to make <code>PeopleController#index</code>
+the default page for the application:</p>
+
+<pre class="ruby"><span class="ruby-identifier">route</span> <span class="ruby-node">&quot;root to: &#39;person#index&#39;&quot;</span>
+</pre>
+
+<h3 id="label-inside-28dir-29">inside(dir)<span><a href="#label-inside-28dir-29">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Enables you to run a command from the given directory. For example, if you
+have a copy of edge rails that you wish to symlink from your new apps, you
+can do this:</p>
+
+<pre class="ruby"><span class="ruby-identifier">inside</span>(<span class="ruby-string">&#39;vendor&#39;</span>) <span class="ruby-keyword">do</span>
+  <span class="ruby-identifier">run</span> <span class="ruby-string">&quot;ln -s ~/commit-rails/rails rails&quot;</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<h3 id="label-ask-28question-29">ask(question)<span><a href="#label-ask-28question-29">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p><code>ask()</code> gives you a chance to get some feedback from the user
+and use it in your templates. Let&#39;s say you want your user to name the
+new shiny library you&#39;re adding:</p>
+
+<pre class="ruby"><span class="ruby-identifier">lib_name</span> = <span class="ruby-identifier">ask</span>(<span class="ruby-string">&quot;What do you want to call the shiny library ?&quot;</span>)
+<span class="ruby-identifier">lib_name</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;.rb&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">lib_name</span>.<span class="ruby-identifier">index</span>(<span class="ruby-string">&quot;.rb&quot;</span>)
+
+<span class="ruby-identifier">lib</span> <span class="ruby-identifier">lib_name</span>, <span class="ruby-value">&lt;&lt;-CODE
+  class Shiny
+  end
+CODE</span>
+</pre>
+
+<h3 id="label-yes-3F-28question-29+or+no-3F-28question-29">yes?(question) or no?(question)<span><a href="#label-yes-3F-28question-29+or+no-3F-28question-29">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>These methods let you ask questions from templates and decide the flow
+based on the user&#39;s answer. Let&#39;s say you want to freeze rails only
+if the user wants to:</p>
+
+<pre class="ruby"><span class="ruby-identifier">rake</span>(<span class="ruby-string">&quot;rails:freeze:gems&quot;</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">yes?</span>(<span class="ruby-string">&quot;Freeze rails gems?&quot;</span>)
+<span class="ruby-comment"># no?(question) acts just the opposite.</span>
+</pre>
+
+<h3 id="label-git-28-3Acommand-29">git(:command)<span><a href="#label-git-28-3Acommand-29">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Rails templates let you run any git command:</p>
+
+<pre class="ruby"><span class="ruby-identifier">git</span> :<span class="ruby-identifier">init</span>
+<span class="ruby-identifier">git</span> <span class="ruby-identifier">add</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;.&quot;</span>
+<span class="ruby-identifier">git</span> <span class="ruby-identifier">commit</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;-a -m &#39;Initial commit&#39;&quot;</span>
+</pre>
+
+<h3 id="label-after_bundle-28-26block-29">after_bundle(&amp;block)<span><a href="#label-after_bundle-28-26block-29">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Registers a callback to be executed after the gems are bundled and binstubs
+are generated. Useful for all generated files to version control:</p>
+
+<pre class="ruby"><span class="ruby-identifier">after_bundle</span> <span class="ruby-keyword">do</span>
+  <span class="ruby-identifier">git</span> :<span class="ruby-identifier">init</span>
+  <span class="ruby-identifier">git</span> <span class="ruby-identifier">add</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;.&#39;</span>
+  <span class="ruby-identifier">git</span> <span class="ruby-identifier">commit</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;-a -m &#39;Initial commit&#39;&quot;</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>The callbacks gets executed even if <code>--skip-bundle</code> and/or
+<code>--skip-spring</code> has been passed.</p>
+
+<h2 id="label-Advanced+Usage">Advanced Usage<span><a href="#label-Advanced+Usage">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>The application template is evaluated in the context of a
+<code>Rails::Generators::AppGenerator</code> instance. It uses the
+<code>apply</code> action provided by <a
+href="https://github.com/erikhuda/thor/blob/master/lib/thor/actions.rb#L207">Thor</a>.
+This means you can extend and change the instance to match your needs.</p>
+
+<p>For example by overwriting the <code>source_paths</code> method to contain
+the location of your template. Now methods like <code>copy_file</code> will
+accept relative paths to your template&#39;s location.</p>
+
+<pre class="ruby"><span class="ruby-keyword">def</span> <span class="ruby-identifier">source_paths</span>
+  [<span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-keyword">__FILE__</span>))]
+<span class="ruby-keyword">end</span>
+</pre>
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

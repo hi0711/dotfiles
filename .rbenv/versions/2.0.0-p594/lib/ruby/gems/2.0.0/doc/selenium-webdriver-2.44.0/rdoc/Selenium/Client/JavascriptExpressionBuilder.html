@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Selenium::Client::JavascriptExpressionBuilder - selenium-webdriver-2.44.0 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">Object
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-append">#append</a>
+    
+    <li ><a href="#method-i-element_value_is">#element_value_is</a>
+    
+    <li ><a href="#method-i-element_value_is_not">#element_value_is_not</a>
+    
+    <li ><a href="#method-i-find_element">#find_element</a>
+    
+    <li ><a href="#method-i-find_text">#find_text</a>
+    
+    <li ><a href="#method-i-find_text_in_document">#find_text_in_document</a>
+    
+    <li ><a href="#method-i-find_text_in_element">#find_text_in_element</a>
+    
+    <li ><a href="#method-i-javascript_framework_for">#javascript_framework_for</a>
+    
+    <li ><a href="#method-i-no_pending_ajax_requests">#no_pending_ajax_requests</a>
+    
+    <li ><a href="#method-i-no_pending_effects">#no_pending_effects</a>
+    
+    <li ><a href="#method-i-not_visible">#not_visible</a>
+    
+    <li ><a href="#method-i-quote_escaped">#quote_escaped</a>
+    
+    <li ><a href="#method-i-text_match">#text_match</a>
+    
+    <li ><a href="#method-i-visible">#visible</a>
+    
+    <li ><a href="#method-i-window_script">#window_script</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Selenium::Client::JavascriptExpressionBuilder">
+  <h1 id="class-Selenium::Client::JavascriptExpressionBuilder" class="class">
+    class Selenium::Client::JavascriptExpressionBuilder
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-script" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">script</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(javascript_framework_name=nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/selenium/client/javascript_expression_builder.rb, line 7</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">javascript_framework_name</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@framework</span> = <span class="ruby-identifier">javascript_framework_for</span>(<span class="ruby-identifier">javascript_framework_name</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">javascript_framework_name</span>
+  <span class="ruby-ivar">@script</span> = <span class="ruby-string">&quot;&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-append" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">append</span><span
+            class="method-args">(text)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="append-source">
+            <pre><span class="ruby-comment"># File lib/selenium/client/javascript_expression_builder.rb, line 12</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">append</span>(<span class="ruby-identifier">text</span>)
+  <span class="ruby-ivar">@script</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">text</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-element_value_is" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">element_value_is</span><span
+            class="method-args">(expected_value)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="element_value_is-source">
+            <pre><span class="ruby-comment"># File lib/selenium/client/javascript_expression_builder.rb, line 45</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">element_value_is</span>(<span class="ruby-identifier">expected_value</span>)
+  <span class="ruby-identifier">append</span> <span class="ruby-node">&quot;(element != null &amp;&amp; element.value == &#39;#{quote_escaped(expected_value)}&#39;)&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-element_value_is_not" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">element_value_is_not</span><span
+            class="method-args">(expected_value)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="element_value_is_not-source">
+            <pre><span class="ruby-comment"># File lib/selenium/client/javascript_expression_builder.rb, line 49</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">element_value_is_not</span>(<span class="ruby-identifier">expected_value</span>)
+  <span class="ruby-identifier">append</span> <span class="ruby-node">&quot;(element == null || element.value != &#39;#{quote_escaped(expected_value)}&#39;)&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-find_element" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">find_element</span><span
+            class="method-args">(locator)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="find_element-source">
+            <pre><span class="ruby-comment"># File lib/selenium/client/javascript_expression_builder.rb, line 33</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">find_element</span>(<span class="ruby-identifier">locator</span>)
+  <span class="ruby-identifier">append</span>  <span class="ruby-value">&lt;&lt;-EOS
+    var element;
+
+    try {
+      element = selenium.browserbot.findElement(&#39;#{quote_escaped(locator)}&#39;);
+    } catch(e) {
+      element = null;
+    }
+  EOS</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-find_text" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">find_text</span><span
+            class="method-args">(pattern, options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="find_text-source">
+            <pre><span class="ruby-comment"># File lib/selenium/client/javascript_expression_builder.rb, line 53</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">find_text</span>(<span class="ruby-identifier">pattern</span>, <span class="ruby-identifier">options</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:element</span>].<span class="ruby-identifier">nil?</span>
+    <span class="ruby-identifier">find_text_in_document</span> <span class="ruby-identifier">pattern</span>, <span class="ruby-identifier">options</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">find_text_in_element</span> <span class="ruby-identifier">pattern</span>, <span class="ruby-identifier">options</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-find_text_in_document" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">find_text_in_document</span><span
+            class="method-args">(pattern, options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="find_text_in_document-source">
+            <pre><span class="ruby-comment"># File lib/selenium/client/javascript_expression_builder.rb, line 63</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">find_text_in_document</span>(<span class="ruby-identifier">pattern</span>, <span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">js_regexp</span> = <span class="ruby-keyword">case</span> <span class="ruby-identifier">pattern</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Regexp</span>
+    <span class="ruby-identifier">pattern</span>.<span class="ruby-identifier">inspect</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-node">/#{pattern}/</span>.<span class="ruby-identifier">inspect</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">append</span> <span class="ruby-value">&lt;&lt;-EOS
+    var text_match;
+    text_match = (null != selenium.browserbot.getCurrentWindow().document.body.innerHTML.match(#{js_regexp}));
+  EOS</span>
+
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-find_text_in_element" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">find_text_in_element</span><span
+            class="method-args">(pattern, options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="find_text_in_element-source">
+            <pre><span class="ruby-comment"># File lib/selenium/client/javascript_expression_builder.rb, line 77</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">find_text_in_element</span>(<span class="ruby-identifier">pattern</span>, <span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">find_element</span>(<span class="ruby-identifier">options</span>[<span class="ruby-value">:element</span>])
+  <span class="ruby-identifier">append</span> <span class="ruby-value">&lt;&lt;-EOS
+    var text_match;
+    text_match = (element != null &amp;&amp; #{text_match(pattern)});
+  EOS</span>
+
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-javascript_framework_for" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">javascript_framework_for</span><span
+            class="method-args">(framework_name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="javascript_framework_for-source">
+            <pre><span class="ruby-comment"># File lib/selenium/client/javascript_expression_builder.rb, line 96</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">javascript_framework_for</span>(<span class="ruby-identifier">framework_name</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">framework_name</span>.<span class="ruby-identifier">to_sym</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:prototype</span>
+    <span class="ruby-constant">JavascriptFrameworks</span><span class="ruby-operator">::</span><span class="ruby-constant">Prototype</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:jquery</span>
+    <span class="ruby-constant">JavascriptFrameworks</span><span class="ruby-operator">::</span><span class="ruby-constant">JQuery</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Unsupported Javascript Framework: #{framework_name}&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-no_pending_ajax_requests" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">no_pending_ajax_requests</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="no_pending_ajax_requests-source">
+            <pre><span class="ruby-comment"># File lib/selenium/client/javascript_expression_builder.rb, line 17</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">no_pending_ajax_requests</span>
+  <span class="ruby-identifier">append</span> <span class="ruby-identifier">window_script</span>(<span class="ruby-node">&quot;#{@framework.ajax_request_tracker} == 0&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-no_pending_effects" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">no_pending_effects</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="no_pending_effects-source">
+            <pre><span class="ruby-comment"># File lib/selenium/client/javascript_expression_builder.rb, line 21</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">no_pending_effects</span>
+  <span class="ruby-identifier">append</span> <span class="ruby-identifier">window_script</span>(<span class="ruby-string">&quot;Effect.Queue.size() == 0&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-not_visible" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">not_visible</span><span
+            class="method-args">(locator)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="not_visible-source">
+            <pre><span class="ruby-comment"># File lib/selenium/client/javascript_expression_builder.rb, line 29</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">not_visible</span>(<span class="ruby-identifier">locator</span>)
+  <span class="ruby-identifier">append</span> <span class="ruby-node">&quot;!selenium.isVisible(&#39;#{quote_escaped(locator)}&#39;)&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-quote_escaped" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">quote_escaped</span><span
+            class="method-args">(a_string)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="quote_escaped-source">
+            <pre><span class="ruby-comment"># File lib/selenium/client/javascript_expression_builder.rb, line 111</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">quote_escaped</span>(<span class="ruby-identifier">a_string</span>)
+  <span class="ruby-identifier">a_string</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/\/</span>, <span class="ruby-string">&quot;\\\\\\&quot;</span>).<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/&#39;/</span>, <span class="ruby-string">%q&lt;\\&gt;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-text_match" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">text_match</span><span
+            class="method-args">(pattern)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="text_match-source">
+            <pre><span class="ruby-comment"># File lib/selenium/client/javascript_expression_builder.rb, line 87</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">text_match</span>(<span class="ruby-identifier">pattern</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">pattern</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Regexp</span>
+    <span class="ruby-node">&quot;null != element.innerHTML.match(#{pattern.inspect})&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-node">&quot;element.innerHTML == &#39;#{quote_escaped(pattern)}&#39;&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-visible" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">visible</span><span
+            class="method-args">(locator)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="visible-source">
+            <pre><span class="ruby-comment"># File lib/selenium/client/javascript_expression_builder.rb, line 25</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">visible</span>(<span class="ruby-identifier">locator</span>)
+  <span class="ruby-identifier">append</span> <span class="ruby-node">&quot;selenium.isVisible(&#39;#{quote_escaped(locator)}&#39;)&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-window_script" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">window_script</span><span
+            class="method-args">(expression)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="window_script-source">
+            <pre><span class="ruby-comment"># File lib/selenium/client/javascript_expression_builder.rb, line 107</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">window_script</span>(<span class="ruby-identifier">expression</span>)
+  <span class="ruby-node">&quot;selenium.browserbot.getCurrentWindow().#{expression};&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

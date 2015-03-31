@@ -1,0 +1,1430 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class RSpec::Mocks::ErrorGenerator - rspec-mocks-3.1.3 Documentation</title>
+
+<link href="../../fonts.css" rel="stylesheet">
+<link href="../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/navigation.js"></script>
+<script src="../../js/search_index.js"></script>
+<script src="../../js/search.js"></script>
+<script src="../../js/searcher.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-c-raise_double_negation_error">::raise_double_negation_error</a>
+    
+    <li ><a href="#method-i-__raise">#__raise</a>
+    
+    <li ><a href="#method-i-actual_method_call_args_description">#actual_method_call_args_description</a>
+    
+    <li ><a href="#method-i-arg_has_valid_description">#arg_has_valid_description</a>
+    
+    <li ><a href="#method-i-arg_list">#arg_list</a>
+    
+    <li ><a href="#method-i-arg_message">#arg_message</a>
+    
+    <li ><a href="#method-i-count_message">#count_message</a>
+    
+    <li ><a href="#method-i-describe_expectation">#describe_expectation</a>
+    
+    <li ><a href="#method-i-expected_method_call_args_description">#expected_method_call_args_description</a>
+    
+    <li ><a href="#method-i-expected_part_of_expectation_error">#expected_part_of_expectation_error</a>
+    
+    <li ><a href="#method-i-format_args">#format_args</a>
+    
+    <li ><a href="#method-i-format_received_args">#format_received_args</a>
+    
+    <li ><a href="#method-i-intro">#intro</a>
+    
+    <li ><a href="#method-i-method_call_args_description">#method_call_args_description</a>
+    
+    <li ><a href="#method-i-opts">#opts</a>
+    
+    <li ><a href="#method-i-raise_block_failed_error">#raise_block_failed_error</a>
+    
+    <li ><a href="#method-i-raise_expectation_error">#raise_expectation_error</a>
+    
+    <li ><a href="#method-i-raise_expectation_on_mocked_method">#raise_expectation_on_mocked_method</a>
+    
+    <li ><a href="#method-i-raise_expectation_on_unstubbed_method">#raise_expectation_on_unstubbed_method</a>
+    
+    <li ><a href="#method-i-raise_expired_test_double_error">#raise_expired_test_double_error</a>
+    
+    <li ><a href="#method-i-raise_invalid_arguments_error">#raise_invalid_arguments_error</a>
+    
+    <li ><a href="#method-i-raise_missing_block_error">#raise_missing_block_error</a>
+    
+    <li ><a href="#method-i-raise_missing_default_stub_error">#raise_missing_default_stub_error</a>
+    
+    <li ><a href="#method-i-raise_non_public_error">#raise_non_public_error</a>
+    
+    <li ><a href="#method-i-raise_only_valid_on_a_partial_double">#raise_only_valid_on_a_partial_double</a>
+    
+    <li ><a href="#method-i-raise_out_of_order_error">#raise_out_of_order_error</a>
+    
+    <li ><a href="#method-i-raise_similar_message_args_error">#raise_similar_message_args_error</a>
+    
+    <li ><a href="#method-i-raise_unexpected_message_args_error">#raise_unexpected_message_args_error</a>
+    
+    <li ><a href="#method-i-raise_unexpected_message_error">#raise_unexpected_message_error</a>
+    
+    <li ><a href="#method-i-raise_unimplemented_error">#raise_unimplemented_error</a>
+    
+    <li ><a href="#method-i-raise_wrong_arity_error">#raise_wrong_arity_error</a>
+    
+    <li ><a href="#method-i-received_arg_list">#received_arg_list</a>
+    
+    <li ><a href="#method-i-received_part_of_expectation_error">#received_part_of_expectation_error</a>
+    
+    <li ><a href="#method-i-times">#times</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-RSpec::Mocks::ErrorGenerator">
+  <h1 id="class-RSpec::Mocks::ErrorGenerator" class="class">
+    class RSpec::Mocks::ErrorGenerator
+  </h1>
+
+  <section class="description">
+    
+<p>@private</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-opts" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">opts</span><span
+            class="attribute-access-type">[W]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(target, name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/rspec/mocks/error_generator.rb, line 24</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">target</span>, <span class="ruby-identifier">name</span>)
+  <span class="ruby-ivar">@target</span> = <span class="ruby-identifier">target</span>
+  <span class="ruby-ivar">@name</span> = <span class="ruby-identifier">name</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-raise_double_negation_error" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">raise_double_negation_error</span><span
+            class="method-args">(wrapped_expression)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="raise_double_negation_error-source">
+            <pre><span class="ruby-comment"># File lib/rspec/mocks/error_generator.rb, line 188</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">raise_double_negation_error</span>(<span class="ruby-identifier">wrapped_expression</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;Isn&#39;t life confusing enough? You&#39;ve already set a &quot;</span>                <span class="ruby-string">&quot;negative message expectation and now you are trying to &quot;</span>                <span class="ruby-string">&quot;negate it again with `never`. What does an expression like &quot;</span>                <span class="ruby-node">&quot;`#{wrapped_expression}.not_to receive(:msg).never` even mean?&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-actual_method_call_args_description" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">actual_method_call_args_description</span><span
+            class="method-args">(count, args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="actual_method_call_args_description-source">
+            <pre><span class="ruby-comment"># File lib/rspec/mocks/error_generator.rb, line 118</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">actual_method_call_args_description</span>(<span class="ruby-identifier">count</span>, <span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">method_call_args_description</span>(<span class="ruby-identifier">args</span>) <span class="ruby-operator">||</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">count</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+      <span class="ruby-node">&quot; with arguments: #{args.inspect.gsub(/\A\[(.+)\]\z/, &#39;(\1)&#39;)}&quot;</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-string">&quot;&quot;</span>
+    <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-describe_expectation" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">describe_expectation</span><span
+            class="method-args">(message, expected_received_count, _actual_received_count, *args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="describe_expectation-source">
+            <pre><span class="ruby-comment"># File lib/rspec/mocks/error_generator.rb, line 146</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">describe_expectation</span>(<span class="ruby-identifier">message</span>, <span class="ruby-identifier">expected_received_count</span>, <span class="ruby-identifier">_actual_received_count</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-node">&quot;have received #{message}#{format_args(*args)} #{count_message(expected_received_count)}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-expected_method_call_args_description" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">expected_method_call_args_description</span><span
+            class="method-args">(args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="expected_method_call_args_description-source">
+            <pre><span class="ruby-comment"># File lib/rspec/mocks/error_generator.rb, line 128</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">expected_method_call_args_description</span>(<span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">method_call_args_description</span>(<span class="ruby-identifier">args</span>) <span class="ruby-operator">||</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+      <span class="ruby-node">&quot; with arguments: #{format_args(*args)}&quot;</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-string">&quot;&quot;</span>
+    <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-expected_part_of_expectation_error" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">expected_part_of_expectation_error</span><span
+            class="method-args">(expected_received_count, expectation_count_type, argument_list_matcher)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="expected_part_of_expectation_error-source">
+            <pre><span class="ruby-comment"># File lib/rspec/mocks/error_generator.rb, line 112</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">expected_part_of_expectation_error</span>(<span class="ruby-identifier">expected_received_count</span>, <span class="ruby-identifier">expectation_count_type</span>, <span class="ruby-identifier">argument_list_matcher</span>)
+  <span class="ruby-node">&quot;expected: #{count_message(expected_received_count, expectation_count_type)}&quot;</span> <span class="ruby-operator">+</span>
+    <span class="ruby-identifier">expected_method_call_args_description</span>(<span class="ruby-identifier">argument_list_matcher</span>.<span class="ruby-identifier">expected_args</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-method_call_args_description" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">method_call_args_description</span><span
+            class="method-args">(args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="method_call_args_description-source">
+            <pre><span class="ruby-comment"># File lib/rspec/mocks/error_generator.rb, line 138</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">method_call_args_description</span>(<span class="ruby-identifier">args</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">first</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">ArgumentMatchers</span><span class="ruby-operator">::</span><span class="ruby-constant">AnyArgsMatcher</span> <span class="ruby-keyword">then</span> <span class="ruby-string">&quot; with any arguments&quot;</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">ArgumentMatchers</span><span class="ruby-operator">::</span><span class="ruby-constant">NoArgsMatcher</span>  <span class="ruby-keyword">then</span> <span class="ruby-string">&quot; with no arguments&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-opts" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">opts</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="opts-source">
+            <pre><span class="ruby-comment"># File lib/rspec/mocks/error_generator.rb, line 30</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">opts</span>
+  <span class="ruby-ivar">@opts</span> <span class="ruby-operator">||=</span> {}
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-raise_block_failed_error" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">raise_block_failed_error</span><span
+            class="method-args">(message, detail)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="raise_block_failed_error-source">
+            <pre><span class="ruby-comment"># File lib/rspec/mocks/error_generator.rb, line 156</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">raise_block_failed_error</span>(<span class="ruby-identifier">message</span>, <span class="ruby-identifier">detail</span>)
+  <span class="ruby-identifier">__raise</span> <span class="ruby-node">&quot;#{intro} received :#{message} but passed block failed with: #{detail}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-raise_expectation_error" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">raise_expectation_error</span><span
+            class="method-args">(message, expected_received_count, argument_list_matcher, actual_received_count, expectation_count_type, *args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>rubocop:disable Style/ParameterLists @private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="raise_expectation_error-source">
+            <pre><span class="ruby-comment"># File lib/rspec/mocks/error_generator.rb, line 69</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">raise_expectation_error</span>(<span class="ruby-identifier">message</span>, <span class="ruby-identifier">expected_received_count</span>, <span class="ruby-identifier">argument_list_matcher</span>, <span class="ruby-identifier">actual_received_count</span>, <span class="ruby-identifier">expectation_count_type</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">expected_part</span> = <span class="ruby-identifier">expected_part_of_expectation_error</span>(<span class="ruby-identifier">expected_received_count</span>, <span class="ruby-identifier">expectation_count_type</span>, <span class="ruby-identifier">argument_list_matcher</span>)
+  <span class="ruby-identifier">received_part</span> = <span class="ruby-identifier">received_part_of_expectation_error</span>(<span class="ruby-identifier">actual_received_count</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">__raise</span> <span class="ruby-node">&quot;(#{intro}).#{message}#{format_args(*args)}\n    #{expected_part}\n    #{received_part}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-raise_expectation_on_mocked_method" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">raise_expectation_on_mocked_method</span><span
+            class="method-args">(method)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="raise_expectation_on_mocked_method-source">
+            <pre><span class="ruby-comment"># File lib/rspec/mocks/error_generator.rb, line 183</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">raise_expectation_on_mocked_method</span>(<span class="ruby-identifier">method</span>)
+  <span class="ruby-identifier">__raise</span> <span class="ruby-node">&quot;#{intro} expected to have received #{method}, but that &quot;</span>                  <span class="ruby-string">&quot;method has been mocked instead of stubbed or spied.&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-raise_expectation_on_unstubbed_method" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">raise_expectation_on_unstubbed_method</span><span
+            class="method-args">(method)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="raise_expectation_on_unstubbed_method-source">
+            <pre><span class="ruby-comment"># File lib/rspec/mocks/error_generator.rb, line 177</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">raise_expectation_on_unstubbed_method</span>(<span class="ruby-identifier">method</span>)
+  <span class="ruby-identifier">__raise</span> <span class="ruby-node">&quot;#{intro} expected to have received #{method}, but that &quot;</span>                  <span class="ruby-string">&quot;object is not a spy or method has not been stubbed.&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-raise_expired_test_double_error" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">raise_expired_test_double_error</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="raise_expired_test_double_error-source">
+            <pre><span class="ruby-comment"># File lib/rspec/mocks/error_generator.rb, line 97</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">raise_expired_test_double_error</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">ExpiredTestDoubleError</span>,
+        <span class="ruby-node">&quot;#{intro} was originally created in one example but has leaked into &quot;</span>                <span class="ruby-string">&quot;another example and can no longer be used. rspec-mocks&#39; doubles are &quot;</span>                <span class="ruby-string">&quot;designed to only last for one example, and you need to create a new &quot;</span>                <span class="ruby-string">&quot;one in each example you wish to use it for.&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-raise_invalid_arguments_error" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">raise_invalid_arguments_error</span><span
+            class="method-args">(verifier)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="raise_invalid_arguments_error-source">
+            <pre><span class="ruby-comment"># File lib/rspec/mocks/error_generator.rb, line 92</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">raise_invalid_arguments_error</span>(<span class="ruby-identifier">verifier</span>)
+  <span class="ruby-identifier">__raise</span> <span class="ruby-identifier">verifier</span>.<span class="ruby-identifier">error_message</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-raise_missing_block_error" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">raise_missing_block_error</span><span
+            class="method-args">(args_to_yield)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="raise_missing_block_error-source">
+            <pre><span class="ruby-comment"># File lib/rspec/mocks/error_generator.rb, line 161</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">raise_missing_block_error</span>(<span class="ruby-identifier">args_to_yield</span>)
+  <span class="ruby-identifier">__raise</span> <span class="ruby-node">&quot;#{intro} asked to yield |#{arg_list(*args_to_yield)}| but no block was passed&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-raise_missing_default_stub_error" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">raise_missing_default_stub_error</span><span
+            class="method-args">(expectation, *args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="raise_missing_default_stub_error-source">
+            <pre><span class="ruby-comment"># File lib/rspec/mocks/error_generator.rb, line 49</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">raise_missing_default_stub_error</span>(<span class="ruby-identifier">expectation</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">expected_args</span> = <span class="ruby-identifier">format_args</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">expectation</span>.<span class="ruby-identifier">expected_args</span>)
+  <span class="ruby-identifier">actual_args</span> = <span class="ruby-identifier">format_received_args</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">__raise</span> <span class="ruby-node">&quot;#{intro} received #{expectation.message.inspect} with &quot;</span>                  <span class="ruby-node">&quot;unexpected arguments\n  expected: #{expected_args}\n&quot;</span>                  <span class="ruby-node">&quot;       got: #{actual_args}\n Please stub a default value &quot;</span>                  <span class="ruby-string">&quot;first if message might be received with other args as well. \n&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-raise_non_public_error" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">raise_non_public_error</span><span
+            class="method-args">(method_name, visibility)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="raise_non_public_error-source">
+            <pre><span class="ruby-comment"># File lib/rspec/mocks/error_generator.rb, line 85</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">raise_non_public_error</span>(<span class="ruby-identifier">method_name</span>, <span class="ruby-identifier">visibility</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">NoMethodError</span>, <span class="ruby-string">&quot;%s method `%s&#39; called on %s&quot;</span> <span class="ruby-operator">%</span> [
+    <span class="ruby-identifier">visibility</span>, <span class="ruby-identifier">method_name</span>, <span class="ruby-identifier">intro</span>
+  ]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-raise_only_valid_on_a_partial_double" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">raise_only_valid_on_a_partial_double</span><span
+            class="method-args">(method)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="raise_only_valid_on_a_partial_double-source">
+            <pre><span class="ruby-comment"># File lib/rspec/mocks/error_generator.rb, line 171</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">raise_only_valid_on_a_partial_double</span>(<span class="ruby-identifier">method</span>)
+  <span class="ruby-identifier">__raise</span> <span class="ruby-node">&quot;#{intro} is a pure test double. `#{method}` is only &quot;</span>                  <span class="ruby-string">&quot;available on a partial double.&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-raise_out_of_order_error" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">raise_out_of_order_error</span><span
+            class="method-args">(message)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="raise_out_of_order_error-source">
+            <pre><span class="ruby-comment"># File lib/rspec/mocks/error_generator.rb, line 151</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">raise_out_of_order_error</span>(<span class="ruby-identifier">message</span>)
+  <span class="ruby-identifier">__raise</span> <span class="ruby-node">&quot;#{intro} received :#{message} out of order&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-raise_similar_message_args_error" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">raise_similar_message_args_error</span><span
+            class="method-args">(expectation, *args_for_multiple_calls)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="raise_similar_message_args_error-source">
+            <pre><span class="ruby-comment"># File lib/rspec/mocks/error_generator.rb, line 59</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">raise_similar_message_args_error</span>(<span class="ruby-identifier">expectation</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args_for_multiple_calls</span>)
+  <span class="ruby-identifier">expected_args</span> = <span class="ruby-identifier">format_args</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">expectation</span>.<span class="ruby-identifier">expected_args</span>)
+  <span class="ruby-identifier">actual_args</span> = <span class="ruby-identifier">args_for_multiple_calls</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">a</span><span class="ruby-operator">|</span> <span class="ruby-identifier">format_received_args</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">a</span>) }.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;, &quot;</span>)
+  <span class="ruby-identifier">__raise</span> <span class="ruby-node">&quot;#{intro} received #{expectation.message.inspect} with &quot;</span>                  <span class="ruby-node">&quot;unexpected arguments\n  expected: #{expected_args}\n&quot;</span>                  <span class="ruby-node">&quot;       got: #{actual_args}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-raise_unexpected_message_args_error" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">raise_unexpected_message_args_error</span><span
+            class="method-args">(expectation, *args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="raise_unexpected_message_args_error-source">
+            <pre><span class="ruby-comment"># File lib/rspec/mocks/error_generator.rb, line 40</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">raise_unexpected_message_args_error</span>(<span class="ruby-identifier">expectation</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">expected_args</span> = <span class="ruby-identifier">format_args</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">expectation</span>.<span class="ruby-identifier">expected_args</span>)
+  <span class="ruby-identifier">actual_args</span> = <span class="ruby-identifier">format_received_args</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">__raise</span> <span class="ruby-node">&quot;#{intro} received #{expectation.message.inspect} with &quot;</span>                  <span class="ruby-node">&quot;unexpected arguments\n  expected: #{expected_args}\n&quot;</span>                  <span class="ruby-node">&quot;       got: #{actual_args}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-raise_unexpected_message_error" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">raise_unexpected_message_error</span><span
+            class="method-args">(message, *args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="raise_unexpected_message_error-source">
+            <pre><span class="ruby-comment"># File lib/rspec/mocks/error_generator.rb, line 35</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">raise_unexpected_message_error</span>(<span class="ruby-identifier">message</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">__raise</span> <span class="ruby-node">&quot;#{intro} received unexpected message :#{message}#{arg_message(*args)}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-raise_unimplemented_error" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">raise_unimplemented_error</span><span
+            class="method-args">(doubled_module, method_name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="raise_unimplemented_error-source">
+            <pre><span class="ruby-comment"># File lib/rspec/mocks/error_generator.rb, line 77</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">raise_unimplemented_error</span>(<span class="ruby-identifier">doubled_module</span>, <span class="ruby-identifier">method_name</span>)
+  <span class="ruby-identifier">__raise</span> <span class="ruby-string">&quot;%s does not implement: %s&quot;</span> <span class="ruby-operator">%</span> [
+    <span class="ruby-identifier">doubled_module</span>.<span class="ruby-identifier">description</span>,
+    <span class="ruby-identifier">method_name</span>
+  ]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-raise_wrong_arity_error" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">raise_wrong_arity_error</span><span
+            class="method-args">(args_to_yield, signature)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="raise_wrong_arity_error-source">
+            <pre><span class="ruby-comment"># File lib/rspec/mocks/error_generator.rb, line 166</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">raise_wrong_arity_error</span>(<span class="ruby-identifier">args_to_yield</span>, <span class="ruby-identifier">signature</span>)
+  <span class="ruby-identifier">__raise</span> <span class="ruby-node">&quot;#{intro} yielded |#{arg_list(*args_to_yield)}| to block with #{signature.description}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-received_part_of_expectation_error" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">received_part_of_expectation_error</span><span
+            class="method-args">(actual_received_count, *args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="received_part_of_expectation_error-source">
+            <pre><span class="ruby-comment"># File lib/rspec/mocks/error_generator.rb, line 106</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">received_part_of_expectation_error</span>(<span class="ruby-identifier">actual_received_count</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-node">&quot;received: #{count_message(actual_received_count)}&quot;</span> <span class="ruby-operator">+</span>
+    <span class="ruby-identifier">actual_method_call_args_description</span>(<span class="ruby-identifier">actual_received_count</span>, <span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-__raise" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">__raise</span><span
+            class="method-args">(message)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="__raise-source">
+            <pre><span class="ruby-comment"># File lib/rspec/mocks/error_generator.rb, line 211</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">__raise</span>(<span class="ruby-identifier">message</span>)
+  <span class="ruby-identifier">message</span> = <span class="ruby-identifier">opts</span>[<span class="ruby-value">:message</span>] <span class="ruby-keyword">unless</span> <span class="ruby-identifier">opts</span>[<span class="ruby-value">:message</span>].<span class="ruby-identifier">nil?</span>
+  <span class="ruby-constant">Kernel</span>.<span class="ruby-identifier">raise</span>(<span class="ruby-constant">RSpec</span><span class="ruby-operator">::</span><span class="ruby-constant">Mocks</span><span class="ruby-operator">::</span><span class="ruby-constant">MockExpectationError</span>, <span class="ruby-identifier">message</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-arg_has_valid_description" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">arg_has_valid_description</span><span
+            class="method-args">(arg)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="arg_has_valid_description-source">
+            <pre><span class="ruby-comment"># File lib/rspec/mocks/error_generator.rb, line 228</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">arg_has_valid_description</span>(<span class="ruby-identifier">arg</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">arg</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:description</span>)
+
+  <span class="ruby-operator">!</span><span class="ruby-identifier">arg</span>.<span class="ruby-identifier">description</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">arg</span>.<span class="ruby-identifier">description</span>.<span class="ruby-identifier">empty?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-arg_list" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">arg_list</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="arg_list-source">
+            <pre><span class="ruby-comment"># File lib/rspec/mocks/error_generator.rb, line 224</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">arg_list</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">args</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">arg</span><span class="ruby-operator">|</span> <span class="ruby-identifier">arg_has_valid_description</span>(<span class="ruby-identifier">arg</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">arg</span>.<span class="ruby-identifier">description</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">arg</span>.<span class="ruby-identifier">inspect</span> }.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;, &quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-arg_message" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">arg_message</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="arg_message-source">
+            <pre><span class="ruby-comment"># File lib/rspec/mocks/error_generator.rb, line 216</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">arg_message</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-string">&quot; with &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">format_args</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-count_message" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">count_message</span><span
+            class="method-args">(count, expectation_count_type=nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="count_message-source">
+            <pre><span class="ruby-comment"># File lib/rspec/mocks/error_generator.rb, line 242</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">count_message</span>(<span class="ruby-identifier">count</span>, <span class="ruby-identifier">expectation_count_type</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-node">&quot;at least #{times(count.abs)}&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">count</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">expectation_count_type</span> <span class="ruby-operator">==</span> <span class="ruby-value">:at_least</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-node">&quot;at most #{times(count)}&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">expectation_count_type</span> <span class="ruby-operator">==</span> <span class="ruby-value">:at_most</span>
+  <span class="ruby-identifier">times</span>(<span class="ruby-identifier">count</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-format_args" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">format_args</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="format_args-source">
+            <pre><span class="ruby-comment"># File lib/rspec/mocks/error_generator.rb, line 220</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">format_args</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">args</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">?</span> <span class="ruby-string">&quot;(no args)&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-string">&quot;(&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">arg_list</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>) <span class="ruby-operator">+</span> <span class="ruby-string">&quot;)&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-format_received_args" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">format_received_args</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="format_received_args-source">
+            <pre><span class="ruby-comment"># File lib/rspec/mocks/error_generator.rb, line 234</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">format_received_args</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">args</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">?</span> <span class="ruby-string">&quot;(no args)&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-string">&quot;(&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">received_arg_list</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>) <span class="ruby-operator">+</span> <span class="ruby-string">&quot;)&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-intro" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">intro</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="intro-source">
+            <pre><span class="ruby-comment"># File lib/rspec/mocks/error_generator.rb, line 197</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">intro</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@name</span>
+    <span class="ruby-node">&quot;Double #{@name.inspect}&quot;</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-constant">TestDouble</span> <span class="ruby-operator">===</span> <span class="ruby-ivar">@target</span>
+    <span class="ruby-string">&quot;Double&quot;</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-constant">Class</span> <span class="ruby-operator">===</span> <span class="ruby-ivar">@target</span>
+    <span class="ruby-node">&quot;&lt;#{@target.inspect} (class)&gt;&quot;</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-ivar">@target</span>
+    <span class="ruby-ivar">@target</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-string">&quot;nil&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-received_arg_list" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">received_arg_list</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="received_arg_list-source">
+            <pre><span class="ruby-comment"># File lib/rspec/mocks/error_generator.rb, line 238</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">received_arg_list</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">args</span>.<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:inspect</span>).<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;, &quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-times" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">times</span><span
+            class="method-args">(count)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="times-source">
+            <pre><span class="ruby-comment"># File lib/rspec/mocks/error_generator.rb, line 248</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">times</span>(<span class="ruby-identifier">count</span>)
+  <span class="ruby-node">&quot;#{count} time#{count == 1 ? &#39;&#39; : &#39;s&#39;}&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

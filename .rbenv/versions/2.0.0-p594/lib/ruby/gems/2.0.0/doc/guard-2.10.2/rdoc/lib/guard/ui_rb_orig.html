@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>ui.rb.orig - guard-2.10.2 Documentation</title>
+
+<link href="../../fonts.css" rel="stylesheet">
+<link href="../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/navigation.js"></script>
+<script src="../../js/search_index.js"></script>
+<script src="../../js/search.js"></script>
+<script src="../../js/searcher.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../lib/guard_rb_orig.html">guard.rb.orig</a>
+  
+    <li><a href="../../lib/guard/compat/test/helper_rb_orig.html">helper.rb.orig</a>
+  
+    <li><a href="../../lib/guard/dsl_rb_orig.html">dsl.rb.orig</a>
+  
+    <li><a href="../../lib/guard/internals/session_rb_orig.html">session.rb.orig</a>
+  
+    <li><a href="../../lib/guard/plugin_util_rb_orig.html">plugin_util.rb.orig</a>
+  
+    <li><a href="../../lib/guard/templates/Guardfile.html">Guardfile</a>
+  
+    <li><a href="../../lib/guard/ui_rb_orig.html">ui.rb.orig</a>
+  
+    <li><a href="../../lib/guard/version_rb_orig.html">version.rb.orig</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page lib/guard/ui.rb.orig">
+
+<p>require “lumberjack”</p>
+
+<p>require “guard/internals/state”</p>
+
+<p>require “guard/options”</p>
+
+<p>require “guard/ui/colors”</p>
+
+<p>require “guard/terminal”</p>
+
+<p>module Guard</p>
+
+<pre class="ruby"><span class="ruby-comment"># The UI class helps to format messages for the user. Everything that is</span>
+<span class="ruby-comment"># logged through this class is considered either as an error message or a</span>
+<span class="ruby-comment"># diagnostic message and is written to standard error ($stderr).</span>
+<span class="ruby-comment">#</span>
+<span class="ruby-comment"># If your Guard plugin does some output that is piped into another process</span>
+<span class="ruby-comment"># for further processing, please just write it to STDOUT with `puts`.</span>
+<span class="ruby-comment">#</span>
+<span class="ruby-keyword">module</span> <span class="ruby-constant">UI</span>
+  <span class="ruby-identifier">include</span> <span class="ruby-constant">Colors</span>
+
+  <span class="ruby-keyword">class</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-keyword">self</span>
+    <span class="ruby-comment"># Get the Guard::UI logger instance</span>
+    <span class="ruby-comment">#</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">logger</span>
+      <span class="ruby-ivar">@logger</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">begin</span>
+                    <span class="ruby-constant">Lumberjack</span><span class="ruby-operator">::</span><span class="ruby-constant">Logger</span>.<span class="ruby-identifier">new</span>(
+                      <span class="ruby-identifier">options</span>.<span class="ruby-identifier">fetch</span>(:<span class="ruby-identifier">device</span>) { <span class="ruby-identifier">$stderr</span> },
+                      <span class="ruby-identifier">options</span>)
+                  <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-comment"># Since logger is global, for Aruba in-process to properly</span>
+    <span class="ruby-comment"># separate output between calls, we need to reset</span>
+    <span class="ruby-comment">#</span>
+    <span class="ruby-comment"># We don&#39;t use logger=() since it&#39;s expected to be a Lumberjack instance</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">reset_logger</span>
+      <span class="ruby-ivar">@logger</span> = <span class="ruby-keyword">nil</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-comment"># Get the logger options</span>
+    <span class="ruby-comment">#</span>
+    <span class="ruby-comment"># @return [Hash] the logger options</span>
+    <span class="ruby-comment">#</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">options</span>
+      <span class="ruby-ivar">@options</span> <span class="ruby-operator">||=</span> <span class="ruby-operator">::</span><span class="ruby-constant">Guard</span><span class="ruby-operator">::</span><span class="ruby-constant">Options</span>.<span class="ruby-identifier">new</span>(
+        <span class="ruby-identifier">level</span><span class="ruby-operator">:</span> :<span class="ruby-identifier">info</span>,
+        <span class="ruby-identifier">template</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;:time - :severity - :message&quot;</span>,
+        <span class="ruby-identifier">time_format</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;%H:%M:%S&quot;</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-comment"># Set the logger options</span>
+    <span class="ruby-comment">#</span>
+    <span class="ruby-comment"># @param [Hash] options the logger options</span>
+    <span class="ruby-comment"># @option options [Symbol] level the log level</span>
+    <span class="ruby-comment"># @option options [String] template the logger template</span>
+    <span class="ruby-comment"># @option options [String] time_format the time format</span>
+    <span class="ruby-comment">#</span>
+    <span class="ruby-comment"># TODO: deprecate?</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">options=</span>(<span class="ruby-identifier">options</span>)
+      <span class="ruby-ivar">@options</span> = <span class="ruby-operator">::</span><span class="ruby-constant">Guard</span><span class="ruby-operator">::</span><span class="ruby-constant">Options</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">options</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-comment"># Assigns a log level</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">level=</span>(<span class="ruby-identifier">new_level</span>)
+      <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">level</span> = <span class="ruby-identifier">new_level</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-comment"># Show an info message.</span>
+    <span class="ruby-comment">#</span>
+    <span class="ruby-comment"># @param [String] message the message to show</span>
+    <span class="ruby-comment"># @option options [Boolean] reset whether to clean the output before</span>
+    <span class="ruby-comment"># @option options [String] plugin manually define the calling plugin</span>
+    <span class="ruby-comment">#</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">info</span>(<span class="ruby-identifier">message</span>, <span class="ruby-identifier">options</span> = {})
+      <span class="ruby-identifier">_filtered_logger_message</span>(<span class="ruby-identifier">message</span>, :<span class="ruby-identifier">info</span>, <span class="ruby-keyword">nil</span>, <span class="ruby-identifier">options</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-comment"># Show a yellow warning message that is prefixed with WARNING.</span>
+    <span class="ruby-comment">#</span>
+    <span class="ruby-comment"># @param [String] message the message to show</span>
+    <span class="ruby-comment"># @option options [Boolean] reset whether to clean the output before</span>
+    <span class="ruby-comment"># @option options [String] plugin manually define the calling plugin</span>
+    <span class="ruby-comment">#</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">warning</span>(<span class="ruby-identifier">message</span>, <span class="ruby-identifier">options</span> = {})
+      <span class="ruby-identifier">_filtered_logger_message</span>(<span class="ruby-identifier">message</span>, :<span class="ruby-identifier">warn</span>, :<span class="ruby-identifier">yellow</span>, <span class="ruby-identifier">options</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-comment"># Show a red error message that is prefixed with ERROR.</span>
+    <span class="ruby-comment">#</span>
+    <span class="ruby-comment"># @param [String] message the message to show</span>
+    <span class="ruby-comment"># @option options [Boolean] reset whether to clean the output before</span>
+    <span class="ruby-comment"># @option options [String] plugin manually define the calling plugin</span>
+    <span class="ruby-comment">#</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">error</span>(<span class="ruby-identifier">message</span>, <span class="ruby-identifier">options</span> = {})
+      <span class="ruby-identifier">_filtered_logger_message</span>(<span class="ruby-identifier">message</span>, :<span class="ruby-identifier">error</span>, :<span class="ruby-identifier">red</span>, <span class="ruby-identifier">options</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-comment"># Show a red deprecation message that is prefixed with DEPRECATION.</span>
+    <span class="ruby-comment"># It has a log level of `warn`.</span>
+    <span class="ruby-comment">#</span>
+    <span class="ruby-comment"># @param [String] message the message to show</span>
+    <span class="ruby-comment"># @option options [Boolean] reset whether to clean the output before</span>
+    <span class="ruby-comment"># @option options [String] plugin manually define the calling plugin</span>
+    <span class="ruby-comment">#</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">deprecation</span>(<span class="ruby-identifier">message</span>, <span class="ruby-identifier">options</span> = {})
+      <span class="ruby-keyword">unless</span> <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;GUARD_GEM_SILENCE_DEPRECATIONS&quot;</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&quot;1&quot;</span>
+        <span class="ruby-identifier">backtrace</span> = <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">current</span>.<span class="ruby-identifier">backtrace</span>[<span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">5</span>].<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;\n\t &gt;&quot;</span>)
+        <span class="ruby-identifier">msg</span> = <span class="ruby-identifier">format</span>(<span class="ruby-string">&quot;%s\nDeprecation backtrace: %s&quot;</span>, <span class="ruby-identifier">message</span>, <span class="ruby-identifier">backtrace</span>)
+        <span class="ruby-identifier">warning</span>(<span class="ruby-identifier">msg</span>, <span class="ruby-identifier">options</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-comment"># Show a debug message that is prefixed with DEBUG and a timestamp.</span>
+    <span class="ruby-comment">#</span>
+    <span class="ruby-comment"># @param [String] message the message to show</span>
+    <span class="ruby-comment"># @option options [Boolean] reset whether to clean the output before</span>
+    <span class="ruby-comment"># @option options [String] plugin manually define the calling plugin</span>
+    <span class="ruby-comment">#</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">debug</span>(<span class="ruby-identifier">message</span>, <span class="ruby-identifier">options</span> = {})
+      <span class="ruby-identifier">_filtered_logger_message</span>(<span class="ruby-identifier">message</span>, :<span class="ruby-identifier">debug</span>, :<span class="ruby-identifier">yellow</span>, <span class="ruby-identifier">options</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-comment"># Reset a line.</span>
+    <span class="ruby-comment">#</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">reset_line</span>
+      <span class="ruby-identifier">$stderr</span>.<span class="ruby-identifier">print</span>(<span class="ruby-identifier">color_enabled?</span> <span class="ruby-operator">?</span> <span class="ruby-string">&quot;\r\e[0m&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-string">&quot;\r\n&quot;</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-comment"># Clear the output if clearable.</span>
+    <span class="ruby-comment">#</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">clear</span>(<span class="ruby-identifier">opts</span> = {})
+      <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">Guard</span>.<span class="ruby-identifier">state</span>.<span class="ruby-identifier">session</span>.<span class="ruby-identifier">clear?</span>
+
+      <span class="ruby-identifier">fail</span> <span class="ruby-string">&quot;UI not set up!&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@clearable</span>.<span class="ruby-identifier">nil?</span>
+      <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@clearable</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">opts</span>[:<span class="ruby-identifier">force</span>]
+
+      <span class="ruby-ivar">@clearable</span> = <span class="ruby-keyword">false</span>
+      <span class="ruby-constant">Terminal</span>.<span class="ruby-identifier">clear</span>
+    <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Errno</span><span class="ruby-operator">::</span><span class="ruby-constant">ENOENT</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+      <span class="ruby-identifier">warning</span>(<span class="ruby-node">&quot;Failed to clear the screen: #{e.inspect}&quot;</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-comment"># TODO: arguments: UI uses Guard::options anyway</span>
+    <span class="ruby-comment"># @private api</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">reset_and_clear</span>
+      <span class="ruby-ivar">@clearable</span> = <span class="ruby-keyword">false</span>
+      <span class="ruby-identifier">clear</span>(<span class="ruby-identifier">force</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-comment"># Allow the screen to be cleared again.</span>
+    <span class="ruby-comment">#</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">clearable</span>
+      <span class="ruby-ivar">@clearable</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-comment"># Show a scoped action message.</span>
+    <span class="ruby-comment">#</span>
+    <span class="ruby-comment"># @param [String] action the action to show</span>
+    <span class="ruby-comment"># @param [Hash] scope hash with a guard or a group scope</span>
+    <span class="ruby-comment">#</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">action_with_scopes</span>(<span class="ruby-identifier">action</span>, <span class="ruby-identifier">scope</span>)
+      <span class="ruby-identifier">titles</span> = <span class="ruby-constant">Guard</span>.<span class="ruby-identifier">state</span>.<span class="ruby-identifier">scope</span>.<span class="ruby-identifier">titles</span>(<span class="ruby-identifier">scope</span>)
+      <span class="ruby-identifier">info</span> <span class="ruby-node">&quot;#{action} #{titles.join(&quot;, &quot;)}&quot;</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">private</span>
+
+    <span class="ruby-comment"># Filters log messages depending on either the</span>
+    <span class="ruby-comment"># `:only`` or `:except` option.</span>
+    <span class="ruby-comment">#</span>
+    <span class="ruby-comment"># @param [String] plugin the calling plugin name</span>
+    <span class="ruby-comment"># @yield When the message should be logged</span>
+    <span class="ruby-comment"># @yieldparam [String] param the calling plugin name</span>
+    <span class="ruby-comment">#</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">_filter</span>(<span class="ruby-identifier">plugin</span>)
+      <span class="ruby-identifier">only</span>   = <span class="ruby-identifier">options</span>[:<span class="ruby-identifier">only</span>]
+      <span class="ruby-identifier">except</span> = <span class="ruby-identifier">options</span>[:<span class="ruby-identifier">except</span>]
+      <span class="ruby-identifier">plugin</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">calling_plugin_name</span>
+
+      <span class="ruby-identifier">match</span> = <span class="ruby-operator">!</span>(<span class="ruby-identifier">only</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">except</span>)
+      <span class="ruby-identifier">match</span> <span class="ruby-operator">||=</span> (<span class="ruby-identifier">only</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">only</span>.<span class="ruby-identifier">match</span>(<span class="ruby-identifier">plugin</span>))
+      <span class="ruby-identifier">match</span> <span class="ruby-operator">||=</span> (<span class="ruby-identifier">except</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">except</span>.<span class="ruby-identifier">match</span>(<span class="ruby-identifier">plugin</span>))
+      <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">match</span>
+      <span class="ruby-keyword">yield</span> <span class="ruby-identifier">plugin</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-comment"># @private</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">_filtered_logger_message</span>(<span class="ruby-identifier">message</span>, <span class="ruby-identifier">method</span>, <span class="ruby-identifier">color_name</span>, <span class="ruby-identifier">options</span> = {})
+      <span class="ruby-identifier">message</span> = <span class="ruby-identifier">color</span>(<span class="ruby-identifier">message</span>, <span class="ruby-identifier">color_name</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">color_name</span>
+
+      <span class="ruby-identifier">_filter</span>(<span class="ruby-identifier">options</span>[:<span class="ruby-identifier">plugin</span>]) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">plugin</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">reset_line</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[:<span class="ruby-identifier">reset</span>]
+        <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">method</span>, <span class="ruby-identifier">message</span>, <span class="ruby-identifier">plugin</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-comment"># Tries to extract the calling Guard plugin name</span>
+    <span class="ruby-comment"># from the call stack.</span>
+    <span class="ruby-comment">#</span>
+    <span class="ruby-comment"># @param [Integer] depth the stack depth</span>
+    <span class="ruby-comment"># @return [String] the Guard plugin name</span>
+    <span class="ruby-comment">#</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">calling_plugin_name</span>(<span class="ruby-identifier">depth</span> = <span class="ruby-value">2</span>)
+      <span class="ruby-identifier">name</span> = <span class="ruby-regexp">/(guard\/[a-z_]*)(\/[a-z_]*)?.rb:/i</span>.<span class="ruby-identifier">match</span>(<span class="ruby-identifier">caller</span>[<span class="ruby-identifier">depth</span>])
+      <span class="ruby-keyword">return</span> <span class="ruby-string">&quot;Guard&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">name</span>
+      <span class="ruby-identifier">name</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;/&quot;</span>).<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">part</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">part</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp">/[^a-z0-9]/i</span>).<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span>:<span class="ruby-identifier">capitalize</span>).<span class="ruby-identifier">join</span>
+      <span class="ruby-keyword">end</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;::&quot;</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-comment"># Checks if color output can be enabled.</span>
+    <span class="ruby-comment">#</span>
+    <span class="ruby-comment"># @return [Boolean] whether color is enabled or not</span>
+    <span class="ruby-comment">#</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">color_enabled?</span>
+      <span class="ruby-ivar">@color_enabled_initialized</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">false</span>
+      <span class="ruby-ivar">@color_enabled</span> = <span class="ruby-keyword">nil</span> <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@color_enabled_initialized</span>
+      <span class="ruby-ivar">@color_enabled_initialized</span> = <span class="ruby-keyword">true</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-ivar">@color_enabled</span>.<span class="ruby-identifier">nil?</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-constant">Gem</span>.<span class="ruby-identifier">win_platform?</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;ANSICON&quot;</span>]
+            <span class="ruby-ivar">@color_enabled</span> = <span class="ruby-keyword">true</span>
+          <span class="ruby-keyword">else</span>
+            <span class="ruby-keyword">begin</span>
+              <span class="ruby-identifier">require</span> <span class="ruby-string">&quot;rubygems&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;NO_RUBYGEMS&quot;</span>]
+              <span class="ruby-identifier">require</span> <span class="ruby-string">&quot;Win32/Console/ANSI&quot;</span>
+              <span class="ruby-ivar">@color_enabled</span> = <span class="ruby-keyword">true</span>
+            <span class="ruby-keyword">rescue</span> <span class="ruby-constant">LoadError</span>
+              <span class="ruby-ivar">@color_enabled</span> = <span class="ruby-keyword">false</span>
+              <span class="ruby-identifier">info</span> <span class="ruby-string">&quot;Run &#39;gem install win32console&#39; to use color on Windows&quot;</span>
+            <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-ivar">@color_enabled</span> = <span class="ruby-keyword">true</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+
+      <span class="ruby-ivar">@color_enabled</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-comment"># Colorizes a text message. See the constant in the UI class for possible</span>
+    <span class="ruby-comment"># color_options parameters. You can pass optionally :bright, a foreground</span>
+    <span class="ruby-comment"># color and a background color.</span>
+    <span class="ruby-comment">#</span>
+    <span class="ruby-comment"># @example</span>
+    <span class="ruby-comment">#</span>
+    <span class="ruby-comment">#   color(&#39;Hello World&#39;, :red, :bright)</span>
+    <span class="ruby-comment">#</span>
+    <span class="ruby-comment"># @param [String] text the text to colorize</span>
+    <span class="ruby-comment"># @param [Array] color_options the color options</span>
+    <span class="ruby-comment">#</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">color</span>(<span class="ruby-identifier">text</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">color_options</span>)
+      <span class="ruby-identifier">color_code</span> = <span class="ruby-string">&quot;&quot;</span>
+      <span class="ruby-identifier">color_options</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">color_option</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">color_option</span> = <span class="ruby-identifier">color_option</span>.<span class="ruby-identifier">to_s</span>
+        <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">color_option</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;&quot;</span>
+
+        <span class="ruby-keyword">unless</span> <span class="ruby-identifier">color_option</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp">/\d+/</span>
+          <span class="ruby-identifier">color_option</span> = <span class="ruby-identifier">const_get</span>(<span class="ruby-node">&quot;ANSI_ESCAPE_#{ color_option.upcase }&quot;</span>)
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">color_code</span> <span class="ruby-operator">+=</span> <span class="ruby-string">&quot;;&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">color_option</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">color_enabled?</span> <span class="ruby-operator">?</span> <span class="ruby-node">&quot;\e[0#{ color_code }m#{ text }\e[0m&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">text</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>end</p>
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module RSpec::Rails::ViewExampleGroup::ExampleMethods - rspec-rails-3.1.0 Documentation</title>
+
+<link href="../../../fonts.css" rel="stylesheet">
+<link href="../../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../";
+</script>
+
+<script src="../../../js/jquery.js"></script>
+<script src="../../../js/navigation.js"></script>
+<script src="../../../js/search_index.js"></script>
+<script src="../../../js/search.js"></script>
+<script src="../../../js/searcher.js"></script>
+<script src="../../../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-_controller_path">#_controller_path</a>
+    
+    <li ><a href="#method-i-_default_render_options">#_default_render_options</a>
+    
+    <li ><a href="#method-i-_include_controller_helpers">#_include_controller_helpers</a>
+    
+    <li ><a href="#method-i-_inferred_action">#_inferred_action</a>
+    
+    <li ><a href="#method-i-_path_parts">#_path_parts</a>
+    
+    <li ><a href="#method-i-params">#params</a>
+    
+    <li class="calls-super" ><a href="#method-i-render">#render</a>
+    
+    <li ><a href="#method-i-response">#response</a>
+    
+    <li ><a href="#method-i-stub_template">#stub_template</a>
+    
+    <li ><a href="#method-i-template">#template</a>
+    
+    <li ><a href="#method-i-view">#view</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-RSpec::Rails::ViewExampleGroup::ExampleMethods">
+  <h1 id="module-RSpec::Rails::ViewExampleGroup::ExampleMethods" class="module">
+    module RSpec::Rails::ViewExampleGroup::ExampleMethods
+  </h1>
+
+  <section class="description">
+    
+<p>DSL exposed to view specs.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-params" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">params</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Provides access to the params hash that will be available within the view.</p>
+
+<pre>params[:foo] = &#39;bar&#39;</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="params-source">
+            <pre><span class="ruby-comment"># File lib/rspec/rails/example/view_example_group.rb, line 81</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">params</span>
+  <span class="ruby-identifier">controller</span>.<span class="ruby-identifier">params</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-render" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">render</span><span
+            class="method-args">(options = {}, local_assigns = {}, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@overload render @overload render({:partial =&gt; path_to_file}) @overload
+render({:partial =&gt; path_to_file}, {… locals …}) @overload
+render({:partial =&gt; path_to_file}, {… locals …}) do … end</p>
+
+<p>Delegates to ActionView::Base#render, so see documentation on that for more
+info.</p>
+
+<p>The only addition is that you can call render with no arguments, and <a
+href="../../../RSpec.html">RSpec</a> will pass the top level description to
+render:</p>
+
+<pre class="ruby"><span class="ruby-identifier">describe</span> <span class="ruby-string">&quot;widgets/new.html.erb&quot;</span> <span class="ruby-keyword">do</span>
+  <span class="ruby-identifier">it</span> <span class="ruby-string">&quot;shows all the widgets&quot;</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">render</span> <span class="ruby-comment"># =&gt; view.render(:file =&gt; &quot;widgets/new.html.erb&quot;)</span>
+    <span class="ruby-comment"># ...</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="render-source">
+            <pre><span class="ruby-comment"># File lib/rspec/rails/example/view_example_group.rb, line 48</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">render</span>(<span class="ruby-identifier">options</span> = {}, <span class="ruby-identifier">local_assigns</span> = {}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">options</span> = <span class="ruby-identifier">_default_render_options</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">Hash</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">options</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">empty?</span>
+  <span class="ruby-keyword">super</span>(<span class="ruby-identifier">options</span>, <span class="ruby-identifier">local_assigns</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-response" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">response</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@deprecated Use `rendered` instead.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="response-source">
+            <pre><span class="ruby-comment"># File lib/rspec/rails/example/view_example_group.rb, line 92</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">response</span>
+  <span class="ruby-comment"># `assert_template` expects `response` to implement a #body method</span>
+  <span class="ruby-comment"># like an `ActionDispatch::Response` does to force the view to</span>
+  <span class="ruby-comment"># render. For backwards compatibility, we use #response as an alias</span>
+  <span class="ruby-comment"># for #rendered, but it needs to implement #body to avoid</span>
+  <span class="ruby-comment"># `assert_template` raising a `NoMethodError`.</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">rendered</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:body</span>)
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">rendered</span>.<span class="ruby-identifier">body</span>
+      <span class="ruby-keyword">self</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">rendered</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-stub_template" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">stub_template</span><span
+            class="method-args">(hash)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Simulates the presence of a template on the file system by adding a
+Rails&#39; FixtureResolver to the front of the view_paths list. Designed to
+help isolate view examples from partials rendered by the view template that
+is the subject of the example.</p>
+
+<pre class="ruby"><span class="ruby-identifier">stub_template</span>(<span class="ruby-string">&quot;widgets/_widget.html.erb&quot;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;This content.&quot;</span>)
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="stub_template-source">
+            <pre><span class="ruby-comment"># File lib/rspec/rails/example/view_example_group.rb, line 73</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">stub_template</span>(<span class="ruby-identifier">hash</span>)
+  <span class="ruby-identifier">view</span>.<span class="ruby-identifier">view_paths</span>.<span class="ruby-identifier">unshift</span>(<span class="ruby-constant">ActionView</span><span class="ruby-operator">::</span><span class="ruby-constant">FixtureResolver</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">hash</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-template" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">template</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@deprecated Use `view` instead.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="template-source">
+            <pre><span class="ruby-comment"># File lib/rspec/rails/example/view_example_group.rb, line 86</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">template</span>
+  <span class="ruby-constant">RSpec</span>.<span class="ruby-identifier">deprecate</span>(<span class="ruby-string">&quot;template&quot;</span>, <span class="ruby-value">:replacement</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;view&quot;</span>)
+  <span class="ruby-identifier">view</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-view" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">view</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The instance of `ActionView::Base` that is used to render the template. Use
+this to stub methods <em>before</em> calling `render`.</p>
+
+<pre>describe &quot;widgets/new.html.erb&quot; do
+  it &quot;shows all the widgets&quot; do
+    view.stub(:foo) { &quot;foo&quot; }
+    render
+    # ...
+  end
+end</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="view-source">
+            <pre><span class="ruby-comment"># File lib/rspec/rails/example/view_example_group.rb, line 63</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">view</span>
+  <span class="ruby-identifier">_view</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-_controller_path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">_controller_path</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="_controller_path-source">
+            <pre><span class="ruby-comment"># File lib/rspec/rails/example/view_example_group.rb, line 130</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">_controller_path</span>
+  <span class="ruby-identifier">_path_parts</span>[<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-value">-2</span>].<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;/&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-_default_render_options" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">_default_render_options</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="_default_render_options-source">
+            <pre><span class="ruby-comment"># File lib/rspec/rails/example/view_example_group.rb, line 109</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">_default_render_options</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">::</span><span class="ruby-constant">Rails</span><span class="ruby-operator">::</span><span class="ruby-constant">VERSION</span><span class="ruby-operator">::</span><span class="ruby-constant">STRING</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-string">&#39;3.2&#39;</span>
+    <span class="ruby-comment"># pluck the handler, format, and locale out of, eg, posts/index.de.html.haml</span>
+    <span class="ruby-identifier">template</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">components</span>   = <span class="ruby-identifier">_default_file_to_render</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;.&#39;</span>)
+    <span class="ruby-identifier">handler</span>, <span class="ruby-identifier">format</span>, <span class="ruby-identifier">locale</span> = <span class="ruby-operator">*</span><span class="ruby-identifier">components</span>.<span class="ruby-identifier">reverse</span>
+
+    <span class="ruby-identifier">render_options</span> = { <span class="ruby-value">:template</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">template</span> }
+    <span class="ruby-identifier">render_options</span>[<span class="ruby-value">:handlers</span>] = [<span class="ruby-identifier">handler</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">handler</span>
+    <span class="ruby-identifier">render_options</span>[<span class="ruby-value">:formats</span>] = [<span class="ruby-identifier">format</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">format</span>
+    <span class="ruby-identifier">render_options</span>[<span class="ruby-value">:locales</span>] = [<span class="ruby-identifier">locale</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">locale</span>
+
+    <span class="ruby-identifier">render_options</span>
+  <span class="ruby-keyword">else</span>
+    { <span class="ruby-value">:template</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">_default_file_to_render</span> }
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-_include_controller_helpers" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">_include_controller_helpers</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="_include_controller_helpers-source">
+            <pre><span class="ruby-comment"># File lib/rspec/rails/example/view_example_group.rb, line 138</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">_include_controller_helpers</span>
+  <span class="ruby-identifier">helpers</span> = <span class="ruby-identifier">controller</span>.<span class="ruby-identifier">_helpers</span>
+  <span class="ruby-identifier">view</span>.<span class="ruby-identifier">singleton_class</span>.<span class="ruby-identifier">class_exec</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">include</span> <span class="ruby-identifier">helpers</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">included_modules</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">helpers</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-_inferred_action" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">_inferred_action</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="_inferred_action-source">
+            <pre><span class="ruby-comment"># File lib/rspec/rails/example/view_example_group.rb, line 134</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">_inferred_action</span>
+  <span class="ruby-identifier">_path_parts</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;.&quot;</span>).<span class="ruby-identifier">first</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-_path_parts" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">_path_parts</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="_path_parts-source">
+            <pre><span class="ruby-comment"># File lib/rspec/rails/example/view_example_group.rb, line 126</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">_path_parts</span>
+  <span class="ruby-identifier">_default_file_to_render</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;/&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

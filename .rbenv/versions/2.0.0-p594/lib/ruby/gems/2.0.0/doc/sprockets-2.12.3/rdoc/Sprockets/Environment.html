@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Sprockets::Environment - sprockets-2.12.3 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="Base.html">Sprockets::Base</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-expire_index-21">#expire_index!</a>
+    
+    <li ><a href="#method-i-find_asset">#find_asset</a>
+    
+    <li ><a href="#method-i-index">#index</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Sprockets::Environment">
+  <h1 id="class-Sprockets::Environment" class="class">
+    class Sprockets::Environment
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(root = ".") { |self| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>`Environment` should initialized with your application&#39;s root
+directory. This should be the same as your Rails or Rack root.</p>
+
+<pre class="ruby"><span class="ruby-identifier">env</span> = <span class="ruby-constant">Environment</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">Rails</span>.<span class="ruby-identifier">root</span>)
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/sprockets/environment.rb, line 17</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">root</span> = <span class="ruby-string">&quot;.&quot;</span>)
+  <span class="ruby-ivar">@trail</span> = <span class="ruby-constant">Hike</span><span class="ruby-operator">::</span><span class="ruby-constant">Trail</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">root</span>)
+
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">logger</span> = <span class="ruby-constant">Logger</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">$stderr</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">logger</span>.<span class="ruby-identifier">level</span> = <span class="ruby-constant">Logger</span><span class="ruby-operator">::</span><span class="ruby-constant">FATAL</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:default_external_encoding</span>)
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">default_external_encoding</span> = <span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">UTF_8</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># Create a safe `Context` subclass to mutate</span>
+  <span class="ruby-ivar">@context_class</span> = <span class="ruby-constant">Class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">Context</span>)
+
+  <span class="ruby-comment"># Set MD5 as the default digest</span>
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;digest/md5&#39;</span>
+  <span class="ruby-ivar">@digest_class</span> = <span class="ruby-operator">::</span><span class="ruby-constant">Digest</span><span class="ruby-operator">::</span><span class="ruby-constant">MD5</span>
+  <span class="ruby-ivar">@version</span> = <span class="ruby-string">&#39;&#39;</span>
+
+  <span class="ruby-ivar">@mime_types</span>        = <span class="ruby-constant">Sprockets</span>.<span class="ruby-identifier">registered_mime_types</span>
+  <span class="ruby-ivar">@engines</span>           = <span class="ruby-constant">Sprockets</span>.<span class="ruby-identifier">engines</span>
+  <span class="ruby-ivar">@preprocessors</span>     = <span class="ruby-constant">Sprockets</span>.<span class="ruby-identifier">preprocessors</span>
+  <span class="ruby-ivar">@postprocessors</span>    = <span class="ruby-constant">Sprockets</span>.<span class="ruby-identifier">postprocessors</span>
+  <span class="ruby-ivar">@bundle_processors</span> = <span class="ruby-constant">Sprockets</span>.<span class="ruby-identifier">bundle_processors</span>
+  <span class="ruby-ivar">@compressors</span>       = <span class="ruby-constant">Sprockets</span>.<span class="ruby-identifier">compressors</span>
+
+  <span class="ruby-constant">Sprockets</span>.<span class="ruby-identifier">paths</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">path</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">append_path</span>(<span class="ruby-identifier">path</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@engines</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">ext</span>, <span class="ruby-identifier">klass</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">add_engine_to_trail</span>(<span class="ruby-identifier">ext</span>, <span class="ruby-identifier">klass</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@mime_types</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">ext</span>, <span class="ruby-identifier">type</span><span class="ruby-operator">|</span>
+    <span class="ruby-ivar">@trail</span>.<span class="ruby-identifier">append_extension</span>(<span class="ruby-identifier">ext</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">expire_index!</span>
+
+  <span class="ruby-keyword">yield</span> <span class="ruby-keyword">self</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-find_asset" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">find_asset</span><span
+            class="method-args">(path, options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="Cache.html">Cache</a> `find_asset` calls</p>
+          
+          
+
+          
+          <div class="method-source-code" id="find_asset-source">
+            <pre><span class="ruby-comment"># File lib/sprockets/environment.rb, line 69</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">find_asset</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">options</span>[<span class="ruby-value">:bundle</span>] = <span class="ruby-keyword">true</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-value">:bundle</span>)
+
+  <span class="ruby-comment"># Ensure inmemory cached assets are still fresh on every lookup</span>
+  <span class="ruby-keyword">if</span> (<span class="ruby-identifier">asset</span> = <span class="ruby-ivar">@assets</span>[<span class="ruby-identifier">cache_key_for</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">options</span>)]) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">asset</span>.<span class="ruby-identifier">fresh?</span>(<span class="ruby-keyword">self</span>)
+    <span class="ruby-identifier">asset</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">asset</span> = <span class="ruby-identifier">index</span>.<span class="ruby-identifier">find_asset</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">options</span>)
+    <span class="ruby-comment"># Cache is pushed upstream by Index#find_asset</span>
+    <span class="ruby-identifier">asset</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-index" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">index</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns a cached version of the environment.</p>
+
+<p>All its file system calls are cached which makes `index` much faster. This
+behavior is ideal in production since the file system only changes between
+deploys.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="index-source">
+            <pre><span class="ruby-comment"># File lib/sprockets/environment.rb, line 64</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">index</span>
+  <span class="ruby-constant">Index</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="protected-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Protected Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-expire_index-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">expire_index!</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="expire_index-21-source">
+            <pre><span class="ruby-comment"># File lib/sprockets/environment.rb, line 82</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">expire_index!</span>
+  <span class="ruby-comment"># Clear digest to be recomputed</span>
+  <span class="ruby-ivar">@digest</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@assets</span> = {}
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

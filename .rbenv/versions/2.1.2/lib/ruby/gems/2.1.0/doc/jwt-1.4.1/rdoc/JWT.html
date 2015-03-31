@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module JWT - Jwt</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    <div id="extends-section" class="nav-section">
+  <h3>Extended With Modules</h3>
+
+  <ul class="link-list">
+    
+  
+    <li><a class="extend" href="JWT/Json.html">JWT::Json</a>
+  
+  
+  </ul>
+</div>
+
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-base64url_decode">#base64url_decode</a>
+    
+    <li ><a href="#method-i-base64url_encode">#base64url_encode</a>
+    
+    <li ><a href="#method-i-decode">#decode</a>
+    
+    <li ><a href="#method-i-decode_header_and_payload">#decode_header_and_payload</a>
+    
+    <li ><a href="#method-i-decoded_segments">#decoded_segments</a>
+    
+    <li ><a href="#method-i-encode">#encode</a>
+    
+    <li ><a href="#method-i-encoded_header">#encoded_header</a>
+    
+    <li ><a href="#method-i-encoded_payload">#encoded_payload</a>
+    
+    <li ><a href="#method-i-encoded_signature">#encoded_signature</a>
+    
+    <li ><a href="#method-i-raw_segments">#raw_segments</a>
+    
+    <li ><a href="#method-i-secure_compare">#secure_compare</a>
+    
+    <li ><a href="#method-i-sign">#sign</a>
+    
+    <li ><a href="#method-i-sign_hmac">#sign_hmac</a>
+    
+    <li ><a href="#method-i-sign_rsa">#sign_rsa</a>
+    
+    <li ><a href="#method-i-signature_algorithm_and_key">#signature_algorithm_and_key</a>
+    
+    <li ><a href="#method-i-verify_rsa">#verify_rsa</a>
+    
+    <li ><a href="#method-i-verify_signature">#verify_signature</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-JWT">
+  <h1 id="module-JWT" class="module">
+    module JWT
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-base64url_decode" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">base64url_decode</span><span
+            class="method-args">(str)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="base64url_decode-source">
+            <pre><span class="ruby-comment"># File lib/jwt.rb, line 47</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">base64url_decode</span>(<span class="ruby-identifier">str</span>)
+  <span class="ruby-identifier">str</span> <span class="ruby-operator">+=</span> <span class="ruby-string">&#39;=&#39;</span> <span class="ruby-operator">*</span> (<span class="ruby-value">4</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">str</span>.<span class="ruby-identifier">length</span>.<span class="ruby-identifier">modulo</span>(<span class="ruby-value">4</span>))
+  <span class="ruby-constant">Base64</span>.<span class="ruby-identifier">decode64</span>(<span class="ruby-identifier">str</span>.<span class="ruby-identifier">tr</span>(<span class="ruby-string">&#39;-_&#39;</span>, <span class="ruby-string">&#39;+/&#39;</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-base64url_encode" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">base64url_encode</span><span
+            class="method-args">(str)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="base64url_encode-source">
+            <pre><span class="ruby-comment"># File lib/jwt.rb, line 52</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">base64url_encode</span>(<span class="ruby-identifier">str</span>)
+  <span class="ruby-constant">Base64</span>.<span class="ruby-identifier">encode64</span>(<span class="ruby-identifier">str</span>).<span class="ruby-identifier">tr</span>(<span class="ruby-string">&#39;+/&#39;</span>, <span class="ruby-string">&#39;-_&#39;</span>).<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/[\n=]/</span>, <span class="ruby-string">&#39;&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-decode" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">decode</span><span
+            class="method-args">(jwt, key=nil, verify=true, options={}, &keyfinder)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="decode-source">
+            <pre><span class="ruby-comment"># File lib/jwt.rb, line 104</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">decode</span>(<span class="ruby-identifier">jwt</span>, <span class="ruby-identifier">key</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">verify</span>=<span class="ruby-keyword">true</span>, <span class="ruby-identifier">options</span>={}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">keyfinder</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">JWT</span><span class="ruby-operator">::</span><span class="ruby-constant">DecodeError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;Nil JSON web token&#39;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">jwt</span>
+
+  <span class="ruby-identifier">header</span>, <span class="ruby-identifier">payload</span>, <span class="ruby-identifier">signature</span>, <span class="ruby-identifier">signing_input</span> = <span class="ruby-identifier">decoded_segments</span>(<span class="ruby-identifier">jwt</span>, <span class="ruby-identifier">verify</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">JWT</span><span class="ruby-operator">::</span><span class="ruby-constant">DecodeError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;Not enough or too many segments&#39;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">header</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">payload</span>
+
+  <span class="ruby-identifier">default_options</span> = {
+    <span class="ruby-value">:verify_expiration</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>,
+    <span class="ruby-value">:verify_not_before</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>,
+    <span class="ruby-value">:verify_iss</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">false</span>,
+    <span class="ruby-value">:verify_iat</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">false</span>,
+    <span class="ruby-value">:verify_jti</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">false</span>,
+    <span class="ruby-value">:verify_aud</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">false</span>,
+    <span class="ruby-value">:verify_sub</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">false</span>,
+    <span class="ruby-value">:leeway</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+  }
+
+  <span class="ruby-identifier">options</span> = <span class="ruby-identifier">default_options</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">options</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">verify</span>
+    <span class="ruby-identifier">algo</span>, <span class="ruby-identifier">key</span> = <span class="ruby-identifier">signature_algorithm_and_key</span>(<span class="ruby-identifier">header</span>, <span class="ruby-identifier">key</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">keyfinder</span>)
+    <span class="ruby-identifier">verify_signature</span>(<span class="ruby-identifier">algo</span>, <span class="ruby-identifier">key</span>, <span class="ruby-identifier">signing_input</span>, <span class="ruby-identifier">signature</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:verify_expiration</span>] <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">payload</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&#39;exp&#39;</span>)
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">JWT</span><span class="ruby-operator">::</span><span class="ruby-constant">ExpiredSignature</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;Signature has expired&#39;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">payload</span>[<span class="ruby-string">&#39;exp&#39;</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">&gt;</span> (<span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">to_i</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:leeway</span>])
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:verify_not_before</span>] <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">payload</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&#39;nbf&#39;</span>)
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">JWT</span><span class="ruby-operator">::</span><span class="ruby-constant">ImmatureSignature</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;Signature nbf has not been reached&#39;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">payload</span>[<span class="ruby-string">&#39;nbf&#39;</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">&lt;</span> (<span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">to_i</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:leeway</span>])
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:verify_iss</span>] <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">payload</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&#39;iss&#39;</span>)
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">JWT</span><span class="ruby-operator">::</span><span class="ruby-constant">InvalidIssuerError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;Invalid issuer. Expected #{options[&#39;iss&#39;]}, received #{payload[&#39;iss&#39;]}&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">payload</span>[<span class="ruby-string">&#39;iss&#39;</span>].<span class="ruby-identifier">to_s</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">options</span>[<span class="ruby-string">&#39;iss&#39;</span>].<span class="ruby-identifier">to_s</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:verify_iat</span>] <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">payload</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&#39;iat&#39;</span>)
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">JWT</span><span class="ruby-operator">::</span><span class="ruby-constant">InvalidIatError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;Invalid iat&#39;</span>) <span class="ruby-keyword">unless</span> (<span class="ruby-identifier">payload</span>[<span class="ruby-string">&#39;iat&#39;</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Integer</span>) <span class="ruby-keyword">and</span> <span class="ruby-identifier">payload</span>[<span class="ruby-string">&#39;iat&#39;</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">to_i</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:verify_aud</span>] <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">payload</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&#39;aud&#39;</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">payload</span>[<span class="ruby-string">&#39;aud&#39;</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Array</span>)
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">JWT</span><span class="ruby-operator">::</span><span class="ruby-constant">InvalidAudError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;Invalid audience&#39;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">payload</span>[<span class="ruby-string">&#39;aud&#39;</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">options</span>[<span class="ruby-string">&#39;aud&#39;</span>])
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">JWT</span><span class="ruby-operator">::</span><span class="ruby-constant">InvalidAudError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;Invalid audience. Expected #{options[&#39;aud&#39;]}, received #{payload[&#39;aud&#39;]}&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">payload</span>[<span class="ruby-string">&#39;aud&#39;</span>].<span class="ruby-identifier">to_s</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">options</span>[<span class="ruby-string">&#39;aud&#39;</span>].<span class="ruby-identifier">to_s</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:verify_sub</span>] <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">payload</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&#39;sub&#39;</span>)
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">JWT</span><span class="ruby-operator">::</span><span class="ruby-constant">InvalidSubError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;Invalid subject. Expected #{options[&#39;sub&#39;]}, received #{payload[&#39;sub&#39;]}&quot;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">payload</span>[<span class="ruby-string">&#39;sub&#39;</span>].<span class="ruby-identifier">to_s</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">options</span>[<span class="ruby-string">&#39;sub&#39;</span>].<span class="ruby-identifier">to_s</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:verify_jti</span>] <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">payload</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&#39;jti&#39;</span>)
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">JWT</span><span class="ruby-operator">::</span><span class="ruby-constant">InvalidJtiError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;need iat for verify jwt id&#39;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">payload</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&#39;iat&#39;</span>)
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">JWT</span><span class="ruby-operator">::</span><span class="ruby-constant">InvalidJtiError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;Not a uniq jwt id&#39;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">options</span>[<span class="ruby-string">&#39;jti&#39;</span>].<span class="ruby-identifier">to_s</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Digest</span><span class="ruby-operator">::</span><span class="ruby-constant">MD5</span>.<span class="ruby-identifier">hexdigest</span>(<span class="ruby-node">&quot;#{key}:#{payload[&#39;iat&#39;]}&quot;</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">payload</span>,<span class="ruby-identifier">header</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-decode_header_and_payload" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">decode_header_and_payload</span><span
+            class="method-args">(header_segment, payload_segment)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="decode_header_and_payload-source">
+            <pre><span class="ruby-comment"># File lib/jwt.rb, line 90</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">decode_header_and_payload</span>(<span class="ruby-identifier">header_segment</span>, <span class="ruby-identifier">payload_segment</span>)
+  <span class="ruby-identifier">header</span> = <span class="ruby-identifier">decode_json</span>(<span class="ruby-identifier">base64url_decode</span>(<span class="ruby-identifier">header_segment</span>))
+  <span class="ruby-identifier">payload</span> = <span class="ruby-identifier">decode_json</span>(<span class="ruby-identifier">base64url_decode</span>(<span class="ruby-identifier">payload_segment</span>))
+  [<span class="ruby-identifier">header</span>, <span class="ruby-identifier">payload</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-decoded_segments" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">decoded_segments</span><span
+            class="method-args">(jwt, verify=true)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="decoded_segments-source">
+            <pre><span class="ruby-comment"># File lib/jwt.rb, line 96</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">decoded_segments</span>(<span class="ruby-identifier">jwt</span>, <span class="ruby-identifier">verify</span>=<span class="ruby-keyword">true</span>)
+  <span class="ruby-identifier">header_segment</span>, <span class="ruby-identifier">payload_segment</span>, <span class="ruby-identifier">crypto_segment</span> = <span class="ruby-identifier">raw_segments</span>(<span class="ruby-identifier">jwt</span>, <span class="ruby-identifier">verify</span>)
+  <span class="ruby-identifier">header</span>, <span class="ruby-identifier">payload</span> = <span class="ruby-identifier">decode_header_and_payload</span>(<span class="ruby-identifier">header_segment</span>, <span class="ruby-identifier">payload_segment</span>)
+  <span class="ruby-identifier">signature</span> = <span class="ruby-identifier">base64url_decode</span>(<span class="ruby-identifier">crypto_segment</span>.<span class="ruby-identifier">to_s</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">verify</span>
+  <span class="ruby-identifier">signing_input</span> = [<span class="ruby-identifier">header_segment</span>, <span class="ruby-identifier">payload_segment</span>].<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39;.&#39;</span>)
+  [<span class="ruby-identifier">header</span>, <span class="ruby-identifier">payload</span>, <span class="ruby-identifier">signature</span>, <span class="ruby-identifier">signing_input</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-encode" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">encode</span><span
+            class="method-args">(payload, key, algorithm='HS256', header_fields={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="encode-source">
+            <pre><span class="ruby-comment"># File lib/jwt.rb, line 74</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">encode</span>(<span class="ruby-identifier">payload</span>, <span class="ruby-identifier">key</span>, <span class="ruby-identifier">algorithm</span>=<span class="ruby-string">&#39;HS256&#39;</span>, <span class="ruby-identifier">header_fields</span>={})
+  <span class="ruby-identifier">algorithm</span> <span class="ruby-operator">||=</span> <span class="ruby-string">&#39;none&#39;</span>
+  <span class="ruby-identifier">segments</span> = []
+  <span class="ruby-identifier">segments</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">encoded_header</span>(<span class="ruby-identifier">algorithm</span>, <span class="ruby-identifier">header_fields</span>)
+  <span class="ruby-identifier">segments</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">encoded_payload</span>(<span class="ruby-identifier">payload</span>)
+  <span class="ruby-identifier">segments</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">encoded_signature</span>(<span class="ruby-identifier">segments</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39;.&#39;</span>), <span class="ruby-identifier">key</span>, <span class="ruby-identifier">algorithm</span>)
+  <span class="ruby-identifier">segments</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39;.&#39;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-encoded_header" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">encoded_header</span><span
+            class="method-args">(algorithm='HS256', header_fields={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="encoded_header-source">
+            <pre><span class="ruby-comment"># File lib/jwt.rb, line 56</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">encoded_header</span>(<span class="ruby-identifier">algorithm</span>=<span class="ruby-string">&#39;HS256&#39;</span>, <span class="ruby-identifier">header_fields</span>={})
+  <span class="ruby-identifier">header</span> = {<span class="ruby-string">&#39;typ&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;JWT&#39;</span>, <span class="ruby-string">&#39;alg&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">algorithm</span>}.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">header_fields</span>)
+  <span class="ruby-identifier">base64url_encode</span>(<span class="ruby-identifier">encode_json</span>(<span class="ruby-identifier">header</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-encoded_payload" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">encoded_payload</span><span
+            class="method-args">(payload)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="encoded_payload-source">
+            <pre><span class="ruby-comment"># File lib/jwt.rb, line 61</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">encoded_payload</span>(<span class="ruby-identifier">payload</span>)
+  <span class="ruby-identifier">base64url_encode</span>(<span class="ruby-identifier">encode_json</span>(<span class="ruby-identifier">payload</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-encoded_signature" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">encoded_signature</span><span
+            class="method-args">(signing_input, key, algorithm)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="encoded_signature-source">
+            <pre><span class="ruby-comment"># File lib/jwt.rb, line 65</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">encoded_signature</span>(<span class="ruby-identifier">signing_input</span>, <span class="ruby-identifier">key</span>, <span class="ruby-identifier">algorithm</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">algorithm</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;none&#39;</span>
+    <span class="ruby-string">&#39;&#39;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">signature</span> = <span class="ruby-identifier">sign</span>(<span class="ruby-identifier">algorithm</span>, <span class="ruby-identifier">signing_input</span>, <span class="ruby-identifier">key</span>)
+    <span class="ruby-identifier">base64url_encode</span>(<span class="ruby-identifier">signature</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-raw_segments" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">raw_segments</span><span
+            class="method-args">(jwt, verify=true)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="raw_segments-source">
+            <pre><span class="ruby-comment"># File lib/jwt.rb, line 83</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">raw_segments</span>(<span class="ruby-identifier">jwt</span>, <span class="ruby-identifier">verify</span>=<span class="ruby-keyword">true</span>)
+  <span class="ruby-identifier">segments</span> = <span class="ruby-identifier">jwt</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;.&#39;</span>)
+  <span class="ruby-identifier">required_num_segments</span> = <span class="ruby-identifier">verify</span> <span class="ruby-operator">?</span> [<span class="ruby-value">3</span>] <span class="ruby-operator">:</span> [<span class="ruby-value">2</span>,<span class="ruby-value">3</span>]
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">JWT</span><span class="ruby-operator">::</span><span class="ruby-constant">DecodeError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;Not enough or too many segments&#39;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">required_num_segments</span>.<span class="ruby-identifier">include?</span> <span class="ruby-identifier">segments</span>.<span class="ruby-identifier">length</span>
+  <span class="ruby-identifier">segments</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-secure_compare" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">secure_compare</span><span
+            class="method-args">(a, b)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>From devise constant-time comparison algorithm to prevent timing attacks</p>
+          
+          
+
+          
+          <div class="method-source-code" id="secure_compare-source">
+            <pre><span class="ruby-comment"># File lib/jwt.rb, line 183</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">secure_compare</span>(<span class="ruby-identifier">a</span>, <span class="ruby-identifier">b</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">a</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">b</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">a</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">b</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">a</span>.<span class="ruby-identifier">bytesize</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">b</span>.<span class="ruby-identifier">bytesize</span>
+  <span class="ruby-identifier">l</span> = <span class="ruby-identifier">a</span>.<span class="ruby-identifier">unpack</span> <span class="ruby-node">&quot;C#{a.bytesize}&quot;</span>
+
+  <span class="ruby-identifier">res</span> = <span class="ruby-value">0</span>
+  <span class="ruby-identifier">b</span>.<span class="ruby-identifier">each_byte</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">byte</span><span class="ruby-operator">|</span> <span class="ruby-identifier">res</span> <span class="ruby-operator">|=</span> <span class="ruby-identifier">byte</span> <span class="ruby-operator">^</span> <span class="ruby-identifier">l</span>.<span class="ruby-identifier">shift</span> }
+  <span class="ruby-identifier">res</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sign" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sign</span><span
+            class="method-args">(algorithm, msg, key)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="sign-source">
+            <pre><span class="ruby-comment"># File lib/jwt.rb, line 25</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sign</span>(<span class="ruby-identifier">algorithm</span>, <span class="ruby-identifier">msg</span>, <span class="ruby-identifier">key</span>)
+  <span class="ruby-keyword">if</span> [<span class="ruby-string">&#39;HS256&#39;</span>, <span class="ruby-string">&#39;HS384&#39;</span>, <span class="ruby-string">&#39;HS512&#39;</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">algorithm</span>)
+    <span class="ruby-identifier">sign_hmac</span>(<span class="ruby-identifier">algorithm</span>, <span class="ruby-identifier">msg</span>, <span class="ruby-identifier">key</span>)
+  <span class="ruby-keyword">elsif</span> [<span class="ruby-string">&#39;RS256&#39;</span>, <span class="ruby-string">&#39;RS384&#39;</span>, <span class="ruby-string">&#39;RS512&#39;</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">algorithm</span>)
+    <span class="ruby-identifier">sign_rsa</span>(<span class="ruby-identifier">algorithm</span>, <span class="ruby-identifier">msg</span>, <span class="ruby-identifier">key</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">NotImplementedError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;Unsupported signing method&#39;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sign_hmac" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sign_hmac</span><span
+            class="method-args">(algorithm, msg, key)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="sign_hmac-source">
+            <pre><span class="ruby-comment"># File lib/jwt.rb, line 43</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sign_hmac</span>(<span class="ruby-identifier">algorithm</span>, <span class="ruby-identifier">msg</span>, <span class="ruby-identifier">key</span>)
+  <span class="ruby-constant">OpenSSL</span><span class="ruby-operator">::</span><span class="ruby-constant">HMAC</span>.<span class="ruby-identifier">digest</span>(<span class="ruby-constant">OpenSSL</span><span class="ruby-operator">::</span><span class="ruby-constant">Digest</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">algorithm</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-string">&#39;HS&#39;</span>, <span class="ruby-string">&#39;sha&#39;</span>)), <span class="ruby-identifier">key</span>, <span class="ruby-identifier">msg</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sign_rsa" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sign_rsa</span><span
+            class="method-args">(algorithm, msg, private_key)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="sign_rsa-source">
+            <pre><span class="ruby-comment"># File lib/jwt.rb, line 35</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sign_rsa</span>(<span class="ruby-identifier">algorithm</span>, <span class="ruby-identifier">msg</span>, <span class="ruby-identifier">private_key</span>)
+  <span class="ruby-identifier">private_key</span>.<span class="ruby-identifier">sign</span>(<span class="ruby-constant">OpenSSL</span><span class="ruby-operator">::</span><span class="ruby-constant">Digest</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">algorithm</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-string">&#39;RS&#39;</span>, <span class="ruby-string">&#39;sha&#39;</span>)), <span class="ruby-identifier">msg</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-signature_algorithm_and_key" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">signature_algorithm_and_key</span><span
+            class="method-args">(header, key, &keyfinder)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="signature_algorithm_and_key-source">
+            <pre><span class="ruby-comment"># File lib/jwt.rb, line 158</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">signature_algorithm_and_key</span>(<span class="ruby-identifier">header</span>, <span class="ruby-identifier">key</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">keyfinder</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">keyfinder</span>
+    <span class="ruby-identifier">key</span> = <span class="ruby-identifier">keyfinder</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">header</span>)
+  <span class="ruby-keyword">end</span>
+  [<span class="ruby-identifier">header</span>[<span class="ruby-string">&#39;alg&#39;</span>], <span class="ruby-identifier">key</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-verify_rsa" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">verify_rsa</span><span
+            class="method-args">(algorithm, public_key, signing_input, signature)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="verify_rsa-source">
+            <pre><span class="ruby-comment"># File lib/jwt.rb, line 39</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">verify_rsa</span>(<span class="ruby-identifier">algorithm</span>, <span class="ruby-identifier">public_key</span>, <span class="ruby-identifier">signing_input</span>, <span class="ruby-identifier">signature</span>)
+  <span class="ruby-identifier">public_key</span>.<span class="ruby-identifier">verify</span>(<span class="ruby-constant">OpenSSL</span><span class="ruby-operator">::</span><span class="ruby-constant">Digest</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">algorithm</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-string">&#39;RS&#39;</span>, <span class="ruby-string">&#39;sha&#39;</span>)), <span class="ruby-identifier">signature</span>, <span class="ruby-identifier">signing_input</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-verify_signature" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">verify_signature</span><span
+            class="method-args">(algo, key, signing_input, signature)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="verify_signature-source">
+            <pre><span class="ruby-comment"># File lib/jwt.rb, line 165</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">verify_signature</span>(<span class="ruby-identifier">algo</span>, <span class="ruby-identifier">key</span>, <span class="ruby-identifier">signing_input</span>, <span class="ruby-identifier">signature</span>)
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-keyword">if</span> [<span class="ruby-string">&#39;HS256&#39;</span>, <span class="ruby-string">&#39;HS384&#39;</span>, <span class="ruby-string">&#39;HS512&#39;</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">algo</span>)
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">JWT</span><span class="ruby-operator">::</span><span class="ruby-constant">VerificationError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;Signature verification failed&#39;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">secure_compare</span>(<span class="ruby-identifier">signature</span>, <span class="ruby-identifier">sign_hmac</span>(<span class="ruby-identifier">algo</span>, <span class="ruby-identifier">signing_input</span>, <span class="ruby-identifier">key</span>))
+    <span class="ruby-keyword">elsif</span> [<span class="ruby-string">&#39;RS256&#39;</span>, <span class="ruby-string">&#39;RS384&#39;</span>, <span class="ruby-string">&#39;RS512&#39;</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">algo</span>)
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">JWT</span><span class="ruby-operator">::</span><span class="ruby-constant">VerificationError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;Signature verification failed&#39;</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">verify_rsa</span>(<span class="ruby-identifier">algo</span>, <span class="ruby-identifier">key</span>, <span class="ruby-identifier">signing_input</span>, <span class="ruby-identifier">signature</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">JWT</span><span class="ruby-operator">::</span><span class="ruby-constant">VerificationError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;Algorithm not supported&#39;</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">OpenSSL</span><span class="ruby-operator">::</span><span class="ruby-constant">PKey</span><span class="ruby-operator">::</span><span class="ruby-constant">PKeyError</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">JWT</span><span class="ruby-operator">::</span><span class="ruby-constant">VerificationError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;Signature verification failed&#39;</span>)
+  <span class="ruby-keyword">ensure</span>
+    <span class="ruby-constant">OpenSSL</span>.<span class="ruby-identifier">errors</span>.<span class="ruby-identifier">clear</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

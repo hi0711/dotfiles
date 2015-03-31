@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Compass::SpriteImporter - compass-1.0.3 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">Sass::Importers::Base
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-content_for_images">::content_for_images</a>
+    
+    <li ><a href="#method-c-files">::files</a>
+    
+    <li ><a href="#method-c-find_all_sprite_map_files">::find_all_sprite_map_files</a>
+    
+    <li ><a href="#method-c-path">::path</a>
+    
+    <li ><a href="#method-c-path_and_name">::path_and_name</a>
+    
+    <li ><a href="#method-c-sass_engine">::sass_engine</a>
+    
+    <li ><a href="#method-c-sass_options">::sass_options</a>
+    
+    <li ><a href="#method-c-sprite_name">::sprite_name</a>
+    
+    <li ><a href="#method-c-sprite_names">::sprite_names</a>
+    
+    <li ><a href="#method-i-eql-3F">#eql?</a>
+    
+    <li ><a href="#method-i-find">#find</a>
+    
+    <li ><a href="#method-i-find_relative">#find_relative</a>
+    
+    <li ><a href="#method-i-hash">#hash</a>
+    
+    <li ><a href="#method-i-key">#key</a>
+    
+    <li ><a href="#method-i-mtime">#mtime</a>
+    
+    <li ><a href="#method-i-public_url">#public_url</a>
+    
+    <li ><a href="#method-i-to_s">#to_s</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Compass::SpriteImporter">
+  <h1 id="class-Compass::SpriteImporter" class="class">
+    class Compass::SpriteImporter
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="CONTENT_TEMPLATE">CONTENT_TEMPLATE
+        
+        <dd>
+        
+      
+        <dt id="CONTENT_TEMPLATE_FILE">CONTENT_TEMPLATE_FILE
+        
+        <dd>
+        
+      
+        <dt id="SPRITE_IMPORTER_REGEX">SPRITE_IMPORTER_REGEX
+        
+        <dd>
+        
+      
+        <dt id="TEMPLATE_FOLDER">TEMPLATE_FOLDER
+        
+        <dd>
+        
+      
+        <dt id="VAILD_FILE_NAME">VAILD_FILE_NAME
+        
+        <dd>
+        
+      
+        <dt id="VALID_EXTENSIONS">VALID_EXTENSIONS
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-content_for_images" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">content_for_images</span><span
+            class="method-args">(uri, name, skip_overrides = false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Generates the <a href="../Sass.html">Sass</a> for this sprite file</p>
+          
+          
+
+          
+          <div class="method-source-code" id="content_for_images-source">
+            <pre><span class="ruby-comment"># File lib/compass/sprite_importer.rb, line 111</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">content_for_images</span>(<span class="ruby-identifier">uri</span>, <span class="ruby-identifier">name</span>, <span class="ruby-identifier">skip_overrides</span> = <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">binder</span> = <span class="ruby-constant">Compass</span><span class="ruby-operator">::</span><span class="ruby-constant">Sprites</span><span class="ruby-operator">::</span><span class="ruby-constant">Binding</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">name</span>, <span class="ruby-value">:uri</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">uri</span>, <span class="ruby-value">:skip_overrides</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">skip_overrides</span>, <span class="ruby-value">:sprite_names</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">sprite_names</span>(<span class="ruby-identifier">uri</span>), <span class="ruby-value">:files</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">files</span>(<span class="ruby-identifier">uri</span>))
+  <span class="ruby-constant">CONTENT_TEMPLATE</span>.<span class="ruby-identifier">result</span>(<span class="ruby-identifier">binder</span>.<span class="ruby-identifier">get_binding</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-files" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">files</span><span
+            class="method-args">(uri)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the Glob of image files for the uri</p>
+          
+          
+
+          
+          <div class="method-source-code" id="files-source">
+            <pre><span class="ruby-comment"># File lib/compass/sprite_importer.rb, line 81</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">files</span>(<span class="ruby-identifier">uri</span>)
+  <span class="ruby-constant">Compass</span>.<span class="ruby-identifier">configuration</span>.<span class="ruby-identifier">sprite_load_path</span>.<span class="ruby-identifier">compact</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">folder</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">files</span> = <span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">Util</span>.<span class="ruby-identifier">glob</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">folder</span>, <span class="ruby-identifier">uri</span>)).<span class="ruby-identifier">sort</span>
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">files</span>.<span class="ruby-identifier">empty?</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">files</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">path</span> = <span class="ruby-constant">Compass</span>.<span class="ruby-identifier">configuration</span>.<span class="ruby-identifier">sprite_load_path</span>.<span class="ruby-identifier">to_a</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&#39;, &#39;</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-constant">Compass</span><span class="ruby-operator">::</span><span class="ruby-constant">SpriteException</span>, <span class="ruby-node">%Q{No files were found in the load path matching &quot;#{uri}&quot;. Your current load paths are: #{path}}</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-find_all_sprite_map_files" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">find_all_sprite_map_files</span><span
+            class="method-args">(path)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>finds all sprite files</p>
+          
+          
+
+          
+          <div class="method-source-code" id="find_all_sprite_map_files-source">
+            <pre><span class="ruby-comment"># File lib/compass/sprite_importer.rb, line 16</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">find_all_sprite_map_files</span>(<span class="ruby-identifier">path</span>)
+  <span class="ruby-identifier">hex</span> = <span class="ruby-string">&quot;[0-9a-f]&quot;</span>
+  <span class="ruby-identifier">glob</span> = <span class="ruby-node">&quot;*-s#{hex*10}{#{VALID_EXTENSIONS.join(&quot;,&quot;)}}&quot;</span>
+  <span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">Util</span>.<span class="ruby-identifier">glob</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">path</span>, <span class="ruby-string">&quot;**&quot;</span>, <span class="ruby-identifier">glob</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">path</span><span
+            class="method-args">(uri)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>The on-disk location of this sprite</p>
+          
+          
+
+          
+          <div class="method-source-code" id="path-source">
+            <pre><span class="ruby-comment"># File lib/compass/sprite_importer.rb, line 75</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">path</span>(<span class="ruby-identifier">uri</span>)
+  <span class="ruby-identifier">path</span>, <span class="ruby-identifier">_</span> = <span class="ruby-identifier">path_and_name</span>(<span class="ruby-identifier">uri</span>)
+  <span class="ruby-identifier">path</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-path_and_name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">path_and_name</span><span
+            class="method-args">(uri)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="path_and_name-source">
+            <pre><span class="ruby-comment"># File lib/compass/sprite_importer.rb, line 60</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">path_and_name</span>(<span class="ruby-identifier">uri</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">uri</span> <span class="ruby-operator">=~</span> <span class="ruby-constant">SPRITE_IMPORTER_REGEX</span>
+    [<span class="ruby-node">$1</span>, <span class="ruby-node">$3</span>]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">Compass</span><span class="ruby-operator">::</span><span class="ruby-constant">Error</span>, <span class="ruby-string">&quot;invalid sprite path&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-sass_engine" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sass_engine</span><span
+            class="method-args">(uri, name, importer, options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns a Sass::Engine for this sprite object</p>
+          
+          
+
+          
+          <div class="method-source-code" id="sass_engine-source">
+            <pre><span class="ruby-comment"># File lib/compass/sprite_importer.rb, line 105</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">sass_engine</span>(<span class="ruby-identifier">uri</span>, <span class="ruby-identifier">name</span>, <span class="ruby-identifier">importer</span>, <span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">content</span> = <span class="ruby-identifier">content_for_images</span>(<span class="ruby-identifier">uri</span>, <span class="ruby-identifier">name</span>, <span class="ruby-identifier">options</span>[<span class="ruby-value">:skip_overrides</span>])
+  <span class="ruby-constant">Sass</span><span class="ruby-operator">::</span><span class="ruby-constant">Engine</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">content</span>, <span class="ruby-identifier">sass_options</span>(<span class="ruby-identifier">uri</span>, <span class="ruby-identifier">importer</span>, <span class="ruby-identifier">options</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-sass_options" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sass_options</span><span
+            class="method-args">(uri, importer, options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the <a
+href="SpriteImporter.html#method-c-sass_options">::sass_options</a> for
+this sprite</p>
+          
+          
+
+          
+          <div class="method-source-code" id="sass_options-source">
+            <pre><span class="ruby-comment"># File lib/compass/sprite_importer.rb, line 100</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">sass_options</span>(<span class="ruby-identifier">uri</span>, <span class="ruby-identifier">importer</span>, <span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-value">:filename</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">uri</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">%r{\*/}</span>,<span class="ruby-string">&quot;*\\/&quot;</span>), <span class="ruby-value">:syntax</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:scss</span>, <span class="ruby-value">:importer</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">importer</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-sprite_name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sprite_name</span><span
+            class="method-args">(uri)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Name of this spite</p>
+          
+          
+
+          
+          <div class="method-source-code" id="sprite_name-source">
+            <pre><span class="ruby-comment"># File lib/compass/sprite_importer.rb, line 69</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">sprite_name</span>(<span class="ruby-identifier">uri</span>)
+  <span class="ruby-identifier">_</span>, <span class="ruby-identifier">name</span> = <span class="ruby-identifier">path_and_name</span>(<span class="ruby-identifier">uri</span>)
+  <span class="ruby-identifier">name</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-sprite_names" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sprite_names</span><span
+            class="method-args">(uri)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns an Array of image names without the file extension</p>
+          
+          
+
+          
+          <div class="method-source-code" id="sprite_names-source">
+            <pre><span class="ruby-comment"># File lib/compass/sprite_importer.rb, line 93</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">sprite_names</span>(<span class="ruby-identifier">uri</span>)
+  <span class="ruby-identifier">files</span>(<span class="ruby-identifier">uri</span>).<span class="ruby-identifier">collect</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">file</span><span class="ruby-operator">|</span>
+    <span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>(<span class="ruby-identifier">file</span>, <span class="ruby-string">&#39;.png&#39;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-eql-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">eql?</span><span
+            class="method-args">(other)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="eql-3F-source">
+            <pre><span class="ruby-comment"># File lib/compass/sprite_importer.rb, line 41</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">eql?</span>(<span class="ruby-identifier">other</span>)
+  <span class="ruby-identifier">other</span>.<span class="ruby-identifier">class</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-find" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">find</span><span
+            class="method-args">(uri, options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="find-source">
+            <pre><span class="ruby-comment"># File lib/compass/sprite_importer.rb, line 22</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">find</span>(<span class="ruby-identifier">uri</span>, <span class="ruby-identifier">options</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">uri</span> <span class="ruby-operator">=~</span> <span class="ruby-constant">SPRITE_IMPORTER_REGEX</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">sass_engine</span>(<span class="ruby-identifier">uri</span>, <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">sprite_name</span>(<span class="ruby-identifier">uri</span>), <span class="ruby-keyword">self</span>, <span class="ruby-identifier">options</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-find_relative" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">find_relative</span><span
+            class="method-args">(uri, base, options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="find_relative-source">
+            <pre><span class="ruby-comment"># File lib/compass/sprite_importer.rb, line 29</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">find_relative</span>(<span class="ruby-identifier">uri</span>, <span class="ruby-identifier">base</span>, <span class="ruby-identifier">options</span>)
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-hash" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">hash</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="hash-source">
+            <pre><span class="ruby-comment"># File lib/compass/sprite_importer.rb, line 37</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">hash</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">name</span>.<span class="ruby-identifier">hash</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-key" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">key</span><span
+            class="method-args">(uri, options={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="key-source">
+            <pre><span class="ruby-comment"># File lib/compass/sprite_importer.rb, line 51</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">key</span>(<span class="ruby-identifier">uri</span>, <span class="ruby-identifier">options</span>={})
+  [<span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">name</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;:sprite:&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-identifier">uri</span>)), <span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>(<span class="ruby-identifier">uri</span>)]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-mtime" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">mtime</span><span
+            class="method-args">(uri, options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="mtime-source">
+            <pre><span class="ruby-comment"># File lib/compass/sprite_importer.rb, line 45</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">mtime</span>(<span class="ruby-identifier">uri</span>, <span class="ruby-identifier">options</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">files</span>(<span class="ruby-identifier">uri</span>).<span class="ruby-identifier">sort</span>.<span class="ruby-identifier">inject</span>(<span class="ruby-constant">Time</span>.<span class="ruby-identifier">at</span>(<span class="ruby-value">0</span>)) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">max_time</span>, <span class="ruby-identifier">file</span><span class="ruby-operator">|</span>
+    (<span class="ruby-identifier">t</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">mtime</span>(<span class="ruby-identifier">file</span>)) <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">max_time</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">t</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">max_time</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-public_url" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">public_url</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="public_url-source">
+            <pre><span class="ruby-comment"># File lib/compass/sprite_importer.rb, line 55</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">public_url</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-to_s" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_s</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="to_s-source">
+            <pre><span class="ruby-comment"># File lib/compass/sprite_importer.rb, line 33</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_s</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">name</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

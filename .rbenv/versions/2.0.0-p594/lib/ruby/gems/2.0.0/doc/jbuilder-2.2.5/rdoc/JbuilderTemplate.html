@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class JbuilderTemplate - jbuilder-2.2.5 Documentation</title>
+
+<link href="./fonts.css" rel="stylesheet">
+<link href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/navigation.js"></script>
+<script src="./js/search_index.js"></script>
+<script src="./js/search.js"></script>
+<script src="./js/searcher.js"></script>
+<script src="./js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="Jbuilder.html">Jbuilder</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li class="calls-super" ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-_cache_key">#_cache_key</a>
+    
+    <li ><a href="#method-i-_fragment_name_with_digest">#_fragment_name_with_digest</a>
+    
+    <li class="calls-super" ><a href="#method-i-_mapable_arguments-3F">#_mapable_arguments?</a>
+    
+    <li ><a href="#method-i-_render_partial">#_render_partial</a>
+    
+    <li ><a href="#method-i-_render_partial_with_options">#_render_partial_with_options</a>
+    
+    <li class="calls-super" ><a href="#method-i-array-21">#array!</a>
+    
+    <li ><a href="#method-i-cache-21">#cache!</a>
+    
+    <li ><a href="#method-i-cache_if-21">#cache_if!</a>
+    
+    <li ><a href="#method-i-partial-21">#partial!</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-JbuilderTemplate">
+  <h1 id="class-JbuilderTemplate" class="class">
+    class JbuilderTemplate
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-c-template_lookup_options" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">template_lookup_options</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(context, *args, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              <a href="Jbuilder.html#method-c-new">Jbuilder.new</a>
+            </div>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/jbuilder/jbuilder_template.rb, line 12</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">context</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-ivar">@context</span> = <span class="ruby-identifier">context</span>
+  <span class="ruby-keyword">super</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-array-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">array!</span><span
+            class="method-args">(collection = [], *attributes)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              <a href="Jbuilder.html#method-i-array-21">Jbuilder#array!</a>
+            </div>
+          
+
+          
+          <div class="method-source-code" id="array-21-source">
+            <pre><span class="ruby-comment"># File lib/jbuilder/jbuilder_template.rb, line 33</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">array!</span>(<span class="ruby-identifier">collection</span> = [], <span class="ruby-operator">*</span><span class="ruby-identifier">attributes</span>)
+  <span class="ruby-identifier">options</span> = <span class="ruby-identifier">attributes</span>.<span class="ruby-identifier">extract_options!</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-value">:partial</span>)
+    <span class="ruby-identifier">partial!</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:partial</span>], <span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">collection</span><span class="ruby-operator">:</span> <span class="ruby-identifier">collection</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">super</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-cache-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">cache!</span><span
+            class="method-args">(key=nil, options={}) { |self| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Caches the json constructed within the block passed. Has the same signature
+as the `cache` helper method in `ActionView::Helpers::CacheHelper` and so
+can be used in the same way.</p>
+
+<p>Example:</p>
+
+<pre>json.cache! [&#39;v1&#39;, @person], expires_in: 10.minutes do
+  json.extract! @person, :name, :age
+end</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="cache-21-source">
+            <pre><span class="ruby-comment"># File lib/jbuilder/jbuilder_template.rb, line 51</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">cache!</span>(<span class="ruby-identifier">key</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">options</span>={})
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@context</span>.<span class="ruby-identifier">controller</span>.<span class="ruby-identifier">perform_caching</span>
+    <span class="ruby-identifier">value</span> = <span class="ruby-operator">::</span><span class="ruby-constant">Rails</span>.<span class="ruby-identifier">cache</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">_cache_key</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">options</span>), <span class="ruby-identifier">options</span>) <span class="ruby-keyword">do</span>
+      <span class="ruby-identifier">_scope</span> { <span class="ruby-keyword">yield</span> <span class="ruby-keyword">self</span> }
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">merge!</span> <span class="ruby-identifier">value</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">yield</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-cache_if-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">cache_if!</span><span
+            class="method-args">(condition, *args) { || ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Conditionally catches the json depending in the condition given as first
+parameter. Has the same signature as the `cache` helper method in
+`ActionView::Helpers::CacheHelper` and so can be used in the same way.</p>
+
+<p>Example:</p>
+
+<pre>json.cache_if! !admin?, @person, expires_in: 10.minutes do
+  json.extract! @person, :name, :age
+end</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="cache_if-21-source">
+            <pre><span class="ruby-comment"># File lib/jbuilder/jbuilder_template.rb, line 72</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">cache_if!</span>(<span class="ruby-identifier">condition</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">condition</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">cache!</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>) <span class="ruby-operator">:</span> <span class="ruby-keyword">yield</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-partial-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">partial!</span><span
+            class="method-args">(name_or_options, locals = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="partial-21-source">
+            <pre><span class="ruby-comment"># File lib/jbuilder/jbuilder_template.rb, line 17</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">partial!</span>(<span class="ruby-identifier">name_or_options</span>, <span class="ruby-identifier">locals</span> = {})
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">name_or_options</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-operator">::</span><span class="ruby-constant">Hash</span>
+    <span class="ruby-comment"># partial! partial: &#39;name&#39;, locals: { foo: &#39;bar&#39; }</span>
+    <span class="ruby-identifier">options</span> = <span class="ruby-identifier">name_or_options</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-comment"># partial! &#39;name&#39;, foo: &#39;bar&#39;</span>
+    <span class="ruby-identifier">options</span> = { <span class="ruby-identifier">partial</span><span class="ruby-operator">:</span> <span class="ruby-identifier">name_or_options</span>, <span class="ruby-identifier">locals</span><span class="ruby-operator">:</span> <span class="ruby-identifier">locals</span> }
+    <span class="ruby-identifier">as</span> = <span class="ruby-identifier">locals</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:as</span>)
+    <span class="ruby-identifier">options</span>[<span class="ruby-value">:as</span>] = <span class="ruby-identifier">as</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">as</span>.<span class="ruby-identifier">present?</span>
+    <span class="ruby-identifier">options</span>[<span class="ruby-value">:collection</span>] = <span class="ruby-identifier">locals</span>[<span class="ruby-value">:collection</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">locals</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-value">:collection</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">_render_partial_with_options</span> <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="protected-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Protected Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-_cache_key" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">_cache_key</span><span
+            class="method-args">(key, options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="_cache_key-source">
+            <pre><span class="ruby-comment"># File lib/jbuilder/jbuilder_template.rb, line 103</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">_cache_key</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">key</span> = <span class="ruby-identifier">_fragment_name_with_digest</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">key</span> = <span class="ruby-identifier">url_for</span>(<span class="ruby-identifier">key</span>).<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39;://&#39;</span>, <span class="ruby-value">2</span>).<span class="ruby-identifier">last</span> <span class="ruby-keyword">if</span> <span class="ruby-operator">::</span><span class="ruby-constant">Hash</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">key</span>
+  <span class="ruby-operator">::</span><span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">Cache</span>.<span class="ruby-identifier">expand_cache_key</span>(<span class="ruby-identifier">key</span>, <span class="ruby-value">:jbuilder</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-_render_partial" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">_render_partial</span><span
+            class="method-args">(options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="_render_partial-source">
+            <pre><span class="ruby-comment"># File lib/jbuilder/jbuilder_template.rb, line 98</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">_render_partial</span>(<span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">options</span>[<span class="ruby-value">:locals</span>].<span class="ruby-identifier">merge!</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>
+  <span class="ruby-ivar">@context</span>.<span class="ruby-identifier">render</span> <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-_render_partial_with_options" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">_render_partial_with_options</span><span
+            class="method-args">(options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="_render_partial_with_options-source">
+            <pre><span class="ruby-comment"># File lib/jbuilder/jbuilder_template.rb, line 78</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">_render_partial_with_options</span>(<span class="ruby-identifier">options</span>)
+  <span class="ruby-identifier">options</span>.<span class="ruby-identifier">reverse_merge!</span> <span class="ruby-identifier">locals</span><span class="ruby-operator">:</span> {}
+  <span class="ruby-identifier">options</span>.<span class="ruby-identifier">reverse_merge!</span> <span class="ruby-operator">::</span><span class="ruby-constant">JbuilderTemplate</span>.<span class="ruby-identifier">template_lookup_options</span>
+  <span class="ruby-identifier">as</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:as</span>]
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">as</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-value">:collection</span>)
+    <span class="ruby-identifier">as</span> = <span class="ruby-identifier">as</span>.<span class="ruby-identifier">to_sym</span>
+    <span class="ruby-identifier">collection</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:collection</span>)
+    <span class="ruby-identifier">locals</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:locals</span>)
+    <span class="ruby-identifier">array!</span> <span class="ruby-identifier">collection</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">member</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">member_locals</span> = <span class="ruby-identifier">locals</span>.<span class="ruby-identifier">clone</span>
+      <span class="ruby-identifier">member_locals</span>.<span class="ruby-identifier">merge!</span> <span class="ruby-identifier">collection</span><span class="ruby-operator">:</span> <span class="ruby-identifier">collection</span>
+      <span class="ruby-identifier">member_locals</span>.<span class="ruby-identifier">merge!</span> <span class="ruby-identifier">as</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">member</span>
+      <span class="ruby-identifier">_render_partial</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">locals</span><span class="ruby-operator">:</span> <span class="ruby-identifier">member_locals</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">_render_partial</span> <span class="ruby-identifier">options</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-_fragment_name_with_digest" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">_fragment_name_with_digest</span><span
+            class="method-args">(key, options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="_fragment_name_with_digest-source">
+            <pre><span class="ruby-comment"># File lib/jbuilder/jbuilder_template.rb, line 111</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">_fragment_name_with_digest</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">options</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@context</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:cache_fragment_name</span>)
+    <span class="ruby-comment"># Current compatibility, fragment_name_with_digest is private again and cache_fragment_name</span>
+    <span class="ruby-comment"># should be used instead.</span>
+    <span class="ruby-ivar">@context</span>.<span class="ruby-identifier">cache_fragment_name</span>(<span class="ruby-identifier">key</span>, <span class="ruby-identifier">options</span>)
+  <span class="ruby-keyword">elsif</span> <span class="ruby-ivar">@context</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:fragment_name_with_digest</span>)
+    <span class="ruby-comment"># Backwards compatibility for period of time when fragment_name_with_digest was made public.</span>
+    <span class="ruby-ivar">@context</span>.<span class="ruby-identifier">fragment_name_with_digest</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">key</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-_mapable_arguments-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">_mapable_arguments?</span><span
+            class="method-args">(value, *args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              Jbuilder#_mapable_arguments?
+            </div>
+          
+
+          
+          <div class="method-source-code" id="_mapable_arguments-3F-source">
+            <pre><span class="ruby-comment"># File lib/jbuilder/jbuilder_template.rb, line 124</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">_mapable_arguments?</span>(<span class="ruby-identifier">value</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span> <span class="ruby-keyword">if</span> <span class="ruby-keyword">super</span>
+  <span class="ruby-identifier">options</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">last</span>
+  <span class="ruby-operator">::</span><span class="ruby-constant">Hash</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">options</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-value">:as</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

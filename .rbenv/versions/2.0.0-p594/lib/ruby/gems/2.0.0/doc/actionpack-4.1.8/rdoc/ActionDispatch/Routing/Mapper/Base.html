@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module ActionDispatch::Routing::Mapper::Base - actionpack-4.1.8 Documentation</title>
+
+<link href="../../../fonts.css" rel="stylesheet">
+<link href="../../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../";
+</script>
+
+<script src="../../../js/jquery.js"></script>
+<script src="../../../js/navigation.js"></script>
+<script src="../../../js/search_index.js"></script>
+<script src="../../../js/search.js"></script>
+<script src="../../../js/searcher.js"></script>
+<script src="../../../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-app_name">#app_name</a>
+    
+    <li ><a href="#method-i-default_url_options">#default_url_options</a>
+    
+    <li ><a href="#method-i-default_url_options-3D">#default_url_options=</a>
+    
+    <li ><a href="#method-i-define_generate_prefix">#define_generate_prefix</a>
+    
+    <li ><a href="#method-i-has_named_route-3F">#has_named_route?</a>
+    
+    <li ><a href="#method-i-match">#match</a>
+    
+    <li ><a href="#method-i-mount">#mount</a>
+    
+    <li ><a href="#method-i-root">#root</a>
+    
+    <li ><a href="#method-i-with_default_scope">#with_default_scope</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-ActionDispatch::Routing::Mapper::Base">
+  <h1 id="module-ActionDispatch::Routing::Mapper::Base" class="module">
+    module ActionDispatch::Routing::Mapper::Base
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-default_url_options" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">default_url_options</span><span
+            class="method-args">(options)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Base.html#method-i-default_url_options-3D">default_url_options=</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-default_url_options-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">default_url_options=</span><span
+            class="method-args">(options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="default_url_options-3D-source">
+            <pre><span class="ruby-comment"># File lib/action_dispatch/routing/mapper.rb, line 542</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">default_url_options=</span>(<span class="ruby-identifier">options</span>)
+  <span class="ruby-ivar">@set</span>.<span class="ruby-identifier">default_url_options</span> = <span class="ruby-identifier">options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Base.html#method-i-default_url_options">default_url_options</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-has_named_route-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">has_named_route?</span><span
+            class="method-args">(name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Query if the following named route was already defined.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="has_named_route-3F-source">
+            <pre><span class="ruby-comment"># File lib/action_dispatch/routing/mapper.rb, line 554</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">has_named_route?</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-ivar">@set</span>.<span class="ruby-identifier">named_routes</span>.<span class="ruby-identifier">routes</span>[<span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_sym</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-match" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">match</span><span
+            class="method-args">(path, options=nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Matches a url pattern to one or more routes.</p>
+
+<p>You should not use the `match` method in your router without specifying an
+HTTP method.</p>
+
+<p>If you want to expose your action to both GET and POST, use:</p>
+
+<pre># sets :controller, :action and :id in params
+match &#39;:controller/:action/:id&#39;, via: [:get, :post]</pre>
+
+<p>Note that <code>:controller</code>, <code>:action</code>, <code>:id</code> 
+are interpreted as url query  parameters and thus available as
+<code>params</code> in an action.</p>
+
+<p>If you want to expose your action to GET, use `get` in the router:</p>
+
+<p>Instead of:</p>
+
+<pre>match &quot;:controller/:action/:id&quot;</pre>
+
+<p>Do:</p>
+
+<pre>get &quot;:controller/:action/:id&quot;</pre>
+
+<p>Two of these symbols are special, <code>:controller</code> maps to the
+controller and <code>:action</code> to the controller&#39;s action. A
+pattern can also map wildcard segments (globs) to params:</p>
+
+<pre>get &#39;songs/*category/:title&#39;, to: &#39;songs#show&#39;
+
+# &#39;songs/rock/classic/stairway-to-heaven&#39; sets
+#  params[:category] = &#39;rock/classic&#39;
+#  params[:title] = &#39;stairway-to-heaven&#39;</pre>
+
+<p>When a pattern points to an internal route, the route&#39;s
+<code>:action</code> and <code>:controller</code> should be set in options
+or hash shorthand. Examples:</p>
+
+<pre class="ruby"><span class="ruby-identifier">match</span> <span class="ruby-string">&#39;photos/:id&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&#39;photos#show&#39;</span>, <span class="ruby-identifier">via</span><span class="ruby-operator">:</span> [:<span class="ruby-identifier">get</span>]
+<span class="ruby-identifier">match</span> <span class="ruby-string">&#39;photos/:id&#39;</span>, <span class="ruby-identifier">to</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;photos#show&#39;</span>, <span class="ruby-identifier">via</span><span class="ruby-operator">:</span> [:<span class="ruby-identifier">get</span>]
+<span class="ruby-identifier">match</span> <span class="ruby-string">&#39;photos/:id&#39;</span>, <span class="ruby-identifier">controller</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;photos&#39;</span>, <span class="ruby-identifier">action</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;show&#39;</span>, <span class="ruby-identifier">via</span><span class="ruby-operator">:</span> [:<span class="ruby-identifier">get</span>]
+</pre>
+
+<p>A pattern can also point to a <code>Rack</code> endpoint i.e. anything that
+responds to <code>call</code>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">match</span> <span class="ruby-string">&#39;photos/:id&#39;</span>, <span class="ruby-identifier">to</span><span class="ruby-operator">:</span> <span class="ruby-identifier">lambda</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">hash</span><span class="ruby-operator">|</span> [<span class="ruby-value">200</span>, {}, [<span class="ruby-string">&quot;Coming soon&quot;</span>]] }, <span class="ruby-identifier">via</span><span class="ruby-operator">:</span> [:<span class="ruby-identifier">get</span>]
+<span class="ruby-identifier">match</span> <span class="ruby-string">&#39;photos/:id&#39;</span>, <span class="ruby-identifier">to</span><span class="ruby-operator">:</span> <span class="ruby-constant">PhotoRackApp</span>, <span class="ruby-identifier">via</span><span class="ruby-operator">:</span> [:<span class="ruby-identifier">get</span>]
+<span class="ruby-comment"># Yes, controller actions are just rack endpoints</span>
+<span class="ruby-identifier">match</span> <span class="ruby-string">&#39;photos/:id&#39;</span>, <span class="ruby-identifier">to</span><span class="ruby-operator">:</span> <span class="ruby-constant">PhotosController</span>.<span class="ruby-identifier">action</span>(:<span class="ruby-identifier">show</span>), <span class="ruby-identifier">via</span><span class="ruby-operator">:</span> [:<span class="ruby-identifier">get</span>]
+</pre>
+
+<p>Because requesting various HTTP verbs with a single action has security
+implications, you must either specify the actions in the via options or use
+one of the <a href="HttpHelpers.html">HtttpHelpers</a> instead
+<code>match</code></p>
+
+<h3 id="method-i-match-label-Options">Options<span><a href="#method-i-match-label-Options">&para;</a> <a href="#documentation">&uarr;</a></span></h3>
+
+<p>Any options not seen here are passed on as params with the url.</p>
+<dl class="rdoc-list label-list"><dt>:controller
+<dd>
+<p>The route&#39;s controller.</p>
+</dd><dt>:action
+<dd>
+<p>The route&#39;s action.</p>
+</dd><dt>:param
+<dd>
+<p>Overrides the default resource identifier `:id` (name of the dynamic
+segment used to generate the routes). You can access that segment from your
+controller using <code>params[<:param>]</code>.</p>
+</dd><dt>:path
+<dd>
+<p>The path prefix for the routes.</p>
+</dd><dt>:module
+<dd>
+<p>The namespace for :controller.</p>
+
+<pre class="ruby"><span class="ruby-identifier">match</span> <span class="ruby-string">&#39;path&#39;</span>, <span class="ruby-identifier">to</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;c#a&#39;</span>, <span class="ruby-identifier">module</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;sekret&#39;</span>, <span class="ruby-identifier">controller</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;posts&#39;</span>, <span class="ruby-identifier">via</span><span class="ruby-operator">:</span> [:<span class="ruby-identifier">get</span>]
+<span class="ruby-comment"># =&gt; Sekret::PostsController</span>
+</pre>
+
+<p>See <code>Scoping#namespace</code> for its scope equivalent.</p>
+</dd><dt>:as
+<dd>
+<p>The name used to generate routing helpers.</p>
+</dd><dt>:via
+<dd>
+<p>Allowed HTTP verb(s) for route.</p>
+
+<pre>match &#39;path&#39;, to: &#39;c#a&#39;, via: :get
+match &#39;path&#39;, to: &#39;c#a&#39;, via: [:get, :post]
+match &#39;path&#39;, to: &#39;c#a&#39;, via: :all</pre>
+</dd><dt>:to
+<dd>
+<p>Points to a <code>Rack</code> endpoint. Can be an object that responds to
+<code>call</code> or a string representing a controller&#39;s action.</p>
+
+<pre class="ruby"><span class="ruby-identifier">match</span> <span class="ruby-string">&#39;path&#39;</span>, <span class="ruby-identifier">to</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;controller#action&#39;</span>, <span class="ruby-identifier">via</span><span class="ruby-operator">:</span> [:<span class="ruby-identifier">get</span>]
+<span class="ruby-identifier">match</span> <span class="ruby-string">&#39;path&#39;</span>, <span class="ruby-identifier">to</span><span class="ruby-operator">:</span> <span class="ruby-identifier">lambda</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">env</span><span class="ruby-operator">|</span> [<span class="ruby-value">200</span>, {}, [<span class="ruby-string">&quot;Success!&quot;</span>]] }, <span class="ruby-identifier">via</span><span class="ruby-operator">:</span> [:<span class="ruby-identifier">get</span>]
+<span class="ruby-identifier">match</span> <span class="ruby-string">&#39;path&#39;</span>, <span class="ruby-identifier">to</span><span class="ruby-operator">:</span> <span class="ruby-constant">RackApp</span>, <span class="ruby-identifier">via</span><span class="ruby-operator">:</span> [:<span class="ruby-identifier">get</span>]
+</pre>
+</dd><dt>:on
+<dd>
+<p>Shorthand for wrapping routes in a specific RESTful context. Valid values
+are <code>:member</code>, <code>:collection</code>, and <code>:new</code>.
+Only use within <code>resource(s)</code> block. For example:</p>
+
+<pre>resource :bar do
+  match &#39;foo&#39;, to: &#39;c#a&#39;, on: :member, via: [:get, :post]
+end</pre>
+
+<p>Is equivalent to:</p>
+
+<pre>resource :bar do
+  member do
+    match &#39;foo&#39;, to: &#39;c#a&#39;, via: [:get, :post]
+  end
+end</pre>
+</dd><dt>:constraints
+<dd>
+<p>Constrains parameters with a hash of regular expressions or an object that
+responds to <code>matches?</code>. In addition, constraints other than path
+can also be specified with any object that responds to <code>===</code>
+(eg. String, Array, Range, etc.).</p>
+
+<pre class="ruby"><span class="ruby-identifier">match</span> <span class="ruby-string">&#39;path/:id&#39;</span>, <span class="ruby-identifier">constraints</span><span class="ruby-operator">:</span> { <span class="ruby-identifier">id</span><span class="ruby-operator">:</span> <span class="ruby-regexp">/[A-Z]\d{5}/</span> }, <span class="ruby-identifier">via</span><span class="ruby-operator">:</span> [:<span class="ruby-identifier">get</span>]
+
+<span class="ruby-identifier">match</span> <span class="ruby-string">&#39;json_only&#39;</span>, <span class="ruby-identifier">constraints</span><span class="ruby-operator">:</span> { <span class="ruby-identifier">format</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;json&#39;</span> }, <span class="ruby-identifier">via</span><span class="ruby-operator">:</span> [:<span class="ruby-identifier">get</span>]
+
+<span class="ruby-keyword">class</span> <span class="ruby-constant">Whitelist</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">matches?</span>(<span class="ruby-identifier">request</span>) <span class="ruby-identifier">request</span>.<span class="ruby-identifier">remote_ip</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;1.2.3.4&#39;</span> <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">match</span> <span class="ruby-string">&#39;path&#39;</span>, <span class="ruby-identifier">to</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;c#a&#39;</span>, <span class="ruby-identifier">constraints</span><span class="ruby-operator">:</span> <span class="ruby-constant">Whitelist</span>.<span class="ruby-identifier">new</span>, <span class="ruby-identifier">via</span><span class="ruby-operator">:</span> [:<span class="ruby-identifier">get</span>]
+</pre>
+
+<p>See <code>Scoping#constraints</code> for more examples with its scope
+equivalent.</p>
+</dd><dt>:defaults
+<dd>
+<p>Sets defaults for parameters</p>
+
+<pre># Sets params[:format] to &#39;jpg&#39; by default
+match &#39;path&#39;, to: &#39;c#a&#39;, defaults: { format: &#39;jpg&#39; }, via: [:get]</pre>
+
+<p>See <code>Scoping#defaults</code> for its scope equivalent.</p>
+</dd><dt>:anchor
+<dd>
+<p>Boolean to anchor a <code>match</code> pattern. Default is true. When set
+to false, the pattern matches any request prefixed with the given path.</p>
+
+<pre># Matches any request starting with &#39;path&#39;
+match &#39;path&#39;, to: &#39;c#a&#39;, anchor: false, via: [:get]</pre>
+</dd><dt>:format
+<dd>
+<p>Allows you to specify the default value for optional <code>format</code>
+segment or disable it by supplying <code>false</code>.</p>
+</dd></dl>
+          
+          
+
+          
+          <div class="method-source-code" id="match-source">
+            <pre><span class="ruby-comment"># File lib/action_dispatch/routing/mapper.rb, line 495</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">match</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">options</span>=<span class="ruby-keyword">nil</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-mount" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">mount</span><span
+            class="method-args">(app, options = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Mount a Rack-based application to be used within the application.</p>
+
+<pre>mount SomeRackApp, at: &quot;some_route&quot;</pre>
+
+<p>Alternatively:</p>
+
+<pre class="ruby"><span class="ruby-identifier">mount</span>(<span class="ruby-constant">SomeRackApp</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;some_route&quot;</span>)
+</pre>
+
+<p>For options, see <code>match</code>, as <code>mount</code> uses it
+internally.</p>
+
+<p>All mounted applications come with routing helpers to access them. These
+are named after the class specified, so for the above example the helper is
+either <code>some_rack_app_path</code> or <code>some_rack_app_url</code>.
+To customize this helper&#39;s name, use the <code>:as</code> option:</p>
+
+<pre class="ruby"><span class="ruby-identifier">mount</span>(<span class="ruby-constant">SomeRackApp</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;some_route&quot;</span>, <span class="ruby-identifier">as</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;exciting&quot;</span>)
+</pre>
+
+<p>This will generate the <code>exciting_path</code> and
+<code>exciting_url</code> helpers which can be used to navigate to this
+mounted app.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="mount-source">
+            <pre><span class="ruby-comment"># File lib/action_dispatch/routing/mapper.rb, line 517</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">mount</span>(<span class="ruby-identifier">app</span>, <span class="ruby-identifier">options</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>
+    <span class="ruby-identifier">path</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:at</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-constant">Hash</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">app</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;must be called with mount point&quot;</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">options</span> = <span class="ruby-identifier">app</span>
+    <span class="ruby-identifier">app</span>, <span class="ruby-identifier">path</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">find</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>, <span class="ruby-identifier">_</span><span class="ruby-operator">|</span> <span class="ruby-identifier">k</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:call</span>) }
+    <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">app</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">app</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;A rack application must be specified&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">path</span>
+
+  <span class="ruby-identifier">options</span>[<span class="ruby-value">:as</span>]  <span class="ruby-operator">||=</span> <span class="ruby-identifier">app_name</span>(<span class="ruby-identifier">app</span>)
+  <span class="ruby-identifier">target_as</span>       = <span class="ruby-identifier">name_for_action</span>(<span class="ruby-identifier">options</span>[<span class="ruby-value">:as</span>], <span class="ruby-identifier">path</span>)
+  <span class="ruby-identifier">options</span>[<span class="ruby-value">:via</span>] <span class="ruby-operator">||=</span> <span class="ruby-value">:all</span>
+
+  <span class="ruby-identifier">match</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">options</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-value">:to</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">app</span>, <span class="ruby-value">:anchor</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">:format</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">false</span>))
+
+  <span class="ruby-identifier">define_generate_prefix</span>(<span class="ruby-identifier">app</span>, <span class="ruby-identifier">target_as</span>)
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-root" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">root</span><span
+            class="method-args">(options = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>You can specify what Rails should route “/” to with the root method:</p>
+
+<pre>root to: &#39;pages#main&#39;</pre>
+
+<p>For options, see <code>match</code>, as <code>root</code> uses it
+internally.</p>
+
+<p>You can also pass a string which will expand</p>
+
+<pre>root &#39;pages#main&#39;</pre>
+
+<p>You should put the root route at the top of <code>config/routes.rb</code>,
+because this means it will be matched first. As this is the most popular
+route of most Rails applications, this is beneficial.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="root-source">
+            <pre><span class="ruby-comment"># File lib/action_dispatch/routing/mapper.rb, line 339</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">root</span>(<span class="ruby-identifier">options</span> = {})
+  <span class="ruby-identifier">match</span> <span class="ruby-string">&#39;/&#39;</span>, { <span class="ruby-value">:as</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:root</span>, <span class="ruby-value">:via</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">:get</span> }.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">options</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-with_default_scope" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">with_default_scope</span><span
+            class="method-args">(scope, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="with_default_scope-source">
+            <pre><span class="ruby-comment"># File lib/action_dispatch/routing/mapper.rb, line 547</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">with_default_scope</span>(<span class="ruby-identifier">scope</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">scope</span>(<span class="ruby-identifier">scope</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">instance_exec</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-app_name" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">app_name</span><span
+            class="method-args">(app)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="app_name-source">
+            <pre><span class="ruby-comment"># File lib/action_dispatch/routing/mapper.rb, line 559</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">app_name</span>(<span class="ruby-identifier">app</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">app</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:routes</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">app</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:railtie_name</span>)
+    <span class="ruby-identifier">app</span>.<span class="ruby-identifier">railtie_name</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">class_name</span> = <span class="ruby-identifier">app</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Class</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">app</span>.<span class="ruby-identifier">name</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">app</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">name</span>
+    <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">Inflector</span>.<span class="ruby-identifier">underscore</span>(<span class="ruby-identifier">class_name</span>).<span class="ruby-identifier">tr</span>(<span class="ruby-string">&quot;/&quot;</span>, <span class="ruby-string">&quot;_&quot;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-define_generate_prefix" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">define_generate_prefix</span><span
+            class="method-args">(app, name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="define_generate_prefix-source">
+            <pre><span class="ruby-comment"># File lib/action_dispatch/routing/mapper.rb, line 570</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">define_generate_prefix</span>(<span class="ruby-identifier">app</span>, <span class="ruby-identifier">name</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">app</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:routes</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">app</span>.<span class="ruby-identifier">routes</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:define_mounted_helper</span>)
+
+  <span class="ruby-identifier">_route</span> = <span class="ruby-ivar">@set</span>.<span class="ruby-identifier">named_routes</span>.<span class="ruby-identifier">routes</span>[<span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_sym</span>]
+  <span class="ruby-identifier">_routes</span> = <span class="ruby-ivar">@set</span>
+  <span class="ruby-identifier">app</span>.<span class="ruby-identifier">routes</span>.<span class="ruby-identifier">define_mounted_helper</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-identifier">app</span>.<span class="ruby-identifier">routes</span>.<span class="ruby-identifier">singleton_class</span>.<span class="ruby-identifier">class_eval</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">redefine_method</span> <span class="ruby-value">:mounted?</span> <span class="ruby-keyword">do</span>
+      <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">redefine_method</span> <span class="ruby-value">:_generate_prefix</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">options</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">prefix_options</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">slice</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">_route</span>.<span class="ruby-identifier">segment_keys</span>)
+      <span class="ruby-comment"># we must actually delete prefix segment keys to avoid passing them to next url_for</span>
+      <span class="ruby-identifier">_route</span>.<span class="ruby-identifier">segment_keys</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">k</span><span class="ruby-operator">|</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">k</span>) }
+      <span class="ruby-identifier">_routes</span>.<span class="ruby-identifier">url_helpers</span>.<span class="ruby-identifier">send</span>(<span class="ruby-node">&quot;#{name}_path&quot;</span>, <span class="ruby-identifier">prefix_options</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

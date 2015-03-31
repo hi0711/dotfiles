@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module Sorcery::Controller::Submodules::External::InstanceMethods - sorcery-0.9.0 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../../";
+</script>
+
+<script src="../../../../js/jquery.js"></script>
+<script src="../../../../js/darkfish.js"></script>
+
+<link href="../../../../css/fonts.css" rel="stylesheet">
+<link href="../../../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-access_token">#access_token</a>
+    
+    <li ><a href="#method-i-add_provider_to_user">#add_provider_to_user</a>
+    
+    <li ><a href="#method-i-create_and_validate_from">#create_and_validate_from</a>
+    
+    <li ><a href="#method-i-create_from">#create_from</a>
+    
+    <li ><a href="#method-i-login_at">#login_at</a>
+    
+    <li ><a href="#method-i-login_from">#login_from</a>
+    
+    <li ><a href="#method-i-sorcery_fetch_user_hash">#sorcery_fetch_user_hash</a>
+    
+    <li ><a href="#method-i-sorcery_fixup_callback_url">#sorcery_fixup_callback_url</a>
+    
+    <li ><a href="#method-i-sorcery_get_provider">#sorcery_get_provider</a>
+    
+    <li ><a href="#method-i-sorcery_login_url">#sorcery_login_url</a>
+    
+    <li ><a href="#method-i-user_attrs">#user_attrs</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-Sorcery::Controller::Submodules::External::InstanceMethods">
+  <h1 id="module-Sorcery::Controller::Submodules::External::InstanceMethods" class="module">
+    module Sorcery::Controller::Submodules::External::InstanceMethods
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="protected-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Protected Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-access_token" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">access_token</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>for backwards compatibility</p>
+          
+          
+
+          
+          <div class="method-source-code" id="access_token-source">
+            <pre><span class="ruby-comment"># File lib/sorcery/controller/submodules/external.rb, line 90</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">access_token</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-ivar">@access_token</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-add_provider_to_user" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add_provider_to_user</span><span
+            class="method-args">(provider_name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>If user is logged, he can add all available providers into his account</p>
+          
+          
+
+          
+          <div class="method-source-code" id="add_provider_to_user-source">
+            <pre><span class="ruby-comment"># File lib/sorcery/controller/submodules/external.rb, line 135</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">add_provider_to_user</span>(<span class="ruby-identifier">provider_name</span>)
+  <span class="ruby-identifier">sorcery_fetch_user_hash</span> <span class="ruby-identifier">provider_name</span>
+  <span class="ruby-identifier">config</span> = <span class="ruby-identifier">user_class</span>.<span class="ruby-identifier">sorcery_config</span>
+
+  <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">add_provider_to_user</span>(<span class="ruby-identifier">provider_name</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-ivar">@user_hash</span>[<span class="ruby-value">:uid</span>].<span class="ruby-identifier">to_s</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-create_and_validate_from" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create_and_validate_from</span><span
+            class="method-args">(provider_name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p> Initialize new user from provider informations.</p>
+
+<pre>If a provider doesn&#39;t give required informations or username/email is already taken,
+we store provider/user infos into a session and can be rendered into registration form</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="create_and_validate_from-source">
+            <pre><span class="ruby-comment"># File lib/sorcery/controller/submodules/external.rb, line 145</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create_and_validate_from</span>(<span class="ruby-identifier">provider_name</span>)
+  <span class="ruby-identifier">sorcery_fetch_user_hash</span> <span class="ruby-identifier">provider_name</span>
+  <span class="ruby-identifier">config</span> = <span class="ruby-identifier">user_class</span>.<span class="ruby-identifier">sorcery_config</span>
+
+  <span class="ruby-identifier">attrs</span> = <span class="ruby-identifier">user_attrs</span>(<span class="ruby-ivar">@provider</span>.<span class="ruby-identifier">user_info_mapping</span>, <span class="ruby-ivar">@user_hash</span>)
+
+  <span class="ruby-identifier">user</span>, <span class="ruby-identifier">saved</span> = <span class="ruby-identifier">user_class</span>.<span class="ruby-identifier">create_and_validate_from_provider</span>(<span class="ruby-identifier">provider_name</span>, <span class="ruby-ivar">@user_hash</span>[<span class="ruby-value">:uid</span>], <span class="ruby-identifier">attrs</span>)
+
+  <span class="ruby-identifier">session</span>[<span class="ruby-value">:incomplete_user</span>] = {
+    <span class="ruby-value">:provider</span> =<span class="ruby-operator">&gt;</span> {<span class="ruby-identifier">config</span>.<span class="ruby-identifier">provider_uid_attribute_name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@user_hash</span>[<span class="ruby-value">:uid</span>], <span class="ruby-identifier">config</span>.<span class="ruby-identifier">provider_attribute_name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">provider_name</span>},
+    <span class="ruby-value">:user_hash</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">attrs</span>
+  } <span class="ruby-keyword">unless</span> <span class="ruby-identifier">saved</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">user</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-create_from" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create_from</span><span
+            class="method-args">(provider_name, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>this method automatically creates a new user from the data in the external
+user hash. The mappings from user hash fields to user db fields are set at
+controller config. If the hash field you would like to map is nested, use
+slashes. For example, Given a hash like:</p>
+
+<pre>&quot;user&quot; =&gt; {&quot;name&quot;=&gt;&quot;moishe&quot;}</pre>
+
+<p>You will set the mapping:</p>
+
+<pre class="ruby">{:<span class="ruby-identifier">username</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;user/name&quot;</span>}
+</pre>
+
+<p>And this will cause &#39;moishe&#39; to be set as the value of :username
+field. Note: Be careful. This method skips validations model. Instead you
+can pass a block, if the block returns false the user will not be created</p>
+
+<pre class="ruby"><span class="ruby-identifier">create_from</span>(<span class="ruby-identifier">provider</span>) {<span class="ruby-operator">|</span><span class="ruby-identifier">user</span><span class="ruby-operator">|</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">some_check</span> }
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="create_from-source">
+            <pre><span class="ruby-comment"># File lib/sorcery/controller/submodules/external.rb, line 177</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create_from</span>(<span class="ruby-identifier">provider_name</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">sorcery_fetch_user_hash</span> <span class="ruby-identifier">provider_name</span>
+  <span class="ruby-identifier">config</span> = <span class="ruby-identifier">user_class</span>.<span class="ruby-identifier">sorcery_config</span>
+
+  <span class="ruby-identifier">attrs</span> = <span class="ruby-identifier">user_attrs</span>(<span class="ruby-ivar">@provider</span>.<span class="ruby-identifier">user_info_mapping</span>, <span class="ruby-ivar">@user_hash</span>)
+  <span class="ruby-ivar">@user</span> = <span class="ruby-identifier">user_class</span>.<span class="ruby-identifier">create_from_provider</span>(<span class="ruby-identifier">provider_name</span>, <span class="ruby-ivar">@user_hash</span>[<span class="ruby-value">:uid</span>], <span class="ruby-identifier">attrs</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-login_at" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">login_at</span><span
+            class="method-args">(provider_name, args = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>sends user to authenticate at the provider&#39;s website. after
+authentication the user is redirected to the callback defined in the
+provider config</p>
+          
+          
+
+          
+          <div class="method-source-code" id="login_at-source">
+            <pre><span class="ruby-comment"># File lib/sorcery/controller/submodules/external.rb, line 110</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">login_at</span>(<span class="ruby-identifier">provider_name</span>, <span class="ruby-identifier">args</span> = {})
+  <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">sorcery_login_url</span>(<span class="ruby-identifier">provider_name</span>, <span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-login_from" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">login_from</span><span
+            class="method-args">(provider_name, should_remember = false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>tries to login the user from provider&#39;s callback</p>
+          
+          
+
+          
+          <div class="method-source-code" id="login_from-source">
+            <pre><span class="ruby-comment"># File lib/sorcery/controller/submodules/external.rb, line 115</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">login_from</span>(<span class="ruby-identifier">provider_name</span>, <span class="ruby-identifier">should_remember</span> = <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">sorcery_fetch_user_hash</span> <span class="ruby-identifier">provider_name</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">user</span> = <span class="ruby-identifier">user_class</span>.<span class="ruby-identifier">load_from_provider</span>(<span class="ruby-identifier">provider_name</span>, <span class="ruby-ivar">@user_hash</span>[<span class="ruby-value">:uid</span>].<span class="ruby-identifier">to_s</span>)
+    <span class="ruby-comment"># we found the user.</span>
+    <span class="ruby-comment"># clear the session</span>
+    <span class="ruby-identifier">return_to_url</span> = <span class="ruby-identifier">session</span>[<span class="ruby-value">:return_to_url</span>]
+    <span class="ruby-identifier">reset_sorcery_session</span>
+    <span class="ruby-identifier">session</span>[<span class="ruby-value">:return_to_url</span>] = <span class="ruby-identifier">return_to_url</span>
+
+    <span class="ruby-comment"># sign in the user</span>
+    <span class="ruby-identifier">auto_login</span>(<span class="ruby-identifier">user</span>, <span class="ruby-identifier">should_remember</span>)
+    <span class="ruby-identifier">after_login!</span>(<span class="ruby-identifier">user</span>)
+
+    <span class="ruby-comment"># return the user</span>
+    <span class="ruby-identifier">user</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sorcery_fetch_user_hash" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sorcery_fetch_user_hash</span><span
+            class="method-args">(provider_name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>get the user hash from a provider using information from the params and
+session.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="sorcery_fetch_user_hash-source">
+            <pre><span class="ruby-comment"># File lib/sorcery/controller/submodules/external.rb, line 72</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sorcery_fetch_user_hash</span>(<span class="ruby-identifier">provider_name</span>)
+  <span class="ruby-comment"># the application should never ask for user hashes from two different providers</span>
+  <span class="ruby-comment"># on the same request.  But if they do, we should be ready: on the second request,</span>
+  <span class="ruby-comment"># clear out the instance variables if the provider is different</span>
+  <span class="ruby-identifier">provider</span> = <span class="ruby-identifier">sorcery_get_provider</span> <span class="ruby-identifier">provider_name</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@provider</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@provider</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">provider</span>
+    <span class="ruby-ivar">@provider</span> = <span class="ruby-identifier">provider</span>
+    <span class="ruby-ivar">@access_token</span> = <span class="ruby-keyword">nil</span>
+    <span class="ruby-ivar">@user_hash</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># delegate to the provider for the access token and the user hash.</span>
+  <span class="ruby-comment"># cache them in instance variables.</span>
+  <span class="ruby-ivar">@access_token</span> <span class="ruby-operator">||=</span> <span class="ruby-ivar">@provider</span>.<span class="ruby-identifier">process_callback</span>(<span class="ruby-identifier">params</span>, <span class="ruby-identifier">session</span>) <span class="ruby-comment"># sends request to oauth agent to get the token</span>
+  <span class="ruby-ivar">@user_hash</span> <span class="ruby-operator">||=</span> <span class="ruby-ivar">@provider</span>.<span class="ruby-identifier">get_user_hash</span>(<span class="ruby-ivar">@access_token</span>) <span class="ruby-comment"># uses the token to send another request to the oauth agent requesting user info</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sorcery_fixup_callback_url" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sorcery_fixup_callback_url</span><span
+            class="method-args">(provider)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>this method should be somewhere else.  It only does something once per
+application per provider.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="sorcery_fixup_callback_url-source">
+            <pre><span class="ruby-comment"># File lib/sorcery/controller/submodules/external.rb, line 96</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sorcery_fixup_callback_url</span>(<span class="ruby-identifier">provider</span>)
+  <span class="ruby-identifier">provider</span>.<span class="ruby-identifier">original_callback_url</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">provider</span>.<span class="ruby-identifier">callback_url</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">provider</span>.<span class="ruby-identifier">original_callback_url</span>.<span class="ruby-identifier">present?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">provider</span>.<span class="ruby-identifier">original_callback_url</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&#39;/&#39;</span>
+    <span class="ruby-identifier">uri</span> = <span class="ruby-constant">URI</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">request</span>.<span class="ruby-identifier">url</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/\?.*$/</span>,<span class="ruby-string">&#39;&#39;</span>))
+    <span class="ruby-identifier">uri</span>.<span class="ruby-identifier">path</span> = <span class="ruby-string">&#39;&#39;</span>
+    <span class="ruby-identifier">uri</span>.<span class="ruby-identifier">query</span> = <span class="ruby-keyword">nil</span>
+    <span class="ruby-identifier">uri</span>.<span class="ruby-identifier">scheme</span> = <span class="ruby-string">&#39;https&#39;</span> <span class="ruby-keyword">if</span>(<span class="ruby-identifier">request</span>.<span class="ruby-identifier">env</span>[<span class="ruby-string">&#39;HTTP_X_FORWARDED_PROTO&#39;</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&#39;https&#39;</span>)
+    <span class="ruby-identifier">host</span> = <span class="ruby-identifier">uri</span>.<span class="ruby-identifier">to_s</span>
+    <span class="ruby-identifier">provider</span>.<span class="ruby-identifier">callback_url</span> = <span class="ruby-node">&quot;#{host}#{@provider.original_callback_url}&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sorcery_get_provider" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sorcery_get_provider</span><span
+            class="method-args">(provider_name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>save the singleton ProviderClient instance into @provider</p>
+          
+          
+
+          
+          <div class="method-source-code" id="sorcery_get_provider-source">
+            <pre><span class="ruby-comment"># File lib/sorcery/controller/submodules/external.rb, line 53</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sorcery_get_provider</span>(<span class="ruby-identifier">provider_name</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-constant">Config</span>.<span class="ruby-identifier">external_providers</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">provider_name</span>.<span class="ruby-identifier">to_sym</span>)
+  <span class="ruby-constant">Config</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">provider_name</span>.<span class="ruby-identifier">to_sym</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sorcery_login_url" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sorcery_login_url</span><span
+            class="method-args">(provider_name, args = {})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>get the login URL from the provider, if applicable.  Returns nil if the
+provider does not provide a login URL.  (as of v0.8.1 all providers provide
+a login URL)</p>
+          
+          
+
+          
+          <div class="method-source-code" id="sorcery_login_url-source">
+            <pre><span class="ruby-comment"># File lib/sorcery/controller/submodules/external.rb, line 60</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sorcery_login_url</span>(<span class="ruby-identifier">provider_name</span>, <span class="ruby-identifier">args</span> = {})
+  <span class="ruby-ivar">@provider</span> = <span class="ruby-identifier">sorcery_get_provider</span> <span class="ruby-identifier">provider_name</span>
+  <span class="ruby-identifier">sorcery_fixup_callback_url</span> <span class="ruby-ivar">@provider</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@provider</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:login_url</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@provider</span>.<span class="ruby-identifier">has_callback?</span>
+    <span class="ruby-ivar">@provider</span>.<span class="ruby-identifier">state</span> = <span class="ruby-identifier">args</span>[<span class="ruby-value">:state</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">args</span>[<span class="ruby-value">:state</span>]
+    <span class="ruby-keyword">return</span> <span class="ruby-ivar">@provider</span>.<span class="ruby-identifier">login_url</span>(<span class="ruby-identifier">params</span>, <span class="ruby-identifier">session</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-user_attrs" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">user_attrs</span><span
+            class="method-args">(user_info_mapping, user_hash)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="user_attrs-source">
+            <pre><span class="ruby-comment"># File lib/sorcery/controller/submodules/external.rb, line 185</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">user_attrs</span>(<span class="ruby-identifier">user_info_mapping</span>, <span class="ruby-identifier">user_hash</span>)
+  <span class="ruby-identifier">attrs</span> = {}
+  <span class="ruby-identifier">user_info_mapping</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>,<span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> (<span class="ruby-identifier">varr</span> = <span class="ruby-identifier">v</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;/&quot;</span>)).<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>
+      <span class="ruby-identifier">attribute_value</span> = <span class="ruby-identifier">varr</span>.<span class="ruby-identifier">inject</span>(<span class="ruby-identifier">user_hash</span>[<span class="ruby-value">:user_info</span>]) {<span class="ruby-operator">|</span><span class="ruby-identifier">hash</span>, <span class="ruby-identifier">value</span><span class="ruby-operator">|</span> <span class="ruby-identifier">hash</span>[<span class="ruby-identifier">value</span>]} <span class="ruby-keyword">rescue</span> <span class="ruby-keyword">nil</span>
+      <span class="ruby-identifier">attribute_value</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">attrs</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">attrs</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">k</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">attribute_value</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">attrs</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">k</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">user_hash</span>[<span class="ruby-value">:user_info</span>][<span class="ruby-identifier">v</span>])
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">attrs</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

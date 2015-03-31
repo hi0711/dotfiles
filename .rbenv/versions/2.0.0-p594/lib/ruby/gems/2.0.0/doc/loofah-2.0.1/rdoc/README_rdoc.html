@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>README - loofah-2.0.1 Documentation</title>
+
+<link href="./fonts.css" rel="stylesheet">
+<link href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/navigation.js"></script>
+<script src="./js/search_index.js"></script>
+<script src="./js/search.js"></script>
+<script src="./js/searcher.js"></script>
+<script src="./js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#label-Loofah+%3Cimg+src%3D%22https%3A%2F%2Ftravis-ci.org%2Fflavorjones%2Floofah.png%3Fbranch%3Dmaster%22+alt%3D%22Build+Status%22+%2F%3E">Loofah <a href="https://travis-ci.org/flavorjones/loofah"><img src="https://travis-ci.org/flavorjones/loofah.png?branch=master" alt="Build Status" /></a></a>
+    <li><a href="#label-Description">Description</a>
+    <li><a href="#label-Features">Features</a>
+    <li><a href="#label-Compare+and+Contrast">Compare and Contrast</a>
+    <li><a href="#label-The+Basics">The Basics</a>
+    <li><a href="#label-Side+Note%3A+Fragments+vs+Documents">Side Note: Fragments vs Documents</a>
+    <li><a href="#label-Loofah%3A%3AHTML%3A%3ADocument+and+Loofah%3A%3AHTML%3A%3ADocumentFragment">Loofah::HTML::Document and Loofah::HTML::DocumentFragment</a>
+    <li><a href="#label-Loofah%3A%3AXML%3A%3ADocument+and+Loofah%3A%3AXML%3A%3ADocumentFragment">Loofah::XML::Document and Loofah::XML::DocumentFragment</a>
+    <li><a href="#label-Nodes+and+NodeSets">Nodes and NodeSets</a>
+    <li><a href="#label-Loofah%3A%3AScrubber">Loofah::Scrubber</a>
+    <li><a href="#label-Built-In+HTML+Scrubbers">Built-In HTML Scrubbers</a>
+    <li><a href="#label-Chaining+Scrubbers">Chaining Scrubbers</a>
+    <li><a href="#label-Shorthand">Shorthand</a>
+    <li><a href="#label-View+Helpers">View Helpers</a>
+    <li><a href="#label-Requirements">Requirements</a>
+    <li><a href="#label-Installation">Installation</a>
+    <li><a href="#label-Support">Support</a>
+    <li><a href="#label-Related+Links">Related Links</a>
+    <li><a href="#label-Authors">Authors</a>
+    <li><a href="#label-Thank+You">Thank You</a>
+    <li><a href="#label-Historical+Note">Historical Note</a>
+    <li><a href="#label-License">License</a>
+  </ul>
+</div>
+
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./CHANGELOG_rdoc.html">CHANGELOG</a>
+  
+    <li><a href="./MIT-LICENSE_txt.html">MIT-LICENSE</a>
+  
+    <li><a href="./Manifest_txt.html">Manifest</a>
+  
+    <li><a href="./README_rdoc.html">README</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page README.rdoc">
+
+<h1 id="label-Loofah+%3Cimg+src%3D%22https%3A%2F%2Ftravis-ci.org%2Fflavorjones%2Floofah.png%3Fbranch%3Dmaster%22+alt%3D%22Build+Status%22+%2F%3E"><a href="Loofah.html">Loofah</a> <a href="https://travis-ci.org/flavorjones/loofah"><img src="https://travis-ci.org/flavorjones/loofah.png?branch=master" alt="Build Status" /></a><span><a href="#label-Loofah+%3Cimg+src%3D%22https%3A%2F%2Ftravis-ci.org%2Fflavorjones%2Floofah.png%3Fbranch%3Dmaster%22+alt%3D%22Build+Status%22+%2F%3E">&para;</a> <a href="#documentation">&uarr;</a></span></h1>
+<ul><li>
+<p><a
+href="https://github.com/flavorjones/loofah">github.com/flavorjones/loofah</a></p>
+</li><li>
+<p><a
+href="http://rubydoc.info/github/flavorjones/loofah/master/frames">rubydoc.info/github/flavorjones/loofah/master/frames</a></p>
+</li><li>
+<p><a
+href="http://librelist.com/browser/loofah">librelist.com/browser/loofah</a></p>
+</li></ul>
+
+<h2 id="label-Description">Description<span><a href="#label-Description">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p><a href="Loofah.html">Loofah</a> is a general library for manipulating and
+transforming HTML/XML documents and fragments. It&#39;s built on top of
+Nokogiri and libxml2, so it&#39;s fast and has a nice API.</p>
+
+<p><a href="Loofah.html">Loofah</a> excels at HTML sanitization (XSS
+prevention). It includes some nice HTML sanitizers, which are based on
+HTML5lib&#39;s whitelist, so it most likely won&#39;t make your codes less
+secure. (These statements have not been evaluated by Netexperts.)</p>
+
+<p>ActiveRecord extensions for sanitization are available in the
+`loofah-activerecord` gem (see <a
+href="https://github.com/flavorjones/loofah-activerecord">github.com/flavorjones/loofah-activerecord</a>).</p>
+
+<h2 id="label-Features">Features<span><a href="#label-Features">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+<ul><li>
+<p>Easily write custom scrubbers for HTML/XML leveraging the sweetness of
+Nokogiri (and HTML5lib&#39;s whitelists).</p>
+</li><li>
+<p>Common HTML sanitizing tasks are built-in:</p>
+<ul><li>
+<p><em>Strip</em> unsafe tags, leaving behind only the inner text.</p>
+</li><li>
+<p><em>Prune</em> unsafe tags and their subtrees, removing all traces that
+they ever existed.</p>
+</li><li>
+<p><em>Escape</em> unsafe tags and their subtrees, leaving behind lots of
+<code>&amp;lt;</code> and <code>&amp;gt;</code> entities.</p>
+</li><li>
+<p><em>Whitewash</em> the markup, removing all attributes and namespaced
+nodes.</p>
+</li></ul>
+</li><li>
+<p>Common HTML transformation tasks are built-in:</p>
+<ul><li>
+<p>Add the <em>nofollow</em> attribute to all hyperlinks.</p>
+</li></ul>
+</li><li>
+<p>Format markup as plain text, with or without sensible whitespace handling
+around block elements.</p>
+</li><li>
+<p>Replace Rails&#39;s <code>strip_tags</code> and <code>sanitize</code> view
+helper methods.</p>
+</li></ul>
+
+<h2 id="label-Compare+and+Contrast">Compare and Contrast<span><a href="#label-Compare+and+Contrast">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p><a href="Loofah.html">Loofah</a> is one of two known Ruby XSS/sanitization
+solutions that guarantees well-formed and valid markup (the other is
+Sanitize, which also uses Nokogiri).</p>
+
+<p><a href="Loofah.html">Loofah</a> works on XML, XHTML and HTML documents.</p>
+
+<p>Also, it&#39;s pretty fast. Here is a benchmark comparing <a
+href="Loofah.html">Loofah</a> to other commonly-used libraries (ActionView,
+Sanitize, HTML5lib and HTMLfilter):</p>
+<ul><li>
+<p><a href="https://gist.github.com/170193">gist.github.com/170193</a></p>
+</li></ul>
+
+<p>Lastly, <a href="Loofah.html">Loofah</a> is extensible. It&#39;s super-easy
+to write your own custom scrubbers for whatever document manipulation you
+need. You don&#39;t like the built-in scrubbers? Build your own, like a
+boss.</p>
+
+<h2 id="label-The+Basics">The Basics<span><a href="#label-The+Basics">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p><a href="Loofah.html">Loofah</a> wraps <a
+href="http://nokogiri.org">Nokogiri</a> in a loving embrace. <a
+href="http://nokogiri.org">Nokogiri</a> is an excellent HTML/XML parser. If
+you don&#39;t know how <a href="http://nokogiri.org">Nokogiri</a> works,
+you might want to pause for a moment and go check it out. I&#39;ll wait.</p>
+
+<p><a href="Loofah.html">Loofah</a> presents the following classes:</p>
+<ul><li>
+<p><a href="Loofah/HTML/Document.html">Loofah::HTML::Document</a> and <a
+href="Loofah/HTML/DocumentFragment.html">Loofah::HTML::DocumentFragment</a></p>
+</li><li>
+<p><a href="Loofah/XML/Document.html">Loofah::XML::Document</a> and <a
+href="Loofah/XML/DocumentFragment.html">Loofah::XML::DocumentFragment</a></p>
+</li><li>
+<p><a href="Loofah/Scrubber.html">Loofah::Scrubber</a></p>
+</li></ul>
+
+<p>The documents and fragments are subclasses of the similar Nokogiri classes.</p>
+
+<p>The Scrubber represents the document manipulation, either by wrapping a
+block,</p>
+
+<pre class="ruby"><span class="ruby-identifier">span2div</span> = <span class="ruby-constant">Loofah</span><span class="ruby-operator">::</span><span class="ruby-constant">Scrubber</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">node</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">node</span>.<span class="ruby-identifier">name</span> = <span class="ruby-string">&quot;div&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">name</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;span&quot;</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>or by implementing a method.</p>
+
+<h3 id="label-Side+Note%3A+Fragments+vs+Documents">Side Note: Fragments vs Documents<span><a href="#label-Side+Note%3A+Fragments+vs+Documents">&para;</a> <a href="#documentation">&uarr;</a></span></h3>
+
+<p>Generally speaking, unless you expect to have a DOCTYPE and a single root
+node, you don&#39;t have a <strong>document</strong>, you have a
+<strong>fragment</strong>. For HTML, another rule of thumb is that
+<strong>documents</strong> have <code>html</code> and <code>body</code>
+tags, and <strong>fragments</strong> usually do not.</p>
+
+<p>HTML fragments should be parsed with <a
+href="Loofah.html#method-i-fragment">Loofah#fragment</a>. The result
+won&#39;t be wrapped in <code>html</code> or <code>body</code> tags,
+won&#39;t have a DOCTYPE declaration, <code>head</code> elements will be
+silently ignored, and multiple root nodes are allowed.</p>
+
+<p>XML fragments should be parsed with <a
+href="Loofah.html#method-i-xml_fragment">Loofah#xml_fragment</a>. The
+result won&#39;t have a DOCTYPE declaration, and multiple root nodes are
+allowed.</p>
+
+<p>HTML documents should be parsed with <a
+href="Loofah.html#method-i-document">Loofah#document</a>. The result will
+have a DOCTYPE declaration, along with <code>html</code>, <code>head</code>
+and <code>body</code> tags.</p>
+
+<p>XML documents should be parsed with <a
+href="Loofah.html#method-i-xml_document">Loofah#xml_document</a>. The
+result will have a DOCTYPE declaration and a single root node.</p>
+
+<h3 id="label-Loofah%3A%3AHTML%3A%3ADocument+and+Loofah%3A%3AHTML%3A%3ADocumentFragment"><a href="Loofah/HTML/Document.html">Loofah::HTML::Document</a> and <a href="Loofah/HTML/DocumentFragment.html">Loofah::HTML::DocumentFragment</a><span><a href="#label-Loofah%3A%3AHTML%3A%3ADocument+and+Loofah%3A%3AHTML%3A%3ADocumentFragment">&para;</a> <a href="#documentation">&uarr;</a></span></h3>
+
+<p>These classes are subclasses of Nokogiri::HTML::Document and
+Nokogiri::HTML::DocumentFragment, so you get all the markup fixer-uppery
+and API goodness of Nokogiri.</p>
+
+<p>The module methods <a
+href="Loofah.html#method-i-document">Loofah#document</a> and <a
+href="Loofah.html#method-i-fragment">Loofah#fragment</a> will parse an HTML
+document and an HTML fragment, respectively.</p>
+
+<pre class="ruby"><span class="ruby-constant">Loofah</span>.<span class="ruby-identifier">document</span>(<span class="ruby-identifier">unsafe_html</span>).<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Nokogiri</span><span class="ruby-operator">::</span><span class="ruby-constant">HTML</span><span class="ruby-operator">::</span><span class="ruby-constant">Document</span>)         <span class="ruby-comment"># =&gt; true</span>
+<span class="ruby-constant">Loofah</span>.<span class="ruby-identifier">fragment</span>(<span class="ruby-identifier">unsafe_html</span>).<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Nokogiri</span><span class="ruby-operator">::</span><span class="ruby-constant">HTML</span><span class="ruby-operator">::</span><span class="ruby-constant">DocumentFragment</span>) <span class="ruby-comment"># =&gt; true</span>
+</pre>
+
+<p><a href="Loofah.html">Loofah</a> injects a <code>scrub!</code> method,
+which takes either a symbol (for built-in scrubbers) or a <a
+href="Loofah/Scrubber.html">Loofah::Scrubber</a> object (for custom
+scrubbers), and modifies the document in-place.</p>
+
+<p><a href="Loofah.html">Loofah</a> overrides <code>to_s</code> to return
+HTML:</p>
+
+<pre class="ruby"><span class="ruby-identifier">unsafe_html</span> = <span class="ruby-string">&quot;ohai! &lt;div&gt;div is safe&lt;/div&gt; &lt;script&gt;but script is not&lt;/script&gt;&quot;</span>
+
+<span class="ruby-identifier">doc</span> = <span class="ruby-constant">Loofah</span>.<span class="ruby-identifier">fragment</span>(<span class="ruby-identifier">unsafe_html</span>).<span class="ruby-identifier">scrub!</span>(:<span class="ruby-identifier">strip</span>)
+<span class="ruby-identifier">doc</span>.<span class="ruby-identifier">to_s</span>    <span class="ruby-comment"># =&gt; &quot;ohai! &lt;div&gt;div is safe&lt;/div&gt; &quot;</span>
+</pre>
+
+<p>and <code>text</code> to return plain text:</p>
+
+<pre class="ruby"><span class="ruby-identifier">doc</span>.<span class="ruby-identifier">text</span>    <span class="ruby-comment"># =&gt; &quot;ohai! div is safe &quot;</span>
+</pre>
+
+<p>Also, <code>to_text</code> is available, which does the right thing with
+whitespace around block-level elements.</p>
+
+<pre class="ruby"><span class="ruby-identifier">doc</span> = <span class="ruby-constant">Loofah</span>.<span class="ruby-identifier">fragment</span>(<span class="ruby-string">&quot;&lt;h1&gt;Title&lt;/h1&gt;&lt;div&gt;Content&lt;/div&gt;&quot;</span>)
+<span class="ruby-identifier">doc</span>.<span class="ruby-identifier">text</span>    <span class="ruby-comment"># =&gt; &quot;TitleContent&quot;           # probably not what you want</span>
+<span class="ruby-identifier">doc</span>.<span class="ruby-identifier">to_text</span> <span class="ruby-comment"># =&gt; &quot;\nTitle\n\nContent\n&quot;   # better</span>
+</pre>
+
+<h3 id="label-Loofah%3A%3AXML%3A%3ADocument+and+Loofah%3A%3AXML%3A%3ADocumentFragment"><a href="Loofah/XML/Document.html">Loofah::XML::Document</a> and <a href="Loofah/XML/DocumentFragment.html">Loofah::XML::DocumentFragment</a><span><a href="#label-Loofah%3A%3AXML%3A%3ADocument+and+Loofah%3A%3AXML%3A%3ADocumentFragment">&para;</a> <a href="#documentation">&uarr;</a></span></h3>
+
+<p>These classes are subclasses of Nokogiri::XML::Document and
+Nokogiri::XML::DocumentFragment, so you get all the markup fixer-uppery and
+API goodness of Nokogiri.</p>
+
+<p>The module methods <a
+href="Loofah.html#method-i-xml_document">Loofah#xml_document</a> and <a
+href="Loofah.html#method-i-xml_fragment">Loofah#xml_fragment</a> will parse
+an XML document and an XML fragment, respectively.</p>
+
+<pre class="ruby"><span class="ruby-constant">Loofah</span>.<span class="ruby-identifier">xml_document</span>(<span class="ruby-identifier">bad_xml</span>).<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Nokogiri</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Document</span>)         <span class="ruby-comment"># =&gt; true</span>
+<span class="ruby-constant">Loofah</span>.<span class="ruby-identifier">xml_fragment</span>(<span class="ruby-identifier">bad_xml</span>).<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Nokogiri</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">DocumentFragment</span>) <span class="ruby-comment"># =&gt; true</span>
+</pre>
+
+<h3 id="label-Nodes+and+NodeSets">Nodes and NodeSets<span><a href="#label-Nodes+and+NodeSets">&para;</a> <a href="#documentation">&uarr;</a></span></h3>
+
+<p>Nokogiri::XML::Node and Nokogiri::XML::NodeSet also get a
+<code>scrub!</code> method, which makes it easy to scrub subtrees.</p>
+
+<p>The following code will apply the <code>employee_scrubber</code> only to
+the <code>employee</code> nodes (and their subtrees) in the document:</p>
+
+<pre>Loofah.xml_document(bad_xml).xpath(&quot;//employee&quot;).scrub!(employee_scrubber)</pre>
+
+<p>And this code will only scrub the first <code>employee</code> node and its
+subtree:</p>
+
+<pre>Loofah.xml_document(bad_xml).at_xpath(&quot;//employee&quot;).scrub!(employee_scrubber)</pre>
+
+<h3 id="label-Loofah%3A%3AScrubber"><a href="Loofah/Scrubber.html">Loofah::Scrubber</a><span><a href="#label-Loofah%3A%3AScrubber">&para;</a> <a href="#documentation">&uarr;</a></span></h3>
+
+<p>A Scrubber wraps up a block (or method) that is run on a document node:</p>
+
+<pre class="ruby"><span class="ruby-comment"># change all &lt;span&gt; tags to &lt;div&gt; tags</span>
+<span class="ruby-identifier">span2div</span> = <span class="ruby-constant">Loofah</span><span class="ruby-operator">::</span><span class="ruby-constant">Scrubber</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">node</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">node</span>.<span class="ruby-identifier">name</span> = <span class="ruby-string">&quot;div&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">name</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;span&quot;</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>This can then be run on a document:</p>
+
+<pre class="ruby"><span class="ruby-constant">Loofah</span>.<span class="ruby-identifier">fragment</span>(<span class="ruby-string">&quot;&lt;span&gt;foo&lt;/span&gt;&lt;p&gt;bar&lt;/p&gt;&quot;</span>).<span class="ruby-identifier">scrub!</span>(<span class="ruby-identifier">span2div</span>).<span class="ruby-identifier">to_s</span>
+<span class="ruby-comment"># =&gt; &quot;&lt;div&gt;foo&lt;/div&gt;&lt;p&gt;bar&lt;/p&gt;&quot;</span>
+</pre>
+
+<p>Scrubbers can be run on a document in either a top-down traversal (the
+default) or bottom-up. Top-down scrubbers can optionally return
+Scrubber::STOP to terminate the traversal of a subtree. Read below and in
+the <a href="Loofah/Scrubber.html">Loofah::Scrubber</a> class for more
+detailed usage.</p>
+
+<p>Here&#39;s an XML example:</p>
+
+<pre class="ruby"><span class="ruby-comment"># remove all &lt;employee&gt; tags that have a &quot;deceased&quot; attribute set to true</span>
+<span class="ruby-identifier">bring_out_your_dead</span> = <span class="ruby-constant">Loofah</span><span class="ruby-operator">::</span><span class="ruby-constant">Scrubber</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">node</span><span class="ruby-operator">|</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">name</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;employee&quot;</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">node</span>[<span class="ruby-string">&quot;deceased&quot;</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&quot;true&quot;</span>
+    <span class="ruby-identifier">node</span>.<span class="ruby-identifier">remove</span>
+    <span class="ruby-constant">Loofah</span><span class="ruby-operator">::</span><span class="ruby-constant">Scrubber</span><span class="ruby-operator">::</span><span class="ruby-constant">STOP</span> <span class="ruby-comment"># don&#39;t bother with the rest of the subtree</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-constant">Loofah</span>.<span class="ruby-identifier">xml_document</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-string">&#39;plague.xml&#39;</span>)).<span class="ruby-identifier">scrub!</span>(<span class="ruby-identifier">bring_out_your_dead</span>)
+</pre>
+
+<h3 id="label-Built-In+HTML+Scrubbers">Built-In HTML Scrubbers<span><a href="#label-Built-In+HTML+Scrubbers">&para;</a> <a href="#documentation">&uarr;</a></span></h3>
+
+<p><a href="Loofah.html">Loofah</a> comes with a set of sanitizing scrubbers
+that use HTML5lib&#39;s whitelist algorithm:</p>
+
+<pre>doc.scrub!(:strip)       # replaces unknown/unsafe tags with their inner text
+doc.scrub!(:prune)       #  removes unknown/unsafe tags and their children
+doc.scrub!(:escape)      #  escapes unknown/unsafe tags, like this: &amp;lt;script&amp;gt;
+doc.scrub!(:whitewash)   #  removes unknown/unsafe/namespaced tags and their children,
+                         #          and strips all node attributes</pre>
+
+<p><a href="Loofah.html">Loofah</a> also comes with some common transformation
+tasks:</p>
+
+<pre>doc.scrub!(:nofollow)    #     adds rel=&quot;nofollow&quot; attribute to links
+doc.scrub!(:unprintable) #  removes unprintable characters from text nodes</pre>
+
+<p>See <a href="Loofah/Scrubbers.html">Loofah::Scrubbers</a> for more details
+and example usage.</p>
+
+<h3 id="label-Chaining+Scrubbers">Chaining Scrubbers<span><a href="#label-Chaining+Scrubbers">&para;</a> <a href="#documentation">&uarr;</a></span></h3>
+
+<p>You can chain scrubbers:</p>
+
+<pre class="ruby"><span class="ruby-constant">Loofah</span>.<span class="ruby-identifier">fragment</span>(<span class="ruby-string">&quot;&lt;span&gt;hello&lt;/span&gt; &lt;script&gt;alert(&#39;OHAI&#39;)&lt;/script&gt;&quot;</span>)        .<span class="ruby-identifier">scrub!</span>(:<span class="ruby-identifier">prune</span>)        .<span class="ruby-identifier">scrub!</span>(<span class="ruby-identifier">span2div</span>).<span class="ruby-identifier">to_s</span>
+<span class="ruby-comment"># =&gt; &quot;&lt;div&gt;hello&lt;/div&gt; &quot;</span>
+</pre>
+
+<h3 id="label-Shorthand">Shorthand<span><a href="#label-Shorthand">&para;</a> <a href="#documentation">&uarr;</a></span></h3>
+
+<p>The class methods <a
+href="Loofah.html#method-i-scrub_fragment">Loofah#scrub_fragment</a> and <a
+href="Loofah.html#method-i-scrub_document">Loofah#scrub_document</a> are
+shorthand.</p>
+
+<pre>Loofah.scrub_fragment(unsafe_html, :prune)
+Loofah.scrub_document(unsafe_html, :prune)
+Loofah.scrub_xml_fragment(bad_xml, custom_scrubber)
+Loofah.scrub_xml_document(bad_xml, custom_scrubber)</pre>
+
+<p>are the same thing as (and arguably semantically clearer than):</p>
+
+<pre>Loofah.fragment(unsafe_html).scrub!(:prune)
+Loofah.document(unsafe_html).scrub!(:prune)
+Loofah.xml_fragment(bad_xml).scrub!(custom_scrubber)
+Loofah.xml_document(bad_xml).scrub!(custom_scrubber)</pre>
+
+<h3 id="label-View+Helpers">View Helpers<span><a href="#label-View+Helpers">&para;</a> <a href="#documentation">&uarr;</a></span></h3>
+
+<p><a href="Loofah.html">Loofah</a> has two “view helpers”: <a
+href="Loofah/Helpers.html#method-i-sanitize">Loofah::Helpers#sanitize</a>
+and <a
+href="Loofah/Helpers.html#method-i-strip_tags">Loofah::Helpers#strip_tags</a>,
+both of which are drop-in replacements for the Rails ActionView helpers of
+the same name. These are no longer required automatically. You must require
+`loofah/helpers`.</p>
+
+<h2 id="label-Requirements">Requirements<span><a href="#label-Requirements">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+<ul><li>
+<p>Nokogiri &gt;= 1.4.4</p>
+</li></ul>
+
+<h2 id="label-Installation">Installation<span><a href="#label-Installation">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>Unsurprisingly:</p>
+<ul><li>
+<p>gem install loofah</p>
+</li></ul>
+
+<h2 id="label-Support">Support<span><a href="#label-Support">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>The bug tracker is available here:</p>
+<ul><li>
+<p><a
+href="https://github.com/flavorjones/loofah/issues">github.com/flavorjones/loofah/issues</a></p>
+</li></ul>
+
+<p>And the mailing list is on librelist:</p>
+<ul><li>
+<p>loofah@librelist.com / <a href="http://librelist.com">librelist.com</a></p>
+</li></ul>
+
+<p>And the IRC channel is #loofah on freenode.</p>
+
+<h2 id="label-Related+Links">Related Links<span><a href="#label-Related+Links">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+<ul><li>
+<p>Nokogiri: <a href="http://nokogiri.org">nokogiri.org</a></p>
+</li><li>
+<p>libxml2: <a href="http://xmlsoft.org">xmlsoft.org</a></p>
+</li><li>
+<p>html5lib: <a
+href="https://code.google.com/p/html5lib">code.google.com/p/html5lib</a></p>
+</li></ul>
+
+<h2 id="label-Authors">Authors<span><a href="#label-Authors">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+<ul><li>
+<p><a href="http://mike.daless.io">Mike Dalessio</a> (@<a
+href="https://twitter.com/flavorjones">flavorjones</a>)</p>
+</li><li>
+<p>Bryan Helmkamp</p>
+</li></ul>
+
+<p>Featuring code contributed by:</p>
+<ul><li>
+<p>Aaron Patterson</p>
+</li><li>
+<p>John Barnette</p>
+</li><li>
+<p>Josh Owens</p>
+</li><li>
+<p>Paul Dix</p>
+</li><li>
+<p>Luke Melia</p>
+</li></ul>
+
+<p>And a big shout-out to Corey Innis for the name, and feedback on the API.</p>
+
+<h2 id="label-Thank+You">Thank You<span><a href="#label-Thank+You">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>The following people have generously donated via the <a
+href="http://pledgie.com">Pledgie</a> badge on the <a
+href="https://github.com/flavorjones/loofah">Loofah github page</a>:</p>
+<ul><li>
+<p>Bill Harding</p>
+</li></ul>
+
+<h2 id="label-Historical+Note">Historical Note<span><a href="#label-Historical+Note">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>This library was formerly known as Dryopteris, which was a very bad name
+that nobody could spell properly.</p>
+
+<h2 id="label-License">License<span><a href="#label-License">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>The MIT License</p>
+
+<p>Copyright © 2009 – 2014 by Mike Dalessio, Bryan Helmkamp</p>
+
+<p>Permission is hereby granted, free of charge, to any person obtaining a
+copy of this software and associated documentation files (the “Software”),
+to deal in the Software without restriction, including without limitation
+the rights to use, copy, modify, merge, publish, distribute, sublicense,
+and/or sell copies of the Software, and to permit persons to whom the
+Software is furnished to do so, subject to the following conditions:</p>
+
+<p>The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.</p>
+
+<p>THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+DEALINGS IN THE SOFTWARE.</p>
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

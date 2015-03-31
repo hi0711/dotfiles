@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>rspec-core-3.1.7 Documentation</title>
+
+<link href="./fonts.css" rel="stylesheet">
+<link href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/navigation.js"></script>
+<script src="./js/search_index.js"></script>
+<script src="./js/search.js"></script>
+<script src="./js/searcher.js"></script>
+<script src="./js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  <div id="project-metadata">
+    
+    <div id="classindex-section" class="nav-section">
+  <h3>Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./Object.html">Object</a>
+  
+    <li><a href="./RSpec/Core/Backports.html">RSpec::Core::Backports</a>
+  
+    <li><a href="./RSpec/Core/Backports/Random.html">RSpec::Core::Backports::Random</a>
+  
+    <li><a href="./RSpec/Core/Backports/Random/Implementation.html">RSpec::Core::Backports::Random::Implementation</a>
+  
+    <li><a href="./RSpec/Core/Backports/Random/MT19937.html">RSpec::Core::Backports::Random::MT19937</a>
+  
+    <li><a href="./RSpec/Core/Backports/RandomNumberGenerator.html">RSpec::Core::Backports::RandomNumberGenerator</a>
+  
+    <li><a href="./RSpec/Core/BacktraceFormatter.html">RSpec::Core::BacktraceFormatter</a>
+  
+    <li><a href="./RSpec/Core/Configuration/host;.html">RSpec::Core::Configuration::host;</a>
+  
+    <li><a href="./RSpec/Core/ConfigurationOptions.html">RSpec::Core::ConfigurationOptions</a>
+  
+    <li><a href="./RSpec/Core/DRbOptions.html">RSpec::Core::DRbOptions</a>
+  
+    <li><a href="./RSpec/Core/DRbRunner.html">RSpec::Core::DRbRunner</a>
+  
+    <li><a href="./RSpec/Core/DSL.html">RSpec::Core::DSL</a>
+  
+    <li><a href="./RSpec/Core/DSL/RSpec.html">RSpec::Core::DSL::RSpec</a>
+  
+    <li><a href="./RSpec/Core/DSL/top_level;.html">RSpec::Core::DSL::top_level;</a>
+  
+    <li><a href="./RSpec/Core/Example.html">RSpec::Core::Example</a>
+  
+    <li><a href="./RSpec/Core/Example/ExecutionResult.html">RSpec::Core::Example::ExecutionResult</a>
+  
+    <li><a href="./RSpec/Core/Example/Procsy.html">RSpec::Core::Example::Procsy</a>
+  
+    <li><a href="./RSpec/Core/ExclusionRules.html">RSpec::Core::ExclusionRules</a>
+  
+    <li><a href="./RSpec/Core/FilterManager.html">RSpec::Core::FilterManager</a>
+  
+    <li><a href="./RSpec/Core/FilterRules.html">RSpec::Core::FilterRules</a>
+  
+    <li><a href="./RSpec/Core/FlatMap.html">RSpec::Core::FlatMap</a>
+  
+    <li><a href="./RSpec/Core/Formatters/ConsoleCodes.html">RSpec::Core::Formatters::ConsoleCodes</a>
+  
+    <li><a href="./RSpec/Core/Formatters/Helpers.html">RSpec::Core::Formatters::Helpers</a>
+  
+    <li><a href="./RSpec/Core/Formatters/HtmlPrinter.html">RSpec::Core::Formatters::HtmlPrinter</a>
+  
+    <li><a href="./RSpec/Core/Formatters/Loader.html">RSpec::Core::Formatters::Loader</a>
+  
+    <li><a href="./RSpec/Core/Formatters/Protocol.html">RSpec::Core::Formatters::Protocol</a>
+  
+    <li><a href="./RSpec/Core/Formatters/SnippetExtractor.html">RSpec::Core::Formatters::SnippetExtractor</a>
+  
+    <li><a href="./RSpec/Core/Formatters/SnippetExtractor/CoderayConverter.html">RSpec::Core::Formatters::SnippetExtractor::CoderayConverter</a>
+  
+    <li><a href="./RSpec/Core/Formatters/SnippetExtractor/NullConverter.html">RSpec::Core::Formatters::SnippetExtractor::NullConverter</a>
+  
+    <li><a href="./RSpec/Core/Hooks.html">RSpec::Core::Hooks</a>
+  
+    <li><a href="./RSpec/Core/Hooks/AfterContextHook.html">RSpec::Core::Hooks::AfterContextHook</a>
+  
+    <li><a href="./RSpec/Core/Hooks/AfterHook.html">RSpec::Core::Hooks::AfterHook</a>
+  
+    <li><a href="./RSpec/Core/Hooks/AroundHook.html">RSpec::Core::Hooks::AroundHook</a>
+  
+    <li><a href="./RSpec/Core/Hooks/AroundHookCollection.html">RSpec::Core::Hooks::AroundHookCollection</a>
+  
+    <li><a href="./RSpec/Core/Hooks/BaseHookCollection.html">RSpec::Core::Hooks::BaseHookCollection</a>
+  
+    <li><a href="./RSpec/Core/Hooks/BeforeHook.html">RSpec::Core::Hooks::BeforeHook</a>
+  
+    <li><a href="./RSpec/Core/Hooks/GroupHookCollection.html">RSpec::Core::Hooks::GroupHookCollection</a>
+  
+    <li><a href="./RSpec/Core/Hooks/Hook.html">RSpec::Core::Hooks::Hook</a>
+  
+    <li><a href="./RSpec/Core/Hooks/HookCollection.html">RSpec::Core::Hooks::HookCollection</a>
+  
+    <li><a href="./RSpec/Core/Hooks/HookCollections.html">RSpec::Core::Hooks::HookCollections</a>
+  
+    <li><a href="./RSpec/Core/InclusionRules.html">RSpec::Core::InclusionRules</a>
+  
+    <li><a href="./RSpec/Core/MemoizedHelpers.html">RSpec::Core::MemoizedHelpers</a>
+  
+    <li><a href="./RSpec/Core/MemoizedHelpers/ClassMethods.html">RSpec::Core::MemoizedHelpers::ClassMethods</a>
+  
+    <li><a href="./RSpec/Core/MemoizedHelpers/ContextHookMemoizedHash.html">RSpec::Core::MemoizedHelpers::ContextHookMemoizedHash</a>
+  
+    <li><a href="./RSpec/Core/MemoizedHelpers/ContextHookMemoizedHash/After.html">RSpec::Core::MemoizedHelpers::ContextHookMemoizedHash::After</a>
+  
+    <li><a href="./RSpec/Core/MemoizedHelpers/ContextHookMemoizedHash/Before.html">RSpec::Core::MemoizedHelpers::ContextHookMemoizedHash::Before</a>
+  
+    <li><a href="./RSpec/Core/Metadata.html">RSpec::Core::Metadata</a>
+  
+    <li><a href="./RSpec/Core/Metadata/ExampleGroupHash.html">RSpec::Core::Metadata::ExampleGroupHash</a>
+  
+    <li><a href="./RSpec/Core/Metadata/ExampleHash.html">RSpec::Core::Metadata::ExampleHash</a>
+  
+    <li><a href="./RSpec/Core/Metadata/HashPopulator.html">RSpec::Core::Metadata::HashPopulator</a>
+  
+    <li><a href="./RSpec/Core/MetadataFilter.html">RSpec::Core::MetadataFilter</a>
+  
+    <li><a href="./RSpec/Core/MinitestAssertionsAdapter.html">RSpec::Core::MinitestAssertionsAdapter</a>
+  
+    <li><a href="./RSpec/Core/MockingAdapters.html">RSpec::Core::MockingAdapters</a>
+  
+    <li><a href="./RSpec/Core/MockingAdapters/Flexmock.html">RSpec::Core::MockingAdapters::Flexmock</a>
+  
+    <li><a href="./RSpec/Core/MockingAdapters/Mocha.html">RSpec::Core::MockingAdapters::Mocha</a>
+  
+    <li><a href="./RSpec/Core/MockingAdapters/Null.html">RSpec::Core::MockingAdapters::Null</a>
+  
+    <li><a href="./RSpec/Core/MockingAdapters/RR.html">RSpec::Core::MockingAdapters::RR</a>
+  
+    <li><a href="./RSpec/Core/MockingAdapters/RSpec.html">RSpec::Core::MockingAdapters::RSpec</a>
+  
+    <li><a href="./RSpec/Core/Ordering.html">RSpec::Core::Ordering</a>
+  
+    <li><a href="./RSpec/Core/Ordering/ConfigurationManager.html">RSpec::Core::Ordering::ConfigurationManager</a>
+  
+    <li><a href="./RSpec/Core/Ordering/Custom.html">RSpec::Core::Ordering::Custom</a>
+  
+    <li><a href="./RSpec/Core/Ordering/Identity.html">RSpec::Core::Ordering::Identity</a>
+  
+    <li><a href="./RSpec/Core/Ordering/Random.html">RSpec::Core::Ordering::Random</a>
+  
+    <li><a href="./RSpec/Core/Ordering/Registry.html">RSpec::Core::Ordering::Registry</a>
+  
+    <li><a href="./RSpec/Core/Parser.html">RSpec::Core::Parser</a>
+  
+    <li><a href="./RSpec/Core/Pending.html">RSpec::Core::Pending</a>
+  
+    <li><a href="./RSpec/Core/Pending/PendingExampleFixedError.html">RSpec::Core::Pending::PendingExampleFixedError</a>
+  
+    <li><a href="./RSpec/Core/Pending/SkipDeclaredInExample.html">RSpec::Core::Pending::SkipDeclaredInExample</a>
+  
+    <li><a href="./RSpec/Core/RakeTask.html">RSpec::Core::RakeTask</a>
+  
+    <li><a href="./RSpec/Core/Reporter.html">RSpec::Core::Reporter</a>
+  
+    <li><a href="./RSpec/Core/RubyProject.html">RSpec::Core::RubyProject</a>
+  
+    <li><a href="./RSpec/Core/Runner.html">RSpec::Core::Runner</a>
+  
+    <li><a href="./RSpec/Core/SharedContext.html">RSpec::Core::SharedContext</a>
+  
+    <li><a href="./RSpec/Core/SharedExampleGroup.html">RSpec::Core::SharedExampleGroup</a>
+  
+    <li><a href="./RSpec/Core/SharedExampleGroup/Registry.html">RSpec::Core::SharedExampleGroup::Registry</a>
+  
+    <li><a href="./RSpec/Core/SharedExampleGroup/Registry/mod;.html">RSpec::Core::SharedExampleGroup::Registry::mod;</a>
+  
+    <li><a href="./RSpec/Core/SharedExampleGroup/TopLevelDSL.html">RSpec::Core::SharedExampleGroup::TopLevelDSL</a>
+  
+    <li><a href="./RSpec/Core/TestUnitAssertionsAdapter.html">RSpec::Core::TestUnitAssertionsAdapter</a>
+  
+    <li><a href="./RSpec/Core/Version.html">RSpec::Core::Version</a>
+  
+    <li><a href="./RSpec/Core/Warnings.html">RSpec::Core::Warnings</a>
+  
+    <li><a href="./RSpec/Core/World.html">RSpec::Core::World</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main">
+<p>This is the API documentation for rspec-core-3.1.7 Documentation.
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

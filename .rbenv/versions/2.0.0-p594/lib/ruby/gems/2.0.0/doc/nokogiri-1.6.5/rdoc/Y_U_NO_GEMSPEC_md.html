@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>Y_U_NO_GEMSPEC - nokogiri-1.6.5 Documentation</title>
+
+<link href="./fonts.css" rel="stylesheet">
+<link href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/navigation.js"></script>
+<script src="./js/search_index.js"></script>
+<script src="./js/search.js"></script>
+<script src="./js/searcher.js"></script>
+<script src="./js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#label-tl%3Bdr">tl;dr</a>
+    <li><a href="#label-Why+Isn%27t+There+a+Gemspec%21%3F">Why Isn&#39;t There a Gemspec!?</a>
+    <li><a href="#label-But+You+Didn%27t+Answer+the+Question%21">But You Didn&#39;t Answer the Question!</a>
+    <li><a href="#label-Risk">Risk</a>
+    <li><a href="#label-Probability">Probability</a>
+    <li><a href="#label-Impact">Impact</a>
+    <li><a href="#label-Risk%2C+Redux">Risk, Redux</a>
+    <li><a href="#label-But+I+Want+to+Do+It+Anyway">But I Want to Do It Anyway</a>
+    <li><a href="#label-In+Conclusion">In Conclusion</a>
+  </ul>
+</div>
+
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./CHANGELOG_ja_rdoc.html">CHANGELOG.ja</a>
+  
+    <li><a href="./CHANGELOG_rdoc.html">CHANGELOG</a>
+  
+    <li><a href="./C_CODING_STYLE_rdoc.html">C_CODING_STYLE</a>
+  
+    <li><a href="./Manifest_txt.html">Manifest</a>
+  
+    <li><a href="./README_ja_rdoc.html">README.ja</a>
+  
+    <li><a href="./README_rdoc.html">README</a>
+  
+    <li><a href="./ROADMAP_md.html">ROADMAP</a>
+  
+    <li><a href="./STANDARD_RESPONSES_md.html">STANDARD_RESPONSES</a>
+  
+    <li><a href="./Y_U_NO_GEMSPEC_md.html">Y_U_NO_GEMSPEC</a>
+  
+    <li><a href="./lib/nokogiri/css/tokenizer_rex.html">tokenizer.rex</a>
+  
+    <li><a href="./suppressions/README_txt.html">README</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page Y_U_NO_GEMSPEC.md">
+
+<p>(note: this was originally a blog post published at <a
+href="http://blog.flavorjon.es/2012/03/y-u-no-gemspec.html">blog.flavorjon.es/2012/03/y-u-no-gemspec.html</a>)</p>
+
+<h2 id="label-tl%3Bdr">tl;dr<span><a href="#label-tl%3Bdr">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+<ol><li>
+<p>Team <a href="Nokogiri.html">Nokogiri</a> are not 10-foot-tall
+code-crunching robots, so <code>master</code> is usually unstable.</p>
+</li><li>
+<p>Unstable code can corrupt your data and crash your application, which would
+make everybody look bad.</p>
+</li><li>
+<p>Therefore, the <em>risk</em> associated with using unstable code is severe;
+for you <em>and</em> for Team <a href="Nokogiri.html">Nokogiri</a>.</p>
+</li><li>
+<p>The absence of a gemspec is a risk mitigation tactic.</p>
+</li><li>
+<p>You can always ask for an RC release.</p>
+</li></ol>
+
+<h2 id="label-Why+Isn%27t+There+a+Gemspec%21%3F">Why Isn&#39;t There a Gemspec!?<span><a href="#label-Why+Isn%27t+There+a+Gemspec%21%3F">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>OHAI! Thank you for asking this question!</p>
+
+<p>Team <a href="Nokogiri.html">Nokogiri</a> gets asked this pretty
+frequently. Just a sample from the historical record:</p>
+<ul><li>
+<p><a href="https://github.com/sparklemotion/nokogiri/issues/274">Issue
+#274</a></p>
+</li><li>
+<p><a href="https://github.com/sparklemotion/nokogiri/issues/371">Issue
+#371</a></p>
+</li><li>
+<p><a
+href="https://github.com/sparklemotion/nokogiri/commit/7f17a643a05ca381d65131515b54d4a3a61ca2e1#commitcomment-667477">A
+commit removing nokogiri.gemspec</a></p>
+</li><li>
+<p><a
+href="http://groups.google.com/group/nokogiri-talk/browse_thread/thread/4706b002e492d23f">A
+nokogiri-talk thread</a></p>
+</li><li>
+<p><a
+href="http://groups.google.com/group/nokogiri-talk/browse_thread/thread/0b201bb80ea3eea0">Another
+nokogiri-talk thread</a></p>
+</li></ul>
+
+<p>Sometimes people imply that we&#39;ve forgotten, or that we don&#39;t how
+to properly manage our codebase. Those people are super fun to respond to!</p>
+
+<p>We&#39;ve gone back and forth a couple of times over the past few years,
+but the current policy of Team <a href="Nokogiri.html">Nokogiri</a> is to
+<strong>not</strong> provide a gemspec in the Github repo. This is a
+conscious choice, not an oversight.</p>
+
+<h2 id="label-But+You+Didn%27t+Answer+the+Question%21">But You Didn&#39;t Answer the Question!<span><a href="#label-But+You+Didn%27t+Answer+the+Question%21">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>Ah, I was hoping you wouldn&#39;t notice. Well, OK, let&#39;s do this, if
+you&#39;re serious about it.</p>
+
+<p>I&#39;d like to start by talking about <em>risk</em>. Specifically, the
+risk associated with using a known-unstable version of <a
+href="Nokogiri.html">Nokogiri</a>.</p>
+
+<h3 id="label-Risk">Risk<span><a href="#label-Risk">&para;</a> <a href="#documentation">&uarr;</a></span></h3>
+
+<p>One common way to evaluate the <em>risk</em> of an incident is:</p>
+
+<pre>risk = probability x impact</pre>
+
+<p>You can read more about this on <a
+href="http://en.wikipedia.org/wiki/Risk_Matrix">the internets</a>.</p>
+
+<p>The <em>risk</em> associated with a <a href="Nokogiri.html">Nokogiri</a>
+bug could be loosely defined by answering the questions:</p>
+<ul><li>
+<p>“How likely is it that a bug exists?” (probability)</p>
+</li><li>
+<p>“How severe will the consequences of a bug be?” (impact)</p>
+</li></ul>
+
+<h3 id="label-Probability">Probability<span><a href="#label-Probability">&para;</a> <a href="#documentation">&uarr;</a></span></h3>
+
+<p>The <code>master</code> branch should be considered unstable. Team <a
+href="Nokogiri.html">Nokogiri</a> are not 10-foot-tall code-crunching
+robots; we are humans. We make mistakes, and as a result, any arbitrary
+commit on <code>master</code> is likely to contain bugs.</p>
+
+<p>Just as an example, <a href="Nokogiri.html">Nokogiri</a>
+<code>master</code> was unstable for about five months between November
+2011 and March 2012. It was unstable not because we were sloppy, or
+didn&#39;t care, but because the fixes were hard and unobvious.</p>
+
+<p>When we release <a href="Nokogiri.html">Nokogiri</a>, we test for memory
+leaks and invalid memory access on all kinds of platforms with many flavors
+of Ruby and lots of versions of libxml2. Because these tests are
+time-consuming, we don&#39;t run them on every commit. We run them often
+when preparing a release.</p>
+
+<p>If we&#39;re releasing <a href="Nokogiri.html">Nokogiri</a>, it means we
+think it&#39;s rock solid.</p>
+
+<p>And if we&#39;re not releasing it, it means there are probably bugs.</p>
+
+<h3 id="label-Impact">Impact<span><a href="#label-Impact">&para;</a> <a href="#documentation">&uarr;</a></span></h3>
+
+<p><a href="Nokogiri.html">Nokogiri</a> is a gem with native extensions. This
+means it&#39;s not pure Ruby – there&#39;s C or Java code being compiled
+and run, which means that there&#39;s always a chance that the gem will
+crash your application, or worse. Possible outcomes include:</p>
+<ul><li>
+<p>leaking memory</p>
+</li><li>
+<p>corrupting data</p>
+</li><li>
+<p>making benign code crash (due to memory corruption)</p>
+</li></ul>
+
+<p>So, then, a bug in a native extension can have much worse downside than you
+might think. It&#39;s not just going to do something unexpected; it&#39;s
+possibly going to do terrible, awful things to your application and data.</p>
+
+<p><strong>Nobody</strong> wants that to happen. Especially Team <a
+href="Nokogiri.html">Nokogiri</a>.</p>
+
+<h3 id="label-Risk%2C+Redux">Risk, Redux<span><a href="#label-Risk%2C+Redux">&para;</a> <a href="#documentation">&uarr;</a></span></h3>
+
+<p>So, if you accept the equation</p>
+
+<pre>risk = probability x impact</pre>
+
+<p>and you believe me when I say that:</p>
+<ul><li>
+<p>the probablility of a bug in unreleased code is high, and</p>
+</li><li>
+<p>the impact of a bug is likely to be severe,</p>
+</li></ul>
+
+<p>then you should easily see that the <em>risk</em> associated with a bug in
+<a href="Nokogiri.html">Nokogiri</a> is quite high.</p>
+
+<p>Part of Team Nokogiri&#39;s job is to try to mitigate this risk. We have a
+number of tactics that we use to accomplish this:</p>
+<ul><li>
+<p>we respond quickly to bug reports, particularly when they are possible
+memory issues</p>
+</li><li>
+<p>we review each others&#39; commits</p>
+</li><li>
+<p>we have a thorough test suite, and we test-drive new features</p>
+</li><li>
+<p>we discuss code design and issues on a core developer mailing list</p>
+</li><li>
+<p>we use valgrind to test for memory issues (leaks and invalid  access) on
+multiple combinations of OS, libxml2 and Ruby</p>
+</li><li>
+<p>we package release candidates, and encourage devs to use them</p>
+</li><li>
+<p><strong>we do NOT commit a gemspec in our git repository</strong></p>
+</li></ul>
+
+<p>Yes, that&#39;s right, the absence of a gemspec is a risk mitigation
+tactic. Not only does Team <a href="Nokogiri.html">Nokogiri</a> not want to
+imply support for <code>master</code>, we want to <strong>actively
+discourage</strong> people from using it. Because it&#39;s not stable.</p>
+
+<h2 id="label-But+I+Want+to+Do+It+Anyway">But I Want to Do It Anyway<span><a href="#label-But+I+Want+to+Do+It+Anyway">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>Another option, is to email the <a
+href="http://groups.google.com/group/nokogiri-talk">nokogiri-talk list</a>
+and ask for a release candidate to be built. We&#39;re pretty accommodating
+if there&#39;s a bugfix that&#39;s a blocker for you. And if we can&#39;t
+release an RC, we&#39;ll tell you why.</p>
+
+<p>And in the end, nothing is stopping you from cloning the repo and
+generating a private gemspec. This is an extra step or two, but it has the
+benefit of making sure developers have thought through the costs and risks
+involved; and it tends to select for developers who know what they&#39;re
+doing.</p>
+
+<h2 id="label-In+Conclusion">In Conclusion<span><a href="#label-In+Conclusion">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>Team <a href="Nokogiri.html">Nokogiri</a> takes stability very seriously.
+We want everybody who uses <a href="Nokogiri.html">Nokogiri</a> to have a
+pleasant experience. And so we want to make sure that you&#39;re using the
+best software we can make.</p>
+
+<p>Please keep in mind that we&#39;re trying very hard to do the right thing
+for all <a href="Nokogiri.html">Nokogiri</a> users out there in Rubyland.
+<a href="Nokogiri.html">Nokogiri</a> loves you very much, and we hope you
+love it back.</p>
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

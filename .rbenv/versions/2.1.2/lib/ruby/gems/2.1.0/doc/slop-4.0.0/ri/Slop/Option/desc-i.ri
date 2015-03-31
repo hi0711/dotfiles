@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"	desc:ETI"Slop::Option#desc;FI"R;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"1A custom description used for the help text.;T:
+@fileI"lib/slop/option.rb;T:0@omit_headings_from_table_of_contents_below0F@I"Slop::Option;FcRDoc::NormalClass0

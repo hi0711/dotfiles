@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Zip::ExtraField - rubyzip-1.1.6 Documentation</title>
+
+<link href="../fonts.css" rel="stylesheet">
+<link href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/navigation.js"></script>
+<script src="../js/search_index.js"></script>
+<script src="../js/search.js"></script>
+<script src="../js/searcher.js"></script>
+<script src="../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">Hash
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-c_dir_size">#c_dir_size</a>
+    
+    <li ><a href="#method-i-create">#create</a>
+    
+    <li ><a href="#method-i-create_unknown_item">#create_unknown_item</a>
+    
+    <li ><a href="#method-i-extra_field_type_exist">#extra_field_type_exist</a>
+    
+    <li ><a href="#method-i-extra_field_type_unknown">#extra_field_type_unknown</a>
+    
+    <li ><a href="#method-i-length">#length</a>
+    
+    <li ><a href="#method-i-local_size">#local_size</a>
+    
+    <li ><a href="#method-i-merge">#merge</a>
+    
+    <li ><a href="#method-i-ordered_values">#ordered_values</a>
+    
+    <li ><a href="#method-i-size">#size</a>
+    
+    <li ><a href="#method-i-to_c_dir_bin">#to_c_dir_bin</a>
+    
+    <li ><a href="#method-i-to_local_bin">#to_local_bin</a>
+    
+    <li ><a href="#method-i-to_s">#to_s</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Zip::ExtraField">
+  <h1 id="class-Zip::ExtraField" class="class">
+    class Zip::ExtraField
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="ID_MAP">ID_MAP
+        
+        <dd>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(binstr = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/zip/extra_field.rb, line 5</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">binstr</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">binstr</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">merge</span>(<span class="ruby-identifier">binstr</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-c_dir_size" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">c_dir_size</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="c_dir_size-source">
+            <pre><span class="ruby-comment"># File lib/zip/extra_field.rb, line 78</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">c_dir_size</span>
+  <span class="ruby-identifier">to_c_dir_bin</span>.<span class="ruby-identifier">bytesize</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-create" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create</span><span
+            class="method-args">(name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="create-source">
+            <pre><span class="ruby-comment"># File lib/zip/extra_field.rb, line 53</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">field_class</span> = <span class="ruby-constant">ID_MAP</span>.<span class="ruby-identifier">values</span>.<span class="ruby-identifier">find</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">k</span><span class="ruby-operator">|</span> <span class="ruby-identifier">k</span>.<span class="ruby-identifier">name</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">name</span> }
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">Error</span>, <span class="ruby-node">&quot;Unknown extra field &#39;#{name}&#39;&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">self</span>[<span class="ruby-identifier">name</span>] = <span class="ruby-identifier">field_class</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-create_unknown_item" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create_unknown_item</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="create_unknown_item-source">
+            <pre><span class="ruby-comment"># File lib/zip/extra_field.rb, line 28</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">create_unknown_item</span>
+  <span class="ruby-identifier">s</span> = <span class="ruby-string">&#39;&#39;</span>
+  <span class="ruby-keyword">class</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">s</span>
+    <span class="ruby-identifier">alias_method</span> <span class="ruby-value">:to_c_dir_bin</span>, <span class="ruby-value">:to_s</span>
+    <span class="ruby-identifier">alias_method</span> <span class="ruby-operator">:</span><span class="ruby-identifier">to_local_bin</span>, <span class="ruby-value">:to_s</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">self</span>[<span class="ruby-string">&#39;Unknown&#39;</span>] = <span class="ruby-identifier">s</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-extra_field_type_exist" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">extra_field_type_exist</span><span
+            class="method-args">(binstr, id, len, i)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="extra_field_type_exist-source">
+            <pre><span class="ruby-comment"># File lib/zip/extra_field.rb, line 9</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">extra_field_type_exist</span>(<span class="ruby-identifier">binstr</span>, <span class="ruby-identifier">id</span>, <span class="ruby-identifier">len</span>, <span class="ruby-identifier">i</span>)
+  <span class="ruby-identifier">field_name</span> = <span class="ruby-constant">ID_MAP</span>[<span class="ruby-identifier">id</span>].<span class="ruby-identifier">name</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">member?</span>(<span class="ruby-identifier">field_name</span>)
+    <span class="ruby-keyword">self</span>[<span class="ruby-identifier">field_name</span>].<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">binstr</span>[<span class="ruby-identifier">i</span>, <span class="ruby-identifier">len</span> <span class="ruby-operator">+</span> <span class="ruby-value">4</span>])
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">field_obj</span>        = <span class="ruby-constant">ID_MAP</span>[<span class="ruby-identifier">id</span>].<span class="ruby-identifier">new</span>(<span class="ruby-identifier">binstr</span>[<span class="ruby-identifier">i</span>, <span class="ruby-identifier">len</span> <span class="ruby-operator">+</span> <span class="ruby-value">4</span>])
+    <span class="ruby-keyword">self</span>[<span class="ruby-identifier">field_name</span>] = <span class="ruby-identifier">field_obj</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-extra_field_type_unknown" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">extra_field_type_unknown</span><span
+            class="method-args">(binstr, len, i)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="extra_field_type_unknown-source">
+            <pre><span class="ruby-comment"># File lib/zip/extra_field.rb, line 19</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">extra_field_type_unknown</span>(<span class="ruby-identifier">binstr</span>, <span class="ruby-identifier">len</span>, <span class="ruby-identifier">i</span>)
+  <span class="ruby-identifier">create_unknown_item</span> <span class="ruby-keyword">unless</span> <span class="ruby-keyword">self</span>[<span class="ruby-string">&#39;Unknown&#39;</span>]
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">len</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">len</span> <span class="ruby-operator">+</span> <span class="ruby-value">4</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">binstr</span>[<span class="ruby-identifier">i</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>].<span class="ruby-identifier">bytesize</span>
+    <span class="ruby-keyword">self</span>[<span class="ruby-string">&#39;Unknown&#39;</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">binstr</span>[<span class="ruby-identifier">i</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>]
+    <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">self</span>[<span class="ruby-string">&#39;Unknown&#39;</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">binstr</span>[<span class="ruby-identifier">i</span>, <span class="ruby-identifier">len</span> <span class="ruby-operator">+</span> <span class="ruby-value">4</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-length" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">length</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="ExtraField.html#method-i-local_size">local_size</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-local_size" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">local_size</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="local_size-source">
+            <pre><span class="ruby-comment"># File lib/zip/extra_field.rb, line 82</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">local_size</span>
+  <span class="ruby-identifier">to_local_bin</span>.<span class="ruby-identifier">bytesize</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="ExtraField.html#method-i-length">length</a>, <a href="ExtraField.html#method-i-size">size</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-merge" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">merge</span><span
+            class="method-args">(binstr)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="merge-source">
+            <pre><span class="ruby-comment"># File lib/zip/extra_field.rb, line 37</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">merge</span>(<span class="ruby-identifier">binstr</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">binstr</span>.<span class="ruby-identifier">empty?</span>
+  <span class="ruby-identifier">i</span> = <span class="ruby-value">0</span>
+  <span class="ruby-keyword">while</span> <span class="ruby-identifier">i</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">binstr</span>.<span class="ruby-identifier">bytesize</span>
+    <span class="ruby-identifier">id</span>  = <span class="ruby-identifier">binstr</span>[<span class="ruby-identifier">i</span>, <span class="ruby-value">2</span>]
+    <span class="ruby-identifier">len</span> = <span class="ruby-identifier">binstr</span>[<span class="ruby-identifier">i</span> <span class="ruby-operator">+</span> <span class="ruby-value">2</span>, <span class="ruby-value">2</span>].<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;v&#39;</span>).<span class="ruby-identifier">first</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">id</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">ID_MAP</span>.<span class="ruby-identifier">member?</span>(<span class="ruby-identifier">id</span>)
+      <span class="ruby-identifier">extra_field_type_exist</span>(<span class="ruby-identifier">binstr</span>, <span class="ruby-identifier">id</span>, <span class="ruby-identifier">len</span>, <span class="ruby-identifier">i</span>)
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">id</span>
+      <span class="ruby-identifier">create_unknown_item</span> <span class="ruby-keyword">unless</span> <span class="ruby-keyword">self</span>[<span class="ruby-string">&#39;Unknown&#39;</span>]
+      <span class="ruby-keyword">break</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">extra_field_type_unknown</span>(<span class="ruby-identifier">binstr</span>, <span class="ruby-identifier">len</span>, <span class="ruby-identifier">i</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">i</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">len</span> <span class="ruby-operator">+</span> <span class="ruby-value">4</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ordered_values" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ordered_values</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>place Unknown last, so “extra” data that is missing the proper
+signature/size does not prevent known fields from being read back in</p>
+          
+          
+
+          
+          <div class="method-source-code" id="ordered_values-source">
+            <pre><span class="ruby-comment"># File lib/zip/extra_field.rb, line 62</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ordered_values</span>
+  <span class="ruby-identifier">result</span> = []
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">k</span>,<span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-identifier">k</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Unknown&#39;</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">result</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">v</span>) <span class="ruby-operator">:</span> <span class="ruby-identifier">result</span>.<span class="ruby-identifier">unshift</span>(<span class="ruby-identifier">v</span>) }
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-size" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">size</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="ExtraField.html#method-i-local_size">local_size</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-to_c_dir_bin" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_c_dir_bin</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="to_c_dir_bin-source">
+            <pre><span class="ruby-comment"># File lib/zip/extra_field.rb, line 74</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_c_dir_bin</span>
+  <span class="ruby-identifier">ordered_values</span>.<span class="ruby-identifier">map!</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-identifier">v</span>.<span class="ruby-identifier">to_c_dir_bin</span>.<span class="ruby-identifier">force_encoding</span>(<span class="ruby-string">&#39;BINARY&#39;</span>) }.<span class="ruby-identifier">join</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-to_local_bin" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_local_bin</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="to_local_bin-source">
+            <pre><span class="ruby-comment"># File lib/zip/extra_field.rb, line 68</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_local_bin</span>
+  <span class="ruby-identifier">ordered_values</span>.<span class="ruby-identifier">map!</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">v</span><span class="ruby-operator">|</span> <span class="ruby-identifier">v</span>.<span class="ruby-identifier">to_local_bin</span>.<span class="ruby-identifier">force_encoding</span>(<span class="ruby-string">&#39;BINARY&#39;</span>) }.<span class="ruby-identifier">join</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="ExtraField.html#method-i-to_s">to_s</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-to_s" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">to_s</span><span
+            class="method-args">()</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="ExtraField.html#method-i-to_local_bin">to_local_bin</a>
+        </div>
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

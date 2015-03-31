@@ -1,0 +1,59 @@
+have_func: checking for labs() in stdlib.h... -------------------- yes
+
+"clang -o conftest -I/Users/hi0711/.rbenv/versions/2.0.0-p594/include/ruby-2.0.0/x86_64-darwin13.4.0 -I/Users/hi0711/.rbenv/versions/2.0.0-p594/include/ruby-2.0.0/ruby/backward -I/Users/hi0711/.rbenv/versions/2.0.0-p594/include/ruby-2.0.0 -I. -I/Users/hi0711/.rbenv/versions/2.0.0-p594/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/hi0711/.rbenv/versions/2.0.0-p594/lib -L. -L/Users/hi0711/.rbenv/versions/2.0.0-p594/lib      -lruby-static  -lpthread -ldl -lobjc "
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(int argc, char **argv)
+4: {
+5:   return 0;
+6: }
+/* end */
+
+"clang -o conftest -I/Users/hi0711/.rbenv/versions/2.0.0-p594/include/ruby-2.0.0/x86_64-darwin13.4.0 -I/Users/hi0711/.rbenv/versions/2.0.0-p594/include/ruby-2.0.0/ruby/backward -I/Users/hi0711/.rbenv/versions/2.0.0-p594/include/ruby-2.0.0 -I. -I/Users/hi0711/.rbenv/versions/2.0.0-p594/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/hi0711/.rbenv/versions/2.0.0-p594/lib -L. -L/Users/hi0711/.rbenv/versions/2.0.0-p594/lib      -lruby-static  -lpthread -ldl -lobjc "
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <stdlib.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int t(void) { void ((*volatile p)()); p = (void ((*)()))labs; return 0; }
+ 8: int main(int argc, char **argv)
+ 9: {
+10:   if (argc > 1000000) {
+11:     printf("%p", &t);
+12:   }
+13: 
+14:   return 0;
+15: }
+/* end */
+
+--------------------
+
+have_func: checking for llabs() in stdlib.h... -------------------- yes
+
+"clang -o conftest -I/Users/hi0711/.rbenv/versions/2.0.0-p594/include/ruby-2.0.0/x86_64-darwin13.4.0 -I/Users/hi0711/.rbenv/versions/2.0.0-p594/include/ruby-2.0.0/ruby/backward -I/Users/hi0711/.rbenv/versions/2.0.0-p594/include/ruby-2.0.0 -I. -I/Users/hi0711/.rbenv/versions/2.0.0-p594/include  -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3 -Wno-error=shorten-64-to-32  -pipe conftest.c  -L. -L/Users/hi0711/.rbenv/versions/2.0.0-p594/lib -L. -L/Users/hi0711/.rbenv/versions/2.0.0-p594/lib      -lruby-static  -lpthread -ldl -lobjc "
+checked program was:
+/* begin */
+ 1: #include "ruby.h"
+ 2: 
+ 3: #include <stdlib.h>
+ 4: 
+ 5: /*top*/
+ 6: extern int t(void);
+ 7: int t(void) { void ((*volatile p)()); p = (void ((*)()))llabs; return 0; }
+ 8: int main(int argc, char **argv)
+ 9: {
+10:   if (argc > 1000000) {
+11:     printf("%p", &t);
+12:   }
+13: 
+14:   return 0;
+15: }
+/* end */
+
+--------------------
+

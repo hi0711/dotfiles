@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>turbolinks.js.coffee - turbolinks-2.5.3 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../";
+</script>
+
+<script src="../../../js/jquery.js"></script>
+<script src="../../../js/darkfish.js"></script>
+
+<link href="../../../css/fonts.css" rel="stylesheet">
+<link href="../../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../../lib/assets/javascripts/turbolinks_js_coffee.html">turbolinks.js.coffee</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page lib/assets/javascripts/turbolinks.js.coffee">
+
+<p>pageCache               = {} cacheSize               = 10
+transitionCacheEnabled  = false progressBar             = null</p>
+
+<p>currentState            = null loadedAssets            = null</p>
+
+<p>referer                 = null</p>
+
+<p>xhr                     = null</p>
+
+<p>EVENTS =</p>
+
+<pre>BEFORE_CHANGE:  &#39;page:before-change&#39;
+FETCH:          &#39;page:fetch&#39;
+RECEIVE:        &#39;page:receive&#39;
+CHANGE:         &#39;page:change&#39;
+UPDATE:         &#39;page:update&#39;
+LOAD:           &#39;page:load&#39;
+RESTORE:        &#39;page:restore&#39;
+BEFORE_UNLOAD:  &#39;page:before-unload&#39;
+EXPIRE:         &#39;page:expire&#39;</pre>
+
+<p>fetch = (url) -&gt;</p>
+
+<pre>url = new ComponentUrl url
+
+rememberReferer()
+cacheCurrentPage()
+progressBar?.start()
+
+if transitionCacheEnabled and cachedPage = transitionCacheFor(url.absolute)
+  fetchHistory cachedPage
+  fetchReplacement url, null, false
+else
+  fetchReplacement url, resetScrollPosition</pre>
+
+<p>transitionCacheFor = (url) -&gt;</p>
+
+<pre class="ruby"><span class="ruby-identifier">cachedPage</span> = <span class="ruby-identifier">pageCache</span>[<span class="ruby-identifier">url</span>]
+<span class="ruby-identifier">cachedPage</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">cachedPage</span> <span class="ruby-keyword">and</span> <span class="ruby-operator">!</span><span class="ruby-identifier">cachedPage</span>.<span class="ruby-identifier">transitionCacheDisabled</span>
+</pre>
+
+<p>enableTransitionCache = (enable = true) -&gt;</p>
+
+<pre class="ruby"><span class="ruby-identifier">transitionCacheEnabled</span> = <span class="ruby-identifier">enable</span>
+</pre>
+
+<p>enableProgressBar = (enable = true) -&gt;</p>
+
+<pre>return unless browserSupportsTurbolinks
+if enable
+  progressBar ?= new ProgressBar &#39;html&#39;
+else
+  progressBar?.uninstall()
+  progressBar = null</pre>
+
+<p>fetchReplacement = (url, onLoadFunction, showProgressBar = true) -&gt;</p>
+
+<pre>triggerEvent EVENTS.FETCH, url: url.absolute
+
+xhr?.abort()
+xhr = new XMLHttpRequest
+xhr.open &#39;GET&#39;, url.withoutHashForIE10compatibility(), true
+xhr.setRequestHeader &#39;Accept&#39;, &#39;text/html, application/xhtml+xml, application/xml&#39;
+xhr.setRequestHeader &#39;X-XHR-Referer&#39;, referer
+
+xhr.onload = -&gt;
+  triggerEvent EVENTS.RECEIVE, url: url.absolute
+
+  if doc = processResponse()
+    reflectNewUrl url
+    reflectRedirectedUrl()
+    changePage extractTitleAndBody(doc)...
+    manuallyTriggerHashChangeForFirefox()
+    onLoadFunction?()
+    triggerEvent EVENTS.LOAD
+  else
+    document.location.href = crossOriginRedirect() or url.absolute
+
+if progressBar and showProgressBar
+  xhr.onprogress = (event) =&gt;
+    percent = if event.lengthComputable
+      event.loaded / event.total * 100
+    else
+      progressBar.value + (100 - progressBar.value) / 10
+    progressBar.advanceTo(percent)
+
+xhr.onloadend = -&gt; xhr = null
+xhr.onerror   = -&gt; document.location.href = url.absolute
+
+xhr.send()</pre>
+
+<p>fetchHistory = (cachedPage) -&gt;</p>
+
+<pre class="ruby"><span class="ruby-identifier">xhr?</span>.<span class="ruby-identifier">abort</span>()
+<span class="ruby-identifier">changePage</span> <span class="ruby-identifier">cachedPage</span>.<span class="ruby-identifier">title</span>, <span class="ruby-identifier">cachedPage</span>.<span class="ruby-identifier">body</span>
+<span class="ruby-identifier">recallScrollPosition</span> <span class="ruby-identifier">cachedPage</span>
+<span class="ruby-identifier">triggerEvent</span> <span class="ruby-constant">EVENTS</span>.<span class="ruby-constant">RESTORE</span>
+</pre>
+
+<p>cacheCurrentPage = -&gt;</p>
+
+<pre>currentStateUrl = new ComponentUrl currentState.url
+
+pageCache[currentStateUrl.absolute] =
+  url:                      currentStateUrl.relative,
+  body:                     document.body,
+  title:                    document.title,
+  positionY:                window.pageYOffset,
+  positionX:                window.pageXOffset,
+  cachedAt:                 new Date().getTime(),
+  transitionCacheDisabled:  document.querySelector(&#39;[data-no-transition-cache]&#39;)?
+
+constrainPageCacheTo cacheSize</pre>
+
+<p>pagesCached = (size = cacheSize) -&gt;</p>
+
+<pre class="ruby"><span class="ruby-identifier">cacheSize</span> = <span class="ruby-identifier">parseInt</span>(<span class="ruby-identifier">size</span>) <span class="ruby-keyword">if</span> <span class="ruby-regexp">/^[\d]+$/</span>.<span class="ruby-identifier">test</span> <span class="ruby-identifier">size</span>
+</pre>
+
+<p>constrainPageCacheTo = (limit) -&gt;</p>
+
+<pre>pageCacheKeys = Object.keys pageCache
+
+cacheTimesRecentFirst = pageCacheKeys.map (url) -&gt;
+  pageCache[url].cachedAt
+.sort (a, b) -&gt; b - a
+
+for key in pageCacheKeys when pageCache[key].cachedAt &lt;= cacheTimesRecentFirst[limit]
+  triggerEvent EVENTS.EXPIRE, pageCache[key]
+  delete pageCache[key]</pre>
+
+<p>changePage = (title, body, csrfToken, runScripts) -&gt;</p>
+
+<pre class="ruby"><span class="ruby-identifier">triggerEvent</span> <span class="ruby-constant">EVENTS</span>.<span class="ruby-constant">BEFORE_UNLOAD</span>
+<span class="ruby-identifier">document</span>.<span class="ruby-identifier">title</span> = <span class="ruby-identifier">title</span>
+<span class="ruby-identifier">document</span>.<span class="ruby-identifier">documentElement</span>.<span class="ruby-identifier">replaceChild</span> <span class="ruby-identifier">body</span>, <span class="ruby-identifier">document</span>.<span class="ruby-identifier">body</span>
+<span class="ruby-constant">CSRFToken</span>.<span class="ruby-identifier">update</span> <span class="ruby-identifier">csrfToken</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">csrfToken?</span>
+<span class="ruby-identifier">setAutofocusElement</span>()
+<span class="ruby-identifier">executeScriptTags</span>() <span class="ruby-keyword">if</span> <span class="ruby-identifier">runScripts</span>
+<span class="ruby-identifier">currentState</span> = <span class="ruby-identifier">window</span>.<span class="ruby-identifier">history</span>.<span class="ruby-identifier">state</span>
+<span class="ruby-identifier">progressBar?</span>.<span class="ruby-identifier">done</span>()
+<span class="ruby-identifier">triggerEvent</span> <span class="ruby-constant">EVENTS</span>.<span class="ruby-constant">CHANGE</span>
+<span class="ruby-identifier">triggerEvent</span> <span class="ruby-constant">EVENTS</span>.<span class="ruby-constant">UPDATE</span>
+</pre>
+
+<p>executeScriptTags = -&gt;</p>
+
+<pre>scripts = Array::slice.call document.body.querySelectorAll &#39;script:not([data-turbolinks-eval=&quot;false&quot;])&#39;
+for script in scripts when script.type in [&#39;&#39;, &#39;text/javascript&#39;]
+  copy = document.createElement &#39;script&#39;
+  copy.setAttribute attr.name, attr.value for attr in script.attributes
+  copy.async = false unless script.hasAttribute &#39;async&#39;
+  copy.appendChild document.createTextNode script.innerHTML
+  { parentNode, nextSibling } = script
+  parentNode.removeChild script
+  parentNode.insertBefore copy, nextSibling
+return</pre>
+
+<p>removeNoscriptTags = (node) -&gt;</p>
+
+<pre>node.innerHTML = node.innerHTML.replace /&lt;noscript[\S\s]*?&lt;\/noscript&gt;/ig, &#39;&#39;
+node</pre>
+
+<p># Firefox bug: Doesn&#39;t autofocus fields that are inserted via
+JavaScript setAutofocusElement = -&gt;</p>
+
+<pre>autofocusElement = (list = document.querySelectorAll &#39;input[autofocus], textarea[autofocus]&#39;)[list.length - 1]
+if autofocusElement and document.activeElement isnt autofocusElement
+  autofocusElement.focus()</pre>
+
+<p>reflectNewUrl = (url) -&gt;</p>
+
+<pre>if (url = new ComponentUrl url).absolute isnt referer
+  window.history.pushState { turbolinks: true, url: url.absolute }, &#39;&#39;, url.absolute</pre>
+
+<p>reflectRedirectedUrl = -&gt;</p>
+
+<pre>if location = xhr.getResponseHeader &#39;X-XHR-Redirected-To&#39;
+  location = new ComponentUrl location
+  preservedHash = if location.hasNoHash() then document.location.hash else &#39;&#39;
+  window.history.replaceState window.history.state, &#39;&#39;, location.href + preservedHash</pre>
+
+<p>crossOriginRedirect = -&gt;</p>
+
+<pre>redirect if (redirect = xhr.getResponseHeader(&#39;Location&#39;))? and (new ComponentUrl(redirect)).crossOrigin()</pre>
+
+<p>rememberReferer = -&gt;</p>
+
+<pre class="ruby"><span class="ruby-identifier">referer</span> = <span class="ruby-identifier">document</span>.<span class="ruby-identifier">location</span>.<span class="ruby-identifier">href</span>
+</pre>
+
+<p>rememberCurrentUrl = -&gt;</p>
+
+<pre>window.history.replaceState { turbolinks: true, url: document.location.href }, &#39;&#39;, document.location.href</pre>
+
+<p>rememberCurrentState = -&gt;</p>
+
+<pre class="ruby"><span class="ruby-identifier">currentState</span> = <span class="ruby-identifier">window</span>.<span class="ruby-identifier">history</span>.<span class="ruby-identifier">state</span>
+</pre>
+
+<p># Unlike other browsers, Firefox doesn&#39;t trigger hashchange after
+changing the # location (via pushState) to an anchor on a different page. 
+For example: # #   /pages/one  =&gt;  /pages/two#with-hash # # By forcing
+Firefox to trigger hashchange, the rest of the code can rely on more #
+consistent behavior across browsers. manuallyTriggerHashChangeForFirefox =
+-&gt;</p>
+
+<pre>if navigator.userAgent.match(/Firefox/) and !(url = (new ComponentUrl)).hasNoHash()
+  window.history.replaceState currentState, &#39;&#39;, url.withoutHash()
+  document.location.hash = url.hash</pre>
+
+<p>recallScrollPosition = (page) -&gt;</p>
+
+<pre class="ruby"><span class="ruby-identifier">window</span>.<span class="ruby-identifier">scrollTo</span> <span class="ruby-identifier">page</span>.<span class="ruby-identifier">positionX</span>, <span class="ruby-identifier">page</span>.<span class="ruby-identifier">positionY</span>
+</pre>
+
+<p>resetScrollPosition = -&gt;</p>
+
+<pre>if document.location.hash
+  document.location.href = document.location.href
+else
+  window.scrollTo 0, 0</pre>
+
+<p>clone = (original) -&gt;</p>
+
+<pre>return original if not original? or typeof original isnt &#39;object&#39;
+copy = new original.constructor()
+copy[key] = clone value for key, value of original
+copy</pre>
+
+<p>popCookie = (name) -&gt;</p>
+
+<pre>value = document.cookie.match(new RegExp(name+&quot;=(\\w+)&quot;))?[1].toUpperCase() or &#39;&#39;
+document.cookie = name + &#39;=; expires=Thu, 01-Jan-70 00:00:01 GMT; path=/&#39;
+value</pre>
+
+<p>triggerEvent = (name, data) -&gt;</p>
+
+<pre>if typeof Prototype isnt &#39;undefined&#39;
+  Event.fire document, name, data, true
+
+event = document.createEvent &#39;Events&#39;
+event.data = data if data
+event.initEvent name, true, true
+document.dispatchEvent event</pre>
+
+<p>pageChangePrevented = (url) -&gt;</p>
+
+<pre class="ruby"><span class="ruby-operator">!</span><span class="ruby-identifier">triggerEvent</span> <span class="ruby-constant">EVENTS</span>.<span class="ruby-constant">BEFORE_CHANGE</span>, <span class="ruby-identifier">url</span><span class="ruby-operator">:</span> <span class="ruby-identifier">url</span>
+</pre>
+
+<p>processResponse = -&gt;</p>
+
+<pre>clientOrServerError = -&gt;
+  400 &lt;= xhr.status &lt; 600
+
+validContent = -&gt;
+  (contentType = xhr.getResponseHeader(&#39;Content-Type&#39;))? and
+    contentType.match /^(?:text\/html|application\/xhtml\+xml|application\/xml)(?:;|$)/
+
+extractTrackAssets = (doc) -&gt;
+  for node in doc.querySelector(&#39;head&#39;).childNodes when node.getAttribute?(&#39;data-turbolinks-track&#39;)?
+    node.getAttribute(&#39;src&#39;) or node.getAttribute(&#39;href&#39;)
+
+assetsChanged = (doc) -&gt;
+  loadedAssets ||= extractTrackAssets document
+  fetchedAssets  = extractTrackAssets doc
+  fetchedAssets.length isnt loadedAssets.length or intersection(fetchedAssets, loadedAssets).length isnt loadedAssets.length
+
+intersection = (a, b) -&gt;
+  [a, b] = [b, a] if a.length &gt; b.length
+  value for value in a when value in b
+
+if not clientOrServerError() and validContent()
+  doc = createDocument xhr.responseText
+  if doc and !assetsChanged doc
+    return doc</pre>
+
+<p>extractTitleAndBody = (doc) -&gt;</p>
+
+<pre class="ruby"><span class="ruby-identifier">title</span> = <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">querySelector</span> <span class="ruby-string">&#39;title&#39;</span>
+[ <span class="ruby-identifier">title?</span>.<span class="ruby-identifier">textContent</span>, <span class="ruby-identifier">removeNoscriptTags</span>(<span class="ruby-identifier">doc</span>.<span class="ruby-identifier">querySelector</span>(<span class="ruby-string">&#39;body&#39;</span>)), <span class="ruby-constant">CSRFToken</span>.<span class="ruby-identifier">get</span>(<span class="ruby-identifier">doc</span>).<span class="ruby-identifier">token</span>, <span class="ruby-string">&#39;runScripts&#39;</span> ]
+</pre>
+
+<p>CSRFToken =</p>
+
+<pre>get: (doc = document) -&gt;
+  node:   tag = doc.querySelector &#39;meta[name=&quot;csrf-token&quot;]&#39;
+  token:  tag?.getAttribute? &#39;content&#39;
+
+update: (latest) -&gt;
+  current = @get()
+  if current.token? and latest? and current.token isnt latest
+    current.node.setAttribute &#39;content&#39;, latest</pre>
+
+<p>createDocument = (html) -&gt;</p>
+
+<pre class="ruby"><span class="ruby-identifier">doc</span> = <span class="ruby-identifier">document</span>.<span class="ruby-identifier">documentElement</span>.<span class="ruby-identifier">cloneNode</span>()
+<span class="ruby-identifier">doc</span>.<span class="ruby-identifier">innerHTML</span> = <span class="ruby-identifier">html</span>
+<span class="ruby-identifier">doc</span>.<span class="ruby-identifier">head</span> = <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">querySelector</span> <span class="ruby-string">&#39;head&#39;</span>
+<span class="ruby-identifier">doc</span>.<span class="ruby-identifier">body</span> = <span class="ruby-identifier">doc</span>.<span class="ruby-identifier">querySelector</span> <span class="ruby-string">&#39;body&#39;</span>
+<span class="ruby-identifier">doc</span>
+</pre>
+
+<p># The ComponentUrl class converts a basic URL string into an object # that
+behaves similarly to document.location. # # If an instance is created from
+a relative URL, the current document # is used to fill in the missing
+attributes (protocol, host, port). class ComponentUrl</p>
+
+<pre>constructor: (@original = document.location.href) -&gt;
+  return @original if @original.constructor is ComponentUrl
+  @_parse()
+
+withoutHash: -&gt; @href.replace(@hash, &#39;&#39;).replace(&#39;#&#39;, &#39;&#39;)
+
+# Intention revealing function alias
+withoutHashForIE10compatibility: -&gt; @withoutHash()
+
+hasNoHash: -&gt; @hash.length is 0
+
+crossOrigin: -&gt;
+  @origin isnt (new ComponentUrl).origin
+
+_parse: -&gt;
+  (@link ?= document.createElement &#39;a&#39;).href = @original
+  { @href, @protocol, @host, @hostname, @port, @pathname, @search, @hash } = @link
+  @origin = [@protocol, &#39;//&#39;, @hostname].join &#39;&#39;
+  @origin += &quot;:#{@port}&quot; unless @port.length is 0
+  @relative = [@pathname, @search, @hash].join &#39;&#39;
+  @absolute = @href</pre>
+
+<p># The Link class derives from the ComponentUrl class, but is built from an
+# existing link element.  Provides verification functionality for <a
+href="../../../Turbolinks.html">Turbolinks</a> # to use in determining
+whether it should process the link when clicked. class Link extends
+ComponentUrl</p>
+
+<pre>@HTML_EXTENSIONS: [&#39;html&#39;]
+
+@allowExtensions: (extensions...) -&gt;
+  Link.HTML_EXTENSIONS.push extension for extension in extensions
+  Link.HTML_EXTENSIONS
+
+constructor: (@link) -&gt;
+  return @link if @link.constructor is Link
+  @original = @link.href
+  @originalElement = @link
+  @link = @link.cloneNode false
+  super
+
+shouldIgnore: -&gt;
+  @crossOrigin() or
+    @_anchored() or
+    @_nonHtml() or
+    @_optOut() or
+    @_target()
+
+_anchored: -&gt;
+  (@hash.length &gt; 0 or @href.charAt(@href.length - 1) is &#39;#&#39;) and
+    (@withoutHash() is (new ComponentUrl).withoutHash())
+
+_nonHtml: -&gt;
+  @pathname.match(/\.[a-z]+$/g) and not @pathname.match(new RegExp(&quot;\\.(?:#{Link.HTML_EXTENSIONS.join(&#39;|&#39;)})?$&quot;, &#39;g&#39;))
+
+_optOut: -&gt;
+  link = @originalElement
+  until ignore or link is document
+    ignore = link.getAttribute(&#39;data-no-turbolink&#39;)?
+    link = link.parentNode
+  ignore
+
+_target: -&gt;
+  @link.target.length isnt 0</pre>
+
+<p># The Click class handles clicked links, verifying if <a
+href="../../../Turbolinks.html">Turbolinks</a> should # take control by
+inspecting both the event and the link. If it should, # the page change
+process is initiated. If not, control is passed back # to the browser for
+default functionality. class Click</p>
+
+<pre>@installHandlerLast: (event) -&gt;
+  unless event.defaultPrevented
+    document.removeEventListener &#39;click&#39;, Click.handle, false
+    document.addEventListener &#39;click&#39;, Click.handle, false
+
+@handle: (event) -&gt;
+  new Click event
+
+constructor: (@event) -&gt;
+  return if @event.defaultPrevented
+  @_extractLink()
+  if @_validForTurbolinks()
+    visit @link.href unless pageChangePrevented(@link.absolute)
+    @event.preventDefault()
+
+_extractLink: -&gt;
+  link = @event.target
+  link = link.parentNode until !link.parentNode or link.nodeName is &#39;A&#39;
+  @link = new Link(link) if link.nodeName is &#39;A&#39; and link.href.length isnt 0
+
+_validForTurbolinks: -&gt;
+  @link? and not (@link.shouldIgnore() or @_nonStandardClick())
+
+_nonStandardClick: -&gt;
+  @event.which &gt; 1 or
+    @event.metaKey or
+    @event.ctrlKey or
+    @event.shiftKey or
+    @event.altKey</pre>
+
+<p>class ProgressBar</p>
+
+<pre>className = &#39;turbolinks-progress-bar&#39;
+
+constructor: (@elementSelector) -&gt;
+  @value = 0
+  @content = &#39;&#39;
+  @speed = 300
+  # Setting the opacity to a value &lt; 1 fixes a display issue in Safari 6 and
+  # iOS 6 where the progress bar would fill the entire page.
+  @opacity = 0.99
+  @install()
+
+install: -&gt;
+  @element = document.querySelector(@elementSelector)
+  @element.classList.add(className)
+  @styleElement = document.createElement(&#39;style&#39;)
+  document.head.appendChild(@styleElement)
+  @_updateStyle()
+
+uninstall: -&gt;
+  @element.classList.remove(className)
+  document.head.removeChild(@styleElement)
+
+start: -&gt;
+  @advanceTo(5)
+
+advanceTo: (value) -&gt;
+  if value &gt; @value &lt;= 100
+    @value = value
+    @_updateStyle()
+
+    if @value is 100
+      @_stopTrickle()
+    else if @value &gt; 0
+      @_startTrickle()
+
+done: -&gt;
+  if @value &gt; 0
+    @advanceTo(100)
+    @_reset()
+
+_reset: -&gt;
+  originalOpacity = @opacity
+
+  setTimeout =&gt;
+    @opacity = 0
+    @_updateStyle()
+  , @speed / 2
+
+  setTimeout =&gt;
+    @value = 0
+    @opacity = originalOpacity
+    @_withSpeed(0, =&gt; @_updateStyle(true))
+  , @speed
+
+_startTrickle: -&gt;
+  return if @trickling
+  @trickling = true
+  setTimeout(@_trickle, @speed)
+
+_stopTrickle: -&gt;
+  delete @trickling
+
+_trickle: =&gt;
+  return unless @trickling
+  @advanceTo(@value + Math.random() / 2)
+  setTimeout(@_trickle, @speed)
+
+_withSpeed: (speed, fn) -&gt;
+  originalSpeed = @speed
+  @speed = speed
+  result = fn()
+  @speed = originalSpeed
+  result
+
+_updateStyle: (forceRepaint = false) -&gt;
+  @_changeContentToForceRepaint() if forceRepaint
+  @styleElement.textContent = @_createCSSRule()
+
+_changeContentToForceRepaint: -&gt;
+  @content = if @content is &#39;&#39; then &#39; &#39; else &#39;&#39;
+
+_createCSSRule: -&gt;
+  &quot;&quot;&quot;
+  #{@elementSelector}.#{className}::before {
+    content: &#39;#{@content}&#39;;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2000;
+    background-color: #0076ff;
+    height: 3px;
+    opacity: #{@opacity};
+    width: #{@value}%;
+    transition: width #{@speed}ms ease-out, opacity #{@speed / 2}ms ease-in;
+    transform: translate3d(0,0,0);
+  }
+  &quot;&quot;&quot;</pre>
+
+<p># Delay execution of function long enough to miss the popstate event # some
+browsers fire on the initial page load. bypassOnLoadPopstate = (fn) -&gt;</p>
+
+<pre class="ruby"><span class="ruby-identifier">setTimeout</span> <span class="ruby-identifier">fn</span>, <span class="ruby-value">500</span>
+</pre>
+
+<p>installDocumentReadyPageEventTriggers = -&gt;</p>
+
+<pre>document.addEventListener &#39;DOMContentLoaded&#39;, ( -&gt;
+  triggerEvent EVENTS.CHANGE
+  triggerEvent EVENTS.UPDATE
+), true</pre>
+
+<p>installJqueryAjaxSuccessPageUpdateTrigger = -&gt;</p>
+
+<pre>if typeof jQuery isnt &#39;undefined&#39;
+  jQuery(document).on &#39;ajaxSuccess&#39;, (event, xhr, settings) -&gt;
+    return unless jQuery.trim xhr.responseText
+    triggerEvent EVENTS.UPDATE</pre>
+
+<p>installHistoryChangeHandler = (event) -&gt;</p>
+
+<pre>if event.state?.turbolinks
+  if cachedPage = pageCache[(new ComponentUrl(event.state.url)).absolute]
+    cacheCurrentPage()
+    fetchHistory cachedPage
+  else
+    visit event.target.location.href</pre>
+
+<p>initializeTurbolinks = -&gt;</p>
+
+<pre>rememberCurrentUrl()
+rememberCurrentState()
+
+document.addEventListener &#39;click&#39;, Click.installHandlerLast, true
+
+window.addEventListener &#39;hashchange&#39;, (event) -&gt;
+  rememberCurrentUrl()
+  rememberCurrentState()
+, false
+bypassOnLoadPopstate -&gt;
+  window.addEventListener &#39;popstate&#39;, installHistoryChangeHandler, false</pre>
+
+<p># Handle bug in Firefox 26/27 where history.state is initially undefined
+historyStateIsDefined =</p>
+
+<pre class="ruby"><span class="ruby-identifier">window</span>.<span class="ruby-identifier">history</span>.<span class="ruby-identifier">state</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">undefined</span> <span class="ruby-keyword">or</span> <span class="ruby-identifier">navigator</span>.<span class="ruby-identifier">userAgent</span>.<span class="ruby-identifier">match</span> <span class="ruby-regexp">/Firefox\/2[6|7]/</span>
+</pre>
+
+<p>browserSupportsPushState =</p>
+
+<pre class="ruby"><span class="ruby-identifier">window</span>.<span class="ruby-identifier">history</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">window</span>.<span class="ruby-identifier">history</span>.<span class="ruby-identifier">pushState</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">window</span>.<span class="ruby-identifier">history</span>.<span class="ruby-identifier">replaceState</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">historyStateIsDefined</span>
+</pre>
+
+<p>browserIsntBuggy =</p>
+
+<pre class="ruby"><span class="ruby-operator">!</span><span class="ruby-identifier">navigator</span>.<span class="ruby-identifier">userAgent</span>.<span class="ruby-identifier">match</span> <span class="ruby-regexp">/CriOS\//</span>
+</pre>
+
+<p>requestMethodIsSafe =</p>
+
+<pre>popCookie(&#39;request_method&#39;) in [&#39;GET&#39;,&#39;&#39;]</pre>
+
+<p>browserSupportsTurbolinks = browserSupportsPushState and browserIsntBuggy
+and requestMethodIsSafe</p>
+
+<p>browserSupportsCustomEvents =</p>
+
+<pre class="ruby"><span class="ruby-identifier">document</span>.<span class="ruby-identifier">addEventListener</span> <span class="ruby-keyword">and</span> <span class="ruby-identifier">document</span>.<span class="ruby-identifier">createEvent</span>
+</pre>
+
+<p>if browserSupportsCustomEvents</p>
+
+<pre class="ruby"><span class="ruby-identifier">installDocumentReadyPageEventTriggers</span>()
+<span class="ruby-identifier">installJqueryAjaxSuccessPageUpdateTrigger</span>()
+</pre>
+
+<p>if browserSupportsTurbolinks</p>
+
+<pre class="ruby"><span class="ruby-identifier">visit</span> = <span class="ruby-identifier">fetch</span>
+<span class="ruby-identifier">initializeTurbolinks</span>()
+</pre>
+
+<p>else</p>
+
+<pre>visit = (url) -&gt; document.location.href = url</pre>
+
+<p># Public API #   Turbolinks.visit(url) #   Turbolinks.pagesCached() #  
+Turbolinks.pagesCached(20) #   Turbolinks.enableTransitionCache() #  
+Turbolinks.allowLinkExtensions(&#39;md&#39;) #   Turbolinks.supported #  
+<a href="../../../Turbolinks.html">Turbolinks</a>.EVENTS @Turbolinks = {</p>
+
+<pre>visit,
+pagesCached,
+enableTransitionCache,
+enableProgressBar,
+allowLinkExtensions: Link.allowExtensions,
+supported: browserSupportsTurbolinks,
+EVENTS: clone(EVENTS)</pre>
+
+<p>}</p>
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

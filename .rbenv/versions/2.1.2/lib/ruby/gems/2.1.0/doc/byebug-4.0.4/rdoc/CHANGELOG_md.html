@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>CHANGELOG - byebug-4.0.4 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#label-4.0.4+-+2015-03-27">4.0.4 - 2015-03-27</a>
+    <li><a href="#label-Fixed">Fixed</a>
+    <li><a href="#label-127">127</a>
+    <li><a href="#label-4.0.3+-+2015-03-19">4.0.3 - 2015-03-19</a>
+    <li><a href="#label-Fixed">Fixed</a>
+    <li><a href="#label-4.0.2+-+2015-03-16">4.0.2 - 2015-03-16</a>
+    <li><a href="#label-Fixed">Fixed</a>
+    <li><a href="#label-4.0.1+-+2015-03-13">4.0.1 - 2015-03-13</a>
+    <li><a href="#label-Fixed">Fixed</a>
+    <li><a href="#label-4.0.0+-+2015-03-13">4.0.0 - 2015-03-13</a>
+    <li><a href="#label-Added">Added</a>
+    <li><a href="#label-Changed">Changed</a>
+    <li><a href="#label-Fixed">Fixed</a>
+    <li><a href="#label-Removed">Removed</a>
+    <li><a href="#label-3.5.1+-+2014-09-29">3.5.1 - 2014-09-29</a>
+    <li><a href="#label-Fixed">Fixed</a>
+    <li><a href="#label-3.5.0+-+2014-09-28">3.5.0 - 2014-09-28</a>
+    <li><a href="#label-Fixed">Fixed</a>
+    <li><a href="#label-Changed">Changed</a>
+    <li><a href="#label-3.4.2+-+2014-09-26">3.4.2 - 2014-09-26</a>
+    <li><a href="#label-Fixed">Fixed</a>
+    <li><a href="#label-3.4.1+-+2014-09-25">3.4.1 - 2014-09-25</a>
+    <li><a href="#label-Fixed">Fixed</a>
+    <li><a href="#label-3.4.0+-+2014-09-01">3.4.0 - 2014-09-01</a>
+    <li><a href="#label-Fixed">Fixed</a>
+    <li><a href="#label-3.3.0+-+2014-08-28">3.3.0 - 2014-08-28</a>
+    <li><a href="#label-Fixed">Fixed</a>
+    <li><a href="#label-Changed">Changed</a>
+    <li><a href="#label-Removed">Removed</a>
+    <li><a href="#label-3.2.0+-+2014-08-02">3.2.0 - 2014-08-02</a>
+    <li><a href="#label-Fixed">Fixed</a>
+    <li><a href="#label-Removed">Removed</a>
+    <li><a href="#label-3.1.2+-+2014-04-23">3.1.2 - 2014-04-23</a>
+    <li><a href="#label-Fixed">Fixed</a>
+    <li><a href="#label-3.1.1+-+2014-04-23">3.1.1 - 2014-04-23</a>
+    <li><a href="#label-Fixed">Fixed</a>
+    <li><a href="#label-3.1.0+-+2014-04-23">3.1.0 - 2014-04-23</a>
+    <li><a href="#label-Removed">Removed</a>
+    <li><a href="#label-Changed">Changed</a>
+    <li><a href="#label-Added">Added</a>
+    <li><a href="#label-3.0.0+-+2014-04-17">3.0.0 - 2014-04-17</a>
+    <li><a href="#label-Fixed">Fixed</a>
+    <li><a href="#label-Added">Added</a>
+    <li><a href="#label-Changed">Changed</a>
+    <li><a href="#label-Removed">Removed</a>
+    <li><a href="#label-2.7.0+-+2014-02-24">2.7.0 - 2014-02-24</a>
+    <li><a href="#label-2.6.0+-+2014-02-08">2.6.0 - 2014-02-08</a>
+    <li><a href="#label-Fixed">Fixed</a>
+    <li><a href="#label-2.5.0+-+2013-12-14">2.5.0 - 2013-12-14</a>
+    <li><a href="#label-Added">Added</a>
+    <li><a href="#label-2.4.1+-+2013-12-05">2.4.1 - 2013-12-05</a>
+    <li><a href="#label-Fixed">Fixed</a>
+    <li><a href="#label-2.4.0+-+2013-12-02">2.4.0 - 2013-12-02</a>
+    <li><a href="#label-Fixed">Fixed</a>
+    <li><a href="#label-Added">Added</a>
+    <li><a href="#label-Changed">Changed</a>
+    <li><a href="#label-2.3.1+-+2013-10-17">2.3.1 - 2013-10-17</a>
+    <li><a href="#label-Fixed">Fixed</a>
+    <li><a href="#label-2.3.0+-+2013-10-09">2.3.0 - 2013-10-09</a>
+    <li><a href="#label-Added">Added</a>
+    <li><a href="#label-Changed">Changed</a>
+    <li><a href="#label-2.2.2+-+2013-09-25">2.2.2 - 2013-09-25</a>
+    <li><a href="#label-Fixed">Fixed</a>
+    <li><a href="#label-2.2.1+-+2013-09-24">2.2.1 - 2013-09-24</a>
+    <li><a href="#label-Fixed">Fixed</a>
+    <li><a href="#label-Changed">Changed</a>
+    <li><a href="#label-2.2.0+-+2013-09-22">2.2.0 - 2013-09-22</a>
+    <li><a href="#label-Fixed">Fixed</a>
+    <li><a href="#label-Added">Added</a>
+    <li><a href="#label-Changed">Changed</a>
+    <li><a href="#label-2.1.1+-+2013-09-10">2.1.1 - 2013-09-10</a>
+    <li><a href="#label-Fixed">Fixed</a>
+    <li><a href="#label-2.1.0+-+2013-09-08">2.1.0 - 2013-09-08</a>
+    <li><a href="#label-Fixed">Fixed</a>
+    <li><a href="#label-Changed">Changed</a>
+    <li><a href="#label-2.0.0+-+2013-08-30">2.0.0 - 2013-08-30</a>
+    <li><a href="#label-Added">Added</a>
+    <li><a href="#label-Removed">Removed</a>
+    <li><a href="#label-Changed">Changed</a>
+    <li><a href="#label-1.8.2+-+2013-08-16">1.8.2 - 2013-08-16</a>
+    <li><a href="#label-Fixed">Fixed</a>
+    <li><a href="#label-Changed">Changed</a>
+    <li><a href="#label-1.8.1+-+2013-08-12">1.8.1 - 2013-08-12</a>
+    <li><a href="#label-Fixed">Fixed</a>
+    <li><a href="#label-1.8.0+-+2013-08-12">1.8.0 - 2013-08-12</a>
+    <li><a href="#label-Added">Added</a>
+    <li><a href="#label-1.7.0+-+2013-08-03">1.7.0 - 2013-08-03</a>
+    <li><a href="#label-Added">Added</a>
+    <li><a href="#label-1.6.1+-+2013-07-10">1.6.1 - 2013-07-10</a>
+    <li><a href="#label-Fixed">Fixed</a>
+    <li><a href="#label-1.6.0+-+2013-07-10">1.6.0 - 2013-07-10</a>
+    <li><a href="#label-Fixed">Fixed</a>
+    <li><a href="#label-Changed">Changed</a>
+    <li><a href="#label-1.5.0+-+2013-06-21">1.5.0 - 2013-06-21</a>
+    <li><a href="#label-Fixed">Fixed</a>
+    <li><a href="#label-1.4.2+-+2013-06-20">1.4.2 - 2013-06-20</a>
+    <li><a href="#label-Fixed">Fixed</a>
+    <li><a href="#label-1.4.1+-+2013-06-15">1.4.1 - 2013-06-15</a>
+    <li><a href="#label-Fixed">Fixed</a>
+    <li><a href="#label-1.4.0+-+2013-06-05">1.4.0 - 2013-06-05</a>
+    <li><a href="#label-Fixed">Fixed</a>
+    <li><a href="#label-Changed">Changed</a>
+    <li><a href="#label-1.3.1+-+2013-06-02">1.3.1 - 2013-06-02</a>
+    <li><a href="#label-Fixed">Fixed</a>
+    <li><a href="#label-1.3.0+-+2013-05-25">1.3.0 - 2013-05-25</a>
+    <li><a href="#label-Added">Added</a>
+    <li><a href="#label-1.2.0+-+2013-05-20">1.2.0 - 2013-05-20</a>
+    <li><a href="#label-Fixed">Fixed</a>
+    <li><a href="#label-Added">Added</a>
+    <li><a href="#label-1.1.1+-+2013-05-07">1.1.1 - 2013-05-07</a>
+    <li><a href="#label-Added">Added</a>
+    <li><a href="#label-Changed">Changed</a>
+    <li><a href="#label-1.1.0+-+2013-04-30">1.1.0 - 2013-04-30</a>
+    <li><a href="#label-Added">Added</a>
+    <li><a href="#label-1.0.3+-+2013-04-23">1.0.3 - 2013-04-23</a>
+    <li><a href="#label-Fixed">Fixed</a>
+    <li><a href="#label-Changed">Changed</a>
+    <li><a href="#label-1.0.2+-+2013-04-09">1.0.2 - 2013-04-09</a>
+    <li><a href="#label-Fixed">Fixed</a>
+    <li><a href="#label-Changed">Changed</a>
+    <li><a href="#label-1.0.1+-+2013-04-06">1.0.1 - 2013-04-06</a>
+    <li><a href="#label-Fixed">Fixed</a>
+    <li><a href="#label-1.0.0+-+2013-03-29">1.0.0 - 2013-03-29</a>
+    <li><a href="#label-Fixed">Fixed</a>
+    <li><a href="#label-0.0.1+-+2013-03-18">0.0.1 - 2013-03-18</a>
+    <li><a href="#label-Added">Added</a>
+  </ul>
+</div>
+
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./CHANGELOG_md.html">CHANGELOG</a>
+  
+    <li><a href="./CONTRIBUTING_md.html">CONTRIBUTING</a>
+  
+    <li><a href="./GUIDE_md.html">GUIDE</a>
+  
+    <li><a href="./README_md.html">README</a>
+  
+    <li><a href="./ext/byebug/Makefile.html">Makefile</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page CHANGELOG.md">
+
+<h2 id="label-4.0.4+-+2015-03-27">4.0.4 - 2015-03-27<span><a href="#label-4.0.4+-+2015-03-27">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Fixed">Fixed<span><a href="#label-Fixed">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<h1 id="label-127">127<span><a href="#label-127">&para;</a> <a href="#top">&uarr;</a></span></h1>
+</li></ul>
+
+<h2 id="label-4.0.3+-+2015-03-19">4.0.3 - 2015-03-19<span><a href="#label-4.0.3+-+2015-03-19">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Fixed">Fixed<span><a href="#label-Fixed">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Unused variable warning in context.c</p>
+</li></ul>
+
+<h2 id="label-4.0.2+-+2015-03-16">4.0.2 - 2015-03-16<span><a href="#label-4.0.2+-+2015-03-16">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Fixed">Fixed<span><a href="#label-Fixed">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Removed <code>rb-readline</code> as a dependency and show a help message
+whenever requiring readline fails instead (#118)</p>
+</li></ul>
+
+<h2 id="label-4.0.1+-+2015-03-13">4.0.1 - 2015-03-13<span><a href="#label-4.0.1+-+2015-03-13">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Fixed">Fixed<span><a href="#label-Fixed">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>.yml files needed for printers support were missing from the release… :S</p>
+</li><li>
+<p>Add <code>rb-readline</code> as a dependency (#118)</p>
+</li></ul>
+
+<h2 id="label-4.0.0+-+2015-03-13">4.0.0 - 2015-03-13<span><a href="#label-4.0.0+-+2015-03-13">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Added">Added<span><a href="#label-Added">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><code>untracevar</code> command that stops tracing a global variable.</p>
+</li><li>
+<p>Window CI build through AppVeyor.</p>
+</li><li>
+<p>OSX CI build through Travis.</p>
+</li><li>
+<p>Style enforcement through RuboCop.</p>
+</li><li>
+<p>C style enforment using the <code>indent</code> command line utility.</p>
+</li><li>
+<p>Some remote debugging tests (thanks @eric-hu).</p>
+</li><li>
+<p>Printer&#39;s support (thanks @astashov).</p>
+</li></ul>
+
+<h3 id="label-Changed">Changed<span><a href="#label-Changed">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>A lot of internal refactoring.</p>
+</li><li>
+<p><code>tracevar</code> now requires the full global variable name (with
+“$”).</p>
+</li><li>
+<p><code>catch</code> command is not allowed in post_mortem mode anymore. It
+was not working anyways (#92).</p>
+</li><li>
+<p><code>step</code> is now more user friendly when used in combination with
+<code>up</code> (see #85).</p>
+</li><li>
+<p><code>var const</code> can now be called without an argument and will show
+constants in the current scope.</p>
+</li><li>
+<p><code>break</code> with a class name now creates breakpoints regardless of
+class not being yet defined. If that&#39;s the case, it gives a warning but
+the class is created anyways.</p>
+</li></ul>
+
+<h3 id="label-Fixed">Fixed<span><a href="#label-Fixed">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Code reloading issues.</p>
+</li><li>
+<p><code>set fullpath</code> was not showing fullpaths. Now it is.</p>
+</li><li>
+<p><code>up</code>, <code>down</code> and <code>frame</code> commands now work
+in post_mortem mode (#93).</p>
+</li><li>
+<p>Fixes in rc file (.byebugrc): invalid commands are just ignored instead of
+aborting, global (home) rc file is now properly loaded before project&#39;s
+file.</p>
+</li><li>
+<p>Backtraces not working in <code>post_mortem</code> mode (#93).</p>
+</li><li>
+<p>&#39;cmd1 ; cmd2 ; …; cmdN&#39; syntax which allows running several
+commands sequentially.</p>
+</li><li>
+<p>Finish command not stopping at the correct line (#101).</p>
+</li><li>
+<p><code>break</code> with namespaced class, like <code>break A::B#c</code>
+should now work (#106).</p>
+</li><li>
+<p>Command history is now persisted before exiting byebug.</p>
+</li><li>
+<p>Setting breakpoint in a method would stop not only at the beginning of the
+method but also at the beginning of every block inside the method.</p>
+</li><li>
+<p>Setting breakpoints on module methods (#122, @x-yuri).</p>
+</li></ul>
+
+<h3 id="label-Removed">Removed<span><a href="#label-Removed">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><code>autoreload</code> setting as it&#39;s not necessary anymore. Code
+should always be up to date.</p>
+</li><li>
+<p><code>reload</code> command for the same reason.</p>
+</li><li>
+<p>Gem dependency on <code>debugger-linecache</code>.</p>
+</li><li>
+<p><code>step+</code>, <code>step-</code>, <code>next+</code>,
+<code>next-</code>, <code>set/show linetrace_plus</code> and <code>set/show
+forcestep</code> commands. These were all mechanisms to deal with
+TracePoint API event dupplication, but this duplicated events have been
+completely removed from the API since <a
+href="bugs.ruby-lang.org/projects/ruby-trunk/repository/revisions/48609">r48609</a>,
+so they are no longer necessary.</p>
+</li><li>
+<p><code>info file</code> subcommands: <code>info file breakpoints</code>,
+<code>info file mtime</code>, <code>info file sha1</code>, <code>info file
+all</code>. Now all information is listed under <code>info file</code>.</p>
+</li><li>
+<p><code>testing</code> setting. It was just a hack to be able to test
+<code>byebug</code>. Nobody was supposed to actually use it!</p>
+</li><li>
+<p><code>var class</code> command, just use Ruby
+(<code>self.class.class_variables</code>).</p>
+</li><li>
+<p><code>p</code> command, just use <code>eval</code>, or just type your
+expression and <code>byebug</code> will autoevaluate it.</p>
+</li><li>
+<p><code>exit</code> alias for <code>quit</code>.</p>
+</li></ul>
+
+<h2 id="label-3.5.1+-+2014-09-29">3.5.1 - 2014-09-29<span><a href="#label-3.5.1+-+2014-09-29">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Fixed">Fixed<span><a href="#label-Fixed">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Windows installation (#79).</p>
+</li><li>
+<p><code>condition</code> command not properly detecting invalid breakpoint
+ids.</p>
+</li></ul>
+
+<h2 id="label-3.5.0+-+2014-09-28">3.5.0 - 2014-09-28<span><a href="#label-3.5.0+-+2014-09-28">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Fixed">Fixed<span><a href="#label-Fixed">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Byebug&#39;s history messing other programs using Readline (#81).</p>
+</li><li>
+<p>Readline&#39;s history not being properly saved and inmediately available.</p>
+</li><li>
+<p>User not being notified when trying to debug a non existent script.</p>
+</li></ul>
+
+<h3 id="label-Changed">Changed<span><a href="#label-Changed">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Complete rewrite of byebug&#39;s history.</p>
+</li><li>
+<p>Complete rewrite of list command.</p>
+</li><li>
+<p>Docs about stacktrace related commands (up, down, frame, backtrace).</p>
+</li></ul>
+
+<h2 id="label-3.4.2+-+2014-09-26">3.4.2 - 2014-09-26<span><a href="#label-3.4.2+-+2014-09-26">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Fixed">Fixed<span><a href="#label-Fixed">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Debugging commands invoked by ruby exectuable (#67), as in <code>byebug --
+ruby -Itest test/controllers/posts_controller_test.rb -n
+test_should_get_index</code>.</p>
+</li></ul>
+
+<h2 id="label-3.4.1+-+2014-09-25">3.4.1 - 2014-09-25<span><a href="#label-3.4.1+-+2014-09-25">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Fixed">Fixed<span><a href="#label-Fixed">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Use of threads inside <code>eval</code> command (#54).</p>
+</li><li>
+<p><code>list</code> command not listing backwards after reaching the end of
+the file.</p>
+</li></ul>
+
+<h2 id="label-3.4.0+-+2014-09-01">3.4.0 - 2014-09-01<span><a href="#label-3.4.0+-+2014-09-01">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Fixed">Fixed<span><a href="#label-Fixed">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>deivid-rodriguez/pry-byebug#32 in a better way.</p>
+</li></ul>
+
+<h2 id="label-3.3.0+-+2014-08-28">3.3.0 - 2014-08-28<span><a href="#label-3.3.0+-+2014-08-28">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Fixed">Fixed<span><a href="#label-Fixed">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><code>set verbose</code> command.</p>
+</li><li>
+<p><code>set post_mortem false</code> command.</p>
+</li><li>
+<p>Debugger stopping in <code>byebug</code>&#39;s internal frames in some
+cases.</p>
+</li><li>
+<p><code>backtrace</code> crashing when <code>fullpath</code> setting disabled
+and calculated stack size being smaller than the real one.</p>
+</li></ul>
+
+<h2 id="label-Changed">Changed<span><a href="#label-Changed">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>The <code>-t</code> option for <code>bin/byebug</code> now turns tracing on
+whereas the <code>-x</code> option tells byebug to run the initialization
+file (.byebugrc) on startup. This is the default behaviour though.</p>
+</li><li>
+<p><code>bin/byebug</code> libified and tests added.</p>
+</li></ul>
+
+<h3 id="label-Removed">Removed<span><a href="#label-Removed">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><code>info locals</code> command. Use <code>var local</code> instead.</p>
+</li><li>
+<p><code>info instance_variables</code> command. Use <code>var instance</code>
+instead.</p>
+</li><li>
+<p><code>info global_variables</code> command. Use <code>var global</code>
+instead.</p>
+</li><li>
+<p><code>info variables</code> command. Use <code>var all</code> instead.</p>
+</li><li>
+<p><code>irb</code> command stepping capabilities, see <a
+href="https://github.com/deivid-rodriguez/byebug/commit/8e226d0">8e226d0</a>.</p>
+</li><li>
+<p><code>script</code> and <code>restart-script</code> options for
+<code>bin/byebug</code>.</p>
+</li></ul>
+
+<h2 id="label-3.2.0+-+2014-08-02">3.2.0 - 2014-08-02<span><a href="#label-3.2.0+-+2014-08-02">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Fixed">Fixed<span><a href="#label-Fixed">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Remote debugging (#71), thanks @shuky19.</p>
+</li><li>
+<p><code>source</code> command (#68), thanks @Olgagr.</p>
+</li><li>
+<p><code>ruby-head</code> support (#71).</p>
+</li></ul>
+
+<h3 id="label-Removed">Removed<span><a href="#label-Removed">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><code>post_mortem</code> activation through
+<code>Byebug.post_mortem</code>. Use <code>set post_mortem</code> instead.</p>
+</li><li>
+<p><code>info stack</code> command. Use <code>where</code> instead.</p>
+</li><li>
+<p><code>method iv</code> command. Use <code>var instance</code> instead.</p>
+</li><li>
+<p>Warning reported in #77.</p>
+</li></ul>
+
+<h2 id="label-3.1.2+-+2014-04-23">3.1.2 - 2014-04-23<span><a href="#label-3.1.2+-+2014-04-23">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Fixed">Fixed<span><a href="#label-Fixed">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>(Really) <code>post_mortem</code> mode in <code>bin/byebug</code>.</p>
+</li><li>
+<p>Line tracing in <code>bin/byebug</code>.</p>
+</li></ul>
+
+<h2 id="label-3.1.1+-+2014-04-23">3.1.1 - 2014-04-23<span><a href="#label-3.1.1+-+2014-04-23">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Fixed">Fixed<span><a href="#label-Fixed">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><code>post_mortem</code> mode in bin/byebug.</p>
+</li></ul>
+
+<h2 id="label-3.1.0+-+2014-04-23">3.1.0 - 2014-04-23<span><a href="#label-3.1.0+-+2014-04-23">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Removed">Removed<span><a href="#label-Removed">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><code>show commands</code> command. Use <code>history</code> instead.</p>
+</li><li>
+<p><a href="Byebug.html#method-c-start">Byebug.start</a> accepting options.
+Any program settings you want applied from the start should be set in
+<code>.byebugrc</code>.</p>
+</li><li>
+<p><code>trace</code> command. Use <code>set linetrace</code> for line tracing
+and <code>tracevar</code> for global variable tracing.</p>
+</li><li>
+<p><code>show version</code> command. Use <code>byebug --version</code> to
+check byebug&#39;s version.</p>
+</li><li>
+<p><code>set arg</code> setting. Use the <code>restart</code> command instead.</p>
+</li></ul>
+
+<h3 id="label-Changed">Changed<span><a href="#label-Changed">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><code>linetrace_plus</code> setting renamed to <code>tracing_plus</code>.</p>
+</li></ul>
+
+<h3 id="label-Added">Added<span><a href="#label-Added">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><code>history</code> command to check byebug&#39;s history of previous
+commands.</p>
+</li></ul>
+
+<h2 id="label-3.0.0+-+2014-04-17">3.0.0 - 2014-04-17<span><a href="#label-3.0.0+-+2014-04-17">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Fixed">Fixed<span><a href="#label-Fixed">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Plain <code>byebug</code> not working when <code>pry-byebug</code>
+installed.</p>
+</li><li>
+<p><code>post_mortem</code> mode.</p>
+</li><li>
+<p>Command history not being saved after regular program termination.</p>
+</li><li>
+<p>(Again) Calling <code>Byebug.start</code> with <code>Timeout.timeout</code>
+(#54), thanks @zmoazeni!</p>
+</li></ul>
+
+<h3 id="label-Added">Added<span><a href="#label-Added">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Allow disabling <code>post_mortem</code> mode.</p>
+</li></ul>
+
+<h3 id="label-Changed">Changed<span><a href="#label-Changed">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><code>show commands</code> command for listing history of previous commands
+now behaves like shell&#39;s <code>history</code> command.</p>
+</li><li>
+<p><code>show/set history filename</code> is now <code>show/set
+histfile</code></p>
+</li><li>
+<p><code>show/set history size</code> is now <code>show/set histsize</code></p>
+</li><li>
+<p><code>show/set history save</code> is now <code>show/set autosave</code></p>
+</li><li>
+<p><code>finish</code> semantic, see <a
+href="https://github.com/deivid-rodriguez/byebug/commit/61f9b4d">61f9b4d</a>.</p>
+</li><li>
+<p>Use <code>per project</code> history file by default.</p>
+</li></ul>
+
+<h2 id="label-Removed">Removed<span><a href="#label-Removed">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>The <code>init</code> option for <code>Byebug.start</code>. Information to
+make the <code>restart</code> command work is always saved now.</p>
+</li></ul>
+
+<h2 id="label-2.7.0+-+2014-02-24">2.7.0 - 2014-02-24<span><a href="#label-2.7.0+-+2014-02-24">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p><code>IGNORED_FILES</code> slowing down startup (#52).</p>
+</li><li>
+<p>Calling <code>Byebug.start</code> with <code>Timeout.timeout</code> (#53,
+#54).</p>
+</li></ul>
+
+<h2 id="label-2.6.0+-+2014-02-08">2.6.0 - 2014-02-08<span><a href="#label-2.6.0+-+2014-02-08">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Fixed">Fixed<span><a href="#label-Fixed">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Circular dependency affecting <code>pry-byebug</code> (thanks
+@andreychernih).</p>
+</li></ul>
+
+<h2 id="label-2.5.0+-+2013-12-14">2.5.0 - 2013-12-14<span><a href="#label-2.5.0+-+2013-12-14">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Added">Added<span><a href="#label-Added">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Support for <code>sublime-debugger</code>.</p>
+</li></ul>
+
+<h2 id="label-2.4.1+-+2013-12-05">2.4.1 - 2013-12-05<span><a href="#label-2.4.1+-+2013-12-05">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Fixed">Fixed<span><a href="#label-Fixed">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Installation error in Mac OSX (#40), thanks @luislavena.</p>
+</li></ul>
+
+<h2 id="label-2.4.0+-+2013-12-02">2.4.0 - 2013-12-02<span><a href="#label-2.4.0+-+2013-12-02">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Fixed">Fixed<span><a href="#label-Fixed">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><code>thread list</code> showing too many threads.</p>
+</li><li>
+<p>Fix setting post mortem mode with “set post_mortem”. Now this is the only
+post mortem functionality available as specifying “Byebug.post_mortem” with
+a block has been removed in this version.</p>
+</li></ul>
+
+<h3 id="label-Added">Added<span><a href="#label-Added">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>(Again) <code>debugger</code> as an alias to <code>byebug</code> (thanks
+@wallace).</p>
+</li><li>
+<p><code>-R</code> option for <code>bin/byebug</code> to specify server&#39;s
+hostname:port for remote debugging (thanks @mrkn).</p>
+</li></ul>
+
+<h3 id="label-Changed">Changed<span><a href="#label-Changed">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Use <code>require</code> instead of <code>require_relative</code> for
+loading byebug&#39;s extension library (thanks @nobu).</p>
+</li><li>
+<p><code>trace variable $foo</code> should be now <code>trace variable
+$foo</code>.</p>
+</li></ul>
+
+<h2 id="label-2.3.1+-+2013-10-17">2.3.1 - 2013-10-17<span><a href="#label-2.3.1+-+2013-10-17">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Fixed">Fixed<span><a href="#label-Fixed">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Breakpoint removal.</p>
+</li><li>
+<p>Broken test suite.</p>
+</li></ul>
+
+<h2 id="label-2.3.0+-+2013-10-09">2.3.0 - 2013-10-09<span><a href="#label-2.3.0+-+2013-10-09">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Added">Added<span><a href="#label-Added">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Compatibility with Phusion Passenger Enterprise (thanks @FooBarWidget).</p>
+</li></ul>
+
+<h3 id="label-Changed">Changed<span><a href="#label-Changed">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>More minimalist help system.</p>
+</li></ul>
+
+<h2 id="label-2.2.2+-+2013-09-25">2.2.2 - 2013-09-25<span><a href="#label-2.2.2+-+2013-09-25">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Fixed">Fixed<span><a href="#label-Fixed">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Compilation issue in 64 bit systems.</p>
+</li></ul>
+
+<h2 id="label-2.2.1+-+2013-09-24">2.2.1 - 2013-09-24<span><a href="#label-2.2.1+-+2013-09-24">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Fixed">Fixed<span><a href="#label-Fixed">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Compilation issue introduced in 2.2.0 (#26).</p>
+</li></ul>
+
+<h3 id="label-Changed">Changed<span><a href="#label-Changed">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><code>show/set stack_trace_on_error</code> is now <code>show/set
+stack_on_error</code>.</p>
+</li></ul>
+
+<h2 id="label-2.2.0+-+2013-09-22">2.2.0 - 2013-09-22<span><a href="#label-2.2.0+-+2013-09-22">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Fixed">Fixed<span><a href="#label-Fixed">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Stack size calculations.</p>
+</li><li>
+<p>Setting <code>post_mortem</code> mode.</p>
+</li></ul>
+
+<h3 id="label-Added">Added<span><a href="#label-Added">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><code>verbose</code> setting for TracePoint API event inspection.</p>
+</li></ul>
+
+<h3 id="label-Changed">Changed<span><a href="#label-Changed">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Warning free byebug.</p>
+</li><li>
+<p>Allow <code>edit &lt;filename&gt;</code> without a line number.</p>
+</li></ul>
+
+<h2 id="label-2.1.1+-+2013-09-10">2.1.1 - 2013-09-10<span><a href="#label-2.1.1+-+2013-09-10">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Fixed">Fixed<span><a href="#label-Fixed">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Debugging code inside <code>-e</code> Ruby flag.</p>
+</li></ul>
+
+<h2 id="label-2.1.0+-+2013-09-08">2.1.0 - 2013-09-08<span><a href="#label-2.1.0+-+2013-09-08">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Fixed">Fixed<span><a href="#label-Fixed">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Remote debugging display.</p>
+</li><li>
+<p><code>eval</code> crashing when inspecting raised an exception (reported by
+@iblue).</p>
+</li></ul>
+
+<h3 id="label-Changed">Changed<span><a href="#label-Changed">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><code>enable breakpoints</code> now enables every breakpoint.</p>
+</li><li>
+<p><code>disable breakpoints</code> now disables every breakpoint.</p>
+</li></ul>
+
+<h2 id="label-2.0.0+-+2013-08-30">2.0.0 - 2013-08-30<span><a href="#label-2.0.0+-+2013-08-30">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Added">Added<span><a href="#label-Added">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>“Official” definition of a command API.</p>
+</li><li>
+<p>Thread support.</p>
+</li></ul>
+
+<h3 id="label-Removed">Removed<span><a href="#label-Removed">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><code>jump</code> command. It had never worked.</p>
+</li></ul>
+
+<h3 id="label-Changed">Changed<span><a href="#label-Changed">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Varoius internal refactorings.</p>
+</li></ul>
+
+<h2 id="label-1.8.2+-+2013-08-16">1.8.2 - 2013-08-16<span><a href="#label-1.8.2+-+2013-08-16">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Fixed">Fixed<span><a href="#label-Fixed">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><code>save</code> command now saves the list of <code>displays</code>.</p>
+</li><li>
+<p>Stack size calculation.</p>
+</li></ul>
+
+<h3 id="label-Changed">Changed<span><a href="#label-Changed">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>More user friendly regexps for commands.</p>
+</li><li>
+<p>Better help for some commands.</p>
+</li></ul>
+
+<h2 id="label-1.8.1+-+2013-08-12">1.8.1 - 2013-08-12<span><a href="#label-1.8.1+-+2013-08-12">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Fixed">Fixed<span><a href="#label-Fixed">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Major regression introduced in 1.8.0.</p>
+</li></ul>
+
+<h2 id="label-1.8.0+-+2013-08-12">1.8.0 - 2013-08-12<span><a href="#label-1.8.0+-+2013-08-12">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Added">Added<span><a href="#label-Added">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Remote debugging support.</p>
+</li></ul>
+
+<h2 id="label-1.7.0+-+2013-08-03">1.7.0 - 2013-08-03<span><a href="#label-1.7.0+-+2013-08-03">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Added">Added<span><a href="#label-Added">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>List command automatically called after callstack navigation commands.</p>
+</li><li>
+<p>C-frames specifically marked in the callstack.</p>
+</li><li>
+<p>C-frames skipped when navigating the callstack.</p>
+</li></ul>
+
+<h2 id="label-1.6.1+-+2013-07-10">1.6.1 - 2013-07-10<span><a href="#label-1.6.1+-+2013-07-10">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Fixed">Fixed<span><a href="#label-Fixed">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Windows compatibiliy: compilation and terminal width issues.</p>
+</li></ul>
+
+<h2 id="label-1.6.0+-+2013-07-10">1.6.0 - 2013-07-10<span><a href="#label-1.6.0+-+2013-07-10">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Fixed">Fixed<span><a href="#label-Fixed">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><code>byebug</code> placed at the end of a block or method call not working
+as expected.</p>
+</li><li>
+<p><code>autolist</code> being applied when Ruby <code>-e</code> option used.</p>
+</li></ul>
+
+<h3 id="label-Changed">Changed<span><a href="#label-Changed">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Backtrace callstyles. Use <code>long</code> for detailed frames in
+callstack and <code>short</code> for more concise frames.</p>
+</li></ul>
+
+<h2 id="label-1.5.0+-+2013-06-21">1.5.0 - 2013-06-21<span><a href="#label-1.5.0+-+2013-06-21">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Fixed">Fixed<span><a href="#label-Fixed">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Incomplete backtraces when the debugger was not started at program startup.</p>
+</li></ul>
+
+<h2 id="label-1.4.2+-+2013-06-20">1.4.2 - 2013-06-20<span><a href="#label-1.4.2+-+2013-06-20">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Fixed">Fixed<span><a href="#label-Fixed">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><code>help command subcommand</code> command.</p>
+</li><li>
+<p>Interaction with Rails Console debugging flag.</p>
+</li><li>
+<p><code>post_mortem</code> mode when running byebug from the outset.</p>
+</li><li>
+<p><code>no-quit</code> flag when running byebug from the outset.</p>
+</li></ul>
+
+<h2 id="label-1.4.1+-+2013-06-15">1.4.1 - 2013-06-15<span><a href="#label-1.4.1+-+2013-06-15">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Fixed">Fixed<span><a href="#label-Fixed">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Crash when printing some filenames in backtraces.</p>
+</li><li>
+<p>Allow byebug developers to easily use compilers different from gcc (thanks
+@GarthSnyder!).</p>
+</li></ul>
+
+<h2 id="label-1.4.0+-+2013-06-05">1.4.0 - 2013-06-05<span><a href="#label-1.4.0+-+2013-06-05">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Fixed">Fixed<span><a href="#label-Fixed">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Memory leaks causing <code>byebug</code> to randomly crash.</p>
+</li></ul>
+
+<h3 id="label-Changed">Changed<span><a href="#label-Changed">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Use the Debug Inspector API for backtrace information.</p>
+</li></ul>
+
+<h2 id="label-1.3.1+-+2013-06-02">1.3.1 - 2013-06-02<span><a href="#label-1.3.1+-+2013-06-02">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Fixed">Fixed<span><a href="#label-Fixed">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Interaction with Rails debugging flag.</p>
+</li><li>
+<p>Crash when trying to print lines of code containing the character
+&#39;%&#39;.</p>
+</li><li>
+<p><code>basename</code> and <code>linetrace</code> options not working
+together.</p>
+</li></ul>
+
+<h2 id="label-1.3.0+-+2013-05-25">1.3.0 - 2013-05-25<span><a href="#label-1.3.0+-+2013-05-25">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Added">Added<span><a href="#label-Added">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Support colon-delimited include paths in command-line front-end
+(@ender672).</p>
+</li></ul>
+
+<h2 id="label-1.2.0+-+2013-05-20">1.2.0 - 2013-05-20<span><a href="#label-1.2.0+-+2013-05-20">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Fixed">Fixed<span><a href="#label-Fixed">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Ctrl+C during command line editing (works like pry/irb).</p>
+</li></ul>
+
+<h3 id="label-Added">Added<span><a href="#label-Added">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><code>pry</code> command.</p>
+</li></ul>
+
+<h2 id="label-1.1.1+-+2013-05-07">1.1.1 - 2013-05-07<span><a href="#label-1.1.1+-+2013-05-07">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Added">Added<span><a href="#label-Added">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><code>pry-byebug</code> compatibility.</p>
+</li></ul>
+
+<h3 id="label-Changed">Changed<span><a href="#label-Changed">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Better help system.</p>
+</li><li>
+<p>Code cleanup.</p>
+</li></ul>
+
+<h2 id="label-1.1.0+-+2013-04-30">1.1.0 - 2013-04-30<span><a href="#label-1.1.0+-+2013-04-30">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Added">Added<span><a href="#label-Added">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Post Mortem support.</p>
+</li></ul>
+
+<h2 id="label-1.0.3+-+2013-04-23">1.0.3 - 2013-04-23<span><a href="#label-1.0.3+-+2013-04-23">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Fixed">Fixed<span><a href="#label-Fixed">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Negative line numbers shown by list command at the beginning of file.</p>
+</li><li>
+<p><code>backtrace</code> command segfaulting when trying to show info on some
+frame args. Don&#39;t know the reason yet, but the exception is handled now
+and command does not segfault anymore.</p>
+</li></ul>
+
+<h3 id="label-Changed">Changed<span><a href="#label-Changed">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><code>autoreload</code> is set by default now.</p>
+</li><li>
+<p>Try some thread support (not even close to usable).</p>
+</li></ul>
+
+<h2 id="label-1.0.2+-+2013-04-09">1.0.2 - 2013-04-09<span><a href="#label-1.0.2+-+2013-04-09">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Fixed">Fixed<span><a href="#label-Fixed">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>backtraces messed up when using both <code>next</code>/<code>step</code>
+and backtrace navigation commands.</p>
+</li></ul>
+
+<h3 id="label-Changed">Changed<span><a href="#label-Changed">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><code>autolist</code> and <code>autoeval</code> are default settings now.</p>
+</li></ul>
+
+<h2 id="label-1.0.1+-+2013-04-06">1.0.1 - 2013-04-06<span><a href="#label-1.0.1+-+2013-04-06">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Fixed">Fixed<span><a href="#label-Fixed">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><a href="Byebug.html">Byebug</a> not loading properly.</p>
+</li></ul>
+
+<h2 id="label-1.0.0+-+2013-03-29">1.0.0 - 2013-03-29<span><a href="#label-1.0.0+-+2013-03-29">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Fixed">Fixed<span><a href="#label-Fixed">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Green test suite.</p>
+</li></ul>
+
+<h2 id="label-0.0.1+-+2013-03-18">0.0.1 - 2013-03-18<span><a href="#label-0.0.1+-+2013-03-18">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Added">Added<span><a href="#label-Added">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Initial release.</p>
+</li></ul>
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Compass::Configuration::Data - compass-core-1.0.3 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">Object
+  
+</div>
+
+    <div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><a class="include" href="Adapters.html">Compass::Configuration::Adapters</a>
+  
+  
+  
+    <li><a class="include" href="Inheritance.html">Compass::Configuration::Inheritance</a>
+  
+  
+  </ul>
+</div>
+
+    <div id="extends-section" class="nav-section">
+  <h3>Extended With Modules</h3>
+
+  <ul class="link-list">
+    
+  
+    <li><span class="extend">Sass::Callbacks</span>
+  
+  
+  
+    <li><a class="extend" href="Paths.html">Compass::Configuration::Paths</a>
+  
+  
+  </ul>
+</div>
+
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-add_import_path">#add_import_path</a>
+    
+    <li ><a href="#method-i-asset_cache_buster">#asset_cache_buster</a>
+    
+    <li ><a href="#method-i-asset_host">#asset_host</a>
+    
+    <li ><a href="#method-i-discover">#discover</a>
+    
+    <li ><a href="#method-i-load">#load</a>
+    
+    <li ><a href="#method-i-relative_assets-3F">#relative_assets?</a>
+    
+    <li class="calls-super" ><a href="#method-i-require">#require</a>
+    
+    <li ><a href="#method-i-set_all">#set_all</a>
+    
+    <li ><a href="#method-i-watch">#watch</a>
+    
+    <li ><a href="#method-i-watches">#watches</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Compass::Configuration::Data">
+  <h1 id="class-Compass::Configuration::Data" class="class">
+    class Compass::Configuration::Data
+  </h1>
+
+  <section class="description">
+    
+<p>The <a href="../../Compass.html">Compass</a> configuration data storage
+class manages configuration data that comes from a variety of different
+sources and aggregates them together into a consistent API Some of the
+possible sources of configuration data:</p>
+
+<pre>* Compass default project structure for stand alone projects
+* App framework specific project structures for rails, etc.
+* User supplied explicit configuration
+* Configuration data provided via the command line interface</pre>
+
+<p>There are two kinds of configuration data that doesn&#39;t come from the
+user:</p>
+<ol><li>
+<p><a href="../Configuration.html">Configuration</a> data that is defaulted as
+if the user had provided it themselves. This is useful for providing
+defaults that the user is likely to want to edit but shouldn&#39;t have to
+provide explicitly when getting started</p>
+</li><li>
+<p><a href="../Configuration.html">Configuration</a> data that is defaulted
+behind the scenes because <em>some</em> value is required.</p>
+</li></ol>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-name" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">name</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(name, attr_hash = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/compass/configuration/data.rb, line 83</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">attr_hash</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;I need a name!&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">name</span>
+  <span class="ruby-ivar">@name</span> = <span class="ruby-identifier">name</span>
+  <span class="ruby-identifier">set_all</span>(<span class="ruby-identifier">attr_hash</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">attr_hash</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">top_level</span> = <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-add_import_path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add_import_path</span><span
+            class="method-args">(*paths)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="add_import_path-source">
+            <pre><span class="ruby-comment"># File lib/compass/configuration/data.rb, line 98</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">add_import_path</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">paths</span>)
+  <span class="ruby-identifier">paths</span>.<span class="ruby-identifier">map!</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span> <span class="ruby-keyword">defined?</span>(<span class="ruby-constant">Pathname</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">Pathname</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">p</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">p</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">p</span>}
+  <span class="ruby-comment"># The @added_import_paths variable works around an issue where</span>
+  <span class="ruby-comment"># the additional_import_paths gets overwritten during parse</span>
+  <span class="ruby-ivar">@added_import_paths</span> <span class="ruby-operator">||=</span> []
+  <span class="ruby-ivar">@added_import_paths</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">paths</span>
+  <span class="ruby-identifier">paths</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">additional_import_paths</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">p</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">additional_import_paths</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">p</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-asset_cache_buster" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">asset_cache_buster</span><span
+            class="method-args">(simple = nil, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>When called with a block, defines the cache buster strategy to be used. If
+the block returns nil or a string, then it is appended to the url as a
+query parameter. In this case, the returned string must not include the
+starting &#39;?&#39;. The block may also return a hash with :path and/or
+:query values and it will replace the original path and query string with
+the busted values returned. The block will be passed the root-relative url
+of the asset. If the block accepts two arguments, it will also be passed a
+File object that points to the asset on disk – which may or may not exist.
+When called without a block, returns the block that was previously set.</p>
+
+<p>To disable the asset cache buster:</p>
+
+<pre class="ruby"><span class="ruby-identifier">asset_cache_buster</span> :<span class="ruby-identifier">none</span>
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="asset_cache_buster-source">
+            <pre><span class="ruby-comment"># File lib/compass/configuration/data.rb, line 140</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">asset_cache_buster</span>(<span class="ruby-identifier">simple</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-ivar">@set_attributes</span> <span class="ruby-operator">||=</span> {}
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+    <span class="ruby-ivar">@set_attributes</span>[<span class="ruby-value">:asset_cache_buster</span>] = <span class="ruby-keyword">true</span>
+    <span class="ruby-ivar">@asset_cache_buster</span> = <span class="ruby-identifier">block</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-operator">!</span><span class="ruby-identifier">simple</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">simple</span> <span class="ruby-operator">==</span> <span class="ruby-value">:none</span>
+      <span class="ruby-ivar">@set_attributes</span>[<span class="ruby-value">:asset_cache_buster</span>] = <span class="ruby-keyword">true</span>
+      <span class="ruby-ivar">@asset_cache_buster</span> = <span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">_</span>,<span class="ruby-identifier">_</span><span class="ruby-operator">|</span> <span class="ruby-keyword">nil</span>}
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;Unexpected argument: #{simple.inspect}&quot;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">set?</span>(<span class="ruby-value">:asset_cache_buster</span>)
+      <span class="ruby-ivar">@asset_cache_buster</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">inherited_data</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:asset_cache_buster</span>)
+      <span class="ruby-identifier">inherited_data</span>.<span class="ruby-identifier">asset_cache_buster</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-asset_host" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">asset_host</span><span
+            class="method-args">(&block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>When called with a block, defines the asset host url to be used. The block
+must return a string that starts with a protocol (E.g. http). The block
+will be passed the root-relative url of the asset. When called without a
+block, returns the block that was previously set.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="asset_host-source">
+            <pre><span class="ruby-comment"># File lib/compass/configuration/data.rb, line 113</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">asset_host</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-ivar">@set_attributes</span> <span class="ruby-operator">||=</span> {}
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">block_given?</span>
+    <span class="ruby-ivar">@set_attributes</span>[<span class="ruby-value">:asset_host</span>] = <span class="ruby-keyword">true</span>
+    <span class="ruby-ivar">@asset_host</span> = <span class="ruby-identifier">block</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@asset_host</span>
+      <span class="ruby-ivar">@asset_host</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">inherited_data</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:asset_host</span>)
+      <span class="ruby-identifier">inherited_data</span>.<span class="ruby-identifier">asset_host</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-discover" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">discover</span><span
+            class="method-args">(frameworks_dir)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Finds all extensions within a directory and registers them.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="discover-source">
+            <pre><span class="ruby-comment"># File lib/compass/configuration/data.rb, line 188</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">discover</span>(<span class="ruby-identifier">frameworks_dir</span>)
+  (<span class="ruby-keyword">self</span>.<span class="ruby-identifier">framework_path</span> <span class="ruby-operator">||=</span> []) <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">frameworks_dir</span>
+  <span class="ruby-constant">Compass</span><span class="ruby-operator">::</span><span class="ruby-constant">Frameworks</span>.<span class="ruby-identifier">discover</span> <span class="ruby-identifier">frameworks_dir</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-load" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">load</span><span
+            class="method-args">(framework_dir)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="load-source">
+            <pre><span class="ruby-comment"># File lib/compass/configuration/data.rb, line 182</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">load</span>(<span class="ruby-identifier">framework_dir</span>)
+  (<span class="ruby-keyword">self</span>.<span class="ruby-identifier">loaded_frameworks</span> <span class="ruby-operator">||=</span> []) <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">framework_dir</span>
+  <span class="ruby-constant">Compass</span><span class="ruby-operator">::</span><span class="ruby-constant">Frameworks</span>.<span class="ruby-identifier">register_directory</span> <span class="ruby-identifier">framework_dir</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-relative_assets-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">relative_assets?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="relative_assets-3F-source">
+            <pre><span class="ruby-comment"># File lib/compass/configuration/data.rb, line 193</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">relative_assets?</span>
+  <span class="ruby-comment"># the http_images_path is deprecated, but here for backwards compatibility.</span>
+  <span class="ruby-identifier">relative_assets</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">http_images_path</span> <span class="ruby-operator">==</span> <span class="ruby-value">:relative</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-require" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">require</span><span
+            class="method-args">(lib)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Require a compass plugin and capture that it occured so that the
+configuration serialization works next time.</p>
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="require-source">
+            <pre><span class="ruby-comment"># File lib/compass/configuration/data.rb, line 177</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">require</span>(<span class="ruby-identifier">lib</span>)
+  (<span class="ruby-keyword">self</span>.<span class="ruby-identifier">required_libraries</span> <span class="ruby-operator">||=</span> []) <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">lib</span>
+  <span class="ruby-keyword">super</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-set_all" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">set_all</span><span
+            class="method-args">(attr_hash)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="set_all-source">
+            <pre><span class="ruby-comment"># File lib/compass/configuration/data.rb, line 90</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">set_all</span>(<span class="ruby-identifier">attr_hash</span>)
+  <span class="ruby-identifier">attr_hash</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">a</span>, <span class="ruby-identifier">v</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-node">&quot;#{a}=&quot;</span>)
+      <span class="ruby-keyword">self</span>.<span class="ruby-identifier">send</span>(<span class="ruby-node">&quot;#{a}=&quot;</span>, <span class="ruby-identifier">v</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-watch" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">watch</span><span
+            class="method-args">(glob, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="watch-source">
+            <pre><span class="ruby-comment"># File lib/compass/configuration/data.rb, line 161</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">watch</span>(<span class="ruby-identifier">glob</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-ivar">@watches</span> <span class="ruby-operator">||=</span> []
+  <span class="ruby-ivar">@watches</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Watch</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">glob</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-watches" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">watches</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="watches-source">
+            <pre><span class="ruby-comment"># File lib/compass/configuration/data.rb, line 166</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">watches</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">defined?</span>(<span class="ruby-ivar">@watches</span>)
+    <span class="ruby-ivar">@watches</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">inherited_data</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:watches</span>)
+    <span class="ruby-identifier">inherited_data</span>.<span class="ruby-identifier">watches</span>
+  <span class="ruby-keyword">else</span>
+    []
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

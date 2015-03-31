@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module ChunkyPNG::RMagick - chunky_png</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-export">#export</a>
+    
+    <li ><a href="#method-i-import">#import</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-ChunkyPNG::RMagick">
+  <h1 id="module-ChunkyPNG::RMagick" class="module">
+    module ChunkyPNG::RMagick
+  </h1>
+
+  <section class="description">
+    
+<p>Methods for importing and exporting <a href="RMagick.html">RMagick</a>
+image objects.</p>
+
+<p>By default, this module is disabled because of the dependency on <a
+href="RMagick.html">RMagick</a>. You need to include this module yourself
+if you want to use it.</p>
+
+<p>@example</p>
+
+<pre class="ruby"><span class="ruby-identifier">require</span> <span class="ruby-string">&#39;rmagick&#39;</span>
+<span class="ruby-identifier">require</span> <span class="ruby-string">&#39;chunky_png/rmagick&#39;</span>
+
+<span class="ruby-identifier">canvas</span> = <span class="ruby-constant">ChunkyPNG</span><span class="ruby-operator">::</span><span class="ruby-constant">Canvas</span>.<span class="ruby-identifier">from_file</span>(<span class="ruby-string">&#39;filename.png&#39;</span>)
+<span class="ruby-identifier">image</span> = <span class="ruby-constant">ChunkyPNG</span><span class="ruby-operator">::</span><span class="ruby-constant">RMagick</span>.<span class="ruby-identifier">export</span>(<span class="ruby-identifier">canvas</span>)
+
+<span class="ruby-comment"># do something with the image using RMagick</span>
+
+<span class="ruby-identifier">updated_canvas</span> = <span class="ruby-constant">ChunkyPNG</span><span class="ruby-operator">::</span><span class="ruby-constant">RMagick</span>.<span class="ruby-identifier">import</span>(<span class="ruby-identifier">image</span>)
+</pre>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-export" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">export</span><span
+            class="method-args">(canvas)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Exports a <a href="Canvas.html">Canvas</a> as <a
+href="RMagick.html">RMagick</a> image instance. @param [ChunkyPNG::Canvas]
+canvas The canvas to export. @return [Magick::Image] The <a
+href="RMagick.html">RMagick</a> image constructed from the <a
+href="Canvas.html">Canvas</a> instance.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="export-source">
+            <pre><span class="ruby-comment"># File lib/chunky_png/rmagick.rb, line 37</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">export</span>(<span class="ruby-identifier">canvas</span>)
+  <span class="ruby-identifier">image</span> = <span class="ruby-constant">Magick</span><span class="ruby-operator">::</span><span class="ruby-constant">Image</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">canvas</span>.<span class="ruby-identifier">width</span>, <span class="ruby-identifier">canvas</span>.<span class="ruby-identifier">height</span>)
+  <span class="ruby-identifier">image</span>.<span class="ruby-identifier">import_pixels</span>(<span class="ruby-value">0</span>,<span class="ruby-value">0</span>, <span class="ruby-identifier">canvas</span>.<span class="ruby-identifier">width</span>, <span class="ruby-identifier">canvas</span>.<span class="ruby-identifier">height</span>, <span class="ruby-string">&#39;RGBA&#39;</span>, <span class="ruby-identifier">canvas</span>.<span class="ruby-identifier">pixels</span>.<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;N*&#39;</span>))
+  <span class="ruby-identifier">image</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-import" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">import</span><span
+            class="method-args">(image)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Imports an <a href="RMagick.html">RMagick</a> image as <a
+href="Canvas.html">Canvas</a> object. @param [Magick::Image] image The
+image to import @return [ChunkyPNG::Canvas] The canvas, constructed from
+the <a href="RMagick.html">RMagick</a> image.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="import-source">
+            <pre><span class="ruby-comment"># File lib/chunky_png/rmagick.rb, line 29</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">import</span>(<span class="ruby-identifier">image</span>)
+  <span class="ruby-identifier">pixels</span> = <span class="ruby-identifier">image</span>.<span class="ruby-identifier">export_pixels_to_str</span>(<span class="ruby-value">0</span>, <span class="ruby-value">0</span>, <span class="ruby-identifier">image</span>.<span class="ruby-identifier">columns</span>, <span class="ruby-identifier">image</span>.<span class="ruby-identifier">rows</span>, <span class="ruby-string">&#39;RGBA&#39;</span>)
+  <span class="ruby-constant">ChunkyPNG</span><span class="ruby-operator">::</span><span class="ruby-constant">Canvas</span>.<span class="ruby-identifier">from_rgba_stream</span>(<span class="ruby-identifier">image</span>.<span class="ruby-identifier">columns</span>, <span class="ruby-identifier">image</span>.<span class="ruby-identifier">rows</span>, <span class="ruby-identifier">pixels</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

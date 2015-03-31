@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module ActionView::Layouts - actionview-4.2.0.rc2 Documentation</title>
+
+<link href="../fonts.css" rel="stylesheet">
+<link href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/navigation.js"></script>
+<script src="../js/search_index.js"></script>
+<script src="../js/search.js"></script>
+<script src="../js/searcher.js"></script>
+<script src="../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#module-ActionView::Layouts-label-Accessing+shared+variables">Accessing shared variables</a>
+    <li><a href="#module-ActionView::Layouts-label-Layout+assignment">Layout assignment</a>
+    <li><a href="#module-ActionView::Layouts-label-Inheritance+Examples">Inheritance Examples</a>
+    <li><a href="#module-ActionView::Layouts-label-Types+of+layouts">Types of layouts</a>
+    <li><a href="#module-ActionView::Layouts-label-Conditional+layouts">Conditional layouts</a>
+    <li><a href="#module-ActionView::Layouts-label-Using+a+different+layout+in+the+action+render+call">Using a different layout in the action render call</a>
+  </ul>
+</div>
+
+
+  <div id="class-metadata">
+    
+    
+    <div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><a class="include" href="Rendering.html">ActionView::Rendering</a>
+  
+  
+  </ul>
+</div>
+
+    <div id="extends-section" class="nav-section">
+  <h3>Extended With Modules</h3>
+
+  <ul class="link-list">
+    
+  
+    <li><span class="extend">ActiveSupport::Concern</span>
+  
+  
+  </ul>
+</div>
+
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-_conditional_layout-3F">#_conditional_layout?</a>
+    
+    <li ><a href="#method-i-_default_layout">#_default_layout</a>
+    
+    <li ><a href="#method-i-_include_layout-3F">#_include_layout?</a>
+    
+    <li ><a href="#method-i-_layout">#_layout</a>
+    
+    <li ><a href="#method-i-_layout_for_option">#_layout_for_option</a>
+    
+    <li ><a href="#method-i-_normalize_layout">#_normalize_layout</a>
+    
+    <li ><a href="#method-i-action_has_layout-3F">#action_has_layout?</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-ActionView::Layouts">
+  <h1 id="module-ActionView::Layouts" class="module">
+    module ActionView::Layouts
+  </h1>
+
+  <section class="description">
+    
+<p><a href="Layouts.html">Layouts</a> reverse the common pattern of including
+shared headers and footers in many templates to isolate changes in repeated
+setups. The inclusion pattern has pages that look like this:</p>
+
+<pre>&lt;%= render &quot;shared/header&quot; %&gt;
+Hello World
+&lt;%= render &quot;shared/footer&quot; %&gt;</pre>
+
+<p>This approach is a decent way of keeping common structures isolated from
+the changing content, but it&#39;s verbose and if you ever want to change
+the structure of these two includes, you&#39;ll have to change all the
+templates.</p>
+
+<p>With layouts, you can flip it around and have the common structure know
+where to insert changing content. This means that the header and footer are
+only mentioned in one place, like this:</p>
+
+<pre>// The header part of this layout
+&lt;%= yield %&gt;
+// The footer part of this layout</pre>
+
+<p>And then you have content pages that look like this:</p>
+
+<pre>hello world</pre>
+
+<p>At rendering time, the content page is computed and then inserted in the
+layout, like this:</p>
+
+<pre>// The header part of this layout
+hello world
+// The footer part of this layout</pre>
+
+<h2 id="module-ActionView::Layouts-label-Accessing+shared+variables">Accessing shared variables<span><a href="#module-ActionView::Layouts-label-Accessing+shared+variables">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p><a href="Layouts.html">Layouts</a> have access to variables specified in
+the content pages and vice versa. This allows you to have layouts with
+references that won&#39;t materialize before rendering time:</p>
+
+<pre>&lt;h1&gt;&lt;%= @page_title %&gt;&lt;/h1&gt;
+&lt;%= yield %&gt;</pre>
+
+<p>…and content pages that fulfill these references <em>at</em> rendering
+time:</p>
+
+<pre>&lt;% @page_title = &quot;Welcome&quot; %&gt;
+Off-world colonies offers you a chance to start a new life</pre>
+
+<p>The result after rendering is:</p>
+
+<pre>&lt;h1&gt;Welcome&lt;/h1&gt;
+Off-world colonies offers you a chance to start a new life</pre>
+
+<h2 id="module-ActionView::Layouts-label-Layout+assignment">Layout assignment<span><a href="#module-ActionView::Layouts-label-Layout+assignment">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>You can either specify a layout declaratively (using the layout class
+method) or give it the same name as your controller, and place it in
+<code>app/views/layouts</code>. If a subclass does not have a layout
+specified, it inherits its layout using normal Ruby inheritance.</p>
+
+<p>For instance, if you have PostsController and a template named
+<code>app/views/layouts/posts.html.erb</code>, that template will be used
+for all actions in PostsController and controllers inheriting from
+PostsController.</p>
+
+<p>If you use a module, for instance Weblog::PostsController, you will need a
+template named <code>app/views/layouts/weblog/posts.html.erb</code>.</p>
+
+<p>Since all your controllers inherit from ApplicationController, they will
+use <code>app/views/layouts/application.html.erb</code> if no other layout
+is specified or provided.</p>
+
+<h2 id="module-ActionView::Layouts-label-Inheritance+Examples">Inheritance Examples<span><a href="#module-ActionView::Layouts-label-Inheritance+Examples">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">BankController</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">ActionController</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>
+  <span class="ruby-comment"># bank.html.erb exists</span>
+
+<span class="ruby-keyword">class</span> <span class="ruby-constant">ExchangeController</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">BankController</span>
+  <span class="ruby-comment"># exchange.html.erb exists</span>
+
+<span class="ruby-keyword">class</span> <span class="ruby-constant">CurrencyController</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">BankController</span>
+
+<span class="ruby-keyword">class</span> <span class="ruby-constant">InformationController</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">BankController</span>
+  <span class="ruby-identifier">layout</span> <span class="ruby-string">&quot;information&quot;</span>
+
+<span class="ruby-keyword">class</span> <span class="ruby-constant">TellerController</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">InformationController</span>
+  <span class="ruby-comment"># teller.html.erb exists</span>
+
+<span class="ruby-keyword">class</span> <span class="ruby-constant">EmployeeController</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">InformationController</span>
+  <span class="ruby-comment"># employee.html.erb exists</span>
+  <span class="ruby-identifier">layout</span> <span class="ruby-keyword">nil</span>
+
+<span class="ruby-keyword">class</span> <span class="ruby-constant">VaultController</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">BankController</span>
+  <span class="ruby-identifier">layout</span> :<span class="ruby-identifier">access_level_layout</span>
+
+<span class="ruby-keyword">class</span> <span class="ruby-constant">TillController</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">BankController</span>
+  <span class="ruby-identifier">layout</span> <span class="ruby-keyword">false</span>
+</pre>
+
+<p>In these examples, we have three implicit lookup scenarios:</p>
+<ul><li>
+<p>The BankController uses the “bank” layout.</p>
+</li><li>
+<p>The ExchangeController uses the “exchange” layout.</p>
+</li><li>
+<p>The CurrencyController inherits the layout from BankController.</p>
+</li></ul>
+
+<p>However, when a layout is explicitly set, the explicitly set layout wins:</p>
+<ul><li>
+<p>The InformationController uses the “information” layout, explicitly set.</p>
+</li><li>
+<p>The TellerController also uses the “information” layout, because the parent
+explicitly set it.</p>
+</li><li>
+<p>The EmployeeController uses the “employee” layout, because it set the
+layout to nil, resetting the parent configuration.</p>
+</li><li>
+<p>The VaultController chooses a layout dynamically by calling the
+<code>access_level_layout</code> method.</p>
+</li><li>
+<p>The TillController does not use a layout at all.</p>
+</li></ul>
+
+<h2 id="module-ActionView::Layouts-label-Types+of+layouts">Types of layouts<span><a href="#module-ActionView::Layouts-label-Types+of+layouts">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p><a href="Layouts.html">Layouts</a> are basically just regular templates,
+but the name of this template needs not be specified statically. Sometimes
+you want to alternate layouts depending on runtime information, such as
+whether someone is logged in or not. This can be done either by specifying
+a method reference as a symbol or using an inline method (as a proc).</p>
+
+<p>The method reference is the preferred approach to variable layouts and is
+used like this:</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">WeblogController</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">ActionController</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>
+  <span class="ruby-identifier">layout</span> :<span class="ruby-identifier">writers_and_readers</span>
+
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">index</span>
+    <span class="ruby-comment"># fetching posts</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">private</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">writers_and_readers</span>
+      <span class="ruby-identifier">logged_in?</span> <span class="ruby-operator">?</span> <span class="ruby-string">&quot;writer_layout&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-string">&quot;reader_layout&quot;</span>
+    <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>Now when a new request for the index action is processed, the layout will
+vary depending on whether the person accessing is logged in or not.</p>
+
+<p>If you want to use an inline method, such as a proc, do something like
+this:</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">WeblogController</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">ActionController</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>
+  <span class="ruby-identifier">layout</span> <span class="ruby-identifier">proc</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">controller</span><span class="ruby-operator">|</span> <span class="ruby-identifier">controller</span>.<span class="ruby-identifier">logged_in?</span> <span class="ruby-operator">?</span> <span class="ruby-string">&quot;writer_layout&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-string">&quot;reader_layout&quot;</span> }
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>If an argument isn&#39;t given to the proc, it&#39;s evaluated in the
+context of the current controller anyway.</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">WeblogController</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">ActionController</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>
+  <span class="ruby-identifier">layout</span> <span class="ruby-identifier">proc</span> { <span class="ruby-identifier">logged_in?</span> <span class="ruby-operator">?</span> <span class="ruby-string">&quot;writer_layout&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-string">&quot;reader_layout&quot;</span> }
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>Of course, the most common way of specifying a layout is still just as a
+plain template name:</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">WeblogController</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">ActionController</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>
+  <span class="ruby-identifier">layout</span> <span class="ruby-string">&quot;weblog_standard&quot;</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>The template will be looked always in <code>app/views/layouts/</code>
+folder. But you can point <code>layouts</code> folder direct also.
+<code>layout &quot;layouts/demo&quot;</code> is the same as <code>layout
+&quot;demo&quot;</code>.</p>
+
+<p>Setting the layout to nil forces it to be looked up in the filesystem and
+fallbacks to the parent behavior if none exists. Setting it to nil is
+useful to re-enable template lookup overriding a previous configuration set
+in the parent:</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">ApplicationController</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">ActionController</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>
+  <span class="ruby-identifier">layout</span> <span class="ruby-string">&quot;application&quot;</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">class</span> <span class="ruby-constant">PostsController</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">ApplicationController</span>
+  <span class="ruby-comment"># Will use &quot;application&quot; layout</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">class</span> <span class="ruby-constant">CommentsController</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">ApplicationController</span>
+  <span class="ruby-comment"># Will search for &quot;comments&quot; layout and fallback &quot;application&quot; layout</span>
+  <span class="ruby-identifier">layout</span> <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<h2 id="module-ActionView::Layouts-label-Conditional+layouts">Conditional layouts<span><a href="#module-ActionView::Layouts-label-Conditional+layouts">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>If you have a layout that by default is applied to all the actions of a
+controller, you still have the option of rendering a given action or set of
+actions without a layout, or restricting a layout to only a single action
+or a set of actions. The <code>:only</code> and <code>:except</code>
+options can be passed to the layout call. For example:</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">WeblogController</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">ActionController</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>
+  <span class="ruby-identifier">layout</span> <span class="ruby-string">&quot;weblog_standard&quot;</span>, <span class="ruby-identifier">except</span><span class="ruby-operator">:</span> :<span class="ruby-identifier">rss</span>
+
+  <span class="ruby-comment"># ...</span>
+
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>This will assign “weblog_standard” as the WeblogController&#39;s layout for
+all actions except for the <code>rss</code> action, which will be rendered
+directly, without wrapping a layout around the rendered view.</p>
+
+<p>Both the <code>:only</code> and <code>:except</code> condition can accept
+an arbitrary number of method references, so #<code>except: [ :rss,
+:text_only ]</code> is valid, as is <code>except: :rss</code>.</p>
+
+<h2 id="module-ActionView::Layouts-label-Using+a+different+layout+in+the+action+render+call">Using a different layout in the action render call<span><a href="#module-ActionView::Layouts-label-Using+a+different+layout+in+the+action+render+call">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>If most of your actions use the same layout, it makes perfect sense to
+define a controller-wide layout as described above. Sometimes you&#39;ll
+have exceptions where one action wants to use a different layout than the
+rest of the controller. You can do this by passing a <code>:layout</code>
+option to the <code>render</code> call. For example:</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">WeblogController</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">ActionController</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>
+  <span class="ruby-identifier">layout</span> <span class="ruby-string">&quot;weblog_standard&quot;</span>
+
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">help</span>
+    <span class="ruby-identifier">render</span> <span class="ruby-identifier">action</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;help&quot;</span>, <span class="ruby-identifier">layout</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;help&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>This will override the controller-wide “weblog_standard” layout, and will
+render the help action with the “help” layout instead.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-action_has_layout-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">action_has_layout?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Controls whether an action should be rendered using a layout. If you want
+to disable any <code>layout</code> settings for the current action so that
+it is rendered without a layout then either override this method in your
+controller to return false for that action or set the
+<code>action_has_layout</code> attribute to false before rendering.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="action_has_layout-3F-source">
+            <pre><span class="ruby-comment"># File lib/action_view/layouts.rb, line 364</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">action_has_layout?</span>
+  <span class="ruby-ivar">@_action_has_layout</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-_conditional_layout-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">_conditional_layout?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="_conditional_layout-3F-source">
+            <pre><span class="ruby-comment"># File lib/action_view/layouts.rb, line 370</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">_conditional_layout?</span>
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-_default_layout" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">_default_layout</span><span
+            class="method-args">(require_layout = false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the default layout for this controller. Optionally raises an
+exception if the layout could not be found.</p>
+
+<h4 id="method-i-_default_layout-label-Parameters">Parameters<span><a href="#method-i-_default_layout-label-Parameters">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
+<ul><li>
+<p><code>require_layout</code> - If set to true and layout is not found, an
+ArgumentError exception is raised (defaults to false)</p>
+</li></ul>
+
+<h4 id="method-i-_default_layout-label-Returns">Returns<span><a href="#method-i-_default_layout-label-Returns">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
+<ul><li>
+<p><code>template</code> - The template object for the default layout (or nil)</p>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="_default_layout-source">
+            <pre><span class="ruby-comment"># File lib/action_view/layouts.rb, line 407</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">_default_layout</span>(<span class="ruby-identifier">require_layout</span> = <span class="ruby-keyword">false</span>)
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">value</span> = <span class="ruby-identifier">_layout</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">action_has_layout?</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">NameError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-identifier">e</span>, <span class="ruby-node">&quot;Could not render layout: #{e.message}&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">require_layout</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">action_has_layout?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">value</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>,
+      <span class="ruby-node">&quot;There was no default layout for #{self.class} in #{view_paths.inspect}&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">_normalize_layout</span>(<span class="ruby-identifier">value</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-_include_layout-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">_include_layout?</span><span
+            class="method-args">(options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="_include_layout-3F-source">
+            <pre><span class="ruby-comment"># File lib/action_view/layouts.rb, line 422</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">_include_layout?</span>(<span class="ruby-identifier">options</span>)
+  (<span class="ruby-identifier">options</span>.<span class="ruby-identifier">keys</span> <span class="ruby-operator">&amp;</span> [<span class="ruby-value">:body</span>, <span class="ruby-value">:text</span>, <span class="ruby-value">:plain</span>, <span class="ruby-value">:html</span>, <span class="ruby-value">:inline</span>, <span class="ruby-value">:partial</span>]).<span class="ruby-identifier">empty?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">key?</span>(<span class="ruby-value">:layout</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-_layout" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">_layout</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>This will be overwritten by _write_layout_method</p>
+          
+          
+
+          
+          <div class="method-source-code" id="_layout-source">
+            <pre><span class="ruby-comment"># File lib/action_view/layouts.rb, line 375</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">_layout</span>; <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-_layout_for_option" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">_layout_for_option</span><span
+            class="method-args">(name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Determine the layout for a given name, taking into account the name type.</p>
+
+<h4 id="method-i-_layout_for_option-label-Parameters">Parameters<span><a href="#method-i-_layout_for_option-label-Parameters">&para;</a> <a href="#documentation">&uarr;</a></span></h4>
+<ul><li>
+<p><code>name</code> - The name of the template</p>
+</li></ul>
+          
+          
+
+          
+          <div class="method-source-code" id="_layout_for_option-source">
+            <pre><span class="ruby-comment"># File lib/action_view/layouts.rb, line 381</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">_layout_for_option</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">name</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">String</span>     <span class="ruby-keyword">then</span> <span class="ruby-identifier">_normalize_layout</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">Proc</span>       <span class="ruby-keyword">then</span> <span class="ruby-identifier">name</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-keyword">true</span>       <span class="ruby-keyword">then</span> <span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span> { <span class="ruby-identifier">_default_layout</span>(<span class="ruby-keyword">true</span>)  }
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:default</span>   <span class="ruby-keyword">then</span> <span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span> { <span class="ruby-identifier">_default_layout</span>(<span class="ruby-keyword">false</span>) }
+  <span class="ruby-keyword">when</span> <span class="ruby-keyword">false</span>, <span class="ruby-keyword">nil</span> <span class="ruby-keyword">then</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>,
+      <span class="ruby-node">&quot;String, Proc, :default, true, or false, expected for `layout&#39;; you passed #{name.inspect}&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-_normalize_layout" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">_normalize_layout</span><span
+            class="method-args">(value)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="_normalize_layout-source">
+            <pre><span class="ruby-comment"># File lib/action_view/layouts.rb, line 394</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">_normalize_layout</span>(<span class="ruby-identifier">value</span>)
+  <span class="ruby-identifier">value</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">value</span> <span class="ruby-operator">!~</span> <span class="ruby-regexp">/\blayouts/</span> <span class="ruby-operator">?</span> <span class="ruby-node">&quot;layouts/#{value}&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">value</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

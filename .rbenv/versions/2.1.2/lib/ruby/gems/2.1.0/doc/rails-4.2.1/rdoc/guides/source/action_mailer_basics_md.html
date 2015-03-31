@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>action_mailer_basics - rails-4.2.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#label-Action+Mailer+Basics">Action Mailer Basics</a>
+    <li><a href="#label-Introduction">Introduction</a>
+    <li><a href="#label-Sending+Emails">Sending Emails</a>
+    <li><a href="#label-Walkthrough+to+Generating+a+Mailer">Walkthrough to Generating a Mailer</a>
+    <li><a href="#label-Create+the+Mailer">Create the Mailer</a>
+    <li><a href="#label-Edit+the+Mailer">Edit the Mailer</a>
+    <li><a href="#label-Create+a+Mailer+View">Create a Mailer View</a>
+    <li><a href="#label-Calling+the+Mailer">Calling the Mailer</a>
+    <li><a href="#label-Auto+encoding+header+values">Auto encoding header values</a>
+    <li><a href="#label-Complete+List+of+Action+Mailer+Methods">Complete List of Action Mailer Methods</a>
+    <li><a href="#label-Adding+Attachments">Adding Attachments</a>
+    <li><a href="#label-Making+Inline+Attachments">Making Inline Attachments</a>
+    <li><a href="#label-Sending+Email+To+Multiple+Recipients">Sending Email To Multiple Recipients</a>
+    <li><a href="#label-Sending+Email+With+Name">Sending Email With Name</a>
+    <li><a href="#label-Mailer+Views">Mailer Views</a>
+    <li><a href="#label-Action+Mailer+Layouts">Action Mailer Layouts</a>
+    <li><a href="#label-Generating+URLs+in+Action+Mailer+Views">Generating URLs in Action Mailer Views</a>
+    <li><a href="#label-generating+URLs+with+url_for">generating URLs with <code>url_for</code></a>
+    <li><a href="#label-generating+URLs+with+named+routes">generating URLs with named routes</a>
+    <li><a href="#label-Sending+Multipart+Emails">Sending Multipart Emails</a>
+    <li><a href="#label-Sending+Emails+with+Dynamic+Delivery+Options">Sending Emails with Dynamic Delivery Options</a>
+    <li><a href="#label-Sending+Emails+without+Template+Rendering">Sending Emails without Template Rendering</a>
+    <li><a href="#label-Receiving+Emails">Receiving Emails</a>
+    <li><a href="#label-Action+Mailer+Callbacks">Action Mailer Callbacks</a>
+    <li><a href="#label-Using+Action+Mailer+Helpers">Using Action Mailer Helpers</a>
+    <li><a href="#label-Action+Mailer+Configuration">Action Mailer Configuration</a>
+    <li><a href="#label-Example+Action+Mailer+Configuration">Example Action Mailer Configuration</a>
+    <li><a href="#label-Action+Mailer+Configuration+for+Gmail">Action Mailer Configuration for Gmail</a>
+    <li><a href="#label-Mailer+Testing">Mailer Testing</a>
+    <li><a href="#label-Intercepting+Emails">Intercepting Emails</a>
+  </ul>
+</div>
+
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../README_md.html">README</a>
+  
+    <li><a href="../../guides/CHANGELOG_md.html">CHANGELOG</a>
+  
+    <li><a href="../../guides/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../guides/assets/images/icons/README.html">README</a>
+  
+    <li><a href="../../guides/assets/javascripts/guides_js.html">guides.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/jquery_min_js.html">jquery.min.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/responsive-tables_js.html">responsive-tables.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushAS3_js.html">shBrushAS3.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushAppleScript_js.html">shBrushAppleScript.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushBash_js.html">shBrushBash.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushCSharp_js.html">shBrushCSharp.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushColdFusion_js.html">shBrushColdFusion.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushCpp_js.html">shBrushCpp.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushCss_js.html">shBrushCss.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushDelphi_js.html">shBrushDelphi.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushDiff_js.html">shBrushDiff.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushErlang_js.html">shBrushErlang.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushGroovy_js.html">shBrushGroovy.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushJScript_js.html">shBrushJScript.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushJava_js.html">shBrushJava.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushJavaFX_js.html">shBrushJavaFX.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushPerl_js.html">shBrushPerl.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushPhp_js.html">shBrushPhp.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushPlain_js.html">shBrushPlain.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushPowerShell_js.html">shBrushPowerShell.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushPython_js.html">shBrushPython.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushRuby_js.html">shBrushRuby.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushSass_js.html">shBrushSass.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushScala_js.html">shBrushScala.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushSql_js.html">shBrushSql.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushVb_js.html">shBrushVb.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushXml_js.html">shBrushXml.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shCore_js.html">shCore.js</a>
+  
+    <li><a href="../../guides/assets/stylesheets/fixes_css.html">fixes.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/kindle_css.html">kindle.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/main_css.html">main.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/print_css.html">print.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/reset_css.html">reset.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/responsive-tables_css.html">responsive-tables.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/style_css.html">style.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shCore_css.html">shCore.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shCoreDefault_css.html">shCoreDefault.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shCoreDjango_css.html">shCoreDjango.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shCoreEclipse_css.html">shCoreEclipse.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shCoreEmacs_css.html">shCoreEmacs.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shCoreFadeToGrey_css.html">shCoreFadeToGrey.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shCoreMDUltra_css.html">shCoreMDUltra.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shCoreMidnight_css.html">shCoreMidnight.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shCoreRDark_css.html">shCoreRDark.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shThemeDefault_css.html">shThemeDefault.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shThemeDjango_css.html">shThemeDjango.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shThemeEclipse_css.html">shThemeEclipse.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shThemeEmacs_css.html">shThemeEmacs.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shThemeFadeToGrey_css.html">shThemeFadeToGrey.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shThemeMDUltra_css.html">shThemeMDUltra.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shThemeMidnight_css.html">shThemeMidnight.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shThemeRDark_css.html">shThemeRDark.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shThemeRailsGuides_css.html">shThemeRailsGuides.css</a>
+  
+    <li><a href="../../guides/source/2_2_release_notes_md.html">2_2_release_notes</a>
+  
+    <li><a href="../../guides/source/2_3_release_notes_md.html">2_3_release_notes</a>
+  
+    <li><a href="../../guides/source/3_0_release_notes_md.html">3_0_release_notes</a>
+  
+    <li><a href="../../guides/source/3_1_release_notes_md.html">3_1_release_notes</a>
+  
+    <li><a href="../../guides/source/3_2_release_notes_md.html">3_2_release_notes</a>
+  
+    <li><a href="../../guides/source/4_0_release_notes_md.html">4_0_release_notes</a>
+  
+    <li><a href="../../guides/source/4_1_release_notes_md.html">4_1_release_notes</a>
+  
+    <li><a href="../../guides/source/4_2_release_notes_md.html">4_2_release_notes</a>
+  
+    <li><a href="../../guides/source/action_controller_overview_md.html">action_controller_overview</a>
+  
+    <li><a href="../../guides/source/action_mailer_basics_md.html">action_mailer_basics</a>
+  
+    <li><a href="../../guides/source/action_view_overview_md.html">action_view_overview</a>
+  
+    <li><a href="../../guides/source/active_job_basics_md.html">active_job_basics</a>
+  
+    <li><a href="../../guides/source/active_model_basics_md.html">active_model_basics</a>
+  
+    <li><a href="../../guides/source/active_record_basics_md.html">active_record_basics</a>
+  
+    <li><a href="../../guides/source/active_record_callbacks_md.html">active_record_callbacks</a>
+  
+    <li><a href="../../guides/source/active_record_migrations_md.html">active_record_migrations</a>
+  
+    <li><a href="../../guides/source/active_record_postgresql_md.html">active_record_postgresql</a>
+  
+    <li><a href="../../guides/source/active_record_querying_md.html">active_record_querying</a>
+  
+    <li><a href="../../guides/source/active_record_validations_md.html">active_record_validations</a>
+  
+    <li><a href="../../guides/source/active_support_core_extensions_md.html">active_support_core_extensions</a>
+  
+    <li><a href="../../guides/source/active_support_instrumentation_md.html">active_support_instrumentation</a>
+  
+    <li><a href="../../guides/source/api_documentation_guidelines_md.html">api_documentation_guidelines</a>
+  
+    <li><a href="../../guides/source/asset_pipeline_md.html">asset_pipeline</a>
+  
+    <li><a href="../../guides/source/association_basics_md.html">association_basics</a>
+  
+    <li><a href="../../guides/source/autoloading_and_reloading_constants_md.html">autoloading_and_reloading_constants</a>
+  
+    <li><a href="../../guides/source/caching_with_rails_md.html">caching_with_rails</a>
+  
+    <li><a href="../../guides/source/command_line_md.html">command_line</a>
+  
+    <li><a href="../../guides/source/configuring_md.html">configuring</a>
+  
+    <li><a href="../../guides/source/contributing_to_ruby_on_rails_md.html">contributing_to_ruby_on_rails</a>
+  
+    <li><a href="../../guides/source/debugging_rails_applications_md.html">debugging_rails_applications</a>
+  
+    <li><a href="../../guides/source/development_dependencies_install_md.html">development_dependencies_install</a>
+  
+    <li><a href="../../guides/source/documents_yaml.html">documents.yaml</a>
+  
+    <li><a href="../../guides/source/engines_md.html">engines</a>
+  
+    <li><a href="../../guides/source/form_helpers_md.html">form_helpers</a>
+  
+    <li><a href="../../guides/source/generators_md.html">generators</a>
+  
+    <li><a href="../../guides/source/getting_started_md.html">getting_started</a>
+  
+    <li><a href="../../guides/source/i18n_md.html">i18n</a>
+  
+    <li><a href="../../guides/source/initialization_md.html">initialization</a>
+  
+    <li><a href="../../guides/source/layouts_and_rendering_md.html">layouts_and_rendering</a>
+  
+    <li><a href="../../guides/source/maintenance_policy_md.html">maintenance_policy</a>
+  
+    <li><a href="../../guides/source/nested_model_forms_md.html">nested_model_forms</a>
+  
+    <li><a href="../../guides/source/plugins_md.html">plugins</a>
+  
+    <li><a href="../../guides/source/rails_application_templates_md.html">rails_application_templates</a>
+  
+    <li><a href="../../guides/source/rails_on_rack_md.html">rails_on_rack</a>
+  
+    <li><a href="../../guides/source/routing_md.html">routing</a>
+  
+    <li><a href="../../guides/source/ruby_on_rails_guides_guidelines_md.html">ruby_on_rails_guides_guidelines</a>
+  
+    <li><a href="../../guides/source/security_md.html">security</a>
+  
+    <li><a href="../../guides/source/testing_md.html">testing</a>
+  
+    <li><a href="../../guides/source/upgrading_ruby_on_rails_md.html">upgrading_ruby_on_rails</a>
+  
+    <li><a href="../../guides/source/working_with_javascript_in_rails_md.html">working_with_javascript_in_rails</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page guides/source/action_mailer_basics.md">
+
+<h1 id="label-Action+Mailer+Basics">Action Mailer Basics<span><a href="#label-Action+Mailer+Basics">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<p>This guide provides you with all you need to get started in sending and
+receiving emails from and to your application, and many internals of Action
+Mailer. It also covers how to test your mailers.</p>
+
+<p>After reading this guide, you will know:</p>
+<ul><li>
+<p>How to send and receive email within a Rails application.</p>
+</li><li>
+<p>How to generate and edit an Action Mailer class and mailer view.</p>
+</li><li>
+<p>How to configure Action Mailer for your environment.</p>
+</li><li>
+<p>How to test your Action Mailer classes.</p>
+</li></ul>
+<hr>
+
+<h2 id="label-Introduction">Introduction<span><a href="#label-Introduction">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Action Mailer allows you to send emails from your application using mailer
+classes and views. Mailers work very similarly to controllers. They inherit
+from <code>ActionMailer::Base</code> and live in <code>app/mailers</code>,
+and they have associated views that appear in <code>app/views</code>.</p>
+
+<h2 id="label-Sending+Emails">Sending Emails<span><a href="#label-Sending+Emails">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>This section will provide a step-by-step guide to creating a mailer and its
+views.</p>
+
+<h3 id="label-Walkthrough+to+Generating+a+Mailer">Walkthrough to Generating a Mailer<span><a href="#label-Walkthrough+to+Generating+a+Mailer">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<h4 id="label-Create+the+Mailer">Create the Mailer<span><a href="#label-Create+the+Mailer">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<pre>$ bin/rails generate mailer UserMailer
+create  app/mailers/user_mailer.rb
+create  app/mailers/application_mailer.rb
+invoke  erb
+create    app/views/user_mailer
+create    app/views/layouts/mailer.text.erb
+create    app/views/layouts/mailer.html.erb
+invoke  test_unit
+create    test/mailers/user_mailer_test.rb
+create    test/mailers/previews/user_mailer_preview.rb</pre>
+
+<pre class="ruby"><span class="ruby-comment"># app/mailers/application_mailer.rb</span>
+<span class="ruby-keyword">class</span> <span class="ruby-constant">ApplicationMailer</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">ActionMailer</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>
+  <span class="ruby-identifier">default</span> <span class="ruby-identifier">from</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;from@example.com&quot;</span>
+  <span class="ruby-identifier">layout</span> <span class="ruby-string">&#39;mailer&#39;</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-comment"># app/mailers/user_mailer.rb</span>
+<span class="ruby-keyword">class</span> <span class="ruby-constant">UserMailer</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">ApplicationMailer</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>As you can see, you can generate mailers just like you use other generators
+with Rails. Mailers are conceptually similar to controllers, and so we get
+a mailer, a directory for views, and a test.</p>
+
+<p>If you didn&#39;t want to use a generator, you could create your own file
+inside of app/mailers, just make sure that it inherits from
+<code>ActionMailer::Base</code>:</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">MyMailer</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">ActionMailer</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<h4 id="label-Edit+the+Mailer">Edit the Mailer<span><a href="#label-Edit+the+Mailer">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>Mailers are very similar to Rails controllers. They also have methods
+called “actions” and use views to structure the content. Where a controller
+generates content like HTML to send back to the client, a Mailer creates a
+message to be delivered via email.</p>
+
+<p><code>app/mailers/user_mailer.rb</code> contains an empty mailer:</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">UserMailer</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">ApplicationMailer</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>Let&#39;s add a method called <code>welcome_email</code>, that will send an
+email to the user&#39;s registered email address:</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">UserMailer</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">ApplicationMailer</span>
+  <span class="ruby-identifier">default</span> <span class="ruby-identifier">from</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;notifications@example.com&#39;</span>
+
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">welcome_email</span>(<span class="ruby-identifier">user</span>)
+    <span class="ruby-ivar">@user</span> = <span class="ruby-identifier">user</span>
+    <span class="ruby-ivar">@url</span>  = <span class="ruby-string">&#39;http://example.com/login&#39;</span>
+    <span class="ruby-identifier">mail</span>(<span class="ruby-identifier">to</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">email</span>, <span class="ruby-identifier">subject</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Welcome to My Awesome Site&#39;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>Here is a quick explanation of the items presented in the preceding method.
+For a full list of all available options, please have a look further down
+at the Complete List of Action Mailer user-settable attributes section.</p>
+<ul><li>
+<p><code>default Hash</code> - This is a hash of default values for any email
+you send from this mailer. In this case we are setting the
+<code>:from</code> header to a value for all messages in this class. This
+can be overridden on a per-email basis.</p>
+</li><li>
+<p><code>mail</code> - The actual email message, we are passing the
+<code>:to</code> and <code>:subject</code> headers in.</p>
+</li></ul>
+
+<p>Just like controllers, any instance variables we define in the method
+become available for use in the views.</p>
+
+<h4 id="label-Create+a+Mailer+View">Create a Mailer View<span><a href="#label-Create+a+Mailer+View">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>Create a file called <code>welcome_email.html.erb</code> in
+<code>app/views/user_mailer/</code>. This will be the template used for the
+email, formatted in HTML:</p>
+
+<pre>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta content=&#39;text/html; charset=UTF-8&#39; http-equiv=&#39;Content-Type&#39; /&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Welcome to example.com, &lt;%= @user.name %&gt;&lt;/h1&gt;
+    &lt;p&gt;
+      You have successfully signed up to example.com,
+      your username is: &lt;%= @user.login %&gt;.&lt;br&gt;
+    &lt;/p&gt;
+    &lt;p&gt;
+      To login to the site, just follow this link: &lt;%= @url %&gt;.
+    &lt;/p&gt;
+    &lt;p&gt;Thanks for joining and have a great day!&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</pre>
+
+<p>Let&#39;s also make a text part for this email. Not all clients prefer HTML
+emails, and so sending both is best practice. To do this, create a file
+called <code>welcome_email.text.erb</code> in
+<code>app/views/user_mailer/</code>:</p>
+
+<pre>Welcome to example.com, &lt;%= @user.name %&gt;
+===============================================
+
+You have successfully signed up to example.com,
+your username is: &lt;%= @user.login %&gt;.
+
+To login to the site, just follow this link: &lt;%= @url %&gt;.
+
+Thanks for joining and have a great day!</pre>
+
+<p>When you call the <code>mail</code> method now, Action Mailer will detect
+the two templates (text and HTML) and automatically generate a
+<code>multipart/alternative</code> email.</p>
+
+<h4 id="label-Calling+the+Mailer">Calling the Mailer<span><a href="#label-Calling+the+Mailer">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>Mailers are really just another way to render a view. Instead of rendering
+a view and sending out the HTTP protocol, they are just sending it out
+through the email protocols instead. Due to this, it makes sense to just
+have your controller tell the Mailer to send an email when a user is
+successfully created.</p>
+
+<p>Setting this up is painfully simple.</p>
+
+<p>First, let&#39;s create a simple <code>User</code> scaffold:</p>
+
+<pre>$ bin/rails generate scaffold user name email login
+$ bin/rake db:migrate</pre>
+
+<p>Now that we have a user model to play with, we will just edit the
+<code>app/controllers/users_controller.rb</code> make it instruct the
+<code>UserMailer</code> to deliver an email to the newly created user by
+editing the create action and inserting a call to
+<code>UserMailer.welcome_email</code> right after the user is successfully
+saved.</p>
+
+<p>Action Mailer is nicely integrated with Active Job so you can send emails
+outside of the request-response cycle, so the user doesn&#39;t have to wait
+on it:</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">UsersController</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">ApplicationController</span>
+  <span class="ruby-comment"># POST /users</span>
+  <span class="ruby-comment"># POST /users.json</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">create</span>
+    <span class="ruby-ivar">@user</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">params</span>[:<span class="ruby-identifier">user</span>])
+
+    <span class="ruby-identifier">respond_to</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">save</span>
+        <span class="ruby-comment"># Tell the UserMailer to send a welcome email after save</span>
+        <span class="ruby-constant">UserMailer</span>.<span class="ruby-identifier">welcome_email</span>(<span class="ruby-ivar">@user</span>).<span class="ruby-identifier">deliver_later</span>
+
+        <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">redirect_to</span>(<span class="ruby-ivar">@user</span>, <span class="ruby-identifier">notice</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;User was successfully created.&#39;</span>) }
+        <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@user</span>, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> :<span class="ruby-identifier">created</span>, <span class="ruby-identifier">location</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@user</span> }
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">action</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;new&#39;</span> }
+        <span class="ruby-identifier">format</span>.<span class="ruby-identifier">json</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">json</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">errors</span>, <span class="ruby-identifier">status</span><span class="ruby-operator">:</span> :<span class="ruby-identifier">unprocessable_entity</span> }
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>NOTE: Active Job&#39;s default behavior is to execute jobs
+&#39;:inline&#39;. So, you can use <code>deliver_later</code> now to send
+emails, and when you later decide to start sending them from a background
+job, you&#39;ll only need to set up Active Job to use a queueing backend
+(Sidekiq, Resque, etc).</p>
+
+<p>If you want to send emails right away (from a cronjob for example) just
+call <code>deliver_now</code>:</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">SendWeeklySummary</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">run</span>
+    <span class="ruby-constant">User</span>.<span class="ruby-identifier">find_each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">user</span><span class="ruby-operator">|</span>
+      <span class="ruby-constant">UserMailer</span>.<span class="ruby-identifier">weekly_summary</span>(<span class="ruby-identifier">user</span>).<span class="ruby-identifier">deliver_now</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>The method <code>welcome_email</code> returns a
+<code>ActionMailer::MessageDelivery</code> object which can then just be
+told <code>deliver_now</code> or <code>deliver_later</code> to send itself
+out. The <code>ActionMailer::MessageDelivery</code> object is just a
+wrapper around a <code>Mail::Message</code>. If you want to inspect, alter
+or do anything else with the <code>Mail::Message</code> object you can
+access it with the <code>message</code> method on the
+<code>ActionMailer::MessageDelivery</code> object.</p>
+
+<h3 id="label-Auto+encoding+header+values">Auto encoding header values<span><a href="#label-Auto+encoding+header+values">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Action Mailer handles the auto encoding of multibyte characters inside of
+headers and bodies.</p>
+
+<p>For more complex examples such as defining alternate character sets or
+self-encoding text first, please refer to the <a
+href="https://github.com/mikel/mail">Mail</a> library.</p>
+
+<h3 id="label-Complete+List+of+Action+Mailer+Methods">Complete List of Action Mailer Methods<span><a href="#label-Complete+List+of+Action+Mailer+Methods">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>There are just three methods that you need to send pretty much any email
+message:</p>
+<ul><li>
+<p><code>headers</code> - Specifies any header on the email you want. You can
+pass a hash of  header field names and value pairs, or you can call
+<code>headers[:field_name] =   &#39;value&#39;</code>.</p>
+</li><li>
+<p><code>attachments</code> - Allows you to add attachments to your email. For
+example,  <code>attachments['file-name.jpg'] =
+File.read(&#39;file-name.jpg&#39;)</code>.</p>
+</li><li>
+<p><code>mail</code> - Sends the actual email itself. You can pass in headers
+as a hash to  the mail method as a parameter, mail will then create an
+email, either plain  text, or multipart, depending on what email templates
+you have defined.</p>
+</li></ul>
+
+<h4 id="label-Adding+Attachments">Adding Attachments<span><a href="#label-Adding+Attachments">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>Action Mailer makes it very easy to add attachments.</p>
+<ul><li>
+<p>Pass the file name and content and Action Mailer and the  <a
+href="https://github.com/mikel/mail">Mail gem</a> will automatically guess
+the  mime_type, set the encoding and create the attachment.</p>
+
+<pre class="ruby"><span class="ruby-identifier">attachments</span>[<span class="ruby-string">&#39;filename.jpg&#39;</span>] = <span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-string">&#39;/path/to/filename.jpg&#39;</span>)
+</pre>
+</li></ul>
+
+<p>When the <code>mail</code> method will be triggered, it will send a
+multipart email with  an attachment, properly nested with the top level
+being <code>multipart/mixed</code> and  the first part being a
+<code>multipart/alternative</code> containing the plain text and  HTML
+email messages.</p>
+
+<p>NOTE: Mail will automatically Base64 encode an attachment. If you want
+something different, encode your content and pass in the encoded content
+and encoding in a <code>Hash</code> to the <code>attachments</code> method.</p>
+<ul><li>
+<p>Pass the file name and specify headers and content and Action Mailer and
+Mail  will use the settings you pass in.</p>
+
+<pre class="ruby"><span class="ruby-identifier">encoded_content</span> = <span class="ruby-constant">SpecialEncode</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-string">&#39;/path/to/filename.jpg&#39;</span>))
+<span class="ruby-identifier">attachments</span>[<span class="ruby-string">&#39;filename.jpg&#39;</span>] = {
+  <span class="ruby-identifier">mime_type</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;application/x-gzip&#39;</span>,
+  <span class="ruby-identifier">encoding</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;SpecialEncoding&#39;</span>,
+  <span class="ruby-identifier">content</span><span class="ruby-operator">:</span> <span class="ruby-identifier">encoded_content</span>
+}
+</pre>
+</li></ul>
+
+<p>NOTE: If you specify an encoding, Mail will assume that your content is
+already encoded and not try to Base64 encode it.</p>
+
+<h4 id="label-Making+Inline+Attachments">Making Inline Attachments<span><a href="#label-Making+Inline+Attachments">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>Action Mailer 3.0 makes inline attachments, which involved a lot of hacking
+in pre 3.0 versions, much simpler and trivial as they should be.</p>
+<ul><li>
+<p>First, to tell Mail to turn an attachment into an inline attachment, you
+just call <code>#inline</code> on the attachments method within your
+Mailer:</p>
+
+<pre class="ruby"><span class="ruby-keyword">def</span> <span class="ruby-identifier">welcome</span>
+  <span class="ruby-identifier">attachments</span>.<span class="ruby-identifier">inline</span>[<span class="ruby-string">&#39;image.jpg&#39;</span>] = <span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-string">&#39;/path/to/image.jpg&#39;</span>)
+<span class="ruby-keyword">end</span>
+</pre>
+</li><li>
+<p>Then in your view, you can just reference <code>attachments</code> as a
+hash and specify  which attachment you want to show, calling
+<code>url</code> on it and then passing the  result into the
+<code>image_tag</code> method:</p>
+
+<pre>&lt;p&gt;Hello there, this is our image&lt;/p&gt;
+
+&lt;%= image_tag attachments[&#39;image.jpg&#39;].url %&gt;</pre>
+</li><li>
+<p>As this is a standard call to <code>image_tag</code> you can pass in an
+options hash  after the attachment URL as you could for any other image:</p>
+
+<pre>&lt;p&gt;Hello there, this is our image&lt;/p&gt;
+
+&lt;%= image_tag attachments[&#39;image.jpg&#39;].url, alt: &#39;My Photo&#39;, class: &#39;photos&#39; %&gt;</pre>
+</li></ul>
+
+<h4 id="label-Sending+Email+To+Multiple+Recipients">Sending Email To Multiple Recipients<span><a href="#label-Sending+Email+To+Multiple+Recipients">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>It is possible to send email to one or more recipients in one email (e.g.,
+informing all admins of a new signup) by setting the list of emails to the
+<code>:to</code> key. The list of emails can be an array of email addresses
+or a single string with the addresses separated by commas.</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">AdminMailer</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">ActionMailer</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>
+  <span class="ruby-identifier">default</span> <span class="ruby-identifier">to</span><span class="ruby-operator">:</span> <span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span> { <span class="ruby-constant">Admin</span>.<span class="ruby-identifier">pluck</span>(:<span class="ruby-identifier">email</span>) },
+          <span class="ruby-identifier">from</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;notification@example.com&#39;</span>
+
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">new_registration</span>(<span class="ruby-identifier">user</span>)
+    <span class="ruby-ivar">@user</span> = <span class="ruby-identifier">user</span>
+    <span class="ruby-identifier">mail</span>(<span class="ruby-identifier">subject</span><span class="ruby-operator">:</span> <span class="ruby-node">&quot;New User Signup: #{@user.email}&quot;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>The same format can be used to set carbon copy (Cc:) and blind carbon copy
+(Bcc:) recipients, by using the <code>:cc</code> and <code>:bcc</code> keys
+respectively.</p>
+
+<h4 id="label-Sending+Email+With+Name">Sending Email With Name<span><a href="#label-Sending+Email+With+Name">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>Sometimes you wish to show the name of the person instead of just their
+email address when they receive the email. The trick to doing that is to
+format the email address in the format <code>&quot;Full Name
+&lt;email&gt;&quot;</code>.</p>
+
+<pre class="ruby"><span class="ruby-keyword">def</span> <span class="ruby-identifier">welcome_email</span>(<span class="ruby-identifier">user</span>)
+  <span class="ruby-ivar">@user</span> = <span class="ruby-identifier">user</span>
+  <span class="ruby-identifier">email_with_name</span> = <span class="ruby-node">%Q(&quot;#{@user.name}&quot; &lt;#{@user.email}&gt;)</span>
+  <span class="ruby-identifier">mail</span>(<span class="ruby-identifier">to</span><span class="ruby-operator">:</span> <span class="ruby-identifier">email_with_name</span>, <span class="ruby-identifier">subject</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Welcome to My Awesome Site&#39;</span>)
+<span class="ruby-keyword">end</span>
+</pre>
+
+<h3 id="label-Mailer+Views">Mailer Views<span><a href="#label-Mailer+Views">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Mailer views are located in the <code>app/views/name_of_mailer_class</code>
+directory. The specific mailer view is known to the class because its name
+is the same as the mailer method. In our example from above, our mailer
+view for the <code>welcome_email</code> method will be in
+<code>app/views/user_mailer/welcome_email.html.erb</code> for the HTML
+version and <code>welcome_email.text.erb</code> for the plain text version.</p>
+
+<p>To change the default mailer view for your action you do something like:</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">UserMailer</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">ApplicationMailer</span>
+  <span class="ruby-identifier">default</span> <span class="ruby-identifier">from</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;notifications@example.com&#39;</span>
+
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">welcome_email</span>(<span class="ruby-identifier">user</span>)
+    <span class="ruby-ivar">@user</span> = <span class="ruby-identifier">user</span>
+    <span class="ruby-ivar">@url</span>  = <span class="ruby-string">&#39;http://example.com/login&#39;</span>
+    <span class="ruby-identifier">mail</span>(<span class="ruby-identifier">to</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">email</span>,
+         <span class="ruby-identifier">subject</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Welcome to My Awesome Site&#39;</span>,
+         <span class="ruby-identifier">template_path</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;notifications&#39;</span>,
+         <span class="ruby-identifier">template_name</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;another&#39;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>In this case it will look for templates at
+<code>app/views/notifications</code> with name <code>another</code>. You
+can also specify an array of paths for <code>template_path</code>, and they
+will be searched in order.</p>
+
+<p>If you want more flexibility you can also pass a block and render specific
+templates or even render inline or text without using a template file:</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">UserMailer</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">ApplicationMailer</span>
+  <span class="ruby-identifier">default</span> <span class="ruby-identifier">from</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;notifications@example.com&#39;</span>
+
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">welcome_email</span>(<span class="ruby-identifier">user</span>)
+    <span class="ruby-ivar">@user</span> = <span class="ruby-identifier">user</span>
+    <span class="ruby-ivar">@url</span>  = <span class="ruby-string">&#39;http://example.com/login&#39;</span>
+    <span class="ruby-identifier">mail</span>(<span class="ruby-identifier">to</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">email</span>,
+         <span class="ruby-identifier">subject</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Welcome to My Awesome Site&#39;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">render</span> <span class="ruby-string">&#39;another_template&#39;</span> }
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">text</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">text</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;Render text&#39;</span> }
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>This will render the template &#39;another_template.html.erb&#39; for the
+HTML part and use the rendered text for the text part. The render command
+is the same one used inside of Action Controller, so you can use all the
+same options, such as <code>:text</code>, <code>:inline</code> etc.</p>
+
+<h3 id="label-Action+Mailer+Layouts">Action Mailer Layouts<span><a href="#label-Action+Mailer+Layouts">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Just like controller views, you can also have mailer layouts. The layout
+name needs to be the same as your mailer, such as
+<code>user_mailer.html.erb</code> and <code>user_mailer.text.erb</code> to
+be automatically recognized by your mailer as a layout.</p>
+
+<p>In order to use a different file, call <code>layout</code> in your mailer:</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">UserMailer</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">ApplicationMailer</span>
+  <span class="ruby-identifier">layout</span> <span class="ruby-string">&#39;awesome&#39;</span> <span class="ruby-comment"># use awesome.(html|text).erb as the layout</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>Just like with controller views, use <code>yield</code> to render the view
+inside the layout.</p>
+
+<p>You can also pass in a <code>layout: &#39;layout_name&#39;</code> option to
+the render call inside the format block to specify different layouts for
+different formats:</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">UserMailer</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">ApplicationMailer</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">welcome_email</span>(<span class="ruby-identifier">user</span>)
+    <span class="ruby-identifier">mail</span>(<span class="ruby-identifier">to</span><span class="ruby-operator">:</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">email</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">format</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">html</span> { <span class="ruby-identifier">render</span> <span class="ruby-identifier">layout</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;my_layout&#39;</span> }
+      <span class="ruby-identifier">format</span>.<span class="ruby-identifier">text</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>Will render the HTML part using the <code>my_layout.html.erb</code> file
+and the text part with the usual <code>user_mailer.text.erb</code> file if
+it exists.</p>
+
+<h3 id="label-Generating+URLs+in+Action+Mailer+Views">Generating URLs in Action Mailer Views<span><a href="#label-Generating+URLs+in+Action+Mailer+Views">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Unlike controllers, the mailer instance doesn&#39;t have any context about
+the incoming request so you&#39;ll need to provide the <code>:host</code>
+parameter yourself.</p>
+
+<p>As the <code>:host</code> usually is consistent across the application you
+can configure it globally in <code>config/application.rb</code>:</p>
+
+<pre class="ruby"><span class="ruby-identifier">config</span>.<span class="ruby-identifier">action_mailer</span>.<span class="ruby-identifier">default_url_options</span> = { <span class="ruby-identifier">host</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;example.com&#39;</span> }
+</pre>
+
+<p>Because of this behavior you cannot use any of the <code>*_path</code>
+helpers inside of an email. Instead you will need to use the associated
+<code>*_url</code> helper. For example instead of using</p>
+
+<pre>&lt;%= link_to &#39;welcome&#39;, welcome_path %&gt;</pre>
+
+<p>You will need to use:</p>
+
+<pre>&lt;%= link_to &#39;welcome&#39;, welcome_url %&gt;</pre>
+
+<p>By using the full URL, your links will now work in your emails.</p>
+
+<h4 id="label-generating+URLs+with+url_for">generating URLs with <code>url_for</code><span><a href="#label-generating+URLs+with+url_for">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>You need to pass the <code>only_path: false</code> option when using
+<code>url_for</code>. This will ensure that absolute URLs are generated
+because the <code>url_for</code> view helper will, by default, generate
+relative URLs when a <code>:host</code> option isn&#39;t explicitly
+provided.</p>
+
+<pre>&lt;%= url_for(controller: &#39;welcome&#39;,
+            action: &#39;greeting&#39;,
+            only_path: false) %&gt;</pre>
+
+<p>If you did not configure the <code>:host</code> option globally make sure
+to pass it to <code>url_for</code>.</p>
+
+<pre>&lt;%= url_for(host: &#39;example.com&#39;,
+            controller: &#39;welcome&#39;,
+            action: &#39;greeting&#39;) %&gt;</pre>
+
+<p>NOTE: When you explicitly pass the <code>:host</code> Rails will always
+generate absolute URLs, so there is no need to pass <code>only_path:
+false</code>.</p>
+
+<h4 id="label-generating+URLs+with+named+routes">generating URLs with named routes<span><a href="#label-generating+URLs+with+named+routes">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>Email clients have no web context and so paths have no base URL to form
+complete web addresses. Thus, you should always use the “_url” variant of
+named route helpers.</p>
+
+<p>If you did not configure the <code>:host</code> option globally make sure
+to pass it to the url helper.</p>
+
+<pre>&lt;%= user_url(@user, host: &#39;example.com&#39;) %&gt;</pre>
+
+<h3 id="label-Sending+Multipart+Emails">Sending Multipart Emails<span><a href="#label-Sending+Multipart+Emails">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Action Mailer will automatically send multipart emails if you have
+different templates for the same action. So, for our UserMailer example, if
+you have <code>welcome_email.text.erb</code> and
+<code>welcome_email.html.erb</code> in <code>app/views/user_mailer</code>,
+Action Mailer will automatically send a multipart email with the HTML and
+text versions setup as different parts.</p>
+
+<p>The order of the parts getting inserted is determined by the
+<code>:parts_order</code> inside of the
+<code>ActionMailer::Base.default</code> method.</p>
+
+<h3 id="label-Sending+Emails+with+Dynamic+Delivery+Options">Sending Emails with Dynamic Delivery Options<span><a href="#label-Sending+Emails+with+Dynamic+Delivery+Options">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>If you wish to override the default delivery options (e.g. SMTP
+credentials) while delivering emails, you can do this using
+<code>delivery_method_options</code> in the mailer action.</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">UserMailer</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">ApplicationMailer</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">welcome_email</span>(<span class="ruby-identifier">user</span>, <span class="ruby-identifier">company</span>)
+    <span class="ruby-ivar">@user</span> = <span class="ruby-identifier">user</span>
+    <span class="ruby-ivar">@url</span>  = <span class="ruby-identifier">user_url</span>(<span class="ruby-ivar">@user</span>)
+    <span class="ruby-identifier">delivery_options</span> = { <span class="ruby-identifier">user_name</span><span class="ruby-operator">:</span> <span class="ruby-identifier">company</span>.<span class="ruby-identifier">smtp_user</span>,
+                         <span class="ruby-identifier">password</span><span class="ruby-operator">:</span> <span class="ruby-identifier">company</span>.<span class="ruby-identifier">smtp_password</span>,
+                         <span class="ruby-identifier">address</span><span class="ruby-operator">:</span> <span class="ruby-identifier">company</span>.<span class="ruby-identifier">smtp_host</span> }
+    <span class="ruby-identifier">mail</span>(<span class="ruby-identifier">to</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">email</span>,
+         <span class="ruby-identifier">subject</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Please see the Terms and Conditions attached&quot;</span>,
+         <span class="ruby-identifier">delivery_method_options</span><span class="ruby-operator">:</span> <span class="ruby-identifier">delivery_options</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<h3 id="label-Sending+Emails+without+Template+Rendering">Sending Emails without Template Rendering<span><a href="#label-Sending+Emails+without+Template+Rendering">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>There may be cases in which you want to skip the template rendering step
+and supply the email body as a string. You can achieve this using the
+<code>:body</code> option. In such cases don&#39;t forget to add the
+<code>:content_type</code> option. Rails will default to
+<code>text/plain</code> otherwise.</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">UserMailer</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">ApplicationMailer</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">welcome_email</span>(<span class="ruby-identifier">user</span>, <span class="ruby-identifier">email_body</span>)
+    <span class="ruby-identifier">mail</span>(<span class="ruby-identifier">to</span><span class="ruby-operator">:</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">email</span>,
+         <span class="ruby-identifier">body</span><span class="ruby-operator">:</span> <span class="ruby-identifier">email_body</span>,
+         <span class="ruby-identifier">content_type</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;text/html&quot;</span>,
+         <span class="ruby-identifier">subject</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Already rendered!&quot;</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<h2 id="label-Receiving+Emails">Receiving Emails<span><a href="#label-Receiving+Emails">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Receiving and parsing emails with Action Mailer can be a rather complex
+endeavor. Before your email reaches your Rails app, you would have had to
+configure your system to somehow forward emails to your app, which needs to
+be listening for that. So, to receive emails in your Rails app you&#39;ll
+need to:</p>
+<ul><li>
+<p>Implement a <code>receive</code> method in your mailer.</p>
+</li><li>
+<p>Configure your email server to forward emails from the address(es) you
+would  like your app to receive to <code>/path/to/app/bin/rails runner  
+&#39;UserMailer.receive(STDIN.read)&#39;</code>.</p>
+</li></ul>
+
+<p>Once a method called <code>receive</code> is defined in any mailer, Action
+Mailer will parse the raw incoming email into an email object, decode it,
+instantiate a new mailer, and pass the email object to the mailer
+<code>receive</code> instance method. Here&#39;s an example:</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">UserMailer</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">ApplicationMailer</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">receive</span>(<span class="ruby-identifier">email</span>)
+    <span class="ruby-identifier">page</span> = <span class="ruby-constant">Page</span>.<span class="ruby-identifier">find_by</span>(<span class="ruby-identifier">address</span><span class="ruby-operator">:</span> <span class="ruby-identifier">email</span>.<span class="ruby-identifier">to</span>.<span class="ruby-identifier">first</span>)
+    <span class="ruby-identifier">page</span>.<span class="ruby-identifier">emails</span>.<span class="ruby-identifier">create</span>(
+      <span class="ruby-identifier">subject</span><span class="ruby-operator">:</span> <span class="ruby-identifier">email</span>.<span class="ruby-identifier">subject</span>,
+      <span class="ruby-identifier">body</span><span class="ruby-operator">:</span> <span class="ruby-identifier">email</span>.<span class="ruby-identifier">body</span>
+    )
+
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">email</span>.<span class="ruby-identifier">has_attachments?</span>
+      <span class="ruby-identifier">email</span>.<span class="ruby-identifier">attachments</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">attachment</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">page</span>.<span class="ruby-identifier">attachments</span>.<span class="ruby-identifier">create</span>({
+          <span class="ruby-identifier">file</span><span class="ruby-operator">:</span> <span class="ruby-identifier">attachment</span>,
+          <span class="ruby-identifier">description</span><span class="ruby-operator">:</span> <span class="ruby-identifier">email</span>.<span class="ruby-identifier">subject</span>
+        })
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<h2 id="label-Action+Mailer+Callbacks">Action Mailer Callbacks<span><a href="#label-Action+Mailer+Callbacks">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Action Mailer allows for you to specify a <code>before_action</code>,
+<code>after_action</code> and <code>around_action</code>.</p>
+<ul><li>
+<p>Filters can be specified with a block or a symbol to a method in the mailer
+class similar to controllers.</p>
+</li><li>
+<p>You could use a <code>before_action</code> to populate the mail object with
+defaults,  delivery_method_options or insert default headers and
+attachments.</p>
+</li><li>
+<p>You could use an <code>after_action</code> to do similar setup as a
+<code>before_action</code> but  using instance variables set in your mailer
+action.</p>
+</li></ul>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">UserMailer</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">ApplicationMailer</span>
+  <span class="ruby-identifier">after_action</span> :<span class="ruby-identifier">set_delivery_options</span>,
+               :<span class="ruby-identifier">prevent_delivery_to_guests</span>,
+               :<span class="ruby-identifier">set_business_headers</span>
+
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">feedback_message</span>(<span class="ruby-identifier">business</span>, <span class="ruby-identifier">user</span>)
+    <span class="ruby-ivar">@business</span> = <span class="ruby-identifier">business</span>
+    <span class="ruby-ivar">@user</span> = <span class="ruby-identifier">user</span>
+    <span class="ruby-identifier">mail</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">campaign_message</span>(<span class="ruby-identifier">business</span>, <span class="ruby-identifier">user</span>)
+    <span class="ruby-ivar">@business</span> = <span class="ruby-identifier">business</span>
+    <span class="ruby-ivar">@user</span> = <span class="ruby-identifier">user</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">private</span>
+
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">set_delivery_options</span>
+      <span class="ruby-comment"># You have access to the mail instance,</span>
+      <span class="ruby-comment"># @business and @user instance variables here</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-ivar">@business</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@business</span>.<span class="ruby-identifier">has_smtp_settings?</span>
+        <span class="ruby-identifier">mail</span>.<span class="ruby-identifier">delivery_method</span>.<span class="ruby-identifier">settings</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-ivar">@business</span>.<span class="ruby-identifier">smtp_settings</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">prevent_delivery_to_guests</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-ivar">@user</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@user</span>.<span class="ruby-identifier">guest?</span>
+        <span class="ruby-identifier">mail</span>.<span class="ruby-identifier">perform_deliveries</span> = <span class="ruby-keyword">false</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier">set_business_headers</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-ivar">@business</span>
+        <span class="ruby-identifier">headers</span>[<span class="ruby-string">&quot;X-SMTPAPI-CATEGORY&quot;</span>] = <span class="ruby-ivar">@business</span>.<span class="ruby-identifier">code</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+<ul><li>
+<p>Mailer Filters abort further processing if body is set to a non-nil value.</p>
+</li></ul>
+
+<h2 id="label-Using+Action+Mailer+Helpers">Using Action Mailer Helpers<span><a href="#label-Using+Action+Mailer+Helpers">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Action Mailer now just inherits from <code>AbstractController</code>, so
+you have access to the same generic helpers as you do in Action Controller.</p>
+
+<h2 id="label-Action+Mailer+Configuration">Action Mailer Configuration<span><a href="#label-Action+Mailer+Configuration">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>The following configuration options are best made in one of the environment
+files (environment.rb, production.rb, etc…)</p>
+
+<p>| Configuration | Description | |—————|————-|
+|<code>logger</code>|Generates information on the mailing run if available.
+Can be set to <code>nil</code> for no logging. Compatible with both
+Ruby&#39;s own <code>Logger</code> and <code>Log4r</code> loggers.|
+|<code>smtp_settings</code>|Allows detailed configuration for
+<code>:smtp</code> delivery
+method:&lt;ul&gt;&lt;li&gt;<code>:address</code> - Allows you to use a
+remote mail server. Just change it from its default
+<code>&quot;localhost&quot;</code>
+setting.&lt;/li&gt;&lt;li&gt;<code>:port</code> - On the off chance that
+your mail server doesn&#39;t run on port 25, you can change
+it.&lt;/li&gt;&lt;li&gt;<code>:domain</code> - If you need to specify a
+HELO domain, you can do it
+here.&lt;/li&gt;&lt;li&gt;<code>:user_name</code> - If your mail server
+requires authentication, set the username in this
+setting.&lt;/li&gt;&lt;li&gt;<code>:password</code> - If your mail server
+requires authentication, set the password in this
+setting.&lt;/li&gt;&lt;li&gt;<code>:authentication</code> - If your mail
+server requires authentication, you need to specify the authentication type
+here. This is a symbol and one of <code>:plain</code>, <code>:login</code>,
+<code>:cram_md5</code>.&lt;/li&gt;&lt;li&gt;<code>:enable_starttls_auto</code>
+- Set this to <code>false</code> if there is a problem with your server
+certificate that you cannot resolve.&lt;/li&gt;&lt;/ul&gt;|
+|<code>sendmail_settings</code>|Allows you to override options for the
+<code>:sendmail</code> delivery
+method.&lt;ul&gt;&lt;li&gt;<code>:location</code> - The location of the
+sendmail executable. Defaults to
+<code>/usr/sbin/sendmail</code>.&lt;/li&gt;&lt;li&gt;<code>:arguments</code>
+- The command line arguments to be passed to sendmail. Defaults to <code>-i
+-t</code>.&lt;/li&gt;&lt;/ul&gt;|
+|<code>raise_delivery_errors</code>|Whether or not errors should be raised
+if the email fails to be delivered. This only works if the external email
+server is configured for immediate delivery.|
+|<code>delivery_method</code>|Defines a delivery method. Possible values
+are:&lt;ul&gt;&lt;li&gt;<code>:smtp</code> (default), can be configured by
+using
+<code>config.action_mailer.smtp_settings</code>.&lt;/li&gt;&lt;li&gt;<code>:sendmail</code>,
+can be configured by using
+<code>config.action_mailer.sendmail_settings</code>.&lt;/li&gt;&lt;li&gt;<code>:file</code>:
+save emails to files; can be configured by using
+<code>config.action_mailer.file_settings</code>.&lt;/li&gt;&lt;li&gt;<code>:test</code>:
+save emails to <code>ActionMailer::Base.deliveries</code>
+array.&lt;/li&gt;&lt;/ul&gt;See <a
+href="http://api.rubyonrails.org/classes/ActionMailer/Base.html">API
+docs</a> for more info.| |<code>perform_deliveries</code>|Determines
+whether deliveries are actually carried out when the <code>deliver</code>
+method is invoked on the Mail message. By default they are, but this can be
+turned off to help functional testing.| |<code>deliveries</code>|Keeps an
+array of all the emails sent out through the Action Mailer with
+delivery_method :test. Most useful for unit and functional testing.|
+|<code>default_options</code>|Allows you to set default values for the
+<code>mail</code> method options (<code>:from</code>,
+<code>:reply_to</code>, etc.).|</p>
+
+<p>For a complete writeup of possible configurations see the <a
+href="configuring.html#configuring-action-mailer">Configuring Action
+Mailer</a> in our Configuring Rails Applications guide.</p>
+
+<h3 id="label-Example+Action+Mailer+Configuration">Example Action Mailer Configuration<span><a href="#label-Example+Action+Mailer+Configuration">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>An example would be adding the following to your appropriate
+<code>config/environments/$RAILS_ENV.rb</code> file:</p>
+
+<pre class="ruby"><span class="ruby-identifier">config</span>.<span class="ruby-identifier">action_mailer</span>.<span class="ruby-identifier">delivery_method</span> = :<span class="ruby-identifier">sendmail</span>
+<span class="ruby-comment"># Defaults to:</span>
+<span class="ruby-comment"># config.action_mailer.sendmail_settings = {</span>
+<span class="ruby-comment">#   location: &#39;/usr/sbin/sendmail&#39;,</span>
+<span class="ruby-comment">#   arguments: &#39;-i -t&#39;</span>
+<span class="ruby-comment"># }</span>
+<span class="ruby-identifier">config</span>.<span class="ruby-identifier">action_mailer</span>.<span class="ruby-identifier">perform_deliveries</span> = <span class="ruby-keyword">true</span>
+<span class="ruby-identifier">config</span>.<span class="ruby-identifier">action_mailer</span>.<span class="ruby-identifier">raise_delivery_errors</span> = <span class="ruby-keyword">true</span>
+<span class="ruby-identifier">config</span>.<span class="ruby-identifier">action_mailer</span>.<span class="ruby-identifier">default_options</span> = {<span class="ruby-identifier">from</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;no-reply@example.com&#39;</span>}
+</pre>
+
+<h3 id="label-Action+Mailer+Configuration+for+Gmail">Action Mailer Configuration for Gmail<span><a href="#label-Action+Mailer+Configuration+for+Gmail">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>As Action Mailer now uses the <a href="https://github.com/mikel/mail">Mail
+gem</a>, this becomes as simple as adding to your
+<code>config/environments/$RAILS_ENV.rb</code> file:</p>
+
+<pre class="ruby"><span class="ruby-identifier">config</span>.<span class="ruby-identifier">action_mailer</span>.<span class="ruby-identifier">delivery_method</span> = :<span class="ruby-identifier">smtp</span>
+<span class="ruby-identifier">config</span>.<span class="ruby-identifier">action_mailer</span>.<span class="ruby-identifier">smtp_settings</span> = {
+  <span class="ruby-identifier">address</span><span class="ruby-operator">:</span>              <span class="ruby-string">&#39;smtp.gmail.com&#39;</span>,
+  <span class="ruby-identifier">port</span><span class="ruby-operator">:</span>                 <span class="ruby-value">587</span>,
+  <span class="ruby-identifier">domain</span><span class="ruby-operator">:</span>               <span class="ruby-string">&#39;example.com&#39;</span>,
+  <span class="ruby-identifier">user_name</span><span class="ruby-operator">:</span>            <span class="ruby-string">&#39;&lt;username&gt;&#39;</span>,
+  <span class="ruby-identifier">password</span><span class="ruby-operator">:</span>             <span class="ruby-string">&#39;&lt;password&gt;&#39;</span>,
+  <span class="ruby-identifier">authentication</span><span class="ruby-operator">:</span>       <span class="ruby-string">&#39;plain&#39;</span>,
+  <span class="ruby-identifier">enable_starttls_auto</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>  }
+</pre>
+
+<h2 id="label-Mailer+Testing">Mailer Testing<span><a href="#label-Mailer+Testing">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>You can find detailed instructions on how to test your mailers in the <a
+href="testing.html#testing-your-mailers">testing guide</a>.</p>
+
+<h2 id="label-Intercepting+Emails">Intercepting Emails<span><a href="#label-Intercepting+Emails">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>There are situations where you need to edit an email before it&#39;s
+delivered. Fortunately Action Mailer provides hooks to intercept every
+email. You can register an interceptor to make modifications to mail
+messages right before they are handed to the delivery agents.</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">SandboxEmailInterceptor</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">delivering_email</span>(<span class="ruby-identifier">message</span>)
+    <span class="ruby-identifier">message</span>.<span class="ruby-identifier">to</span> = [<span class="ruby-string">&#39;sandbox@example.com&#39;</span>]
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>Before the interceptor can do its job you need to register it with the
+Action Mailer framework. You can do this in an initializer file
+<code>config/initializers/sandbox_email_interceptor.rb</code></p>
+
+<pre class="ruby"><span class="ruby-keyword">if</span> <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">env</span>.<span class="ruby-identifier">staging?</span>
+  <span class="ruby-constant">ActionMailer</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>.<span class="ruby-identifier">register_interceptor</span>(<span class="ruby-constant">SandboxEmailInterceptor</span>)
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>NOTE: The example above uses a custom environment called “staging” for a
+production like server but for testing purposes. You can read <a
+href="configuring.html#creating-rails-environments">Creating Rails
+environments</a> for more information about custom Rails environments.</p>
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class ExecJS::ExternalRuntime - execjs-2.4.0 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">Runtime
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-available-3F">#available?</a>
+    
+    <li ><a href="#method-i-binary">#binary</a>
+    
+    <li ><a href="#method-i-deprecated-3F">#deprecated?</a>
+    
+    <li ><a href="#method-i-encode_source">#encode_source</a>
+    
+    <li ><a href="#method-i-encode_unicode_codepoints">#encode_unicode_codepoints</a>
+    
+    <li ><a href="#method-i-exec_runtime">#exec_runtime</a>
+    
+    <li ><a href="#method-i-exec_runtime_error">#exec_runtime_error</a>
+    
+    <li ><a href="#method-i-generate_compile_method">#generate_compile_method</a>
+    
+    <li ><a href="#method-i-json2_source">#json2_source</a>
+    
+    <li ><a href="#method-i-locate_executable">#locate_executable</a>
+    
+    <li ><a href="#method-i-shell_escape">#shell_escape</a>
+    
+    <li ><a href="#method-i-which">#which</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-ExecJS::ExternalRuntime">
+  <h1 id="class-ExecJS::ExternalRuntime" class="class">
+    class ExecJS::ExternalRuntime
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-name" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">name</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/execjs/external_runtime.rb, line 85</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">options</span>)
+  <span class="ruby-ivar">@name</span>        = <span class="ruby-identifier">options</span>[<span class="ruby-value">:name</span>]
+  <span class="ruby-ivar">@command</span>     = <span class="ruby-identifier">options</span>[<span class="ruby-value">:command</span>]
+  <span class="ruby-ivar">@runner_path</span> = <span class="ruby-identifier">options</span>[<span class="ruby-value">:runner_path</span>]
+  <span class="ruby-ivar">@encoding</span>    = <span class="ruby-identifier">options</span>[<span class="ruby-value">:encoding</span>]
+  <span class="ruby-ivar">@deprecated</span>  = <span class="ruby-operator">!</span><span class="ruby-operator">!</span><span class="ruby-identifier">options</span>[<span class="ruby-value">:deprecated</span>]
+  <span class="ruby-ivar">@binary</span>      = <span class="ruby-keyword">nil</span>
+
+  <span class="ruby-ivar">@popen_options</span> = {}
+  <span class="ruby-ivar">@popen_options</span>[<span class="ruby-value">:external_encoding</span>] = <span class="ruby-ivar">@encoding</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@encoding</span>
+  <span class="ruby-ivar">@popen_options</span>[<span class="ruby-value">:internal_encoding</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">Encoding</span>.<span class="ruby-identifier">default_internal</span> <span class="ruby-operator">||</span> <span class="ruby-string">&#39;UTF-8&#39;</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@runner_path</span>
+    <span class="ruby-identifier">instance_eval</span> <span class="ruby-identifier">generate_compile_method</span>(<span class="ruby-ivar">@runner_path</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-available-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">available?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="available-3F-source">
+            <pre><span class="ruby-comment"># File lib/execjs/external_runtime.rb, line 102</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">available?</span>
+  <span class="ruby-identifier">require</span> <span class="ruby-string">&#39;json&#39;</span>
+  <span class="ruby-identifier">binary</span> <span class="ruby-operator">?</span> <span class="ruby-keyword">true</span> <span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-deprecated-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">deprecated?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="deprecated-3F-source">
+            <pre><span class="ruby-comment"># File lib/execjs/external_runtime.rb, line 107</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">deprecated?</span>
+  <span class="ruby-ivar">@deprecated</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-exec_runtime" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">exec_runtime</span><span
+            class="method-args">(filename)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="exec_runtime-source">
+            <pre><span class="ruby-comment"># File lib/execjs/external_runtime.rb, line 159</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">exec_runtime</span>(<span class="ruby-identifier">filename</span>)
+  <span class="ruby-identifier">path</span> = <span class="ruby-constant">Dir</span><span class="ruby-operator">::</span><span class="ruby-constant">Tmpname</span>.<span class="ruby-identifier">create</span>([<span class="ruby-string">&#39;execjs&#39;</span>, <span class="ruby-string">&#39;json&#39;</span>]) {}
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">command</span> = <span class="ruby-identifier">binary</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot; &quot;</span>) <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">filename</span>
+    <span class="ruby-node">%x`#{shell_escape(*command)} 2&gt;&amp;1 &gt; #{path}`</span>
+    <span class="ruby-identifier">output</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">path</span>, <span class="ruby-string">&#39;rb&#39;</span>, <span class="ruby-ivar">@popen_options</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-identifier">f</span>.<span class="ruby-identifier">read</span> }
+  <span class="ruby-keyword">ensure</span>
+    <span class="ruby-constant">File</span>.<span class="ruby-identifier">unlink</span>(<span class="ruby-identifier">path</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">path</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">$?</span>.<span class="ruby-identifier">success?</span>
+    <span class="ruby-identifier">output</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-identifier">exec_runtime_error</span>(<span class="ruby-identifier">output</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="protected-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Protected Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-encode_source" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">encode_source</span><span
+            class="method-args">(source)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="encode_source-source">
+            <pre><span class="ruby-comment"># File lib/execjs/external_runtime.rb, line 147</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">encode_source</span>(<span class="ruby-identifier">source</span>)
+  <span class="ruby-identifier">encoded_source</span> = <span class="ruby-identifier">encode_unicode_codepoints</span>(<span class="ruby-identifier">source</span>)
+  <span class="ruby-operator">::</span><span class="ruby-constant">JSON</span>.<span class="ruby-identifier">generate</span>(<span class="ruby-node">&quot;(function(){ #{encoded_source} })()&quot;</span>, <span class="ruby-identifier">quirks_mode</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-encode_unicode_codepoints" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">encode_unicode_codepoints</span><span
+            class="method-args">(str)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="encode_unicode_codepoints-source">
+            <pre><span class="ruby-comment"># File lib/execjs/external_runtime.rb, line 152</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">encode_unicode_codepoints</span>(<span class="ruby-identifier">str</span>)
+  <span class="ruby-identifier">str</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/[\u0080-\uffff]/</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">ch</span><span class="ruby-operator">|</span>
+    <span class="ruby-string">&quot;\\u%04x&quot;</span> <span class="ruby-operator">%</span> <span class="ruby-identifier">ch</span>.<span class="ruby-identifier">codepoints</span>.<span class="ruby-identifier">to_a</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-exec_runtime_error" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">exec_runtime_error</span><span
+            class="method-args">(output)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Internally exposed for <a href="ExternalRuntime/Context.html">Context</a>.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="exec_runtime_error-source">
+            <pre><span class="ruby-comment"># File lib/execjs/external_runtime.rb, line 214</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">exec_runtime_error</span>(<span class="ruby-identifier">output</span>)
+  <span class="ruby-identifier">error</span> = <span class="ruby-constant">RuntimeError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">output</span>)
+  <span class="ruby-identifier">lines</span> = <span class="ruby-identifier">output</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;\n&quot;</span>)
+  <span class="ruby-identifier">lineno</span> = <span class="ruby-identifier">lines</span>[<span class="ruby-value">0</span>][<span class="ruby-regexp">/:(\d+)$/</span>, <span class="ruby-value">1</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">lines</span>[<span class="ruby-value">0</span>]
+  <span class="ruby-identifier">lineno</span> <span class="ruby-operator">||=</span> <span class="ruby-value">1</span>
+  <span class="ruby-identifier">error</span>.<span class="ruby-identifier">set_backtrace</span>([<span class="ruby-node">&quot;(execjs):#{lineno}&quot;</span>] <span class="ruby-operator">+</span> <span class="ruby-identifier">caller</span>)
+  <span class="ruby-identifier">error</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-generate_compile_method" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">generate_compile_method</span><span
+            class="method-args">(path)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="generate_compile_method-source">
+            <pre><span class="ruby-comment"># File lib/execjs/external_runtime.rb, line 133</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">generate_compile_method</span>(<span class="ruby-identifier">path</span>)
+  <span class="ruby-value">&lt;&lt;-RUBY
+  def compile_source(source)
+    &lt;&lt;-RUNNER
+    #{IO.read(path)}
+    RUNNER
+  end
+  RUBY</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-json2_source" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">json2_source</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="json2_source-source">
+            <pre><span class="ruby-comment"># File lib/execjs/external_runtime.rb, line 143</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">json2_source</span>
+  <span class="ruby-ivar">@json2_source</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">IO</span>.<span class="ruby-identifier">read</span>(<span class="ruby-constant">ExecJS</span>.<span class="ruby-identifier">root</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;/support/json2.js&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-shell_escape" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">shell_escape</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="shell_escape-source">
+            <pre><span class="ruby-comment"># File lib/execjs/external_runtime.rb, line 176</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">shell_escape</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-comment"># see http://technet.microsoft.com/en-us/library/cc723564.aspx#XSLTsection123121120120</span>
+  <span class="ruby-identifier">args</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">arg</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">arg</span> = <span class="ruby-node">%Q(&quot;#{arg.gsub(&#39;&quot;&#39;,&#39;&quot;&quot;&#39;)}&quot;)</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">arg</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/[&amp;|()&lt;&gt;^ &quot;]/</span>)
+    <span class="ruby-identifier">arg</span>
+  }.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot; &quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-which" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">which</span><span
+            class="method-args">(command)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="which-source">
+            <pre><span class="ruby-comment"># File lib/execjs/external_runtime.rb, line 223</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">which</span>(<span class="ruby-identifier">command</span>)
+  <span class="ruby-constant">Array</span>(<span class="ruby-identifier">command</span>).<span class="ruby-identifier">find</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">name</span>, <span class="ruby-identifier">args</span> = <span class="ruby-identifier">name</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp">/\s+/</span>, <span class="ruby-value">2</span>)
+    <span class="ruby-identifier">path</span> = <span class="ruby-identifier">locate_executable</span>(<span class="ruby-identifier">name</span>)
+
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">path</span>
+
+    <span class="ruby-identifier">args</span> <span class="ruby-operator">?</span> <span class="ruby-node">&quot;#{path} #{args}&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-identifier">path</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-binary" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">binary</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="binary-source">
+            <pre><span class="ruby-comment"># File lib/execjs/external_runtime.rb, line 112</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">binary</span>
+  <span class="ruby-ivar">@binary</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">which</span>(<span class="ruby-ivar">@command</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-locate_executable" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">locate_executable</span><span
+            class="method-args">(cmd)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="locate_executable-source">
+            <pre><span class="ruby-comment"># File lib/execjs/external_runtime.rb, line 116</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">locate_executable</span>(<span class="ruby-identifier">cmd</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">ExecJS</span>.<span class="ruby-identifier">windows?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">extname</span>(<span class="ruby-identifier">cmd</span>) <span class="ruby-operator">==</span> <span class="ruby-string">&quot;&quot;</span>
+    <span class="ruby-identifier">cmd</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;.exe&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">executable?</span> <span class="ruby-identifier">cmd</span>
+    <span class="ruby-identifier">cmd</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">path</span> = <span class="ruby-constant">ENV</span>[<span class="ruby-string">&#39;PATH&#39;</span>].<span class="ruby-identifier">split</span>(<span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">PATH_SEPARATOR</span>).<span class="ruby-identifier">find</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">p</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">full_path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">p</span>, <span class="ruby-identifier">cmd</span>)
+      <span class="ruby-constant">File</span>.<span class="ruby-identifier">executable?</span>(<span class="ruby-identifier">full_path</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">file?</span>(<span class="ruby-identifier">full_path</span>)
+    }
+    <span class="ruby-identifier">path</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-identifier">cmd</span>, <span class="ruby-identifier">path</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module ChunkyPNG::Canvas::Adam7Interlacing - chunky_png</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-adam7_extract_pass">#adam7_extract_pass</a>
+    
+    <li ><a href="#method-i-adam7_merge_pass">#adam7_merge_pass</a>
+    
+    <li ><a href="#method-i-adam7_multiplier_offset">#adam7_multiplier_offset</a>
+    
+    <li ><a href="#method-i-adam7_pass_size">#adam7_pass_size</a>
+    
+    <li ><a href="#method-i-adam7_pass_sizes">#adam7_pass_sizes</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-ChunkyPNG::Canvas::Adam7Interlacing">
+  <h1 id="module-ChunkyPNG::Canvas::Adam7Interlacing" class="module">
+    module ChunkyPNG::Canvas::Adam7Interlacing
+  </h1>
+
+  <section class="description">
+    
+<p>Methods for decoding and encoding Adam7 interlacing.</p>
+
+<p>Adam7 interlacing extracts 7 pass images out of a single image, that can be
+encoded to a stream separately so the image can be built up progressively.
+The module is included into <a href="../../ChunkyPNG.html">ChunkyPNG</a>
+canvas and is used to extract the pass images from the original image, or
+to reconstruct an original image from separate pass images.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-adam7_extract_pass" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">adam7_extract_pass</span><span
+            class="method-args">(pass, canvas)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Extracts a pass from a complete image @param [Integer] pass The pass
+number, should be in 0..6. @param [ChunkyPNG::Canvas] canvas The image that
+is being deconstructed. @return [ChunkyPNG::Canvas] The extracted pass
+image.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="adam7_extract_pass-source">
+            <pre><span class="ruby-comment"># File lib/chunky_png/canvas/adam7_interlacing.rb, line 57</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">adam7_extract_pass</span>(<span class="ruby-identifier">pass</span>, <span class="ruby-identifier">canvas</span>)
+  <span class="ruby-identifier">x_shift</span>, <span class="ruby-identifier">x_offset</span>, <span class="ruby-identifier">y_shift</span>, <span class="ruby-identifier">y_offset</span> = <span class="ruby-identifier">adam7_multiplier_offset</span>(<span class="ruby-identifier">pass</span>)
+  <span class="ruby-identifier">sm_pixels</span> = []
+  
+  <span class="ruby-identifier">y_offset</span>.<span class="ruby-identifier">step</span>(<span class="ruby-identifier">canvas</span>.<span class="ruby-identifier">height</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>, <span class="ruby-value">1</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">y_shift</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">y</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">x_offset</span>.<span class="ruby-identifier">step</span>(<span class="ruby-identifier">canvas</span>.<span class="ruby-identifier">width</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>, <span class="ruby-value">1</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">x_shift</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">x</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">sm_pixels</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">canvas</span>[<span class="ruby-identifier">x</span>, <span class="ruby-identifier">y</span>]
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  
+  <span class="ruby-identifier">new_canvas_args</span> = <span class="ruby-identifier">adam7_pass_size</span>(<span class="ruby-identifier">pass</span>, <span class="ruby-identifier">canvas</span>.<span class="ruby-identifier">width</span>, <span class="ruby-identifier">canvas</span>.<span class="ruby-identifier">height</span>) <span class="ruby-operator">+</span> [<span class="ruby-identifier">sm_pixels</span>]
+  <span class="ruby-constant">ChunkyPNG</span><span class="ruby-operator">::</span><span class="ruby-constant">Canvas</span>.<span class="ruby-identifier">new</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">new_canvas_args</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-adam7_merge_pass" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">adam7_merge_pass</span><span
+            class="method-args">(pass, canvas, subcanvas)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Merges a pass image into a total image that is being constructed. @param
+[Integer] pass The pass number, should be in 0..6. @param
+[ChunkyPNG::Canvas] canvas The image that is being constructed. @param
+[ChunkyPNG::Canvas] subcanvas The pass image that should be merged</p>
+          
+          
+
+          
+          <div class="method-source-code" id="adam7_merge_pass-source">
+            <pre><span class="ruby-comment"># File lib/chunky_png/canvas/adam7_interlacing.rb, line 42</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">adam7_merge_pass</span>(<span class="ruby-identifier">pass</span>, <span class="ruby-identifier">canvas</span>, <span class="ruby-identifier">subcanvas</span>)
+  <span class="ruby-identifier">x_shift</span>, <span class="ruby-identifier">x_offset</span>, <span class="ruby-identifier">y_shift</span>, <span class="ruby-identifier">y_offset</span> = <span class="ruby-identifier">adam7_multiplier_offset</span>(<span class="ruby-identifier">pass</span>)
+  <span class="ruby-keyword">for</span> <span class="ruby-identifier">y</span> <span class="ruby-keyword">in</span> <span class="ruby-value">0</span><span class="ruby-operator">...</span><span class="ruby-identifier">subcanvas</span>.<span class="ruby-identifier">height</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-keyword">for</span> <span class="ruby-identifier">x</span> <span class="ruby-keyword">in</span> <span class="ruby-value">0</span><span class="ruby-operator">...</span><span class="ruby-identifier">subcanvas</span>.<span class="ruby-identifier">width</span> <span class="ruby-keyword">do</span>
+      <span class="ruby-identifier">new_x</span> = (<span class="ruby-identifier">x</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">x_shift</span>) <span class="ruby-operator">|</span> <span class="ruby-identifier">x_offset</span>
+      <span class="ruby-identifier">new_y</span> = (<span class="ruby-identifier">y</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">y_shift</span>) <span class="ruby-operator">|</span> <span class="ruby-identifier">y_offset</span>
+      <span class="ruby-identifier">canvas</span>[<span class="ruby-identifier">new_x</span>, <span class="ruby-identifier">new_y</span>] = <span class="ruby-identifier">subcanvas</span>[<span class="ruby-identifier">x</span>, <span class="ruby-identifier">y</span>]
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-adam7_multiplier_offset" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">adam7_multiplier_offset</span><span
+            class="method-args">(pass)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns an array with the x-shift, x-offset, y-shift and y-offset for the
+requested pass. @param [Integer] pass The pass number, should be in 0..6.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="adam7_multiplier_offset-source">
+            <pre><span class="ruby-comment"># File lib/chunky_png/canvas/adam7_interlacing.rb, line 14</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">adam7_multiplier_offset</span>(<span class="ruby-identifier">pass</span>)
+  [<span class="ruby-value">3</span> <span class="ruby-operator">-</span> (<span class="ruby-identifier">pass</span> <span class="ruby-operator">&gt;&gt;</span> <span class="ruby-value">1</span>), (<span class="ruby-identifier">pass</span> <span class="ruby-operator">&amp;</span> <span class="ruby-value">1</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>) <span class="ruby-operator">?</span> <span class="ruby-value">0</span> <span class="ruby-operator">:</span> <span class="ruby-value">8</span> <span class="ruby-operator">&gt;&gt;</span> ((<span class="ruby-identifier">pass</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>) <span class="ruby-operator">&gt;&gt;</span> <span class="ruby-value">1</span>),
+   <span class="ruby-identifier">pass</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span> <span class="ruby-operator">?</span> <span class="ruby-value">3</span> <span class="ruby-operator">:</span> <span class="ruby-value">3</span> <span class="ruby-operator">-</span> ((<span class="ruby-identifier">pass</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>) <span class="ruby-operator">&gt;&gt;</span> <span class="ruby-value">1</span>), (<span class="ruby-identifier">pass</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">pass</span> <span class="ruby-operator">&amp;</span> <span class="ruby-value">1</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>) <span class="ruby-operator">?</span> <span class="ruby-value">0</span> <span class="ruby-operator">:</span> <span class="ruby-value">8</span> <span class="ruby-operator">&gt;&gt;</span> (<span class="ruby-identifier">pass</span> <span class="ruby-operator">&gt;&gt;</span> <span class="ruby-value">1</span>)]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-adam7_pass_size" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">adam7_pass_size</span><span
+            class="method-args">(pass, original_width, original_height)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the pixel dimensions of the requested pass. @param [Integer] pass
+The pass number, should be in 0..6. @param [Integer] original_width The
+width of the original image. @param [Integer] original_height The height of
+the original image.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="adam7_pass_size-source">
+            <pre><span class="ruby-comment"># File lib/chunky_png/canvas/adam7_interlacing.rb, line 23</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">adam7_pass_size</span>(<span class="ruby-identifier">pass</span>, <span class="ruby-identifier">original_width</span>, <span class="ruby-identifier">original_height</span>)
+  <span class="ruby-identifier">x_shift</span>, <span class="ruby-identifier">x_offset</span>, <span class="ruby-identifier">y_shift</span>, <span class="ruby-identifier">y_offset</span> = <span class="ruby-identifier">adam7_multiplier_offset</span>(<span class="ruby-identifier">pass</span>)
+  [ (<span class="ruby-identifier">original_width</span>  <span class="ruby-operator">-</span> <span class="ruby-identifier">x_offset</span> <span class="ruby-operator">+</span> (<span class="ruby-value">1</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">x_shift</span>) <span class="ruby-operator">-</span> <span class="ruby-value">1</span>) <span class="ruby-operator">&gt;&gt;</span> <span class="ruby-identifier">x_shift</span>,
+    (<span class="ruby-identifier">original_height</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">y_offset</span> <span class="ruby-operator">+</span> (<span class="ruby-value">1</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">y_shift</span>) <span class="ruby-operator">-</span> <span class="ruby-value">1</span>) <span class="ruby-operator">&gt;&gt;</span> <span class="ruby-identifier">y_shift</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-adam7_pass_sizes" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">adam7_pass_sizes</span><span
+            class="method-args">(original_width, original_height)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns an array of the dimension of all the pass images. @param [Integer]
+original_width The width of the original image. @param [Integer]
+original_height The height of the original image. @return
+[Array&lt;Array&lt;Integer&gt;&gt;] Returns an array with 7 pairs of
+dimensions. @see <a
+href="Adam7Interlacing.html#method-i-adam7_pass_size">adam7_pass_size</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="adam7_pass_sizes-source">
+            <pre><span class="ruby-comment"># File lib/chunky_png/canvas/adam7_interlacing.rb, line 34</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">adam7_pass_sizes</span>(<span class="ruby-identifier">original_width</span>, <span class="ruby-identifier">original_height</span>)
+  (<span class="ruby-value">0</span><span class="ruby-operator">...</span><span class="ruby-value">7</span>).<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">pass</span><span class="ruby-operator">|</span> <span class="ruby-identifier">adam7_pass_size</span>(<span class="ruby-identifier">pass</span>, <span class="ruby-identifier">original_width</span>, <span class="ruby-identifier">original_height</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

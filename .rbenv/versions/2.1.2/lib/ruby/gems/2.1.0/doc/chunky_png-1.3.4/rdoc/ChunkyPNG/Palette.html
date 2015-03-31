@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class ChunkyPNG::Palette - chunky_png</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">SortedSet
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-from_canvas">::from_canvas</a>
+    
+    <li ><a href="#method-c-from_chunks">::from_chunks</a>
+    
+    <li ><a href="#method-c-from_pixels">::from_pixels</a>
+    
+    <li class="calls-super" ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-5B-5D">#[]</a>
+    
+    <li ><a href="#method-i-best_color_settings">#best_color_settings</a>
+    
+    <li ><a href="#method-i-black_and_white-3F">#black_and_white?</a>
+    
+    <li ><a href="#method-i-can_decode-3F">#can_decode?</a>
+    
+    <li ><a href="#method-i-can_encode-3F">#can_encode?</a>
+    
+    <li ><a href="#method-i-determine_bit_depth">#determine_bit_depth</a>
+    
+    <li ><a href="#method-i-grayscale-3F">#grayscale?</a>
+    
+    <li ><a href="#method-i-index">#index</a>
+    
+    <li ><a href="#method-i-indexable-3F">#indexable?</a>
+    
+    <li ><a href="#method-i-opaque-3F">#opaque?</a>
+    
+    <li ><a href="#method-i-opaque_palette">#opaque_palette</a>
+    
+    <li ><a href="#method-i-to_plte_chunk">#to_plte_chunk</a>
+    
+    <li ><a href="#method-i-to_trns_chunk">#to_trns_chunk</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-ChunkyPNG::Palette">
+  <h1 id="class-ChunkyPNG::Palette" class="class">
+    class ChunkyPNG::Palette
+  </h1>
+
+  <section class="description">
+    
+<p>A palette describes the set of colors that is being used for an image.</p>
+
+<p>A PNG image can contain an explicit palette which defines the colors of
+that image, but can also use an implicit palette, e.g. all truecolor colors
+or all grayscale colors.</p>
+
+<p>This palette supports decoding colors from a palette if an explicit palette
+is provided in a PNG datastream, and it supports encoding colors to an
+explicit palette (stores as PLTE &amp; tRNS chunks in a PNG file).</p>
+
+<p>@see <a href="Color.html">ChunkyPNG::Color</a></p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-from_canvas" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">from_canvas</span><span
+            class="method-args">(canvas)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Builds a palette instance from a given canvas. @param canvas
+[ChunkyPNG::Canvas] The canvas to create a palette for. @return
+[ChunkyPNG::Palette] The palette instance.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="from_canvas-source">
+            <pre><span class="ruby-comment"># File lib/chunky_png/palette.rb, line 63</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">from_canvas</span>(<span class="ruby-identifier">canvas</span>)
+  <span class="ruby-comment"># Although we don&#39;t need to call .uniq.sort before initializing, because</span>
+  <span class="ruby-comment"># Palette subclasses SortedSet, we get significantly better performance</span>
+  <span class="ruby-comment"># by doing so.</span>
+  <span class="ruby-identifier">new</span>(<span class="ruby-identifier">canvas</span>.<span class="ruby-identifier">pixels</span>.<span class="ruby-identifier">uniq</span>.<span class="ruby-identifier">sort</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-from_chunks" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">from_chunks</span><span
+            class="method-args">(palette_chunk, transparency_chunk = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Builds a palette instance from a PLTE chunk and optionally a tRNS chunk
+from a PNG datastream.</p>
+
+<p>This method will cerate a palette that is suitable for decoding an image.</p>
+
+<p>@param palette_chunk [ChunkyPNG::Chunk::Palette] The palette chunk to</p>
+
+<pre class="ruby"><span class="ruby-identifier">load</span> <span class="ruby-identifier">from</span>
+</pre>
+
+<p>@param transparency_chunk [ChunkyPNG::Chunk::Transparency, nil] The</p>
+
+<pre>optional transparency chunk.</pre>
+
+<p>@return [ChunkyPNG::Palette] The loaded palette instance. @see <a
+href="Palette.html#method-i-can_decode-3F">#can_decode?</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="from_chunks-source">
+            <pre><span class="ruby-comment"># File lib/chunky_png/palette.rb, line 37</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">from_chunks</span>(<span class="ruby-identifier">palette_chunk</span>, <span class="ruby-identifier">transparency_chunk</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">palette_chunk</span>.<span class="ruby-identifier">nil?</span>
+
+  <span class="ruby-identifier">decoding_map</span> = []
+  <span class="ruby-identifier">index</span> = <span class="ruby-value">0</span>
+
+  <span class="ruby-identifier">palatte_bytes</span> = <span class="ruby-identifier">palette_chunk</span>.<span class="ruby-identifier">content</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;C*&#39;</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">transparency_chunk</span>
+    <span class="ruby-identifier">alpha_channel</span> = <span class="ruby-identifier">transparency_chunk</span>.<span class="ruby-identifier">content</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-string">&#39;C*&#39;</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">alpha_channel</span> = []
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">index</span> = <span class="ruby-value">0</span>
+  <span class="ruby-identifier">palatte_bytes</span>.<span class="ruby-identifier">each_slice</span>(<span class="ruby-value">3</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">bytes</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">bytes</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">alpha_channel</span>.<span class="ruby-identifier">fetch</span>(<span class="ruby-identifier">index</span>, <span class="ruby-constant">ChunkyPNG</span><span class="ruby-operator">::</span><span class="ruby-constant">Color</span><span class="ruby-operator">::</span><span class="ruby-constant">MAX</span>)
+    <span class="ruby-identifier">decoding_map</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">ChunkyPNG</span><span class="ruby-operator">::</span><span class="ruby-constant">Color</span>.<span class="ruby-identifier">rgba</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">bytes</span>)
+    <span class="ruby-identifier">index</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">new</span>(<span class="ruby-identifier">decoding_map</span>, <span class="ruby-identifier">decoding_map</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-from_pixels" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">from_pixels</span><span
+            class="method-args">(pixels)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Builds a palette instance from a given set of pixels. @param pixels
+[Enumerable&lt;Integer&gt;] An enumeration of pixels to create a</p>
+
+<pre>palette for</pre>
+
+<p>@return [ChunkyPNG::Palette] The palette instance.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="from_pixels-source">
+            <pre><span class="ruby-comment"># File lib/chunky_png/palette.rb, line 74</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">from_pixels</span>(<span class="ruby-identifier">pixels</span>)
+  <span class="ruby-identifier">new</span>(<span class="ruby-identifier">pixels</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(enum, decoding_map = nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Builds a new palette given a set (Enumerable instance) of colors.</p>
+
+<p>@param enum [Enumerable&lt;Integer&gt;] The set of colors to include in
+this</p>
+
+<pre>palette.This Enumerable can contain duplicates.</pre>
+
+<p>@param decoding_map [Array] An array of colors in the exact order at</p>
+
+<pre>which they appeared in the palette chunk, so that this array can be
+used for decoding.</pre>
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/chunky_png/palette.rb, line 21</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">enum</span>, <span class="ruby-identifier">decoding_map</span> = <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">super</span>(<span class="ruby-identifier">enum</span>)
+  <span class="ruby-ivar">@decoding_map</span> = <span class="ruby-identifier">decoding_map</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">decoding_map</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-5B-5D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">[]</span><span
+            class="method-args">(index)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns a color, given the position in the original palette chunk. @param
+index [Integer] The 0-based position of the color in the palette. @return
+[ChunkyPNG::Color] The color that is stored in the palette under</p>
+
+<pre class="ruby"><span class="ruby-identifier">the</span> <span class="ruby-identifier">given</span> <span class="ruby-identifier">index</span>
+</pre>
+
+<p>@see <a href="Palette.html#method-i-can_decode-3F">#can_decode?</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="5B-5D-source">
+            <pre><span class="ruby-comment"># File lib/chunky_png/palette.rb, line 148</span>
+<span class="ruby-keyword">def</span> <span class="ruby-operator">[]</span>(<span class="ruby-identifier">index</span>)
+  <span class="ruby-ivar">@decoding_map</span>[<span class="ruby-identifier">index</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-best_color_settings" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">best_color_settings</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Determines the most suitable colormode for this palette. @return [Integer]
+The colormode which would create the smallest possible</p>
+
+<pre>file for images that use this exact palette.</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="best_color_settings-source">
+            <pre><span class="ruby-comment"># File lib/chunky_png/palette.rb, line 195</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">best_color_settings</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">black_and_white?</span>
+    [<span class="ruby-constant">ChunkyPNG</span><span class="ruby-operator">::</span><span class="ruby-constant">COLOR_GRAYSCALE</span>, <span class="ruby-value">1</span>]
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">grayscale?</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">opaque?</span>
+      [<span class="ruby-constant">ChunkyPNG</span><span class="ruby-operator">::</span><span class="ruby-constant">COLOR_GRAYSCALE</span>, <span class="ruby-value">8</span>]
+    <span class="ruby-keyword">else</span>
+      [<span class="ruby-constant">ChunkyPNG</span><span class="ruby-operator">::</span><span class="ruby-constant">COLOR_GRAYSCALE_ALPHA</span>, <span class="ruby-value">8</span>]
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">indexable?</span>
+    [<span class="ruby-constant">ChunkyPNG</span><span class="ruby-operator">::</span><span class="ruby-constant">COLOR_INDEXED</span>, <span class="ruby-identifier">determine_bit_depth</span>]
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">opaque?</span>
+    [<span class="ruby-constant">ChunkyPNG</span><span class="ruby-operator">::</span><span class="ruby-constant">COLOR_TRUECOLOR</span>, <span class="ruby-value">8</span>]
+  <span class="ruby-keyword">else</span>
+    [<span class="ruby-constant">ChunkyPNG</span><span class="ruby-operator">::</span><span class="ruby-constant">COLOR_TRUECOLOR_ALPHA</span>, <span class="ruby-value">8</span>]
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-black_and_white-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">black_and_white?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Check whether this palette only contains bacl and white. @return [true,
+false] True if all colors in this palette are grayscale</p>
+
+<pre>teints.</pre>
+
+<p>@see <a
+href="Color.html#method-i-grayscale-3F">ChunkyPNG::Color#grayscale?</a>?</p>
+          
+          
+
+          
+          <div class="method-source-code" id="black_and_white-3F-source">
+            <pre><span class="ruby-comment"># File lib/chunky_png/palette.rb, line 104</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">black_and_white?</span>
+  <span class="ruby-identifier">entries</span> <span class="ruby-operator">==</span> [<span class="ruby-constant">ChunkyPNG</span><span class="ruby-operator">::</span><span class="ruby-constant">Color</span><span class="ruby-operator">::</span><span class="ruby-constant">BLACK</span>, <span class="ruby-constant">ChunkyPNG</span><span class="ruby-operator">::</span><span class="ruby-constant">Color</span><span class="ruby-operator">::</span><span class="ruby-constant">WHITE</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-can_decode-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">can_decode?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Checks whether this palette is suitable for decoding an image from a
+datastream.</p>
+
+<p>This requires that the positions of the colors in the original palette
+chunk is known, which is stored as an array in the +@decoding_map+ instance
+variable.</p>
+
+<p>@return [true, false] True if a decoding map was built when this palette</p>
+
+<pre>was loaded.</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="can_decode-3F-source">
+            <pre><span class="ruby-comment"># File lib/chunky_png/palette.rb, line 126</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">can_decode?</span>
+  <span class="ruby-operator">!</span><span class="ruby-ivar">@decoding_map</span>.<span class="ruby-identifier">nil?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-can_encode-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">can_encode?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Checks whether this palette is suitable for encoding an image from to
+datastream.</p>
+
+<p>This requires that the position of the color in the future palette chunk is
+known, which is stored as a hash in the +@encoding_map+ instance variable.</p>
+
+<p>@return [true, false] True if a encoding map was built when this palette</p>
+
+<pre>was loaded.</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="can_encode-3F-source">
+            <pre><span class="ruby-comment"># File lib/chunky_png/palette.rb, line 139</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">can_encode?</span>
+  <span class="ruby-operator">!</span><span class="ruby-ivar">@encoding_map</span>.<span class="ruby-identifier">nil?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-determine_bit_depth" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">determine_bit_depth</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Determines the minimal bit depth required for an indexed image @return
+[Integer] Number of bits per pixel, i.e. 1, 2, 4 or 8, or nil if</p>
+
+<pre>this image cannot be saved as an indexed image.</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="determine_bit_depth-source">
+            <pre><span class="ruby-comment"># File lib/chunky_png/palette.rb, line 216</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">determine_bit_depth</span>
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">size</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">1</span><span class="ruby-operator">..</span><span class="ruby-value">2</span> <span class="ruby-keyword">then</span> <span class="ruby-value">1</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">3</span><span class="ruby-operator">..</span><span class="ruby-value">4</span> <span class="ruby-keyword">then</span> <span class="ruby-value">2</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">5</span><span class="ruby-operator">..</span><span class="ruby-value">16</span> <span class="ruby-keyword">then</span> <span class="ruby-value">4</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">17</span><span class="ruby-operator">..</span><span class="ruby-value">256</span> <span class="ruby-keyword">then</span> <span class="ruby-value">8</span>
+  <span class="ruby-keyword">else</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-grayscale-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">grayscale?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Check whether this palette only contains grayscale colors. @return [true,
+false] True if all colors in this palette are grayscale</p>
+
+<pre>teints.</pre>
+
+<p>@see <a
+href="Color.html#method-i-grayscale-3F">ChunkyPNG::Color#grayscale?</a>?</p>
+          
+          
+
+          
+          <div class="method-source-code" id="grayscale-3F-source">
+            <pre><span class="ruby-comment"># File lib/chunky_png/palette.rb, line 96</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">grayscale?</span>
+  <span class="ruby-identifier">all?</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">color</span><span class="ruby-operator">|</span> <span class="ruby-constant">Color</span>.<span class="ruby-identifier">grayscale?</span>(<span class="ruby-identifier">color</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-index" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">index</span><span
+            class="method-args">(color)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns the position of a color in the palette @param color
+[ChunkyPNG::Color] The color for which to look up the index. @return
+[Integer] The 0-based position of the color in the palette. @see <a
+href="Palette.html#method-i-can_encode-3F">#can_encode?</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="index-source">
+            <pre><span class="ruby-comment"># File lib/chunky_png/palette.rb, line 156</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">index</span>(<span class="ruby-identifier">color</span>)
+  <span class="ruby-identifier">color</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">?</span> <span class="ruby-value">0</span> <span class="ruby-operator">:</span> <span class="ruby-ivar">@encoding_map</span>[<span class="ruby-identifier">color</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-indexable-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">indexable?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Checks whether the size of this palette is suitable for indexed storage.
+@return [true, false] True if the number of colors in this palette is at</p>
+
+<pre>most 256.</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="indexable-3F-source">
+            <pre><span class="ruby-comment"># File lib/chunky_png/palette.rb, line 81</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">indexable?</span>
+  <span class="ruby-identifier">size</span> <span class="ruby-operator">&lt;=</span> <span class="ruby-value">256</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-opaque-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">opaque?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Check whether this palette only contains opaque colors. @return [true,
+false] True if all colors in this palette are opaque. @see <a
+href="Color.html#method-i-opaque-3F">ChunkyPNG::Color#opaque?</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="opaque-3F-source">
+            <pre><span class="ruby-comment"># File lib/chunky_png/palette.rb, line 88</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">opaque?</span>
+  <span class="ruby-identifier">all?</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">color</span><span class="ruby-operator">|</span> <span class="ruby-constant">Color</span>.<span class="ruby-identifier">opaque?</span>(<span class="ruby-identifier">color</span>) }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-opaque_palette" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">opaque_palette</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns a palette with all the opaque variants of the colors in this
+palette. @return [ChunkyPNG::Palette] A new <a
+href="Palette.html">Palette</a> instance with only opaque</p>
+
+<pre>colors.</pre>
+
+<p>@see <a href="Color.html#method-i-opaque-21">ChunkyPNG::Color#opaque!</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="opaque_palette-source">
+            <pre><span class="ruby-comment"># File lib/chunky_png/palette.rb, line 113</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">opaque_palette</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> <span class="ruby-constant">ChunkyPNG</span><span class="ruby-operator">::</span><span class="ruby-constant">Color</span>.<span class="ruby-identifier">opaque!</span>(<span class="ruby-identifier">c</span>) })
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-to_plte_chunk" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_plte_chunk</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Creates a PLTE chunk that corresponds with this palette to store the r, g,
+and b channels of all colors.</p>
+
+<p>@note A PLTE chunk should only be included if the image is encoded using</p>
+
+<pre>index colors. After this chunk has been built, the palette becomes
+suitable for encoding an image.</pre>
+
+<p>@return [ChunkyPNG::Chunk::Palette] The PLTE chunk. @see <a
+href="Palette.html#method-i-can_encode-3F">#can_encode?</a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="to_plte_chunk-source">
+            <pre><span class="ruby-comment"># File lib/chunky_png/palette.rb, line 180</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_plte_chunk</span>
+  <span class="ruby-ivar">@encoding_map</span> = {}
+  <span class="ruby-identifier">colors</span>        = []
+
+  <span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">color</span>, <span class="ruby-identifier">index</span><span class="ruby-operator">|</span>
+    <span class="ruby-ivar">@encoding_map</span>[<span class="ruby-identifier">color</span>] = <span class="ruby-identifier">index</span>
+    <span class="ruby-identifier">colors</span> <span class="ruby-operator">+=</span> <span class="ruby-constant">ChunkyPNG</span><span class="ruby-operator">::</span><span class="ruby-constant">Color</span>.<span class="ruby-identifier">to_truecolor_bytes</span>(<span class="ruby-identifier">color</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-constant">ChunkyPNG</span><span class="ruby-operator">::</span><span class="ruby-constant">Chunk</span><span class="ruby-operator">::</span><span class="ruby-constant">Palette</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;PLTE&#39;</span>, <span class="ruby-identifier">colors</span>.<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;C*&#39;</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-to_trns_chunk" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_trns_chunk</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Creates a tRNS chunk that corresponds with this palette to store the alpha
+channel of all colors.</p>
+
+<p>Note that this chunk can be left out of every color in the palette is
+opaque, and the image is encoded using indexed colors.</p>
+
+<p>@return [ChunkyPNG::Chunk::Transparency] The tRNS chunk.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="to_trns_chunk-source">
+            <pre><span class="ruby-comment"># File lib/chunky_png/palette.rb, line 167</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_trns_chunk</span>
+  <span class="ruby-constant">ChunkyPNG</span><span class="ruby-operator">::</span><span class="ruby-constant">Chunk</span><span class="ruby-operator">::</span><span class="ruby-constant">Transparency</span>.<span class="ruby-identifier">new</span>(<span class="ruby-string">&#39;tRNS&#39;</span>, <span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> <span class="ruby-constant">ChunkyPNG</span><span class="ruby-operator">::</span><span class="ruby-constant">Color</span>.<span class="ruby-identifier">a</span>(<span class="ruby-identifier">c</span>) }.<span class="ruby-identifier">pack</span>(<span class="ruby-string">&#39;C*&#39;</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

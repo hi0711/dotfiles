@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class BlankSlate - Builder -- Easy XML Building</title>
+
+<link href="./fonts.css" rel="stylesheet">
+<link href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/navigation.js"></script>
+<script src="./js/search_index.js"></script>
+<script src="./js/search.js"></script>
+<script src="./js/searcher.js"></script>
+<script src="./js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-find_hidden_method">#find_hidden_method</a>
+    
+    <li ><a href="#method-i-hide">#hide</a>
+    
+    <li ><a href="#method-i-reveal">#reveal</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-BlankSlate">
+  <h1 id="class-BlankSlate" class="class">
+    class BlankSlate
+  </h1>
+
+  <section class="description">
+    
+<p><a href="BlankSlate.html">BlankSlate</a> provides an abstract base class
+with no predefined methods (except for <code>_\<em>send_</em></code> and
+<code>_\<em>id_</em></code>). <a href="BlankSlate.html">BlankSlate</a> is
+useful as a base class when writing classes that depend upon
+<code>method_missing</code> (e.g. dynamic proxies).</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-find_hidden_method" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">find_hidden_method</span><span
+            class="method-args">(name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="find_hidden_method-source">
+            <pre><span class="ruby-comment"># File lib/blankslate.rb, line 59</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">find_hidden_method</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-ivar">@hidden_methods</span> <span class="ruby-operator">||=</span> {}
+  <span class="ruby-ivar">@hidden_methods</span>[<span class="ruby-identifier">name</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">superclass</span>.<span class="ruby-identifier">find_hidden_method</span>(<span class="ruby-identifier">name</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-hide" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">hide</span><span
+            class="method-args">(name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Hide the method named <code>name</code> in the <a
+href="BlankSlate.html">BlankSlate</a> class.  Don&#39;t hide
+<code>instance_eval</code> or any method beginning with “__”.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="hide-source">
+            <pre><span class="ruby-comment"># File lib/blankslate.rb, line 46</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">hide</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-identifier">warn_level</span> = <span class="ruby-identifier">$VERBOSE</span>
+  <span class="ruby-identifier">$VERBOSE</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">instance_methods</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">name</span>.<span class="ruby-identifier">_blankslate_as_name</span>) <span class="ruby-operator">&amp;&amp;</span>
+      <span class="ruby-identifier">name</span> <span class="ruby-operator">!~</span> <span class="ruby-regexp">/^(__|instance_eval$)/</span>
+    <span class="ruby-ivar">@hidden_methods</span> <span class="ruby-operator">||=</span> {}
+    <span class="ruby-ivar">@hidden_methods</span>[<span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_sym</span>] = <span class="ruby-identifier">instance_method</span>(<span class="ruby-identifier">name</span>)
+    <span class="ruby-identifier">undef_method</span> <span class="ruby-identifier">name</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">ensure</span>
+  <span class="ruby-identifier">$VERBOSE</span> = <span class="ruby-identifier">warn_level</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-reveal" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">reveal</span><span
+            class="method-args">(name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Redefine a previously hidden method so that it may be called on a blank
+slate object.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="reveal-source">
+            <pre><span class="ruby-comment"># File lib/blankslate.rb, line 66</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">reveal</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-identifier">hidden_method</span> = <span class="ruby-identifier">find_hidden_method</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-identifier">fail</span> <span class="ruby-node">&quot;Don&#39;t know how to reveal method &#39;#{name}&#39;&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">hidden_method</span>
+  <span class="ruby-identifier">define_method</span>(<span class="ruby-identifier">name</span>, <span class="ruby-identifier">hidden_method</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

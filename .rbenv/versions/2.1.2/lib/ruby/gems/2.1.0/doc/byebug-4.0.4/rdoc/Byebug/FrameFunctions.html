@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module Byebug::FrameFunctions - byebug-4.0.4 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-adjust_frame">#adjust_frame</a>
+    
+    <li ><a href="#method-i-get_pr_arguments">#get_pr_arguments</a>
+    
+    <li ><a href="#method-i-navigate_to_frame">#navigate_to_frame</a>
+    
+    <li ><a href="#method-i-switch_to_frame">#switch_to_frame</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-Byebug::FrameFunctions">
+  <h1 id="module-Byebug::FrameFunctions" class="module">
+    module Byebug::FrameFunctions
+  </h1>
+
+  <section class="description">
+    
+<p>Mixin to assist command parsing</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-adjust_frame" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">adjust_frame</span><span
+            class="method-args">(frame, absolute)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="adjust_frame-source">
+            <pre><span class="ruby-comment"># File lib/byebug/commands/frame.rb, line 33</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">adjust_frame</span>(<span class="ruby-identifier">frame</span>, <span class="ruby-identifier">absolute</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">absolute</span>
+    <span class="ruby-identifier">abs_frame</span> = <span class="ruby-identifier">switch_to_frame</span>(<span class="ruby-identifier">frame</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">errmsg</span>(<span class="ruby-identifier">pr</span>(<span class="ruby-string">&#39;frame.errors.c_frame&#39;</span>)) <span class="ruby-keyword">if</span> <span class="ruby-ivar">@state</span>.<span class="ruby-identifier">c_frame?</span>(<span class="ruby-identifier">abs_frame</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">abs_frame</span> = <span class="ruby-identifier">navigate_to_frame</span>(<span class="ruby-identifier">frame</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">abs_frame</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-ivar">@state</span>.<span class="ruby-identifier">context</span>.<span class="ruby-identifier">stack_size</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">errmsg</span>(<span class="ruby-identifier">pr</span>(<span class="ruby-string">&#39;frame.errors.too_low&#39;</span>))
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">abs_frame</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">errmsg</span>(<span class="ruby-identifier">pr</span>(<span class="ruby-string">&#39;frame.errors.too_high&#39;</span>))
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@state</span>.<span class="ruby-identifier">frame</span> = <span class="ruby-identifier">abs_frame</span>
+  <span class="ruby-ivar">@state</span>.<span class="ruby-identifier">file</span> = <span class="ruby-ivar">@state</span>.<span class="ruby-identifier">context</span>.<span class="ruby-identifier">frame_file</span>(<span class="ruby-ivar">@state</span>.<span class="ruby-identifier">frame</span>)
+  <span class="ruby-ivar">@state</span>.<span class="ruby-identifier">line</span> = <span class="ruby-ivar">@state</span>.<span class="ruby-identifier">context</span>.<span class="ruby-identifier">frame_line</span>(<span class="ruby-ivar">@state</span>.<span class="ruby-identifier">frame</span>)
+  <span class="ruby-ivar">@state</span>.<span class="ruby-identifier">prev_line</span> = <span class="ruby-keyword">nil</span>
+
+  <span class="ruby-constant">ListCommand</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@state</span>).<span class="ruby-identifier">execute</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">Setting</span>[<span class="ruby-value">:autolist</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-get_pr_arguments" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_pr_arguments</span><span
+            class="method-args">(frame_no)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="get_pr_arguments-source">
+            <pre><span class="ruby-comment"># File lib/byebug/commands/frame.rb, line 55</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">get_pr_arguments</span>(<span class="ruby-identifier">frame_no</span>)
+  <span class="ruby-identifier">file</span> = <span class="ruby-ivar">@state</span>.<span class="ruby-identifier">frame_file</span>(<span class="ruby-identifier">frame_no</span>)
+  <span class="ruby-identifier">line</span> = <span class="ruby-ivar">@state</span>.<span class="ruby-identifier">frame_line</span>(<span class="ruby-identifier">frame_no</span>)
+  <span class="ruby-identifier">call</span> = <span class="ruby-ivar">@state</span>.<span class="ruby-identifier">frame_call</span>(<span class="ruby-identifier">frame_no</span>)
+  <span class="ruby-identifier">mark</span> = <span class="ruby-ivar">@state</span>.<span class="ruby-identifier">frame_mark</span>(<span class="ruby-identifier">frame_no</span>)
+  <span class="ruby-identifier">pos</span> = <span class="ruby-ivar">@state</span>.<span class="ruby-identifier">frame_pos</span>(<span class="ruby-identifier">frame_no</span>)
+
+  { <span class="ruby-identifier">mark</span><span class="ruby-operator">:</span> <span class="ruby-identifier">mark</span>, <span class="ruby-identifier">pos</span><span class="ruby-operator">:</span> <span class="ruby-identifier">pos</span>, <span class="ruby-identifier">call</span><span class="ruby-operator">:</span> <span class="ruby-identifier">call</span>, <span class="ruby-identifier">file</span><span class="ruby-operator">:</span> <span class="ruby-identifier">file</span>, <span class="ruby-identifier">line</span><span class="ruby-operator">:</span> <span class="ruby-identifier">line</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-navigate_to_frame" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">navigate_to_frame</span><span
+            class="method-args">(jump_no)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="navigate_to_frame-source">
+            <pre><span class="ruby-comment"># File lib/byebug/commands/frame.rb, line 16</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">navigate_to_frame</span>(<span class="ruby-identifier">jump_no</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">jump_no</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+  <span class="ruby-identifier">total_jumps</span>, <span class="ruby-identifier">current_jumps</span>, <span class="ruby-identifier">new_pos</span> = <span class="ruby-identifier">jump_no</span>.<span class="ruby-identifier">abs</span>, <span class="ruby-value">0</span>, <span class="ruby-ivar">@state</span>.<span class="ruby-identifier">frame</span>
+  <span class="ruby-identifier">step</span> = <span class="ruby-identifier">jump_no</span> <span class="ruby-operator">/</span> <span class="ruby-identifier">total_jumps</span> <span class="ruby-comment"># +1 (up) or -1 (down)</span>
+
+  <span class="ruby-identifier">loop</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">new_pos</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">step</span>
+    <span class="ruby-keyword">break</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">new_pos</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">new_pos</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-ivar">@state</span>.<span class="ruby-identifier">context</span>.<span class="ruby-identifier">stack_size</span>
+
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@state</span>.<span class="ruby-identifier">c_frame?</span>(<span class="ruby-identifier">new_pos</span>)
+
+    <span class="ruby-identifier">current_jumps</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+    <span class="ruby-keyword">break</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">current_jumps</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">total_jumps</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">new_pos</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-switch_to_frame" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">switch_to_frame</span><span
+            class="method-args">(frame_no)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="switch_to_frame-source">
+            <pre><span class="ruby-comment"># File lib/byebug/commands/frame.rb, line 12</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">switch_to_frame</span>(<span class="ruby-identifier">frame_no</span>)
+  <span class="ruby-identifier">frame_no</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-value">0</span> <span class="ruby-operator">?</span> <span class="ruby-identifier">frame_no</span> <span class="ruby-operator">:</span> <span class="ruby-ivar">@state</span>.<span class="ruby-identifier">context</span>.<span class="ruby-identifier">stack_size</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">frame_no</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

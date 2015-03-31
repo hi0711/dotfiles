@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class RSpec::Core::RakeTask - rspec-core-3.1.7 Documentation</title>
+
+<link href="../../fonts.css" rel="stylesheet">
+<link href="../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/navigation.js"></script>
+<script src="../../js/search_index.js"></script>
+<script src="../../js/search.js"></script>
+<script src="../../js/searcher.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">Rake::TaskLib
+  
+</div>
+
+    <div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><span class="include">::Rake::DSL</span>
+  
+  
+  </ul>
+</div>
+
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-blank">#blank</a>
+    
+    <li ><a href="#method-i-define">#define</a>
+    
+    <li ><a href="#method-i-escape">#escape</a>
+    
+    <li ><a href="#method-i-file_exclusion_specification">#file_exclusion_specification</a>
+    
+    <li ><a href="#method-i-file_inclusion_specification">#file_inclusion_specification</a>
+    
+    <li ><a href="#method-i-rspec_load_path">#rspec_load_path</a>
+    
+    <li ><a href="#method-i-run_task">#run_task</a>
+    
+    <li ><a href="#method-i-spec_command">#spec_command</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-RSpec::Core::RakeTask">
+  <h1 id="class-RSpec::Core::RakeTask" class="class">
+    class RSpec::Core::RakeTask
+  </h1>
+
+  <section class="description">
+    
+<p>Rspec rake task</p>
+
+<p>@see Rakefile</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="DEFAULT_PATTERN">DEFAULT_PATTERN
+        
+        <dd><p>Default pattern for spec files.</p>
+        
+      
+        <dt id="DEFAULT_RSPEC_PATH">DEFAULT_RSPEC_PATH
+        
+        <dd><p>Default path to the rspec executable</p>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-exclude_pattern" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">exclude_pattern</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Files matching this pattern will be excluded.</p>
+
+<p>default:</p>
+
+<pre>&#39;spec   /*_spec.rb&#39;</pre>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-fail_on_error" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">fail_on_error</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Whether or not to fail Rake when an error occurs (typically when examples
+fail).</p>
+
+<p>default:</p>
+
+<pre>true</pre>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-failure_message" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">failure_message</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>A message to print to stderr when there are failures.</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-name" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">name</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Name of task.</p>
+
+<p>default:</p>
+
+<pre>:spec</pre>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-pattern" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">pattern</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Files matching this pattern will be loaded.</p>
+
+<p>default:</p>
+
+<pre>&#39;spec   {,/  **}/*_spec.rb&#39;</pre>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-rspec_opts" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">rspec_opts</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Command line options to pass to rspec.</p>
+
+<p>default:</p>
+
+<pre>nil</pre>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-rspec_path" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">rspec_path</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Path to rspec</p>
+
+<p>default:</p>
+
+<pre>&#39;rspec&#39;</pre>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-ruby_opts" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">ruby_opts</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Command line options to pass to ruby.</p>
+
+<p>default:</p>
+
+<pre>nil</pre>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-verbose" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">verbose</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Use verbose output. If this is set to true, the task will print the
+executed spec command to stdout.</p>
+
+<p>default:</p>
+
+<pre>true</pre>
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(*args, &task_block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/rspec/core/rake_task.rb, line 71</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">task_block</span>)
+  <span class="ruby-ivar">@name</span>          = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">shift</span> <span class="ruby-operator">||</span> <span class="ruby-value">:spec</span>
+  <span class="ruby-ivar">@ruby_opts</span>     = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@rspec_opts</span>    = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@verbose</span>       = <span class="ruby-keyword">true</span>
+  <span class="ruby-ivar">@fail_on_error</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-ivar">@rspec_path</span>    = <span class="ruby-constant">DEFAULT_RSPEC_PATH</span>
+  <span class="ruby-ivar">@pattern</span>       = <span class="ruby-constant">DEFAULT_PATTERN</span>
+
+  <span class="ruby-identifier">define</span>(<span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">task_block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-run_task" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">run_task</span><span
+            class="method-args">(verbose)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="run_task-source">
+            <pre><span class="ruby-comment"># File lib/rspec/core/rake_task.rb, line 84</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">run_task</span>(<span class="ruby-identifier">verbose</span>)
+  <span class="ruby-identifier">command</span> = <span class="ruby-identifier">spec_command</span>
+
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-identifier">command</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">verbose</span>
+    <span class="ruby-identifier">success</span> = <span class="ruby-identifier">system</span>(<span class="ruby-identifier">command</span>)
+  <span class="ruby-keyword">rescue</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-identifier">failure_message</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">failure_message</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">fail_on_error</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">success</span>
+
+  <span class="ruby-identifier">$stderr</span>.<span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;#{command} failed&quot;</span>
+  <span class="ruby-identifier">exit</span> <span class="ruby-identifier">$?</span>.<span class="ruby-identifier">exitstatus</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-blank" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">blank</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="blank-source">
+            <pre><span class="ruby-comment"># File lib/rspec/core/rake_task.rb, line 172</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">blank</span>
+  <span class="ruby-identifier">lambda</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">s</span><span class="ruby-operator">|</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">s</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;&quot;</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-define" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">define</span><span
+            class="method-args">(args, &task_block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>@private</p>
+          
+          
+
+          
+          <div class="method-source-code" id="define-source">
+            <pre><span class="ruby-comment"># File lib/rspec/core/rake_task.rb, line 103</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">define</span>(<span class="ruby-identifier">args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">task_block</span>)
+  <span class="ruby-identifier">desc</span> <span class="ruby-string">&quot;Run RSpec code examples&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-operator">::</span><span class="ruby-constant">Rake</span>.<span class="ruby-identifier">application</span>.<span class="ruby-identifier">last_comment</span>
+
+  <span class="ruby-identifier">task</span> <span class="ruby-identifier">name</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">_</span>, <span class="ruby-identifier">task_args</span><span class="ruby-operator">|</span>
+    <span class="ruby-constant">RakeFileUtils</span>.<span class="ruby-identifier">__send__</span>(<span class="ruby-value">:verbose</span>, <span class="ruby-identifier">verbose</span>) <span class="ruby-keyword">do</span>
+      <span class="ruby-identifier">task_block</span>.<span class="ruby-identifier">call</span>(<span class="ruby-operator">*</span>[<span class="ruby-keyword">self</span>, <span class="ruby-identifier">task_args</span>].<span class="ruby-identifier">slice</span>(<span class="ruby-value">0</span>, <span class="ruby-identifier">task_block</span>.<span class="ruby-identifier">arity</span>)) <span class="ruby-keyword">if</span> <span class="ruby-identifier">task_block</span>
+      <span class="ruby-identifier">run_task</span> <span class="ruby-identifier">verbose</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-escape" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">escape</span><span
+            class="method-args">(shell_command)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="escape-source">
+            <pre><span class="ruby-comment"># File lib/rspec/core/rake_task.rb, line 145</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">escape</span>(<span class="ruby-identifier">shell_command</span>)
+  <span class="ruby-node">&quot;&#39;#{shell_command.gsub(&quot;&#39;&quot;, &quot;\&#39;&quot;)}&#39;&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-file_exclusion_specification" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">file_exclusion_specification</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="file_exclusion_specification-source">
+            <pre><span class="ruby-comment"># File lib/rspec/core/rake_task.rb, line 156</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">file_exclusion_specification</span>
+  <span class="ruby-node">&quot; --exclude-pattern #{escape exclude_pattern}&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">exclude_pattern</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-file_inclusion_specification" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">file_inclusion_specification</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="file_inclusion_specification-source">
+            <pre><span class="ruby-comment"># File lib/rspec/core/rake_task.rb, line 114</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">file_inclusion_specification</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">ENV</span>[<span class="ruby-string">&#39;SPEC&#39;</span>]
+    <span class="ruby-constant">FileList</span>[ <span class="ruby-constant">ENV</span>[<span class="ruby-string">&#39;SPEC&#39;</span>]].<span class="ruby-identifier">sort</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-constant">String</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">pattern</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">pattern</span>)
+    <span class="ruby-node">&quot;--pattern #{escape pattern}&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-comment"># Before RSpec 3.1, we used `FileList` to get the list of matched files, and</span>
+    <span class="ruby-comment"># then pass that along to the `rspec` command. Starting with 3.1, we prefer to</span>
+    <span class="ruby-comment"># pass along the pattern as-is to the `rspec` command, for 3 reasons:</span>
+    <span class="ruby-comment">#</span>
+    <span class="ruby-comment">#   * It&#39;s *much* less verbose to pass one `--pattern` option than a long list of files.</span>
+    <span class="ruby-comment">#   * It ensures `task.pattern` and `--pattern` have the same behavior.</span>
+    <span class="ruby-comment">#   * It fixes a bug, where `task.pattern = pattern_that_matches_no_files` would run</span>
+    <span class="ruby-comment">#     *all* files because it would cause no pattern or file args to get passed to `rspec`,</span>
+    <span class="ruby-comment">#     which causes all files to get run.</span>
+    <span class="ruby-comment">#</span>
+    <span class="ruby-comment"># However, `FileList` is *far* more flexible than the `--pattern` option. Specifically, it</span>
+    <span class="ruby-comment"># supports individual files and directories, as well as arrays of files, directories and globs,</span>
+    <span class="ruby-comment"># as well as other `FileList` objects.</span>
+    <span class="ruby-comment">#</span>
+    <span class="ruby-comment"># For backwards compatibility, we have to fall back to using FileList if the user has passed</span>
+    <span class="ruby-comment"># a `pattern` option that will not work with `--pattern`.</span>
+    <span class="ruby-comment">#</span>
+    <span class="ruby-comment"># TODO: consider deprecating support for this and removing it in RSpec 4.</span>
+    <span class="ruby-constant">FileList</span>[<span class="ruby-identifier">pattern</span>].<span class="ruby-identifier">sort</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">file</span><span class="ruby-operator">|</span> <span class="ruby-identifier">escape</span> <span class="ruby-identifier">file</span> }
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-rspec_load_path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">rspec_load_path</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="rspec_load_path-source">
+            <pre><span class="ruby-comment"># File lib/rspec/core/rake_task.rb, line 176</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">rspec_load_path</span>
+  <span class="ruby-ivar">@rspec_load_path</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">core_and_support</span> = <span class="ruby-identifier">$LOAD_PATH</span>.<span class="ruby-identifier">grep</span>(
+      <span class="ruby-node">/#{File::SEPARATOR}rspec-(core|support)[^#{File::SEPARATOR}]*#{File::SEPARATOR}lib/</span>
+    ).<span class="ruby-identifier">uniq</span>
+
+    <span class="ruby-node">&quot;-I#{core_and_support.map { |file| escape file }.join(File::PATH_SEPARATOR)}&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-spec_command" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">spec_command</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="spec_command-source">
+            <pre><span class="ruby-comment"># File lib/rspec/core/rake_task.rb, line 160</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">spec_command</span>
+  <span class="ruby-identifier">cmd_parts</span> = []
+  <span class="ruby-identifier">cmd_parts</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">RUBY</span>
+  <span class="ruby-identifier">cmd_parts</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">ruby_opts</span>
+  <span class="ruby-identifier">cmd_parts</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">rspec_load_path</span>
+  <span class="ruby-identifier">cmd_parts</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">rspec_path</span>
+  <span class="ruby-identifier">cmd_parts</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">file_inclusion_specification</span>
+  <span class="ruby-identifier">cmd_parts</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">file_exclusion_specification</span>
+  <span class="ruby-identifier">cmd_parts</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">rspec_opts</span>
+  <span class="ruby-identifier">cmd_parts</span>.<span class="ruby-identifier">flatten</span>.<span class="ruby-identifier">reject</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">blank</span>).<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot; &quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>es5.js - uglifier-2.6.0 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../LICENSE_txt.html">LICENSE</a>
+  
+    <li><a href="../README_md.html">README</a>
+  
+    <li><a href="../lib/es5_js.html">es5.js</a>
+  
+    <li><a href="../lib/split_js.html">split.js</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page lib/es5.js">
+
+<p>// <a
+href="https://developer.mozilla.org/en/JavaScript/Reference/global_objects/array/foreach">developer.mozilla.org/en/JavaScript/Reference/global_objects/array/foreach</a></p>
+
+<p>if (!Array.prototype.forEach) {</p>
+
+<pre>Array.prototype.forEach = function(fun   , thisp   )
+{
+  &quot;use strict&quot;;
+
+  if (this === void 0 || this === null)
+    throw new TypeError();
+
+  var t = Object(this);
+  var len = t.length &gt;&gt;&gt; 0;
+  if (typeof fun !== &quot;function&quot;)
+    throw new TypeError();
+
+  var thisp = arguments[1];
+  for (var i = 0; i &lt; len; i++)
+  {
+    if (i in t)
+      fun.call(thisp, t[i], i, t);
+  }
+};</pre>
+
+<p>}</p>
+
+<p>// <a
+href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Objects/Array/map">developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Objects/Array/map</a>
+// Production steps of ECMA-262, Edition 5, 15.4.4.19 // Reference: <a
+href="http://es5.github.com/#x15.4.4.19">es5.github.com/#x15.4.4.19</a> if
+(!Array.prototype.map) {</p>
+
+<pre>Array.prototype.map = function(callback, thisArg) {
+
+  var T, A, k;
+
+  if (this == null) {
+    throw new TypeError(&quot; this is null or not defined&quot;);
+  }
+
+  // 1. Let O be the result of calling ToObject passing the |this| value as the argument.
+  var O = Object(this);
+
+  // 2. Let lenValue be the result of calling the Get internal method of O with the argument &quot;length&quot;.
+  // 3. Let len be ToUint32(lenValue).
+  var len = O.length &gt;&gt;&gt; 0;
+
+  // 4. If IsCallable(callback) is false, throw a TypeError exception.
+  // See: http://es5.github.com/#x9.11
+  if ({}.toString.call(callback) != &quot;[object Function]&quot;) {
+    throw new TypeError(callback + &quot; is not a function&quot;);
+  }
+
+  // 5. If thisArg was supplied, let T be thisArg; else let T be undefined.
+  if (thisArg) {
+    T = thisArg;
+  }
+
+  // 6. Let A be a new array created as if by the expression new Array(len) where Array is
+  // the standard built-in constructor with that name and len is the value of len.
+  A = new Array(len);
+
+  // 7. Let k be 0
+  k = 0;
+
+  // 8. Repeat, while k &lt; len
+  while(k &lt; len) {
+
+    var kValue, mappedValue;
+
+    // a. Let Pk be ToString(k).
+    //   This is implicit for LHS operands of the in operator
+    // b. Let kPresent be the result of calling the HasProperty internal method of O with argument Pk.
+    //   This step can be combined with c
+    // c. If kPresent is true, then
+    if (k in O) {
+
+      // i. Let kValue be the result of calling the Get internal method of O with argument Pk.
+      kValue = O[ k ];
+
+      // ii. Let mappedValue be the result of calling the Call internal method of callback
+      // with T as the this value and argument list containing kValue, k, and O.
+      mappedValue = callback.call(T, kValue, k, O);
+
+      // iii. Call the DefineOwnProperty internal method of A with arguments
+      // Pk, Property Descriptor {Value: mappedValue, Writable: true, Enumerable: true, Configurable: true},
+      // and false.
+
+      // In browsers that support Object.defineProperty, use the following:
+      // Object.defineProperty(A, Pk, { value: mappedValue, writable: true, enumerable: true, configurable: true });
+
+      // For best browser support, use the following:
+      A[ k ] = mappedValue;
+    }
+    // d. Increase k by 1.
+    k++;
+  }
+
+  // 9. return A
+  return A;
+};</pre>
+
+<p>}</p>
+
+<p>// <a
+href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/Reduce">developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/Reduce</a></p>
+
+<p>if (!Array.prototype.reduce) {</p>
+
+<pre>Array.prototype.reduce = function(fun   , initialValue   )
+{
+  &quot;use strict&quot;;
+
+  if (this === void 0 || this === null)
+    throw new TypeError();
+
+  var t = Object(this);
+  var len = t.length &gt;&gt;&gt; 0;
+  if (typeof fun !== &quot;function&quot;)
+    throw new TypeError();
+
+  // no value to return if no initial value and an empty array
+  if (len == 0 &amp;&amp; arguments.length == 1)
+    throw new TypeError();
+
+  var k = 0;
+  var accumulator;
+  if (arguments.length &gt;= 2)
+  {
+    accumulator = arguments[1];
+  }
+  else
+  {
+    do
+    {
+      if (k in t)
+      {
+        accumulator = t[k++];
+        break;
+      }
+
+      // if array contains no values, no initial value to return
+      if (++k &gt;= len)
+        throw new TypeError();
+    }
+    while (true);
+  }
+
+  while (k &lt; len)
+  {
+    if (k in t)
+      accumulator = fun.call(undefined, accumulator, t[k], k, t);
+    k++;
+  }
+
+  return accumulator;
+};</pre>
+
+<p>}</p>
+
+<p>// <a
+href="https://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/indexOf">developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Array/indexOf</a>
+if (!Array.prototype.indexOf) {</p>
+
+<pre>Array.prototype.indexOf = function (searchElement /*, fromIndex */ ) {
+    &quot;use strict&quot;;
+    if (this === void 0 || this === null) {
+        throw new TypeError();
+    }
+    var t = Object(this);
+    var len = t.length &gt;&gt;&gt; 0;
+    if (len === 0) {
+        return -1;
+    }
+    var n = 0;
+    if (arguments.length &gt; 0) {
+        n = Number(arguments[1]);
+        if (n !== n) { // shortcut for verifying if it&#39;s NaN
+            n = 0;
+        } else if (n !== 0 &amp;&amp; n !== Infinity &amp;&amp; n !== -Infinity) {
+            n = (n &gt; 0 || -1) * Math.floor(Math.abs(n));
+        }
+    }
+    if (n &gt;= len) {
+        return -1;
+    }
+    var k = n &gt;= 0 ? n : Math.max(len - Math.abs(n), 0);
+    for (; k &lt; len; k++) {
+        if (k in t &amp;&amp; t[k] === searchElement) {
+            return k;
+        }
+    }
+    return -1;
+}</pre>
+
+<p>}</p>
+
+<p>// <a
+href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Object/keys">developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Object/keys</a>
+if (!Object.keys) {</p>
+
+<pre>Object.keys = (function () {
+  var hasOwnProperty = Object.prototype.hasOwnProperty,
+      hasDontEnumBug = !({toString: null}).propertyIsEnumerable(&#39;toString&#39;),
+      dontEnums = [
+        &#39;toString&#39;,
+        &#39;toLocaleString&#39;,
+        &#39;valueOf&#39;,
+        &#39;hasOwnProperty&#39;,
+        &#39;isPrototypeOf&#39;,
+        &#39;propertyIsEnumerable&#39;,
+        &#39;constructor&#39;
+      ],
+      dontEnumsLength = dontEnums.length;
+
+  return function (obj) {
+    if (typeof obj !== &#39;object&#39; &amp;&amp; typeof obj !== &#39;function&#39; || obj === null) throw new TypeError(&#39;Object.keys called on non-object&#39;);
+
+    var result = [];
+
+    for (var prop in obj) {
+      if (hasOwnProperty.call(obj, prop)) result.push(prop);
+    }
+
+    if (hasDontEnumBug) {
+      for (var i=0; i &lt; dontEnumsLength; i++) {
+        if (hasOwnProperty.call(obj, dontEnums[i])) result.push(dontEnums[i]);
+      }
+    }
+    return result;
+  }
+})()</pre>
+
+<p>};</p>
+
+<p>// <a
+href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Object/create">developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Object/create</a>
+if (!Object.create) {</p>
+
+<pre>Object.create = function (o) {
+    if (arguments.length &gt; 1) {
+        throw new Error(&#39;Object.create implementation only accepts the first parameter.&#39;);
+    }
+    function F() {}
+    F.prototype = o;
+    return new F();
+};</pre>
+
+<p>}</p>
+
+<p>// <a
+href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array/filter">developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array/filter</a>
+if (!Array.prototype.filter) {</p>
+
+<pre>Array.prototype.filter = function(fun /*, thisp*/)
+{
+  &quot;use strict&quot;;
+
+  if (this == null)
+    throw new TypeError();
+
+  var t = Object(this);
+  var len = t.length &gt;&gt;&gt; 0;
+  if (typeof fun != &quot;function&quot;)
+    throw new TypeError();
+
+  var res = [];
+  var thisp = arguments[1];
+  for (var i = 0; i &lt; len; i++)
+  {
+    if (i in t)
+    {
+      var val = t[i]; // in case fun mutates this
+      if (fun.call(thisp, val, i, t))
+        res.push(val);
+    }
+  }
+
+  return res;
+};</pre>
+
+<p>}</p>
+
+<p>// <a
+href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Function/bind">developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Function/bind</a>
+if (!Function.prototype.bind) {</p>
+
+<pre>Function.prototype.bind = function (oThis) {
+  if (typeof this !== &quot;function&quot;) {
+    // closest thing possible to the ECMAScript 5 internal IsCallable function
+    throw new TypeError(&quot;Function.prototype.bind - what is trying to be bound is not callable&quot;);
+  }
+
+  var aArgs = Array.prototype.slice.call(arguments, 1),
+      fToBind = this,
+      fNOP = function () {},
+      fBound = function () {
+        return fToBind.apply(this instanceof fNOP &amp;&amp; oThis
+                               ? this
+                               : oThis,
+                             aArgs.concat(Array.prototype.slice.call(arguments)));
+      };
+
+  fNOP.prototype = this.prototype;
+  fBound.prototype = new fNOP();
+
+  return fBound;
+};</pre>
+
+<p>}</p>
+
+<p>// <a
+href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array/isArray">developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/Array/isArray</a>
+if(!Array.isArray) {</p>
+
+<pre class="ruby"><span class="ruby-constant">Array</span>.<span class="ruby-identifier">isArray</span> = <span class="ruby-identifier">function</span> (<span class="ruby-identifier">vArg</span>) {
+  <span class="ruby-keyword">return</span> <span class="ruby-constant">Object</span>.<span class="ruby-identifier">prototype</span>.<span class="ruby-identifier">toString</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">vArg</span>) <span class="ruby-operator">===</span> <span class="ruby-string">&quot;[object Array]&quot;</span>;
+};
+</pre>
+
+<p>}</p>
+
+<p>// <a
+href="https://developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/String/trim">developer.mozilla.org/en/docs/JavaScript/Reference/Global_Objects/String/trim</a>
+if(!String.prototype.trim) {</p>
+
+<pre>String.prototype.trim = function () {
+  return this.replace(/^\s+|\s+$/g,&#39;&#39;);
+};</pre>
+
+<p>}</p>
+
+<p>function definePropertyWorks() {</p>
+
+<pre>try {
+  Object.defineProperty({}, &quot;property&quot;, {});
+  return &quot;property&quot; in object;
+} catch (exception) {
+  return false;
+}</pre>
+
+<p>}</p>
+
+<p>if (!definePropertyWorks()) {</p>
+
+<pre>Object.defineProperty = function defineProperty(object) {
+  // fail silently
+  return object;
+}</pre>
+
+<p>}</p>
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

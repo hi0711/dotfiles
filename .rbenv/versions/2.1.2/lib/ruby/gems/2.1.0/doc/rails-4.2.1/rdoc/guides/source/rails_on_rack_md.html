@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>rails_on_rack - rails-4.2.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#label-Rails+on+Rack">Rails on Rack</a>
+    <li><a href="#label-Introduction+to+Rack">Introduction to Rack</a>
+    <li><a href="#label-Rails+on+Rack">Rails on Rack</a>
+    <li><a href="#label-Rails+Application-27s+Rack+Object">Rails Application&#39;s Rack Object</a>
+    <li><a href="#label-rails+server"><code>rails server</code></a>
+    <li><a href="#label-rackup"><code>rackup</code></a>
+    <li><a href="#label-Development+and+auto-reloading">Development and auto-reloading</a>
+    <li><a href="#label-Action+Dispatcher+Middleware+Stack">Action Dispatcher Middleware Stack</a>
+    <li><a href="#label-Inspecting+Middleware+Stack">Inspecting Middleware Stack</a>
+    <li><a href="#label-Configuring+Middleware+Stack">Configuring Middleware Stack</a>
+    <li><a href="#label-Adding+a+Middleware">Adding a Middleware</a>
+    <li><a href="#label-Swapping+a+Middleware">Swapping a Middleware</a>
+    <li><a href="#label-Deleting+a+Middleware">Deleting a Middleware</a>
+    <li><a href="#label-Internal+Middleware+Stack">Internal Middleware Stack</a>
+    <li><a href="#label-Resources">Resources</a>
+    <li><a href="#label-Learning+Rack">Learning Rack</a>
+    <li><a href="#label-Understanding+Middlewares">Understanding Middlewares</a>
+  </ul>
+</div>
+
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../README_md.html">README</a>
+  
+    <li><a href="../../guides/CHANGELOG_md.html">CHANGELOG</a>
+  
+    <li><a href="../../guides/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../guides/assets/images/icons/README.html">README</a>
+  
+    <li><a href="../../guides/assets/javascripts/guides_js.html">guides.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/jquery_min_js.html">jquery.min.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/responsive-tables_js.html">responsive-tables.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushAS3_js.html">shBrushAS3.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushAppleScript_js.html">shBrushAppleScript.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushBash_js.html">shBrushBash.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushCSharp_js.html">shBrushCSharp.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushColdFusion_js.html">shBrushColdFusion.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushCpp_js.html">shBrushCpp.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushCss_js.html">shBrushCss.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushDelphi_js.html">shBrushDelphi.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushDiff_js.html">shBrushDiff.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushErlang_js.html">shBrushErlang.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushGroovy_js.html">shBrushGroovy.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushJScript_js.html">shBrushJScript.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushJava_js.html">shBrushJava.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushJavaFX_js.html">shBrushJavaFX.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushPerl_js.html">shBrushPerl.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushPhp_js.html">shBrushPhp.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushPlain_js.html">shBrushPlain.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushPowerShell_js.html">shBrushPowerShell.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushPython_js.html">shBrushPython.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushRuby_js.html">shBrushRuby.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushSass_js.html">shBrushSass.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushScala_js.html">shBrushScala.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushSql_js.html">shBrushSql.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushVb_js.html">shBrushVb.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushXml_js.html">shBrushXml.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shCore_js.html">shCore.js</a>
+  
+    <li><a href="../../guides/assets/stylesheets/fixes_css.html">fixes.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/kindle_css.html">kindle.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/main_css.html">main.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/print_css.html">print.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/reset_css.html">reset.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/responsive-tables_css.html">responsive-tables.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/style_css.html">style.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shCore_css.html">shCore.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shCoreDefault_css.html">shCoreDefault.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shCoreDjango_css.html">shCoreDjango.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shCoreEclipse_css.html">shCoreEclipse.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shCoreEmacs_css.html">shCoreEmacs.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shCoreFadeToGrey_css.html">shCoreFadeToGrey.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shCoreMDUltra_css.html">shCoreMDUltra.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shCoreMidnight_css.html">shCoreMidnight.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shCoreRDark_css.html">shCoreRDark.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shThemeDefault_css.html">shThemeDefault.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shThemeDjango_css.html">shThemeDjango.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shThemeEclipse_css.html">shThemeEclipse.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shThemeEmacs_css.html">shThemeEmacs.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shThemeFadeToGrey_css.html">shThemeFadeToGrey.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shThemeMDUltra_css.html">shThemeMDUltra.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shThemeMidnight_css.html">shThemeMidnight.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shThemeRDark_css.html">shThemeRDark.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shThemeRailsGuides_css.html">shThemeRailsGuides.css</a>
+  
+    <li><a href="../../guides/source/2_2_release_notes_md.html">2_2_release_notes</a>
+  
+    <li><a href="../../guides/source/2_3_release_notes_md.html">2_3_release_notes</a>
+  
+    <li><a href="../../guides/source/3_0_release_notes_md.html">3_0_release_notes</a>
+  
+    <li><a href="../../guides/source/3_1_release_notes_md.html">3_1_release_notes</a>
+  
+    <li><a href="../../guides/source/3_2_release_notes_md.html">3_2_release_notes</a>
+  
+    <li><a href="../../guides/source/4_0_release_notes_md.html">4_0_release_notes</a>
+  
+    <li><a href="../../guides/source/4_1_release_notes_md.html">4_1_release_notes</a>
+  
+    <li><a href="../../guides/source/4_2_release_notes_md.html">4_2_release_notes</a>
+  
+    <li><a href="../../guides/source/action_controller_overview_md.html">action_controller_overview</a>
+  
+    <li><a href="../../guides/source/action_mailer_basics_md.html">action_mailer_basics</a>
+  
+    <li><a href="../../guides/source/action_view_overview_md.html">action_view_overview</a>
+  
+    <li><a href="../../guides/source/active_job_basics_md.html">active_job_basics</a>
+  
+    <li><a href="../../guides/source/active_model_basics_md.html">active_model_basics</a>
+  
+    <li><a href="../../guides/source/active_record_basics_md.html">active_record_basics</a>
+  
+    <li><a href="../../guides/source/active_record_callbacks_md.html">active_record_callbacks</a>
+  
+    <li><a href="../../guides/source/active_record_migrations_md.html">active_record_migrations</a>
+  
+    <li><a href="../../guides/source/active_record_postgresql_md.html">active_record_postgresql</a>
+  
+    <li><a href="../../guides/source/active_record_querying_md.html">active_record_querying</a>
+  
+    <li><a href="../../guides/source/active_record_validations_md.html">active_record_validations</a>
+  
+    <li><a href="../../guides/source/active_support_core_extensions_md.html">active_support_core_extensions</a>
+  
+    <li><a href="../../guides/source/active_support_instrumentation_md.html">active_support_instrumentation</a>
+  
+    <li><a href="../../guides/source/api_documentation_guidelines_md.html">api_documentation_guidelines</a>
+  
+    <li><a href="../../guides/source/asset_pipeline_md.html">asset_pipeline</a>
+  
+    <li><a href="../../guides/source/association_basics_md.html">association_basics</a>
+  
+    <li><a href="../../guides/source/autoloading_and_reloading_constants_md.html">autoloading_and_reloading_constants</a>
+  
+    <li><a href="../../guides/source/caching_with_rails_md.html">caching_with_rails</a>
+  
+    <li><a href="../../guides/source/command_line_md.html">command_line</a>
+  
+    <li><a href="../../guides/source/configuring_md.html">configuring</a>
+  
+    <li><a href="../../guides/source/contributing_to_ruby_on_rails_md.html">contributing_to_ruby_on_rails</a>
+  
+    <li><a href="../../guides/source/debugging_rails_applications_md.html">debugging_rails_applications</a>
+  
+    <li><a href="../../guides/source/development_dependencies_install_md.html">development_dependencies_install</a>
+  
+    <li><a href="../../guides/source/documents_yaml.html">documents.yaml</a>
+  
+    <li><a href="../../guides/source/engines_md.html">engines</a>
+  
+    <li><a href="../../guides/source/form_helpers_md.html">form_helpers</a>
+  
+    <li><a href="../../guides/source/generators_md.html">generators</a>
+  
+    <li><a href="../../guides/source/getting_started_md.html">getting_started</a>
+  
+    <li><a href="../../guides/source/i18n_md.html">i18n</a>
+  
+    <li><a href="../../guides/source/initialization_md.html">initialization</a>
+  
+    <li><a href="../../guides/source/layouts_and_rendering_md.html">layouts_and_rendering</a>
+  
+    <li><a href="../../guides/source/maintenance_policy_md.html">maintenance_policy</a>
+  
+    <li><a href="../../guides/source/nested_model_forms_md.html">nested_model_forms</a>
+  
+    <li><a href="../../guides/source/plugins_md.html">plugins</a>
+  
+    <li><a href="../../guides/source/rails_application_templates_md.html">rails_application_templates</a>
+  
+    <li><a href="../../guides/source/rails_on_rack_md.html">rails_on_rack</a>
+  
+    <li><a href="../../guides/source/routing_md.html">routing</a>
+  
+    <li><a href="../../guides/source/ruby_on_rails_guides_guidelines_md.html">ruby_on_rails_guides_guidelines</a>
+  
+    <li><a href="../../guides/source/security_md.html">security</a>
+  
+    <li><a href="../../guides/source/testing_md.html">testing</a>
+  
+    <li><a href="../../guides/source/upgrading_ruby_on_rails_md.html">upgrading_ruby_on_rails</a>
+  
+    <li><a href="../../guides/source/working_with_javascript_in_rails_md.html">working_with_javascript_in_rails</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page guides/source/rails_on_rack.md">
+
+<h1 id="label-Rails+on+Rack">Rails on Rack<span><a href="#label-Rails+on+Rack">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<p>This guide covers Rails integration with Rack and interfacing with other
+Rack components.</p>
+
+<p>After reading this guide, you will know:</p>
+<ul><li>
+<p>How to use Rack Middlewares in your Rails applications.</p>
+</li><li>
+<p>Action Pack&#39;s internal Middleware stack.</p>
+</li><li>
+<p>How to define a custom Middleware stack.</p>
+</li></ul>
+<hr>
+
+<p>WARNING: This guide assumes a working knowledge of Rack protocol and Rack
+concepts such as middlewares, url maps and <code>Rack::Builder</code>.</p>
+
+<h2 id="label-Introduction+to+Rack">Introduction to Rack<span><a href="#label-Introduction+to+Rack">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Rack provides a minimal, modular and adaptable interface for developing web
+applications in Ruby. By wrapping HTTP requests and responses in the
+simplest way possible, it unifies and distills the API for web servers, web
+frameworks, and software in between (the so-called middleware) into a
+single method call.</p>
+<ul><li>
+<p><a href="http://rack.github.io/">Rack API Documentation</a></p>
+</li></ul>
+
+<p>Explaining Rack is not really in the scope of this guide. In case you are
+not familiar with Rack&#39;s basics, you should check out the <a
+href="#resources">Resources</a> section below.</p>
+
+<h2 id="label-Rails+on+Rack">Rails on Rack<span><a href="#label-Rails+on+Rack">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Rails+Application-27s+Rack+Object">Rails Application&#39;s Rack <a href="../../Object.html">Object</a><span><a href="#label-Rails+Application-27s+Rack+Object">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p><code>Rails.application</code> is the primary Rack application object of a
+Rails application. Any Rack compliant web server should be using
+<code>Rails.application</code> object to serve a Rails application.</p>
+
+<h3 id="label-rails+server"><code>rails server</code><span><a href="#label-rails+server">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p><code>rails server</code> does the basic job of creating a
+<code>Rack::Server</code> object and starting the webserver.</p>
+
+<p>Here&#39;s how <code>rails server</code> creates an instance of
+<code>Rack::Server</code></p>
+
+<pre class="ruby"><span class="ruby-constant">Rails</span><span class="ruby-operator">::</span><span class="ruby-constant">Server</span>.<span class="ruby-identifier">new</span>.<span class="ruby-identifier">tap</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">server</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">require</span> <span class="ruby-constant">APP_PATH</span>
+  <span class="ruby-constant">Dir</span>.<span class="ruby-identifier">chdir</span>(<span class="ruby-constant">Rails</span>.<span class="ruby-identifier">application</span>.<span class="ruby-identifier">root</span>)
+  <span class="ruby-identifier">server</span>.<span class="ruby-identifier">start</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>The <code>Rails::Server</code> inherits from <code>Rack::Server</code> and
+calls the <code>Rack::Server#start</code> method this way:</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">Server</span> <span class="ruby-operator">&lt;</span> <span class="ruby-operator">::</span><span class="ruby-constant">Rack</span><span class="ruby-operator">::</span><span class="ruby-constant">Server</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">start</span>
+    <span class="ruby-operator">...</span>
+    <span class="ruby-keyword">super</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>Here&#39;s how it loads the middlewares:</p>
+
+<pre class="ruby"><span class="ruby-keyword">def</span> <span class="ruby-identifier">middleware</span>
+  <span class="ruby-identifier">middlewares</span> = []
+  <span class="ruby-identifier">middlewares</span> <span class="ruby-operator">&lt;&lt;</span> [<span class="ruby-constant">Rails</span><span class="ruby-operator">::</span><span class="ruby-constant">Rack</span><span class="ruby-operator">::</span><span class="ruby-constant">Debugger</span>] <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[:<span class="ruby-identifier">debugger</span>]
+  <span class="ruby-identifier">middlewares</span> <span class="ruby-operator">&lt;&lt;</span> [<span class="ruby-operator">::</span><span class="ruby-constant">Rack</span><span class="ruby-operator">::</span><span class="ruby-constant">ContentLength</span>]
+  <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">middlewares</span>)
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p><code>Rails::Rack::Debugger</code> is primarily useful only in the
+development environment. The following table explains the usage of the
+loaded middlewares:</p>
+
+<p>| Middleware | Purpose | | ———————– | ——————————————————————————— | |
+<code>Rails::Rack::Debugger</code> | Starts Debugger | |
+<code>Rack::ContentLength</code> | Counts the number of bytes in the
+response and set the HTTP Content-Length header |</p>
+
+<h3 id="label-rackup"><code>rackup</code><span><a href="#label-rackup">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>To use <code>rackup</code> instead of Rails&#39; <code>rails server</code>,
+you can put the following inside <code>config.ru</code> of your Rails
+application&#39;s root directory:</p>
+
+<pre class="ruby"><span class="ruby-comment"># Rails.root/config.ru</span>
+<span class="ruby-identifier">require</span> <span class="ruby-operator">::</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-string">&#39;../config/environment&#39;</span>, <span class="ruby-keyword">__FILE__</span>)
+
+<span class="ruby-identifier">use</span> <span class="ruby-constant">Rails</span><span class="ruby-operator">::</span><span class="ruby-constant">Rack</span><span class="ruby-operator">::</span><span class="ruby-constant">Debugger</span>
+<span class="ruby-identifier">use</span> <span class="ruby-constant">Rack</span><span class="ruby-operator">::</span><span class="ruby-constant">ContentLength</span>
+<span class="ruby-identifier">run</span> <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">application</span>
+</pre>
+
+<p>And start the server:</p>
+
+<pre>$ rackup config.ru</pre>
+
+<p>To find out more about different <code>rackup</code> options:</p>
+
+<pre>$ rackup --help</pre>
+
+<h3 id="label-Development+and+auto-reloading">Development and auto-reloading<span><a href="#label-Development+and+auto-reloading">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Middlewares are loaded once and are not monitored for changes. You will
+have to restart the server for changes to be reflected in the running
+application.</p>
+
+<h2 id="label-Action+Dispatcher+Middleware+Stack">Action Dispatcher Middleware Stack<span><a href="#label-Action+Dispatcher+Middleware+Stack">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Many of Action Dispatcher&#39;s internal components are implemented as Rack
+middlewares. <code>Rails::Application</code> uses
+<code>ActionDispatch::MiddlewareStack</code> to combine various internal
+and external middlewares to form a complete Rails Rack application.</p>
+
+<p>NOTE: <code>ActionDispatch::MiddlewareStack</code> is Rails equivalent of
+<code>Rack::Builder</code>, but built for better flexibility and more
+features to meet Rails&#39; requirements.</p>
+
+<h3 id="label-Inspecting+Middleware+Stack">Inspecting Middleware Stack<span><a href="#label-Inspecting+Middleware+Stack">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Rails has a handy rake task for inspecting the middleware stack in use:</p>
+
+<pre>$ bin/rake middleware</pre>
+
+<p>For a freshly generated Rails application, this might produce something
+like:</p>
+
+<pre class="ruby"><span class="ruby-identifier">use</span> <span class="ruby-constant">Rack</span><span class="ruby-operator">::</span><span class="ruby-constant">Sendfile</span>
+<span class="ruby-identifier">use</span> <span class="ruby-constant">ActionDispatch</span><span class="ruby-operator">::</span><span class="ruby-constant">Static</span>
+<span class="ruby-identifier">use</span> <span class="ruby-constant">Rack</span><span class="ruby-operator">::</span><span class="ruby-constant">Lock</span>
+<span class="ruby-identifier">use</span> <span class="ruby-comment">#&lt;ActiveSupport::Cache::Strategy::LocalCache::Middleware:0x000000029a0838&gt;</span>
+<span class="ruby-identifier">use</span> <span class="ruby-constant">Rack</span><span class="ruby-operator">::</span><span class="ruby-constant">Runtime</span>
+<span class="ruby-identifier">use</span> <span class="ruby-constant">Rack</span><span class="ruby-operator">::</span><span class="ruby-constant">MethodOverride</span>
+<span class="ruby-identifier">use</span> <span class="ruby-constant">ActionDispatch</span><span class="ruby-operator">::</span><span class="ruby-constant">RequestId</span>
+<span class="ruby-identifier">use</span> <span class="ruby-constant">Rails</span><span class="ruby-operator">::</span><span class="ruby-constant">Rack</span><span class="ruby-operator">::</span><span class="ruby-constant">Logger</span>
+<span class="ruby-identifier">use</span> <span class="ruby-constant">ActionDispatch</span><span class="ruby-operator">::</span><span class="ruby-constant">ShowExceptions</span>
+<span class="ruby-identifier">use</span> <span class="ruby-constant">ActionDispatch</span><span class="ruby-operator">::</span><span class="ruby-constant">DebugExceptions</span>
+<span class="ruby-identifier">use</span> <span class="ruby-constant">ActionDispatch</span><span class="ruby-operator">::</span><span class="ruby-constant">RemoteIp</span>
+<span class="ruby-identifier">use</span> <span class="ruby-constant">ActionDispatch</span><span class="ruby-operator">::</span><span class="ruby-constant">Reloader</span>
+<span class="ruby-identifier">use</span> <span class="ruby-constant">ActionDispatch</span><span class="ruby-operator">::</span><span class="ruby-constant">Callbacks</span>
+<span class="ruby-identifier">use</span> <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Migration</span><span class="ruby-operator">::</span><span class="ruby-constant">CheckPending</span>
+<span class="ruby-identifier">use</span> <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">ConnectionAdapters</span><span class="ruby-operator">::</span><span class="ruby-constant">ConnectionManagement</span>
+<span class="ruby-identifier">use</span> <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">QueryCache</span>
+<span class="ruby-identifier">use</span> <span class="ruby-constant">ActionDispatch</span><span class="ruby-operator">::</span><span class="ruby-constant">Cookies</span>
+<span class="ruby-identifier">use</span> <span class="ruby-constant">ActionDispatch</span><span class="ruby-operator">::</span><span class="ruby-constant">Session</span><span class="ruby-operator">::</span><span class="ruby-constant">CookieStore</span>
+<span class="ruby-identifier">use</span> <span class="ruby-constant">ActionDispatch</span><span class="ruby-operator">::</span><span class="ruby-constant">Flash</span>
+<span class="ruby-identifier">use</span> <span class="ruby-constant">ActionDispatch</span><span class="ruby-operator">::</span><span class="ruby-constant">ParamsParser</span>
+<span class="ruby-identifier">use</span> <span class="ruby-constant">Rack</span><span class="ruby-operator">::</span><span class="ruby-constant">Head</span>
+<span class="ruby-identifier">use</span> <span class="ruby-constant">Rack</span><span class="ruby-operator">::</span><span class="ruby-constant">ConditionalGet</span>
+<span class="ruby-identifier">use</span> <span class="ruby-constant">Rack</span><span class="ruby-operator">::</span><span class="ruby-constant">ETag</span>
+<span class="ruby-identifier">run</span> <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">application</span>.<span class="ruby-identifier">routes</span>
+</pre>
+
+<p>The default middlewares shown here (and some others) are each summarized in
+the <a href="#internal-middleware-stack">Internal Middlewares</a> section,
+below.</p>
+
+<h3 id="label-Configuring+Middleware+Stack">Configuring Middleware Stack<span><a href="#label-Configuring+Middleware+Stack">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Rails provides a simple configuration interface
+<code>config.middleware</code> for adding, removing and modifying the
+middlewares in the middleware stack via <code>application.rb</code> or the
+environment specific configuration file
+<code>environments/&lt;environment&gt;.rb</code>.</p>
+
+<h4 id="label-Adding+a+Middleware">Adding a Middleware<span><a href="#label-Adding+a+Middleware">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>You can add a new middleware to the middleware stack using any of the
+following methods:</p>
+<ul><li>
+<p><code>config.middleware.use(new_middleware, args)</code> - Adds the new
+middleware at the bottom of the middleware stack.</p>
+</li><li>
+<p><code>config.middleware.insert_before(existing_middleware, new_middleware,
+args)</code> - Adds the new middleware before the specified existing
+middleware in the middleware stack.</p>
+</li><li>
+<p><code>config.middleware.insert_after(existing_middleware, new_middleware,
+args)</code> - Adds the new middleware after the specified existing
+middleware in the middleware stack.</p>
+</li></ul>
+
+<pre class="ruby"><span class="ruby-comment"># config/application.rb</span>
+
+<span class="ruby-comment"># Push Rack::BounceFavicon at the bottom</span>
+<span class="ruby-identifier">config</span>.<span class="ruby-identifier">middleware</span>.<span class="ruby-identifier">use</span> <span class="ruby-constant">Rack</span><span class="ruby-operator">::</span><span class="ruby-constant">BounceFavicon</span>
+
+<span class="ruby-comment"># Add Lifo::Cache after ActiveRecord::QueryCache.</span>
+<span class="ruby-comment"># Pass { page_cache: false } argument to Lifo::Cache.</span>
+<span class="ruby-identifier">config</span>.<span class="ruby-identifier">middleware</span>.<span class="ruby-identifier">insert_after</span> <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">QueryCache</span>, <span class="ruby-constant">Lifo</span><span class="ruby-operator">::</span><span class="ruby-constant">Cache</span>, <span class="ruby-identifier">page_cache</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>
+</pre>
+
+<h4 id="label-Swapping+a+Middleware">Swapping a Middleware<span><a href="#label-Swapping+a+Middleware">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>You can swap an existing middleware in the middleware stack using
+<code>config.middleware.swap</code>.</p>
+
+<pre class="ruby"><span class="ruby-comment"># config/application.rb</span>
+
+<span class="ruby-comment"># Replace ActionDispatch::ShowExceptions with Lifo::ShowExceptions</span>
+<span class="ruby-identifier">config</span>.<span class="ruby-identifier">middleware</span>.<span class="ruby-identifier">swap</span> <span class="ruby-constant">ActionDispatch</span><span class="ruby-operator">::</span><span class="ruby-constant">ShowExceptions</span>, <span class="ruby-constant">Lifo</span><span class="ruby-operator">::</span><span class="ruby-constant">ShowExceptions</span>
+</pre>
+
+<h4 id="label-Deleting+a+Middleware">Deleting a Middleware<span><a href="#label-Deleting+a+Middleware">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>Add the following lines to your application configuration:</p>
+
+<pre class="ruby"><span class="ruby-comment"># config/application.rb</span>
+<span class="ruby-identifier">config</span>.<span class="ruby-identifier">middleware</span>.<span class="ruby-identifier">delete</span> <span class="ruby-string">&quot;Rack::Lock&quot;</span>
+</pre>
+
+<p>And now if you inspect the middleware stack, you&#39;ll find that
+<code>Rack::Lock</code> is not a part of it.</p>
+
+<pre>$ bin/rake middleware
+(in /Users/lifo/Rails/blog)
+use ActionDispatch::Static
+use #&lt;ActiveSupport::Cache::Strategy::LocalCache::Middleware:0x00000001c304c8&gt;
+use Rack::Runtime
+...
+run Rails.application.routes</pre>
+
+<p>If you want to remove session related middleware, do the following:</p>
+
+<pre class="ruby"><span class="ruby-comment"># config/application.rb</span>
+<span class="ruby-identifier">config</span>.<span class="ruby-identifier">middleware</span>.<span class="ruby-identifier">delete</span> <span class="ruby-string">&quot;ActionDispatch::Cookies&quot;</span>
+<span class="ruby-identifier">config</span>.<span class="ruby-identifier">middleware</span>.<span class="ruby-identifier">delete</span> <span class="ruby-string">&quot;ActionDispatch::Session::CookieStore&quot;</span>
+<span class="ruby-identifier">config</span>.<span class="ruby-identifier">middleware</span>.<span class="ruby-identifier">delete</span> <span class="ruby-string">&quot;ActionDispatch::Flash&quot;</span>
+</pre>
+
+<p>And to remove browser related middleware,</p>
+
+<pre class="ruby"><span class="ruby-comment"># config/application.rb</span>
+<span class="ruby-identifier">config</span>.<span class="ruby-identifier">middleware</span>.<span class="ruby-identifier">delete</span> <span class="ruby-string">&quot;Rack::MethodOverride&quot;</span>
+</pre>
+
+<h3 id="label-Internal+Middleware+Stack">Internal Middleware Stack<span><a href="#label-Internal+Middleware+Stack">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Much of Action Controller&#39;s functionality is implemented as
+Middlewares. The following list explains the purpose of each of them:</p>
+
+<p><strong><code>Rack::Sendfile</code></strong></p>
+<ul><li>
+<p>Sets server specific X-Sendfile header. Configure this via
+<code>config.action_dispatch.x_sendfile_header</code> option.</p>
+</li></ul>
+
+<p><strong><code>ActionDispatch::Static</code></strong></p>
+<ul><li>
+<p>Used to serve static files. Disabled if
+<code>config.serve_static_files</code> is <code>false</code>.</p>
+</li></ul>
+
+<p><strong><code>Rack::Lock</code></strong></p>
+<ul><li>
+<p>Sets <code>env["rack.multithread"]</code> flag to <code>false</code> and
+wraps the application within a Mutex.</p>
+</li></ul>
+
+<p><strong><code>ActiveSupport::Cache::Strategy::LocalCache::Middleware</code></strong></p>
+<ul><li>
+<p>Used for memory caching. This cache is not thread safe.</p>
+</li></ul>
+
+<p><strong><code>Rack::Runtime</code></strong></p>
+<ul><li>
+<p>Sets an X-Runtime header, containing the time (in seconds) taken to execute
+the request.</p>
+</li></ul>
+
+<p><strong><code>Rack::MethodOverride</code></strong></p>
+<ul><li>
+<p>Allows the method to be overridden if <code>params[:_method]</code> is set.
+This is the middleware which supports the PUT and DELETE HTTP method types.</p>
+</li></ul>
+
+<p><strong><code>ActionDispatch::RequestId</code></strong></p>
+<ul><li>
+<p>Makes a unique <code>X-Request-Id</code> header available to the response
+and enables the <code>ActionDispatch::Request#uuid</code> method.</p>
+</li></ul>
+
+<p><strong><code>Rails::Rack::Logger</code></strong></p>
+<ul><li>
+<p>Notifies the logs that the request has began. After request is complete,
+flushes all the logs.</p>
+</li></ul>
+
+<p><strong><code>ActionDispatch::ShowExceptions</code></strong></p>
+<ul><li>
+<p>Rescues any exception returned by the application and calls an exceptions
+app that will wrap it in a format for the end user.</p>
+</li></ul>
+
+<p><strong><code>ActionDispatch::DebugExceptions</code></strong></p>
+<ul><li>
+<p>Responsible for logging exceptions and showing a debugging page in case the
+request is local.</p>
+</li></ul>
+
+<p><strong><code>ActionDispatch::RemoteIp</code></strong></p>
+<ul><li>
+<p>Checks for IP spoofing attacks.</p>
+</li></ul>
+
+<p><strong><code>ActionDispatch::Reloader</code></strong></p>
+<ul><li>
+<p>Provides prepare and cleanup callbacks, intended to assist with code
+reloading during development.</p>
+</li></ul>
+
+<p><strong><code>ActionDispatch::Callbacks</code></strong></p>
+<ul><li>
+<p>Provides callbacks to be executed before and after dispatching the request.</p>
+</li></ul>
+
+<p><strong><code>ActiveRecord::Migration::CheckPending</code></strong></p>
+<ul><li>
+<p>Checks pending migrations and raises
+<code>ActiveRecord::PendingMigrationError</code> if any migrations are
+pending.</p>
+</li></ul>
+
+<p><strong><code>ActiveRecord::ConnectionAdapters::ConnectionManagement</code></strong></p>
+<ul><li>
+<p>Cleans active connections after each request, unless the
+<code>rack.test</code> key in the request environment is set to
+<code>true</code>.</p>
+</li></ul>
+
+<p><strong><code>ActiveRecord::QueryCache</code></strong></p>
+<ul><li>
+<p>Enables the Active Record query cache.</p>
+</li></ul>
+
+<p><strong><code>ActionDispatch::Cookies</code></strong></p>
+<ul><li>
+<p>Sets cookies for the request.</p>
+</li></ul>
+
+<p><strong><code>ActionDispatch::Session::CookieStore</code></strong></p>
+<ul><li>
+<p>Responsible for storing the session in cookies.</p>
+</li></ul>
+
+<p><strong><code>ActionDispatch::Flash</code></strong></p>
+<ul><li>
+<p>Sets up the flash keys. Only available if
+<code>config.action_controller.session_store</code> is set to a value.</p>
+</li></ul>
+
+<p><strong><code>ActionDispatch::ParamsParser</code></strong></p>
+<ul><li>
+<p>Parses out parameters from the request into <code>params</code>.</p>
+</li></ul>
+
+<p><strong><code>Rack::Head</code></strong></p>
+<ul><li>
+<p>Converts HEAD requests to <code>GET</code> requests and serves them as so.</p>
+</li></ul>
+
+<p><strong><code>Rack::ConditionalGet</code></strong></p>
+<ul><li>
+<p>Adds support for “Conditional <code>GET</code>” so that server responds
+with nothing if page wasn&#39;t changed.</p>
+</li></ul>
+
+<p><strong><code>Rack::ETag</code></strong></p>
+<ul><li>
+<p>Adds ETag header on all String bodies. ETags are used to validate cache.</p>
+</li></ul>
+
+<p>TIP: It&#39;s possible to use any of the above middlewares in your custom
+Rack stack.</p>
+
+<h2 id="label-Resources">Resources<span><a href="#label-Resources">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Learning+Rack">Learning Rack<span><a href="#label-Learning+Rack">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><a href="http://rack.github.io">Official Rack Website</a></p>
+</li><li>
+<p><a
+href="http://chneukirchen.org/blog/archive/2007/02/introducing-rack.html">Introducing
+Rack</a></p>
+</li><li>
+<p><a href="http://m.onkey.org/ruby-on-rack-1-hello-rack">Ruby on Rack #1 -
+Hello Rack!</a></p>
+</li><li>
+<p><a href="http://m.onkey.org/ruby-on-rack-2-the-builder">Ruby on Rack #2 -
+The Builder</a></p>
+</li></ul>
+
+<h3 id="label-Understanding+Middlewares">Understanding Middlewares<span><a href="#label-Understanding+Middlewares">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><a href="http://railscasts.com/episodes/151-rack-middleware">Railscast on
+Rack Middlewares</a></p>
+</li></ul>
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

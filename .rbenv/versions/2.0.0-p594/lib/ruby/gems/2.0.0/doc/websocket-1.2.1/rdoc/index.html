@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>websocket-1.2.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  <div id="project-metadata">
+    
+    <div id="classindex-section" class="nav-section">
+  <h3>Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./WebSocket.html">WebSocket</a>
+  
+    <li><a href="./WebSocket/Error.html">WebSocket::Error</a>
+  
+    <li><a href="./WebSocket/Error/Frame.html">WebSocket::Error::Frame</a>
+  
+    <li><a href="./WebSocket/Error/Frame/ControlFramePayloadTooLong.html">WebSocket::Error::Frame::ControlFramePayloadTooLong</a>
+  
+    <li><a href="./WebSocket/Error/Frame/DataFrameInsteadContinuation.html">WebSocket::Error::Frame::DataFrameInsteadContinuation</a>
+  
+    <li><a href="./WebSocket/Error/Frame/FragmentedControlFrame.html">WebSocket::Error::Frame::FragmentedControlFrame</a>
+  
+    <li><a href="./WebSocket/Error/Frame/Invalid.html">WebSocket::Error::Frame::Invalid</a>
+  
+    <li><a href="./WebSocket/Error/Frame/InvalidPayloadEncoding.html">WebSocket::Error::Frame::InvalidPayloadEncoding</a>
+  
+    <li><a href="./WebSocket/Error/Frame/MaskTooShort.html">WebSocket::Error::Frame::MaskTooShort</a>
+  
+    <li><a href="./WebSocket/Error/Frame/ReservedBitUsed.html">WebSocket::Error::Frame::ReservedBitUsed</a>
+  
+    <li><a href="./WebSocket/Error/Frame/TooLong.html">WebSocket::Error::Frame::TooLong</a>
+  
+    <li><a href="./WebSocket/Error/Frame/UnexpectedContinuationFrame.html">WebSocket::Error::Frame::UnexpectedContinuationFrame</a>
+  
+    <li><a href="./WebSocket/Error/Frame/UnknownCloseCode.html">WebSocket::Error::Frame::UnknownCloseCode</a>
+  
+    <li><a href="./WebSocket/Error/Frame/UnknownFrameType.html">WebSocket::Error::Frame::UnknownFrameType</a>
+  
+    <li><a href="./WebSocket/Error/Frame/UnknownOpcode.html">WebSocket::Error::Frame::UnknownOpcode</a>
+  
+    <li><a href="./WebSocket/Error/Frame/UnknownVersion.html">WebSocket::Error::Frame::UnknownVersion</a>
+  
+    <li><a href="./WebSocket/Error/Handshake.html">WebSocket::Error::Handshake</a>
+  
+    <li><a href="./WebSocket/Error/Handshake/GetRequestRequired.html">WebSocket::Error::Handshake::GetRequestRequired</a>
+  
+    <li><a href="./WebSocket/Error/Handshake/InvalidAuthentication.html">WebSocket::Error::Handshake::InvalidAuthentication</a>
+  
+    <li><a href="./WebSocket/Error/Handshake/InvalidHeader.html">WebSocket::Error::Handshake::InvalidHeader</a>
+  
+    <li><a href="./WebSocket/Error/Handshake/InvalidStatusCode.html">WebSocket::Error::Handshake::InvalidStatusCode</a>
+  
+    <li><a href="./WebSocket/Error/Handshake/NoHostProvided.html">WebSocket::Error::Handshake::NoHostProvided</a>
+  
+    <li><a href="./WebSocket/Error/Handshake/UnknownVersion.html">WebSocket::Error::Handshake::UnknownVersion</a>
+  
+    <li><a href="./WebSocket/ExceptionHandler.html">WebSocket::ExceptionHandler</a>
+  
+    <li><a href="./WebSocket/ExceptionHandler/ClassMethods.html">WebSocket::ExceptionHandler::ClassMethods</a>
+  
+    <li><a href="./WebSocket/Frame.html">WebSocket::Frame</a>
+  
+    <li><a href="./WebSocket/Frame/Base.html">WebSocket::Frame::Base</a>
+  
+    <li><a href="./WebSocket/Frame/Data.html">WebSocket::Frame::Data</a>
+  
+    <li><a href="./WebSocket/Frame/Handler.html">WebSocket::Frame::Handler</a>
+  
+    <li><a href="./WebSocket/Frame/Handler/Base.html">WebSocket::Frame::Handler::Base</a>
+  
+    <li><a href="./WebSocket/Frame/Handler/Handler03.html">WebSocket::Frame::Handler::Handler03</a>
+  
+    <li><a href="./WebSocket/Frame/Handler/Handler04.html">WebSocket::Frame::Handler::Handler04</a>
+  
+    <li><a href="./WebSocket/Frame/Handler/Handler05.html">WebSocket::Frame::Handler::Handler05</a>
+  
+    <li><a href="./WebSocket/Frame/Handler/Handler07.html">WebSocket::Frame::Handler::Handler07</a>
+  
+    <li><a href="./WebSocket/Frame/Handler/Handler75.html">WebSocket::Frame::Handler::Handler75</a>
+  
+    <li><a href="./WebSocket/Frame/Incoming.html">WebSocket::Frame::Incoming</a>
+  
+    <li><a href="./WebSocket/Frame/Incoming/Client.html">WebSocket::Frame::Incoming::Client</a>
+  
+    <li><a href="./WebSocket/Frame/Incoming/Server.html">WebSocket::Frame::Incoming::Server</a>
+  
+    <li><a href="./WebSocket/Frame/Outgoing.html">WebSocket::Frame::Outgoing</a>
+  
+    <li><a href="./WebSocket/Frame/Outgoing/Client.html">WebSocket::Frame::Outgoing::Client</a>
+  
+    <li><a href="./WebSocket/Frame/Outgoing/Server.html">WebSocket::Frame::Outgoing::Server</a>
+  
+    <li><a href="./WebSocket/Handshake.html">WebSocket::Handshake</a>
+  
+    <li><a href="./WebSocket/Handshake/Base.html">WebSocket::Handshake::Base</a>
+  
+    <li><a href="./WebSocket/Handshake/Client.html">WebSocket::Handshake::Client</a>
+  
+    <li><a href="./WebSocket/Handshake/Handler.html">WebSocket::Handshake::Handler</a>
+  
+    <li><a href="./WebSocket/Handshake/Handler/Base.html">WebSocket::Handshake::Handler::Base</a>
+  
+    <li><a href="./WebSocket/Handshake/Handler/Client.html">WebSocket::Handshake::Handler::Client</a>
+  
+    <li><a href="./WebSocket/Handshake/Handler/Client01.html">WebSocket::Handshake::Handler::Client01</a>
+  
+    <li><a href="./WebSocket/Handshake/Handler/Client04.html">WebSocket::Handshake::Handler::Client04</a>
+  
+    <li><a href="./WebSocket/Handshake/Handler/Client75.html">WebSocket::Handshake::Handler::Client75</a>
+  
+    <li><a href="./WebSocket/Handshake/Handler/Client76.html">WebSocket::Handshake::Handler::Client76</a>
+  
+    <li><a href="./WebSocket/Handshake/Handler/Server.html">WebSocket::Handshake::Handler::Server</a>
+  
+    <li><a href="./WebSocket/Handshake/Handler/Server04.html">WebSocket::Handshake::Handler::Server04</a>
+  
+    <li><a href="./WebSocket/Handshake/Handler/Server75.html">WebSocket::Handshake::Handler::Server75</a>
+  
+    <li><a href="./WebSocket/Handshake/Handler/Server76.html">WebSocket::Handshake::Handler::Server76</a>
+  
+    <li><a href="./WebSocket/Handshake/Server.html">WebSocket::Handshake::Server</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main">
+<p>This is the API documentation for websocket-1.2.1 Documentation.
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

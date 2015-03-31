@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module EmHttpSslPatch - faraday-0.9.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-certificate_store">#certificate_store</a>
+    
+    <li ><a href="#method-i-host">#host</a>
+    
+    <li ><a href="#method-i-ssl_handshake_completed">#ssl_handshake_completed</a>
+    
+    <li ><a href="#method-i-ssl_verify_peer">#ssl_verify_peer</a>
+    
+    <li ><a href="#method-i-verify_peer-3F">#verify_peer?</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-EmHttpSslPatch">
+  <h1 id="module-EmHttpSslPatch" class="module">
+    module EmHttpSslPatch
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-certificate_store" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">certificate_store</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="certificate_store-source">
+            <pre><span class="ruby-comment"># File lib/faraday/adapter/em_http_ssl_patch.rb, line 45</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">certificate_store</span>
+  <span class="ruby-ivar">@certificate_store</span> <span class="ruby-operator">||=</span> <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">store</span> = <span class="ruby-constant">OpenSSL</span><span class="ruby-operator">::</span><span class="ruby-constant">X509</span><span class="ruby-operator">::</span><span class="ruby-constant">Store</span>.<span class="ruby-identifier">new</span>
+    <span class="ruby-identifier">store</span>.<span class="ruby-identifier">set_default_paths</span>
+    <span class="ruby-identifier">ca_file</span> = <span class="ruby-identifier">parent</span>.<span class="ruby-identifier">connopts</span>.<span class="ruby-identifier">tls</span>[<span class="ruby-value">:cert_chain_file</span>]
+    <span class="ruby-identifier">store</span>.<span class="ruby-identifier">add_file</span>(<span class="ruby-identifier">ca_file</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">ca_file</span>
+    <span class="ruby-identifier">store</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-host" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">host</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="host-source">
+            <pre><span class="ruby-comment"># File lib/faraday/adapter/em_http_ssl_patch.rb, line 41</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">host</span>
+  <span class="ruby-identifier">parent</span>.<span class="ruby-identifier">connopts</span>.<span class="ruby-identifier">host</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ssl_handshake_completed" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ssl_handshake_completed</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="ssl_handshake_completed-source">
+            <pre><span class="ruby-comment"># File lib/faraday/adapter/em_http_ssl_patch.rb, line 27</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ssl_handshake_completed</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">verify_peer?</span>
+
+  <span class="ruby-keyword">unless</span> <span class="ruby-constant">OpenSSL</span><span class="ruby-operator">::</span><span class="ruby-constant">SSL</span>.<span class="ruby-identifier">verify_certificate_identity</span>(<span class="ruby-ivar">@last_seen_cert</span>, <span class="ruby-identifier">host</span>)
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">OpenSSL</span><span class="ruby-operator">::</span><span class="ruby-constant">SSL</span><span class="ruby-operator">::</span><span class="ruby-constant">SSLError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">%Q(host &quot;#{host}&quot; does not match the server certificate)</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ssl_verify_peer" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ssl_verify_peer</span><span
+            class="method-args">(cert_string)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="ssl_verify_peer-source">
+            <pre><span class="ruby-comment"># File lib/faraday/adapter/em_http_ssl_patch.rb, line 5</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ssl_verify_peer</span>(<span class="ruby-identifier">cert_string</span>)
+  <span class="ruby-identifier">cert</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">cert</span> = <span class="ruby-constant">OpenSSL</span><span class="ruby-operator">::</span><span class="ruby-constant">X509</span><span class="ruby-operator">::</span><span class="ruby-constant">Certificate</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">cert_string</span>)
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">OpenSSL</span><span class="ruby-operator">::</span><span class="ruby-constant">X509</span><span class="ruby-operator">::</span><span class="ruby-constant">CertificateError</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@last_seen_cert</span> = <span class="ruby-identifier">cert</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">certificate_store</span>.<span class="ruby-identifier">verify</span>(<span class="ruby-ivar">@last_seen_cert</span>)
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-identifier">certificate_store</span>.<span class="ruby-identifier">add_cert</span>(<span class="ruby-ivar">@last_seen_cert</span>)
+    <span class="ruby-keyword">rescue</span> <span class="ruby-constant">OpenSSL</span><span class="ruby-operator">::</span><span class="ruby-constant">X509</span><span class="ruby-operator">::</span><span class="ruby-constant">StoreError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-identifier">e</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">e</span>.<span class="ruby-identifier">message</span> <span class="ruby-operator">==</span> <span class="ruby-string">&#39;cert already in hash table&#39;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">OpenSSL</span><span class="ruby-operator">::</span><span class="ruby-constant">SSL</span><span class="ruby-operator">::</span><span class="ruby-constant">SSLError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">%Q(unable to verify the server certificate for &quot;#{host}&quot;)</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-verify_peer-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">verify_peer?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="verify_peer-3F-source">
+            <pre><span class="ruby-comment"># File lib/faraday/adapter/em_http_ssl_patch.rb, line 37</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">verify_peer?</span>
+  <span class="ruby-identifier">parent</span>.<span class="ruby-identifier">connopts</span>.<span class="ruby-identifier">tls</span>[<span class="ruby-value">:verify_peer</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

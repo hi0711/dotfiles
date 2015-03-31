@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Sprockets::Manifest - sprockets-3.0.0.rc.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">Object
+  
+</div>
+
+    <div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><a class="include" href="ManifestUtils.html">Sprockets::ManifestUtils</a>
+  
+  
+  </ul>
+</div>
+
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-compile_match_filter">::compile_match_filter</a>
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-c-simple_logical_path-3F">::simple_logical_path?</a>
+    
+    <li ><a href="#method-i-assets">#assets</a>
+    
+    <li ><a href="#method-i-clean">#clean</a>
+    
+    <li ><a href="#method-i-clobber">#clobber</a>
+    
+    <li ><a href="#method-i-compile">#compile</a>
+    
+    <li ><a href="#method-i-files">#files</a>
+    
+    <li ><a href="#method-i-filter_logical_paths">#filter_logical_paths</a>
+    
+    <li ><a href="#method-i-find">#find</a>
+    
+    <li ><a href="#method-i-find_logical_paths">#find_logical_paths</a>
+    
+    <li ><a href="#method-i-json_decode">#json_decode</a>
+    
+    <li ><a href="#method-i-json_encode">#json_encode</a>
+    
+    <li ><a href="#method-i-logger">#logger</a>
+    
+    <li ><a href="#method-i-remove">#remove</a>
+    
+    <li ><a href="#method-i-save">#save</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Sprockets::Manifest">
+  <h1 id="class-Sprockets::Manifest" class="class">
+    class Sprockets::Manifest
+  </h1>
+
+  <section class="description">
+    
+<p>The <a href="Manifest.html">Manifest</a> logs the contents of assets
+compiled to a single directory. It records basic attributes about the asset
+for fast lookup without having to compile. A pointer from each logical path
+indicates which fingerprinted asset is the current one.</p>
+
+<p>The JSON is part of the public API and should be considered stable. This
+should make it easy to read from other programming languages and processes
+that don&#39;t have sprockets loaded. See `#assets` and `#files` for more
+infomation about the structure.</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-dir" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">dir</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-directory" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">directory</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-environment" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">environment</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-filename" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">filename</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Returns String path to manifest.json file.</p>
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-path" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">path</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        <p>Returns String path to manifest.json file.</p>
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-compile_match_filter" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">compile_match_filter</span><span
+            class="method-args">(filter)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Deprecated: Compile logical path matching filter into a proc that can be
+passed to logical_paths.select(&amp;proc).</p>
+
+<pre class="ruby"><span class="ruby-identifier">compile_match_filter</span>(<span class="ruby-identifier">proc</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">logical_path</span><span class="ruby-operator">|</span>
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">extname</span>(<span class="ruby-identifier">logical_path</span>) <span class="ruby-operator">==</span> <span class="ruby-string">&#39;.js&#39;</span>
+})
+
+<span class="ruby-identifier">compile_match_filter</span>(<span class="ruby-regexp">/application.js/</span>)
+
+<span class="ruby-identifier">compile_match_filter</span>(<span class="ruby-string">&quot;foo/*.js&quot;</span>)
+</pre>
+
+<p>Returns a Proc or raise a TypeError.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="compile_match_filter-source">
+            <pre><span class="ruby-comment"># File lib/sprockets/legacy.rb, line 273</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">compile_match_filter</span>(<span class="ruby-identifier">filter</span>)
+  <span class="ruby-comment"># If the filter is already a proc, great nothing to do.</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">filter</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:call</span>)
+    <span class="ruby-identifier">filter</span>
+  <span class="ruby-comment"># If the filter is a regexp, wrap it in a proc that tests it against the</span>
+  <span class="ruby-comment"># logical path.</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">filter</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Regexp</span>)
+    <span class="ruby-identifier">proc</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">logical_path</span><span class="ruby-operator">|</span> <span class="ruby-identifier">filter</span>.<span class="ruby-identifier">match</span>(<span class="ruby-identifier">logical_path</span>) }
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">filter</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>)
+    <span class="ruby-comment"># If its an absolute path, detect the matching full filename</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-constant">PathUtils</span>.<span class="ruby-identifier">absolute_path?</span>(<span class="ruby-identifier">filter</span>)
+      <span class="ruby-identifier">proc</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">logical_path</span>, <span class="ruby-identifier">filename</span><span class="ruby-operator">|</span> <span class="ruby-identifier">filename</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">filter</span>.<span class="ruby-identifier">to_s</span> }
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-comment"># Otherwise do an fnmatch against the logical path.</span>
+      <span class="ruby-identifier">proc</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">logical_path</span><span class="ruby-operator">|</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">fnmatch</span>(<span class="ruby-identifier">filter</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">logical_path</span>) }
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">TypeError</span>, <span class="ruby-node">&quot;unknown filter type: #{filter.inspect}&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Create new <a href="Manifest.html">Manifest</a> associated with an
+`environment`. `filename` is a full path to the manifest json file. The
+file may or may not already exist. The dirname of the `filename` will be
+used to write compiled assets to. Otherwise, if the path is a directory,
+the filename will default a random “.sprockets-manifest-*.json” file in
+that directory.</p>
+
+<pre class="ruby"><span class="ruby-constant">Manifest</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">environment</span>, <span class="ruby-string">&quot;./public/assets/manifest.json&quot;</span>)
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/sprockets/manifest.rb, line 28</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Base</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-ivar">@environment</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">shift</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@directory</span>, <span class="ruby-ivar">@filename</span> = <span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>], <span class="ruby-identifier">args</span>[<span class="ruby-value">1</span>]
+
+  <span class="ruby-comment"># Whether the manifest file is using the old manifest-*.json naming convention</span>
+  <span class="ruby-ivar">@legacy_manifest</span> = <span class="ruby-keyword">false</span>
+
+  <span class="ruby-comment"># Expand paths</span>
+  <span class="ruby-ivar">@directory</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-ivar">@directory</span>) <span class="ruby-keyword">if</span> <span class="ruby-ivar">@directory</span>
+  <span class="ruby-ivar">@filename</span>  = <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-ivar">@filename</span>) <span class="ruby-keyword">if</span> <span class="ruby-ivar">@filename</span>
+
+  <span class="ruby-comment"># If filename is given as the second arg</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@directory</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">extname</span>(<span class="ruby-ivar">@directory</span>) <span class="ruby-operator">!=</span> <span class="ruby-string">&quot;&quot;</span>
+    <span class="ruby-ivar">@directory</span>, <span class="ruby-ivar">@filename</span> = <span class="ruby-keyword">nil</span>, <span class="ruby-ivar">@directory</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-comment"># Default dir to the directory of the filename</span>
+  <span class="ruby-ivar">@directory</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-ivar">@filename</span>) <span class="ruby-keyword">if</span> <span class="ruby-ivar">@filename</span>
+
+  <span class="ruby-comment"># If directory is given w/o filename, pick a random manifest location</span>
+  <span class="ruby-ivar">@rename_filename</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@directory</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@filename</span>.<span class="ruby-identifier">nil?</span>
+    <span class="ruby-ivar">@filename</span> = <span class="ruby-identifier">find_directory_manifest</span>(<span class="ruby-ivar">@directory</span>)
+
+    <span class="ruby-comment"># If legacy manifest name autodetected, mark to rename on save</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>(<span class="ruby-ivar">@filename</span>).<span class="ruby-identifier">start_with?</span>(<span class="ruby-string">&quot;manifest&quot;</span>)
+      <span class="ruby-ivar">@rename_filename</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-ivar">@directory</span>, <span class="ruby-identifier">generate_manifest_path</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@directory</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@filename</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;manifest requires output filename&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">data</span> = {}
+
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-ivar">@filename</span>)
+      <span class="ruby-identifier">data</span> = <span class="ruby-identifier">json_decode</span>(<span class="ruby-constant">File</span>.<span class="ruby-identifier">read</span>(<span class="ruby-ivar">@filename</span>))
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">JSON</span><span class="ruby-operator">::</span><span class="ruby-constant">ParserError</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+    <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">error</span> <span class="ruby-node">&quot;#{@filename} is invalid: #{e.class} #{e.message}&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@data</span> = <span class="ruby-identifier">data</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-simple_logical_path-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">simple_logical_path?</span><span
+            class="method-args">(str)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="simple_logical_path-3F-source">
+            <pre><span class="ruby-comment"># File lib/sprockets/legacy.rb, line 294</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">simple_logical_path?</span>(<span class="ruby-identifier">str</span>)
+  <span class="ruby-identifier">str</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">String</span>) <span class="ruby-operator">&amp;&amp;</span>
+    <span class="ruby-operator">!</span><span class="ruby-constant">PathUtils</span>.<span class="ruby-identifier">absolute_path?</span>(<span class="ruby-identifier">str</span>) <span class="ruby-operator">&amp;&amp;</span>
+    <span class="ruby-identifier">str</span> <span class="ruby-operator">!~</span> <span class="ruby-regexp">/\*|\*\*|\?|\[|\]|\{|\}/</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-assets" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">assets</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns internal assets mapping. Keys are logical paths which map to the
+latest fingerprinted filename.</p>
+
+<pre>Logical path (String): Fingerprint path (String)
+
+{ &quot;application.js&quot; =&gt; &quot;application-2e8e9a7c6b0aafa0c9bdeec90ea30213.js&quot;,
+  &quot;jquery.js&quot;      =&gt; &quot;jquery-ae0908555a245f8266f77df5a8edca2e.js&quot; }</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="assets-source">
+            <pre><span class="ruby-comment"># File lib/sprockets/manifest.rb, line 93</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">assets</span>
+  <span class="ruby-ivar">@data</span>[<span class="ruby-string">&#39;assets&#39;</span>] <span class="ruby-operator">||=</span> {}
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-clean" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">clean</span><span
+            class="method-args">(count = 2, age = 3600)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Cleanup old assets in the compile directory. By default it will keep the
+latest version, 2 backups and any created within the past hour.</p>
+
+<p>Examples</p>
+
+<pre>To force only 1 backup to be kept, set count=1 and age=0.
+
+To only keep files created within the last 10 minutes, set count=0 and
+age=600.</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="clean-source">
+            <pre><span class="ruby-comment"># File lib/sprockets/manifest.rb, line 221</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">clean</span>(<span class="ruby-identifier">count</span> = <span class="ruby-value">2</span>, <span class="ruby-identifier">age</span> = <span class="ruby-value">3600</span>)
+  <span class="ruby-identifier">asset_versions</span> = <span class="ruby-identifier">files</span>.<span class="ruby-identifier">group_by</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">_</span>, <span class="ruby-identifier">attrs</span><span class="ruby-operator">|</span> <span class="ruby-identifier">attrs</span>[<span class="ruby-string">&#39;logical_path&#39;</span>] }
+
+  <span class="ruby-identifier">asset_versions</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">logical_path</span>, <span class="ruby-identifier">versions</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">current</span> = <span class="ruby-identifier">assets</span>[<span class="ruby-identifier">logical_path</span>]
+
+    <span class="ruby-identifier">versions</span>.<span class="ruby-identifier">reject</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">path</span>, <span class="ruby-identifier">_</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">path</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">current</span>
+    }.<span class="ruby-identifier">sort_by</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">_</span>, <span class="ruby-identifier">attrs</span><span class="ruby-operator">|</span>
+      <span class="ruby-comment"># Sort by timestamp</span>
+      <span class="ruby-constant">Time</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">attrs</span>[<span class="ruby-string">&#39;mtime&#39;</span>])
+    }.<span class="ruby-identifier">reverse</span>.<span class="ruby-identifier">each_with_index</span>.<span class="ruby-identifier">drop_while</span> { <span class="ruby-operator">|</span>(<span class="ruby-identifier">_</span>, <span class="ruby-identifier">attrs</span>), <span class="ruby-identifier">index</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">age</span> = [<span class="ruby-value">0</span>, <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span> <span class="ruby-operator">-</span> <span class="ruby-constant">Time</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">attrs</span>[<span class="ruby-string">&#39;mtime&#39;</span>])].<span class="ruby-identifier">max</span>
+      <span class="ruby-comment"># Keep if under age or within the count limit</span>
+      <span class="ruby-identifier">age</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">age</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">index</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">count</span>
+    }.<span class="ruby-identifier">each</span> { <span class="ruby-operator">|</span>(<span class="ruby-identifier">path</span>, <span class="ruby-identifier">_</span>), <span class="ruby-identifier">_</span><span class="ruby-operator">|</span>
+       <span class="ruby-comment"># Remove old assets</span>
+      <span class="ruby-identifier">remove</span>(<span class="ruby-identifier">path</span>)
+    }
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-clobber" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">clobber</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Wipe directive</p>
+          
+          
+
+          
+          <div class="method-source-code" id="clobber-source">
+            <pre><span class="ruby-comment"># File lib/sprockets/manifest.rb, line 244</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">clobber</span>
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">rm_r</span>(<span class="ruby-identifier">directory</span>) <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">directory</span>)
+  <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">info</span> <span class="ruby-node">&quot;Removed #{directory}&quot;</span>
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-compile" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">compile</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Compile and write asset to directory. The asset is written to a
+fingerprinted filename like
+`application-2e8e9a7c6b0aafa0c9bdeec90ea30213.js`. An entry is also
+inserted into the manifest file.</p>
+
+<pre class="ruby"><span class="ruby-identifier">compile</span>(<span class="ruby-string">&quot;application.js&quot;</span>)
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="compile-source">
+            <pre><span class="ruby-comment"># File lib/sprockets/manifest.rb, line 155</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">compile</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">environment</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">Error</span>, <span class="ruby-string">&quot;manifest requires environment for compilation&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">filenames</span> = []
+
+  <span class="ruby-identifier">find</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">asset</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">files</span>[<span class="ruby-identifier">asset</span>.<span class="ruby-identifier">digest_path</span>] = {
+      <span class="ruby-string">&#39;logical_path&#39;</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">asset</span>.<span class="ruby-identifier">logical_path</span>,
+      <span class="ruby-string">&#39;mtime&#39;</span>        =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">asset</span>.<span class="ruby-identifier">mtime</span>.<span class="ruby-identifier">iso8601</span>,
+      <span class="ruby-string">&#39;size&#39;</span>         =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">asset</span>.<span class="ruby-identifier">bytesize</span>,
+      <span class="ruby-string">&#39;digest&#39;</span>       =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">asset</span>.<span class="ruby-identifier">hexdigest</span>,
+      <span class="ruby-string">&#39;integrity&#39;</span>    =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">asset</span>.<span class="ruby-identifier">integrity</span>
+    }
+    <span class="ruby-identifier">assets</span>[<span class="ruby-identifier">asset</span>.<span class="ruby-identifier">logical_path</span>] = <span class="ruby-identifier">asset</span>.<span class="ruby-identifier">digest_path</span>
+
+    <span class="ruby-identifier">target</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">dir</span>, <span class="ruby-identifier">asset</span>.<span class="ruby-identifier">digest_path</span>)
+
+    <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">target</span>)
+      <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">debug</span> <span class="ruby-node">&quot;Skipping #{target}, already exists&quot;</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">info</span> <span class="ruby-node">&quot;Writing #{target}&quot;</span>
+      <span class="ruby-identifier">asset</span>.<span class="ruby-identifier">write_to</span> <span class="ruby-identifier">target</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">filenames</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">asset</span>.<span class="ruby-identifier">filename</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">save</span>
+
+  <span class="ruby-identifier">filenames</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-files" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">files</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns internal file directory listing. Keys are filenames which map to an
+attributes array.</p>
+
+<pre> Fingerprint path (String):
+   logical_path: Logical path (String)
+   mtime: ISO8601 mtime (String)
+   digest: Base64 hex digest (String)
+
+{ &quot;application-2e8e9a7c6b0aafa0c9bdeec90ea30213.js&quot; =&gt;
+    { &#39;logical_path&#39; =&gt; &quot;application.js&quot;,
+      &#39;mtime&#39; =&gt; &quot;2011-12-13T21:47:08-06:00&quot;,
+      &#39;digest&#39; =&gt; &quot;2e8e9a7c6b0aafa0c9bdeec90ea30213&quot; } }</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="files-source">
+            <pre><span class="ruby-comment"># File lib/sprockets/manifest.rb, line 110</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">files</span>
+  <span class="ruby-ivar">@data</span>[<span class="ruby-string">&#39;files&#39;</span>] <span class="ruby-operator">||=</span> {}
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-filter_logical_paths" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">filter_logical_paths</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Deprecated: Filter logical paths in environment. Useful for selecting what
+files you want to compile.</p>
+
+<p>Returns an Enumerator.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="filter_logical_paths-source">
+            <pre><span class="ruby-comment"># File lib/sprockets/legacy.rb, line 304</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">filter_logical_paths</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">filters</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">flatten</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">arg</span><span class="ruby-operator">|</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">compile_match_filter</span>(<span class="ruby-identifier">arg</span>) }
+  <span class="ruby-identifier">environment</span>.<span class="ruby-identifier">cached</span>.<span class="ruby-identifier">logical_paths</span>.<span class="ruby-identifier">select</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">a</span>, <span class="ruby-identifier">b</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">filters</span>.<span class="ruby-identifier">any?</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-identifier">f</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">a</span>, <span class="ruby-identifier">b</span>) }
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="Manifest.html#method-i-find_logical_paths">find_logical_paths</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-find" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">find</span><span
+            class="method-args">(*args) { |asset| ... }</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Public: Find all assets matching pattern set in environment.</p>
+
+<p>Returns Enumerator of Assets.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="find-source">
+            <pre><span class="ruby-comment"># File lib/sprockets/manifest.rb, line 117</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">find</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">environment</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">Error</span>, <span class="ruby-string">&quot;manifest requires environment for compilation&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-identifier">to_enum</span>(<span class="ruby-identifier">__method__</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">args</span>) <span class="ruby-keyword">unless</span> <span class="ruby-identifier">block_given?</span>
+
+  <span class="ruby-identifier">paths</span>, <span class="ruby-identifier">filters</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">flatten</span>.<span class="ruby-identifier">partition</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">arg</span><span class="ruby-operator">|</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">simple_logical_path?</span>(<span class="ruby-identifier">arg</span>) }
+  <span class="ruby-identifier">filters</span> = <span class="ruby-identifier">filters</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">arg</span><span class="ruby-operator">|</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">compile_match_filter</span>(<span class="ruby-identifier">arg</span>) }
+
+  <span class="ruby-identifier">environment</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">environment</span>.<span class="ruby-identifier">cached</span>
+
+  <span class="ruby-identifier">paths</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">path</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">environment</span>.<span class="ruby-identifier">find_all_linked_assets</span>(<span class="ruby-identifier">path</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">asset</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">yield</span> <span class="ruby-identifier">asset</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">filters</span>.<span class="ruby-identifier">any?</span>
+    <span class="ruby-identifier">environment</span>.<span class="ruby-identifier">logical_paths</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">logical_path</span>, <span class="ruby-identifier">filename</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">filters</span>.<span class="ruby-identifier">any?</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span> <span class="ruby-identifier">f</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">logical_path</span>, <span class="ruby-identifier">filename</span>) }
+        <span class="ruby-identifier">environment</span>.<span class="ruby-identifier">find_all_linked_assets</span>(<span class="ruby-identifier">filename</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">asset</span><span class="ruby-operator">|</span>
+          <span class="ruby-keyword">yield</span> <span class="ruby-identifier">asset</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-find_logical_paths" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">find_logical_paths</span><span
+            class="method-args">(*args)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Deprecated alias.</p>
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="Manifest.html#method-i-filter_logical_paths">filter_logical_paths</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-remove" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">remove</span><span
+            class="method-args">(filename)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Removes file from directory and from manifest. `filename` must be the name
+with any directory path.</p>
+
+<pre class="ruby"><span class="ruby-identifier">manifest</span>.<span class="ruby-identifier">remove</span>(<span class="ruby-string">&quot;application-2e8e9a7c6b0aafa0c9bdeec90ea30213.js&quot;</span>)
+</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="remove-source">
+            <pre><span class="ruby-comment"># File lib/sprockets/manifest.rb, line 193</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">remove</span>(<span class="ruby-identifier">filename</span>)
+  <span class="ruby-identifier">path</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">join</span>(<span class="ruby-identifier">dir</span>, <span class="ruby-identifier">filename</span>)
+  <span class="ruby-identifier">logical_path</span> = <span class="ruby-identifier">files</span>[<span class="ruby-identifier">filename</span>][<span class="ruby-string">&#39;logical_path&#39;</span>]
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">assets</span>[<span class="ruby-identifier">logical_path</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">filename</span>
+    <span class="ruby-identifier">assets</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">logical_path</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">files</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">filename</span>)
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">rm</span>(<span class="ruby-identifier">path</span>) <span class="ruby-keyword">if</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">path</span>)
+
+  <span class="ruby-identifier">save</span>
+
+  <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">info</span> <span class="ruby-node">&quot;Removed #{filename}&quot;</span>
+
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-save" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">save</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Persist manfiest back to FS</p>
+          
+          
+
+          
+          <div class="method-source-code" id="save-source">
+            <pre><span class="ruby-comment"># File lib/sprockets/manifest.rb, line 251</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">save</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@rename_filename</span>
+    <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">info</span> <span class="ruby-node">&quot;Renaming #{@filename} to #{@rename_filename}&quot;</span>
+    <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mv</span>(<span class="ruby-ivar">@filename</span>, <span class="ruby-ivar">@rename_filename</span>)
+    <span class="ruby-ivar">@filename</span> = <span class="ruby-ivar">@rename_filename</span>
+    <span class="ruby-ivar">@rename_filename</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">data</span> = <span class="ruby-identifier">json_encode</span>(<span class="ruby-ivar">@data</span>)
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mkdir_p</span> <span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-ivar">@filename</span>)
+  <span class="ruby-constant">PathUtils</span>.<span class="ruby-identifier">atomic_write</span>(<span class="ruby-ivar">@filename</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">f</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">f</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">data</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-json_decode" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">json_decode</span><span
+            class="method-args">(obj)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="json_decode-source">
+            <pre><span class="ruby-comment"># File lib/sprockets/manifest.rb, line 267</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">json_decode</span>(<span class="ruby-identifier">obj</span>)
+  <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">obj</span>, <span class="ruby-identifier">create_additions</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-json_encode" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">json_encode</span><span
+            class="method-args">(obj)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="json_encode-source">
+            <pre><span class="ruby-comment"># File lib/sprockets/manifest.rb, line 271</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">json_encode</span>(<span class="ruby-identifier">obj</span>)
+  <span class="ruby-constant">JSON</span>.<span class="ruby-identifier">generate</span>(<span class="ruby-identifier">obj</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-logger" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">logger</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="logger-source">
+            <pre><span class="ruby-comment"># File lib/sprockets/manifest.rb, line 275</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">logger</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">environment</span>
+    <span class="ruby-identifier">environment</span>.<span class="ruby-identifier">logger</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">logger</span> = <span class="ruby-constant">Logger</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">$stderr</span>)
+    <span class="ruby-identifier">logger</span>.<span class="ruby-identifier">level</span> = <span class="ruby-constant">Logger</span><span class="ruby-operator">::</span><span class="ruby-constant">FATAL</span>
+    <span class="ruby-identifier">logger</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

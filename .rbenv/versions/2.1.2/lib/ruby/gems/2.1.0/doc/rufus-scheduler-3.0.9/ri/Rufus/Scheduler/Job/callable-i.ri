@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"callable:ETI"#Rufus::Scheduler::Job#callable;FI"R;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"1anything with a #call(job[, timet]) method, ;TI"!what gets actually triggered;T:
+@fileI" lib/rufus/scheduler/jobs.rb;T:0@omit_headings_from_table_of_contents_below0F@I"Rufus::Scheduler::Job;FcRDoc::NormalClass0

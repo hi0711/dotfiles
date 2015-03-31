@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>mkmf.log - bigdecimal-1.2.5 Documentation</title>
+
+<link href="./fonts.css" rel="stylesheet">
+<link href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/navigation.js"></script>
+<script src="./js/search_index.js"></script>
+<script src="./js/search.js"></script>
+<script src="./js/searcher.js"></script>
+<script src="./js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./Makefile.html">Makefile</a>
+  
+    <li><a href="./README.html">README</a>
+  
+    <li><a href="./depend.html">depend</a>
+  
+    <li><a href="./mkmf_log.html">mkmf.log</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page mkmf.log">
+
+<p>have_func: checking for labs() in stdlib.h… ——————– yes</p>
+
+<p>“clang -o conftest
+-I/Users/hi0711/.rbenv/versions/2.0.0-p594/include/ruby-2.0.0/x86_64-darwin13.4.0
+-I/Users/hi0711/.rbenv/versions/2.0.0-p594/include/ruby-2.0.0/ruby/backward
+-I/Users/hi0711/.rbenv/versions/2.0.0-p594/include/ruby-2.0.0 -I.
+-I/Users/hi0711/.rbenv/versions/2.0.0-p594/include  -D_XOPEN_SOURCE
+-D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3
+-Wno-error=shorten-64-to-32  -pipe conftest.c  -L.
+-L/Users/hi0711/.rbenv/versions/2.0.0-p594/lib -L.
+-L/Users/hi0711/.rbenv/versions/2.0.0-p594/lib      -lruby-static 
+-lpthread -ldl -lobjc ” checked program was:</p>
+
+<pre>begin</pre>
+
+<p>1: include “ruby.h” 2:  3: int main(int argc, char **argv) 4: { 5:   return
+0; 6: }</p>
+
+<pre>end</pre>
+
+<p>“clang -o conftest
+-I/Users/hi0711/.rbenv/versions/2.0.0-p594/include/ruby-2.0.0/x86_64-darwin13.4.0
+-I/Users/hi0711/.rbenv/versions/2.0.0-p594/include/ruby-2.0.0/ruby/backward
+-I/Users/hi0711/.rbenv/versions/2.0.0-p594/include/ruby-2.0.0 -I.
+-I/Users/hi0711/.rbenv/versions/2.0.0-p594/include  -D_XOPEN_SOURCE
+-D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3
+-Wno-error=shorten-64-to-32  -pipe conftest.c  -L.
+-L/Users/hi0711/.rbenv/versions/2.0.0-p594/lib -L.
+-L/Users/hi0711/.rbenv/versions/2.0.0-p594/lib      -lruby-static 
+-lpthread -ldl -lobjc ” checked program was: /* begin */</p>
+
+<pre>1: #include &quot;ruby.h&quot;
+2: 
+3: #include &lt;stdlib.h&gt;
+4: 
+5: /*top*/
+6: extern int t(void);
+7: int t(void) { void ((*volatile p)()); p = (void ((*)()))labs; return 0; }
+8: int main(int argc, char **argv)
+9: {</pre>
+
+<p>10:   if (argc &gt; 1000000) { 11:     printf(“%p”, &amp;t); 12:   } 13: 
+14:   return 0; 15: } /* end */</p>
+<hr>
+
+<p>have_func: checking for llabs() in stdlib.h… ——————– yes</p>
+
+<p>“clang -o conftest
+-I/Users/hi0711/.rbenv/versions/2.0.0-p594/include/ruby-2.0.0/x86_64-darwin13.4.0
+-I/Users/hi0711/.rbenv/versions/2.0.0-p594/include/ruby-2.0.0/ruby/backward
+-I/Users/hi0711/.rbenv/versions/2.0.0-p594/include/ruby-2.0.0 -I.
+-I/Users/hi0711/.rbenv/versions/2.0.0-p594/include  -D_XOPEN_SOURCE
+-D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT    -O3
+-Wno-error=shorten-64-to-32  -pipe conftest.c  -L.
+-L/Users/hi0711/.rbenv/versions/2.0.0-p594/lib -L.
+-L/Users/hi0711/.rbenv/versions/2.0.0-p594/lib      -lruby-static 
+-lpthread -ldl -lobjc ” checked program was: /* begin */</p>
+
+<pre>1: #include &quot;ruby.h&quot;
+2: 
+3: #include &lt;stdlib.h&gt;
+4: 
+5: /*top*/
+6: extern int t(void);
+7: int t(void) { void ((*volatile p)()); p = (void ((*)()))llabs; return 0; }
+8: int main(int argc, char **argv)
+9: {</pre>
+
+<p>10:   if (argc &gt; 1000000) { 11:     printf(“%p”, &amp;t); 12:   } 13: 
+14:   return 0; 15: } /* end */</p>
+<hr>
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

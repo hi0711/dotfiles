@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module Capybara::Helpers - capybara-2.4.4 Documentation</title>
+
+<link href="../fonts.css" rel="stylesheet">
+<link href="../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/navigation.js"></script>
+<script src="../js/search_index.js"></script>
+<script src="../js/search.js"></script>
+<script src="../js/searcher.js"></script>
+<script src="../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-declension">#declension</a>
+    
+    <li ><a href="#method-i-expects_none-3F">#expects_none?</a>
+    
+    <li ><a href="#method-i-failure_message">#failure_message</a>
+    
+    <li ><a href="#method-i-inject_asset_host">#inject_asset_host</a>
+    
+    <li ><a href="#method-i-matches_count-3F">#matches_count?</a>
+    
+    <li ><a href="#method-i-normalize_whitespace">#normalize_whitespace</a>
+    
+    <li ><a href="#method-i-to_regexp">#to_regexp</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-Capybara::Helpers">
+  <h1 id="module-Capybara::Helpers" class="module">
+    module Capybara::Helpers
+  </h1>
+
+  <section class="description">
+    
+<p>@api private</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-declension" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">declension</span><span
+            class="method-args">(singular, plural, count)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>A poor man&#39;s `pluralize`. Given two declensions, one singular and one
+plural, as well as a count, this will pick the correct declension. This way
+we can generate grammatically correct error message.</p>
+
+<p>@param [String] singular     The singular form of the word @param [String]
+plural       The plural form of the word @param [Integer] count       The
+number of items</p>
+          
+          
+
+          
+          <div class="method-source-code" id="declension-source">
+            <pre><span class="ruby-comment"># File lib/capybara/helpers.rb, line 119</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">declension</span>(<span class="ruby-identifier">singular</span>, <span class="ruby-identifier">plural</span>, <span class="ruby-identifier">count</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">count</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
+    <span class="ruby-identifier">singular</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">plural</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-expects_none-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">expects_none?</span><span
+            class="method-args">(options={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Checks if a count of 0 is valid for the given options hash. Returns false
+if options hash does not specify any count options.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="expects_none-3F-source">
+            <pre><span class="ruby-comment"># File lib/capybara/helpers.rb, line 76</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">expects_none?</span>(<span class="ruby-identifier">options</span>={})
+  <span class="ruby-keyword">if</span> [<span class="ruby-value">:count</span>, <span class="ruby-value">:maximum</span>, <span class="ruby-value">:minimum</span>, <span class="ruby-value">:between</span>].<span class="ruby-identifier">any?</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">k</span><span class="ruby-operator">|</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">has_key?</span> <span class="ruby-identifier">k</span> }
+    <span class="ruby-identifier">matches_count?</span>(<span class="ruby-value">0</span>,<span class="ruby-identifier">options</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-failure_message" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">failure_message</span><span
+            class="method-args">(description, options={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Generates a failure message given a description of the query and count
+options.</p>
+
+<p>@param [String] description   Description of a query @option [Range]
+between       Count should have been within the given range @option
+[Integer] count       Count should have been exactly this @option [Integer]
+maximum     Count should have been smaller than or equal to this value
+@option [Integer] minimum     Count should have been larger than or equal
+to this value</p>
+          
+          
+
+          
+          <div class="method-source-code" id="failure_message-source">
+            <pre><span class="ruby-comment"># File lib/capybara/helpers.rb, line 95</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">failure_message</span>(<span class="ruby-identifier">description</span>, <span class="ruby-identifier">options</span>={})
+  <span class="ruby-identifier">message</span> = <span class="ruby-node">&quot;expected to find #{description}&quot;</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:count</span>]
+    <span class="ruby-identifier">message</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot; #{options[:count]} #{declension(&#39;time&#39;, &#39;times&#39;, options[:count])}&quot;</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:between</span>]
+    <span class="ruby-identifier">message</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot; between #{options[:between].first} and #{options[:between].last} times&quot;</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:maximum</span>]
+    <span class="ruby-identifier">message</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot; at most #{options[:maximum]} #{declension(&#39;time&#39;, &#39;times&#39;, options[:maximum])}&quot;</span>
+  <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:minimum</span>]
+    <span class="ruby-identifier">message</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot; at least #{options[:minimum]} #{declension(&#39;time&#39;, &#39;times&#39;, options[:minimum])}&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">message</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-inject_asset_host" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">inject_asset_host</span><span
+            class="method-args">(html)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Injects a `&lt;base&gt;` tag into the given HTML code, pointing to
+`Capybara.asset_host`.</p>
+
+<p>@param [String] html     HTML code to inject into @return [String]        
+The modified HTML code</p>
+          
+          
+
+          
+          <div class="method-source-code" id="inject_asset_host-source">
+            <pre><span class="ruby-comment"># File lib/capybara/helpers.rb, line 41</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">inject_asset_host</span>(<span class="ruby-identifier">html</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">Capybara</span>.<span class="ruby-identifier">asset_host</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-constant">Nokogiri</span><span class="ruby-operator">::</span><span class="ruby-constant">HTML</span>(<span class="ruby-identifier">html</span>).<span class="ruby-identifier">css</span>(<span class="ruby-string">&quot;base&quot;</span>).<span class="ruby-identifier">empty?</span> 
+     <span class="ruby-identifier">match</span> = <span class="ruby-identifier">html</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/&lt;head[^&lt;]*?&gt;/</span>)
+      <span class="ruby-identifier">html</span>.<span class="ruby-identifier">clone</span>.<span class="ruby-identifier">insert</span> <span class="ruby-identifier">match</span>.<span class="ruby-identifier">end</span>(<span class="ruby-value">0</span>), <span class="ruby-node">&quot;&lt;base href=&#39;#{Capybara.asset_host}&#39; /&gt;&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">html</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-matches_count-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">matches_count?</span><span
+            class="method-args">(count, options={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Checks if the given count matches the given count options. Defaults to true
+if no options are specified. If multiple options are provided, it tests
+that all conditions are met; however, if :count is supplied, all other
+options are ignored.</p>
+
+<p>@param [Integer] count     The actual number. Should be coercible via
+Integer() @option [Range] between    Count must be within the given range
+@option [Integer] count    Count must be exactly this @option [Integer]
+maximum  Count must be smaller than or equal to this value @option
+[Integer] minimum  Count must be larger than or equal to this value</p>
+          
+          
+
+          
+          <div class="method-source-code" id="matches_count-3F-source">
+            <pre><span class="ruby-comment"># File lib/capybara/helpers.rb, line 63</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">matches_count?</span>(<span class="ruby-identifier">count</span>, <span class="ruby-identifier">options</span>={})
+  <span class="ruby-keyword">return</span> (<span class="ruby-constant">Integer</span>(<span class="ruby-identifier">options</span>[<span class="ruby-value">:count</span>]) <span class="ruby-operator">==</span> <span class="ruby-identifier">count</span>)     <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:count</span>]
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:maximum</span>] <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-constant">Integer</span>(<span class="ruby-identifier">options</span>[<span class="ruby-value">:maximum</span>]) <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">count</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:minimum</span>] <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-constant">Integer</span>(<span class="ruby-identifier">options</span>[<span class="ruby-value">:minimum</span>]) <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">count</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:between</span>] <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span>(<span class="ruby-identifier">options</span>[<span class="ruby-value">:between</span>] <span class="ruby-operator">===</span> <span class="ruby-identifier">count</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-normalize_whitespace" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">normalize_whitespace</span><span
+            class="method-args">(text)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Normalizes whitespace space by stripping leading and trailing whitespace
+and replacing sequences of whitespace characters with a single space.</p>
+
+<p>@param [String] text     Text to normalize @return [String]        
+Normalized text</p>
+          
+          
+
+          
+          <div class="method-source-code" id="normalize_whitespace-source">
+            <pre><span class="ruby-comment"># File lib/capybara/helpers.rb, line 17</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">normalize_whitespace</span>(<span class="ruby-identifier">text</span>)
+  <span class="ruby-identifier">text</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/[[:space:]]+/</span>, <span class="ruby-string">&#39; &#39;</span>).<span class="ruby-identifier">strip</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-to_regexp" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_regexp</span><span
+            class="method-args">(text)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Escapes any characters that would have special meaning in a regexp if text
+is not a regexp</p>
+
+<p>@param [String] text Text to escape @return [String]     Escaped text</p>
+          
+          
+
+          
+          <div class="method-source-code" id="to_regexp-source">
+            <pre><span class="ruby-comment"># File lib/capybara/helpers.rb, line 29</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to_regexp</span>(<span class="ruby-identifier">text</span>)
+  <span class="ruby-identifier">text</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Regexp</span>) <span class="ruby-operator">?</span> <span class="ruby-identifier">text</span> <span class="ruby-operator">:</span> <span class="ruby-constant">Regexp</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">Regexp</span>.<span class="ruby-identifier">escape</span>(<span class="ruby-identifier">normalize_whitespace</span>(<span class="ruby-identifier">text</span>)))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

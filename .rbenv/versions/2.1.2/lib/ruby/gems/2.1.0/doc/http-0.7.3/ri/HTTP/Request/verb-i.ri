@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"	verb:ETI"HTTP::Request#verb;FI"R;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I";Method is given as a lowercase symbol e.g. :get, :post;T:
+@fileI"lib/http/request.rb;T:0@omit_headings_from_table_of_contents_below0F@I"HTTP::Request;FcRDoc::NormalClass0

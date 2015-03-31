@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module Sorcery::Controller::Submodules::RememberMe::InstanceMethods - sorcery-0.9.0 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../../";
+</script>
+
+<script src="../../../../js/jquery.js"></script>
+<script src="../../../../js/darkfish.js"></script>
+
+<link href="../../../../css/fonts.css" rel="stylesheet">
+<link href="../../../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-auto_login">#auto_login</a>
+    
+    <li ><a href="#method-i-forget_me-21">#forget_me!</a>
+    
+    <li ><a href="#method-i-login_from_cookie">#login_from_cookie</a>
+    
+    <li ><a href="#method-i-remember_me-21">#remember_me!</a>
+    
+    <li ><a href="#method-i-remember_me_if_asked_to">#remember_me_if_asked_to</a>
+    
+    <li ><a href="#method-i-set_remember_me_cookie-21">#set_remember_me_cookie!</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-Sorcery::Controller::Submodules::RememberMe::InstanceMethods">
+  <h1 id="module-Sorcery::Controller::Submodules::RememberMe::InstanceMethods" class="module">
+    module Sorcery::Controller::Submodules::RememberMe::InstanceMethods
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-auto_login" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">auto_login</span><span
+            class="method-args">(user, should_remember = false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Override. logins a user instance, and optionally remembers him.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="auto_login-source">
+            <pre><span class="ruby-comment"># File lib/sorcery/controller/submodules/remember_me.rb, line 40</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">auto_login</span>(<span class="ruby-identifier">user</span>, <span class="ruby-identifier">should_remember</span> = <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">session</span>[<span class="ruby-value">:user_id</span>] = <span class="ruby-identifier">user</span>.<span class="ruby-identifier">id</span>.<span class="ruby-identifier">to_s</span>
+  <span class="ruby-ivar">@current_user</span> = <span class="ruby-identifier">user</span>
+  <span class="ruby-identifier">remember_me!</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">should_remember</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-forget_me-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">forget_me!</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Clears the cookie and clears the token from the db.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="forget_me-21-source">
+            <pre><span class="ruby-comment"># File lib/sorcery/controller/submodules/remember_me.rb, line 33</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">forget_me!</span>
+  <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">forget_me!</span>
+  <span class="ruby-identifier">cookies</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:remember_me_token</span>, <span class="ruby-value">:domain</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Config</span>.<span class="ruby-identifier">cookie_domain</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-remember_me-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">remember_me!</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>This method sets the cookie and calls the user to save the token and the
+expiration to db.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="remember_me-21-source">
+            <pre><span class="ruby-comment"># File lib/sorcery/controller/submodules/remember_me.rb, line 27</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">remember_me!</span>
+  <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">remember_me!</span>
+  <span class="ruby-identifier">set_remember_me_cookie!</span>(<span class="ruby-identifier">current_user</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="protected-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Protected Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-login_from_cookie" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">login_from_cookie</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Checks the cookie for a remember me token, tried to find a user with that
+token and logs the user in if found. Runs as a login source. See
+&#39;current_user&#39; method for how it is used.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="login_from_cookie-source">
+            <pre><span class="ruby-comment"># File lib/sorcery/controller/submodules/remember_me.rb, line 57</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">login_from_cookie</span>
+  <span class="ruby-identifier">user</span> = <span class="ruby-identifier">cookies</span>.<span class="ruby-identifier">signed</span>[<span class="ruby-value">:remember_me_token</span>] <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">user_class</span>.<span class="ruby-identifier">sorcery_adapter</span>.<span class="ruby-identifier">find_by_remember_me_token</span>(<span class="ruby-identifier">cookies</span>.<span class="ruby-identifier">signed</span>[<span class="ruby-value">:remember_me_token</span>])
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">user</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">has_remember_me_token?</span>
+    <span class="ruby-identifier">set_remember_me_cookie!</span>(<span class="ruby-identifier">user</span>)
+    <span class="ruby-identifier">session</span>[<span class="ruby-value">:user_id</span>] = <span class="ruby-identifier">user</span>.<span class="ruby-identifier">id</span>.<span class="ruby-identifier">to_s</span>
+    <span class="ruby-ivar">@current_user</span> = <span class="ruby-identifier">user</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@current_user</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-remember_me_if_asked_to" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">remember_me_if_asked_to</span><span
+            class="method-args">(user, credentials)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>calls remember_me! if a third credential was passed to the login method.
+Runs as a hook after login.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="remember_me_if_asked_to-source">
+            <pre><span class="ruby-comment"># File lib/sorcery/controller/submodules/remember_me.rb, line 50</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">remember_me_if_asked_to</span>(<span class="ruby-identifier">user</span>, <span class="ruby-identifier">credentials</span>)
+  <span class="ruby-identifier">remember_me!</span> <span class="ruby-keyword">if</span> ( <span class="ruby-identifier">credentials</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-value">3</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">credentials</span>[<span class="ruby-value">2</span>] <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">credentials</span>[<span class="ruby-value">2</span>] <span class="ruby-operator">!=</span> <span class="ruby-string">&quot;0&quot;</span> )
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-set_remember_me_cookie-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">set_remember_me_cookie!</span><span
+            class="method-args">(user)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="set_remember_me_cookie-21-source">
+            <pre><span class="ruby-comment"># File lib/sorcery/controller/submodules/remember_me.rb, line 68</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">set_remember_me_cookie!</span>(<span class="ruby-identifier">user</span>)
+  <span class="ruby-identifier">cookies</span>.<span class="ruby-identifier">signed</span>[<span class="ruby-value">:remember_me_token</span>] = {
+    <span class="ruby-value">:value</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">user</span>.<span class="ruby-identifier">sorcery_config</span>.<span class="ruby-identifier">remember_me_token_attribute_name</span>),
+    <span class="ruby-value">:expires</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">user</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">user</span>.<span class="ruby-identifier">sorcery_config</span>.<span class="ruby-identifier">remember_me_token_expires_at_attribute_name</span>),
+    <span class="ruby-value">:httponly</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Config</span>.<span class="ruby-identifier">remember_me_httponly</span>,
+    <span class="ruby-value">:domain</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Config</span>.<span class="ruby-identifier">cookie_domain</span>
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

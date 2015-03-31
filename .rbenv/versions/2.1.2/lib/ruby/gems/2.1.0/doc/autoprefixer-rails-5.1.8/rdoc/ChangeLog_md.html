@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>ChangeLog - autoprefixer-rails-5.1.8 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#label-5.1.8">5.1.8</a>
+    <li><a href="#label-5.1.7.1">5.1.7.1</a>
+    <li><a href="#label-5.1.7">5.1.7</a>
+    <li><a href="#label-5.1.6">5.1.6</a>
+    <li><a href="#label-5.1.5">5.1.5</a>
+    <li><a href="#label-5.1.4">5.1.4</a>
+    <li><a href="#label-5.1.3.1">5.1.3.1</a>
+    <li><a href="#label-5.1.3">5.1.3</a>
+    <li><a href="#label-5.1.2">5.1.2</a>
+    <li><a href="#label-5.1.1">5.1.1</a>
+    <li><a href="#label-5.1+-E2-80-9CJianyuan-E2-80-9D">5.1 “Jianyuan”</a>
+    <li><a href="#label-5.0.0.3">5.0.0.3</a>
+    <li><a href="#label-5.0.0.2">5.0.0.2</a>
+    <li><a href="#label-5.0.0.1">5.0.0.1</a>
+    <li><a href="#label-5.0+-E2-80-9CPravda+v-C3-ADt-C4-9Bz-C3-AD-E2-80-9D">5.0 “Pravda vítězí”</a>
+    <li><a href="#label-4.0.2.2">4.0.2.2</a>
+    <li><a href="#label-4.0.2.1">4.0.2.1</a>
+    <li><a href="#label-4.0.2">4.0.2</a>
+    <li><a href="#label-4.0.1.1">4.0.1.1</a>
+    <li><a href="#label-4.0.1">4.0.1</a>
+    <li><a href="#label-4.0.0.1">4.0.0.1</a>
+    <li><a href="#label-4.0+-E2-80-9CIndivisibiliter+ac+Inseparabiliter-E2-80-9D">4.0 “Indivisibiliter ac Inseparabiliter”</a>
+    <li><a href="#label-3.1.2">3.1.2</a>
+    <li><a href="#label-3.1.1">3.1.1</a>
+    <li><a href="#label-3.1+-E2-80-9CSatyameva+Jayate-E2-80-9D">3.1 “Satyameva Jayate”</a>
+    <li><a href="#label-3.0.1">3.0.1</a>
+    <li><a href="#label-3.0+-E2-80-9CLibert-C3-A9-2C+-C3-89galit-C3-A9-2C+Fraternit-C3-A9-E2-80-9D">3.0 “Liberté, Égalité, Fraternité”</a>
+    <li><a href="#label-2.2.20140804">2.2.20140804</a>
+    <li><a href="#label-2.2+-E2-80-9CMobilis+in+mobili-E2-80-9D">2.2 “Mobilis in mobili”</a>
+    <li><a href="#label-2.1.1">2.1.1</a>
+    <li><a href="#label-2.1+-E2-80-9CEleftheria+i+thanatos-E2-80-9D">2.1 “Eleftheria i thanatos”</a>
+    <li><a href="#label-2.0.2">2.0.2</a>
+    <li><a href="#label-2.0.1">2.0.1</a>
+    <li><a href="#label-2.0+-E2-80-9CHongik+Ingan-E2-80-9D">2.0 “Hongik Ingan”</a>
+    <li><a href="#label-1.3.1">1.3.1</a>
+    <li><a href="#label-1.3+-E2-80-9CTenka+Fubu-E2-80-9D">1.3 “Tenka Fubu”</a>
+    <li><a href="#label-1.2+-E2-80-9CMeiji-E2-80-9D">1.2 “Meiji”</a>
+    <li><a href="#label-1.1+-E2-80-9CNutrisco+et+extingo-E2-80-9D">1.1 “Nutrisco et extingo”</a>
+    <li><a href="#label-20140222-3A">20140222:</a>
+    <li><a href="#label-20140226-3A">20140226:</a>
+    <li><a href="#label-20140302-3A">20140302:</a>
+    <li><a href="#label-20140319-3A">20140319:</a>
+    <li><a href="#label-20140327-3A">20140327:</a>
+    <li><a href="#label-20140403-3A">20140403:</a>
+    <li><a href="#label-20140410-3A">20140410:</a>
+    <li><a href="#label-20140429-3A">20140429:</a>
+    <li><a href="#label-20140430-3A">20140430:</a>
+    <li><a href="#label-20140510">20140510</a>
+    <li><a href="#label-20140512">20140512</a>
+    <li><a href="#label-20140521">20140521</a>
+    <li><a href="#label-20140523">20140523</a>
+    <li><a href="#label-20140605">20140605</a>
+    <li><a href="#label-1.0+-E2-80-9CPlus+ultra-E2-80-9D">1.0 “Plus ultra”</a>
+    <li><a href="#label-20131225-3A">20131225:</a>
+    <li><a href="#label-20140103-3A">20140103:</a>
+    <li><a href="#label-20140109-3A">20140109:</a>
+    <li><a href="#label-20140110-3A">20140110:</a>
+    <li><a href="#label-20140117-3A">20140117:</a>
+    <li><a href="#label-20140130-3A">20140130:</a>
+    <li><a href="#label-20140203-3A">20140203:</a>
+    <li><a href="#label-20140213-3A">20140213:</a>
+    <li><a href="#label-0.8+-E2-80-9CUnbowed-2C+Unbent-2C+Unbroken-E2-80-9D">0.8 “Unbowed, Unbent, Unbroken”</a>
+    <li><a href="#label-20130903-3A">20130903:</a>
+    <li><a href="#label-20130906-3A">20130906:</a>
+    <li><a href="#label-20130911-3A">20130911:</a>
+    <li><a href="#label-20130919-3A">20130919:</a>
+    <li><a href="#label-20130923-3A">20130923:</a>
+    <li><a href="#label-20131001-3A">20131001:</a>
+    <li><a href="#label-20131006-3A">20131006:</a>
+    <li><a href="#label-20131007-3A">20131007:</a>
+    <li><a href="#label-20131009-3A">20131009:</a>
+    <li><a href="#label-20131015-3A">20131015:</a>
+    <li><a href="#label-20131017-3A">20131017:</a>
+    <li><a href="#label-20131020-3A">20131020:</a>
+    <li><a href="#label-20131029-3A">20131029:</a>
+    <li><a href="#label-20131104-3A">20131104:</a>
+    <li><a href="#label-20131205-3A">20131205:</a>
+    <li><a href="#label-20131209-3A">20131209:</a>
+    <li><a href="#label-20131213-3A">20131213:</a>
+    <li><a href="#label-0.7+-E2-80-9CWe+Do+Not+Sow-E2-80-9D">0.7 “We Do Not Sow”</a>
+    <li><a href="#label-20130806-3A">20130806:</a>
+    <li><a href="#label-20130807-3A">20130807:</a>
+    <li><a href="#label-20130808-3A">20130808:</a>
+    <li><a href="#label-20130810-3A">20130810:</a>
+    <li><a href="#label-20130824-3A">20130824:</a>
+    <li><a href="#label-0.6+-E2-80-9CAs+High+As+Honor-E2-80-9D">0.6 “As High As Honor”</a>
+    <li><a href="#label-20130721-3A">20130721:</a>
+    <li><a href="#label-20130728-3A">20130728:</a>
+    <li><a href="#label-20130729-3A">20130729:</a>
+    <li><a href="#label-20130730-3A">20130730:</a>
+    <li><a href="#label-20130731-3A">20130731:</a>
+    <li><a href="#label-0.5+-E2-80-9COurs+is+the+Fury-E2-80-9D">0.5 “Ours is the Fury”</a>
+    <li><a href="#label-20130616-3A">20130616:</a>
+    <li><a href="#label-20130617-3A">20130617:</a>
+    <li><a href="#label-20130625-3A">20130625:</a>
+    <li><a href="#label-20130626-3A">20130626:</a>
+    <li><a href="#label-20130629-3A">20130629:</a>
+    <li><a href="#label-0.4+-E2-80-9CWinter+Is+Coming-E2-80-9D">0.4 “Winter Is Coming”</a>
+    <li><a href="#label-20130515-3A">20130515:</a>
+    <li><a href="#label-20130521-3A">20130521:</a>
+    <li><a href="#label-20130523-3A">20130523:</a>
+    <li><a href="#label-20130524-3A">20130524:</a>
+    <li><a href="#label-20130527-3A">20130527:</a>
+    <li><a href="#label-20130528-3A">20130528:</a>
+    <li><a href="#label-20130530-3A">20130530:</a>
+    <li><a href="#label-20130603-3A">20130603:</a>
+    <li><a href="#label-0.3+-E2-80-9CGrowing+Strong-E2-80-9D">0.3 “Growing Strong”</a>
+    <li><a href="#label-20130424-3A">20130424:</a>
+    <li><a href="#label-20130427-3A">20130427:</a>
+    <li><a href="#label-20130502-3A">20130502:</a>
+    <li><a href="#label-0.2+-E2-80-9CHear+Me+Roar-21-E2-80-9D">0.2 “Hear Me Roar!”</a>
+    <li><a href="#label-0.1+-E2-80-9CFire+and+Blood-E2-80-9D">0.1 “Fire and Blood”</a>
+  </ul>
+</div>
+
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./ChangeLog_md.html">ChangeLog</a>
+  
+    <li><a href="./LICENSE.html">LICENSE</a>
+  
+    <li><a href="./README_md.html">README</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page ChangeLog.md">
+
+<h2 id="label-5.1.8">5.1.8<span><a href="#label-5.1.8">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>Fix gradients in <code>mask</code> and <code>mask-image</code> properties.</p>
+</li><li>
+<p>Fix old webkit prefix on some unsupported gradients.</p>
+</li></ul>
+
+<h2 id="label-5.1.7.1">5.1.7.1<span><a href="#label-5.1.7.1">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>Update Can I Use database and JS libraries.</p>
+</li><li>
+<p>Better support with Alaska runtime (by Jon Bardin).</p>
+</li></ul>
+
+<h2 id="label-5.1.7">5.1.7<span><a href="#label-5.1.7">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>Fix placeholder selector (by Vincent De Oliveira).</p>
+</li></ul>
+
+<h1 id="label-5.1.6">5.1.6<span><a href="#label-5.1.6">&para;</a> <a href="#top">&uarr;</a></span></h1>
+<ul><li>
+<p>Use official <code>::placeholder-shown</code> selector (by Vincent De
+Oliveira).</p>
+</li><li>
+<p>Fix problem with rails-html-sanitizer (by Alexey Vasiliev).</p>
+</li></ul>
+
+<h1 id="label-5.1.5">5.1.5<span><a href="#label-5.1.5">&para;</a> <a href="#top">&uarr;</a></span></h1>
+<ul><li>
+<p>Add transition support for CSS Masks properties.</p>
+</li></ul>
+
+<h1 id="label-5.1.4">5.1.4<span><a href="#label-5.1.4">&para;</a> <a href="#top">&uarr;</a></span></h1>
+<ul><li>
+<p>Use <code>-webkit-</code> prefix for Opera Mobile 24.</p>
+</li></ul>
+
+<h1 id="label-5.1.3.1">5.1.3.1<span><a href="#label-5.1.3.1">&para;</a> <a href="#top">&uarr;</a></span></h1>
+<ul><li>
+<p>Fix Rails 5 support (by Joshua Peek).</p>
+</li></ul>
+
+<h1 id="label-5.1.3">5.1.3<span><a href="#label-5.1.3">&para;</a> <a href="#top">&uarr;</a></span></h1>
+<ul><li>
+<p>Add IE support for <code>image-rendering: crisp-edges</code>.</p>
+</li></ul>
+
+<h1 id="label-5.1.2">5.1.2<span><a href="#label-5.1.2">&para;</a> <a href="#top">&uarr;</a></span></h1>
+<ul><li>
+<p>Add never existed <code>@-ms-keyframes</code> to common mistake.</p>
+</li></ul>
+
+<h2 id="label-5.1.1">5.1.1<span><a href="#label-5.1.1">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>Safer value split in <code>flex</code> hack.</p>
+</li></ul>
+
+<h2 id="label-5.1+-E2-80-9CJianyuan-E2-80-9D">5.1 “Jianyuan”<span><a href="#label-5.1+-E2-80-9CJianyuan-E2-80-9D">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>Add support for resolution media query (by 一丝).</p>
+</li><li>
+<p>Higher accuracy while removing prefixes in values.</p>
+</li><li>
+<p>Add support for logical properties (by 一丝).</p>
+</li><li>
+<p>Add <code>@viewport</code> support.</p>
+</li><li>
+<p>Add <code>text-overflow</code> support (by 一丝).</p>
+</li><li>
+<p>Add <code>text-emphasis</code> support (by 一丝).</p>
+</li><li>
+<p>Add <code>image-rendering: crisp-edges</code> support.</p>
+</li><li>
+<p>Add <code>text-align-last</code> support.</p>
+</li><li>
+<p>Return <code>autoprefixer.defaults</code> as alias to current
+<code>browserslist.defaults</code>.</p>
+</li><li>
+<p>Save code style while adding prefixes to <code>@keyframes</code> and
+<code>@viewport</code>.</p>
+</li><li>
+<p>Do not remove <code>-webkit-background-clip</code> with non-spec
+<code>text</code> value.</p>
+</li><li>
+<p>Fix <code>-webkit-filter</code> in <code>transition</code>.</p>
+</li><li>
+<p>Better support for browser versions joined on Can I Use  like <code>ios_saf
+7.0-7.1</code> (by Vincent De Oliveira).</p>
+</li><li>
+<p>Fix compatibility with <code>postcss-import</code> (by Jason Kuhrt).</p>
+</li><li>
+<p>Fix Flexbox prefixes for BlackBerry and UC Browser.</p>
+</li><li>
+<p>Fix gradient prefixes for old Chrome.</p>
+</li></ul>
+
+<h2 id="label-5.0.0.3">5.0.0.3<span><a href="#label-5.0.0.3">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>Fix error on <code>nil</code> in processor params.</p>
+</li></ul>
+
+<h2 id="label-5.0.0.2">5.0.0.2<span><a href="#label-5.0.0.2">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>Fix for non-Rails environments.</p>
+</li><li>
+<p>Add notice about unsupported ExecJS runtimes.</p>
+</li><li>
+<p>Update Can I Use data.</p>
+</li></ul>
+
+<h2 id="label-5.0.0.1">5.0.0.1<span><a href="#label-5.0.0.1">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>Fix issue on node.js runtime.</p>
+</li></ul>
+
+<h2 id="label-5.0+-E2-80-9CPravda+v-C3-ADt-C4-9Bz-C3-AD-E2-80-9D">5.0 “Pravda vítězí”<span><a href="#label-5.0+-E2-80-9CPravda+v-C3-ADt-C4-9Bz-C3-AD-E2-80-9D">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>Use PostCSS 4.0.</p>
+</li><li>
+<p>Use Browserslist to parse browsers queries.</p>
+</li><li>
+<p>Use global <code>browserslist</code> config.  Key <code>browsers</code> in
+<code>config/autoprefixer.yml</code> is now deprecated.</p>
+</li><li>
+<p>Add <code>&gt; 5% in US</code> query to select browsers by usage in some
+country.</p>
+</li><li>
+<p>Add <code>object-fit</code> and <code>object-position</code> properties
+support.</p>
+</li><li>
+<p>Add CSS Shape properties support.</p>
+</li><li>
+<p>Fix UC Browser name in debug info.</p>
+</li></ul>
+
+<h2 id="label-4.0.2.2">4.0.2.2<span><a href="#label-4.0.2.2">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>Update Can I Use data.</p>
+</li><li>
+<p>Update some npm dependencies.</p>
+</li></ul>
+
+<h2 id="label-4.0.2.1">4.0.2.1<span><a href="#label-4.0.2.1">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>Fix IE filter parsing with multiple commands.</p>
+</li><li>
+<p>Update Can I Use dump.</p>
+</li></ul>
+
+<h2 id="label-4.0.2">4.0.2<span><a href="#label-4.0.2">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>Remove <code>o-border-radius</code>, which is common mistake in legacy CSS.</p>
+</li></ul>
+
+<h2 id="label-4.0.1.1">4.0.1.1<span><a href="#label-4.0.1.1">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>Use PostCSS 3.0.5 to parse complicated cases of CSS syntax.</p>
+</li><li>
+<p>Update Can I Use dump.</p>
+</li></ul>
+
+<h2 id="label-4.0.1">4.0.1<span><a href="#label-4.0.1">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>Fix <code>@supports</code> support with brackets in values (by Vincent De
+Oliveira).</p>
+</li><li>
+<p>Fix Windows support (by Kamen Hursev).</p>
+</li></ul>
+
+<h2 id="label-4.0.0.1">4.0.0.1<span><a href="#label-4.0.0.1">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>Update PostCSS to fix issue with empty comment.</p>
+</li></ul>
+
+<h2 id="label-4.0+-E2-80-9CIndivisibiliter+ac+Inseparabiliter-E2-80-9D">4.0 “Indivisibiliter ac Inseparabiliter”<span><a href="#label-4.0+-E2-80-9CIndivisibiliter+ac+Inseparabiliter-E2-80-9D">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>Become 2.5 times fatser by new PostCSS 3.0 parser.</p>
+</li><li>
+<p>Do not remove outdated prefixes by <code>remove: false</code> option.</p>
+</li><li>
+<p><code>map.inline</code> and <code>map.sourcesContent</code> options are now
+<code>true</code> by default.</p>
+</li><li>
+<p>Add <code>box-decoration-break</code> support.</p>
+</li><li>
+<p>Do not add old <code>-webkit-</code> prefix for gradients with
+<code>px</code> units.</p>
+</li><li>
+<p>Use previous source map to show origin source of CSS syntax error.</p>
+</li><li>
+<p>Use <code>from</code> option from previous source map <code>file</code>
+field.</p>
+</li><li>
+<p>Set <code>to</code> value to <code>from</code> if <code>to</code> option is
+missing.</p>
+</li><li>
+<p>Trim Unicode BOM on source maps parsing.</p>
+</li><li>
+<p>Parse at-rules without spaces like <code>@import&quot;file&quot;</code>.</p>
+</li><li>
+<p>Better previous <code>sourceMappingURL</code> annotation comment cleaning.</p>
+</li><li>
+<p>Do not remove previous <code>sourceMappingURL</code> comment on
+<code>map.annotation: false</code>.</p>
+</li></ul>
+
+<h2 id="label-3.1.2">3.1.2<span><a href="#label-3.1.2">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>Update Firefox ESR version from 24 to 31.</p>
+</li></ul>
+
+<h2 id="label-3.1.1">3.1.1<span><a href="#label-3.1.1">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>Use Flexbox 2009 spec for Android stock browser &lt; 4.4.</p>
+</li></ul>
+
+<h2 id="label-3.1+-E2-80-9CSatyameva+Jayate-E2-80-9D">3.1 “Satyameva Jayate”<span><a href="#label-3.1+-E2-80-9CSatyameva+Jayate-E2-80-9D">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>Do not remove comments from prefixed values (by Eitan Rousso).</p>
+</li><li>
+<p>Allow Safari 6.1 to use final Flexbox spec (by John Kreitlow).</p>
+</li><li>
+<p>Fix <code>filter</code> value in <code>transition</code> in Webkits.</p>
+</li><li>
+<p>Show greetings in <a href="Rake.html">Rake</a> task if your browsers don’t
+require any prefixes.</p>
+</li><li>
+<p>Add <code>&lt;=</code> and <code>&lt;</code> browsers requirement (by
+Andreas Lind).</p>
+</li></ul>
+
+<h2 id="label-3.0.1">3.0.1<span><a href="#label-3.0.1">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>Update Can I Use data.</p>
+</li></ul>
+
+<h2 id="label-3.0+-E2-80-9CLibert-C3-A9-2C+-C3-89galit-C3-A9-2C+Fraternit-C3-A9-E2-80-9D">3.0 “Liberté, Égalité, Fraternité”<span><a href="#label-3.0+-E2-80-9CLibert-C3-A9-2C+-C3-89galit-C3-A9-2C+Fraternit-C3-A9-E2-80-9D">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>All methods now receive browsers as options key, not separated argument.</p>
+</li><li>
+<p>GNU format for syntax error messages from PostCSS 2.2.</p>
+</li></ul>
+
+<h2 id="label-2.2.20140804">2.2.20140804<span><a href="#label-2.2.20140804">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>Fix UTF-8 support in inline source maps.</p>
+</li><li>
+<p>Allow to miss <code>from</code> and <code>to</code> options in inline
+source maps.</p>
+</li><li>
+<p>Update Can I Use data.</p>
+</li></ul>
+
+<h2 id="label-2.2+-E2-80-9CMobilis+in+mobili-E2-80-9D">2.2 “Mobilis in mobili”<span><a href="#label-2.2+-E2-80-9CMobilis+in+mobili-E2-80-9D">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>Allow to disable Autoprefixer for some rule by control comment.</p>
+</li><li>
+<p>Use PostCSS 2.1 with Safe Mode option and broken source line  in CSS syntax
+error messages.</p>
+</li></ul>
+
+<h2 id="label-2.1.1">2.1.1<span><a href="#label-2.1.1">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>Fix <code>-webkit-background-size</code> hack for <code>contain</code> and
+<code>cover</code> values.</p>
+</li><li>
+<p>Don’t add <code>-webkit-</code> prefix to <code>filter</code> with SVG (by
+Vincent De Oliveira).</p>
+</li></ul>
+
+<h2 id="label-2.1+-E2-80-9CEleftheria+i+thanatos-E2-80-9D">2.1 “Eleftheria i thanatos”<span><a href="#label-2.1+-E2-80-9CEleftheria+i+thanatos-E2-80-9D">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>Add support for <code>clip-path</code> and <code>mask</code> properties.</p>
+</li><li>
+<p>Return <code>-webkit-</code> prefix to <code>filter</code> with SVG URI.</p>
+</li></ul>
+
+<h2 id="label-2.0.2">2.0.2<span><a href="#label-2.0.2">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>Add readable names for new browsers from 2.0 release.</p>
+</li><li>
+<p>Don’t add <code>-webkit-</code> prefix to <code>filter</code> with SVG URI.</p>
+</li><li>
+<p>Don’t add <code>-o-</code> prefix 3D transforms.</p>
+</li></ul>
+
+<h2 id="label-2.0.1">2.0.1<span><a href="#label-2.0.1">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>Save declaration style, when clone declaration to prefix.</p>
+</li></ul>
+
+<h2 id="label-2.0+-E2-80-9CHongik+Ingan-E2-80-9D">2.0 “Hongik Ingan”<span><a href="#label-2.0+-E2-80-9CHongik+Ingan-E2-80-9D">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>Based on PostCSS 1.0.  See <a
+href="https://github.com/postcss/postcss/releases/tag/1.0.0">options
+changes</a>.</p>
+</li><li>
+<p>Restore visual cascade after declaration removing.</p>
+</li><li>
+<p>Prefix declareation in <code>@supports</code> at-rule conditions.</p>
+</li><li>
+<p>Add all browsers from Can I Use: <code>ie_mob</code>, <code>and_chr</code>,
+<code>and_ff</code>,  <code>op_mob</code> and <code>op_mini</code>.</p>
+</li></ul>
+
+<h2 id="label-1.3.1">1.3.1<span><a href="#label-1.3.1">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>Fix gradient hack, when <code>background</code> property contains color.</p>
+</li></ul>
+
+<h2 id="label-1.3+-E2-80-9CTenka+Fubu-E2-80-9D">1.3 “Tenka Fubu”<span><a href="#label-1.3+-E2-80-9CTenka+Fubu-E2-80-9D">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>Add <code>text-size-adjust</code> support.</p>
+</li><li>
+<p>Add <code>background-size</code> to support Android 2.</p>
+</li><li>
+<p>Update Can I Use data.</p>
+</li></ul>
+
+<h2 id="label-1.2+-E2-80-9CMeiji-E2-80-9D">1.2 “Meiji”<span><a href="#label-1.2+-E2-80-9CMeiji-E2-80-9D">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>Use Can I Use data from official <code>caniuse-db</code> npm package.</p>
+</li><li>
+<p>Change versions to <code>x.x.x.y</code>, where <code>x.x.x</code> is
+Autoprefixer npm version  and <code>y</code> is a <code>caniuse-db</code>
+date.</p>
+</li></ul>
+
+<h2 id="label-1.1+-E2-80-9CNutrisco+et+extingo-E2-80-9D">1.1 “Nutrisco et extingo”<span><a href="#label-1.1+-E2-80-9CNutrisco+et+extingo-E2-80-9D">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>Add source map annotation comment support.</p>
+</li><li>
+<p>Add inline source map support.</p>
+</li><li>
+<p>Autodetect previous inline source map.</p>
+</li><li>
+<p>Fix source maps support on Windows.</p>
+</li><li>
+<p>Fix source maps support in subdirectory.</p>
+</li><li>
+<p>Prefix selector even if it is already prefixed by developer.</p>
+</li><li>
+<p>Change CSS indentation to create nice visual cascade of prefixes.</p>
+</li><li>
+<p>Fix flexbox support for IE 10 (by Roland Warmerdam).</p>
+</li><li>
+<p>Better <code>break-inside</code> support.</p>
+</li><li>
+<p>Fix prefixing, when two same properties are near.</p>
+</li></ul>
+
+<h3 id="label-20140222-3A">20140222:<span><a href="#label-20140222-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Add <code>touch-action</code> support.</p>
+</li></ul>
+
+<h3 id="label-20140226-3A">20140226:<span><a href="#label-20140226-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Chrome 33 is moved to released versions.</p>
+</li><li>
+<p>Add Chrome 36 data.</p>
+</li></ul>
+
+<h3 id="label-20140302-3A">20140302:<span><a href="#label-20140302-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Add <code>text-decoration-*</code> properties support.</p>
+</li><li>
+<p>Update browsers usage statistics.</p>
+</li><li>
+<p>Fix <code>cascade</code> options without <code>browsers</code> option (by
+Dominik Porada).</p>
+</li><li>
+<p>Use new PostCSS version.</p>
+</li></ul>
+
+<h3 id="label-20140319-3A">20140319:<span><a href="#label-20140319-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Check already prefixed properties after current declaration.</p>
+</li><li>
+<p>Normalize spaces before already prefixed check.</p>
+</li><li>
+<p>Firefox 28 is moved to released versions.</p>
+</li><li>
+<p>Add Firefox 31 data.</p>
+</li><li>
+<p>Add some Blackberry data.</p>
+</li></ul>
+
+<h2 id="label-20140327-3A">20140327:<span><a href="#label-20140327-3A">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>Don’t use <code>-ms-transform</code> in <code>@keyframes</code>, because IE
+9 doesn’t support  animations.</p>
+</li><li>
+<p>Update BlackBerry 10 data.</p>
+</li></ul>
+
+<h2 id="label-20140403-3A">20140403:<span><a href="#label-20140403-3A">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>Update browsers usage statistics.</p>
+</li><li>
+<p>Opera 20 is moved to released versions.</p>
+</li><li>
+<p>Add Opera 22 data.</p>
+</li></ul>
+
+<h2 id="label-20140410-3A">20140410:<span><a href="#label-20140410-3A">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>Chrome 34 is moved to released versions.</p>
+</li><li>
+<p>Add Chrome 37 data.</p>
+</li><li>
+<p>Fix Chrome 36 data.</p>
+</li></ul>
+
+<h2 id="label-20140429-3A">20140429:<span><a href="#label-20140429-3A">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>Fix <code>display: inline-flex</code> support by 2009 spec.</p>
+</li><li>
+<p>Fix old WebKit gradient converter (by Sergey Belov).</p>
+</li></ul>
+
+<h2 id="label-20140430-3A">20140430:<span><a href="#label-20140430-3A">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>Separate 2D and 3D transform prefixes to clean unnecessary
+<code>-ms-</code> prefixes.</p>
+</li><li>
+<p>Firefox 29 is moved to released versions.</p>
+</li><li>
+<p>Add Firefox 32 data.</p>
+</li></ul>
+
+<h3 id="label-20140510">20140510<span><a href="#label-20140510">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Do not add <code>-ms-</code> prefix for <code>transform</code> with 3D
+functions.</p>
+</li><li>
+<p>Update browsers global usage statistics.</p>
+</li></ul>
+
+<h3 id="label-20140512">20140512<span><a href="#label-20140512">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Remove unnecessary <code>-moz-</code> prefix for <code>wavy</code> in
+<code>text-decoration</code>.</p>
+</li><li>
+<p>Update Safari data for font properties.</p>
+</li></ul>
+
+<h3 id="label-20140521">20140521<span><a href="#label-20140521">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Chrome 36 is moved to released versions.</p>
+</li><li>
+<p>Add Chrome 38 data.</p>
+</li></ul>
+
+<h3 id="label-20140523">20140523<span><a href="#label-20140523">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Opera 21 is moved to released versions.</p>
+</li><li>
+<p>Add Opera 23 data.</p>
+</li></ul>
+
+<h3 id="label-20140605">20140605<span><a href="#label-20140605">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Allow to parse gradients without space between color and position.</p>
+</li><li>
+<p>Add iOS 8, Safari 8 and Android 4.4.3 data.</p>
+</li><li>
+<p>Update browsers usage statistics.</p>
+</li></ul>
+
+<h2 id="label-1.0+-E2-80-9CPlus+ultra-E2-80-9D">1.0 “Plus ultra”<span><a href="#label-1.0+-E2-80-9CPlus+ultra-E2-80-9D">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>Source map support.</p>
+</li><li>
+<p>Save origin indents and code formatting.</p>
+</li><li>
+<p>Change CSS parser to PostCSS.</p>
+</li><li>
+<p>Keep vendor hacks, which does right after unprefixed property.</p>
+</li><li>
+<p>Show syntax errors if fixed sass-rails version if used.</p>
+</li><li>
+<p>Rename compile() to process() and return result object, instead of CSS
+string.</p>
+</li><li>
+<p>Rename inspect() to info().</p>
+</li><li>
+<p>Allow to select last versions for specified browser.</p>
+</li><li>
+<p>Add full browser names aliases: <code>firefox</code>, <code>explorer</code>
+and <code>blackberry</code>.</p>
+</li><li>
+<p>Ignore case in browser names.</p>
+</li><li>
+<p>Change license to MIT.</p>
+</li><li>
+<p>Add prefixes inside custom at-rules.</p>
+</li><li>
+<p>Add only necessary prefixes to selector inside prefixed at-rule.</p>
+</li><li>
+<p>Safer backgrounds list parser in gradient hack.</p>
+</li><li>
+<p>Prefix @keyframes inside @media.</p>
+</li><li>
+<p>Don’t prefix values for CSS3 PIE properties.</p>
+</li><li>
+<p>Use browserify to build standalone version.</p>
+</li></ul>
+
+<h3 id="label-20131225-3A">20131225:<span><a href="#label-20131225-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Add ::placeholder support for Firefix &gt;= 18.</p>
+</li><li>
+<p>Fix vendor prefixes order.</p>
+</li></ul>
+
+<h3 id="label-20140103-3A">20140103:<span><a href="#label-20140103-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Add webkit prefix for sticky position.</p>
+</li><li>
+<p>Update browsers popularity statistics.</p>
+</li></ul>
+
+<h3 id="label-20140109-3A">20140109:<span><a href="#label-20140109-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Add selectors and at-rules sections to debug info.</p>
+</li><li>
+<p>Fix outdated prefixes cleaning.</p>
+</li></ul>
+
+<h3 id="label-20140110-3A">20140110:<span><a href="#label-20140110-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Add <code>Firefox ESR</code> browser requirement.</p>
+</li><li>
+<p>Opera 18 is moved to released versions.</p>
+</li><li>
+<p>Add Opera 20 data.</p>
+</li></ul>
+
+<h3 id="label-20140117-3A">20140117:<span><a href="#label-20140117-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Chrome 32 is moved to released versions.</p>
+</li><li>
+<p>Add Opera 34 data.</p>
+</li></ul>
+
+<h3 id="label-20140130-3A">20140130:<span><a href="#label-20140130-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Fix flexbox properties names in transitions.</p>
+</li><li>
+<p>Add Chrome 35 and Firefox 29 data.</p>
+</li></ul>
+
+<h3 id="label-20140203-3A">20140203:<span><a href="#label-20140203-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Android 4.4 stock browser and Opera 19 are moved to released versions.</p>
+</li><li>
+<p>Add Opera 21 data.</p>
+</li><li>
+<p>Update browsers usage statistics.</p>
+</li></ul>
+
+<h3 id="label-20140213-3A">20140213:<span><a href="#label-20140213-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Add case insensitive to IE’s filter hack (by Dominik Schilling).</p>
+</li><li>
+<p>Improve selector prefixing in some rare cases (by Simon Lydell).</p>
+</li><li>
+<p>Firefox 27 is moved to released versions.</p>
+</li><li>
+<p>Add Firefox 30 data.</p>
+</li></ul>
+
+<h2 id="label-0.8+-E2-80-9CUnbowed-2C+Unbent-2C+Unbroken-E2-80-9D">0.8 “Unbowed, Unbent, Unbroken”<span><a href="#label-0.8+-E2-80-9CUnbowed-2C+Unbent-2C+Unbroken-E2-80-9D">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>Add more browsers to defaults (“&gt; 1%, last 2 versions, ff 17, opera
+12.1”  instead of just “last 2 browsers”).</p>
+</li><li>
+<p>Keep vendor prefixes without unprefixed version (like vendor-specific
+hacks).</p>
+</li><li>
+<p>Convert gradients to old WebKit syntax (actual for Android 2.3).</p>
+</li><li>
+<p>Better support for several syntaxes with one prefix (like Flexbox and 
+gradients in WebKit).</p>
+</li><li>
+<p>Add intrinsic and extrinsic sizing values support.</p>
+</li><li>
+<p>Remove never existed prefixes from common mistakes (like -ms-transition).</p>
+</li><li>
+<p>Add Opera 17 data.</p>
+</li><li>
+<p>Fix selector prefixes order.</p>
+</li><li>
+<p>Fix browser versions order in inspect.</p>
+</li></ul>
+
+<h3 id="label-20130903-3A">20130903:<span><a href="#label-20130903-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Fix old WebKit gradients convertor on rgba() colors.</p>
+</li><li>
+<p>Allow to write old direction syntax in gradients.</p>
+</li></ul>
+
+<h3 id="label-20130906-3A">20130906:<span><a href="#label-20130906-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Fix direction syntax in radial gradients.</p>
+</li><li>
+<p>Don’t prefix IE filter with modern syntax.</p>
+</li></ul>
+
+<h3 id="label-20130911-3A">20130911:<span><a href="#label-20130911-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Fix parsing property name with spaces.</p>
+</li></ul>
+
+<h3 id="label-20130919-3A">20130919:<span><a href="#label-20130919-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Fix processing custom framework prefixes (by Johannes J. Schmidt).</p>
+</li><li>
+<p>Concat outputs if several files compiled to one output.</p>
+</li><li>
+<p>Decrease standalone build size by removing unnecessary Binary class.</p>
+</li><li>
+<p>iOS 7 is moved to released versions.</p>
+</li><li>
+<p>Clean up binary code (by Simon Lydell).</p>
+</li></ul>
+
+<h3 id="label-20130923-3A">20130923:<span><a href="#label-20130923-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Firefox 24 is moved to released versions.</p>
+</li></ul>
+
+<h3 id="label-20131001-3A">20131001:<span><a href="#label-20131001-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Add support for grab, grabbing, zoom-in and zoom-out cursor values.</p>
+</li></ul>
+
+<h3 id="label-20131006-3A">20131006:<span><a href="#label-20131006-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Chrome 30 is moved to released versions.</p>
+</li></ul>
+
+<h3 id="label-20131007-3A">20131007:<span><a href="#label-20131007-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Don’t add another prefixes in rule with prefixed selector.</p>
+</li></ul>
+
+<h3 id="label-20131009-3A">20131009:<span><a href="#label-20131009-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Opera 17 is moved to released versions.</p>
+</li></ul>
+
+<h3 id="label-20131015-3A">20131015:<span><a href="#label-20131015-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Fix converting multiple gradients to old webkit syntax (by Aleksei
+Androsov).</p>
+</li></ul>
+
+<h3 id="label-20131017-3A">20131017:<span><a href="#label-20131017-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Fix @host at-rule parsing.</p>
+</li></ul>
+
+<h3 id="label-20131020-3A">20131020:<span><a href="#label-20131020-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>IE 11 and Andrid 4.3 is moved to released versions.</p>
+</li><li>
+<p>Add Opera 18 data.</p>
+</li><li>
+<p>Add @namespace support.</p>
+</li><li>
+<p>Sort browser versions in data file.</p>
+</li></ul>
+
+<h3 id="label-20131029-3A">20131029:<span><a href="#label-20131029-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Add Safari 6.1 data.</p>
+</li><li>
+<p>Add fx alias for Firefox.</p>
+</li></ul>
+
+<h3 id="label-20131104-3A">20131104:<span><a href="#label-20131104-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Update Android future version to 4.4.</p>
+</li><li>
+<p>Google Chrome 32 added to future versions list.</p>
+</li><li>
+<p>Firefox 25 now is actual version, 27 and 28 added to future versions.</p>
+</li><li>
+<p>Browsers statistics are updated.</p>
+</li></ul>
+
+<h3 id="label-20131205-3A">20131205:<span><a href="#label-20131205-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Google Chrome 33 added to future releases list.</p>
+</li><li>
+<p>Google Chrome 31 moved to current releases list.</p>
+</li></ul>
+
+<h3 id="label-20131209-3A">20131209:<span><a href="#label-20131209-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Fix Autoprefixer initializer on Heroku (by Jason Purcell).</p>
+</li><li>
+<p>Use old webkit gradients for old iOS and Safari (by Chad von Nau).</p>
+</li><li>
+<p>Fix direction conversion for old webkit gradients (by Chad von Nau).</p>
+</li><li>
+<p>Update browsers popularity statistics.</p>
+</li></ul>
+
+<h3 id="label-20131213-3A">20131213:<span><a href="#label-20131213-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Firefox ESR in default browsers was changed to 24 version.</p>
+</li><li>
+<p>Firefox 26 was moved to current releases list.</p>
+</li><li>
+<p>Firefox 28 was added to future releases list.</p>
+</li></ul>
+
+<h2 id="label-0.7+-E2-80-9CWe+Do+Not+Sow-E2-80-9D">0.7 “We Do Not Sow”<span><a href="#label-0.7+-E2-80-9CWe+Do+Not+Sow-E2-80-9D">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>Add vendor prefixes to selectors.</p>
+</li><li>
+<p>Add ::selection and ::placeholder selectors support.</p>
+</li><li>
+<p>Allow to load support data from Can I Use pull requests.</p>
+</li><li>
+<p>Remove deprecated API.</p>
+</li></ul>
+
+<h3 id="label-20130806-3A">20130806:<span><a href="#label-20130806-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Add hyphens support.</p>
+</li></ul>
+
+<h3 id="label-20130807-3A">20130807:<span><a href="#label-20130807-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Add tab-size support.</p>
+</li><li>
+<p>Add :fullscreen support.</p>
+</li></ul>
+
+<h3 id="label-20130808-3A">20130808:<span><a href="#label-20130808-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Allow to select browser versions by &gt; and &gt;= operator.</p>
+</li><li>
+<p>Fix flex properties in transition.</p>
+</li></ul>
+
+<h3 id="label-20130810-3A">20130810:<span><a href="#label-20130810-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Add Firefox 25 data.</p>
+</li></ul>
+
+<h3 id="label-20130824-3A">20130824:<span><a href="#label-20130824-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Add Chrome 31 and 30 data.</p>
+</li><li>
+<p>Fix CSS comments parsing (by vladkens).</p>
+</li></ul>
+
+<h2 id="label-0.6+-E2-80-9CAs+High+As+Honor-E2-80-9D">0.6 “As High As Honor”<span><a href="#label-0.6+-E2-80-9CAs+High+As+Honor-E2-80-9D">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>New faster API, which cache preprocessed data. Old API is deprecated.</p>
+</li><li>
+<p>A lot of perfomance improvements.</p>
+</li><li>
+<p>Add Opera 15 -webkit- prefix support.</p>
+</li><li>
+<p>Update Chrome 29 and Safari 7 prefixes data.</p>
+</li><li>
+<p>Add minor browsers in popularity select.</p>
+</li><li>
+<p>Better syntax error messages.</p>
+</li></ul>
+
+<h3 id="label-20130721-3A">20130721:<span><a href="#label-20130721-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Add Chrome 30 data.</p>
+</li></ul>
+
+<h3 id="label-20130728-3A">20130728:<span><a href="#label-20130728-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Don’t remove non-standard -webkit-background-clip: text.</p>
+</li><li>
+<p>Don’t remove IE hack on CSS parse.</p>
+</li><li>
+<p>Fix loading into Rails without Sprockets.</p>
+</li></ul>
+
+<h3 id="label-20130729-3A">20130729:<span><a href="#label-20130729-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Add Opera 16 data.</p>
+</li><li>
+<p>Fix “Invalid range in character class” error on JRuby.</p>
+</li></ul>
+
+<h3 id="label-20130730-3A">20130730:<span><a href="#label-20130730-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Fix correct clone comments inside keyframes (by Alexey Plutalov).</p>
+</li><li>
+<p>Fix angle recalculation in gradients (by Roman Komarov).</p>
+</li></ul>
+
+<h3 id="label-20130731-3A">20130731:<span><a href="#label-20130731-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Add border-image support.</p>
+</li></ul>
+
+<h2 id="label-0.5+-E2-80-9COurs+is+the+Fury-E2-80-9D">0.5 “Ours is the Fury”<span><a href="#label-0.5+-E2-80-9COurs+is+the+Fury-E2-80-9D">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>Rewrite Autoprefixer to be more flexible.</p>
+</li><li>
+<p>Use css, instead of Rework, to fix CSS parsing errors faster.</p>
+</li><li>
+<p>Fix a lot of CSS parsing errors.</p>
+</li><li>
+<p>Fix sass-rails 4.0.0.rc2 compatibility.</p>
+</li></ul>
+
+<h3 id="label-20130616-3A">20130616:<span><a href="#label-20130616-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>More useful message for CSS parsing errors.</p>
+</li><li>
+<p>Remove old WebKit gradient syntax.</p>
+</li><li>
+<p>Fix parsing error on comment with braces.</p>
+</li></ul>
+
+<h3 id="label-20130617-3A">20130617:<span><a href="#label-20130617-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Remove old Mozilla border-radius.</p>
+</li><li>
+<p>Don’t prefix old IE filter.</p>
+</li><li>
+<p>Remove old background-clip, background-size and background-origin prefixes.</p>
+</li><li>
+<p>Speed up regexps in values.</p>
+</li><li>
+<p>Allow to hack property declarations.</p>
+</li></ul>
+
+<h3 id="label-20130625-3A">20130625:<span><a href="#label-20130625-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Convert flexbox properties to 2009 and 2012 specifications.</p>
+</li><li>
+<p>Add support for sass-rails 4 final.</p>
+</li></ul>
+
+<h3 id="label-20130626-3A">20130626:<span><a href="#label-20130626-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Add Firefox 24 data.</p>
+</li><li>
+<p>Add prefixes for font-feature-settings.</p>
+</li></ul>
+
+<h3 id="label-20130629-3A">20130629:<span><a href="#label-20130629-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Fix convert flex properties to old box-flex.</p>
+</li><li>
+<p>Fix Sinatra (sprockets-sass) suuport.</p>
+</li></ul>
+
+<h2 id="label-0.4+-E2-80-9CWinter+Is+Coming-E2-80-9D">0.4 “Winter Is Coming”<span><a href="#label-0.4+-E2-80-9CWinter+Is+Coming-E2-80-9D">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>Remove outdated prefixes.</p>
+</li><li>
+<p>Add border-radius and box-shadow properties to database.</p>
+</li><li>
+<p>Change degrees in webkit gradients.</p>
+</li></ul>
+
+<h3 id="label-20130515-3A">20130515:<span><a href="#label-20130515-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Add old syntax in gradient direction.</p>
+</li><li>
+<p>Add old syntax for display: flex.</p>
+</li><li>
+<p>Update browser global usage statistics.</p>
+</li></ul>
+
+<h3 id="label-20130521-3A">20130521:<span><a href="#label-20130521-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Add Firefox 23 data.</p>
+</li><li>
+<p>Update css-parse to fix @-moz-document issue.</p>
+</li></ul>
+
+<h3 id="label-20130523-3A">20130523:<span><a href="#label-20130523-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Update Rework’s libraries to fix @page statement.</p>
+</li></ul>
+
+<h3 id="label-20130524-3A">20130524:<span><a href="#label-20130524-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Add Chrome 29 data.</p>
+</li></ul>
+
+<h3 id="label-20130527-3A">20130527:<span><a href="#label-20130527-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Fix new css-stringify issue.</p>
+</li></ul>
+
+<h3 id="label-20130528-3A">20130528:<span><a href="#label-20130528-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Fix compatibilty with Rework from git master.</p>
+</li><li>
+<p>Add minor browsers to data, which can be selected only directly.</p>
+</li></ul>
+
+<h3 id="label-20130530-3A">20130530:<span><a href="#label-20130530-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Add Opera 15 and iOS 6.1 data.</p>
+</li><li>
+<p>Fix iOS versions in properties and values data.</p>
+</li></ul>
+
+<h3 id="label-20130603-3A">20130603:<span><a href="#label-20130603-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Use latest Rework 0.15 with a lot of CSS parsing fixes.</p>
+</li><li>
+<p>Update browsers usage statistics.</p>
+</li></ul>
+
+<h2 id="label-0.3+-E2-80-9CGrowing+Strong-E2-80-9D">0.3 “Growing Strong”<span><a href="#label-0.3+-E2-80-9CGrowing+Strong-E2-80-9D">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>Use own filters instead of Rework’s <code>prefix</code> and
+<code>prefixValue</code>.</p>
+</li><li>
+<p>Smarter value prefixer without false match “order” in “border”.</p>
+</li><li>
+<p>40% faster.</p>
+</li><li>
+<p>Don’t add unnecessary properties instead of Rework’s
+<code>prefixValue</code>.</p>
+</li><li>
+<p>Don’t change properties order.</p>
+</li><li>
+<p>Sort properties and values in inspect output.</p>
+</li></ul>
+
+<h3 id="label-20130424-3A">20130424:<span><a href="#label-20130424-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Fix value override in prefixer.</p>
+</li></ul>
+
+<h3 id="label-20130427-3A">20130427:<span><a href="#label-20130427-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Prefix several same values in one property.</p>
+</li></ul>
+
+<h3 id="label-20130502-3A">20130502:<span><a href="#label-20130502-3A">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Don’t add -webkit- prefix to IE filter.</p>
+</li><li>
+<p>Don’t duplicate already prefixed rules.</p>
+</li></ul>
+
+<h2 id="label-0.2+-E2-80-9CHear+Me+Roar-21-E2-80-9D">0.2 “Hear Me Roar!”<span><a href="#label-0.2+-E2-80-9CHear+Me+Roar-21-E2-80-9D">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>Update parse libraries.</p>
+</li><li>
+<p>Add inspect method and rake tast.</p>
+</li></ul>
+
+<h2 id="label-0.1+-E2-80-9CFire+and+Blood-E2-80-9D">0.1 “Fire and Blood”<span><a href="#label-0.1+-E2-80-9CFire+and+Blood-E2-80-9D">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>Initial release.</p>
+</li></ul>
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

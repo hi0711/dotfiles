@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>command_line - rails-4.1.8 Documentation</title>
+
+<link href="../../fonts.css" rel="stylesheet">
+<link href="../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/navigation.js"></script>
+<script src="../../js/search_index.js"></script>
+<script src="../../js/search.js"></script>
+<script src="../../js/searcher.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#label-The+Rails+Command+Line">The Rails Command Line</a>
+    <li><a href="#label-Command+Line+Basics">Command Line Basics</a>
+    <li><a href="#label-rails+new"><code>rails new</code></a>
+    <li><a href="#label-rails+server"><code>rails server</code></a>
+    <li><a href="#label-rails+generate"><code>rails generate</code></a>
+    <li><a href="#label-rails+console"><code>rails console</code></a>
+    <li><a href="#label-rails+dbconsole"><code>rails dbconsole</code></a>
+    <li><a href="#label-rails+runner"><code>rails runner</code></a>
+    <li><a href="#label-rails+destroy"><code>rails destroy</code></a>
+    <li><a href="#label-Rake">Rake</a>
+    <li><a href="#label-about"><code>about</code></a>
+    <li><a href="#label-assets"><code>assets</code></a>
+    <li><a href="#label-db"><code>db</code></a>
+    <li><a href="#label-doc"><code>doc</code></a>
+    <li><a href="#label-notes"><code>notes</code></a>
+    <li><a href="#label-routes"><code>routes</code></a>
+    <li><a href="#label-test"><code>test</code></a>
+    <li><a href="#label-tmp"><code>tmp</code></a>
+    <li><a href="#label-Miscellaneous">Miscellaneous</a>
+    <li><a href="#label-Custom+Rake+Tasks">Custom Rake Tasks</a>
+    <li><a href="#label-The+Rails+Advanced+Command+Line">The Rails Advanced Command Line</a>
+    <li><a href="#label-Rails+with+Databases+and+SCM">Rails with Databases and SCM</a>
+  </ul>
+</div>
+
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../README_md.html">README</a>
+  
+    <li><a href="../../guides/CHANGELOG_md.html">CHANGELOG</a>
+  
+    <li><a href="../../guides/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../guides/assets/images/icons/README.html">README</a>
+  
+    <li><a href="../../guides/assets/javascripts/guides_js.html">guides.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/jquery_min_js.html">jquery.min.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/responsive-tables_js.html">responsive-tables.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushAS3_js.html">shBrushAS3.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushAppleScript_js.html">shBrushAppleScript.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushBash_js.html">shBrushBash.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushCSharp_js.html">shBrushCSharp.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushColdFusion_js.html">shBrushColdFusion.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushCpp_js.html">shBrushCpp.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushCss_js.html">shBrushCss.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushDelphi_js.html">shBrushDelphi.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushDiff_js.html">shBrushDiff.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushErlang_js.html">shBrushErlang.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushGroovy_js.html">shBrushGroovy.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushJScript_js.html">shBrushJScript.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushJava_js.html">shBrushJava.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushJavaFX_js.html">shBrushJavaFX.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushPerl_js.html">shBrushPerl.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushPhp_js.html">shBrushPhp.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushPlain_js.html">shBrushPlain.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushPowerShell_js.html">shBrushPowerShell.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushPython_js.html">shBrushPython.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushRuby_js.html">shBrushRuby.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushSass_js.html">shBrushSass.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushScala_js.html">shBrushScala.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushSql_js.html">shBrushSql.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushVb_js.html">shBrushVb.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushXml_js.html">shBrushXml.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shCore_js.html">shCore.js</a>
+  
+    <li><a href="../../guides/assets/stylesheets/fixes_css.html">fixes.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/kindle_css.html">kindle.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/main_css.html">main.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/print_css.html">print.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/reset_css.html">reset.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/responsive-tables_css.html">responsive-tables.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/style_css.html">style.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shCore_css.html">shCore.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shCoreDefault_css.html">shCoreDefault.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shCoreDjango_css.html">shCoreDjango.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shCoreEclipse_css.html">shCoreEclipse.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shCoreEmacs_css.html">shCoreEmacs.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shCoreFadeToGrey_css.html">shCoreFadeToGrey.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shCoreMDUltra_css.html">shCoreMDUltra.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shCoreMidnight_css.html">shCoreMidnight.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shCoreRDark_css.html">shCoreRDark.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shThemeDefault_css.html">shThemeDefault.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shThemeDjango_css.html">shThemeDjango.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shThemeEclipse_css.html">shThemeEclipse.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shThemeEmacs_css.html">shThemeEmacs.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shThemeFadeToGrey_css.html">shThemeFadeToGrey.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shThemeMDUltra_css.html">shThemeMDUltra.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shThemeMidnight_css.html">shThemeMidnight.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shThemeRDark_css.html">shThemeRDark.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shThemeRailsGuides_css.html">shThemeRailsGuides.css</a>
+  
+    <li><a href="../../guides/code/getting_started/Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../guides/code/getting_started/Gemfile_lock.html">Gemfile.lock</a>
+  
+    <li><a href="../../guides/code/getting_started/README_rdoc.html">README</a>
+  
+    <li><a href="../../guides/code/getting_started/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../guides/code/getting_started/app/assets/javascripts/application_js.html">application.js</a>
+  
+    <li><a href="../../guides/code/getting_started/app/assets/javascripts/comments_js_coffee.html">comments.js.coffee</a>
+  
+    <li><a href="../../guides/code/getting_started/app/assets/javascripts/posts_js_coffee.html">posts.js.coffee</a>
+  
+    <li><a href="../../guides/code/getting_started/app/assets/javascripts/welcome_js_coffee.html">welcome.js.coffee</a>
+  
+    <li><a href="../../guides/code/getting_started/app/assets/stylesheets/application_css.html">application.css</a>
+  
+    <li><a href="../../guides/code/getting_started/app/assets/stylesheets/comments_css_scss.html">comments.css.scss</a>
+  
+    <li><a href="../../guides/code/getting_started/app/assets/stylesheets/posts_css_scss.html">posts.css.scss</a>
+  
+    <li><a href="../../guides/code/getting_started/app/assets/stylesheets/welcome_css_scss.html">welcome.css.scss</a>
+  
+    <li><a href="../../guides/code/getting_started/config_ru.html">config.ru</a>
+  
+    <li><a href="../../guides/code/getting_started/public/404_html.html">404.html</a>
+  
+    <li><a href="../../guides/code/getting_started/public/422_html.html">422.html</a>
+  
+    <li><a href="../../guides/code/getting_started/public/500_html.html">500.html</a>
+  
+    <li><a href="../../guides/code/getting_started/public/favicon_ico.html">favicon.ico</a>
+  
+    <li><a href="../../guides/code/getting_started/public/robots_txt.html">robots</a>
+  
+    <li><a href="../../guides/source/2_2_release_notes_md.html">2_2_release_notes</a>
+  
+    <li><a href="../../guides/source/2_3_release_notes_md.html">2_3_release_notes</a>
+  
+    <li><a href="../../guides/source/3_0_release_notes_md.html">3_0_release_notes</a>
+  
+    <li><a href="../../guides/source/3_1_release_notes_md.html">3_1_release_notes</a>
+  
+    <li><a href="../../guides/source/3_2_release_notes_md.html">3_2_release_notes</a>
+  
+    <li><a href="../../guides/source/4_0_release_notes_md.html">4_0_release_notes</a>
+  
+    <li><a href="../../guides/source/4_1_release_notes_md.html">4_1_release_notes</a>
+  
+    <li><a href="../../guides/source/action_controller_overview_md.html">action_controller_overview</a>
+  
+    <li><a href="../../guides/source/action_mailer_basics_md.html">action_mailer_basics</a>
+  
+    <li><a href="../../guides/source/action_view_overview_md.html">action_view_overview</a>
+  
+    <li><a href="../../guides/source/active_model_basics_md.html">active_model_basics</a>
+  
+    <li><a href="../../guides/source/active_record_basics_md.html">active_record_basics</a>
+  
+    <li><a href="../../guides/source/active_record_callbacks_md.html">active_record_callbacks</a>
+  
+    <li><a href="../../guides/source/active_record_querying_md.html">active_record_querying</a>
+  
+    <li><a href="../../guides/source/active_record_validations_md.html">active_record_validations</a>
+  
+    <li><a href="../../guides/source/active_support_core_extensions_md.html">active_support_core_extensions</a>
+  
+    <li><a href="../../guides/source/active_support_instrumentation_md.html">active_support_instrumentation</a>
+  
+    <li><a href="../../guides/source/api_documentation_guidelines_md.html">api_documentation_guidelines</a>
+  
+    <li><a href="../../guides/source/asset_pipeline_md.html">asset_pipeline</a>
+  
+    <li><a href="../../guides/source/association_basics_md.html">association_basics</a>
+  
+    <li><a href="../../guides/source/caching_with_rails_md.html">caching_with_rails</a>
+  
+    <li><a href="../../guides/source/command_line_md.html">command_line</a>
+  
+    <li><a href="../../guides/source/configuring_md.html">configuring</a>
+  
+    <li><a href="../../guides/source/contributing_to_ruby_on_rails_md.html">contributing_to_ruby_on_rails</a>
+  
+    <li><a href="../../guides/source/debugging_rails_applications_md.html">debugging_rails_applications</a>
+  
+    <li><a href="../../guides/source/development_dependencies_install_md.html">development_dependencies_install</a>
+  
+    <li><a href="../../guides/source/documents_yaml.html">documents.yaml</a>
+  
+    <li><a href="../../guides/source/engines_md.html">engines</a>
+  
+    <li><a href="../../guides/source/form_helpers_md.html">form_helpers</a>
+  
+    <li><a href="../../guides/source/generators_md.html">generators</a>
+  
+    <li><a href="../../guides/source/getting_started_md.html">getting_started</a>
+  
+    <li><a href="../../guides/source/i18n_md.html">i18n</a>
+  
+    <li><a href="../../guides/source/initialization_md.html">initialization</a>
+  
+    <li><a href="../../guides/source/layouts_and_rendering_md.html">layouts_and_rendering</a>
+  
+    <li><a href="../../guides/source/maintenance_policy_md.html">maintenance_policy</a>
+  
+    <li><a href="../../guides/source/migrations_md.html">migrations</a>
+  
+    <li><a href="../../guides/source/nested_model_forms_md.html">nested_model_forms</a>
+  
+    <li><a href="../../guides/source/plugins_md.html">plugins</a>
+  
+    <li><a href="../../guides/source/rails_application_templates_md.html">rails_application_templates</a>
+  
+    <li><a href="../../guides/source/rails_on_rack_md.html">rails_on_rack</a>
+  
+    <li><a href="../../guides/source/routing_md.html">routing</a>
+  
+    <li><a href="../../guides/source/ruby_on_rails_guides_guidelines_md.html">ruby_on_rails_guides_guidelines</a>
+  
+    <li><a href="../../guides/source/security_md.html">security</a>
+  
+    <li><a href="../../guides/source/testing_md.html">testing</a>
+  
+    <li><a href="../../guides/source/upgrading_ruby_on_rails_md.html">upgrading_ruby_on_rails</a>
+  
+    <li><a href="../../guides/source/working_with_javascript_in_rails_md.html">working_with_javascript_in_rails</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page guides/source/command_line.md">
+
+<h1 id="label-The+Rails+Command+Line">The Rails Command Line<span><a href="#label-The+Rails+Command+Line">&para;</a> <a href="#documentation">&uarr;</a></span></h1>
+
+<p>After reading this guide, you will know:</p>
+<ul><li>
+<p>How to create a Rails application.</p>
+</li><li>
+<p>How to generate models, controllers, database migrations, and unit tests.</p>
+</li><li>
+<p>How to start a development server.</p>
+</li><li>
+<p>How to experiment with objects through an interactive shell.</p>
+</li><li>
+<p>How to profile and benchmark your new creation.</p>
+</li></ul>
+<hr>
+
+<p>NOTE: This tutorial assumes you have basic Rails knowledge from reading the
+<a href="getting_started.html">Getting Started with Rails Guide</a>.</p>
+
+<h2 id="label-Command+Line+Basics">Command Line Basics<span><a href="#label-Command+Line+Basics">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>There are a few commands that are absolutely critical to your everyday
+usage of Rails. In the order of how much you&#39;ll probably use them are:</p>
+<ul><li>
+<p><code>rails console</code></p>
+</li><li>
+<p><code>rails server</code></p>
+</li><li>
+<p><code>rake</code></p>
+</li><li>
+<p><code>rails generate</code></p>
+</li><li>
+<p><code>rails dbconsole</code></p>
+</li><li>
+<p><code>rails new app_name</code></p>
+</li></ul>
+
+<p>All commands can run with <code>-h or --help</code> to list more
+information.</p>
+
+<p>Let&#39;s create a simple Rails application to step through each of these
+commands in context.</p>
+
+<h3 id="label-rails+new"><code>rails new</code><span><a href="#label-rails+new">&para;</a> <a href="#documentation">&uarr;</a></span></h3>
+
+<p>The first thing we&#39;ll want to do is create a new Rails application by
+running the <code>rails new</code> command after installing Rails.</p>
+
+<p>INFO: You can install the rails gem by typing <code>gem install
+rails</code>, if you don&#39;t have it already.</p>
+
+<pre>$ rails new commandsapp
+     create
+     create  README.rdoc
+     create  Rakefile
+     create  config.ru
+     create  .gitignore
+     create  Gemfile
+     create  app
+     ...
+     create  tmp/cache
+     ...
+        run  bundle install</pre>
+
+<p>Rails will set you up with what seems like a huge amount of stuff for such
+a tiny command! You&#39;ve got the entire Rails directory structure now
+with all the code you need to run our simple application right out of the
+box.</p>
+
+<h3 id="label-rails+server"><code>rails server</code><span><a href="#label-rails+server">&para;</a> <a href="#documentation">&uarr;</a></span></h3>
+
+<p>The <code>rails server</code> command launches a small web server named
+WEBrick which comes bundled with Ruby. You&#39;ll use this any time you
+want to access your application through a web browser.</p>
+
+<p>With no further work, <code>rails server</code> will run our new shiny
+Rails app:</p>
+
+<pre class="ruby">$ <span class="ruby-identifier">cd</span> <span class="ruby-identifier">commandsapp</span>
+$ <span class="ruby-identifier">bin</span><span class="ruby-operator">/</span><span class="ruby-identifier">rails</span> <span class="ruby-identifier">server</span>
+=<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Booting</span> <span class="ruby-constant">WEBrick</span>
+=<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Rails</span> <span class="ruby-value">4.1</span><span class="ruby-value">.4</span> <span class="ruby-identifier">application</span> <span class="ruby-identifier">starting</span> <span class="ruby-keyword">in</span> <span class="ruby-identifier">development</span> <span class="ruby-identifier">on</span> <span class="ruby-identifier">http</span>:<span class="ruby-operator">/</span><span class="ruby-node">/0.0.0.0:3000
+=&gt; Call with -d to detach
+=&gt; Ctrl-C to shutdown server
+[2013-08-07 02:00:01] INFO  WEBrick 1.3.1
+[2013-08-07 02:00:01] INFO  ruby 2.0.0 (2013-06-27) [x86_64-darwin11.2.0]
+[2013-08-07 02:00:01] INFO  WEBrick::HTTPServer#start: pid=69680 port=3000
+</span></pre>
+
+<p>With just three commands we whipped up a Rails server listening on port
+3000. Go to your browser and open <a
+href="http://localhost:3000">localhost:3000</a>, you will see a basic Rails
+app running.</p>
+
+<p>INFO: You can also use the alias “s” to start the server: <code>rails
+s</code>.</p>
+
+<p>The server can be run on a different port using the <code>-p</code> option.
+The default development environment can be changed using <code>-e</code>.</p>
+
+<pre>$ bin/rails server -e production -p 4000</pre>
+
+<p>The <code>-b</code> option binds Rails to the specified IP, by default it
+is 0.0.0.0. You can run a server as a daemon by passing a <code>-d</code>
+option.</p>
+
+<h3 id="label-rails+generate"><code>rails generate</code><span><a href="#label-rails+generate">&para;</a> <a href="#documentation">&uarr;</a></span></h3>
+
+<p>The <code>rails generate</code> command uses templates to create a whole
+lot of things. Running <code>rails generate</code> by itself gives a list
+of available generators:</p>
+
+<p>INFO: You can also use the alias “g” to invoke the generator command:
+<code>rails g</code>.</p>
+
+<pre>$ bin/rails generate
+Usage: rails generate GENERATOR [args] [options]
+
+...
+...
+
+Please choose a generator below.
+
+Rails:
+  assets
+  controller
+  generator
+  ...
+  ...</pre>
+
+<p>NOTE: You can install more generators through generator gems, portions of
+plugins you&#39;ll undoubtedly install, and you can even create your own!</p>
+
+<p>Using generators will save you a large amount of time by writing
+<strong>boilerplate code</strong>, code that is necessary for the app to
+work.</p>
+
+<p>Let&#39;s make our own controller with the controller generator. But what
+command should we use? Let&#39;s ask the generator:</p>
+
+<p>INFO: All Rails console utilities have help text. As with most *nix
+utilities, you can try adding <code>--help</code> or <code>-h</code> to the
+end, for example <code>rails server --help</code>.</p>
+
+<pre>$ bin/rails generate controller
+Usage: rails generate controller NAME [action action] [options]
+
+...
+...
+
+Description:
+    ...
+
+    To create a controller within a module, specify the controller name as a
+    path like &#39;parent_module/controller_name&#39;.
+
+    ...
+
+Example:
+    `rails generate controller CreditCard open debit credit close`
+
+    Credit card controller with URLs like /credit_card/debit.
+        Controller: app/controllers/credit_card_controller.rb
+        Test:       test/controllers/credit_card_controller_test.rb
+        Views:      app/views/credit_card/debit.html.erb [...]
+        Helper:     app/helpers/credit_card_helper.rb</pre>
+
+<p>The controller generator is expecting parameters in the form of
+<code>generate controller ControllerName action1 action2</code>. Let&#39;s
+make a <code>Greetings</code> controller with an action of
+<strong>hello</strong>, which will say something nice to us.</p>
+
+<pre>$ bin/rails generate controller Greetings hello
+     create  app/controllers/greetings_controller.rb
+      route  get &quot;greetings/hello&quot;
+     invoke  erb
+     create    app/views/greetings
+     create    app/views/greetings/hello.html.erb
+     invoke  test_unit
+     create    test/controllers/greetings_controller_test.rb
+     invoke  helper
+     create    app/helpers/greetings_helper.rb
+     invoke    test_unit
+     create      test/helpers/greetings_helper_test.rb
+     invoke  assets
+     invoke    coffee
+     create      app/assets/javascripts/greetings.js.coffee
+     invoke    scss
+     create      app/assets/stylesheets/greetings.css.scss</pre>
+
+<p>What all did this generate? It made sure a bunch of directories were in our
+application, and created a controller file, a view file, a functional test
+file, a helper for the view, a JavaScript file and a stylesheet file.</p>
+
+<p>Check out the controller and modify it a little (in
+<code>app/controllers/greetings_controller.rb</code>):</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">GreetingsController</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">ApplicationController</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">hello</span>
+    <span class="ruby-ivar">@message</span> = <span class="ruby-string">&quot;Hello, how are you today?&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>Then the view, to display our message (in
+<code>app/views/greetings/hello.html.erb</code>):</p>
+
+<pre>&lt;h1&gt;A Greeting for You!&lt;/h1&gt;
+&lt;p&gt;&lt;%= @message %&gt;&lt;/p&gt;</pre>
+
+<p>Fire up your server using <code>rails server</code>.</p>
+
+<pre class="ruby">$ <span class="ruby-identifier">bin</span><span class="ruby-operator">/</span><span class="ruby-identifier">rails</span> <span class="ruby-identifier">server</span>
+=<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Booting</span> <span class="ruby-constant">WEBrick</span><span class="ruby-operator">...</span>
+</pre>
+
+<p>The URL will be <a
+href="http://localhost:3000/greetings/hello">localhost:3000/greetings/hello</a>.</p>
+
+<p>INFO: With a normal, plain-old Rails application, your URLs will generally
+follow the pattern of <a
+href="http://(host)/(controller)/(action">(host)/(controller)/(action</a>),
+and a URL like <a href="http://(host)/(controller">(host)/(controller</a>)
+will hit the <strong>index</strong> action of that controller.</p>
+
+<p>Rails comes with a generator for data models too.</p>
+
+<pre>$ bin/rails generate model
+Usage:
+  rails generate model NAME [field[:type][:index] field[:type][:index]] [options]
+
+...
+
+Active Record options:
+      [--migration]            # Indicates when to generate migration
+                               # Default: true
+
+...
+
+Description:
+    Create rails files for model generator.</pre>
+
+<p>NOTE: For a list of available field types, refer to the <a
+href="http://api.rubyonrails.org/classes/ActiveRecord/ConnectionAdapters/TableDefinition.html#method-i-column">API
+documentation</a> for the column method for the
+<code>TableDefinition</code> class.</p>
+
+<p>But instead of generating a model directly (which we&#39;ll be doing
+later), let&#39;s set up a scaffold. A <strong>scaffold</strong> in Rails
+is a full set of model, database migration for that model, controller to
+manipulate it, views to view and manipulate the data, and a test suite for
+each of the above.</p>
+
+<p>We will set up a simple resource called “HighScore” that will keep track of
+our highest score on video games we play.</p>
+
+<pre>$ bin/rails generate scaffold HighScore game:string score:integer
+    invoke  active_record
+    create    db/migrate/20130717151933_create_high_scores.rb
+    create    app/models/high_score.rb
+    invoke    test_unit
+    create      test/models/high_score_test.rb
+    create      test/fixtures/high_scores.yml
+    invoke  resource_route
+     route    resources :high_scores
+    invoke  scaffold_controller
+    create    app/controllers/high_scores_controller.rb
+    invoke    erb
+    create      app/views/high_scores
+    create      app/views/high_scores/index.html.erb
+    create      app/views/high_scores/edit.html.erb
+    create      app/views/high_scores/show.html.erb
+    create      app/views/high_scores/new.html.erb
+    create      app/views/high_scores/_form.html.erb
+    invoke    test_unit
+    create      test/controllers/high_scores_controller_test.rb
+    invoke    helper
+    create      app/helpers/high_scores_helper.rb
+    invoke      test_unit
+    create        test/helpers/high_scores_helper_test.rb
+    invoke    jbuilder
+    create      app/views/high_scores/index.json.jbuilder
+    create      app/views/high_scores/show.json.jbuilder
+    invoke  assets
+    invoke    coffee
+    create      app/assets/javascripts/high_scores.js.coffee
+    invoke    scss
+    create      app/assets/stylesheets/high_scores.css.scss
+    invoke  scss
+   identical    app/assets/stylesheets/scaffolds.css.scss</pre>
+
+<p>The generator checks that there exist the directories for models,
+controllers, helpers, layouts, functional and unit tests, stylesheets,
+creates the views, controller, model and database migration for HighScore
+(creating the <code>high_scores</code> table and fields), takes care of the
+route for the <strong>resource</strong>, and new tests for everything.</p>
+
+<p>The migration requires that we <strong>migrate</strong>, that is, run some
+Ruby code (living in that
+<code>20130717151933_create_high_scores.rb</code>) to modify the schema of
+our database. Which database? The sqlite3 database that Rails will create
+for you when we run the <code>rake db:migrate</code> command. We&#39;ll
+talk more about Rake in-depth in a little while.</p>
+
+<pre>$ bin/rake db:migrate
+==  CreateHighScores: migrating ===============================================
+-- create_table(:high_scores)
+   -&gt; 0.0017s
+==  CreateHighScores: migrated (0.0019s) ======================================</pre>
+
+<p>INFO: Let&#39;s talk about unit tests. Unit tests are code that tests and
+makes assertions about code. In unit testing, we take a little part of
+code, say a method of a model, and test its inputs and outputs. Unit tests
+are your friend. The sooner you make peace with the fact that your quality
+of life will drastically increase when you unit test your code, the better.
+Seriously. We&#39;ll make one in a moment.</p>
+
+<p>Let&#39;s see the interface Rails created for us.</p>
+
+<pre>$ bin/rails server</pre>
+
+<p>Go to your browser and open <a
+href="http://localhost:3000/high_scores">localhost:3000/high_scores</a>,
+now we can create new high scores (55,160 on Space Invaders!)</p>
+
+<h3 id="label-rails+console"><code>rails console</code><span><a href="#label-rails+console">&para;</a> <a href="#documentation">&uarr;</a></span></h3>
+
+<p>The <code>console</code> command lets you interact with your Rails
+application from the command line. On the underside, <code>rails
+console</code> uses IRB, so if you&#39;ve ever used it, you&#39;ll be right
+at home. This is useful for testing out quick ideas with code and changing
+data server-side without touching the website.</p>
+
+<p>INFO: You can also use the alias “c” to invoke the console: <code>rails
+c</code>.</p>
+
+<p>You can specify the environment in which the <code>console</code> command
+should operate.</p>
+
+<pre>$ bin/rails console staging</pre>
+
+<p>If you wish to test out some code without changing any data, you can do
+that by invoking <code>rails console --sandbox</code>.</p>
+
+<pre>$ bin/rails console --sandbox
+Loading development environment in sandbox (Rails 4.1.4)
+Any modifications you make will be rolled back on exit
+irb(main):001:0&gt;</pre>
+
+<h3 id="label-rails+dbconsole"><code>rails dbconsole</code><span><a href="#label-rails+dbconsole">&para;</a> <a href="#documentation">&uarr;</a></span></h3>
+
+<p><code>rails dbconsole</code> figures out which database you&#39;re using
+and drops you into whichever command line interface you would use with it
+(and figures out the command line parameters to give to it, too!). It
+supports MySQL, PostgreSQL, SQLite and SQLite3.</p>
+
+<p>INFO: You can also use the alias “db” to invoke the dbconsole: <code>rails
+db</code>.</p>
+
+<h3 id="label-rails+runner"><code>rails runner</code><span><a href="#label-rails+runner">&para;</a> <a href="#documentation">&uarr;</a></span></h3>
+
+<p><code>runner</code> runs Ruby code in the context of Rails
+non-interactively. For instance:</p>
+
+<pre>$ bin/rails runner &quot;Model.long_running_method&quot;</pre>
+
+<p>INFO: You can also use the alias “r” to invoke the runner: <code>rails
+r</code>.</p>
+
+<p>You can specify the environment in which the <code>runner</code> command
+should operate using the <code>-e</code> switch.</p>
+
+<pre>$ bin/rails runner -e staging &quot;Model.long_running_method&quot;</pre>
+
+<h3 id="label-rails+destroy"><code>rails destroy</code><span><a href="#label-rails+destroy">&para;</a> <a href="#documentation">&uarr;</a></span></h3>
+
+<p>Think of <code>destroy</code> as the opposite of <code>generate</code>.
+It&#39;ll figure out what generate did, and undo it.</p>
+
+<p>INFO: You can also use the alias “d” to invoke the destroy command:
+<code>rails d</code>.</p>
+
+<pre>$ bin/rails generate model Oops
+      invoke  active_record
+      create    db/migrate/20120528062523_create_oops.rb
+      create    app/models/oops.rb
+      invoke    test_unit
+      create      test/models/oops_test.rb
+      create      test/fixtures/oops.yml</pre>
+
+<pre>$ bin/rails destroy model Oops
+      invoke  active_record
+      remove    db/migrate/20120528062523_create_oops.rb
+      remove    app/models/oops.rb
+      invoke    test_unit
+      remove      test/models/oops_test.rb
+      remove      test/fixtures/oops.yml</pre>
+
+<h2 id="label-Rake">Rake<span><a href="#label-Rake">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>Rake is Ruby Make, a standalone Ruby utility that replaces the Unix utility
+&#39;make&#39;, and uses a &#39;Rakefile&#39; and <code>.rake</code> files
+to build up a list of tasks. In Rails, Rake is used for common
+administration tasks, especially sophisticated ones that build off of each
+other.</p>
+
+<p>You can get a list of Rake tasks available to you, which will often depend
+on your current directory, by typing <code>rake --tasks</code>. Each task
+has a description, and should help you find the thing you need.</p>
+
+<p>To get the full backtrace for running rake task you can pass the option
+<code>--trace</code> to command line, for example <code>rake db:create
+--trace</code>.</p>
+
+<pre>$ bin/rake --tasks
+rake about              # List versions of all Rails frameworks and the environment
+rake assets:clean       # Remove compiled assets
+rake assets:precompile  # Compile all the assets named in config.assets.precompile
+rake db:create          # Create the database from config/database.yml for the current Rails.env
+...
+rake log:clear          # Truncates all *.log files in log/ to zero bytes (specify which logs with LOGS=test,development)
+rake middleware         # Prints out your Rack middleware stack
+...
+rake tmp:clear          # Clear session, cache, and socket files from tmp/ (narrow w/ tmp:sessions:clear, tmp:cache:clear, tmp:sockets:clear)
+rake tmp:create         # Creates tmp directories for sessions, cache, sockets, and pids</pre>
+
+<p>INFO: You can also use <code>rake -T</code> to get the list of tasks.</p>
+
+<h3 id="label-about"><code>about</code><span><a href="#label-about">&para;</a> <a href="#documentation">&uarr;</a></span></h3>
+
+<p><code>rake about</code> gives information about version numbers for Ruby,
+RubyGems, Rails, the Rails subcomponents, your application&#39;s folder,
+the current Rails environment name, your app&#39;s database adapter, and
+schema version. It is useful when you need to ask for help, check if a
+security patch might affect you, or when you need some stats for an
+existing Rails installation.</p>
+
+<pre>$ bin/rake about
+About your application&#39;s environment
+Ruby version              1.9.3 (x86_64-linux)
+RubyGems version          1.3.6
+Rack version              1.3
+Rails version             4.1.4
+JavaScript Runtime        Node.js (V8)
+Active Record version     4.1.4
+Action Pack version       4.1.4
+Action View version       4.1.4
+Action Mailer version     4.1.4
+Active Support version    4.1.4
+Middleware                Rack::Sendfile, ActionDispatch::Static, Rack::Lock, #&lt;ActiveSupport::Cache::Strategy::LocalCache::Middleware:0x007ffd131a7c88&gt;, Rack::Runtime, Rack::MethodOverride, ActionDispatch::RequestId, Rails::Rack::Logger, ActionDispatch::ShowExceptions, ActionDispatch::DebugExceptions, ActionDispatch::RemoteIp, ActionDispatch::Reloader, ActionDispatch::Callbacks, ActiveRecord::Migration::CheckPending, ActiveRecord::ConnectionAdapters::ConnectionManagement, ActiveRecord::QueryCache, ActionDispatch::Cookies, ActionDispatch::Session::CookieStore, ActionDispatch::Flash, ActionDispatch::ParamsParser, Rack::Head, Rack::ConditionalGet, Rack::ETag
+Application root          /home/foobar/commandsapp
+Environment               development
+Database adapter          sqlite3
+Database schema version   20110805173523</pre>
+
+<h3 id="label-assets"><code>assets</code><span><a href="#label-assets">&para;</a> <a href="#documentation">&uarr;</a></span></h3>
+
+<p>You can precompile the assets in <code>app/assets</code> using <code>rake
+assets:precompile</code> and remove those compiled assets using <code>rake
+assets:clean</code>.</p>
+
+<h3 id="label-db"><code>db</code><span><a href="#label-db">&para;</a> <a href="#documentation">&uarr;</a></span></h3>
+
+<p>The most common tasks of the <code>db:</code> Rake namespace are
+<code>migrate</code> and <code>create</code>, and it will pay off to try
+out all of the migration rake tasks (<code>up</code>, <code>down</code>,
+<code>redo</code>, <code>reset</code>). <code>rake db:version</code> is
+useful when troubleshooting, telling you the current version of the
+database.</p>
+
+<p>More information about migrations can be found in the <a
+href="migrations.html">Migrations</a> guide.</p>
+
+<h3 id="label-doc"><code>doc</code><span><a href="#label-doc">&para;</a> <a href="#documentation">&uarr;</a></span></h3>
+
+<p>The <code>doc:</code> namespace has the tools to generate documentation for
+your app, API documentation, guides. Documentation can also be stripped
+which is mainly useful for slimming your codebase, like if you&#39;re
+writing a Rails application for an embedded platform.</p>
+<ul><li>
+<p><code>rake doc:app</code> generates documentation for your application in
+<code>doc/app</code>.</p>
+</li><li>
+<p><code>rake doc:guides</code> generates Rails guides in
+<code>doc/guides</code>.</p>
+</li><li>
+<p><code>rake doc:rails</code> generates API documentation for Rails in
+<code>doc/api</code>.</p>
+</li></ul>
+
+<h3 id="label-notes"><code>notes</code><span><a href="#label-notes">&para;</a> <a href="#documentation">&uarr;</a></span></h3>
+
+<p><code>rake notes</code> will search through your code for comments
+beginning with FIXME, OPTIMIZE or TODO. The search is done in files with
+extension <code>.builder</code>, <code>.rb</code>, <code>.erb</code>,
+<code>.haml</code> and <code>.slim</code> for both default and custom
+annotations.</p>
+
+<pre>$ bin/rake notes
+(in /home/foobar/commandsapp)
+app/controllers/admin/users_controller.rb:
+  * [ 20] [TODO] any other way to do this?
+  * [132] [FIXME] high priority for next deploy
+
+app/models/school.rb:
+  * [ 13] [OPTIMIZE] refactor this code to make it faster
+  * [ 17] [FIXME]</pre>
+
+<p>If you are looking for a specific annotation, say FIXME, you can use
+<code>rake notes:fixme</code>. Note that you have to lower case the
+annotation&#39;s name.</p>
+
+<pre>$ bin/rake notes:fixme
+(in /home/foobar/commandsapp)
+app/controllers/admin/users_controller.rb:
+  * [132] high priority for next deploy
+
+app/models/school.rb:
+  * [ 17]</pre>
+
+<p>You can also use custom annotations in your code and list them using
+<code>rake notes:custom</code> by specifying the annotation using an
+environment variable <code>ANNOTATION</code>.</p>
+
+<pre>$ bin/rake notes:custom ANNOTATION=BUG
+(in /home/foobar/commandsapp)
+app/models/post.rb:
+  * [ 23] Have to fix this one before pushing!</pre>
+
+<p>NOTE. When using specific annotations and custom annotations, the
+annotation name (FIXME, BUG etc) is not displayed in the output lines.</p>
+
+<p>By default, <code>rake notes</code> will look in the <code>app</code>,
+<code>config</code>, <code>lib</code>, <code>bin</code> and
+<code>test</code> directories. If you would like to search other
+directories, you can provide them as a comma separated list in an
+environment variable <code>SOURCE_ANNOTATION_DIRECTORIES</code>.</p>
+
+<pre>$ export SOURCE_ANNOTATION_DIRECTORIES=&#39;spec,vendor&#39;
+$ bin/rake notes
+(in /home/foobar/commandsapp)
+app/models/user.rb:
+  * [ 35] [FIXME] User should have a subscription at this point
+spec/models/user_spec.rb:
+  * [122] [TODO] Verify the user that has a subscription works</pre>
+
+<h3 id="label-routes"><code>routes</code><span><a href="#label-routes">&para;</a> <a href="#documentation">&uarr;</a></span></h3>
+
+<p><code>rake routes</code> will list all of your defined routes, which is
+useful for tracking down routing problems in your app, or giving you a good
+overview of the URLs in an app you&#39;re trying to get familiar with.</p>
+
+<h3 id="label-test"><code>test</code><span><a href="#label-test">&para;</a> <a href="#documentation">&uarr;</a></span></h3>
+
+<p>INFO: A good description of unit testing in Rails is given in <a
+href="testing.html">A Guide to Testing Rails Applications</a></p>
+
+<p>Rails comes with a test suite called <a
+href="../../Minitest.html">Minitest</a>. Rails owes its stability to the
+use of tests. The tasks available in the <code>test:</code> namespace helps
+in running the different tests you will hopefully write.</p>
+
+<h3 id="label-tmp"><code>tmp</code><span><a href="#label-tmp">&para;</a> <a href="#documentation">&uarr;</a></span></h3>
+
+<p>The <code>Rails.root/tmp</code> directory is, like the *nix /tmp directory,
+the holding place for temporary files like sessions (if you&#39;re using a
+file store for files), process id files, and cached actions.</p>
+
+<p>The <code>tmp:</code> namespaced tasks will help you clear and create the
+<code>Rails.root/tmp</code> directory:</p>
+<ul><li>
+<p><code>rake tmp:cache:clear</code> clears <code>tmp/cache</code>.</p>
+</li><li>
+<p><code>rake tmp:sessions:clear</code> clears <code>tmp/sessions</code>.</p>
+</li><li>
+<p><code>rake tmp:sockets:clear</code> clears <code>tmp/sockets</code>.</p>
+</li><li>
+<p><code>rake tmp:clear</code> clears all the three: cache, sessions and
+sockets.</p>
+</li><li>
+<p><code>rake tmp:create</code> creates tmp directories for sessions, cache,
+sockets, and pids.</p>
+</li></ul>
+
+<h3 id="label-Miscellaneous">Miscellaneous<span><a href="#label-Miscellaneous">&para;</a> <a href="#documentation">&uarr;</a></span></h3>
+<ul><li>
+<p><code>rake stats</code> is great for looking at statistics on your code,
+displaying things like KLOCs (thousands of lines of code) and your code to
+test ratio.</p>
+</li><li>
+<p><code>rake secret</code> will give you a pseudo-random key to use for your
+session secret.</p>
+</li><li>
+<p><code>rake time:zones:all</code> lists all the timezones Rails knows about.</p>
+</li></ul>
+
+<h3 id="label-Custom+Rake+Tasks">Custom Rake Tasks<span><a href="#label-Custom+Rake+Tasks">&para;</a> <a href="#documentation">&uarr;</a></span></h3>
+
+<p>Custom rake tasks have a <code>.rake</code> extension and are placed in
+<code>Rails.root/lib/tasks</code>. You can create these custom rake tasks
+with the <code>bin/rails generate task</code> command.</p>
+
+<pre class="ruby"><span class="ruby-identifier">desc</span> <span class="ruby-string">&quot;I am short, but comprehensive description for my cool task&quot;</span>
+<span class="ruby-identifier">task</span> <span class="ruby-identifier">task_name</span><span class="ruby-operator">:</span> [:<span class="ruby-identifier">prerequisite_task</span>, :<span class="ruby-identifier">another_task_we_depend_on</span>] <span class="ruby-keyword">do</span>
+  <span class="ruby-comment"># All your magic here</span>
+  <span class="ruby-comment"># Any valid Ruby code is allowed</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>To pass arguments to your custom rake task:</p>
+
+<pre class="ruby"><span class="ruby-identifier">task</span> :<span class="ruby-identifier">task_name</span>, [:<span class="ruby-identifier">arg_1</span>] =<span class="ruby-operator">&gt;</span> [:<span class="ruby-identifier">pre_1</span>, :<span class="ruby-identifier">pre_2</span>] <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span>, <span class="ruby-identifier">args</span><span class="ruby-operator">|</span>
+  <span class="ruby-comment"># You can use args from here</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>You can group tasks by placing them in namespaces:</p>
+
+<pre class="ruby"><span class="ruby-identifier">namespace</span> :<span class="ruby-identifier">db</span> <span class="ruby-keyword">do</span>
+  <span class="ruby-identifier">desc</span> <span class="ruby-string">&quot;This task does nothing&quot;</span>
+  <span class="ruby-identifier">task</span> :<span class="ruby-identifier">nothing</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-comment"># Seriously, nothing</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>Invocation of the tasks will look like:</p>
+
+<pre>$ bin/rake task_name
+$ bin/rake &quot;task_name[value 1]&quot; # entire argument string should be quoted
+$ bin/rake db:nothing</pre>
+
+<p>NOTE: If your need to interact with your application models, perform
+database queries and so on, your task should depend on the
+<code>environment</code> task, which will load your application code.</p>
+
+<h2 id="label-The+Rails+Advanced+Command+Line">The Rails Advanced Command Line<span><a href="#label-The+Rails+Advanced+Command+Line">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>More advanced use of the command line is focused around finding useful
+(even surprising at times) options in the utilities, and fitting those to
+your needs and specific work flow. Listed here are some tricks up
+Rails&#39; sleeve.</p>
+
+<h3 id="label-Rails+with+Databases+and+SCM">Rails with Databases and SCM<span><a href="#label-Rails+with+Databases+and+SCM">&para;</a> <a href="#documentation">&uarr;</a></span></h3>
+
+<p>When creating a new Rails application, you have the option to specify what
+kind of database and what kind of source code management system your
+application is going to use. This will save you a few minutes, and
+certainly many keystrokes.</p>
+
+<p>Let&#39;s see what a <code>--git</code> option and a
+<code>--database=postgresql</code> option will do for us:</p>
+
+<pre>$ mkdir gitapp
+$ cd gitapp
+$ git init
+Initialized empty Git repository in .git/
+$ rails new . --git --database=postgresql
+      exists
+      create  app/controllers
+      create  app/helpers
+...
+...
+      create  tmp/cache
+      create  tmp/pids
+      create  Rakefile
+add &#39;Rakefile&#39;
+      create  README.rdoc
+add &#39;README.rdoc&#39;
+      create  app/controllers/application_controller.rb
+add &#39;app/controllers/application_controller.rb&#39;
+      create  app/helpers/application_helper.rb
+...
+      create  log/test.log
+add &#39;log/test.log&#39;</pre>
+
+<p>We had to create the <strong>gitapp</strong> directory and initialize an
+empty git repository before Rails would add files it created to our
+repository. Let&#39;s see what it put in our database configuration:</p>
+
+<pre>$ cat config/database.yml
+# PostgreSQL. Versions 8.2 and up are supported.
+#
+# Install the pg driver:
+#   gem install pg
+# On OS X with Homebrew:
+#   gem install pg -- --with-pg-config=/usr/local/bin/pg_config
+# On OS X with MacPorts:
+#   gem install pg -- --with-pg-config=/opt/local/lib/postgresql84/bin/pg_config
+# On Windows:
+#   gem install pg
+#       Choose the win32 build.
+#       Install PostgreSQL and put its /bin directory on your path.
+#
+# Configure Using Gemfile
+# gem &#39;pg&#39;
+#
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: gitapp_development
+  pool: 5
+  username: gitapp
+  password:
+...
+...</pre>
+
+<p>It also generated some lines in our database.yml configuration
+corresponding to our choice of PostgreSQL for database.</p>
+
+<p>NOTE. The only catch with using the SCM options is that you have to make
+your application&#39;s directory first, then initialize your SCM, then you
+can run the <code>rails new</code> command to generate the basis of your
+app.</p>
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

@@ -1,0 +1,2 @@
+U:RDoc::Attr[iI"id:ETI"WebConsole::Session#id;FI"R;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I")An unique identifier for every REPL.;T:
+@fileI"lib/web_console/session.rb;T:0@omit_headings_from_table_of_contents_below0F@I"WebConsole::Session;FcRDoc::NormalClass0

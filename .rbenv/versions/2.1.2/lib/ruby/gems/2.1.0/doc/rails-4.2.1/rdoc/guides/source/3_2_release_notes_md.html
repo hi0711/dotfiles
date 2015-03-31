@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>3_2_release_notes - rails-4.2.1 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#label-Ruby+on+Rails+3.2+Release+Notes">Ruby on Rails 3.2 Release Notes</a>
+    <li><a href="#label-Upgrading+to+Rails+3.2">Upgrading to Rails 3.2</a>
+    <li><a href="#label-Rails+3.2+requires+at+least+Ruby+1.8.7">Rails 3.2 requires at least Ruby 1.8.7</a>
+    <li><a href="#label-What+to+update+in+your+apps">What to update in your apps</a>
+    <li><a href="#label-What+to+update+in+your+engines">What to update in your engines</a>
+    <li><a href="#label-Creating+a+Rails+3.2+application">Creating a Rails 3.2 application</a>
+    <li><a href="#label-Vendoring+Gems">Vendoring Gems</a>
+    <li><a href="#label-Living+on+the+Edge">Living on the Edge</a>
+    <li><a href="#label-Major+Features">Major Features</a>
+    <li><a href="#label-Faster+Development+Mode+-26+Routing">Faster Development Mode &amp; Routing</a>
+    <li><a href="#label-Automatic+Query+Explains">Automatic Query Explains</a>
+    <li><a href="#label-Tagged+Logging">Tagged Logging</a>
+    <li><a href="#label-Documentation">Documentation</a>
+    <li><a href="#label-Railties">Railties</a>
+    <li><a href="#label-Deprecations">Deprecations</a>
+    <li><a href="#label-Action+Mailer">Action Mailer</a>
+    <li><a href="#label-Action+Pack">Action Pack</a>
+    <li><a href="#label-Action+Controller">Action Controller</a>
+    <li><a href="#label-Deprecations">Deprecations</a>
+    <li><a href="#label-Action+Dispatch">Action Dispatch</a>
+    <li><a href="#label-Deprecations">Deprecations</a>
+    <li><a href="#label-Action+View">Action View</a>
+    <li><a href="#label-Deprecations">Deprecations</a>
+    <li><a href="#label-Sprockets">Sprockets</a>
+    <li><a href="#label-Active+Record">Active Record</a>
+    <li><a href="#label-Deprecations">Deprecations</a>
+    <li><a href="#label-Active+Model">Active Model</a>
+    <li><a href="#label-Deprecations">Deprecations</a>
+    <li><a href="#label-Active+Resource">Active Resource</a>
+    <li><a href="#label-Active+Support">Active Support</a>
+    <li><a href="#label-Deprecations">Deprecations</a>
+    <li><a href="#label-Credits">Credits</a>
+  </ul>
+</div>
+
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../README_md.html">README</a>
+  
+    <li><a href="../../guides/CHANGELOG_md.html">CHANGELOG</a>
+  
+    <li><a href="../../guides/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../guides/assets/images/icons/README.html">README</a>
+  
+    <li><a href="../../guides/assets/javascripts/guides_js.html">guides.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/jquery_min_js.html">jquery.min.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/responsive-tables_js.html">responsive-tables.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushAS3_js.html">shBrushAS3.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushAppleScript_js.html">shBrushAppleScript.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushBash_js.html">shBrushBash.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushCSharp_js.html">shBrushCSharp.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushColdFusion_js.html">shBrushColdFusion.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushCpp_js.html">shBrushCpp.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushCss_js.html">shBrushCss.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushDelphi_js.html">shBrushDelphi.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushDiff_js.html">shBrushDiff.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushErlang_js.html">shBrushErlang.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushGroovy_js.html">shBrushGroovy.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushJScript_js.html">shBrushJScript.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushJava_js.html">shBrushJava.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushJavaFX_js.html">shBrushJavaFX.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushPerl_js.html">shBrushPerl.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushPhp_js.html">shBrushPhp.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushPlain_js.html">shBrushPlain.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushPowerShell_js.html">shBrushPowerShell.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushPython_js.html">shBrushPython.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushRuby_js.html">shBrushRuby.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushSass_js.html">shBrushSass.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushScala_js.html">shBrushScala.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushSql_js.html">shBrushSql.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushVb_js.html">shBrushVb.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shBrushXml_js.html">shBrushXml.js</a>
+  
+    <li><a href="../../guides/assets/javascripts/syntaxhighlighter/shCore_js.html">shCore.js</a>
+  
+    <li><a href="../../guides/assets/stylesheets/fixes_css.html">fixes.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/kindle_css.html">kindle.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/main_css.html">main.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/print_css.html">print.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/reset_css.html">reset.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/responsive-tables_css.html">responsive-tables.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/style_css.html">style.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shCore_css.html">shCore.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shCoreDefault_css.html">shCoreDefault.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shCoreDjango_css.html">shCoreDjango.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shCoreEclipse_css.html">shCoreEclipse.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shCoreEmacs_css.html">shCoreEmacs.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shCoreFadeToGrey_css.html">shCoreFadeToGrey.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shCoreMDUltra_css.html">shCoreMDUltra.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shCoreMidnight_css.html">shCoreMidnight.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shCoreRDark_css.html">shCoreRDark.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shThemeDefault_css.html">shThemeDefault.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shThemeDjango_css.html">shThemeDjango.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shThemeEclipse_css.html">shThemeEclipse.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shThemeEmacs_css.html">shThemeEmacs.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shThemeFadeToGrey_css.html">shThemeFadeToGrey.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shThemeMDUltra_css.html">shThemeMDUltra.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shThemeMidnight_css.html">shThemeMidnight.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shThemeRDark_css.html">shThemeRDark.css</a>
+  
+    <li><a href="../../guides/assets/stylesheets/syntaxhighlighter/shThemeRailsGuides_css.html">shThemeRailsGuides.css</a>
+  
+    <li><a href="../../guides/source/2_2_release_notes_md.html">2_2_release_notes</a>
+  
+    <li><a href="../../guides/source/2_3_release_notes_md.html">2_3_release_notes</a>
+  
+    <li><a href="../../guides/source/3_0_release_notes_md.html">3_0_release_notes</a>
+  
+    <li><a href="../../guides/source/3_1_release_notes_md.html">3_1_release_notes</a>
+  
+    <li><a href="../../guides/source/3_2_release_notes_md.html">3_2_release_notes</a>
+  
+    <li><a href="../../guides/source/4_0_release_notes_md.html">4_0_release_notes</a>
+  
+    <li><a href="../../guides/source/4_1_release_notes_md.html">4_1_release_notes</a>
+  
+    <li><a href="../../guides/source/4_2_release_notes_md.html">4_2_release_notes</a>
+  
+    <li><a href="../../guides/source/action_controller_overview_md.html">action_controller_overview</a>
+  
+    <li><a href="../../guides/source/action_mailer_basics_md.html">action_mailer_basics</a>
+  
+    <li><a href="../../guides/source/action_view_overview_md.html">action_view_overview</a>
+  
+    <li><a href="../../guides/source/active_job_basics_md.html">active_job_basics</a>
+  
+    <li><a href="../../guides/source/active_model_basics_md.html">active_model_basics</a>
+  
+    <li><a href="../../guides/source/active_record_basics_md.html">active_record_basics</a>
+  
+    <li><a href="../../guides/source/active_record_callbacks_md.html">active_record_callbacks</a>
+  
+    <li><a href="../../guides/source/active_record_migrations_md.html">active_record_migrations</a>
+  
+    <li><a href="../../guides/source/active_record_postgresql_md.html">active_record_postgresql</a>
+  
+    <li><a href="../../guides/source/active_record_querying_md.html">active_record_querying</a>
+  
+    <li><a href="../../guides/source/active_record_validations_md.html">active_record_validations</a>
+  
+    <li><a href="../../guides/source/active_support_core_extensions_md.html">active_support_core_extensions</a>
+  
+    <li><a href="../../guides/source/active_support_instrumentation_md.html">active_support_instrumentation</a>
+  
+    <li><a href="../../guides/source/api_documentation_guidelines_md.html">api_documentation_guidelines</a>
+  
+    <li><a href="../../guides/source/asset_pipeline_md.html">asset_pipeline</a>
+  
+    <li><a href="../../guides/source/association_basics_md.html">association_basics</a>
+  
+    <li><a href="../../guides/source/autoloading_and_reloading_constants_md.html">autoloading_and_reloading_constants</a>
+  
+    <li><a href="../../guides/source/caching_with_rails_md.html">caching_with_rails</a>
+  
+    <li><a href="../../guides/source/command_line_md.html">command_line</a>
+  
+    <li><a href="../../guides/source/configuring_md.html">configuring</a>
+  
+    <li><a href="../../guides/source/contributing_to_ruby_on_rails_md.html">contributing_to_ruby_on_rails</a>
+  
+    <li><a href="../../guides/source/debugging_rails_applications_md.html">debugging_rails_applications</a>
+  
+    <li><a href="../../guides/source/development_dependencies_install_md.html">development_dependencies_install</a>
+  
+    <li><a href="../../guides/source/documents_yaml.html">documents.yaml</a>
+  
+    <li><a href="../../guides/source/engines_md.html">engines</a>
+  
+    <li><a href="../../guides/source/form_helpers_md.html">form_helpers</a>
+  
+    <li><a href="../../guides/source/generators_md.html">generators</a>
+  
+    <li><a href="../../guides/source/getting_started_md.html">getting_started</a>
+  
+    <li><a href="../../guides/source/i18n_md.html">i18n</a>
+  
+    <li><a href="../../guides/source/initialization_md.html">initialization</a>
+  
+    <li><a href="../../guides/source/layouts_and_rendering_md.html">layouts_and_rendering</a>
+  
+    <li><a href="../../guides/source/maintenance_policy_md.html">maintenance_policy</a>
+  
+    <li><a href="../../guides/source/nested_model_forms_md.html">nested_model_forms</a>
+  
+    <li><a href="../../guides/source/plugins_md.html">plugins</a>
+  
+    <li><a href="../../guides/source/rails_application_templates_md.html">rails_application_templates</a>
+  
+    <li><a href="../../guides/source/rails_on_rack_md.html">rails_on_rack</a>
+  
+    <li><a href="../../guides/source/routing_md.html">routing</a>
+  
+    <li><a href="../../guides/source/ruby_on_rails_guides_guidelines_md.html">ruby_on_rails_guides_guidelines</a>
+  
+    <li><a href="../../guides/source/security_md.html">security</a>
+  
+    <li><a href="../../guides/source/testing_md.html">testing</a>
+  
+    <li><a href="../../guides/source/upgrading_ruby_on_rails_md.html">upgrading_ruby_on_rails</a>
+  
+    <li><a href="../../guides/source/working_with_javascript_in_rails_md.html">working_with_javascript_in_rails</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page guides/source/3_2_release_notes.md">
+
+<h1 id="label-Ruby+on+Rails+3.2+Release+Notes">Ruby on Rails 3.2 Release Notes<span><a href="#label-Ruby+on+Rails+3.2+Release+Notes">&para;</a> <a href="#top">&uarr;</a></span></h1>
+
+<p>Highlights in Rails 3.2:</p>
+<ul><li>
+<p>Faster Development Mode</p>
+</li><li>
+<p>New Routing Engine</p>
+</li><li>
+<p>Automatic Query Explains</p>
+</li><li>
+<p>Tagged Logging</p>
+</li></ul>
+
+<p>These release notes cover only the major changes. To learn about various
+bug fixes and changes, please refer to the change logs or check out the <a
+href="https://github.com/rails/rails/commits/3-2-stable">list of
+commits</a> in the main Rails repository on GitHub.</p>
+<hr>
+
+<h2 id="label-Upgrading+to+Rails+3.2">Upgrading to Rails 3.2<span><a href="#label-Upgrading+to+Rails+3.2">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>If you&#39;re upgrading an existing application, it&#39;s a great idea to
+have good test coverage before going in. You should also first upgrade to
+Rails 3.1 in case you haven&#39;t and make sure your application still runs
+as expected before attempting an update to Rails 3.2. Then take heed of the
+following changes:</p>
+
+<h3 id="label-Rails+3.2+requires+at+least+Ruby+1.8.7">Rails 3.2 requires at least Ruby 1.8.7<span><a href="#label-Rails+3.2+requires+at+least+Ruby+1.8.7">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Rails 3.2 requires Ruby 1.8.7 or higher. Support for all of the previous
+Ruby versions has been dropped officially and you should upgrade as early
+as possible. Rails 3.2 is also compatible with Ruby 1.9.2.</p>
+
+<p>TIP: Note that Ruby 1.8.7 p248 and p249 have marshalling bugs that crash
+Rails. Ruby Enterprise Edition has these fixed since the release of
+1.8.7-2010.02. On the 1.9 front, Ruby 1.9.1 is not usable because it
+outright segfaults, so if you want to use 1.9.x, jump on to 1.9.2 or 1.9.3
+for smooth sailing.</p>
+
+<h3 id="label-What+to+update+in+your+apps">What to update in your apps<span><a href="#label-What+to+update+in+your+apps">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Update your Gemfile to depend on</p>
+<ul><li>
+<p><code>rails = 3.2.0</code></p>
+</li><li>
+<p><code>sass-rails ~&gt; 3.2.3</code></p>
+</li><li>
+<p><code>coffee-rails ~&gt; 3.2.1</code></p>
+</li><li>
+<p><code>uglifier &gt;= 1.0.3</code></p>
+</li><li>
+<p><code>rails = 3.2.0</code></p>
+</li><li>
+<p><code>sass-rails ~&gt; 3.2.3</code></p>
+</li><li>
+<p><code>coffee-rails ~&gt; 3.2.1</code></p>
+</li><li>
+<p><code>uglifier &gt;= 1.0.3</code></p>
+</li></ul>
+</li><li>
+<p>Rails 3.2 deprecates <code>vendor/plugins</code> and Rails 4.0 will remove
+them completely. You can start replacing these plugins by extracting them
+as gems and adding them in your Gemfile. If you choose not to make them
+gems, you can move them into, say, <code>lib/my_plugin/*</code> and add an
+appropriate initializer in <code>config/initializers/my_plugin.rb</code>.</p>
+</li><li>
+<p>There are a couple of new configuration changes you&#39;d want to add in
+<code>config/environments/development.rb</code>:</p>
+
+<pre class="ruby"><span class="ruby-comment"># Raise exception on mass assignment protection for Active Record models</span>
+<span class="ruby-identifier">config</span>.<span class="ruby-identifier">active_record</span>.<span class="ruby-identifier">mass_assignment_sanitizer</span> = :<span class="ruby-identifier">strict</span>
+
+<span class="ruby-comment"># Log the query plan for queries taking more than this (works</span>
+<span class="ruby-comment"># with SQLite, MySQL, and PostgreSQL)</span>
+<span class="ruby-identifier">config</span>.<span class="ruby-identifier">active_record</span>.<span class="ruby-identifier">auto_explain_threshold_in_seconds</span> = <span class="ruby-value">0.5</span>
+</pre>
+
+<p>The <code>mass_assignment_sanitizer</code> config also needs to be added in
+<code>config/environments/test.rb</code>:</p>
+
+<pre class="ruby"><span class="ruby-comment"># Raise exception on mass assignment protection for Active Record models</span>
+<span class="ruby-identifier">config</span>.<span class="ruby-identifier">active_record</span>.<span class="ruby-identifier">mass_assignment_sanitizer</span> = :<span class="ruby-identifier">strict</span>
+</pre>
+</li></ul>
+
+<h3 id="label-What+to+update+in+your+engines">What to update in your engines<span><a href="#label-What+to+update+in+your+engines">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Replace the code beneath the comment in <code>script/rails</code> with the
+following content:</p>
+
+<pre class="ruby"><span class="ruby-constant">ENGINE_ROOT</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-string">&#39;../..&#39;</span>, <span class="ruby-keyword">__FILE__</span>)
+<span class="ruby-constant">ENGINE_PATH</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-string">&#39;../../lib/your_engine_name/engine&#39;</span>, <span class="ruby-keyword">__FILE__</span>)
+
+<span class="ruby-identifier">require</span> <span class="ruby-string">&#39;rails/all&#39;</span>
+<span class="ruby-identifier">require</span> <span class="ruby-string">&#39;rails/engine/commands&#39;</span>
+</pre>
+
+<h2 id="label-Creating+a+Rails+3.2+application">Creating a Rails 3.2 application<span><a href="#label-Creating+a+Rails+3.2+application">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<pre># You should have the &#39;rails&#39; RubyGem installed
+$ rails new myapp
+$ cd myapp</pre>
+
+<h3 id="label-Vendoring+Gems">Vendoring Gems<span><a href="#label-Vendoring+Gems">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Rails now uses a <code>Gemfile</code> in the application root to determine
+the gems you require for your application to start. This
+<code>Gemfile</code> is processed by the <a
+href="https://github.com/carlhuda/bundler">Bundler</a> gem, which then
+installs all your dependencies. It can even install all the dependencies
+locally to your application so that it doesn&#39;t depend on the system
+gems.</p>
+
+<p>More information: <a href="http://gembundler.com">Bundler homepage</a></p>
+
+<h3 id="label-Living+on+the+Edge">Living on the Edge<span><a href="#label-Living+on+the+Edge">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p><code>Bundler</code> and <code>Gemfile</code> makes freezing your Rails
+application easy as pie with the new dedicated <code>bundle</code> command.
+If you want to bundle straight from the Git repository, you can pass the
+<code>--edge</code> flag:</p>
+
+<pre>$ rails new myapp --edge</pre>
+
+<p>If you have a local checkout of the Rails repository and want to generate
+an application using that, you can pass the <code>--dev</code> flag:</p>
+
+<pre>$ ruby /path/to/rails/railties/bin/rails new myapp --dev</pre>
+
+<h2 id="label-Major+Features">Major Features<span><a href="#label-Major+Features">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Faster+Development+Mode+-26+Routing">Faster Development Mode &amp; Routing<span><a href="#label-Faster+Development+Mode+-26+Routing">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Rails 3.2 comes with a development mode that&#39;s noticeably faster.
+Inspired by <a href="https://github.com/paneq/active_reload">Active
+Reload</a>, Rails reloads classes only when files actually change. The
+performance gains are dramatic on a larger application. Route recognition
+also got a bunch faster thanks to the new <a
+href="https://github.com/rails/journey">Journey</a> engine.</p>
+
+<h3 id="label-Automatic+Query+Explains">Automatic Query Explains<span><a href="#label-Automatic+Query+Explains">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Rails 3.2 comes with a nice feature that explains queries generated by Arel
+by defining an <code>explain</code> method in
+<code>ActiveRecord::Relation</code>. For example, you can run something
+like <code>puts Person.active.limit(5).explain</code> and the query Arel
+produces is explained. This allows to check for the proper indexes and
+further optimizations.</p>
+
+<p>Queries that take more than half a second to run are <em>automatically</em>
+explained in the development mode. This threshold, of course, can be
+changed.</p>
+
+<h3 id="label-Tagged+Logging">Tagged Logging<span><a href="#label-Tagged+Logging">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>When running a multi-user, multi-account application, it&#39;s a great help
+to be able to filter the log by who did what. TaggedLogging in Active
+Support helps in doing exactly that by stamping log lines with subdomains,
+request ids, and anything else to aid debugging such applications.</p>
+
+<h2 id="label-Documentation">Documentation<span><a href="#label-Documentation">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>From Rails 3.2, the Rails guides are available for the <a
+href="../../Kindle.html">Kindle</a> and free <a
+href="../../Kindle.html">Kindle</a> Reading Apps for the iPad, iPhone, Mac,
+Android, etc.</p>
+
+<h2 id="label-Railties">Railties<span><a href="#label-Railties">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>Speed up development by only reloading classes if dependencies files
+changed. This can be turned off by setting
+<code>config.reload_classes_only_on_change</code> to false.</p>
+</li><li>
+<p>New applications get a flag
+<code>config.active_record.auto_explain_threshold_in_seconds</code> in the
+environments configuration files. With a value of <code>0.5</code> in
+<code>development.rb</code> and commented out in
+<code>production.rb</code>. No mention in <code>test.rb</code>.</p>
+</li><li>
+<p>Added <code>config.exceptions_app</code> to set the exceptions application
+invoked by the <code>ShowException</code> middleware when an exception
+happens. Defaults to
+<code>ActionDispatch::PublicExceptions.new(Rails.public_path)</code>.</p>
+</li><li>
+<p>Added a <code>DebugExceptions</code> middleware which contains features
+extracted from <code>ShowExceptions</code> middleware.</p>
+</li><li>
+<p>Display mounted engines&#39; routes in <code>rake routes</code>.</p>
+</li><li>
+<p>Allow to change the loading order of railties with
+<code>config.railties_order</code> like:</p>
+
+<pre class="ruby"><span class="ruby-identifier">config</span>.<span class="ruby-identifier">railties_order</span> = [<span class="ruby-constant">Blog</span><span class="ruby-operator">::</span><span class="ruby-constant">Engine</span>, :<span class="ruby-identifier">main_app</span>, :<span class="ruby-identifier">all</span>]
+</pre>
+</li><li>
+<p>Scaffold returns 204 No Content for API requests without content. This
+makes scaffold work with jQuery out of the box.</p>
+</li><li>
+<p>Update <code>Rails::Rack::Logger</code> middleware to apply any tags set in
+<code>config.log_tags</code> to <code>ActiveSupport::TaggedLogging</code>.
+This makes it easy to tag log lines with debug information like subdomain
+and request id -- both very helpful in debugging multi-user production
+applications.</p>
+</li><li>
+<p>Default options to <code>rails new</code> can be set in
+<code>~/.railsrc</code>. You can specify extra command-line arguments to be
+used every time <code>rails new</code> runs in the <code>.railsrc</code>
+configuration file in your home directory.</p>
+</li><li>
+<p>Add an alias <code>d</code> for <code>destroy</code>. This works for
+engines too.</p>
+</li><li>
+<p>Attributes on scaffold and model generators default to string. This allows
+the following: <code>rails g scaffold Post title body:text author</code></p>
+</li><li>
+<p>Allow scaffold/model/migration generators to accept "index" and "uniq"
+modifiers. For example,</p>
+
+<pre class="ruby"><span class="ruby-identifier">rails</span> <span class="ruby-identifier">g</span> <span class="ruby-identifier">scaffold</span> <span class="ruby-constant">Post</span> <span class="ruby-identifier">title</span>:<span class="ruby-identifier">string</span><span class="ruby-operator">:</span><span class="ruby-identifier">index</span> <span class="ruby-identifier">author</span>:<span class="ruby-identifier">uniq</span> <span class="ruby-identifier">price</span><span class="ruby-operator">:</span><span class="ruby-identifier">decimal</span>{<span class="ruby-value">7</span>,<span class="ruby-value">2</span>}
+</pre>
+
+<p>will create indexes for <code>title</code> and <code>author</code> with the
+latter being an unique index. Some types such as decimal accept custom
+options. In the example, <code>price</code> will be a decimal column with
+precision and scale set to 7 and 2 respectively.</p>
+</li><li>
+<p>Turn gem has been removed from default Gemfile.</p>
+</li><li>
+<p>Remove old plugin generator <code>rails generate plugin</code> in favor of
+<code>rails plugin new</code> command.</p>
+</li><li>
+<p>Remove old <code>config.paths.app.controller</code> API in favor of
+<code>config.paths["app/controller"]</code>.</p>
+</li></ul>
+
+<h4 id="label-Deprecations">Deprecations<span><a href="#label-Deprecations">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p><code>Rails::Plugin</code> is deprecated and will be removed in Rails 4.0.
+Instead of adding plugins to <code>vendor/plugins</code> use gems or
+bundler with path or git dependencies.</p>
+</li></ul>
+
+<h2 id="label-Action+Mailer">Action Mailer<span><a href="#label-Action+Mailer">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>Upgraded <code>mail</code> version to 2.4.0.</p>
+</li><li>
+<p>Removed the old Action Mailer API which was deprecated since Rails 3.0.</p>
+</li></ul>
+
+<h2 id="label-Action+Pack">Action Pack<span><a href="#label-Action+Pack">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<h3 id="label-Action+Controller">Action Controller<span><a href="#label-Action+Controller">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Make <code>ActiveSupport::Benchmarkable</code> a default module for
+<code>ActionController::Base,</code> so the <code>#benchmark</code> method
+is once again available in the controller context like it used to be.</p>
+</li><li>
+<p>Added <code>:gzip</code> option to <code>caches_page</code>. The default
+option can be configured globally using
+<code>page_cache_compression</code>.</p>
+</li><li>
+<p>Rails will now use your default layout (such as “layouts/application”) when
+you specify a layout with <code>:only</code> and <code>:except</code>
+condition, and those conditions fail.</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">CarsController</span>
+  <span class="ruby-identifier">layout</span> <span class="ruby-string">&#39;single_car&#39;</span>, :<span class="ruby-identifier">only</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-identifier">show</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>Rails will use <code>layouts/single_car</code> when a request comes in
+<code>:show</code> action, and use <code>layouts/application</code> (or
+<code>layouts/cars</code>, if exists) when a request comes in for any other
+actions.</p>
+</li><li>
+<p><code>form_for</code> is changed to use <code>#{action}_#{as}</code> as the
+css class and id if <code>:as</code> option is provided. Earlier versions
+used <code>#{as}_#{action}</code>.</p>
+</li><li>
+<p><code>ActionController::ParamsWrapper</code> on Active Record models now
+only wrap <code>attr_accessible</code> attributes if they were set. If not,
+only the attributes returned by the class method
+<code>attribute_names</code> will be wrapped. This fixes the wrapping of
+nested attributes by adding them to <code>attr_accessible</code>.</p>
+</li><li>
+<p>Log "Filter chain halted as CALLBACKNAME rendered or redirected" every time
+a before callback halts.</p>
+</li><li>
+<p><code>ActionDispatch::ShowExceptions</code> is refactored. The controller
+is responsible for choosing to show exceptions. It&#39;s possible to
+override <code>show_detailed_exceptions?</code> in controllers to specify
+which requests should provide debugging information on errors.</p>
+</li><li>
+<p>Responders now return 204 No Content for API requests without a response
+body (as in the new scaffold).</p>
+</li><li>
+<p><code>ActionController::TestCase</code> cookies is refactored. Assigning
+cookies for test cases should now use <code>cookies[]</code></p>
+
+<pre class="ruby"><span class="ruby-identifier">cookies</span>[:<span class="ruby-identifier">email</span>] = <span class="ruby-string">&#39;user@example.com&#39;</span>
+<span class="ruby-identifier">get</span> :<span class="ruby-identifier">index</span>
+<span class="ruby-identifier">assert_equal</span> <span class="ruby-string">&#39;user@example.com&#39;</span>, <span class="ruby-identifier">cookies</span>[:<span class="ruby-identifier">email</span>]
+</pre>
+
+<p>To clear the cookies, use <code>clear</code>.</p>
+
+<pre class="ruby"><span class="ruby-identifier">cookies</span>.<span class="ruby-identifier">clear</span>
+<span class="ruby-identifier">get</span> :<span class="ruby-identifier">index</span>
+<span class="ruby-identifier">assert_nil</span> <span class="ruby-identifier">cookies</span>[:<span class="ruby-identifier">email</span>]
+</pre>
+
+<p>We now no longer write out HTTP_COOKIE and the cookie jar is persistent
+between requests so if you need to manipulate the environment for your test
+you need to do it before the cookie jar is created.</p>
+</li><li>
+<p><code>send_file</code> now guesses the MIME type from the file extension if
+<code>:type</code> is not provided.</p>
+</li><li>
+<p>MIME type entries for PDF, ZIP and other formats were added.</p>
+</li><li>
+<p>Allow <code>fresh_when/stale?</code> to take a record instead of an options
+hash.</p>
+</li><li>
+<p>Changed log level of warning for missing CSRF token from
+<code>:debug</code> to <code>:warn</code>.</p>
+</li><li>
+<p>Assets should use the request protocol by default or default to relative if
+no request is available.</p>
+</li></ul>
+
+<h4 id="label-Deprecations">Deprecations<span><a href="#label-Deprecations">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p>Deprecated implied layout lookup in controllers whose parent had an
+explicit layout set:</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">ApplicationController</span>
+  <span class="ruby-identifier">layout</span> <span class="ruby-string">&quot;application&quot;</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">class</span> <span class="ruby-constant">PostsController</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">ApplicationController</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>In the example above, <code>PostsController</code> will no longer
+automatically look up for a posts layout. If you need this functionality
+you could either remove <code>layout &quot;application&quot;</code> from
+<code>ApplicationController</code> or explicitly set it to <code>nil</code>
+in <code>PostsController</code>.</p>
+</li><li>
+<p>Deprecated <code>ActionController::UnknownAction</code> in favor of
+<code>AbstractController::ActionNotFound</code>.</p>
+</li><li>
+<p>Deprecated <code>ActionController::DoubleRenderError</code> in favor of
+<code>AbstractController::DoubleRenderError</code>.</p>
+</li><li>
+<p>Deprecated <code>method_missing</code> in favor of
+<code>action_missing</code> for missing actions.</p>
+</li><li>
+<p>Deprecated <code>ActionController#rescue_action</code>,
+<code>ActionController#initialize_template_class</code> and
+<code>ActionController#assign_shortcuts</code>.</p>
+</li></ul>
+
+<h3 id="label-Action+Dispatch">Action Dispatch<span><a href="#label-Action+Dispatch">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Add <code>config.action_dispatch.default_charset</code> to configure
+default charset for <code>ActionDispatch::Response</code>.</p>
+</li><li>
+<p>Added <code>ActionDispatch::RequestId</code> middleware that&#39;ll make a
+unique X-Request-Id header available to the response and enables the
+<code>ActionDispatch::Request#uuid</code> method. This makes it easy to
+trace requests from end-to-end in the stack and to identify individual
+requests in mixed logs like Syslog.</p>
+</li><li>
+<p>The <code>ShowExceptions</code> middleware now accepts an exceptions
+application that is responsible to render an exception when the application
+fails. The application is invoked with a copy of the exception in
+<code>env["action_dispatch.exception"]</code> and with the
+<code>PATH_INFO</code> rewritten to the status code.</p>
+</li><li>
+<p>Allow rescue responses to be configured through a railtie as in
+<code>config.action_dispatch.rescue_responses</code>.</p>
+</li></ul>
+
+<h4 id="label-Deprecations">Deprecations<span><a href="#label-Deprecations">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p>Deprecated the ability to set a default charset at the controller level,
+use the new <code>config.action_dispatch.default_charset</code> instead.</p>
+</li></ul>
+
+<h3 id="label-Action+View">Action View<span><a href="#label-Action+View">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Add <code>button_tag</code> support to
+<code>ActionView::Helpers::FormBuilder</code>. This support mimics the
+default behavior of <code>submit_tag</code>.</p>
+
+<pre>&lt;%= form_for @post do |f| %&gt;
+  &lt;%= f.button %&gt;
+&lt;% end %&gt;</pre>
+</li><li>
+<p>Date helpers accept a new option <code>:use_two_digit_numbers =&gt;
+true</code>, that renders select boxes for months and days with a leading
+zero without changing the respective values. For example, this is useful
+for displaying ISO 8601-style dates such as &#39;2011-08-01&#39;.</p>
+</li><li>
+<p>You can provide a namespace for your form to ensure uniqueness of id
+attributes on form elements. The namespace attribute will be prefixed with
+underscore on the generated HTML id.</p>
+
+<pre>&lt;%= form_for(@offer, :namespace =&gt; &#39;namespace&#39;) do |f| %&gt;
+  &lt;%= f.label :version, &#39;Version&#39; %&gt;:
+  &lt;%= f.text_field :version %&gt;
+&lt;% end %&gt;</pre>
+</li><li>
+<p>Limit the number of options for <code>select_year</code> to 1000. Pass
+<code>:max_years_allowed</code> option to set your own limit.</p>
+</li><li>
+<p><code>content_tag_for</code> and <code>div_for</code> can now take a
+collection of records. It will also yield the record as the first argument
+if you set a receiving argument in your block. So instead of having to do
+this:</p>
+
+<pre class="ruby"><span class="ruby-ivar">@items</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">item</span><span class="ruby-operator">|</span>
+  <span class="ruby-identifier">content_tag_for</span>(:<span class="ruby-identifier">li</span>, <span class="ruby-identifier">item</span>) <span class="ruby-keyword">do</span>
+     <span class="ruby-constant">Title</span><span class="ruby-operator">:</span> <span class="ruby-operator">&lt;</span><span class="ruby-string">%Q= item.title %&gt;
+  end
+end
+</span></pre>
+
+<p>You can do this:</p>
+
+<pre class="ruby"><span class="ruby-identifier">content_tag_for</span>(:<span class="ruby-identifier">li</span>, <span class="ruby-ivar">@items</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">item</span><span class="ruby-operator">|</span>
+  <span class="ruby-constant">Title</span><span class="ruby-operator">:</span> <span class="ruby-operator">&lt;</span><span class="ruby-string">%Q= item.title %&gt;
+end
+</span></pre>
+</li><li>
+<p>Added <code>font_path</code> helper method that computes the path to a font
+asset in <code>public/fonts</code>.</p>
+</li></ul>
+
+<h4 id="label-Deprecations">Deprecations<span><a href="#label-Deprecations">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<ul><li>
+<p>Passing formats or handlers to render :template and friends like
+<code>render :template =&gt; &quot;foo.html.erb&quot;</code> is deprecated.
+Instead, you can provide :handlers and :formats directly as options:
+<code>render :template =&gt; &quot;foo&quot;, :formats =&gt; [:html, :js],
+:handlers =&gt; :erb</code>.</p>
+</li></ul>
+
+<h3 id="label-Sprockets">Sprockets<span><a href="#label-Sprockets">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Adds a configuration option <code>config.assets.logger</code> to control
+Sprockets logging. Set it to <code>false</code> to turn off logging and to
+<code>nil</code> to default to <code>Rails.logger</code>.</p>
+</li></ul>
+
+<h2 id="label-Active+Record">Active Record<span><a href="#label-Active+Record">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>Boolean columns with &#39;on&#39; and &#39;ON&#39; values are type cast to
+true.</p>
+</li><li>
+<p>When the <code>timestamps</code> method creates the <code>created_at</code>
+and <code>updated_at</code> columns, it makes them non-nullable by default.</p>
+</li><li>
+<p>Implemented <code>ActiveRecord::Relation#explain</code>.</p>
+</li><li>
+<p>Implements <code>AR::Base.silence_auto_explain</code> which allows the user
+to selectively disable automatic EXPLAINs within a block.</p>
+</li><li>
+<p>Implements automatic EXPLAIN logging for slow queries. A new configuration
+parameter
+<code>config.active_record.auto_explain_threshold_in_seconds</code>
+determines what&#39;s to be considered a slow query. Setting that to nil
+disables this feature. Defaults are 0.5 in development mode, and nil in
+test and production modes. Rails 3.2 supports this feature in SQLite, MySQL
+(mysql2 adapter), and PostgreSQL.</p>
+</li><li>
+<p>Added <code>ActiveRecord::Base.store</code> for declaring simple
+single-column key/value stores.</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">User</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>
+  <span class="ruby-identifier">store</span> :<span class="ruby-identifier">settings</span>, <span class="ruby-identifier">accessors</span><span class="ruby-operator">:</span> [ :<span class="ruby-identifier">color</span>, :<span class="ruby-identifier">homepage</span> ]
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-identifier">u</span> = <span class="ruby-constant">User</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">color</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;black&#39;</span>, <span class="ruby-identifier">homepage</span><span class="ruby-operator">:</span> <span class="ruby-string">&#39;37signals.com&#39;</span>)
+<span class="ruby-identifier">u</span>.<span class="ruby-identifier">color</span>                          <span class="ruby-comment"># Accessor stored attribute</span>
+<span class="ruby-identifier">u</span>.<span class="ruby-identifier">settings</span>[:<span class="ruby-identifier">country</span>] = <span class="ruby-string">&#39;Denmark&#39;</span> <span class="ruby-comment"># Any attribute, even if not specified with an accessor</span>
+</pre>
+</li><li>
+<p>Added ability to run migrations only for a given scope, which allows to run
+migrations only from one engine (for example to revert changes from an
+engine that need to be removed).</p>
+
+<pre>rake db:migrate SCOPE=blog</pre>
+</li><li>
+<p>Migrations copied from engines are now scoped with engine&#39;s name, for
+example <code>01_create_posts.blog.rb</code>.</p>
+</li><li>
+<p>Implemented <code>ActiveRecord::Relation#pluck</code> method that returns
+an array of column values directly from the underlying table. This also
+works with serialized attributes.</p>
+
+<pre class="ruby"><span class="ruby-constant">Client</span>.<span class="ruby-identifier">where</span>(:<span class="ruby-identifier">active</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">true</span>).<span class="ruby-identifier">pluck</span>(:<span class="ruby-identifier">id</span>)
+<span class="ruby-comment"># SELECT id from clients where active = 1</span>
+</pre>
+</li><li>
+<p>Generated association methods are created within a separate module to allow
+overriding and composition. For a class named MyModel, the module is named
+<code>MyModel::GeneratedFeatureMethods</code>. It is included into the
+model class immediately after the <code>generated_attributes_methods</code>
+module defined in Active Model, so association methods override attribute
+methods of the same name.</p>
+</li><li>
+<p>Add <code>ActiveRecord::Relation#uniq</code> for generating unique queries.</p>
+
+<pre class="ruby"><span class="ruby-constant">Client</span>.<span class="ruby-identifier">select</span>(<span class="ruby-string">&#39;DISTINCT name&#39;</span>)
+</pre>
+
+<p>..can be written as:</p>
+
+<pre class="ruby"><span class="ruby-constant">Client</span>.<span class="ruby-identifier">select</span>(:<span class="ruby-identifier">name</span>).<span class="ruby-identifier">uniq</span>
+</pre>
+
+<p>This also allows you to revert the uniqueness in a relation:</p>
+
+<pre class="ruby"><span class="ruby-constant">Client</span>.<span class="ruby-identifier">select</span>(:<span class="ruby-identifier">name</span>).<span class="ruby-identifier">uniq</span>.<span class="ruby-identifier">uniq</span>(<span class="ruby-keyword">false</span>)
+</pre>
+</li><li>
+<p>Support index sort order in SQLite, MySQL and PostgreSQL adapters.</p>
+</li><li>
+<p>Allow the <code>:class_name</code> option for associations to take a symbol
+in addition to a string. This is to avoid confusing newbies, and to be
+consistent with the fact that other options like <code>:foreign_key</code>
+already allow a symbol or a string.</p>
+
+<pre class="ruby"><span class="ruby-identifier">has_many</span> :<span class="ruby-identifier">clients</span>, :<span class="ruby-identifier">class_name</span> =<span class="ruby-operator">&gt;</span> :<span class="ruby-constant">Client</span> <span class="ruby-comment"># Note that the symbol need to be capitalized</span>
+</pre>
+</li><li>
+<p>In development mode, <code>db:drop</code> also drops the test database in
+order to be symmetric with <code>db:create</code>.</p>
+</li><li>
+<p>Case-insensitive uniqueness validation avoids calling LOWER in MySQL when
+the column already uses a case-insensitive collation.</p>
+</li><li>
+<p>Transactional fixtures enlist all active database connections. You can test
+models on different connections without disabling transactional fixtures.</p>
+</li><li>
+<p>Add <code>first_or_create</code>, <code>first_or_create!</code>,
+<code>first_or_initialize</code> methods to Active Record. This is a better
+approach over the old <code>find_or_create_by</code> dynamic methods
+because it&#39;s clearer which arguments are used to find the record and
+which are used to create it.</p>
+
+<pre class="ruby"><span class="ruby-constant">User</span>.<span class="ruby-identifier">where</span>(:<span class="ruby-identifier">first_name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Scarlett&quot;</span>).<span class="ruby-identifier">first_or_create!</span>(:<span class="ruby-identifier">last_name</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">&quot;Johansson&quot;</span>)
+</pre>
+</li><li>
+<p>Added a <code>with_lock</code> method to Active Record objects, which
+starts a transaction, locks the object (pessimistically) and yields to the
+block. The method takes one (optional) parameter and passes it to
+<code>lock!</code>.</p>
+
+<p>This makes it possible to write the following:</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">Order</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">cancel!</span>
+    <span class="ruby-identifier">transaction</span> <span class="ruby-keyword">do</span>
+      <span class="ruby-identifier">lock!</span>
+      <span class="ruby-comment"># ... cancelling logic</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>as:</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">Order</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier">cancel!</span>
+    <span class="ruby-identifier">with_lock</span> <span class="ruby-keyword">do</span>
+      <span class="ruby-comment"># ... cancelling logic</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+</li></ul>
+
+<h3 id="label-Deprecations">Deprecations<span><a href="#label-Deprecations">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Automatic closure of connections in threads is deprecated. For example the
+following code is deprecated:</p>
+
+<pre class="ruby"><span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> { <span class="ruby-constant">Post</span>.<span class="ruby-identifier">find</span>(<span class="ruby-value">1</span>) }.<span class="ruby-identifier">join</span>
+</pre>
+
+<p>It should be changed to close the database connection at the end of the
+thread:</p>
+
+<pre class="ruby"><span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> {
+  <span class="ruby-constant">Post</span>.<span class="ruby-identifier">find</span>(<span class="ruby-value">1</span>)
+  <span class="ruby-constant">Post</span>.<span class="ruby-identifier">connection</span>.<span class="ruby-identifier">close</span>
+}.<span class="ruby-identifier">join</span>
+</pre>
+
+<p>Only people who spawn threads in their application code need to worry about
+this change.</p>
+</li><li>
+<p>The <code>set_table_name</code>, <code>set_inheritance_column</code>,
+<code>set_sequence_name</code>, <code>set_primary_key</code>,
+<code>set_locking_column</code> methods are deprecated. Use an assignment
+method instead. For example, instead of <code>set_table_name</code>, use
+<code>self.table_name=</code>.</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">Project</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">table_name</span> = <span class="ruby-string">&quot;project&quot;</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>Or define your own <code>self.table_name</code> method:</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">Post</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">ActiveRecord</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">table_name</span>
+    <span class="ruby-string">&quot;special_&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-keyword">super</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-constant">Post</span>.<span class="ruby-identifier">table_name</span> <span class="ruby-comment"># =&gt; &quot;special_posts&quot;</span>
+</pre>
+</li></ul>
+
+<h2 id="label-Active+Model">Active Model<span><a href="#label-Active+Model">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>Add <code>ActiveModel::Errors#added?</code> to check if a specific error
+has been added.</p>
+</li><li>
+<p>Add ability to define strict validations with <code>strict =&gt;
+true</code> that always raises exception when fails.</p>
+</li><li>
+<p>Provide mass_assignment_sanitizer as an easy API to replace the sanitizer
+behavior. Also support both :logger (default) and :strict sanitizer
+behavior.</p>
+</li></ul>
+
+<h3 id="label-Deprecations">Deprecations<span><a href="#label-Deprecations">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p>Deprecated <code>define_attr_method</code> in
+<code>ActiveModel::AttributeMethods</code> because this only existed to
+support methods like <code>set_table_name</code> in Active Record, which
+are themselves being deprecated.</p>
+</li><li>
+<p>Deprecated <code>Model.model_name.partial_path</code> in favor of
+<code>model.to_partial_path</code>.</p>
+</li></ul>
+
+<h2 id="label-Active+Resource">Active Resource<span><a href="#label-Active+Resource">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>Redirect responses: 303 See Other and 307 Temporary Redirect now behave
+like 301 Moved Permanently and 302 Found.</p>
+</li></ul>
+
+<h2 id="label-Active+Support">Active Support<span><a href="#label-Active+Support">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<ul><li>
+<p>Added <code>ActiveSupport:TaggedLogging</code> that can wrap any standard
+<code>Logger</code> class to provide tagging capabilities.</p>
+
+<pre class="ruby"><span class="ruby-constant">Logger</span> = <span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">TaggedLogging</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">Logger</span>.<span class="ruby-identifier">new</span>(<span class="ruby-constant">STDOUT</span>))
+
+<span class="ruby-constant">Logger</span>.<span class="ruby-identifier">tagged</span>(<span class="ruby-string">&quot;BCX&quot;</span>) { <span class="ruby-constant">Logger</span>.<span class="ruby-identifier">info</span> <span class="ruby-string">&quot;Stuff&quot;</span> }
+<span class="ruby-comment"># Logs &quot;[BCX] Stuff&quot;</span>
+
+<span class="ruby-constant">Logger</span>.<span class="ruby-identifier">tagged</span>(<span class="ruby-string">&quot;BCX&quot;</span>, <span class="ruby-string">&quot;Jason&quot;</span>) { <span class="ruby-constant">Logger</span>.<span class="ruby-identifier">info</span> <span class="ruby-string">&quot;Stuff&quot;</span> }
+<span class="ruby-comment"># Logs &quot;[BCX] [Jason] Stuff&quot;</span>
+
+<span class="ruby-constant">Logger</span>.<span class="ruby-identifier">tagged</span>(<span class="ruby-string">&quot;BCX&quot;</span>) { <span class="ruby-constant">Logger</span>.<span class="ruby-identifier">tagged</span>(<span class="ruby-string">&quot;Jason&quot;</span>) { <span class="ruby-constant">Logger</span>.<span class="ruby-identifier">info</span> <span class="ruby-string">&quot;Stuff&quot;</span> } }
+<span class="ruby-comment"># Logs &quot;[BCX] [Jason] Stuff&quot;</span>
+</pre>
+</li><li>
+<p>The <code>beginning_of_week</code> method in <code>Date</code>,
+<code>Time</code> and <code>DateTime</code> accepts an optional argument
+representing the day in which the week is assumed to start.</p>
+</li><li>
+<p><code>ActiveSupport::Notifications.subscribed</code> provides subscriptions
+to events while a block runs.</p>
+</li><li>
+<p>Defined new methods <code>Module#qualified_const_defined?</code>,
+<code>Module#qualified_const_get</code> and
+<code>Module#qualified_const_set</code> that are analogous to the
+corresponding methods in the standard API, but accept qualified constant
+names.</p>
+</li><li>
+<p>Added <code>#deconstantize</code> which complements
+<code>#demodulize</code> in inflections. This removes the rightmost segment
+in a qualified constant name.</p>
+</li><li>
+<p>Added <code>safe_constantize</code> that constantizes a string but returns
+<code>nil</code> instead of raising an exception if the constant (or part
+of it) does not exist.</p>
+</li><li>
+<p><code>ActiveSupport::OrderedHash</code> is now marked as extractable when
+using <code>Array#extract_options!</code>.</p>
+</li><li>
+<p>Added <code>Array#prepend</code> as an alias for <code>Array#unshift</code>
+and <code>Array#append</code> as an alias for <code>Array#&lt;&lt;</code>.</p>
+</li><li>
+<p>The definition of a blank string for Ruby 1.9 has been extended to Unicode
+whitespace. Also, in Ruby 1.8 the ideographic space U`3000 is considered to
+be whitespace.</p>
+</li><li>
+<p>The inflector understands acronyms.</p>
+</li><li>
+<p>Added <code>Time#all_day</code>, <code>Time#all_week</code>,
+<code>Time#all_quarter</code> and <code>Time#all_year</code> as a way of
+generating ranges.</p>
+
+<pre class="ruby"><span class="ruby-constant">Event</span>.<span class="ruby-identifier">where</span>(:<span class="ruby-identifier">created_at</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">all_week</span>)
+<span class="ruby-constant">Event</span>.<span class="ruby-identifier">where</span>(:<span class="ruby-identifier">created_at</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">all_day</span>)
+</pre>
+</li><li>
+<p>Added <code>instance_accessor: false</code> as an option to
+<code>Class#cattr_accessor</code> and friends.</p>
+</li><li>
+<p><code>ActiveSupport::OrderedHash</code> now has different behavior for
+<code>#each</code> and <code>#each_pair</code> when given a block accepting
+its parameters with a splat.</p>
+</li><li>
+<p>Added <code>ActiveSupport::Cache::NullStore</code> for use in development
+and testing.</p>
+</li><li>
+<p>Removed <code>ActiveSupport::SecureRandom</code> in favor of
+<code>SecureRandom</code> from the standard library.</p>
+</li></ul>
+
+<h3 id="label-Deprecations">Deprecations<span><a href="#label-Deprecations">&para;</a> <a href="#top">&uarr;</a></span></h3>
+<ul><li>
+<p><code>ActiveSupport::Base64</code> is deprecated in favor of
+<code>::Base64</code>.</p>
+</li><li>
+<p>Deprecated <code>ActiveSupport::Memoizable</code> in favor of Ruby
+memoization pattern.</p>
+</li><li>
+<p><code>Module#synchronize</code> is deprecated with no replacement. Please
+use monitor from ruby&#39;s standard library.</p>
+</li><li>
+<p>Deprecated <code>ActiveSupport::MessageEncryptor#encrypt</code> and
+<code>ActiveSupport::MessageEncryptor#decrypt</code>.</p>
+</li><li>
+<p><code>ActiveSupport::BufferedLogger#silence</code> is deprecated. If you
+want to squelch logs for a certain block, change the log level for that
+block.</p>
+</li><li>
+<p><code>ActiveSupport::BufferedLogger#open_log</code> is deprecated. This
+method should not have been public in the first place.</p>
+</li><li>
+<p><code>ActiveSupport::BufferedLogger&#39;s</code> behavior of automatically
+creating the directory for your log file is deprecated. Please make sure to
+create the directory for your log file before instantiating.</p>
+</li><li>
+<p><code>ActiveSupport::BufferedLogger#auto_flushing</code> is deprecated.
+Either set the sync level on the underlying file handle like this. Or tune
+your filesystem. The FS cache is now what controls flushing.</p>
+
+<pre class="ruby"><span class="ruby-identifier">f</span> = <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-string">&#39;foo.log&#39;</span>, <span class="ruby-string">&#39;w&#39;</span>)
+<span class="ruby-identifier">f</span>.<span class="ruby-identifier">sync</span> = <span class="ruby-keyword">true</span>
+<span class="ruby-constant">ActiveSupport</span><span class="ruby-operator">::</span><span class="ruby-constant">BufferedLogger</span>.<span class="ruby-identifier">new</span> <span class="ruby-identifier">f</span>
+</pre>
+</li><li>
+<p><code>ActiveSupport::BufferedLogger#flush</code> is deprecated. Set sync on
+your filehandle, or tune your filesystem.</p>
+</li></ul>
+
+<h2 id="label-Credits">Credits<span><a href="#label-Credits">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>See the <a href="http://contributors.rubyonrails.org/">full list of
+contributors to Rails</a> for the many people who spent many hours making
+Rails, the stable and robust framework it is. Kudos to all of them.</p>
+
+<p>Rails 3.2 Release Notes were compiled by <a
+href="https://github.com/vijaydev">Vijay Dev</a>.</p>
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

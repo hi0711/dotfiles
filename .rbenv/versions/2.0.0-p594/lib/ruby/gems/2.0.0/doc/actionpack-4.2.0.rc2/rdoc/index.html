@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>actionpack-4.2.0.rc2 Documentation</title>
+
+<link href="./fonts.css" rel="stylesheet">
+<link href="./rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/navigation.js"></script>
+<script src="./js/search_index.js"></script>
+<script src="./js/search.js"></script>
+<script src="./js/searcher.js"></script>
+<script src="./js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./lib/action_dispatch/journey/visualizer/fsm_css.html">fsm.css</a>
+  
+    <li><a href="./lib/action_dispatch/journey/visualizer/fsm_js.html">fsm.js</a>
+  
+  </ul>
+</div>
+
+    <div id="classindex-section" class="nav-section">
+  <h3>Class and Module Index</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="./AbstractController/ActionNotFound.html">AbstractController::ActionNotFound</a>
+  
+    <li><a href="./AbstractController/AssetPaths.html">AbstractController::AssetPaths</a>
+  
+    <li><a href="./AbstractController/Base.html">AbstractController::Base</a>
+  
+    <li><a href="./AbstractController/Callbacks.html">AbstractController::Callbacks</a>
+  
+    <li><a href="./AbstractController/Callbacks/ClassMethods.html">AbstractController::Callbacks::ClassMethods</a>
+  
+    <li><a href="./AbstractController/Collector.html">AbstractController::Collector</a>
+  
+    <li><a href="./AbstractController/DoubleRenderError.html">AbstractController::DoubleRenderError</a>
+  
+    <li><a href="./AbstractController/Error.html">AbstractController::Error</a>
+  
+    <li><a href="./AbstractController/Helpers/ClassMethods.html">AbstractController::Helpers::ClassMethods</a>
+  
+    <li><a href="./AbstractController/Helpers/MissingHelperError.html">AbstractController::Helpers::MissingHelperError</a>
+  
+    <li><a href="./AbstractController/Logger.html">AbstractController::Logger</a>
+  
+    <li><a href="./AbstractController/Railties.html">AbstractController::Railties</a>
+  
+    <li><a href="./AbstractController/Railties/RoutesHelpers.html">AbstractController::Railties::RoutesHelpers</a>
+  
+    <li><a href="./AbstractController/Rendering.html">AbstractController::Rendering</a>
+  
+    <li><a href="./AbstractController/Translation.html">AbstractController::Translation</a>
+  
+    <li><a href="./AbstractController/UrlFor.html">AbstractController::UrlFor</a>
+  
+    <li><a href="./AbstractController/UrlFor/ClassMethods.html">AbstractController::UrlFor::ClassMethods</a>
+  
+    <li><a href="./ActionController.html">ActionController</a>
+  
+    <li><a href="./ActionController/ActionController/ActionController.html">ActionController::ActionController::ActionController</a>
+  
+    <li><a href="./ActionController/ActionController/ActionController/UrlGenerationError.html">ActionController::ActionController::ActionController::UrlGenerationError</a>
+  
+    <li><a href="./ActionController/ActionControllerError.html">ActionController::ActionControllerError</a>
+  
+    <li><a href="./ActionController/BadRequest.html">ActionController::BadRequest</a>
+  
+    <li><a href="./ActionController/Base.html">ActionController::Base</a>
+  
+    <li><a href="./ActionController/Caching.html">ActionController::Caching</a>
+  
+    <li><a href="./ActionController/Caching/ClassMethods.html">ActionController::Caching::ClassMethods</a>
+  
+    <li><a href="./ActionController/Caching/ConfigMethods.html">ActionController::Caching::ConfigMethods</a>
+  
+    <li><a href="./ActionController/Caching/Fragments.html">ActionController::Caching::Fragments</a>
+  
+    <li><a href="./ActionController/ConditionalGet.html">ActionController::ConditionalGet</a>
+  
+    <li><a href="./ActionController/ConditionalGet/ClassMethods.html">ActionController::ConditionalGet::ClassMethods</a>
+  
+    <li><a href="./ActionController/Cookies.html">ActionController::Cookies</a>
+  
+    <li><a href="./ActionController/DataStreaming.html">ActionController::DataStreaming</a>
+  
+    <li><a href="./ActionController/DataStreaming/FileBody.html">ActionController::DataStreaming::FileBody</a>
+  
+    <li><a href="./ActionController/EtagWithTemplateDigest.html">ActionController::EtagWithTemplateDigest</a>
+  
+    <li><a href="./ActionController/Flash.html">ActionController::Flash</a>
+  
+    <li><a href="./ActionController/Flash/ClassMethods.html">ActionController::Flash::ClassMethods</a>
+  
+    <li><a href="./ActionController/ForceSSL.html">ActionController::ForceSSL</a>
+  
+    <li><a href="./ActionController/ForceSSL/ClassMethods.html">ActionController::ForceSSL::ClassMethods</a>
+  
+    <li><a href="./ActionController/Head.html">ActionController::Head</a>
+  
+    <li><a href="./ActionController/Helpers.html">ActionController::Helpers</a>
+  
+    <li><a href="./ActionController/Helpers/ClassMethods.html">ActionController::Helpers::ClassMethods</a>
+  
+    <li><a href="./ActionController/HideActions.html">ActionController::HideActions</a>
+  
+    <li><a href="./ActionController/HideActions/ClassMethods.html">ActionController::HideActions::ClassMethods</a>
+  
+    <li><a href="./ActionController/HttpAuthentication.html">ActionController::HttpAuthentication</a>
+  
+    <li><a href="./ActionController/HttpAuthentication/Basic.html">ActionController::HttpAuthentication::Basic</a>
+  
+    <li><a href="./ActionController/HttpAuthentication/Basic/ControllerMethods.html">ActionController::HttpAuthentication::Basic::ControllerMethods</a>
+  
+    <li><a href="./ActionController/HttpAuthentication/Basic/ControllerMethods/ClassMethods.html">ActionController::HttpAuthentication::Basic::ControllerMethods::ClassMethods</a>
+  
+    <li><a href="./ActionController/HttpAuthentication/Digest.html">ActionController::HttpAuthentication::Digest</a>
+  
+    <li><a href="./ActionController/HttpAuthentication/Digest/ControllerMethods.html">ActionController::HttpAuthentication::Digest::ControllerMethods</a>
+  
+    <li><a href="./ActionController/HttpAuthentication/Token.html">ActionController::HttpAuthentication::Token</a>
+  
+    <li><a href="./ActionController/HttpAuthentication/Token/ControllerMethods.html">ActionController::HttpAuthentication::Token::ControllerMethods</a>
+  
+    <li><a href="./ActionController/ImplicitRender.html">ActionController::ImplicitRender</a>
+  
+    <li><a href="./ActionController/Instrumentation.html">ActionController::Instrumentation</a>
+  
+    <li><a href="./ActionController/Instrumentation/ClassMethods.html">ActionController::Instrumentation::ClassMethods</a>
+  
+    <li><a href="./ActionController/InvalidAuthenticityToken.html">ActionController::InvalidAuthenticityToken</a>
+  
+    <li><a href="./ActionController/InvalidCrossOriginRequest.html">ActionController::InvalidCrossOriginRequest</a>
+  
+    <li><a href="./ActionController/Live.html">ActionController::Live</a>
+  
+    <li><a href="./ActionController/Live/Buffer.html">ActionController::Live::Buffer</a>
+  
+    <li><a href="./ActionController/Live/ClientDisconnected.html">ActionController::Live::ClientDisconnected</a>
+  
+    <li><a href="./ActionController/Live/Response.html">ActionController::Live::Response</a>
+  
+    <li><a href="./ActionController/Live/SSE.html">ActionController::Live::SSE</a>
+  
+    <li><a href="./ActionController/LiveTestResponse.html">ActionController::LiveTestResponse</a>
+  
+    <li><a href="./ActionController/LogSubscriber.html">ActionController::LogSubscriber</a>
+  
+    <li><a href="./ActionController/Metal.html">ActionController::Metal</a>
+  
+    <li><a href="./ActionController/MethodNotAllowed.html">ActionController::MethodNotAllowed</a>
+  
+    <li><a href="./ActionController/Middleware.html">ActionController::Middleware</a>
+  
+    <li><a href="./ActionController/Middleware/ActionMiddleware.html">ActionController::Middleware::ActionMiddleware</a>
+  
+    <li><a href="./ActionController/MiddlewareStack.html">ActionController::MiddlewareStack</a>
+  
+    <li><a href="./ActionController/MiddlewareStack/Middleware.html">ActionController::MiddlewareStack::Middleware</a>
+  
+    <li><a href="./ActionController/MimeResponds.html">ActionController::MimeResponds</a>
+  
+    <li><a href="./ActionController/MimeResponds/ClassMethods.html">ActionController::MimeResponds::ClassMethods</a>
+  
+    <li><a href="./ActionController/MimeResponds/Collector.html">ActionController::MimeResponds::Collector</a>
+  
+    <li><a href="./ActionController/MimeResponds/Collector/VariantCollector.html">ActionController::MimeResponds::Collector::VariantCollector</a>
+  
+    <li><a href="./ActionController/MissingFile.html">ActionController::MissingFile</a>
+  
+    <li><a href="./ActionController/MissingRenderer.html">ActionController::MissingRenderer</a>
+  
+    <li><a href="./ActionController/ModelNaming.html">ActionController::ModelNaming</a>
+  
+    <li><a href="./ActionController/NotImplemented.html">ActionController::NotImplemented</a>
+  
+    <li><a href="./ActionController/ParameterMissing.html">ActionController::ParameterMissing</a>
+  
+    <li><a href="./ActionController/Parameters.html">ActionController::Parameters</a>
+  
+    <li><a href="./ActionController/ParamsWrapper.html">ActionController::ParamsWrapper</a>
+  
+    <li><a href="./ActionController/ParamsWrapper/ClassMethods.html">ActionController::ParamsWrapper::ClassMethods</a>
+  
+    <li><a href="./ActionController/ParamsWrapper/Options.html">ActionController::ParamsWrapper::Options</a>
+  
+    <li><a href="./ActionController/RackDelegation.html">ActionController::RackDelegation</a>
+  
+    <li><a href="./ActionController/Railtie.html">ActionController::Railtie</a>
+  
+    <li><a href="./ActionController/Railties.html">ActionController::Railties</a>
+  
+    <li><a href="./ActionController/Railties/Helpers.html">ActionController::Railties::Helpers</a>
+  
+    <li><a href="./ActionController/RedirectBackError.html">ActionController::RedirectBackError</a>
+  
+    <li><a href="./ActionController/Redirecting.html">ActionController::Redirecting</a>
+  
+    <li><a href="./ActionController/RenderError.html">ActionController::RenderError</a>
+  
+    <li><a href="./ActionController/Renderers.html">ActionController::Renderers</a>
+  
+    <li><a href="./ActionController/Renderers/All.html">ActionController::Renderers::All</a>
+  
+    <li><a href="./ActionController/Renderers/ClassMethods.html">ActionController::Renderers::ClassMethods</a>
+  
+    <li><a href="./ActionController/Rendering.html">ActionController::Rendering</a>
+  
+    <li><a href="./ActionController/RequestForgeryProtection.html">ActionController::RequestForgeryProtection</a>
+  
+    <li><a href="./ActionController/RequestForgeryProtection/ClassMethods.html">ActionController::RequestForgeryProtection::ClassMethods</a>
+  
+    <li><a href="./ActionController/RequestForgeryProtection/ProtectionMethods.html">ActionController::RequestForgeryProtection::ProtectionMethods</a>
+  
+    <li><a href="./ActionController/RequestForgeryProtection/ProtectionMethods/Exception.html">ActionController::RequestForgeryProtection::ProtectionMethods::Exception</a>
+  
+    <li><a href="./ActionController/RequestForgeryProtection/ProtectionMethods/NullSession.html">ActionController::RequestForgeryProtection::ProtectionMethods::NullSession</a>
+  
+    <li><a href="./ActionController/RequestForgeryProtection/ProtectionMethods/NullSession/NullCookieJar.html">ActionController::RequestForgeryProtection::ProtectionMethods::NullSession::NullCookieJar</a>
+  
+    <li><a href="./ActionController/RequestForgeryProtection/ProtectionMethods/NullSession/NullSessionHash.html">ActionController::RequestForgeryProtection::ProtectionMethods::NullSession::NullSessionHash</a>
+  
+    <li><a href="./ActionController/RequestForgeryProtection/ProtectionMethods/ResetSession.html">ActionController::RequestForgeryProtection::ProtectionMethods::ResetSession</a>
+  
+    <li><a href="./ActionController/Rescue.html">ActionController::Rescue</a>
+  
+    <li><a href="./ActionController/RoutingError.html">ActionController::RoutingError</a>
+  
+    <li><a href="./ActionController/SessionOverflowError.html">ActionController::SessionOverflowError</a>
+  
+    <li><a href="./ActionController/Streaming.html">ActionController::Streaming</a>
+  
+    <li><a href="./ActionController/StrongParameters.html">ActionController::StrongParameters</a>
+  
+    <li><a href="./ActionController/TemplateAssertions.html">ActionController::TemplateAssertions</a>
+  
+    <li><a href="./ActionController/TestCase.html">ActionController::TestCase</a>
+  
+    <li><a href="./ActionController/TestCase/Behavior.html">ActionController::TestCase::Behavior</a>
+  
+    <li><a href="./ActionController/TestCase/Behavior/ClassMethods.html">ActionController::TestCase::Behavior::ClassMethods</a>
+  
+    <li><a href="./ActionController/TestRequest.html">ActionController::TestRequest</a>
+  
+    <li><a href="./ActionController/TestResponse.html">ActionController::TestResponse</a>
+  
+    <li><a href="./ActionController/TestSession.html">ActionController::TestSession</a>
+  
+    <li><a href="./ActionController/Testing.html">ActionController::Testing</a>
+  
+    <li><a href="./ActionController/Testing/ClassMethods.html">ActionController::Testing::ClassMethods</a>
+  
+    <li><a href="./ActionController/Testing/Functional.html">ActionController::Testing::Functional</a>
+  
+    <li><a href="./ActionController/UnknownController.html">ActionController::UnknownController</a>
+  
+    <li><a href="./ActionController/UnknownFormat.html">ActionController::UnknownFormat</a>
+  
+    <li><a href="./ActionController/UnknownHttpMethod.html">ActionController::UnknownHttpMethod</a>
+  
+    <li><a href="./ActionController/UnpermittedParameters.html">ActionController::UnpermittedParameters</a>
+  
+    <li><a href="./ActionController/UrlFor.html">ActionController::UrlFor</a>
+  
+    <li><a href="./ActionDispatch.html">ActionDispatch</a>
+  
+    <li><a href="./ActionDispatch/Assertions.html">ActionDispatch::Assertions</a>
+  
+    <li><a href="./ActionDispatch/Assertions/ResponseAssertions.html">ActionDispatch::Assertions::ResponseAssertions</a>
+  
+    <li><a href="./ActionDispatch/Assertions/RoutingAssertions.html">ActionDispatch::Assertions::RoutingAssertions</a>
+  
+    <li><a href="./ActionDispatch/Callbacks.html">ActionDispatch::Callbacks</a>
+  
+    <li><a href="./ActionDispatch/Cookies.html">ActionDispatch::Cookies</a>
+  
+    <li><a href="./ActionDispatch/Cookies/ChainedCookieJars.html">ActionDispatch::Cookies::ChainedCookieJars</a>
+  
+    <li><a href="./ActionDispatch/Cookies/CookieJar.html">ActionDispatch::Cookies::CookieJar</a>
+  
+    <li><a href="./ActionDispatch/Cookies/EncryptedCookieJar.html">ActionDispatch::Cookies::EncryptedCookieJar</a>
+  
+    <li><a href="./ActionDispatch/Cookies/JsonSerializer.html">ActionDispatch::Cookies::JsonSerializer</a>
+  
+    <li><a href="./ActionDispatch/Cookies/PermanentCookieJar.html">ActionDispatch::Cookies::PermanentCookieJar</a>
+  
+    <li><a href="./ActionDispatch/Cookies/SerializedCookieJars.html">ActionDispatch::Cookies::SerializedCookieJars</a>
+  
+    <li><a href="./ActionDispatch/Cookies/SignedCookieJar.html">ActionDispatch::Cookies::SignedCookieJar</a>
+  
+    <li><a href="./ActionDispatch/Cookies/UpgradeLegacyEncryptedCookieJar.html">ActionDispatch::Cookies::UpgradeLegacyEncryptedCookieJar</a>
+  
+    <li><a href="./ActionDispatch/Cookies/UpgradeLegacySignedCookieJar.html">ActionDispatch::Cookies::UpgradeLegacySignedCookieJar</a>
+  
+    <li><a href="./ActionDispatch/Cookies/VerifyAndUpgradeLegacySignedMessage.html">ActionDispatch::Cookies::VerifyAndUpgradeLegacySignedMessage</a>
+  
+    <li><a href="./ActionDispatch/DebugExceptions.html">ActionDispatch::DebugExceptions</a>
+  
+    <li><a href="./ActionDispatch/ExceptionWrapper.html">ActionDispatch::ExceptionWrapper</a>
+  
+    <li><a href="./ActionDispatch/FileHandler.html">ActionDispatch::FileHandler</a>
+  
+    <li><a href="./ActionDispatch/Flash.html">ActionDispatch::Flash</a>
+  
+    <li><a href="./ActionDispatch/Flash/FlashHash.html">ActionDispatch::Flash::FlashHash</a>
+  
+    <li><a href="./ActionDispatch/Flash/FlashNow.html">ActionDispatch::Flash::FlashNow</a>
+  
+    <li><a href="./ActionDispatch/Http/Cache.html">ActionDispatch::Http::Cache</a>
+  
+    <li><a href="./ActionDispatch/Http/Cache/Request.html">ActionDispatch::Http::Cache::Request</a>
+  
+    <li><a href="./ActionDispatch/Http/Cache/Response.html">ActionDispatch::Http::Cache::Response</a>
+  
+    <li><a href="./ActionDispatch/Http/FilterParameters.html">ActionDispatch::Http::FilterParameters</a>
+  
+    <li><a href="./ActionDispatch/Http/FilterRedirect.html">ActionDispatch::Http::FilterRedirect</a>
+  
+    <li><a href="./ActionDispatch/Http/Headers.html">ActionDispatch::Http::Headers</a>
+  
+    <li><a href="./ActionDispatch/Http/MimeNegotiation.html">ActionDispatch::Http::MimeNegotiation</a>
+  
+    <li><a href="./ActionDispatch/Http/ParameterFilter.html">ActionDispatch::Http::ParameterFilter</a>
+  
+    <li><a href="./ActionDispatch/Http/ParameterFilter/CompiledFilter.html">ActionDispatch::Http::ParameterFilter::CompiledFilter</a>
+  
+    <li><a href="./ActionDispatch/Http/Parameters.html">ActionDispatch::Http::Parameters</a>
+  
+    <li><a href="./ActionDispatch/Http/URL.html">ActionDispatch::Http::URL</a>
+  
+    <li><a href="./ActionDispatch/Http/UploadedFile.html">ActionDispatch::Http::UploadedFile</a>
+  
+    <li><a href="./ActionDispatch/IllegalStateError.html">ActionDispatch::IllegalStateError</a>
+  
+    <li><a href="./ActionDispatch/Integration.html">ActionDispatch::Integration</a>
+  
+    <li><a href="./ActionDispatch/Integration/RequestHelpers.html">ActionDispatch::Integration::RequestHelpers</a>
+  
+    <li><a href="./ActionDispatch/Integration/Runner.html">ActionDispatch::Integration::Runner</a>
+  
+    <li><a href="./ActionDispatch/Integration/Session.html">ActionDispatch::Integration::Session</a>
+  
+    <li><a href="./ActionDispatch/IntegrationTest.html">ActionDispatch::IntegrationTest</a>
+  
+    <li><a href="./ActionDispatch/Journey.html">ActionDispatch::Journey</a>
+  
+    <li><a href="./ActionDispatch/Journey/Format.html">ActionDispatch::Journey::Format</a>
+  
+    <li><a href="./ActionDispatch/Journey/Format/Parameter.html">ActionDispatch::Journey::Format::Parameter</a>
+  
+    <li><a href="./ActionDispatch/Journey/Formatter.html">ActionDispatch::Journey::Formatter</a>
+  
+    <li><a href="./ActionDispatch/Journey/GTG.html">ActionDispatch::Journey::GTG</a>
+  
+    <li><a href="./ActionDispatch/Journey/GTG/Builder.html">ActionDispatch::Journey::GTG::Builder</a>
+  
+    <li><a href="./ActionDispatch/Journey/GTG/MatchData.html">ActionDispatch::Journey::GTG::MatchData</a>
+  
+    <li><a href="./ActionDispatch/Journey/GTG/Simulator.html">ActionDispatch::Journey::GTG::Simulator</a>
+  
+    <li><a href="./ActionDispatch/Journey/GTG/TransitionTable.html">ActionDispatch::Journey::GTG::TransitionTable</a>
+  
+    <li><a href="./ActionDispatch/Journey/NFA.html">ActionDispatch::Journey::NFA</a>
+  
+    <li><a href="./ActionDispatch/Journey/NFA/Builder.html">ActionDispatch::Journey::NFA::Builder</a>
+  
+    <li><a href="./ActionDispatch/Journey/NFA/Dot.html">ActionDispatch::Journey::NFA::Dot</a>
+  
+    <li><a href="./ActionDispatch/Journey/NFA/MatchData.html">ActionDispatch::Journey::NFA::MatchData</a>
+  
+    <li><a href="./ActionDispatch/Journey/NFA/Simulator.html">ActionDispatch::Journey::NFA::Simulator</a>
+  
+    <li><a href="./ActionDispatch/Journey/NFA/TransitionTable.html">ActionDispatch::Journey::NFA::TransitionTable</a>
+  
+    <li><a href="./ActionDispatch/Journey/NFA/Visitor.html">ActionDispatch::Journey::NFA::Visitor</a>
+  
+    <li><a href="./ActionDispatch/Journey/Nodes.html">ActionDispatch::Journey::Nodes</a>
+  
+    <li><a href="./ActionDispatch/Journey/Nodes/Binary.html">ActionDispatch::Journey::Nodes::Binary</a>
+  
+    <li><a href="./ActionDispatch/Journey/Nodes/Cat.html">ActionDispatch::Journey::Nodes::Cat</a>
+  
+    <li><a href="./ActionDispatch/Journey/Nodes/Dummy.html">ActionDispatch::Journey::Nodes::Dummy</a>
+  
+    <li><a href="./ActionDispatch/Journey/Nodes/Group.html">ActionDispatch::Journey::Nodes::Group</a>
+  
+    <li><a href="./ActionDispatch/Journey/Nodes/Literal.html">ActionDispatch::Journey::Nodes::Literal</a>
+  
+    <li><a href="./ActionDispatch/Journey/Nodes/Node.html">ActionDispatch::Journey::Nodes::Node</a>
+  
+    <li><a href="./ActionDispatch/Journey/Nodes/Or.html">ActionDispatch::Journey::Nodes::Or</a>
+  
+    <li><a href="./ActionDispatch/Journey/Nodes/Star.html">ActionDispatch::Journey::Nodes::Star</a>
+  
+    <li><a href="./ActionDispatch/Journey/Nodes/Symbol.html">ActionDispatch::Journey::Nodes::Symbol</a>
+  
+    <li><a href="./ActionDispatch/Journey/Nodes/Terminal.html">ActionDispatch::Journey::Nodes::Terminal</a>
+  
+    <li><a href="./ActionDispatch/Journey/Nodes/Unary.html">ActionDispatch::Journey::Nodes::Unary</a>
+  
+    <li><a href="./ActionDispatch/Journey/Parser.html">ActionDispatch::Journey::Parser</a>
+  
+    <li><a href="./ActionDispatch/Journey/Path.html">ActionDispatch::Journey::Path</a>
+  
+    <li><a href="./ActionDispatch/Journey/Path/Pattern.html">ActionDispatch::Journey::Path::Pattern</a>
+  
+    <li><a href="./ActionDispatch/Journey/Path/Pattern/AnchoredRegexp.html">ActionDispatch::Journey::Path::Pattern::AnchoredRegexp</a>
+  
+    <li><a href="./ActionDispatch/Journey/Path/Pattern/MatchData.html">ActionDispatch::Journey::Path::Pattern::MatchData</a>
+  
+    <li><a href="./ActionDispatch/Journey/Path/Pattern/RegexpOffsets.html">ActionDispatch::Journey::Path::Pattern::RegexpOffsets</a>
+  
+    <li><a href="./ActionDispatch/Journey/Path/Pattern/UnanchoredRegexp.html">ActionDispatch::Journey::Path::Pattern::UnanchoredRegexp</a>
+  
+    <li><a href="./ActionDispatch/Journey/Route.html">ActionDispatch::Journey::Route</a>
+  
+    <li><a href="./ActionDispatch/Journey/Router.html">ActionDispatch::Journey::Router</a>
+  
+    <li><a href="./ActionDispatch/Journey/Router/RoutingError.html">ActionDispatch::Journey::Router::RoutingError</a>
+  
+    <li><a href="./ActionDispatch/Journey/Router/Strexp.html">ActionDispatch::Journey::Router::Strexp</a>
+  
+    <li><a href="./ActionDispatch/Journey/Router/Utils.html">ActionDispatch::Journey::Router::Utils</a>
+  
+    <li><a href="./ActionDispatch/Journey/Router/Utils/UriEncoder.html">ActionDispatch::Journey::Router::Utils::UriEncoder</a>
+  
+    <li><a href="./ActionDispatch/Journey/Routes.html">ActionDispatch::Journey::Routes</a>
+  
+    <li><a href="./ActionDispatch/Journey/Scanner.html">ActionDispatch::Journey::Scanner</a>
+  
+    <li><a href="./ActionDispatch/Journey/Visitors.html">ActionDispatch::Journey::Visitors</a>
+  
+    <li><a href="./ActionDispatch/Journey/Visitors/Dot.html">ActionDispatch::Journey::Visitors::Dot</a>
+  
+    <li><a href="./ActionDispatch/Journey/Visitors/Each.html">ActionDispatch::Journey::Visitors::Each</a>
+  
+    <li><a href="./ActionDispatch/Journey/Visitors/FormatBuilder.html">ActionDispatch::Journey::Visitors::FormatBuilder</a>
+  
+    <li><a href="./ActionDispatch/Journey/Visitors/String.html">ActionDispatch::Journey::Visitors::String</a>
+  
+    <li><a href="./ActionDispatch/Journey/Visitors/Visitor.html">ActionDispatch::Journey::Visitors::Visitor</a>
+  
+    <li><a href="./ActionDispatch/MiddlewareStack.html">ActionDispatch::MiddlewareStack</a>
+  
+    <li><a href="./ActionDispatch/MiddlewareStack/Middleware.html">ActionDispatch::MiddlewareStack::Middleware</a>
+  
+    <li><a href="./ActionDispatch/ParamsParser.html">ActionDispatch::ParamsParser</a>
+  
+    <li><a href="./ActionDispatch/ParamsParser/ParseError.html">ActionDispatch::ParamsParser::ParseError</a>
+  
+    <li><a href="./ActionDispatch/PublicExceptions.html">ActionDispatch::PublicExceptions</a>
+  
+    <li><a href="./ActionDispatch/RailsEntityStore.html">ActionDispatch::RailsEntityStore</a>
+  
+    <li><a href="./ActionDispatch/RailsMetaStore.html">ActionDispatch::RailsMetaStore</a>
+  
+    <li><a href="./ActionDispatch/Railtie.html">ActionDispatch::Railtie</a>
+  
+    <li><a href="./ActionDispatch/Reloader.html">ActionDispatch::Reloader</a>
+  
+    <li><a href="./ActionDispatch/RemoteIp.html">ActionDispatch::RemoteIp</a>
+  
+    <li><a href="./ActionDispatch/RemoteIp/GetIp.html">ActionDispatch::RemoteIp::GetIp</a>
+  
+    <li><a href="./ActionDispatch/RemoteIp/IpSpoofAttackError.html">ActionDispatch::RemoteIp::IpSpoofAttackError</a>
+  
+    <li><a href="./ActionDispatch/Request/Session.html">ActionDispatch::Request::Session</a>
+  
+    <li><a href="./ActionDispatch/Request/Session/Options.html">ActionDispatch::Request::Session::Options</a>
+  
+    <li><a href="./ActionDispatch/Request/Utils.html">ActionDispatch::Request::Utils</a>
+  
+    <li><a href="./ActionDispatch/RequestId.html">ActionDispatch::RequestId</a>
+  
+    <li><a href="./ActionDispatch/Response.html">ActionDispatch::Response</a>
+  
+    <li><a href="./ActionDispatch/Response/Buffer.html">ActionDispatch::Response::Buffer</a>
+  
+    <li><a href="./ActionDispatch/Response/RackBody.html">ActionDispatch::Response::RackBody</a>
+  
+    <li><a href="./ActionDispatch/Routing.html">ActionDispatch::Routing</a>
+  
+    <li><a href="./ActionDispatch/Routing/ConsoleFormatter.html">ActionDispatch::Routing::ConsoleFormatter</a>
+  
+    <li><a href="./ActionDispatch/Routing/Endpoint.html">ActionDispatch::Routing::Endpoint</a>
+  
+    <li><a href="./ActionDispatch/Routing/HtmlTableFormatter.html">ActionDispatch::Routing::HtmlTableFormatter</a>
+  
+    <li><a href="./ActionDispatch/Routing/Mapper.html">ActionDispatch::Routing::Mapper</a>
+  
+    <li><a href="./ActionDispatch/Routing/Mapper/Base.html">ActionDispatch::Routing::Mapper::Base</a>
+  
+    <li><a href="./ActionDispatch/Routing/Mapper/Concerns.html">ActionDispatch::Routing::Mapper::Concerns</a>
+  
+    <li><a href="./ActionDispatch/Routing/Mapper/Constraints.html">ActionDispatch::Routing::Mapper::Constraints</a>
+  
+    <li><a href="./ActionDispatch/Routing/Mapper/HttpHelpers.html">ActionDispatch::Routing::Mapper::HttpHelpers</a>
+  
+    <li><a href="./ActionDispatch/Routing/Mapper/Mapping.html">ActionDispatch::Routing::Mapper::Mapping</a>
+  
+    <li><a href="./ActionDispatch/Routing/Mapper/Resources.html">ActionDispatch::Routing::Mapper::Resources</a>
+  
+    <li><a href="./ActionDispatch/Routing/Mapper/Resources/Resource.html">ActionDispatch::Routing::Mapper::Resources::Resource</a>
+  
+    <li><a href="./ActionDispatch/Routing/Mapper/Resources/SingletonResource.html">ActionDispatch::Routing::Mapper::Resources::SingletonResource</a>
+  
+    <li><a href="./ActionDispatch/Routing/Mapper/Scope.html">ActionDispatch::Routing::Mapper::Scope</a>
+  
+    <li><a href="./ActionDispatch/Routing/Mapper/Scoping.html">ActionDispatch::Routing::Mapper::Scoping</a>
+  
+    <li><a href="./ActionDispatch/Routing/OptionRedirect.html">ActionDispatch::Routing::OptionRedirect</a>
+  
+    <li><a href="./ActionDispatch/Routing/PathRedirect.html">ActionDispatch::Routing::PathRedirect</a>
+  
+    <li><a href="./ActionDispatch/Routing/PolymorphicRoutes.html">ActionDispatch::Routing::PolymorphicRoutes</a>
+  
+    <li><a href="./ActionDispatch/Routing/PolymorphicRoutes/HelperMethodBuilder.html">ActionDispatch::Routing::PolymorphicRoutes::HelperMethodBuilder</a>
+  
+    <li><a href="./ActionDispatch/Routing/Redirect.html">ActionDispatch::Routing::Redirect</a>
+  
+    <li><a href="./ActionDispatch/Routing/Redirection.html">ActionDispatch::Routing::Redirection</a>
+  
+    <li><a href="./ActionDispatch/Routing/RouteSet.html">ActionDispatch::Routing::RouteSet</a>
+  
+    <li><a href="./ActionDispatch/Routing/RouteSet/Dispatcher.html">ActionDispatch::Routing::RouteSet::Dispatcher</a>
+  
+    <li><a href="./ActionDispatch/Routing/RouteSet/Generator.html">ActionDispatch::Routing::RouteSet::Generator</a>
+  
+    <li><a href="./ActionDispatch/Routing/RouteSet/MountedHelpers.html">ActionDispatch::Routing::RouteSet::MountedHelpers</a>
+  
+    <li><a href="./ActionDispatch/Routing/RouteSet/NamedRouteCollection.html">ActionDispatch::Routing::RouteSet::NamedRouteCollection</a>
+  
+    <li><a href="./ActionDispatch/Routing/RouteSet/NamedRouteCollection/UrlHelper.html">ActionDispatch::Routing::RouteSet::NamedRouteCollection::UrlHelper</a>
+  
+    <li><a href="./ActionDispatch/Routing/RouteSet/NamedRouteCollection/UrlHelper/OptimizedUrlHelper.html">ActionDispatch::Routing::RouteSet::NamedRouteCollection::UrlHelper::OptimizedUrlHelper</a>
+  
+    <li><a href="./ActionDispatch/Routing/RouteWrapper.html">ActionDispatch::Routing::RouteWrapper</a>
+  
+    <li><a href="./ActionDispatch/Routing/RoutesInspector.html">ActionDispatch::Routing::RoutesInspector</a>
+  
+    <li><a href="./ActionDispatch/Routing/RoutesProxy.html">ActionDispatch::Routing::RoutesProxy</a>
+  
+    <li><a href="./ActionDispatch/Routing/UrlFor.html">ActionDispatch::Routing::UrlFor</a>
+  
+    <li><a href="./ActionDispatch/SSL.html">ActionDispatch::SSL</a>
+  
+    <li><a href="./ActionDispatch/Session/CacheStore.html">ActionDispatch::Session::CacheStore</a>
+  
+    <li><a href="./ActionDispatch/Session/Compatibility.html">ActionDispatch::Session::Compatibility</a>
+  
+    <li><a href="./ActionDispatch/Session/CookieStore.html">ActionDispatch::Session::CookieStore</a>
+  
+    <li><a href="./ActionDispatch/Session/MemCacheStore.html">ActionDispatch::Session::MemCacheStore</a>
+  
+    <li><a href="./ActionDispatch/Session/SessionRestoreError.html">ActionDispatch::Session::SessionRestoreError</a>
+  
+    <li><a href="./ActionDispatch/Session/StaleSessionCheck.html">ActionDispatch::Session::StaleSessionCheck</a>
+  
+    <li><a href="./ActionDispatch/ShowExceptions.html">ActionDispatch::ShowExceptions</a>
+  
+    <li><a href="./ActionDispatch/Static.html">ActionDispatch::Static</a>
+  
+    <li><a href="./ActionDispatch/TestProcess.html">ActionDispatch::TestProcess</a>
+  
+    <li><a href="./ActionDispatch/TestRequest.html">ActionDispatch::TestRequest</a>
+  
+    <li><a href="./ActionDispatch/TestResponse.html">ActionDispatch::TestResponse</a>
+  
+    <li><a href="./ActionPack.html">ActionPack</a>
+  
+    <li><a href="./ActionPack/VERSION.html">ActionPack::VERSION</a>
+  
+    <li><a href="./Mime/Mimes.html">Mime::Mimes</a>
+  
+    <li><a href="./Mime/Type.html">Mime::Type</a>
+  
+    <li><a href="./Mime/Type/AcceptItem.html">Mime::Type::AcceptItem</a>
+  
+    <li><a href="./Mime/Type/AcceptList.html">Mime::Type::AcceptList</a>
+  
+    <li><a href="./Rack.html">Rack</a>
+  
+    <li><a href="./Rack/Cache.html">Rack::Cache</a>
+  
+    <li><a href="./Rack/Cache/EntityStore.html">Rack::Cache::EntityStore</a>
+  
+    <li><a href="./Rack/Cache/MetaStore.html">Rack::Cache::MetaStore</a>
+  
+    <li><a href="./Rack/Mount.html">Rack::Mount</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main">
+<p>This is the API documentation for actionpack-4.2.0.rc2 Documentation.
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

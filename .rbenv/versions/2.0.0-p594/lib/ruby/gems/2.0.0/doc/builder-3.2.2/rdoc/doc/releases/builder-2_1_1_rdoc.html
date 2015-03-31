@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>builder-2.1.1 - Builder -- Easy XML Building</title>
+
+<link href="../../fonts.css" rel="stylesheet">
+<link href="../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/navigation.js"></script>
+<script src="../../js/search_index.js"></script>
+<script src="../../js/search.js"></script>
+<script src="../../js/searcher.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+<div class="nav-section">
+  <h3>Table of Contents</h3>
+
+  <ul class="link-list" role="directory">
+    <li><a href="#label-Builder+2.1.1+Released.">Builder 2.1.1 Released.</a>
+    <li><a href="#label-Changes+in+2.1.1">Changes in 2.1.1</a>
+    <li><a href="#label-What+is+Builder%3F">What is Builder?</a>
+    <li><a href="#label-Availability">Availability</a>
+    <li><a href="#label-Thanks">Thanks</a>
+  </ul>
+</div>
+
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../CHANGES.html">CHANGES</a>
+  
+    <li><a href="../../MIT-LICENSE.html">MIT-LICENSE</a>
+  
+    <li><a href="../../README_md.html">README</a>
+  
+    <li><a href="../../Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../doc/releases/builder-1_2_4_rdoc.html">builder-1.2.4</a>
+  
+    <li><a href="../../doc/releases/builder-2_0_0_rdoc.html">builder-2.0.0</a>
+  
+    <li><a href="../../doc/releases/builder-2_1_1_rdoc.html">builder-2.1.1</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page doc/releases/builder-2.1.1.rdoc">
+
+<h1 id="label-Builder+2.1.1+Released."><a href="../../Builder.html">Builder</a> 2.1.1 Released.<span><a href="#label-Builder+2.1.1+Released.">&para;</a> <a href="#documentation">&uarr;</a></span></h1>
+
+<p>Release 2.1.1 of <a href="../../Builder.html">Builder</a> is mainly a bug
+fix release.</p>
+
+<h2 id="label-Changes+in+2.1.1">Changes in 2.1.1<span><a href="#label-Changes+in+2.1.1">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+<ul><li>
+<p>Added <code>reveal</code> capability to <a
+href="../../BlankSlate.html">BlankSlate</a>.</p>
+</li><li>
+<p>Fixed a bug in <a href="../../BlankSlate.html">BlankSlate</a> where
+including a module into <a href="../../Object.html">Object</a> could cause
+methods to leak into <a href="../../BlankSlate.html">BlankSlate</a>.</p>
+</li><li>
+<p>Fixed typo in XmlMarkup class docs (from Martin Fowler).</p>
+</li><li>
+<p>Fixed test on private methods to differentiate between targetted and
+untargetted private methods.</p>
+</li><li>
+<p>Removed legacy capture of @self in XmlBase (@self was used back when we
+used instance eval).</p>
+</li><li>
+<p>Added additional tests for global functions (both direct and included).</p>
+</li><li>
+<p>Several misc internal cleanups, including rearranging the source code tree.</p>
+</li></ul>
+
+<p><strong>NOTE:</strong> The escaping attribute values by default is
+different than in previous releases of <a
+href="../../Builder.html">Builder</a>.  This makes version 2.0.x somewhat
+incompatible with the 1.x series of <a
+href="../../Builder.html">Builder</a>.  If you use “&amp;”, “&lt;”, or
+“&gt;” in attributes values, you may have to change your code. (Essentially
+you remove the manual escaping.  The new way is easier, believe me).</p>
+
+<h2 id="label-What+is+Builder%3F">What is <a href="../../Builder.html">Builder</a>?<span><a href="#label-What+is+Builder%3F">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p><a href="../../Builder/XmlMarkup.html">Builder::XmlMarkup</a> is a library
+that allows easy programmatic creation of XML markup.  For example:</p>
+
+<pre class="ruby"><span class="ruby-identifier">builder</span> = <span class="ruby-constant">Builder</span><span class="ruby-operator">::</span><span class="ruby-constant">XmlMarkup</span>.<span class="ruby-identifier">new</span>(:<span class="ruby-identifier">target=</span><span class="ruby-operator">&gt;</span><span class="ruby-constant">STDOUT</span>, :<span class="ruby-identifier">indent=</span><span class="ruby-operator">&gt;</span><span class="ruby-value">2</span>)
+<span class="ruby-identifier">builder</span>.<span class="ruby-identifier">person</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">b</span><span class="ruby-operator">|</span> <span class="ruby-identifier">b</span>.<span class="ruby-identifier">name</span>(<span class="ruby-string">&quot;Jim&quot;</span>); <span class="ruby-identifier">b</span>.<span class="ruby-identifier">phone</span>(<span class="ruby-string">&quot;555-1234&quot;</span>) }
+</pre>
+
+<p>will generate:</p>
+
+<pre>&lt;person&gt;
+  &lt;name&gt;Jim&lt;/name&gt;
+  &lt;phone&gt;555-1234&lt;/phone&gt;
+&lt;/person&gt;</pre>
+
+<h2 id="label-Availability">Availability<span><a href="#label-Availability">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+
+<p>The easiest way to get and install builder is via RubyGems …</p>
+
+<pre>gem install builder    (you may need root/admin privileges)</pre>
+
+<h2 id="label-Thanks">Thanks<span><a href="#label-Thanks">&para;</a> <a href="#documentation">&uarr;</a></span></h2>
+<ul><li>
+<p>Martin Fowler for spotting some typos in the documentation.</p>
+</li></ul>
+
+<p>– Jim Weirich</p>
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

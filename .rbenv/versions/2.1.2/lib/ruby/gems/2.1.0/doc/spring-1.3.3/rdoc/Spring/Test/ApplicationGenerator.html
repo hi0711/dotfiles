@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Spring::Test::ApplicationGenerator - spring-1.3.3 Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">Object
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-build_and_install_gems">#build_and_install_gems</a>
+    
+    <li ><a href="#method-i-copy_to">#copy_to</a>
+    
+    <li ><a href="#method-i-gemspec">#gemspec</a>
+    
+    <li ><a href="#method-i-generate">#generate</a>
+    
+    <li ><a href="#method-i-generate_files">#generate_files</a>
+    
+    <li ><a href="#method-i-generate_if_missing">#generate_if_missing</a>
+    
+    <li ><a href="#method-i-generate_scaffold">#generate_scaffold</a>
+    
+    <li ><a href="#method-i-install_spring">#install_spring</a>
+    
+    <li ><a href="#method-i-manually_built_gems">#manually_built_gems</a>
+    
+    <li ><a href="#method-i-root">#root</a>
+    
+    <li ><a href="#method-i-system">#system</a>
+    
+    <li ><a href="#method-i-test_root">#test_root</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Spring::Test::ApplicationGenerator">
+  <h1 id="class-Spring::Test::ApplicationGenerator" class="class">
+    class Spring::Test::ApplicationGenerator
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-application" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">application</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-version" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">version</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-version_constraint" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">version_constraint</span><span
+            class="attribute-access-type">[R]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(version_constraint)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/spring/test/application_generator.rb, line 6</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">version_constraint</span>)
+  <span class="ruby-ivar">@version_constraint</span> = <span class="ruby-identifier">version_constraint</span>
+  <span class="ruby-ivar">@version</span>            = <span class="ruby-constant">RailsVersion</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">version_constraint</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&#39; &#39;</span>).<span class="ruby-identifier">last</span>)
+  <span class="ruby-ivar">@application</span>        = <span class="ruby-constant">Application</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">root</span>)
+  <span class="ruby-ivar">@bundled</span>            = <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-build_and_install_gems" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">build_and_install_gems</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="build_and_install_gems-source">
+            <pre><span class="ruby-comment"># File lib/spring/test/application_generator.rb, line 93</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">build_and_install_gems</span>
+  <span class="ruby-identifier">manually_built_gems</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">spec</span> = <span class="ruby-constant">Gem</span><span class="ruby-operator">::</span><span class="ruby-constant">Specification</span>.<span class="ruby-identifier">find_by_name</span>(<span class="ruby-identifier">name</span>)
+
+    <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">cd</span>(<span class="ruby-identifier">spec</span>.<span class="ruby-identifier">gem_dir</span>) <span class="ruby-keyword">do</span>
+      <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">rm</span>(<span class="ruby-constant">Dir</span>.<span class="ruby-identifier">glob</span>(<span class="ruby-node">&quot;#{name}-*.gem&quot;</span>))
+      <span class="ruby-identifier">system</span>(<span class="ruby-node">&quot;gem build #{name}.gemspec 2&gt;&amp;1&quot;</span>)
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">application</span>.<span class="ruby-identifier">run!</span> <span class="ruby-node">&quot;gem install #{spec.gem_dir}/#{name}-*.gem&quot;</span>, <span class="ruby-identifier">timeout</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-copy_to" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">copy_to</span><span
+            class="method-args">(path)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="copy_to-source">
+            <pre><span class="ruby-comment"># File lib/spring/test/application_generator.rb, line 106</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">copy_to</span>(<span class="ruby-identifier">path</span>)
+  <span class="ruby-identifier">system</span>(<span class="ruby-node">&quot;rm -rf #{path}&quot;</span>)
+  <span class="ruby-identifier">system</span>(<span class="ruby-node">&quot;cp -r #{application.root} #{path}&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-gemspec" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">gemspec</span><span
+            class="method-args">(name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="gemspec-source">
+            <pre><span class="ruby-comment"># File lib/spring/test/application_generator.rb, line 116</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">gemspec</span>(<span class="ruby-identifier">name</span>)
+  <span class="ruby-node">&quot;#{Gem::Specification.find_by_name(name).gem_dir}/#{name}.gemspec&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-generate" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">generate</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="generate-source">
+            <pre><span class="ruby-comment"># File lib/spring/test/application_generator.rb, line 32</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">generate</span>
+  <span class="ruby-constant">Bundler</span>.<span class="ruby-identifier">with_clean_env</span> { <span class="ruby-identifier">generate_files</span> }
+  <span class="ruby-identifier">install_spring</span>
+  <span class="ruby-identifier">generate_scaffold</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-generate_files" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">generate_files</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Sporadic SSL errors keep causing test failures so there are anti-SSL
+workarounds here</p>
+          
+          
+
+          
+          <div class="method-source-code" id="generate_files-source">
+            <pre><span class="ruby-comment"># File lib/spring/test/application_generator.rb, line 39</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">generate_files</span>
+  <span class="ruby-identifier">system</span>(<span class="ruby-node">&quot;gem list &#39;^rails$&#39; --installed --version &#39;#{version_constraint}&#39; || &quot;</span>                   <span class="ruby-node">&quot;gem install rails --clear-sources --source http://rubygems.org --version &#39;#{version_constraint}&#39;&quot;</span>)
+
+  <span class="ruby-ivar">@version</span> = <span class="ruby-constant">RailsVersion</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">%x`ruby -e &#39;puts Gem::Specification.find_by_name(&quot;rails&quot;, &quot;#{version_constraint}&quot;).version&#39;`</span>.<span class="ruby-identifier">chomp</span>)
+
+  <span class="ruby-identifier">skips</span> = <span class="ruby-node">%w(--skip-bundle --skip-javascript --skip-sprockets)</span>
+  <span class="ruby-identifier">skips</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;--skip-spring&quot;</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">version</span>.<span class="ruby-identifier">bundles_spring?</span>
+
+  <span class="ruby-identifier">system</span>(<span class="ruby-node">&quot;rails _#{version}_ new #{application.root} #{skips.join(&#39; &#39;)}&quot;</span>)
+  <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;application generation failed&quot;</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">application</span>.<span class="ruby-identifier">exists?</span>
+
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mkdir_p</span>(<span class="ruby-identifier">application</span>.<span class="ruby-identifier">gem_home</span>)
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">mkdir_p</span>(<span class="ruby-identifier">application</span>.<span class="ruby-identifier">user_home</span>)
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">rm_rf</span>(<span class="ruby-identifier">application</span>.<span class="ruby-identifier">path</span>(<span class="ruby-string">&quot;test/performance&quot;</span>))
+
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">application</span>.<span class="ruby-identifier">gemfile</span>, <span class="ruby-node">&quot;#{application.gemfile.read}gem &#39;spring&#39;, &#39;#{Spring::VERSION}&#39;\n&quot;</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">version</span>.<span class="ruby-identifier">needs_testunit?</span>
+    <span class="ruby-constant">File</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">application</span>.<span class="ruby-identifier">gemfile</span>, <span class="ruby-node">&quot;#{application.gemfile.read}gem &#39;spring-commands-testunit&#39;\n&quot;</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">application</span>.<span class="ruby-identifier">gemfile</span>, <span class="ruby-identifier">application</span>.<span class="ruby-identifier">gemfile</span>.<span class="ruby-identifier">read</span>.<span class="ruby-identifier">sub</span>(<span class="ruby-string">&quot;https://rubygems.org&quot;</span>, <span class="ruby-string">&quot;http://rubygems.org&quot;</span>))
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">application</span>.<span class="ruby-identifier">path</span>(<span class="ruby-string">&quot;bin&quot;</span>).<span class="ruby-identifier">exist?</span>
+    <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">cp_r</span>(<span class="ruby-identifier">application</span>.<span class="ruby-identifier">path</span>(<span class="ruby-string">&quot;bin&quot;</span>), <span class="ruby-identifier">application</span>.<span class="ruby-identifier">path</span>(<span class="ruby-string">&quot;bin_original&quot;</span>))
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-generate_if_missing" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">generate_if_missing</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="generate_if_missing-source">
+            <pre><span class="ruby-comment"># File lib/spring/test/application_generator.rb, line 68</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">generate_if_missing</span>
+  <span class="ruby-identifier">generate</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">application</span>.<span class="ruby-identifier">exists?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-generate_scaffold" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">generate_scaffold</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="generate_scaffold-source">
+            <pre><span class="ruby-comment"># File lib/spring/test/application_generator.rb, line 111</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">generate_scaffold</span>
+  <span class="ruby-identifier">application</span>.<span class="ruby-identifier">run!</span> <span class="ruby-string">&quot;bundle exec rails g scaffold post title:string&quot;</span>
+  <span class="ruby-identifier">application</span>.<span class="ruby-identifier">run!</span> <span class="ruby-string">&quot;bundle exec rake db:migrate db:test:clone&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-install_spring" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">install_spring</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="install_spring-source">
+            <pre><span class="ruby-comment"># File lib/spring/test/application_generator.rb, line 72</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">install_spring</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-ivar">@installed</span>
+
+  <span class="ruby-identifier">build_and_install_gems</span>
+
+  <span class="ruby-identifier">application</span>.<span class="ruby-identifier">bundle</span>
+
+  <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">rm_rf</span> <span class="ruby-identifier">application</span>.<span class="ruby-identifier">path</span>(<span class="ruby-string">&quot;bin&quot;</span>)
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">application</span>.<span class="ruby-identifier">path</span>(<span class="ruby-string">&quot;bin_original&quot;</span>).<span class="ruby-identifier">exist?</span>
+    <span class="ruby-constant">FileUtils</span>.<span class="ruby-identifier">cp_r</span> <span class="ruby-identifier">application</span>.<span class="ruby-identifier">path</span>(<span class="ruby-string">&quot;bin_original&quot;</span>), <span class="ruby-identifier">application</span>.<span class="ruby-identifier">path</span>(<span class="ruby-string">&quot;bin&quot;</span>)
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">application</span>.<span class="ruby-identifier">run!</span> <span class="ruby-node">&quot;#{application.spring} binstub --all&quot;</span>
+  <span class="ruby-ivar">@installed</span> = <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-manually_built_gems" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">manually_built_gems</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="manually_built_gems-source">
+            <pre><span class="ruby-comment"># File lib/spring/test/application_generator.rb, line 89</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">manually_built_gems</span>
+  <span class="ruby-node">%w(spring)</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-root" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">root</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="root-source">
+            <pre><span class="ruby-comment"># File lib/spring/test/application_generator.rb, line 17</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">root</span>
+  <span class="ruby-identifier">test_root</span>.<span class="ruby-identifier">join</span>(<span class="ruby-node">&quot;apps/rails-#{version.major}-#{version.minor}-spring-#{Spring::VERSION}&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-system" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">system</span><span
+            class="method-args">(command)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="system-source">
+            <pre><span class="ruby-comment"># File lib/spring/test/application_generator.rb, line 21</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">system</span>(<span class="ruby-identifier">command</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;SPRING_DEBUG&quot;</span>]
+    <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;$ #{command}\n&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">command</span> = <span class="ruby-node">&quot;(#{command}) &gt; /dev/null&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-constant">Kernel</span>.<span class="ruby-identifier">system</span>(<span class="ruby-identifier">command</span>) <span class="ruby-keyword">or</span> <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;command failed: #{command}&quot;</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-keyword">if</span> <span class="ruby-constant">ENV</span>[<span class="ruby-string">&quot;SPRING_DEBUG&quot;</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-test_root" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">test_root</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="test_root-source">
+            <pre><span class="ruby-comment"># File lib/spring/test/application_generator.rb, line 13</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">test_root</span>
+  <span class="ruby-constant">Pathname</span>.<span class="ruby-identifier">new</span> <span class="ruby-constant">Spring</span><span class="ruby-operator">::</span><span class="ruby-constant">Test</span>.<span class="ruby-identifier">root</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

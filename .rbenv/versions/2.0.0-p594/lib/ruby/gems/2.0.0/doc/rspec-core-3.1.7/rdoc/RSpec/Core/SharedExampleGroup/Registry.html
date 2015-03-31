@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class RSpec::Core::SharedExampleGroup::Registry - rspec-core-3.1.7 Documentation</title>
+
+<link href="../../../fonts.css" rel="stylesheet">
+<link href="../../../rdoc.css" rel="stylesheet">
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../";
+</script>
+
+<script src="../../../js/jquery.js"></script>
+<script src="../../../js/navigation.js"></script>
+<script src="../../../js/search_index.js"></script>
+<script src="../../../js/search.js"></script>
+<script src="../../../js/searcher.js"></script>
+<script src="../../../js/darkfish.js"></script>
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../../../Object.html">Object</a>
+  
+</div>
+
+    
+    <div id="extends-section" class="nav-section">
+  <h3>Extended With Modules</h3>
+
+  <ul class="link-list">
+    
+  
+    <li><span class="extend">Module</span>
+  
+  
+  </ul>
+</div>
+
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-add">#add</a>
+    
+    <li ><a href="#method-i-ensure_block_has_source_location">#ensure_block_has_source_location</a>
+    
+    <li ><a href="#method-i-find">#find</a>
+    
+    <li ><a href="#method-i-formatted_location">#formatted_location</a>
+    
+    <li ><a href="#method-i-shared_example_groups">#shared_example_groups</a>
+    
+    <li ><a href="#method-i-valid_name-3F">#valid_name?</a>
+    
+    <li ><a href="#method-i-warn_if_key_taken">#warn_if_key_taken</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-RSpec::Core::SharedExampleGroup::Registry">
+  <h1 id="class-RSpec::Core::SharedExampleGroup::Registry" class="class">
+    class RSpec::Core::SharedExampleGroup::Registry
+  </h1>
+
+  <section class="description">
+    
+<p>@private</p>
+
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-add" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add</span><span
+            class="method-args">(context, name, *metadata_args, &block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="add-source">
+            <pre><span class="ruby-comment"># File lib/rspec/core/shared_example_group.rb, line 110</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">add</span>(<span class="ruby-identifier">context</span>, <span class="ruby-identifier">name</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">metadata_args</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">ensure_block_has_source_location</span>(<span class="ruby-identifier">block</span>) { <span class="ruby-constant">CallerFilter</span>.<span class="ruby-identifier">first_non_rspec_line</span> }
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">valid_name?</span>(<span class="ruby-identifier">name</span>)
+    <span class="ruby-identifier">warn_if_key_taken</span> <span class="ruby-identifier">context</span>, <span class="ruby-identifier">name</span>, <span class="ruby-identifier">block</span>
+    <span class="ruby-identifier">shared_example_groups</span>[<span class="ruby-identifier">context</span>][<span class="ruby-identifier">name</span>] = <span class="ruby-identifier">block</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">metadata_args</span>.<span class="ruby-identifier">unshift</span> <span class="ruby-identifier">name</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">metadata_args</span>.<span class="ruby-identifier">empty?</span>
+
+  <span class="ruby-identifier">mod</span> = <span class="ruby-constant">Module</span>.<span class="ruby-identifier">new</span>
+  (<span class="ruby-keyword">class</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">mod</span>; <span class="ruby-keyword">self</span>; <span class="ruby-keyword">end</span>).<span class="ruby-identifier">__send__</span>(<span class="ruby-value">:define_method</span>, <span class="ruby-value">:included</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">host</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">host</span>.<span class="ruby-identifier">class_exec</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-constant">RSpec</span>.<span class="ruby-identifier">configuration</span>.<span class="ruby-identifier">include</span> <span class="ruby-identifier">mod</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">metadata_args</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-find" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">find</span><span
+            class="method-args">(lookup_contexts, name)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="find-source">
+            <pre><span class="ruby-comment"># File lib/rspec/core/shared_example_group.rb, line 129</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">find</span>(<span class="ruby-identifier">lookup_contexts</span>, <span class="ruby-identifier">name</span>)
+  <span class="ruby-identifier">lookup_contexts</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">context</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">found</span> = <span class="ruby-identifier">shared_example_groups</span>[<span class="ruby-identifier">context</span>][<span class="ruby-identifier">name</span>]
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">found</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">found</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">shared_example_groups</span>[<span class="ruby-value">:main</span>][<span class="ruby-identifier">name</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="private-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Private Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-ensure_block_has_source_location" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ensure_block_has_source_location</span><span
+            class="method-args">(_block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="ensure_block_has_source_location-source">
+            <pre><span class="ruby-comment"># File lib/rspec/core/shared_example_group.rb, line 170</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">ensure_block_has_source_location</span>(<span class="ruby-identifier">_block</span>); <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-formatted_location" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">formatted_location</span><span
+            class="method-args">(block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="formatted_location-source">
+            <pre><span class="ruby-comment"># File lib/rspec/core/shared_example_group.rb, line 165</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">formatted_location</span>(<span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">block</span>.<span class="ruby-identifier">source_location</span>.<span class="ruby-identifier">join</span> <span class="ruby-string">&quot;:&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-shared_example_groups" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">shared_example_groups</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="shared_example_groups-source">
+            <pre><span class="ruby-comment"># File lib/rspec/core/shared_example_group.rb, line 140</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">shared_example_groups</span>
+  <span class="ruby-ivar">@shared_example_groups</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">hash</span>, <span class="ruby-identifier">context</span><span class="ruby-operator">|</span> <span class="ruby-identifier">hash</span>[<span class="ruby-identifier">context</span>] = {} }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-valid_name-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">valid_name?</span><span
+            class="method-args">(candidate)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="valid_name-3F-source">
+            <pre><span class="ruby-comment"># File lib/rspec/core/shared_example_group.rb, line 144</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">valid_name?</span>(<span class="ruby-identifier">candidate</span>)
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">candidate</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-constant">String</span>, <span class="ruby-constant">Symbol</span>, <span class="ruby-constant">Module</span> <span class="ruby-keyword">then</span> <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">else</span> <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-warn_if_key_taken" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">warn_if_key_taken</span><span
+            class="method-args">(context, key, new_block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="warn_if_key_taken-source">
+            <pre><span class="ruby-comment"># File lib/rspec/core/shared_example_group.rb, line 151</span>
+        <span class="ruby-keyword">def</span> <span class="ruby-identifier">warn_if_key_taken</span>(<span class="ruby-identifier">context</span>, <span class="ruby-identifier">key</span>, <span class="ruby-identifier">new_block</span>)
+          <span class="ruby-identifier">existing_block</span> = <span class="ruby-identifier">shared_example_groups</span>[<span class="ruby-identifier">context</span>][<span class="ruby-identifier">key</span>]
+
+          <span class="ruby-keyword">return</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">existing_block</span>
+
+          <span class="ruby-constant">RSpec</span>.<span class="ruby-identifier">warn_with</span> <span class="ruby-string">&quot;            |WARNING: Shared example group &#39;#{key}&#39; has been previously defined at:
+            |  #{formatted_location existing_block}
+            |...and you are now defining it at:
+            |  #{formatted_location new_block}
+            |The new definition will overwrite the original one.
+&quot;</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/^ +\|/</span>, <span class="ruby-string">&#39;&#39;</span>), <span class="ruby-value">:call_site</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-keyword">nil</span>
+        <span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://rdoc.rubyforge.org">RDoc</a> 4.1.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-Rdoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
