@@ -1,2 +1,0 @@
-U:RDoc::Attr[iI"filename:ETI"Haml::Options#filename;FI"RW;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[	I"-The name of the Haml file being parsed. ;TI"JThis is only used as information when exceptions are raised. This is ;TI"Lautomatically assigned when working through ActionView, so it's really ;TI"Oonly useful for the user to assign when dealing with Haml programatically.;T:
-@fileI"lib/haml/options.rb;T:0@omit_headings_from_table_of_contents_below0F@I"Haml::Options;FcRDoc::NormalClass0

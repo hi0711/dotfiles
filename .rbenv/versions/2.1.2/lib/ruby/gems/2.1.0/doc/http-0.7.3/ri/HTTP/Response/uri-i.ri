@@ -1,2 +1,0 @@
-U:RDoc::Attr[iI"uri:ETI"HTTP::Response#uri;FI"R;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"@return [URI, nil];T:
-@fileI"lib/http/response.rb;T:0@omit_headings_from_table_of_contents_below0F@I"HTTP::Response;FcRDoc::NormalClass0

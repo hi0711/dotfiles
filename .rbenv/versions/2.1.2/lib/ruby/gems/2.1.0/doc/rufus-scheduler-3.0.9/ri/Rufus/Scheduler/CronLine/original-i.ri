@@ -1,2 +1,0 @@
-U:RDoc::Attr[iI"original:ETI"(Rufus::Scheduler::CronLine#original;FI"R;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"9The string used for creating this cronline instance.;T:
-@fileI"$lib/rufus/scheduler/cronline.rb;T:0@omit_headings_from_table_of_contents_below0F@I"Rufus::Scheduler::CronLine;FcRDoc::NormalClass0

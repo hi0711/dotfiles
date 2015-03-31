@@ -1,2 +1,0 @@
-U:RDoc::Attr[iI"separators:ETI"Slop::Options#separators;FI"R;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"3An Array of separators used for the help text.;T:
-@fileI"lib/slop/options.rb;T:0@omit_headings_from_table_of_contents_below0F@I"Slop::Options;FcRDoc::NormalClass0

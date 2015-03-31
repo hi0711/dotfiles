@@ -1,2 +1,0 @@
-U:RDoc::Attr[iI"banner:ETI"Slop::Options#banner;FI"RW;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"3The String banner prefixed to the help string.;T:
-@fileI"lib/slop/options.rb;T:0@omit_headings_from_table_of_contents_below0F@I"Slop::Options;FcRDoc::NormalClass0

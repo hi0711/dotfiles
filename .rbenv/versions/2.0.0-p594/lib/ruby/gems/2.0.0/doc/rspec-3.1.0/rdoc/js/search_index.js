@@ -1,1 +1,0 @@
-var search_data = {"index":{"searchIndex":["rspec","version","readme"],"longSearchIndex":["rspec","rspec::version",""],"info":[["RSpec","","RSpec.html","",""],["RSpec::Version","","RSpec/Version.html","",""],["README","","README_md.html","","<p>RSpec\n<p>Behaviour Driven Development for Ruby\n<p>Description\n"]]}}

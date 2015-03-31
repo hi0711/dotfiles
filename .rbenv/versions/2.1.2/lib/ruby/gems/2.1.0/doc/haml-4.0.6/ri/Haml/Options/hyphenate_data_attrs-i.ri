@@ -1,2 +1,0 @@
-U:RDoc::Attr[iI"hyphenate_data_attrs:ETI"'Haml::Options#hyphenate_data_attrs;FI"RW;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"GIf set to `true`, Haml will convert underscores to hyphens in all ;TI"P{file:REFERENCE.md#html5_custom_data_attributes Custom Data Attributes} As ;TI"*of Haml 4.0, this defaults to `true`.;T:
-@fileI"lib/haml/options.rb;T:0@omit_headings_from_table_of_contents_below0F@I"Haml::Options;FcRDoc::NormalClass0

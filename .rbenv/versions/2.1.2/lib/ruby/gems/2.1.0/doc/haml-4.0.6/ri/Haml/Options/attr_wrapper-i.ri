@@ -1,2 +1,0 @@
-U:RDoc::Attr[iI"attr_wrapper:ETI"Haml::Options#attr_wrapper;FI"R;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[	I"MThe character that should wrap element attributes. This defaults to `'` ;TI"L(an apostrophe). Characters of this type within the attributes will be ;TI"Kescaped (e.g. by replacing them with `&apos;`) if the character is an ;TI"$apostrophe or a quotation mark.;T:
-@fileI"lib/haml/options.rb;T:0@omit_headings_from_table_of_contents_below0F@I"Haml::Options;FcRDoc::NormalClass0

@@ -1,3 +1,0 @@
-U:RDoc::Attr[iI"
-block:ETI"Slop::Option#block;FI"R;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"5A custom proc that yields the option value when ;TI"it's executed.;T:
-@fileI"lib/slop/option.rb;T:0@omit_headings_from_table_of_contents_below0F@I"Slop::Option;FcRDoc::NormalClass0

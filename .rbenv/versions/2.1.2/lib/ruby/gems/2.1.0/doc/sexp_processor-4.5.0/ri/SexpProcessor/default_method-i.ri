@@ -1,2 +1,0 @@
-U:RDoc::Attr[iI"default_method:ETI"!SexpProcessor#default_method;TI"RW;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"FA default method to call if a process_<type> method is not found ;TI"for the Sexp type.;T:
-@fileI"lib/sexp_processor.rb;T:0@omit_headings_from_table_of_contents_below0F@I"SexpProcessor;TcRDoc::NormalClass0

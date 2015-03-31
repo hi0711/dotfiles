@@ -1,3 +1,0 @@
-U:RDoc::AnyMethod[iI"follow:EFI"HTTP::Chainable#follow;FF:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[	I"#Make client follow redirects. ;TI"@param opts ;TI"@return [HTTP::Client] ;TI"@see Redirector#initialize;T:
-@fileI"lib/http/chainable.rb;T:0@omit_headings_from_table_of_contents_below000[[I"with_follow;To;;	[o;
-;	[I"@deprecated ;TI"@see #follow;T;@;0I"(opts = true);T@FI"Chainable;FcRDoc::NormalModule00

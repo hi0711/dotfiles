@@ -1,2 +1,0 @@
-U:RDoc::Attr[iI"t:ETI"Rufus::Scheduler::Job#t;FI"R;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"?The initial, raw, scheduling info (at / in / every / cron);T:
-@fileI"lib/rufus/sc/jobs.rb;T:0@omit_headings_from_table_of_contents_below0F@I"Rufus::Scheduler::Job;FcRDoc::NormalClass0

@@ -1,2 +1,0 @@
-U:RDoc::Attr[iI"uri:ETI"HTTP::Request#uri;FI"R;T:publico:RDoc::Markup::Document:@parts[o:RDoc::Markup::Paragraph;	[I"#"Request URI" as per RFC 2616 ;TI":http://www.w3.org/Protocols/rfc2616/rfc2616-sec5.html;T:
-@fileI"lib/http/request.rb;T:0@omit_headings_from_table_of_contents_below0F@I"HTTP::Request;FcRDoc::NormalClass0
