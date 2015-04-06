@@ -7,4 +7,4 @@ set ftp:ssl-allow yes
 set ftp:ssl-protect-list yes
 set ftp:ssl-protect-data yes
 set ftp:ssl-protect-fxp yes
-set bkm:save-passwords 1
+set bmk:save-passwords yes
