@@ -307,7 +307,7 @@ set pumheight=10
   noremap! <C-f> <Right>
   noremap! <C-b> <Left>
   inoremap "" ""<LEFT>
-  inoremap %% %%<LEFT><Space><Space><LEFT>
+  inoremap %% %%<LEFT><Space><LEFT>
   inoremap '' ''<LEFT>
   inoremap <> <><LEFT>
   inoremap [] []<LEFT>
