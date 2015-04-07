@@ -110,6 +110,13 @@ zstyle ':completion:*' use-cache true
 # オブジェクトファイルとか中間ファイルとかはfileとして補完させない
 zstyle ':completion:*:*files' ignored-patterns '*?.o' '*?~' '*\#'
 
+# 履歴の検索
+autoload history-search-end
+zle -N history-beginning-search-backward-end history-search-end
+zle -N history-beginning-search-forward-end history-search-end
+bindkey "^P" history-beginning-search-backward-end
+bindkey "^N" history-beginning-search-forward-end
+
 ########################################
 # vcs_info
 autoload -Uz vcs_info
@@ -209,7 +216,7 @@ alias pw='pwgen -y'
 
 
 alias la='ls -a'
-alias ll='ls -l'
+alias ll='ls -la'
 
 alias rm='rm -i'
 alias cp='cp -i'
