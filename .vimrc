@@ -92,6 +92,9 @@
   NeoBundle 'kien/ctrlp.vim'
 " emmetプラグイン
   NeoBundle 'mattn/emmet-vim'
+  let g:user_emmet_settings = {
+        \ 'lang' : 'ja'
+        \}
 " NERDTreeプラグイン
   NeoBundle 'scrooloose/nerdtree'
   nnoremap <C-e> :NERDTreeToggle<CR>
