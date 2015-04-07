@@ -79,7 +79,7 @@
   NeoBundle 'soramugi/auto-ctags.vim'
   let g:auto_ctags = 1
   let g:auto_ctags_directory_list = ['.git']
-  set tags+=.git/tags
+  set tags=./.git/tags
 " evervimプラグイン
   NeoBundle 'kakkyz81/evervim'
   let g:evervim_devtoken='S=s399:U=4676794:E=14dc6c37749:C=1466f124b4e:P=1cd:A=en-devtoken:V=2:H=ea3cbce5d9944497b6e6f7f05014b611'
