@@ -93,8 +93,17 @@
 " emmetプラグイン
   NeoBundle 'mattn/emmet-vim'
   let g:user_emmet_settings = {
-        \ 'lang' : 'ja'
-        \}
+    \  'php' : {
+    \    'extends' : 'html',
+    \    'filters' : 'c',
+    \  },
+    \  'xml' : {
+    \    'extends' : 'html',
+    \  },
+    \  'haml' : {
+    \    'extends' : 'html',
+    \  },
+    \}
 " NERDTreeプラグイン
   NeoBundle 'scrooloose/nerdtree'
   nnoremap <C-e> :NERDTreeToggle<CR>
@@ -151,8 +160,6 @@ set wrap
 set display=lastline
 set textwidth=0
 set nowritebackup
-set nobackup
-set noswapfile
 set title
 set showmatch
 set matchtime=1
@@ -171,6 +178,11 @@ set laststatus=2
 set nrformats-=octal
 set diffopt=vertical
 set pumheight=10
+" backupファイルとスワップファイルの設定
+  set backup
+  set backupdir=~/.vim/backup
+  set swapfile
+  set directory=~/.vim/swap
 " insertモードでカーソルの形を変える
   if !has('gui_running')
     let &t_SI = "\<Esc>]50;CursorShape=1\x7"
