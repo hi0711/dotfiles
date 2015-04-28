@@ -255,6 +255,7 @@ elif which putclip >/dev/null 2>&1 ; then
     alias -g C='| putclip'
 fi
 
-# cask関連
+# HomeBrew関連
+alias brew upgrade='brew upgrade --all'
 alias cask='brew cask'
 alias cask-upgrade='brew file cask_upgrade -C'
