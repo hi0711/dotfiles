@@ -148,6 +148,7 @@ setopt interactive_comments
 
 # ディレクトリ名だけでcdする
 setopt auto_cd
+cdpath=(.. ~ ~/src)
 
 # cd したら自動的にpushdする
 setopt auto_pushd
