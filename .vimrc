@@ -67,14 +67,13 @@
   NeoBundle 'Shougo/neosnippet-snippets'
 " syntasticプラグイン
   NeoBundle 'scrooloose/syntastic'
-  let g:syntastic_mode_map = {
-    \ 'mode': 'passive',
-    \ 'active_filetypes': ['javascript','ruby'],
-    \ 'passive_filetypes': ['html']
-    \}
+  set statusline+=%#warningmsg#
+  set statusline+=%{SyntasticStatuslineFlag()}
+  set statusline+=%*
+  let g:syntastic_always_populate_loc_list = 1
   let g:syntastic_auto_loc_list = 1
-  let g:syntastic_javascript_checker = 'jshint'
-  let g:syntastic_ruby_checker = 'rubocop'
+  let g:syntastic_check_on_open = 1
+  let g:syntastic_check_on_wq = 0
   let g:syntastic_javascript_checkers = ['jshint']
   let g:syntastic_ruby_checkers = ['rubocop']
 " auto-ctagsプラグイン
