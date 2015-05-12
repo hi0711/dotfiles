@@ -215,7 +215,7 @@ set wildchar=<C-Z>
     augroup END
     call ZenkakuSpace()
   endif
-"ステータスラインに文字コードと改行文字を表示する
+"ステータスラインに情報を表示する
   set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
 " エンコード設定
   set encoding=utf-8
