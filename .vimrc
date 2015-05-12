@@ -27,25 +27,25 @@
   " Disable AutoComplPop.
     let g:acp_enableAtStartup = 0
   " Use neocomplete.
-   let g:neocomplete#enable_at_startup = 1
+    let g:neocomplete#enable_at_startup = 1
   " Use smartcase.
-   let g:neocomplete#enable_smart_case = 1
+    let g:neocomplete#enable_smart_case = 1
   " Set minimum syntax keyword length.
-   let g:neocomplete#sources#syntax#min_keyword_length = 1
-   let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+    let g:neocomplete#sources#syntax#min_keyword_length = 1
+    let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
   " Plugin key-mappings.
-   inoremap <expr><C-g>     neocomplete#undo_completion()
-   inoremap <expr><C-l>     neocomplete#complete_common_string()
+    inoremap <expr><C-g>     neocomplete#undo_completion()
+    inoremap <expr><C-l>     neocomplete#complete_common_string()
   " Enable omni completion.
-   autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-   autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-   autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-   autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-   autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+    autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+    autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+    autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+    autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+    autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
   " Enable heavy omni completion.
-   if !exists('g:neocomplete#sources#omni#input_patterns')
-     let g:neocomplete#sources#omni#input_patterns = {}
-   endif
+    if !exists('g:neocomplete#sources#omni#input_patterns')
+      let g:neocomplete#sources#omni#input_patterns = {}
+    endif
 " neosnippetプラグイン
   NeoBundle 'Shougo/neosnippet.vim'
   " Plugin key-mappings.
@@ -168,6 +168,7 @@ set tabstop=2
 set shiftwidth=2
 set smartindent
 set expandtab
+set smarttab
 set fdm=manual
 set ignorecase
 set smartcase
@@ -179,6 +180,11 @@ set laststatus=2
 set nrformats-=octal
 set diffopt=vertical
 set pumheight=10
+set ttyfast
+set lazyredraw
+set hidden
+set formatoptions-=c
+set wildchar=<C-Z>
 " backupファイルとスワップファイルの設定
   set backup
   set backupdir=~/.vim/backup
@@ -210,13 +216,7 @@ set pumheight=10
     call ZenkakuSpace()
   endif
 "ステータスラインに文字コードと改行文字を表示する
-  function! CharCount ()
-    if exists('b:charCounterCount')
-      return b:charCounterCount
-    else
-      return 0
-    endif
-  endfunc
+  set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
 " エンコード設定
   set encoding=utf-8
   set termencoding=utf-8
