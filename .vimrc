@@ -75,6 +75,8 @@
   let g:syntastic_auto_loc_list = 1
   let g:syntastic_javascript_checker = 'jshint'
   let g:syntastic_ruby_checker = 'rubocop'
+  let g:syntastic_javascript_checkers = ['jshint']
+  let g:syntastic_ruby_checkers = ['rubocop']
 " auto-ctagsプラグイン
   NeoBundle 'soramugi/auto-ctags.vim'
   let g:auto_ctags = 1
