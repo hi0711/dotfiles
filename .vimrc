@@ -76,6 +76,10 @@
   let g:syntastic_check_on_wq = 0
   let g:syntastic_javascript_checkers = ['jshint']
   let g:syntastic_ruby_checkers = ['rubocop']
+  let g:syntastic_mode_map = {
+    \ "mode": "active",
+    \ "active_filetypes": ["ruby", "javascript"],
+    \ "passive_filetypes": ["html"] }
 " auto-ctagsプラグイン
   NeoBundle 'soramugi/auto-ctags.vim'
   let g:auto_ctags = 1
