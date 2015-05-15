@@ -361,6 +361,8 @@ set wildchar=<C-Z>
 " 置換操作
   nnoremap gs :<C-u>%s///g<Left><Left><Left>
   vnoremap gs :s///g<Left><Left><Left>
+" 同単語検索設定
+  nnoremap * *N
 " タブ操作
   nnoremap <Leader>tab :<C-u>tabe<CR>
   nnoremap <Leader>tn gt
