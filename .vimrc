@@ -188,7 +188,9 @@ set ttyfast
 set lazyredraw
 set hidden
 set formatoptions-=c
+set wildmenu
 set wildchar=<C-Z>
+set wildmode=longest:full,full
 " backupファイルとスワップファイルの設定
   set backup
   set backupdir=~/.vim/backup
@@ -421,6 +423,14 @@ set wildchar=<C-Z>
   inoremap <Leader>time <C-R>=strftime('%H:%M:%S')<CR>
   inoremap <Leader>datetime <C-R>=strftime('%Y-%m-%d_%H%M%S')<CR>
   inoremap <Leader>w3cd <C-R>=strftime('%Y-%m-%dT%H:%M:%S+09:00')<CR>
+" コマンドライン設定
+  cnoremap <C-a> <Home>
+  cnoremap <C-b> <Left>
+  cnoremap <C-f> <Right>
+  cnoremap <C-d> <Del>
+  cnoremap <C-e> <End>
+  cnoremap <C-n> <Down>
+  cnoremap <C-p> <Up>
 
 " ----------------------------------------
 " HTML閉じタグ自動補完
