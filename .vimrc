@@ -191,7 +191,7 @@ set lazyredraw
 set hidden
 set formatoptions-=c
 set wildmenu
-set wildchar=<C-z>
+set wildchar=<TAB>
 set wildmode=longest:full,full
 " backupファイルとスワップファイルの設定
   set backup
