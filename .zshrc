@@ -260,3 +260,6 @@ fi
 alias brew-upgrade='brew upgrade --all'
 alias cask='brew cask'
 alias cask-upgrade='brew file cask_upgrade -C'
+
+# tmux関連
+alias tx='tmux'
