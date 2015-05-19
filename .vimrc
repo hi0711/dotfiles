@@ -308,6 +308,8 @@ set wildmode=longest:full,full
     set undodir=~/.vim/undo
     set undofile
   endif
+" ファイルを閉じた時の位置から再編集
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\""
 " vimdiffの設定
   function! s:vimdiff_in_newtab(...)
     if a:0 == 1
