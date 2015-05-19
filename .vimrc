@@ -137,6 +137,11 @@
 "JpFormatプラグイン
   NeoBundle "fuenor/JpFormat.vim"
   nnoremap gL :JpFormatAll!<CR>
+" lightline プラグイン
+  NeoBundle 'itchyny/lightline.vim'
+  let g:lightline = {
+        \ 'colorscheme': 'wombat'
+        \ }
 " tlibプラグイン
   NeoBundle 'tomtom/tlib_vim'
 " ttocプラグイン
@@ -155,11 +160,6 @@
   NeoBundle 'tmhedberg/matchit'
 " molokai カラースキーム
   NeoBundle 'tomasr/molokai'
-" lightline カラースキーム
-  NeoBundle 'itchyny/lightline.vim'
-  let g:lightline = {
-        \ 'colorscheme': 'wombat'
-        \ }
 call neobundle#end()
 " Required:
   filetype plugin indent on
