@@ -98,7 +98,8 @@
   let g:ctrlp_extensions = ['tag', 'dir', 'line', 'mixed']
   let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:18'
   let g:ctrlp_show_hidden = 1
-
+  let g:ctrlp_clear_cache_on_exit = 0   " 終了時キャッシュをクリアしない
+  let g:ctrlp_open_new_file = 1
 " emmetプラグイン
   NeoBundle 'mattn/emmet-vim'
   let g:user_emmet_settings = {
@@ -117,7 +118,7 @@
   NeoBundle 'scrooloose/nerdtree'
   nnoremap <C-e> :NERDTreeToggle<CR>
   let NERDTreeShowHidden = 1
-  autocmd vimenter * if !argc() | NERDTree | endif
+"   autocmd vimenter * if !argc() | NERDTree | endif
 " indentLineプラグイン
   NeoBundle 'Yggdroot/indentLine'
   let g:indentLine_char='|'
