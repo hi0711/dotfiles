@@ -94,12 +94,18 @@
 " open-browserプラグイン
   NeoBundle 'tyru/open-browser.vim'
 " ctrlpプラグイン
-  NeoBundle 'kien/ctrlp.vim'
+  NeoBundle 'ctrlpvim/ctrlp.vim'
   let g:ctrlp_extensions = ['tag', 'dir', 'line', 'mixed']
   let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:18'
   let g:ctrlp_show_hidden = 1
   let g:ctrlp_clear_cache_on_exit = 0   " 終了時キャッシュをクリアしない
   let g:ctrlp_open_new_file = 1
+" agプラグイン
+  NeoBundle 'rking/ag.vim'
+  if executable('ag')
+    let g:ctrlp_use_caching=0
+    let g:ctrlp_user_command='ag %s -i --nocolor --nogroup -g ""'
+  endif
 " emmetプラグイン
   NeoBundle 'mattn/emmet-vim'
   let g:user_emmet_settings = {
