@@ -97,6 +97,8 @@
   NeoBundle 'kien/ctrlp.vim'
   let g:ctrlp_extensions = ['tag', 'dir', 'line', 'mixed']
   let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:18'
+  let g:ctrlp_show_hidden = 1
+
 " emmetプラグイン
   NeoBundle 'mattn/emmet-vim'
   let g:user_emmet_settings = {
