@@ -95,6 +95,8 @@
   NeoBundle 'tyru/open-browser.vim'
 " ctrlpプラグイン
   NeoBundle 'kien/ctrlp.vim'
+  let g:ctrlp_extensions = ['tag', 'dir', 'line', 'mixed']
+  let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:18'
 " emmetプラグイン
   NeoBundle 'mattn/emmet-vim'
   let g:user_emmet_settings = {
@@ -315,6 +317,9 @@ set wildmode=longest:full,full
   nnoremap Y y$
 " スペースキー + . で.vimrcを開く
   nnoremap <Space>. :<C-u>tabedit ~/.vimrc<CR>
+" 数値のインクリメント、ディクリメント
+  nnoremap <C-a> +
+  nnoremap <C-x> -
 " 検索語が画面の真ん中に来るようにする
   nmap n nzz
   nmap N Nzz
@@ -324,7 +329,7 @@ set wildmode=longest:full,full
   nmap g# g#zz
 " insertモードから抜ける
   inoremap jj <ESC>:up<CR>
-  inoremap <C-j> j
+  inoremap <C-j> <ESC>:up<CR>
 " カーソル操作
   noremap! <C-a> <Home>
   noremap! <C-e> <End>
