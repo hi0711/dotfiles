@@ -1,0 +1,21 @@
+"*":
+  "exception-reporting":
+    userId: "7afe32e1-d08c-e73b-3480-a4f99ffcb07b"
+  welcome:
+    showOnStartup: false
+  editor:
+    showInvisibles: true
+    showIndentGuide: true
+    softWrap: true
+    invisibles: {}
+  core: {}
+  "japanese-wrap":
+    characterWidth: {}
+    lineBreakingRule:
+      japanese: false
+      halfwidthKatakana: false
+      ideographicSpaceAsWihteSpace: true
+  term2:
+    colors: {}
+  emmet: {}
+  "atom-lint": {}
