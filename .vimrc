@@ -125,7 +125,7 @@
   NeoBundle 'scrooloose/nerdtree'
   nnoremap <C-e> :NERDTreeToggle<CR>
   let NERDTreeShowHidden = 1
-  autocmd vimenter * if !argc() | NERDTree | endif
+"   autocmd vimenter * if !argc() | NERDTree | endif
 " indentLineプラグイン
   NeoBundle 'Yggdroot/indentLine'
   let g:indentLine_char='|'
