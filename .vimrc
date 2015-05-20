@@ -100,6 +100,7 @@
   let g:ctrlp_show_hidden = 1
   let g:ctrlp_clear_cache_on_exit = 0   " 終了時キャッシュをクリアしない
   let g:ctrlp_open_new_file = 1
+  let g:ctrlp_mruf_max = 500
 " agプラグイン
   NeoBundle 'rking/ag.vim'
   if executable('ag')
