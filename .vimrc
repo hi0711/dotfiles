@@ -63,8 +63,6 @@
     if has('conceal')
       set conceallevel=2 concealcursor=i
     endif
-" neosnippet-snippetsプラグイン
-  NeoBundle 'Shougo/neosnippet-snippets'
 " syntasticプラグイン
   NeoBundle 'scrooloose/syntastic'
   set statusline+=%#warningmsg#
@@ -213,6 +211,8 @@ set wildmode=longest:full,full
   set backupdir=~/.vim/backup
   set swapfile
   set directory=~/.vim/swap
+  set backupskip=/tmp/*,/private/tmp/*
+
 " insertモードでカーソルの形を変える
   if !has('gui_running')
     let &t_SI = "\<Esc>]50;CursorShape=1\x7"
