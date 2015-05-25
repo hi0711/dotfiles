@@ -192,22 +192,22 @@ cdf () {
 }
 
 # git関連コマンド
+alias g='git'
 alias gad='git add'
-alias gco='git commit -a'
-alias gpl='git pull'
-alias glo='git log'
+alias gbr='git branch'
 alias gbr='git branch'
 alias gch='git checkout'
-alias gme='git merge'
-alias gbr='git branch'
-alias gfe='git fetch'
+alias gcl='git clone'
+alias gco='git commit -a'
 alias gdi='git diff'
-alias gst='git status'
+alias gfe='git fetch'
 alias gin='git init'
+alias glo='git log'
+alias gme='git merge'
 alias gre='git rebase'
-alias vi='vim'
-alias g='git'
+alias gst='git status'
 
+alias vi='vim'
 
 alias up='cd ..; ls -l'
 alias f='open .'
