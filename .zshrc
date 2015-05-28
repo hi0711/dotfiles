@@ -236,6 +236,9 @@ alias q='exit'
 # ctagsの設定
 alias ctags='`brew --prefix`/bin/ctags'
 
+# purgeの設定
+alias purge='sudo purge'
+
 # sudo の後のコマンドでエイリアスを有効にする
 alias sudo='sudo '
 
