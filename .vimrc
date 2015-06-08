@@ -63,6 +63,8 @@
     if has('conceal')
       set conceallevel=2 concealcursor=i
     endif
+" neosnippet-snippetsプラグイン
+  NeoBundle 'Shougo/neosnippet-snippets'
 " syntasticプラグイン
   NeoBundle 'scrooloose/syntastic'
   set statusline+=%#warningmsg#
@@ -119,6 +121,10 @@
     \    'extends' : 'html',
     \  },
     \}
+" csscombプラグイン
+  NeoBundle 'csscomb/vim-csscomb'
+  " 保存前に自動でCSScombをかける
+    autocmd BufWritePre,FileWritePre *.css,*.less,*.scss,*.sass silent! :CSScomb<CR>
 " NERDTreeプラグイン
   NeoBundle 'scrooloose/nerdtree'
   nnoremap <C-e> :NERDTreeToggle<CR>
