@@ -12,6 +12,8 @@ export PATH=/usr/local/bin:/usr/local/share/python:$PATH
 if [ -f ~/.bashrc ]; then
      . ~/.bashrc
 fi
+### FDKのPATHを通す
+export PATH=PATH=~/bin/FDK/Tools/osx:$PATH
 ### git 助けて
 export PATH=$HOME/git-tasukete:$PATH
 
