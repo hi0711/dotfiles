@@ -123,8 +123,6 @@
     \}
 " csscombプラグイン
   NeoBundle 'csscomb/vim-csscomb'
-  " 保存前に自動でCSScombをかける
-    autocmd BufWritePre,FileWritePre *.css,*.less,*.scss,*.sass silent! :CSScomb<CR>
 " NERDTreeプラグイン
   NeoBundle 'scrooloose/nerdtree'
   nnoremap <C-e> :NERDTreeToggle<CR>
@@ -380,6 +378,9 @@ set wildmode=longest:full,full
   inoremap <C-o> <Esc>o
 " cntrl + n キーで改行
   noremap <C-n> o<Esc>
+" バッファの分割
+  noremap <silent><Leader>sl :<C-u>split<CR>
+  noremap <silent><Leader>vs :<C-u>vsplit<CR>
 " カーソルキーでバッファのサイズ変更
   nnoremap <silent><Down>  <C-w>-
   nnoremap <silent><Up>    <C-w>+
@@ -397,6 +398,7 @@ set wildmode=longest:full,full
   nnoremap <Leader>tab :<C-u>tabe<CR>
   nnoremap <Leader>tn gt
   nnoremap <Leader>tp gT
+  nnoremap <Leader>tc :<C-u>tabc<CR>
 " 全角で書かないようにする
   inoremap （ (
   inoremap ） )
@@ -436,14 +438,14 @@ set wildmode=longest:full,full
   noremap ; :
   noremap : ;
 " vimgrep時の候補移動
-  nnoremap [q :cprevious<CR>   " 前へ
-  nnoremap ]q :cnext<CR>       " 次へ
-  nnoremap [Q :<C-u>cfirst<CR> " 最初へ
-  nnoremap ]Q :<C-u>clast<CR>  " 最後へ
+  nnoremap <silent>[q :cprevious<CR>zz
+  nnoremap <silent>]q :cnext<CR>zz
+  nnoremap <silent>[Q :<C-u>cfirst<CR>
+  nnoremap <silent>]Q :<C-u>clast<CR>
 " hlsearchの解除
   nnoremap <silent> <Esc><Esc> :<C-u>nohlsearch<CR>
 " .vimrcの再読み込み
-  nnoremap <Leader>source :<C-u>source ~/.vimrc<CR>
+  nnoremap <Leader>source <silent> :<C-u>source ~/.vimrc<CR>
 "文字コード変更して再読み込み
   nnoremap <silent> eu :<C-u>e ++enc=utf-8<CR>
 " 日付の挿入
