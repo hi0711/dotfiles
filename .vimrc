@@ -479,6 +479,7 @@ set wildmode=longest:full,full
     nnoremap <silent> [unite]h :<C-u>Unite<Space>history/yank<CR>
     nnoremap <silent> [unite]r :<C-u>Unite -buffer-name=register register<CR>
     nnoremap <silent> [unite]c :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+    nnoremap <silent> <Leader>vr :UniteResume<CR>
   " unite-grep {{{
   " unite-grepのバックエンドをagに切り替える
     let g:unite_source_grep_command = 'ag'
