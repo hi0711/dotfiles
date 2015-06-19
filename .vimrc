@@ -469,8 +469,11 @@ set wildmode=longest:full,full
   " 大文字・小文字を無視
     let g:unite_enable_ignore_case = 1
     let g:unite_enable_smart_case = 1
+  " ファイル履歴保存数
+    let g:unite_source_file_mru_limit =50
   " キーマッピング
     nnoremap <silent> [unite]u :<C-u>Unite<Space>file<CR>
+    nnoremap <silent> [unite]n :<C-u>Unite<Space>file/new<CR>
     nnoremap <silent> [unite]g :<C-u>Unite<Space>grep<CR>
     nnoremap <silent> [unite]f :<C-u>Unite<Space>buffer<CR>
     nnoremap <silent> [unite]b :<C-u>Unite<Space>bookmark<CR>
@@ -491,6 +494,14 @@ set wildmode=longest:full,full
   " https://github.com/shingokatsushima/dotfiles/blob/master/.vimrc
     vnoremap /g y:Unite grep::-iHRn:<C-R>=escape(@", '\\.*$^[]')<CR><CR>
   " }}}
+  " ウィンドウを分割して開く
+    au FileType unite nnoremap <silent> <buffer> <expr> <C-x> unite#do_action('split')
+    au FileType unite inoremap <silent> <buffer> <expr> <C-x> unite#do_action('split')
+  " ウィンドウを縦に分割して開く
+    au FileType unite nnoremap <silent> <buffer> <expr> <C-v> unite#do_action('vsplit')
+    au FileType unite inoremap <silent> <buffer> <expr> <C-v> unite#do_action('vsplit')
+  " ESCキーを2回押すと終了する
+    au FileType unite nnoremap <silent> <buffer> <ESC><ESC> q
 
 " ----------------------------------------
 " HTML閉じタグ自動補完
