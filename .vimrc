@@ -458,50 +458,51 @@ set wildmode=longest:full,full
   cnoremap <C-e> <End>
   cnoremap <C-n> <Down>
   cnoremap <C-p> <Up>
-"unite.vim 設定
-  " prefix
-    nnoremap [unite] <Nop>
-    nmap <Leader>u [unite]
-  " insert modeで開始
-    let g:unite_enable_start_insert = 1
-  " yankのhistory読み込み
-    let g:unite_source_history_yank_enable =1
-  " 大文字・小文字を無視
-    let g:unite_enable_ignore_case = 1
-    let g:unite_enable_smart_case = 1
-  " ファイル履歴保存数
-    let g:unite_source_file_mru_limit =50
-  " キーマッピング
-    nnoremap <silent> [unite]u :<C-u>Unite<Space>file<CR>
-    nnoremap <silent> [unite]n :<C-u>Unite<Space>file/new<CR>
-    nnoremap <silent> [unite]g :<C-u>Unite<Space>grep<CR>
-    nnoremap <silent> [unite]f :<C-u>Unite<Space>buffer<CR>
-    nnoremap <silent> [unite]b :<C-u>Unite<Space>bookmark<CR>
-    nnoremap <silent> [unite]a :<C-u>UniteBookmarkAdd<CR>
-    nnoremap <silent> [unite]m :<C-u>Unite<Space>file_mru<CR>
-    nnoremap <silent> [unite]h :<C-u>Unite<Space>history/yank<CR>
-    nnoremap <silent> [unite]r :<C-u>Unite -buffer-name=register register<CR>
-    nnoremap <silent> [unite]c :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
-    nnoremap <silent> <Leader>vr :UniteResume<CR>
-  " unite-grep {{{
-  " unite-grepのバックエンドをagに切り替える
-    let g:unite_source_grep_command = 'ag'
-    let g:unite_source_grep_default_opts = '--nocolor --nogroup'
-    let g:unite_source_grep_recursive_opt = ''
-    let g:unite_source_grep_max_candidates = 200
-  " unite-grepのキーマップ
-  " 選択した文字列をunite-grep
-  " https://github.com/shingokatsushima/dotfiles/blob/master/.vimrc
-    vnoremap /g y:Unite grep::-iHRn:<C-R>=escape(@", '\\.*$^[]')<CR><CR>
-  " }}}
-  " ウィンドウを分割して開く
-    au FileType unite nnoremap <silent> <buffer> <expr> <C-x> unite#do_action('split')
-    au FileType unite inoremap <silent> <buffer> <expr> <C-x> unite#do_action('split')
-  " ウィンドウを縦に分割して開く
-    au FileType unite nnoremap <silent> <buffer> <expr> <C-v> unite#do_action('vsplit')
-    au FileType unite inoremap <silent> <buffer> <expr> <C-v> unite#do_action('vsplit')
-  " ESCキーを2回押すと終了する
-    au FileType unite nnoremap <silent> <buffer> <ESC><ESC> q
+
+" ----------------------------------------
+"  Unite.vim の設定
+" ----------------------------------------
+" prefix
+  nnoremap [unite] <Nop>
+  nmap <Leader>u [unite]
+" insert modeで開始
+  let g:unite_enable_start_insert = 1
+" yankのhistory読み込み
+  let g:unite_source_history_yank_enable =1
+" 大文字・小文字を無視
+  let g:unite_enable_ignore_case = 1
+  let g:unite_enable_smart_case = 1
+" ファイル履歴保存数
+  let g:unite_source_file_mru_limit =50
+" キーマッピング
+  nnoremap <silent> [unite]u :<C-u>Unite<Space>file<CR>
+  nnoremap <silent> [unite]n :<C-u>Unite<Space>file/new<CR>
+  nnoremap <silent> [unite]g :<C-u>Unite<Space>grep<CR>
+  nnoremap <silent> [unite]f :<C-u>Unite<Space>buffer<CR>
+  nnoremap <silent> [unite]b :<C-u>Unite<Space>bookmark<CR>
+  nnoremap <silent> [unite]a :<C-u>UniteBookmarkAdd<CR>
+  nnoremap <silent> [unite]m :<C-u>Unite<Space>file_mru<CR>
+  nnoremap <silent> [unite]h :<C-u>Unite<Space>history/yank<CR>
+  nnoremap <silent> [unite]r :<C-u>Unite -buffer-name=register register<CR>
+  nnoremap <silent> [unite]c :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+  nnoremap <silent> <Leader>vr :UniteResume<CR>
+" unite-grep
+" unite-grepのバックエンドをagに切り替える
+  let g:unite_source_grep_command = 'ag'
+  let g:unite_source_grep_default_opts = '--nocolor --nogroup'
+  let g:unite_source_grep_recursive_opt = ''
+  let g:unite_source_grep_max_candidates = 200
+" unite-grepのキーマップ
+" 選択した文字列をunite-grep
+  vnoremap /g y:Unite grep::-iHRn:<C-R>=escape(@", '\\.*$^[]')<CR><CR>
+" ウィンドウを分割して開く
+  au FileType unite nnoremap <silent> <buffer> <expr> <C-x> unite#do_action('split')
+  au FileType unite inoremap <silent> <buffer> <expr> <C-x> unite#do_action('split')
+" ウィンドウを縦に分割して開く
+  au FileType unite nnoremap <silent> <buffer> <expr> <C-v> unite#do_action('vsplit')
+  au FileType unite inoremap <silent> <buffer> <expr> <C-v> unite#do_action('vsplit')
+" ESCキーを2回押すと終了する
+  au FileType unite nnoremap <silent> <buffer> <ESC><ESC> q
 
 " ----------------------------------------
 " HTML閉じタグ自動補完
