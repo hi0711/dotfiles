@@ -109,6 +109,8 @@
     let g:ctrlp_use_caching=0
     let g:ctrlp_user_command='ag %s -i --nocolor --nogroup -g ""'
   endif
+" qfreplaceプラグイン
+  NeoBundle 'thinca/vim-qfreplace'
 " emmetプラグイン
   NeoBundle 'mattn/emmet-vim'
   let g:user_emmet_settings = {
@@ -442,7 +444,7 @@ set wildmode=longest:full,full
 " hlsearchの解除
   nnoremap <silent> <Esc><Esc> :<C-u>nohlsearch<CR>
 " .vimrcの再読み込み
-  nnoremap <Leader>source <silent> :<C-u>source ~/.vimrc<CR>
+  nnoremap <Leader>so :<C-u>source ~/.vimrc<CR>
 "文字コード変更して再読み込み
   nnoremap <silent> eu :<C-u>e ++enc=utf-8<CR>
 " 日付の挿入
@@ -495,6 +497,8 @@ set wildmode=longest:full,full
 " unite-grepのキーマップ
 " 選択した文字列をunite-grep
   vnoremap /g y:Unite grep::-iHRn:<C-R>=escape(@", '\\.*$^[]')<CR><CR>
+" カーソル位置の単語をgrep検索
+  nnoremap <silent> <Leader>cg :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W>
 " ウィンドウを分割して開く
   au FileType unite nnoremap <silent> <buffer> <expr> <C-x> unite#do_action('split')
   au FileType unite inoremap <silent> <buffer> <expr> <C-x> unite#do_action('split')
