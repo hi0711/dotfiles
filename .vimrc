@@ -160,6 +160,8 @@
   NeoBundle 'groenewege/vim-less'
 " vim-matchitプラグイン
   NeoBundle 'tmhedberg/matchit'
+" vimwikiプラグイン
+  NeoBundle 'vimwiki/vimwiki'
 " molokai カラースキーム
   NeoBundle 'tomasr/molokai'
 call neobundle#end()
