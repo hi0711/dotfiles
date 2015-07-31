@@ -148,6 +148,7 @@
   NeoBundle 'tomtom/tlib_vim'
 " ttocプラグイン
   NeoBundle 'tomtom/ttoc_vim'
+  nnoremap <Leader>tt :TToC<CR>
 " autocloseプラグイン
   NeoBundle 'Townk/vim-autoclose'
 " coffeescriptプラグイン
@@ -161,7 +162,7 @@
 " vim-matchitプラグイン
   NeoBundle 'tmhedberg/matchit'
 " vimwikiプラグイン
-  NeoBundle 'vimwiki/vimwiki'
+  NeoBundle 'vim-scripts/vimwiki'
 " molokai カラースキーム
   NeoBundle 'tomasr/molokai'
 call neobundle#end()
@@ -393,13 +394,15 @@ set wildmode=longest:full,full
 " 置換操作
   nnoremap gs :<C-u>%s///g<Left><Left><Left>
   vnoremap gs :s///g<Left><Left><Left>
+" ハードタブ置換
+  vnoremap <silent> <Leader>tab :s/,/\t/g<CR>
 " 同単語検索設定
   nnoremap * *N
 " タブ操作
-  nnoremap <Leader>tab :<C-u>tabe<CR>
-  nnoremap <Leader>tn gt
-  nnoremap <Leader>tp gT
-  nnoremap <Leader>tc :<C-u>tabc<CR>
+  nnoremap <silent> <Leader>ta :<C-u>tabe<CR>
+  nnoremap <silent> <Leader>tn gt
+  nnoremap <silent> <Leader>tp gT
+  nnoremap <silent> <Leader>tc :<C-u>tabc<CR>
 " 全角で書かないようにする
   inoremap （ (
   inoremap ） )
