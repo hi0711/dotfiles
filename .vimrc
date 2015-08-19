@@ -91,7 +91,7 @@
   NeoBundle 'vim-scripts/surround.vim'
 " evervimプラグイン
   NeoBundle 'kakkyz81/evervim'
-  let g:evervim_devtoken='S=s399:U=4676794:E=14dc6c37749:C=1466f124b4e:P=1cd:A=en-devtoken:V=2:H=ea3cbce5d9944497b6e6f7f05014b611'
+  let g:evervim_devtoken='S=s399:U=4676794:E=1569b551caa:C=14f43a3ee48:P=1cd:A=en-devtoken:V=2:H=59a5b1282a1f0f27d2626848136fe23d'
   let g:evervim_splitoption=''
 " open-browserプラグイン
   NeoBundle 'tyru/open-browser.vim'
@@ -218,7 +218,6 @@ set wildmode=longest:full,full
   set swapfile
   set directory=~/.vim/swap
   set backupskip=/tmp/*,/private/tmp/*
-
 " insertモードでカーソルの形を変える
   if !has('gui_running')
     let &t_SI = "\<Esc>]50;CursorShape=1\x7"
@@ -231,7 +230,7 @@ set wildmode=longest:full,full
     call setpos(".", cursor)
     unlet cursor
   endfunction
-  autocmd BufWritePre * call <SID>remove_dust()
+  autocmd BufWritePre *.html,*.php,*.rb,*.js,*.haml call <SID>remove_dust()
 " 全角スペースの設定
   function! ZenkakuSpace()
       highlight ZenkakuSpace cterm=reverse ctermfg=darkgray gui=reverse guifg=darkgray
@@ -381,7 +380,7 @@ set wildmode=longest:full,full
 " cntrl + n キーで改行
   noremap <C-n> o<Esc>
 " バッファの分割
-  noremap <silent><Leader>sl :<C-u>split<CR>
+  noremap <silent><Leader>sp :<C-u>split<CR>
   noremap <silent><Leader>vs :<C-u>vsplit<CR>
 " カーソルキーでバッファのサイズ変更
   nnoremap <silent><Down>  <C-w>-
