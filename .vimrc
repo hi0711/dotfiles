@@ -361,6 +361,7 @@ set wildmode=longest:full,full
   inoremap "" ""<LEFT>
   inoremap %% %%<LEFT><Space><LEFT>
   inoremap '' ''<LEFT>
+  inoremap () ()<LEFT>
   inoremap <> <><LEFT>
   inoremap [] []<LEFT>
   inoremap {} {}<LEFT>
@@ -381,7 +382,7 @@ set wildmode=longest:full,full
 " cntrl + n キーで改行
   noremap <C-n> o<Esc>
 " バッファの分割
-  noremap <silent><Leader>sl :<C-u>split<CR>
+  noremap <silent><Leader>sp :<C-u>split<CR>
   noremap <silent><Leader>vs :<C-u>vsplit<CR>
 " カーソルキーでバッファのサイズ変更
   nnoremap <silent><Down>  <C-w>-

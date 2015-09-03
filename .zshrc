@@ -171,6 +171,7 @@ setopt hist_reduce_blanks
 # 高機能なワイルドカード展開を使用する
 setopt extended_glob
 
+
 ########################################
 # キーバインド
 
