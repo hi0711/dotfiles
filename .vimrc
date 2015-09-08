@@ -368,6 +368,9 @@ set wildmode=longest:full,full
   noremap k gk
   noremap gj j
   noremap gk k
+" 半ページ移動(中央維持
+  noremap H <C-u>zz
+  noremap L <C-d>zz
 " 中央を維持しながら移動
   " noremap j gjzz
   " noremap k gkzz
