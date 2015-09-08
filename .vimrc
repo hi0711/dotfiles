@@ -363,16 +363,20 @@ set wildmode=longest:full,full
   inoremap {} {}<LEFT>
 " スペースキーを押した時、中心を保ってスクロール
   nnoremap <Space> jzz
-  nnoremap <S-Space> kzz
-" 中央を維持しながら移動
-  noremap j gjzz
-  noremap k gkzz
+" 移動を表示行単位に
+  noremap j gj
+  noremap k gk
   noremap gj j
   noremap gk k
-  noremap G Gzz
-  noremap gg ggzz
-  noremap <C-d> <C-d>zz
-  noremap <C-u> <C-u>zz
+" 中央を維持しながら移動
+  " noremap j gjzz
+  " noremap k gkzz
+  " noremap gj j
+  " noremap gk k
+  " noremap G Gzz
+  " noremap gg ggzz
+  " noremap <C-d> <C-d>zz
+  " noremap <C-u> <C-u>zz
 " insertモードで次の行に直接改行
   inoremap <C-o> <Esc>o
 " cntrl + n キーで改行
