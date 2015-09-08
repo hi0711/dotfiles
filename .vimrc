@@ -195,6 +195,7 @@ set smartindent
 set expandtab
 set smarttab
 set fdm=manual
+set ambiwidth=double
 set ignorecase
 set smartcase
 set incsearch
@@ -230,7 +231,7 @@ set wildmode=longest:full,full
     call setpos(".", cursor)
     unlet cursor
   endfunction
-  autocmd BufWritePre *.html,*.php,*.rb,*.js,*.haml call <SID>remove_dust()
+  autocmd BufWritePre *.html,*.css,*.scss,*.sass,*.less,*.php,*.rb,*.js,*.haml,*.erb,*.txt call <SID>remove_dust()
 " 全角スペースの設定
   function! ZenkakuSpace()
       highlight ZenkakuSpace cterm=reverse ctermfg=darkgray gui=reverse guifg=darkgray
@@ -305,10 +306,6 @@ set wildmode=longest:full,full
   endif
   " 改行コードの自動認識
   set fileformats=unix,dos,mac
-  " □とか○の文字があってもカーソル位置がずれないようにする
-  if exists('&ambiwidth')
-    set ambiwidth=double
-  endif
 " undo記憶、undoファイルの生成
   if has('persistent_undo')
     set undodir=~/.vim/undo
