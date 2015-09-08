@@ -357,6 +357,7 @@ set wildmode=longest:full,full
   inoremap "" ""<LEFT>
   inoremap %% %%<LEFT><Space><LEFT>
   inoremap '' ''<LEFT>
+  inoremap () ()<LEFT>
   inoremap <> <><LEFT>
   inoremap [] []<LEFT>
   inoremap {} {}<LEFT>
