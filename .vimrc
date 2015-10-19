@@ -211,6 +211,7 @@ set formatoptions-=c
 set wildmenu
 set wildchar=<TAB>
 set wildmode=longest:full,full
+set visualbell t_vb=
 " backupファイルとスワップファイルの設定
   set backup
   set backupdir=~/.vim/backup
@@ -475,7 +476,7 @@ set wildmode=longest:full,full
   nnoremap [unite] <Nop>
   nmap <Leader>u [unite]
 " insert modeで開始
-  let g:unite_enable_start_insert = 1
+  let g:unite_enable_start_insert = 0
 " yankのhistory読み込み
   let g:unite_source_history_yank_enable =1
 " 大文字・小文字を無視
