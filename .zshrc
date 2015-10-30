@@ -196,18 +196,18 @@ cdf () {
 alias g='git'
 alias gad='git add'
 alias gbr='git branch'
-alias gbr='git branch'
 alias gch='git checkout'
 alias gcl='git clone'
 alias gco='git commit -a'
 alias gdi='git diff'
 alias gfe='git fetch'
 alias gin='git init'
-alias glo='git log --graph --oneline --decorate --remotes'
+alias glo='git log --graph --name-status --pretty=format:"%C(red)%h %C(green)%an %Creset%s %C(yellow)%d%Creset"'
 alias gme='git merge'
 alias gre='git rebase'
 alias gst='git status --short --branch'
 
+# その他エイリアス
 alias vi='vim'
 
 alias up='cd ..; ls -l'
