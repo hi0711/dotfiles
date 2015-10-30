@@ -206,7 +206,7 @@ alias gin='git init'
 alias glo='git log --graph --oneline --decorate --remotes'
 alias gme='git merge'
 alias gre='git rebase'
-alias gst='git status'
+alias gst='git status --short --branch'
 
 alias vi='vim'
 
