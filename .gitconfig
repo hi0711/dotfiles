@@ -1,0 +1,16 @@
+[user]
+	name = hi0711
+	email = hiroshi.sato@dmp.co.jp
+[color]
+	ui = auto
+[push]
+	default = current
+[core]
+	excludesfile = /Users/hi0711/.gitignore_global
+	editor = vim
+[commit]
+	template = /Users/hi0711/.gitmessage.txt
+[merge]
+	ff = false
+[deff]
+	renames = true
