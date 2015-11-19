@@ -185,9 +185,9 @@ set list
 set listchars=tab:»-,trail:-,eol:↲,extends:>,precedes:<,nbsp:%
 set showcmd
 set wrap
+set textwidth=80
 set display=lastline
-set textwidth=0
-set nowritebackup
+" set nowritebackup
 set title
 set showmatch
 set matchtime=1
@@ -211,11 +211,20 @@ set pumheight=10
 set ttyfast
 set lazyredraw
 set hidden
-set formatoptions-=c
+set formatoptions+=t
 set wildmenu
 set wildchar=<TAB>
 set wildmode=longest:full,full
 set visualbell t_vb=
+set virtualedit+=all
+" 改行時の設定
+  autocmd FileType * setlocal formatoptions-=ro
+  autocmd BufRead *.html,*.css,*.scss,*.sass,*.less,*.php,*.rb,*.js,*.haml,*.erb,*.txt set tw=80|normal gggqG
+" カラム設定
+  if (exists('+colorcolumn'))
+    set colorcolumn=80
+    highlight ColorColumn ctermbg=9
+  endif
 " backupファイルとスワップファイルの設定
   set backup
   set backupdir=~/.vim/backup
@@ -316,6 +325,9 @@ set visualbell t_vb=
   endif
 " ファイルを閉じた時の位置から再編集
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\""
+" 削除でレジスタに格納しない(ビジュアルモードでの選択後は格納する)
+  nnoremap x "_x
+  nnoremap dd "_dd
 " vimdiffの設定
   function! s:vimdiff_in_newtab(...)
     if a:0 == 1
