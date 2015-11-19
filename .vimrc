@@ -176,7 +176,7 @@ NeoBundleCheck
 "  Basic Settings
 " ----------------------------------------
 "{{{
-let mapleader=","
+let mapleader="\<Space>"
 set ruler
 set nu
 set modifiable
@@ -373,7 +373,7 @@ set virtualedit+=all
   inoremap [] []<LEFT>
   inoremap {} {}<LEFT>
 " スペースキーを押した時、中心を保ってスクロール
-  nnoremap <Space> jzz
+"   nnoremap <Space> jzz
 " 移動を表示行単位に
   noremap j gj
   noremap k gk
@@ -509,6 +509,7 @@ set virtualedit+=all
   nnoremap <silent> [unite]r :<C-u>Unite -buffer-name=register register<CR>
   nnoremap <silent> [unite]c :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
   nnoremap <silent> <Leader>vr :UniteResume<CR>
+  nnoremap <silent> <Leader>rr <Plug>(unite-restart)
 " unite-grep
 " unite-grepのバックエンドをagに切り替える
   let g:unite_source_grep_command = 'ag'
