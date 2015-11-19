@@ -176,7 +176,7 @@ NeoBundleCheck
 "  Basic Settings
 " ----------------------------------------
 "{{{
-let mapleader=","
+let mapleader="\<Space>"
 set ruler
 set nu
 set modifiable
@@ -373,7 +373,7 @@ set virtualedit+=all
   inoremap [] []<LEFT>
   inoremap {} {}<LEFT>
 " スペースキーを押した時、中心を保ってスクロール
-  nnoremap <Space> jzz
+"   nnoremap <Space> jzz
 " 移動を表示行単位に
   noremap j gj
   noremap k gk
