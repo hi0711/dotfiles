@@ -348,8 +348,8 @@ set virtualedit+=all
 " スペースキー + . で.vimrcを開く
   nnoremap <Space>. :<C-u>tabedit ~/.vimrc<CR>
 " 数値のインクリメント、ディクリメント
-  nnoremap <C-a> +
-  nnoremap <C-x> -
+"   nnoremap <C-a> +
+"   nnoremap <C-x> -
 " 検索語が画面の真ん中に来るようにする
   nmap n nzz
   nmap N Nzz
@@ -361,10 +361,10 @@ set virtualedit+=all
   inoremap jj <ESC>:up<CR>
   inoremap <C-j> <ESC>:up<CR>
 " カーソル操作
-  noremap! <C-a> <Home>
-  noremap! <C-e> <End>
-  noremap! <C-f> <Right>
-  noremap! <C-b> <Left>
+  inoremap <C-a> <Home>
+  inoremap <C-e> <End>
+  inoremap <C-f> <Right>
+  inoremap <C-b> <Left>
   inoremap "" ""<LEFT>
   inoremap %% %%<LEFT><Space><LEFT>
   inoremap '' ''<LEFT>
