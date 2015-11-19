@@ -219,12 +219,6 @@ set visualbell t_vb=
 set virtualedit+=all
 " 改行時の設定
   autocmd FileType * setlocal formatoptions-=ro
-  autocmd BufRead *.html,*.css,*.scss,*.sass,*.less,*.php,*.rb,*.js,*.haml,*.erb,*.txt set tw=80|normal gggqG
-" カラム設定
-  if (exists('+colorcolumn'))
-    set colorcolumn=80
-    highlight ColorColumn ctermbg=9
-  endif
 " backupファイルとスワップファイルの設定
   set backup
   set backupdir=~/.vim/backup
