@@ -162,7 +162,11 @@
 " vimwikiプラグイン
   NeoBundle 'vim-scripts/vimwiki'
 " molokai カラースキーム
-  NeoBundle 'tomasr/molokai'
+"   NeoBundle 'tomasr/molokai'
+" rdark カラースキーム
+  NeoBundle 'vim-scripts/rdark'
+" markdownプラグイン
+  NeoBundle 'rcmdnk/vim-markdown'
 call neobundle#end()
 " Required:
   filetype plugin indent on
@@ -532,7 +536,7 @@ augroup END
 " カラースキーム決定
   set t_Co=256
   syntax enable
-  colorscheme molokai
+  colorscheme rdark
 " vimdiffの色設定
   hi clear Diff
   hi DiffAdd    cterm=bold ctermfg=10 ctermbg=22
