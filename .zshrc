@@ -265,5 +265,10 @@ alias brew-upgrade='brew upgrade --all'
 alias cask='brew cask'
 alias cask-upgrade='brew file cask_upgrade -C'
 
+# HomeBrew file関連
+if [ -f $(brew --prefix)/etc/brew-wrap ];then
+  source $(brew --prefix)/etc/brew-wrap
+fi
+
 # tmux関連
 alias tx='tmux'
