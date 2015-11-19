@@ -124,7 +124,7 @@
     \  },
     \}
 " csscombプラグイン
-  NeoBundle 'csscomb/vim-csscomb'
+"   NeoBundle 'csscomb/vim-csscomb'
 " indentLineプラグイン
   NeoBundle 'Yggdroot/indentLine'
   let g:indentLine_char='|'
@@ -175,6 +175,7 @@ NeoBundleCheck
 " ----------------------------------------
 "  Basic Settings
 " ----------------------------------------
+"{{{
 let mapleader=","
 set ruler
 set nu
@@ -185,7 +186,7 @@ set list
 set listchars=tab:»-,trail:-,eol:↲,extends:>,precedes:<,nbsp:%
 set showcmd
 set wrap
-set textwidth=80
+set textwidth=0
 set display=lastline
 " set nowritebackup
 set title
@@ -196,7 +197,7 @@ set shiftwidth=2
 set smartindent
 set expandtab
 set smarttab
-set fdm=manual
+set fdm=marker
 set ambiwidth=double
 set ignorecase
 set smartcase
@@ -337,10 +338,11 @@ set virtualedit+=all
   command! -bar -nargs=+ -complete=file Diff  call s:vimdiff_in_newtab(<f-args>)
 " grep後にcwinを表示
   autocmd QuickFixCmdPost make,grep,grepadd,vimgrep,vimgrepadd cwin
-
+"}}}
 " ----------------------------------------
 "  キーマッピング設定
 " ----------------------------------------
+"{{{
 " Yを行末までのヤンクにする
   nnoremap Y y$
 " スペースキー + . で.vimrcを開く
@@ -478,10 +480,11 @@ set virtualedit+=all
   cnoremap <C-e> <End>
   cnoremap <C-n> <Down>
   cnoremap <C-p> <Up>
-
+"}}}
 " ----------------------------------------
 "  Unite.vim の設定
 " ----------------------------------------
+"{{{
 " prefix
   nnoremap [unite] <Nop>
   nmap <Leader>u [unite]
@@ -525,20 +528,22 @@ set virtualedit+=all
   au FileType unite inoremap <silent> <buffer> <expr> <C-v> unite#do_action('vsplit')
 " ESCキーを2回押すと終了する
   au FileType unite nnoremap <silent> <buffer> <ESC><ESC> q
-
+"}}}
 " ----------------------------------------
 " HTML閉じタグ自動補完
 " ----------------------------------------
+"{{{
 augroup MyTag
   autocmd!
   autocmd Filetype xml inoremap <buffer> </ </<C-x><C-o>
   autocmd Filetype html inoremap <buffer> </ </<C-x><C-o>
   autocmd Filetype eruby inoremap <buffer> </ </<C-x><C-o>
 augroup END
-
+"}}}
 " ----------------------------------------
 "  色設定
 " ----------------------------------------
+"{{{
 " カラースキーム決定
   set t_Co=256
   syntax enable
@@ -564,3 +569,4 @@ augroup END
 " エラー表示
   hi clear SpellBad
   hi SpellBad cterm=bold ctermfg=219 ctermbg=NONE
+"}}}
