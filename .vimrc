@@ -321,8 +321,8 @@ set virtualedit+=all
 " ファイルを閉じた時の位置から再編集
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\""
 " 削除でレジスタに格納しない(ビジュアルモードでの選択後は格納する)
-  nnoremap x "_x
-  nnoremap dd "_dd
+"   nnoremap x "_x
+"   nnoremap dd "_dd
 " vimdiffの設定
   function! s:vimdiff_in_newtab(...)
     if a:0 == 1
@@ -467,11 +467,6 @@ set virtualedit+=all
   nnoremap <Leader>so :<C-u>source ~/.vimrc<CR>
 "文字コード変更して再読み込み
   nnoremap <silent> eu :<C-u>e ++enc=utf-8<CR>
-" 日付の挿入
-  inoremap <Leader>date <C-R>=strftime('%Y/%m/%d')<CR>
-  inoremap <Leader>time <C-R>=strftime('%H:%M:%S')<CR>
-  inoremap <Leader>datetime <C-R>=strftime('%Y-%m-%d_%H%M%S')<CR>
-  inoremap <Leader>w3cd <C-R>=strftime('%Y-%m-%dT%H:%M:%S+09:00')<CR>
 " コマンドライン設定
   cnoremap <C-a> <Home>
   cnoremap <C-b> <Left>
