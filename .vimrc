@@ -188,7 +188,6 @@ set showcmd
 set wrap
 set textwidth=0
 set display=lastline
-" set nowritebackup
 set title
 set showmatch
 set matchtime=1
@@ -218,6 +217,7 @@ set wildchar=<TAB>
 set wildmode=longest:full,full
 set visualbell t_vb=
 set virtualedit+=all
+set scrolloff=6
 " 改行時の設定
   autocmd FileType * setlocal formatoptions-=ro
 " backupファイルとスワップファイルの設定
