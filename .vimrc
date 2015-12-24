@@ -381,8 +381,10 @@ set scrolloff=6
   inoremap <> <><LEFT>
   inoremap [] []<LEFT>
   inoremap {} {}<LEFT>
-" スペースキーを押した時、中心を保ってスクロール
-"   nnoremap <Space> jzz
+" テキストオブジェクト操作
+  onoremap id i"
+  onoremap ia i>
+  onoremap ir i]
 " 移動を表示行単位に
   noremap j gj
   noremap k gk
