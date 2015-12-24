@@ -238,7 +238,7 @@ set scrolloff=6
     call setpos(".", cursor)
     unlet cursor
   endfunction
-  autocmd BufWritePre *.html,*.css,*.scss,*.sass,*.less,*.php,*.rb,*.js,*.haml,*.erb,*.txt call <SID>remove_dust()
+  autocmd BufWritePre *.html,*.css,*.scss,*.sass,*.less,*.php,*.rb,*.js,*.haml,*.erb,*.txt,*.ejs call <SID>remove_dust()
 " 全角スペースの設定
   function! ZenkakuSpace()
       highlight ZenkakuSpace cterm=reverse ctermfg=darkgray gui=reverse guifg=darkgray
