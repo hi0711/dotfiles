@@ -251,6 +251,15 @@ set scrolloff=6
     augroup END
     call ZenkakuSpace()
   endif
+"virtualモードの時にスターで選択位置のコードを検索するようにする
+  xnoremap * :<C-u>call <SID>VSetSearch()<CR>/<C-R>=@/<CR><CR>
+  xnoremap # :<C-u>call <SID>VSetSearch()<CR>?<C-R>=@/<CR><CR>
+  function! s:VSetSearch()
+    let temp = @s
+    norm! gv"sy
+    let @/ = '\V' . substitute(escape(@s, '/\'), '\n', '\\n', 'g')
+    let @s = temp
+  endfunction
 "ステータスラインに情報を表示する
   set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
 " エンコード設定
