@@ -5,6 +5,7 @@
 " ----------------------------------------
 " Start NeoBundle Settings
 " ----------------------------------------
+"{{{
 " Note: Skip initialization for vim-tiny or vim-small.
   if !1 | finish | endif
   if has('vim_starting')
@@ -171,7 +172,7 @@ call neobundle#end()
 " Required:
   filetype plugin indent on
 NeoBundleCheck
-
+"}}}
 " ----------------------------------------
 "  Basic Settings
 " ----------------------------------------
@@ -198,6 +199,7 @@ set expandtab
 set smarttab
 set fdm=marker
 set ambiwidth=double
+set history=1000
 set ignorecase
 set smartcase
 set incsearch
@@ -218,6 +220,8 @@ set wildmode=longest:full,full
 set visualbell t_vb=
 set virtualedit+=all
 set scrolloff=6
+" netrwは常にtree view
+  let g:netrw_liststyle=3
 " 改行時の設定
   autocmd FileType * setlocal formatoptions-=ro
 " backupファイルとスワップファイルの設定
