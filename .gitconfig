@@ -1,6 +1,6 @@
 [user]
 	name = hi0711
-	email = hiroshi.sato@dmp.co.jp
+	email = admin@hi0711.xyz
 [color]
 	ui = auto
 [push]
@@ -12,6 +12,7 @@
 	template = /Users/hi0711/.gitmessage.txt
 [merge]
 	ff = false
+	conflictsstyle = diff3
 [deff]
 	renames = true
 [branch]

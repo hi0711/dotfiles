@@ -1,12 +1,5 @@
-# modified:
-# fixed:
-# add:
-# clean:
-# removed:
-# disabled:
-# upgrade:
-# revert:
-#
+# short description
 
+# detaild description
 
-
+# [ticket: X]

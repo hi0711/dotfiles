@@ -5,6 +5,7 @@
 " ----------------------------------------
 " Start NeoBundle Settings
 " ----------------------------------------
+"{{{
 " Note: Skip initialization for vim-tiny or vim-small.
   if !1 | finish | endif
   if has('vim_starting')
@@ -171,7 +172,7 @@ call neobundle#end()
 " Required:
   filetype plugin indent on
 NeoBundleCheck
-
+"}}}
 " ----------------------------------------
 "  Basic Settings
 " ----------------------------------------
@@ -198,6 +199,7 @@ set expandtab
 set smarttab
 set fdm=marker
 set ambiwidth=double
+set history=1000
 set ignorecase
 set smartcase
 set incsearch
@@ -218,6 +220,8 @@ set wildmode=longest:full,full
 set visualbell t_vb=
 set virtualedit+=all
 set scrolloff=6
+" netrwは常にtree view
+  let g:netrw_liststyle=3
 " 改行時の設定
   autocmd FileType * setlocal formatoptions-=ro
 " backupファイルとスワップファイルの設定
@@ -238,7 +242,7 @@ set scrolloff=6
     call setpos(".", cursor)
     unlet cursor
   endfunction
-  autocmd BufWritePre *.html,*.css,*.scss,*.sass,*.less,*.php,*.rb,*.js,*.haml,*.erb,*.txt call <SID>remove_dust()
+  autocmd BufWritePre *.html,*.css,*.scss,*.sass,*.less,*.php,*.rb,*.js,*.haml,*.erb,*.txt,*.ejs call <SID>remove_dust()
 " 全角スペースの設定
   function! ZenkakuSpace()
       highlight ZenkakuSpace cterm=reverse ctermfg=darkgray gui=reverse guifg=darkgray
@@ -251,6 +255,15 @@ set scrolloff=6
     augroup END
     call ZenkakuSpace()
   endif
+"virtualモードの時にスターで選択位置のコードを検索するようにする
+  xnoremap * :<C-u>call <SID>VSetSearch()<CR>/<C-R>=@/<CR><CR>
+  xnoremap # :<C-u>call <SID>VSetSearch()<CR>?<C-R>=@/<CR><CR>
+  function! s:VSetSearch()
+    let temp = @s
+    norm! gv"sy
+    let @/ = '\V' . substitute(escape(@s, '/\'), '\n', '\\n', 'g')
+    let @s = temp
+  endfunction
 "ステータスラインに情報を表示する
   set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
 " エンコード設定
@@ -372,8 +385,10 @@ set scrolloff=6
   inoremap <> <><LEFT>
   inoremap [] []<LEFT>
   inoremap {} {}<LEFT>
-" スペースキーを押した時、中心を保ってスクロール
-"   nnoremap <Space> jzz
+" テキストオブジェクト操作
+  onoremap id i"
+  onoremap ia i>
+  onoremap ir i]
 " 移動を表示行単位に
   noremap j gj
   noremap k gk
