@@ -18,3 +18,5 @@
 	autosetuprebase = always
 [alias]
 	mylog = log --graph --name-status --pretty=format:\"%C(red)%h %C(green)%an %Creset%s %C(yellow)%d%Creset\"
+[pull]
+	ff = only
