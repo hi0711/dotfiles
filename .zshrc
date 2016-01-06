@@ -194,6 +194,10 @@ cdf () {
 
 # git関連コマンド
 alias g='git'
+alias gf='git flow'
+alias gff='git flow feature'
+alias gfh='git flow hotfix'
+alias gfr='git flow release'
 alias gad='git add'
 alias gbr='git branch'
 alias gch='git checkout'
