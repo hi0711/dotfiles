@@ -387,6 +387,7 @@ set scrolloff=6
   inoremap {} {}<LEFT>
 " テキストオブジェクト操作
   onoremap id i"
+  onoremap is i'
   onoremap ia i>
   onoremap ir i]
 " 移動を表示行単位に
