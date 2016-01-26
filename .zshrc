@@ -215,16 +215,16 @@ alias gst='git status --short --branch'
 # その他エイリアス
 alias vi='vim'
 
-alias up='cd ..; ls -l'
+alias up='cd ..; ls -lG'
 alias f='open .'
 alias desktop='cd ~/desktop'
 alias home='cd ~'
 alias pw='pwgen -y'
 
 
-alias la='ls -a'
-alias ll='ls -l'
-alias ls='ls -la'
+alias la='ls -aG'
+alias ll='ls -lG'
+alias ls='ls -laG'
 
 alias rm='rm -i'
 alias cp='cp -i'
