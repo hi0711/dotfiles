@@ -96,10 +96,6 @@
   set tags=.git/tags
 " sorround.vimプラグイン
   NeoBundle 'vim-scripts/surround.vim'
-" evervimプラグイン
-  NeoBundle 'kakkyz81/evervim'
-  let g:evervim_devtoken='S=s399:U=4676794:E=1569b551caa:C=14f43a3ee48:P=1cd:A=en-devtoken:V=2:H=59a5b1282a1f0f27d2626848136fe23d'
-  let g:evervim_splitoption=''
 " open-browserプラグイン
   NeoBundle 'tyru/open-browser.vim'
 " ctrlpプラグイン
