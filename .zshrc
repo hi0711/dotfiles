@@ -290,3 +290,18 @@ alias tx='tmux'
   }
   zle -N fancy-ctrl-z
   bindkey '^Z' fancy-ctrl-z
+
+### rbenvのPATHを通す
+export PATH="$HOME/.rbenv/bin:$PATH"
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+### rbenvの設定用
+# rbenv
+if [ -d ${HOME}/.rbenv  ] ; then
+  export PATH="${HOME}/.rbenv/bin:${HOME}/.rbenv/shims:${PATH}"
+  eval "$(rbenv init -)"
+fi
+# plenv
+if [ -d ${HOME}/.plenv  ] ; then
+  export PATH=${HOME}/.plenv/bin/:${HOME}/.plenv/shims:${PATH}
+  eval "$(plenv init -)"
+fi
