@@ -469,12 +469,12 @@ set scrolloff=6
   inoremap ８ 8
   inoremap ９ 9
 " ウインドウのフォーカス移動
-  map  bh <C-w>h
-  map  bl <C-w>l
-  map  bj <C-w>j
-  map  bk <C-w>k
-  map gl :macaction selectNextWindow:<CR>
-  map gh :macaction selectPreviousWindow:<CR>
+  map  gh <C-w>h
+  map  gl <C-w>l
+  map  gj <C-w>j
+  map  gk <C-w>k
+  " map gl :macaction selectNextWindow:<CR>
+  " map gh :macaction selectPreviousWindow:<CR>
 " キー入れ替え
   noremap ; :
   noremap : ;
