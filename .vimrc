@@ -128,8 +128,6 @@
     \    'extends' : 'html',
     \  },
     \}
-" csscombプラグイン
-"   NeoBundle 'csscomb/vim-csscomb'
 " indentLineプラグイン
   NeoBundle 'Yggdroot/indentLine'
   let g:indentLine_char='|'
@@ -166,10 +164,8 @@
   NeoBundle 'tmhedberg/matchit'
 " vimwikiプラグイン
   NeoBundle 'vim-scripts/vimwiki'
-" molokai カラースキーム
-"   NeoBundle 'tomasr/molokai'
-" rdark カラースキーム
-"   NeoBundle 'vim-scripts/rdark'
+" iceberg カラースキーム
+  NeoBundle 'cocopon/iceberg.vim'
 " markdownプラグイン
   NeoBundle 'plasticboy/vim-markdown'
   let g:vim_markdown_folding_disabled = 1
@@ -401,18 +397,12 @@ set scrolloff=6
   noremap k gk
   noremap gj j
   noremap gk k
+" 現在行を入れ替える
+  nnoremap [e  :<c-u>execute 'move -1-'. v:count1<cr>
+  nnoremap ]e  :<c-u>execute 'move +'. v:count1<cr>
 " 半ページ移動(中央維持
   noremap H <C-u>zz
   noremap L <C-d>zz
-" 中央を維持しながら移動
-  " noremap j gjzz
-  " noremap k gkzz
-  " noremap gj j
-  " noremap gk k
-  " noremap G Gzz
-  " noremap gg ggzz
-  " noremap <C-d> <C-d>zz
-  " noremap <C-u> <C-u>zz
 " insertモードで次の行に直接改行
   inoremap <C-o> <Esc>o
 " cntrl + n キーで改行
@@ -571,7 +561,7 @@ augroup END
 " カラースキーム決定
   set t_Co=256
   syntax enable
-  colorscheme elflord
+  colorscheme iceberg
 " vimdiffの色設定
   hi clear Diff
   hi DiffAdd    cterm=bold ctermfg=10 ctermbg=22
