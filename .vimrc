@@ -94,6 +94,11 @@
   let g:auto_ctags = 1
   let g:auto_ctags_directory_list = ['.git']
   set tags=.git/tags
+" autodateプラグイン
+  NeoBundle 'vim-scripts/autodate.vim'
+  :let autodate_keyword_pre = '\[Date:'
+  :let autodate_keyword_post = '\]'
+  :let autodate_format="%Y/%m/%d"
 " sorround.vimプラグイン
   NeoBundle 'vim-scripts/surround.vim'
 " open-browserプラグイン
