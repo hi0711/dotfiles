@@ -174,6 +174,8 @@
 " markdownプラグイン
   NeoBundle 'plasticboy/vim-markdown'
   let g:vim_markdown_folding_disabled = 1
+" vcscommand プラグイン
+  NeoBundle 'vim-scripts/vcscommand.vim'
 
 call neobundle#end()
 " Required:
