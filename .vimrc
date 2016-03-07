@@ -425,6 +425,9 @@ set scrolloff=6
 " ファイル操作
   nnoremap <Leader>w :<C-u>w<CR>
   nnoremap <Leader>Q :<C-u>q!<CR>
+" ファイルエクスプローラー系
+  nnoremap <silent><Leader>ex :<C-u>e .<CR>
+  nnoremap <silent><Leader>sex :<C-u>Sex<CR>
 " 置換操作
   nnoremap gs :<C-u>%s///g<Left><Left><Left>
   vnoremap gs :s///g<Left><Left><Left>
