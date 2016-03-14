@@ -157,6 +157,8 @@
   nnoremap <Leader>tt :TToC<CR>
 " autocloseプラグイン
   NeoBundle 'Townk/vim-autoclose'
+" vcscommandプラグイン
+  NeoBundle 'vim-scripts/vcscommand.vim'
 " coffeescriptプラグイン
   NeoBundle 'kchmck/vim-coffee-script'
 " jadeプラグイン
