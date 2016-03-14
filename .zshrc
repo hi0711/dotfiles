@@ -305,3 +305,7 @@ if [ -d ${HOME}/.plenv  ] ; then
   export PATH=${HOME}/.plenv/bin/:${HOME}/.plenv/shims:${PATH}
   eval "$(plenv init -)"
 fi
+
+### anyenvのパスを通す
+export PATH="$HOME/.anyenv/bin:$PATH"
+eval "$(anyenv init -)"

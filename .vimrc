@@ -160,7 +160,7 @@
 " coffeescriptプラグイン
   NeoBundle 'kchmck/vim-coffee-script'
 " jadeプラグイン
-  NeoBundle 'digitaltoad/vim-jade'
+  NeoBundle 'digitaltoad/vim-pug'
 " jshintプラグイン
   NeoBundle 'wookiehangover/jshint.vim'
 " vim-lessプラグイン
