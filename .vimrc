@@ -505,6 +505,7 @@ set scrolloff=6
 " ----------------------------------------
 "{{{
 autocmd BufNewFile  *.wiki  0r ~/.vim/template/wiki.txt
+autocmd BufnewFile  *.dot 0r ~/.vim/template/graph.txt
 "}}}
 " ----------------------------------------
 "  Unite.vim の設定
