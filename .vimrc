@@ -83,12 +83,12 @@
   let g:syntastic_auto_loc_list = 1
   let g:syntastic_check_on_open = 1
   let g:syntastic_check_on_wq = 0
-  let g:syntastic_javascript_checkers = ['jshint']
+  "let g:syntastic_javascript_checkers = ['jshint']
   let g:syntastic_ruby_checkers = ['rubocop']
   let g:syntastic_mode_map = {
     \ "mode": "active",
-    \ "active_filetypes": ["ruby", "javascript"],
-    \ "passive_filetypes": ["html"] }
+    \ "active_filetypes": ["ruby"],
+    \ "passive_filetypes": ["html", "javascript"] }
 " auto-ctagsプラグイン
   NeoBundle 'soramugi/auto-ctags.vim'
   let g:auto_ctags = 1
@@ -164,7 +164,7 @@
 " jadeプラグイン
   NeoBundle 'digitaltoad/vim-pug'
 " jshintプラグイン
-  NeoBundle 'wookiehangover/jshint.vim'
+  " NeoBundle 'wookiehangover/jshint.vim'
 " vim-lessプラグイン
   NeoBundle 'groenewege/vim-less'
 " vim-matchitプラグイン
@@ -253,7 +253,7 @@ set scrolloff=6
     call setpos(".", cursor)
     unlet cursor
   endfunction
-  autocmd BufWritePre *.html,*.css,*.scss,*.sass,*.less,*.php,*.rb,*.js,*.haml,*.erb,*.txt,*.ejs call <SID>remove_dust()
+  autocmd BufWritePre *.html,*.css,*.scss,*.sass,*.less,*.php,*.rb,*.js,*.haml,*.erb,*.txt,*.ejs,*.jade call <SID>remove_dust()
 " 全角スペースの設定
   function! ZenkakuSpace()
       highlight ZenkakuSpace cterm=reverse ctermfg=darkgray gui=reverse guifg=darkgray
