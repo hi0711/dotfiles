@@ -32,3 +32,6 @@ fpath=(/usr/local/share/zsh-completions /usr/local/share/zsh-completions /usr/lo
 
 ### git diff-highlighterのパスを通す
 export PATH=$PATH:/usr/local/share/git-core/contrib/diff-highlight
+
+### pyenvのPATHを通す
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi

@@ -163,8 +163,8 @@
   NeoBundle 'kchmck/vim-coffee-script'
 " jadeプラグイン
   NeoBundle 'digitaltoad/vim-pug'
-" jshintプラグイン
-  " NeoBundle 'wookiehangover/jshint.vim'
+" jediプラグイン
+  NeoBundle 'davidhalter/jedi-vim'
 " vim-lessプラグイン
   NeoBundle 'groenewege/vim-less'
 " vim-matchitプラグイン
@@ -364,6 +364,16 @@ set scrolloff=6
   autocmd QuickFixCmdPost make,grep,grepadd,vimgrep,vimgrepadd cwin
 "}}}
 " ----------------------------------------
+"  filetype settings
+" ----------------------------------------
+"{{{
+  augroup filetypeset
+    au BufRead, BufNewFile *.py setfiletype python
+    au BufRead, BufNewFile *.rb setfiletype ruby
+    au BufRead, BufNewFile *.php setfiletype php
+  augroup END
+"}}}
+" ----------------------------------------
 "  キーマッピング設定
 " ----------------------------------------
 "{{{
@@ -504,8 +514,8 @@ set scrolloff=6
 "  テンプレート設定
 " ----------------------------------------
 "{{{
-autocmd BufNewFile  *.wiki  0r ~/.vim/template/wiki.txt
-autocmd BufnewFile  *.dot 0r ~/.vim/template/graph.txt
+  autocmd BufNewFile  *.wiki  0r ~/.vim/template/wiki.txt
+  autocmd BufnewFile  *.dot 0r ~/.vim/template/graph.txt
 "}}}
 " ----------------------------------------
 "  Unite.vim の設定
@@ -560,12 +570,12 @@ autocmd BufnewFile  *.dot 0r ~/.vim/template/graph.txt
 " HTML閉じタグ自動補完
 " ----------------------------------------
 "{{{
-augroup MyTag
-  autocmd!
-  autocmd Filetype xml inoremap <buffer> </ </<C-x><C-o>
-  autocmd Filetype html inoremap <buffer> </ </<C-x><C-o>
-  autocmd Filetype eruby inoremap <buffer> </ </<C-x><C-o>
-augroup END
+  augroup MyTag
+    autocmd!
+    autocmd Filetype xml inoremap <buffer> </ </<C-x><C-o>
+    autocmd Filetype html inoremap <buffer> </ </<C-x><C-o>
+    autocmd Filetype eruby inoremap <buffer> </ </<C-x><C-o>
+  augroup END
 "}}}
 " ----------------------------------------
 "  色設定
@@ -587,7 +597,6 @@ augroup END
 " カーソルライン設定
   set cursorline
   augroup cch
-    autocmd! cch
     autocmd WinLeave * set nocursorline
     autocmd WinEnter,BufRead * set cursorline
   augroup END
