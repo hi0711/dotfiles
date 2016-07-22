@@ -49,7 +49,7 @@
     autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
     autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
     autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-    autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+    " autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
     autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
   " Enable heavy omni completion.
     if !exists('g:neocomplete#sources#omni#input_patterns')
@@ -563,8 +563,20 @@ set scrolloff=6
 " ウィンドウを縦に分割して開く
   au FileType unite nnoremap <silent> <buffer> <expr> <C-v> unite#do_action('vsplit')
   au FileType unite inoremap <silent> <buffer> <expr> <C-v> unite#do_action('vsplit')
-" ESCキーを2回押すと終了する
-  au FileType unite nnoremap <silent> <buffer> <ESC><ESC> q
+"}}}
+" ----------------------------------------
+" jedi-vimの設定
+" ----------------------------------------
+"{{{
+  autocmd FileType python setlocal omnifunc=jedi#completions
+  let g:jedi#completions_enabled = 0
+  let g:jedi#auto_vim_configuration = 0
+  
+  if !exists('g:neocomplete#force_omni_input_patterns')
+          let g:neocomplete#force_omni_input_patterns = {}
+          endif
+  
+  let g:neocomplete#force_omni_input_patterns.python = '\h\w*\|[^. \t]\.\w*'
 "}}}
 " ----------------------------------------
 " HTML閉じタグ自動補完
