@@ -290,3 +290,4 @@ alias tx='tmux'
   }
   zle -N fancy-ctrl-z
   bindkey '^Z' fancy-ctrl-z
+
