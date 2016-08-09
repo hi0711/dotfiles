@@ -411,6 +411,7 @@ set scrolloff=6
   onoremap is i'
   onoremap ia i>
   onoremap ir i]
+  onoremap ib i)
 " 移動を表示行単位に
   noremap j gj
   noremap k gk
