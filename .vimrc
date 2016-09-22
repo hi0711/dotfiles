@@ -18,19 +18,20 @@
   " Required:
   call neobundle#begin(expand('~/.vim/bundle/'))
   " Let NeoBundle manage NeoBundle
-  " Required:
-   NeoBundleFetch 'Shougo/neobundle.vim'
-   NeoBundle 'Shougo/unite.vim'
-   NeoBundle 'Shougo/neomru.vim'
-   NeoBundle 'Shougo/vimproc.vim', {
-   \ 'build' : {
-   \     'windows' : 'tools\\update-dll-mingw',
-   \     'cygwin' : 'make -f make_cygwin.mak',
-   \     'mac' : 'make',
-   \     'linux' : 'make',
-   \     'unix' : 'gmake',
-   \    },
-   \ }
+  NeoBundleFetch 'Shougo/neobundle.vim'
+  NeoBundle 'Shougo/unite.vim'
+  NeoBundle 'Shougo/neomru.vim'
+  NeoBundle 'Shougo/vimproc.vim', {
+  \ 'build' : {
+  \     'windows' : 'tools\\update-dll-mingw',
+  \     'cygwin' : 'make -f make_cygwin.mak',
+  \     'mac' : 'make',
+  \     'linux' : 'make',
+  \     'unix' : 'gmake',
+  \    },
+  \ }
+" unite-outlineプラグイン
+  NeoBundle 'Shougo/unite-outline'
 " neocompleteプラグイン
   NeoBundle 'Shougo/neocomplete'
   " Disable AutoComplPop.
@@ -145,6 +146,9 @@
 "JpFormatプラグイン
   NeoBundle "fuenor/JpFormat.vim"
   nnoremap gL :JpFormatAll!<CR>
+" testutilプラグイン
+  NeoBundle "vim-scripts/textutil.vim"
+  let g:textutil_txt_encoding='Shift_JIS'
 " lightline プラグイン
   NeoBundle 'itchyny/lightline.vim'
   let g:lightline = {
@@ -535,16 +539,17 @@ set scrolloff=6
 " ファイル履歴保存数
   let g:unite_source_file_mru_limit =50
 " キーマッピング
-  nnoremap <silent> [unite]u :<C-u>Unite<Space>file<CR>
-  nnoremap <silent> [unite]n :<C-u>Unite<Space>file/new<CR>
-  nnoremap <silent> [unite]g :<C-u>Unite<Space>grep<CR>
-  nnoremap <silent> [unite]f :<C-u>Unite<Space>buffer<CR>
-  nnoremap <silent> [unite]b :<C-u>Unite<Space>bookmark<CR>
+  nnoremap <silent> [unite]u :<C-u>Unite<Space>-winheight=10<Space>file<CR>
+  nnoremap <silent> [unite]n :<C-u>Unite<Space>-winheight=10<Space>file/new<CR>
+  nnoremap <silent> [unite]g :<C-u>Unite<Space>-winheight=10<Space>grep<CR>
+  nnoremap <silent> [unite]f :<C-u>Unite<Space>-winheight=10<Space>buffer<CR>
+  nnoremap <silent> [unite]b :<C-u>Unite<Space>-winheight=10<Space>bookmark<CR>
   nnoremap <silent> [unite]a :<C-u>UniteBookmarkAdd<CR>
-  nnoremap <silent> [unite]m :<C-u>Unite<Space>file_mru<CR>
-  nnoremap <silent> [unite]h :<C-u>Unite<Space>history/yank<CR>
+  nnoremap <silent> [unite]m :<C-u>Unite<Space>-winheight=10<Space>file_mru<CR>
+  nnoremap <silent> [unite]h :<C-u>Unite<Space>-winheight=10<Space>history/yank<CR>
   nnoremap <silent> [unite]r :<C-u>Unite -buffer-name=register register<CR>
   nnoremap <silent> [unite]c :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
+  nnoremap <silent> [unite]o :<C-u>Unite -winheight=10 -no-quit outline<CR>
   nnoremap <silent> <Leader>vr :UniteResume<CR>
   nnoremap <silent> <Leader>rr <Plug>(unite-restart)
 " unite-grep
