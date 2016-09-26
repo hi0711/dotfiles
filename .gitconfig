@@ -19,7 +19,7 @@
 	autosetuprebase = always
 [alias]
 	mylog = log --graph --name-status --pretty=format:\"%C(red)%h %C(green)%an %Creset%s %C(yellow)%d%Creset\"
-  ae = --allow-empty
+  ae = commit --allow-empty
 [pull]
 	ff = only
 [filter "lfs"]
