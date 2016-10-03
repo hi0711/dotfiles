@@ -291,3 +291,7 @@ alias tx='tmux'
   zle -N fancy-ctrl-z
   bindkey '^Z' fancy-ctrl-z
 
+# git-completionの設定
+fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
+autoload -U compinit
+compinit -u
