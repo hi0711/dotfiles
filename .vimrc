@@ -202,6 +202,7 @@ set list
 set listchars=tab:»-,trail:-,eol:↲,extends:>,precedes:<,nbsp:%
 set showcmd
 set wrap
+set breakindent
 set textwidth=0
 set display=lastline
 set title
