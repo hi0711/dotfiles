@@ -161,6 +161,8 @@
   nnoremap <Leader>tt :TToC<CR>
 " autocloseプラグイン
   NeoBundle 'Townk/vim-autoclose'
+" cawプラグイン
+  NeoBundle 'tyru/caw.vim'
 " vcscommandプラグイン
   NeoBundle 'vim-scripts/vcscommand.vim'
 " coffeescriptプラグイン
@@ -595,6 +597,13 @@ set scrolloff=6
     autocmd Filetype html inoremap <buffer> </ </<C-x><C-o>
     autocmd Filetype eruby inoremap <buffer> </ </<C-x><C-o>
   augroup END
+"}}}
+" ----------------------------------------
+"  caw.vim
+" ----------------------------------------
+"{{{
+nmap C <Plug>(caw:i:toggle)
+vmap C <Plug>(caw:i:toggle)
 "}}}
 " ----------------------------------------
 "  色設定
