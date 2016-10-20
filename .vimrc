@@ -531,7 +531,7 @@ set scrolloff=6
   nnoremap [unite] <Nop>
   nmap <Leader>u [unite]
 " insert modeで開始
-  let g:unite_enable_start_insert = 0
+  let g:unite_enable_start_insert = 1
 " yankのhistory読み込み
   let g:unite_source_history_yank_enable =1
 " 大文字・小文字を無視
