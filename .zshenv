@@ -28,4 +28,20 @@ fpath=(/usr/local/share/zsh-completions /usr/local/share/zsh-completions /usr/lo
 export PATH=$PATH:/usr/local/share/git-core/contrib/diff-highlight
 
 ### pyenvのPATHを通す
-if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+export PYENV_ROOT="${HOME}/.pyenv"
+export PATH=${PYENV_ROOT}/bin:$PATH
+eval "$(pyenv init -)"
+
+### ndenvのPATHを通す
+if [ -d ${HOME}/.anyenv ] ; then
+export PATH="$HOME/.anyenv/bin:$PATH"
+  eval "$(anyenv init -)"
+     for D in `ls $HOME/.anyenv/envs`
+     do
+         export PATH="$HOME/.anyenv/envs/$D/shims:$PATH"
+     done
+    
+fi
+
+
+
