@@ -1,15 +1,15 @@
 [user]
 	name = hi0711
-	email = h_sato@tam-tam.co.jp
+	email = admin@hi0711.xyz
 [color]
 	ui = auto
 [push]
 	default = current
 [core]
-	excludesfile = /Users/tam_427/.gitignore_global
+	excludesfile = /Users/hi0711/.gitignore_global
 	editor = vim
 [commit]
-	template = /Users/tam_427/.gitmessage.txt
+	template = /Users/hi0711/.gitmessage.txt
 [merge]
 	ff = false
 	conflictsstyle = diff3

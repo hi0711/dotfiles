@@ -176,7 +176,9 @@
 " vimwikiプラグイン
   NeoBundle 'vim-scripts/vimwiki'
 " iceberg カラースキーム
-  NeoBundle 'cocopon/iceberg.vim'
+  "NeoBundle 'cocopon/iceberg.vim'
+" Antares カラースキーム
+  NeoBundle 'Haron-Prime/Antares'
 " markdownプラグイン
   NeoBundle 'plasticboy/vim-markdown'
   let g:vim_markdown_folding_disabled = 1
@@ -597,13 +599,14 @@ set scrolloff=6
   augroup END
 "}}}
 " ----------------------------------------
+" ----------------------------------------
 "  色設定
 " ----------------------------------------
 "{{{
 " カラースキーム決定
   set t_Co=256
   syntax enable
-  colorscheme iceberg
+  colorscheme Antares
 " vimdiffの色設定
   hi clear Diff
   hi DiffAdd    cterm=bold ctermfg=10 ctermbg=22
@@ -611,8 +614,8 @@ set scrolloff=6
   hi DiffChange cterm=bold ctermfg=10 ctermbg=17
   hi DiffText   cterm=bold ctermfg=10 ctermbg=21
 " ビジュアルモード色設定
-  hi clear Visual
-  hi Visual term=reverse ctermfg=253 ctermbg=202
+  "hi clear Visual
+  "hi Visual term=reverse ctermfg=253 ctermbg=202
 " カーソルライン設定
   set cursorline
   augroup cch
