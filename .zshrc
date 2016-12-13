@@ -16,6 +16,9 @@ SAVEHIST=1000000
 PROMPT="%{${fg[green]}%}[%n@%m]%{${reset_color}%} %~
 %# "
 
+# fpathの設定
+fpath=($(brew --prefix)/share/zsh/functions $fpath)
+
 #for zsh-completions
 fpath=(/usr/local/share/zsh-completions $fpath)
 
