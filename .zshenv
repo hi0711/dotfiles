@@ -1,6 +1,6 @@
 PATH=/usr/local/bin:$PATH
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
+typeset -U path PATH
+
 ### FDKのPATHを通す
 export PATH=PATH=~/bin/FDK/Tools/osx:$PATH
 
