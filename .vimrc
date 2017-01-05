@@ -392,9 +392,6 @@ set write
   nnoremap Y y$
 " スペースキー + . で.vimrcを開く
   nnoremap <Space>. :<C-u>tabedit ~/.vimrc<CR>
-" 数値のインクリメント、ディクリメント
-"   nnoremap <C-a> +
-"   nnoremap <C-x> -
 " 検索語が画面の真ん中に来るようにする
   nmap n nzz
   nmap N Nzz
@@ -438,6 +435,8 @@ set write
   inoremap <C-o> <Esc>o
 " cntrl + n キーで改行
   noremap <C-n> o<Esc>
+" relativenumberのトグル
+  nnoremap <Leader>nu :setlocal rnu!<CR>
 " バッファの分割
   noremap <silent><Leader>sp :<C-u>split<CR>
   noremap <silent><Leader>vs :<C-u>vsplit<CR>
