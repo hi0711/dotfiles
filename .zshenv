@@ -22,7 +22,7 @@ fi
 ### anyenvのパスを通す
 export PATH="$HOME/.anyenv/bin:$PATH"
 eval "$(anyenv init -)"
-fpath=(/usr/local/share/zsh-completions /usr/local/share/zsh-completions /usr/local/share/zsh/site-functions /usr/local/Cellar/zsh/5.2/share/zsh/functions)
+# fpath=(/usr/local/share/zsh-completions /usr/local/share/zsh-completions /usr/local/share/zsh/site-functions /usr/local/Cellar/zsh/5.2/share/zsh/functions)
 
 ### git diff-highlighterのパスを通す
 export PATH=$PATH:/usr/local/share/git-core/contrib/diff-highlight
@@ -40,7 +40,7 @@ export PATH="$HOME/.anyenv/bin:$PATH"
      do
          export PATH="$HOME/.anyenv/envs/$D/shims:$PATH"
      done
-    
+
 fi
 
 
