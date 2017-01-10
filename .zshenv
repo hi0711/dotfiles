@@ -1,5 +1,4 @@
 PATH=/usr/local/bin:$PATH
-typeset -U path PATH
 
 ### FDKのPATHを通す
 export PATH=PATH=~/bin/FDK/Tools/osx:$PATH
@@ -22,7 +21,6 @@ fi
 ### anyenvのパスを通す
 export PATH="$HOME/.anyenv/bin:$PATH"
 eval "$(anyenv init -)"
-# fpath=(/usr/local/share/zsh-completions /usr/local/share/zsh-completions /usr/local/share/zsh/site-functions /usr/local/Cellar/zsh/5.2/share/zsh/functions)
 
 ### git diff-highlighterのパスを通す
 export PATH=$PATH:/usr/local/share/git-core/contrib/diff-highlight

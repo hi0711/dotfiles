@@ -1,6 +1,8 @@
 # 環境変数
 export LANG=ja_JP.UTF-8
 
+# 重複PATHを登録しない
+typeset -U path PATH
 
 # 色を使用出来るようにする
 autoload -Uz colors
