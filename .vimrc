@@ -214,7 +214,6 @@ set list
 set listchars=tab:»-,trail:-,eol:↲,extends:>,precedes:<,nbsp:%
 set matchtime=1
 set modifiable
-set noemoji
 set nrformats-=octal
 set nu
 set pumheight=10
