@@ -184,7 +184,8 @@
   let g:vim_markdown_folding_disabled = 1
 " vcscommand プラグイン
   NeoBundle 'vim-scripts/vcscommand.vim'
-
+" qfixhowm プラグイン
+  NeoBundle 'fuenor/qfixhowm'
 call neobundle#end()
 " Required:
   filetype plugin indent on
@@ -588,6 +589,35 @@ set write
           endif
   
   let g:neocomplete#force_omni_input_patterns.python = '\h\w*\|[^. \t]\.\w*'
+"}}}
+" ----------------------------------------
+" Qfixhowmの設定
+" ----------------------------------------
+"{{{
+let QFixHowm_key = 'g'
+let howm_dir = '~/Gdrive/howm'
+let howm_filename = '%Y/%m/%Y-%m-%d-%H%M%S.md'
+let howm_fileencoding = 'utf-8'
+
+" プレビューや絞り込みをQuickFix/ロケーションリストの両方で有効化
+let QFixWin_EnableMode = 1
+
+" QFixHowmのファイルタイプ
+let QFixHowm_FileType = 'markdown'
+
+" タイトル記号を#に変更する
+let QFixHowm_Title = '#'
+
+" QFixHowm/QFixGrepの結果表示にロケーションリストを使用する/しない
+let Qfix_UseLocationList = 1
+
+set shellslash
+
+" textwidthの再セット
+au Filetype qfix_memo setlocal textwidth = 0
+
+" オートリンクでファイルを開く
+let QFixHowm_Wiki = 1
 "}}}
 " ----------------------------------------
 " HTML閉じタグ自動補完
