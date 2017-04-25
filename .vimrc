@@ -32,6 +32,8 @@
   \ }
 " unite-outlineプラグイン
   NeoBundle 'Shougo/unite-outline'
+" denite プラグイン
+  NeoBundle 'Shougo/denite.nvim'
 " neocompleteプラグイン
   NeoBundle 'Shougo/neocomplete'
   " Disable AutoComplPop.
