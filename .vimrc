@@ -34,20 +34,20 @@
   NeoBundle 'Shougo/unite-outline'
 " denite プラグイン
   NeoBundle 'Shougo/denite.nvim'
-" neocompleteプラグイン
-  NeoBundle 'Shougo/neocomplete'
+" deopleteプラグイン
+  NeoBundle 'Shougo/deoplete'
   " Disable AutoComplPop.
     let g:acp_enableAtStartup = 0
-  " Use neocomplete.
-    let g:neocomplete#enable_at_startup = 1
+  " Use deoplete.
+    let g:deoplete#enable_at_startup = 1
   " Use smartcase.
-    let g:neocomplete#enable_smart_case = 1
+    let g:deoplete#enable_smart_case = 1
   " Set minimum syntax keyword length.
-    let g:neocomplete#sources#syntax#min_keyword_length = 1
-    let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+    let g:deoplete#sources#syntax#min_keyword_length = 1
+    let g:deoplete#lock_buffer_name_pattern = '\*ku\*'
   " Plugin key-mappings.
-    inoremap <expr><C-g>     neocomplete#undo_completion()
-    inoremap <expr><C-l>     neocomplete#complete_common_string()
+    inoremap <expr><C-g>     deoplete#undo_completion()
+    inoremap <expr><C-l>     deoplete#complete_common_string()
   " Enable omni completion.
     autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
     autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
@@ -55,8 +55,8 @@
     " autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
     autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
   " Enable heavy omni completion.
-    if !exists('g:neocomplete#sources#omni#input_patterns')
-      let g:neocomplete#sources#omni#input_patterns = {}
+    if !exists('g:deoplete#sources#omni#input_patterns')
+      let g:deoplete#sources#omni#input_patterns = {}
     endif
 " neosnippetプラグイン
   NeoBundle 'Shougo/neosnippet.vim'
@@ -200,7 +200,7 @@ NeoBundleCheck
 let mapleader="\<Space>"
 set ambiwidth=double
 set backspace=2
-set clipboard=unnamed,autoselect
+" set clipboard=unnamed,autoselect
 set diffopt=vertical
 set display=lastline
 set expandtab
@@ -586,11 +586,11 @@ set write
   let g:jedi#completions_enabled = 0
   let g:jedi#auto_vim_configuration = 0
   
-  if !exists('g:neocomplete#force_omni_input_patterns')
-          let g:neocomplete#force_omni_input_patterns = {}
+  if !exists('g:deoplete#force_omni_input_patterns')
+          let g:deoplete#force_omni_input_patterns = {}
           endif
   
-  let g:neocomplete#force_omni_input_patterns.python = '\h\w*\|[^. \t]\.\w*'
+  let g:deoplete#force_omni_input_patterns.python = '\h\w*\|[^. \t]\.\w*'
 "}}}
 " ----------------------------------------
 " Qfixhowmの設定

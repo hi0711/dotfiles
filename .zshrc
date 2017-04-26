@@ -300,3 +300,6 @@ alias tx='tmux'
 fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
 autoload -U compinit
 compinit -u
+
+# neovimの設定
+export XDG_CONFIG_HOME=~/.config

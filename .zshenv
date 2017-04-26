@@ -15,10 +15,10 @@ if [ -d ${HOME}/.rbenv  ] ; then
   export PATH="${HOME}/.rbenv/bin:${HOME}/.rbenv/shims:${PATH}"
   eval "$(rbenv init -)"
 fi
-### pyenvのPATHを通す
-# export PYENV_ROOT="${HOME}/.pyenv"
-# export PATH=${PYENV_ROOT}/bin:$PATH
-# eval "$(pyenv init -)"
+## pyenvのPATHを通す
+ export PYENV_ROOT="${HOME}/.pyenv"
+ export PATH=${PYENV_ROOT}/bin:$PATH
+ eval "$(pyenv init -)"
 ### ndenvのPATHを通す
 if [ -d ${HOME}/.anyenv ] ; then
 export PATH="$HOME/.anyenv/bin:$PATH"
