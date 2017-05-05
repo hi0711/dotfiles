@@ -36,6 +36,7 @@ endif
 if has('vim_starting') && dein#check_install()
   call dein#install()
 endif
+filetype plugin indent on
 " }}}
 " ----------------------------------------
 "  Basic Settings
@@ -101,10 +102,8 @@ set write
   set directory=~/.config/nvim/swap
   set backupskip=/tmp/*,/private/tmp/*
 " insertモードでカーソルの形を変える
-  if !has('gui_running')
-    let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-    let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-  endif
+  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 " 保存時に行末の空白を除去する
   function! s:remove_dust()
     let cursor = getpos(".")
@@ -419,25 +418,27 @@ let QFixHowm_Wiki = 1
 " カラースキーム決定
   set t_Co=256
   syntax enable
-  "colorscheme Antares
 " vimdiffの色設定
   hi clear Diff
   hi DiffAdd    cterm=bold ctermfg=10 ctermbg=22
   hi DiffDelete cterm=bold ctermfg=10 ctermbg=52
   hi DiffChange cterm=bold ctermfg=10 ctermbg=17
   hi DiffText   cterm=bold ctermfg=10 ctermbg=21
-" ビジュアルモード色設定
-  "hi clear Visual
-  "hi Visual term=reverse ctermfg=253 ctermbg=202
 " カーソルライン設定
   set cursorline
-  augroup cch
-    autocmd WinLeave * set nocursorline
-    autocmd WinEnter,BufRead * set cursorline
-  augroup END
-  hi clear CursorLine
-  hi CursorLine cterm=underline ctermfg=NONE ctermbg=NONE
+  "augroup cch
+  autocmd WinLeave * set nocursorline
+  autocmd WinEnter,BufRead * set cursorline
+  "augroup END
+  au MyAutoCmd VimEnter * hi clear CursorLine
+  au MyAutoCmd VimEnter * hi CursorLine cterm=underline ctermfg=NONE ctermbg=NONE
 " エラー表示
   hi clear SpellBad
-  hi SpellBad cterm=bold ctermfg=219 ctermbg=NONE
+  au MyAutoCmd VimEnter * hi SpellBad cterm=bold ctermfg=219 ctermbg=NONE
+" 改行文字とタブ文字の色設定
+  au MyAutoCmd VimEnter * hi SpecialKey ctermfg=237 guifg=#3a3a3a
+  au MyAutoCmd VimEnter * hi NonText ctermfg=66 guifg=#5f8787
+" ビジュアルモード色設定
+  hi clear Visual
+  au MyAutoCmd VimEnter * hi Visual term=reverse ctermfg=16 ctermbg=225
 "}}}

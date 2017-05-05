@@ -129,7 +129,7 @@ repo = 'vim-scripts/surround.vim'
 [[plugins]]
 repo = 'Yggdroot/indentLine'
 hook_add = '''
-  let g:indentline_char = '|'
+  let g:indentLine_char = '|'
 '''
 
 [[plugins]]
