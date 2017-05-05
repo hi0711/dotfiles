@@ -218,7 +218,7 @@ alias gre='git rebase'
 alias gst='git status --short --branch'
 
 # その他エイリアス
-alias vi='vim'
+alias vi='nvim'
 
 alias up='cd ..; ls -lG'
 alias f='open .'
@@ -302,4 +302,4 @@ autoload -U compinit
 compinit -u
 
 # neovimの設定
-export XDG_CONFIG_HOME=~/.config
+export XDG_CONFIG_HOME=$HOME/.config
