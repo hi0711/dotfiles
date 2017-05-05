@@ -3,148 +3,40 @@
 "  | | | | |   |  /    |  |
 " _| |_|_|\___/ _/    _| _|
 " ----------------------------------------
-" Start NeoBundle Settings
+" Start dein settings
 " ----------------------------------------
-"{{{
-" Note: Skip initialization for vim-tiny or vim-small.
-  if !1 | finish | endif
-  if has('vim_starting')
-    if &compatible
-      set nocompatible               " Be iMproved
-    endif
-    " Required:
-    set runtimepath+=~/.config/nvim/bundle/neobundle.vim/
-  endif
-  " Required:
-  call neobundle#begin(expand('~/.config/nvim/bundle/'))
-  " Let NeoBundle manage NeoBundle
-  NeoBundleFetch 'Shougo/neobundle.vim'
-  NeoBundle 'Shougo/unite.vim'
-  NeoBundle 'Shougo/neomru.vim'
-  NeoBundle 'Shougo/vimproc.vim', {
-  \ 'build' : {
-  \     'windows' : 'tools\\update-dll-mingw',
-  \     'cygwin' : 'make -f make_cygwin.mak',
-  \     'mac' : 'make',
-  \     'linux' : 'make',
-  \     'unix' : 'gmake',
-  \    },
-  \ }
-" denite プラグイン
-  NeoBundle 'Shougo/denite.nvim'
-" deopleteプラグイン
-  NeoBundle 'Shougo/deoplete.nvim'
-  " Disable AutoComplPop.
-    let g:acp_enableAtStartup = 0
-  " Use deoplete.
-    let g:deoplete#enable_at_startup = 1
-  " Use smartcase.
-    let g:deoplete#enable_smart_case = 1
-  " Set minimum syntax keyword length.
-    let g:deoplete#sources#syntax#min_keyword_length = 1
-    let g:deoplete#lock_buffer_name_pattern = '\*ku\*'
-  " Plugin key-mappings.
-    inoremap <expr><C-g>     deoplete#undo_completion()
-    inoremap <expr><C-l>     deoplete#complete_common_string()
-  " Enable omni completion.
-    autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-    autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-    autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-    " autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-    autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-  " Enable heavy omni completion.
-    if !exists('g:deoplete#sources#omni#input_patterns')
-      let g:deoplete#sources#omni#input_patterns = {}
-    endif
-" syntasticプラグイン
-  NeoBundle 'scrooloose/syntastic'
-  set statusline+=%#warningmsg#
-  set statusline+=%{SyntasticStatuslineFlag()}
-  set statusline+=%*
-  let g:syntastic_always_populate_loc_list = 1
-  let g:syntastic_auto_loc_list = 1
-  let g:syntastic_check_on_open = 1
-  let g:syntastic_check_on_wq = 0
-  "let g:syntastic_javascript_checkers = ['jshint']
-  let g:syntastic_ruby_checkers = ['rubocop']
-  let g:syntastic_mode_map = {
-    \ "mode": "active",
-    \ "active_filetypes": ["ruby"],
-    \ "passive_filetypes": ["html", "javascript"] }
-" auto-ctagsプラグイン
-  NeoBundle 'soramugi/auto-ctags.vim'
-  let g:auto_ctags = 1
-  let g:auto_ctags_directory_list = ['.git']
-  set tags=.git/tags
-" sorround.vimプラグイン
-  NeoBundle 'vim-scripts/surround.vim'
-" ctrlpプラグイン
-  NeoBundle 'ctrlpvim/ctrlp.vim'
-  let g:ctrlp_extensions = ['tag', 'dir', 'line', 'mixed']
-  let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:18'
-  let g:ctrlp_show_hidden = 1
-  let g:ctrlp_clear_cache_on_exit = 0   " 終了時キャッシュをクリアしない
-  let g:ctrlp_open_new_file = 1
-  let g:ctrlp_mruf_max = 500
-" agプラグイン
-  NeoBundle 'rking/ag.vim'
-  if executable('ag')
-    let g:ctrlp_use_caching=0
-    let g:ctrlp_user_command='ag %s -i --nocolor --nogroup -g ""'
-  endif
-" qfreplaceプラグイン
-  NeoBundle 'thinca/vim-qfreplace'
-" indentLineプラグイン
-  NeoBundle 'Yggdroot/indentLine'
-  let g:indentLine_char='|'
-" easy-alignプラグイン
-  NeoBundle 'junegunn/vim-easy-align'
-  " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
-  vmap <Enter> <Plug>(EasyAlign)
-  " Start interactive EasyAlign for a motion/text object (e.g. gaip)
-  nmap ga <Plug>(EasyAlign)
-"JpFormatプラグイン
-  NeoBundle "fuenor/JpFormat.vim"
-  nnoremap gL :JpFormatAll!<CR>
-" testutilプラグイン
-  NeoBundle "vim-scripts/textutil.vim"
-  let g:textutil_txt_encoding='Shift_JIS'
-" lightline プラグイン
-  NeoBundle 'itchyny/lightline.vim'
-  let g:lightline = {
-        \ 'colorscheme': 'wombat'
-        \ }
-" tlibプラグイン
-  NeoBundle 'tomtom/tlib_vim'
-" ttocプラグイン
-  NeoBundle 'tomtom/ttoc_vim'
-  nnoremap <Leader>tt :TToC<CR>
-" autocloseプラグイン
-  NeoBundle 'Townk/vim-autoclose'
-" vcscommandプラグイン
-  NeoBundle 'vim-scripts/vcscommand.vim'
-" coffeescriptプラグイン
-  NeoBundle 'kchmck/vim-coffee-script'
-" pug プラグイン
-  NeoBundle 'digitaltoad/vim-pug'
-" jedi プラグイン
-  NeoBundle 'davidhalter/jedi-vim'
-" markdown プラグイン
-  NeoBundle 'plasticboy/vim-markdown'
-  let g:vim_markdown_folding_disabled = 1
-" toml プラグイン
-  NeoBundle 'cespare/vim-toml'
-" vim-matchit プラグイン
-  NeoBundle 'tmhedberg/matchit'
-" Antares カラースキーム
-  NeoBundle 'Haron-Prime/Antares'
-" qfixhowm プラグイン
-  NeoBundle 'fuenor/qfixhowm'
-call neobundle#end()
-" Required:
-  filetype plugin indent on
-NeoBundleCheck
-"}}}
+if !&compatible
+  set nocompatible
+endif
+
+" reset augroup
+augroup MyAutoCmd
+  autocmd!
+augroup END
+
+" dein settings {{{
+" dein自体の自動インストール
+let s:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
+let s:dein_dir = s:cache_home . '/dein'
+let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+if !isdirectory(s:dein_repo_dir)
+  call system('git clone https://github.com/Shougo/dein.vim ' . shellescape(s:dein_repo_dir))
+endif
+let &runtimepath = s:dein_repo_dir .",". &runtimepath
+" プラグイン読み込み＆キャッシュ作成
+let s:toml_file = fnamemodify(expand('<sfile>'), ':h').'/dein.toml'
+let s:lazy_toml = fnamemodify(expand('<sfile>'), ':h').'/dein_lazy.toml'
+if dein#load_state(s:dein_dir)
+  call dein#begin(s:dein_dir)
+  call dein#load_toml(s:toml_file)
+  call dein#end()
+  call dein#save_state()
+endif
+" 不足プラグインの自動インストール
+if has('vim_starting') && dein#check_install()
+  call dein#install()
+endif
+" }}}
 " ----------------------------------------
 "  Basic Settings
 " ----------------------------------------
@@ -480,68 +372,6 @@ set write
   tnoremap <silent><ESC><ESC> <C-\><C-n>
 "}}}
 " ----------------------------------------
-"  Unite.vim の設定
-" ----------------------------------------
-"{{{
-" prefix
-  nnoremap [unite] <Nop>
-  nmap <Leader>u [unite]
-" insert modeで開始
-  let g:unite_enable_start_insert = 1
-" yankのhistory読み込み
-  let g:unite_source_history_yank_enable =1
-" 大文字・小文字を無視
-  let g:unite_enable_ignore_case = 1
-  let g:unite_enable_smart_case = 1
-" ファイル履歴保存数
-  let g:unite_source_file_mru_limit =50
-" キーマッピング
-  nnoremap <silent> [unite]u :<C-u>Unite<Space>-winheight=10<Space>file<CR>
-  nnoremap <silent> [unite]n :<C-u>Unite<Space>-winheight=10<Space>file/new<CR>
-  nnoremap <silent> [unite]g :<C-u>Unite<Space>-winheight=10<Space>grep<CR>
-  nnoremap <silent> [unite]f :<C-u>Unite<Space>-winheight=10<Space>buffer<CR>
-  nnoremap <silent> [unite]b :<C-u>Unite<Space>-winheight=10<Space>bookmark<CR>
-  nnoremap <silent> [unite]a :<C-u>UniteBookmarkAdd<CR>
-  nnoremap <silent> [unite]m :<C-u>Unite<Space>-winheight=10<Space>file_mru<CR>
-  nnoremap <silent> [unite]h :<C-u>Unite<Space>-winheight=10<Space>history/yank<CR>
-  nnoremap <silent> [unite]r :<C-u>Unite -buffer-name=register register<CR>
-  nnoremap <silent> [unite]c :<C-u>UniteWithBufferDir -buffer-name=files file<CR>
-  nnoremap <silent> [unite]o :<C-u>Unite -winheight=10 -no-quit outline<CR>
-  nnoremap <silent> <Leader>vr :UniteResume<CR>
-  nnoremap <silent> <Leader>rr <Plug>(unite-restart)
-" unite-grep
-" unite-grepのバックエンドをagに切り替える
-  let g:unite_source_grep_command = 'ag'
-  let g:unite_source_grep_default_opts = '--nocolor --nogroup'
-  let g:unite_source_grep_recursive_opt = ''
-  let g:unite_source_grep_max_candidates = 200
-" unite-grepのキーマップ
-" 選択した文字列をunite-grep
-  vnoremap /g y:Unite grep::-iHRn:<C-R>=escape(@", '\\.*$^[]')<CR><CR>
-" カーソル位置の単語をgrep検索
-  nnoremap <silent> <Leader>cg :<C-u>Unite grep:. -buffer-name=search-buffer<CR><C-R><C-W>
-" ウィンドウを分割して開く
-  au FileType unite nnoremap <silent> <buffer> <expr> <C-x> unite#do_action('split')
-  au FileType unite inoremap <silent> <buffer> <expr> <C-x> unite#do_action('split')
-" ウィンドウを縦に分割して開く
-  au FileType unite nnoremap <silent> <buffer> <expr> <C-v> unite#do_action('vsplit')
-  au FileType unite inoremap <silent> <buffer> <expr> <C-v> unite#do_action('vsplit')
-"}}}
-" ----------------------------------------
-" jedi-vimの設定
-" ----------------------------------------
-"{{{
-  autocmd FileType python setlocal omnifunc=jedi#completions
-  let g:jedi#completions_enabled = 0
-  let g:jedi#auto_vim_configuration = 0
-  
-  if !exists('g:deoplete#force_omni_input_patterns')
-          let g:deoplete#force_omni_input_patterns = {}
-          endif
-  
-  let g:deoplete#force_omni_input_patterns.python = '\h\w*\|[^. \t]\.\w*'
-"}}}
-" ----------------------------------------
 " Qfixhowmの設定
 " ----------------------------------------
 "{{{
@@ -589,7 +419,7 @@ let QFixHowm_Wiki = 1
 " カラースキーム決定
   set t_Co=256
   syntax enable
-  colorscheme Antares
+  "colorscheme Antares
 " vimdiffの色設定
   hi clear Diff
   hi DiffAdd    cterm=bold ctermfg=10 ctermbg=22
