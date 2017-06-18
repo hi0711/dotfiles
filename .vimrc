@@ -168,7 +168,7 @@ set write
   augroup filetypeset
     au BufRead, BufNewFile *.py setfiletype python
     au BufRead, BufNewFile *.rb setfiletype ruby
-    au BufRead, BufNewFile *.php setfiletype php
+    au BufRead, BufNewFile *.php setlocal tabstop=4 softtabstop=4 shiftwidth=4 et
   augroup END
 "}}}
 " ----------------------------------------
@@ -307,8 +307,12 @@ set write
   cnoremap <C-e> <End>
   cnoremap <C-n> <Down>
   cnoremap <C-p> <Up>
+" control lの設定
+  nnoremap <Leader>l :nohlsearch<cr>:diffupdate<cr>:syntax sync fromstart<cr><c-l>
 " ターミナルモードの設定
-  tnoremap <silent><ESC><ESC> <C-\><C-n>
+  if has('nvim')
+    tnoremap <silent><C-[> <C-\><C-n>
+  endif
 "}}}
 " ----------------------------------------
 " Qfixhowmの設定
@@ -370,15 +374,18 @@ let QFixHowm_Wiki = 1
   autocmd WinLeave * set nocursorline
   autocmd WinEnter,BufRead * set cursorline
   "augroup END
-  au MyAutoCmd VimEnter * hi clear CursorLine
-  au MyAutoCmd VimEnter * hi CursorLine cterm=underline ctermfg=NONE ctermbg=NONE
+  au MyAutoCmd VimEnter,BufRead * hi clear CursorLine
+  au MyAutoCmd VimEnter,BufRead * hi CursorLine cterm=underline ctermfg=NONE ctermbg=NONE
 " エラー表示
   hi clear SpellBad
-  au MyAutoCmd VimEnter * hi SpellBad cterm=bold ctermfg=219 ctermbg=NONE
+  au MyAutoCmd VimEnter,BufRead * hi SpellBad cterm=bold ctermfg=219 ctermbg=NONE
 " 改行文字とタブ文字の色設定
-  au MyAutoCmd VimEnter * hi SpecialKey ctermfg=237 guifg=#3a3a3a
-  au MyAutoCmd VimEnter * hi NonText ctermfg=66 guifg=#5f8787
+  au MyAutoCmd VimEnter,BufRead * hi SpecialKey ctermfg=237 guifg=#3a3a3a
+  au MyAutoCmd VimEnter,BufRead * hi NonText ctermfg=66 guifg=#5f8787
 " ビジュアルモード色設定
   hi clear Visual
-  au MyAutoCmd VimEnter * hi Visual term=reverse ctermfg=16 ctermbg=225
+  au MyAutoCmd VimEnter,BufRead * hi Visual term=reverse ctermfg=16 ctermbg=225
+" 行番号色設定
+  hi clear LineNr
+  au MyAutoCmd VimEnter,BufRead * hi LineNr ctermfg=252
 "}}}

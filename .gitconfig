@@ -6,13 +6,12 @@
 [push]
 	default = current
 [core]
-	excludesfile = /Users/hi0711/.gitignore_global
-	editor = vim
-[commit]
-	template = /Users/hi0711/.gitmessage.txt
+	excludesfile = /Users/ww5mviw1/.gitignore_global
+	editor = nvim
 [merge]
 	ff = false
 	conflictsstyle = diff3
+	tool = vimdiff
 [deff]
 	renames = true
 [branch]
@@ -20,7 +19,7 @@
 [alias]
 	mylog = log --graph --name-status --pretty=format:\"%C(red)%h %C(green)%an %Creset%s %C(yellow)%d%Creset\"
   ae = commit --allow-empty
-  rb = rebase -i --autosquash
+  rb = rebase -i
 [pull]
 	ff = only
 [filter "lfs"]
@@ -31,3 +30,15 @@
 	log = diff-highlight | less
 	show = diff-highlight | less
 	diff = diff-highlight | less
+[branch "master"]
+	remote = origin
+	merge = refs/heads/master
+	rebase = true
+[branch "develop"]
+	remote = origin
+	merge = refs/heads/develop
+	rebase = true
+[mergetool]
+	path = nvim
+[rebase]
+	autosquash = true
