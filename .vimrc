@@ -51,6 +51,7 @@ set diffopt=vertical
 set display=lastline
 set expandtab
 set fdm=marker
+set fenc=utf-8
 set formatoptions+=t
 set hidden
 set history=1000
@@ -111,7 +112,7 @@ set write
     call setpos(".", cursor)
     unlet cursor
   endfunction
-  autocmd BufWritePre *.html,*.css,*.scss,*.sass,*.less,*.php,*.rb,*.js,*.haml,*.erb,*.txt,*.ejs,*.jade call <SID>remove_dust()
+  autocmd BufWritePre *.html,*.css,*.scss,*.sass,*.less,*.php,*.rb,*.js,*.haml,*.erb,*.txt,*.ejs,*.jade,*.pug call <SID>remove_dust()
 " 全角スペースの設定
   function! ZenkakuSpace()
       highlight ZenkakuSpace cterm=reverse ctermfg=darkgray gui=reverse guifg=darkgray
@@ -283,11 +284,18 @@ set write
   map  gl <C-w>l
   map  gj <C-w>j
   map  gk <C-w>k
-  " map gl :macaction selectNextWindow:<CR>
-  " map gh :macaction selectPreviousWindow:<CR>
 " キー入れ替え
   noremap ; :
   noremap : ;
+" xとsの挙動
+  nnoremap x "_x
+  vnoremap x "_x
+  nnoremap X "_X
+  vnoremap X "_X
+  nnoremap s "_s
+  vnoremap s "_s
+  nnoremap S "_S
+  vnoremap S "_S
 " vimgrep時の候補移動
   nnoremap <silent>[q :cprevious<CR>zz
   nnoremap <silent>]q :cnext<CR>zz
@@ -309,7 +317,7 @@ set write
   cnoremap <C-p> <Up>
 " control lの設定
   nnoremap <Leader>l :nohlsearch<cr>:diffupdate<cr>:syntax sync fromstart<cr><c-l>
-" ターミナルモードの設定
+" ターミナルモードの設定(nvim限定)
   if has('nvim')
     tnoremap <silent><C-[> <C-\><C-n>
   endif
