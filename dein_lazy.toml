@@ -11,3 +11,7 @@ hook_add= '''
   let g:markdown_minlines = 100
 '''
 
+[[plugins]] # postcssのsyntax
+repo = 'alexlafroscia/postcss-syntax.vim'
+on_ft = ['css']
+
