@@ -187,6 +187,8 @@ set write
   nmap # #zz
   nmap g* g*zz
   nmap g# g#zz
+" 行の真ん中に移動
+  nnoremap <Leader>c :call cursor(0,strlen(getline("."))/2)<CR>
 " insertモードから抜ける
   inoremap jj <ESC>:up<CR>
   inoremap <C-j> <ESC>:up<CR>
