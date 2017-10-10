@@ -218,7 +218,8 @@ alias gre='git rebase'
 alias gst='git status --short --branch'
 
 # その他エイリアス
-alias vi='nvim'
+alias nv='nvim'
+alias vi='vim'
 
 alias up='cd ..; ls -lG'
 alias f='open .'
@@ -300,7 +301,6 @@ alias tx='tmux'
 fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
 autoload -U compinit
 compinit -u
-
 # neovimの設定
 export XDG_CONFIG_HOME=$HOME/.config
 # rangerの設定

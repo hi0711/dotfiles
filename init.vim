@@ -29,6 +29,7 @@ let s:lazy_toml = fnamemodify(expand('<sfile>'), ':h').'/dein_lazy.toml'
 if dein#load_state(s:dein_dir)
   call dein#begin(s:dein_dir)
   call dein#load_toml(s:toml_file)
+  call dein#load_toml(s:lazy_toml)
   call dein#end()
   call dein#save_state()
 endif
@@ -178,6 +179,15 @@ set write
 "{{{
 " Yを行末までのヤンクにする
   nnoremap Y y$
+" 閉じ括弧補完
+  inoremap " ""<ESC>i
+  inoremap ' ''<ESC>i
+  inoremap { {}<ESC>i
+  inoremap {<Enter> {}<Left><CR><ESC><S-o>
+  inoremap ( ()<ESC>i
+  inoremap (<Enter> ()<Left><CR><ESC><S-o>
+  inoremap [ []<ESC>i
+  inoremap < <><ESC>i
 " スペースキー + . で.vimrcを開く
   nnoremap <Space>. :<C-u>tabedit ~/.config/nvim/init.vim<CR>
 " 検索語が画面の真ん中に来るようにする
@@ -197,13 +207,7 @@ set write
   inoremap <C-e> <End>
   inoremap <C-f> <Right>
   inoremap <C-b> <Left>
-  inoremap "" ""<LEFT>
   inoremap %% %%<LEFT><Space><LEFT>
-  inoremap '' ''<LEFT>
-  inoremap () ()<LEFT>
-  inoremap <> <><LEFT>
-  inoremap [] []<LEFT>
-  inoremap {} {}<LEFT>
 " テキストオブジェクト操作
   onoremap id i"
   onoremap is i'
@@ -303,8 +307,6 @@ set write
   nnoremap <silent>]q :cnext<CR>zz
   nnoremap <silent>[Q :<C-u>cfirst<CR>
   nnoremap <silent>]Q :<C-u>clast<CR>
-" hlsearchの解除
-  nnoremap <silent> <Esc><Esc> :<C-u>nohlsearch<CR>
 " .vimrcの再読み込み
   nnoremap <Leader>so :<C-u>source ~/.config/nvim/init.vim<CR>
 "文字コード変更して再読み込み
@@ -374,7 +376,6 @@ let QFixHowm_Wiki = 1
   syntax enable
 " vimdiffの色設定
   hi clear Diff
-  hi DiffAdd    cterm=bold ctermfg=10 ctermbg=22
   hi DiffDelete cterm=bold ctermfg=10 ctermbg=52
   hi DiffChange cterm=bold ctermfg=10 ctermbg=17
   hi DiffText   cterm=bold ctermfg=10 ctermbg=21

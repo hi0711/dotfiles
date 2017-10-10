@@ -1,7 +1,3 @@
-[[plugins]] # autocloseプラグイン
-repo = 'Townk/vim-autoclose'
-on_i = 1
-
 [[plugins]] # markdownプラグイン
 repo = 'tpope/vim-markdown'
 on_ft = ['markdown']
@@ -10,8 +6,10 @@ hook_add= '''
   let g:markdown_syntax_conceal = 0
   let g:markdown_minlines = 100
 '''
+[[plugins]] # emmetプラグイン
+repo = 'mattn/emmet-vim'
+on_ft = ['html']
 
 [[plugins]] # postcssのsyntax
 repo = 'alexlafroscia/postcss-syntax.vim'
 on_ft = ['css']
-

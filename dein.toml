@@ -109,22 +109,6 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'scrooloose/syntastic'
-on_ft = 'html,javascript'
-hook_add = '''
-  set statusline+=%#warningmsg#
-  set statusline+=%*
-  let g:syntastic_always_populate_loc_list = 1
-  let g:syntastic_auto_loc_list = 1
-  let g:syntastic_check_on_open = 1
-  let g:syntastic_check_on_wq = 0
-  let g:syntastic_mode_map = {
-    \ "mode": "active",
-    \ "active_filetypes": ["ruby"],
-    \ "passive_filetypes": ["html", "javascript"] }
-'''
-
-[[plugins]]
 repo = 'soramugi/auto-ctags.vim'
 hook_add = '''
   let g:auto_ctags = 1
@@ -169,4 +153,3 @@ repo = 'cocopon/vaffle.vim'
 hook_add = '''
   let g:vaffle_auto_cd = 1
 '''
-
