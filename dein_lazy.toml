@@ -9,7 +9,9 @@ hook_add= '''
 [[plugins]] # emmetプラグイン
 repo = 'mattn/emmet-vim'
 on_ft = ['html']
-
 [[plugins]] # postcssのsyntax
 repo = 'alexlafroscia/postcss-syntax.vim'
 on_ft = ['css']
+[[plugins]] # pugのsyntax
+repo = 'digitaltoad/vim-pug'
+on_ft = ['pug']

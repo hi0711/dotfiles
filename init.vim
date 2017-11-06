@@ -199,6 +199,8 @@ set write
   nmap g# g#zz
 " 行の真ん中に移動
   nnoremap <Leader>c :call cursor(0,strlen(getline("."))/2)<CR>
+" 行の最後尾に移動
+  nnoremap <Leader>e $
 " insertモードから抜ける
   inoremap jj <ESC>:up<CR>
   inoremap <C-j> <ESC>:up<CR>
