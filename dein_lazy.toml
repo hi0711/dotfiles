@@ -8,7 +8,7 @@ hook_add= '''
 '''
 [[plugins]] # emmetプラグイン
 repo = 'mattn/emmet-vim'
-on_ft = ['html']
+on_ft = ['html', 'css']
 [[plugins]] # postcssのsyntax
 repo = 'alexlafroscia/postcss-syntax.vim'
 on_ft = ['css']
