@@ -156,3 +156,6 @@ hook_add = '''
 
 [[plugins]]
 repo = 'lambdalisue/gina.vim'
+
+[[plugins]]
+repo = 'easymotion/vim-easymotion'

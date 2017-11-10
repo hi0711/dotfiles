@@ -43,6 +43,8 @@ filetype plugin indent on
 "  Basic Settings
 " ----------------------------------------
 "{{{
+nnoremap s <Nop>
+nnoremap <Space> <Nop>
 let mapleader="\<Space>"
 let g:yankring_clipboard_monitor=0
 set ambiwidth=double
@@ -189,7 +191,7 @@ set write
   inoremap [ []<ESC>i
   inoremap < <><ESC>i
 " スペースキー + . で.vimrcを開く
-  nnoremap <Space>. :<C-u>tabedit ~/.config/nvim/init.vim<CR>
+  nnoremap <Leader>. :<C-u>tabedit ~/.config/nvim/init.vim<CR>
 " 検索語が画面の真ん中に来るようにする
   nmap n nzz
   nmap N Nzz
@@ -209,7 +211,6 @@ set write
   inoremap <C-e> <End>
   inoremap <C-f> <Right>
   inoremap <C-b> <Left>
-  inoremap %% %%<LEFT><Space><LEFT>
 " テキストオブジェクト操作
   onoremap id i"
   onoremap is i'
@@ -234,8 +235,8 @@ set write
 " relativenumberのトグル
   nnoremap <Leader>nu :setlocal rnu!<CR>
 " バッファの分割
-  noremap <silent><Leader>sp :<C-u>split<CR>
-  noremap <silent><Leader>vs :<C-u>vsplit<CR>
+  noremap <silent><Leader><Leader>sp :<C-u>split<CR>
+  noremap <silent><Leader><Leader>vs :<C-u>vsplit<CR>
 " カーソルキーでバッファのサイズ変更
   nnoremap <silent><Down>  <C-w>-
   nnoremap <silent><Up>    <C-w>+
@@ -245,8 +246,8 @@ set write
   nnoremap <Leader>w :<C-u>w<CR>
   nnoremap <Leader>Q :<C-u>q!<CR>
 " ファイルエクスプローラー系
-  nnoremap <silent><Leader>ex :<C-u>e .<CR>
-  nnoremap <silent><Leader>sex :<C-u>Sex<CR>
+  nnoremap <silent><Leader><Leader>ex :<C-u>e .<CR>
+  nnoremap <silent><Leader><Leader>sex :<C-u>Sex<CR>
 " 置換操作
   nnoremap gs :<C-u>%s///g<Left><Left><Left>
   vnoremap gs :s///g<Left><Left><Left>
@@ -300,17 +301,17 @@ set write
   vnoremap x "_x
   nnoremap X "_X
   vnoremap X "_X
-  nnoremap s "_s
-  vnoremap s "_s
-  nnoremap S "_S
-  vnoremap S "_S
+  " nnoremap s "_s
+  " vnoremap s "_s
+  " nnoremap S "_S
+  " vnoremap S "_S
 " vimgrep時の候補移動
   nnoremap <silent>[q :cprevious<CR>zz
   nnoremap <silent>]q :cnext<CR>zz
   nnoremap <silent>[Q :<C-u>cfirst<CR>
   nnoremap <silent>]Q :<C-u>clast<CR>
 " .vimrcの再読み込み
-  nnoremap <Leader>so :<C-u>source ~/.config/nvim/init.vim<CR>
+  nnoremap <silent><Leader><Leader>so :<C-u>source ~/.config/nvim/init.vim<CR>
 "文字コード変更して再読み込み
   nnoremap <silent> eu :<C-u>e ++enc=utf-8<CR>
 " コマンドライン設定
@@ -356,6 +357,27 @@ au Filetype qfix_memo setlocal textwidth = 0
 
 " オートリンクでファイルを開く
 let QFixHowm_Wiki = 1
+"}}}
+" ----------------------------------------
+" vim easymotionの設定
+" ----------------------------------------
+"{{{
+  let g:EasyMotion_do_mapping = 0
+  nmap s <Plug>(easymotion-s2)
+  omap z <Plug>(easymotion-s2)
+  let g:EasyMotion_smartcase = 1
+  nmap <Leader>j <Plug>(easymotion-j)
+  nmap <Leader>k <Plug>(easymotion-k)
+  let g:EasyMotion_startofline = 0
+  let g:EasyMotion_keys = ';HKLYUIOPNM,QWERTASDGZXCVBJF'
+  let g:EasyMotion_use_upper = 1
+  let g:EasyMotion_enter_jump_first = 1
+  let g:EasyMotion_space_jump_first = 1
+  let g:EasyMotion_use_migemo = 1
+  nmap g/ <Plug>(easymotion-sn)
+  xmap g/ <Plug>(easymotion-sn)
+  omap g/ <Plug>(easymotion-tn)
+  nmap ww <Plug>(easymotion-w)
 "}}}
 " ----------------------------------------
 " HTML閉じタグ自動補完
