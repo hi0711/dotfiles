@@ -1,6 +1,6 @@
 [[plugins]] # markdownプラグイン
 repo = 'tpope/vim-markdown'
-on_ft = ['markdown']
+on_ft = 'markdown'
 hook_add= '''
   let g:markdown_fenced_languages = ['html', 'python', 'bash=sh']
   let g:markdown_syntax_conceal = 0
@@ -8,10 +8,10 @@ hook_add= '''
 '''
 [[plugins]] # emmetプラグイン
 repo = 'mattn/emmet-vim'
-on_ft = ['html', 'css']
+on_ft = 'html, css'
 [[plugins]] # postcssのsyntax
 repo = 'alexlafroscia/postcss-syntax.vim'
-on_ft = ['css']
+on_ft = 'css'
 [[plugins]] # pugのsyntax
 repo = 'digitaltoad/vim-pug'
-on_ft = ['pug']
+on_ft = 'pug'

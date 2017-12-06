@@ -136,12 +136,6 @@ hook_add = '''
   nmap ga <Plug>(EasyAlign)
 '''
 
-[[plugins]]
-repo = 'fuenor/JpFormat.vim'
-hook_add = '''
-  nnoremap gL :JpFormatAll!<CR>
-'''
-
 [[plugins]]  # qfixhowmプラグイン
 repo = 'fuenor/qfixhowm'
 
@@ -159,3 +153,9 @@ repo = 'lambdalisue/gina.vim'
 
 [[plugins]]
 repo = 'easymotion/vim-easymotion'
+
+[[plugins]]
+repo = 'fuenor/JpFormat.vim'
+hook_add = '''
+  nnoremap gL :JpFormatAll!<CR>
+'''
