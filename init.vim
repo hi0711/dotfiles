@@ -164,6 +164,8 @@ set write
   command! -bar -nargs=+ -complete=file Diff  call s:vimdiff_in_newtab(<f-args>)
 " grep後にcwinを表示
   autocmd QuickFixCmdPost make,grep,grepadd,vimgrep,vimgrepadd cwin
+" Rename {新しいファイル名}
+  command! -nargs=1 -complete=file Rename file <args> | call delete(expand('#'))
 "}}}
 " ----------------------------------------
 "  filetype settings
