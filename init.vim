@@ -146,9 +146,6 @@ set write
   endif
 " ファイルを閉じた時の位置から再編集
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\""
-" 削除でレジスタに格納しない(ビジュアルモードでの選択後は格納する)
-"   nnoremap x "_x
-"   nnoremap dd "_dd
 " vimdiffの設定
   function! s:vimdiff_in_newtab(...)
     if a:0 == 1
@@ -290,11 +287,6 @@ set write
   inoremap ７ 7
   inoremap ８ 8
   inoremap ９ 9
-" ウインドウのフォーカス移動
-  " map  gh <C-w>h
-  " map  gl <C-w>l
-  " map  gj <C-w>j
-  " map  gk <C-w>k
 " キー入れ替え
   noremap ; :
   noremap : ;
@@ -303,10 +295,6 @@ set write
   vnoremap x "_x
   nnoremap X "_X
   vnoremap X "_X
-  " nnoremap s "_s
-  " vnoremap s "_s
-  " nnoremap S "_S
-  " vnoremap S "_S
 " vimgrep時の候補移動
   nnoremap <silent>[q :cprevious<CR>zz
   nnoremap <silent>]q :cnext<CR>zz
