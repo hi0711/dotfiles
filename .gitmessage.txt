@@ -1,5 +1,0 @@
-# short description
-
-# detaild description
-
-# [ticket: X]

@@ -291,10 +291,10 @@ set write
   inoremap ８ 8
   inoremap ９ 9
 " ウインドウのフォーカス移動
-  map  gh <C-w>h
-  map  gl <C-w>l
-  map  gj <C-w>j
-  map  gk <C-w>k
+  " map  gh <C-w>h
+  " map  gl <C-w>l
+  " map  gj <C-w>j
+  " map  gk <C-w>k
 " キー入れ替え
   noremap ; :
   noremap : ;
