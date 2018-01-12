@@ -99,4 +99,11 @@ echo "$password" | sudo -S sh -c 'echo "/usr/local/bin/zsh" >> /etc/shells'
 echo "$password" | sudo -S chsh -s /usr/local/bin/zsh
 echo $(tput setaf 2)Initialize zsh settings complete!. ✔︎$(tput sgr0)
 
+# node install
+if has "ndenv"; then
+  lts=`ndenv install -ls | grep v8. | tail -n 1`
+  ndenv install ${lts}
+  ndenv global ${lts}
+fi
+
 exit 0
