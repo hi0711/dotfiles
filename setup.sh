@@ -95,6 +95,8 @@ mkdir -p ${NEOVIM_DIRECTORY}/undo
 echo $(tput setaf 2)Initialize neovim settings complete!. ✔︎$(tput sgr0)
 
 # zsh settings
-# echo "$password" | sudo -S sh -c 'echo "/usr/local/bin/zsh" >> /etc/shells'
+echo "$password" | sudo -S sh -c 'echo "/usr/local/bin/zsh" >> /etc/shells'
+echo "$password" | sudo -S chsh -s /usr/local/bin/zsh
+echo $(tput setaf 2)Initialize zsh settings complete!. ✔︎$(tput sgr0)
 
 exit 0
