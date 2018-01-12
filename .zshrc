@@ -127,7 +127,7 @@ bindkey "^N" history-beginning-search-forward-end
 autoload -Uz vcs_info
 autoload -Uz add-zsh-hook
 
-zstyle ':vcs_info:*' formats '%F{green}(%s)-[%b]%f'
+zstyle ':vcs_info:*' formats '%F{magenta}(%s)-[%b]%f'
 zstyle ':vcs_info:*' actionformats '%F{red}(%s)-[%b|%a]%f'
 
 function _update_vcs_info_msg() {
@@ -182,7 +182,18 @@ setopt extended_glob
 
 # ^R で履歴検索をするときに * でワイルドカードを使用出来るようにする
 bindkey '^R' history-incremental-pattern-search-backward
-
+########################################
+# Ctrl-^ で cd ..
+# https://github.com/arael/configs/blob/57650c837500ad916f7f7f18903070db354ec58b/zsh/zshrc.prezto#L140
+function cdup() {
+  echo
+  cd ..
+  prompt_${prompt_theme}_precmd
+  zle reset-prompt
+  return 0
+}
+zle -N cdup
+bindkey '^\^' cdup
 ########################################
 # エイリアス
 # finderで開いているディレクトリに移動
@@ -299,8 +310,6 @@ alias tx='tmux'
 
 # git-completionの設定
 fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
-autoload -U compinit
-compinit -u
 # neovimの設定
 export XDG_CONFIG_HOME=$HOME/.config
 # rangerの設定
