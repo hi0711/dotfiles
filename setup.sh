@@ -53,7 +53,7 @@ if [ ! -d ${DOT_DIRECTORY} ]; then
     tar -zxf ${HOME}/dotfiles.tar.gz --strip-components 1 -C ${DOT_DIRECTORY}
     rm -f ${HOME}/dotfiles.tar.gz
   fi
-  echo $(tput setaf 2)Download dotfiles complete!. ✔︎$(tput sgr0)
+  echo $(tput setaf 2)Download dotfiles complete! :)$(tput sgr0)
 fi
 
 ########################################
@@ -75,7 +75,7 @@ do
   ln -fv ${HOME}/dotfiles/dein.toml ${HOME}/.config/nvim
   ln -fv ${HOME}/dotfiles/dein_lazy.toml ${HOME}/.config/nvim
 done
-echo $(tput setaf 2)Deploy dotfiles complete!. ✔︎$(tput sgr0)
+echo $(tput setaf 2)Deploy dotfiles complete! :)$(tput sgr0)
 
 ########################################
 # Initialize                           #
@@ -85,19 +85,19 @@ echo "Start Initialize ..."
 if [ ! -d ${VIM_RUNTIME} ]; then
   git clone --depth=1 git://github.com/amix/vimrc.git ${HOME}/.vim_runtime
   sh ${HOME}/.vim_runtime/install_basic_vimrc.sh
-  echo $(tput setaf 2)Initialize vim settings complete!. ✔︎$(tput sgr0)
+  echo $(tput setaf 2)Initialize vim settings complete! :)$(tput sgr0)
 fi
 
 # neovim settings
 mkdir -p ${NEOVIM_DIRECTORY}/backup
 mkdir -p ${NEOVIM_DIRECTORY}/swap
 mkdir -p ${NEOVIM_DIRECTORY}/undo
-echo $(tput setaf 2)Initialize neovim settings complete!. ✔︎$(tput sgr0)
+echo $(tput setaf 2)Initialize neovim settings complete! :)$(tput sgr0)
 
 # zsh settings
 echo "$password" | sudo -S sh -c 'echo "/usr/local/bin/zsh" >> /etc/shells'
 echo "$password" | sudo -S chsh -s /usr/local/bin/zsh
-echo $(tput setaf 2)Initialize zsh settings complete!. ✔︎$(tput sgr0)
+echo $(tput setaf 2)Initialize zsh settings complete! :)$(tput sgr0)
 
 # node install
 if has "ndenv"; then
@@ -105,5 +105,6 @@ if has "ndenv"; then
   ndenv install ${lts}
   ndenv global ${lts}
 fi
+echo $(tput setaf 2)Initialize ndenv settings complete! :)$(tput sgr0)
 
 exit 0
