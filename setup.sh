@@ -107,4 +107,8 @@ if has "ndenv"; then
 fi
 echo $(tput setaf 2)Initialize ndenv settings complete! :)$(tput sgr0)
 
+# key repeat
+defaults write -g KeyRepeat -int 1
+defaults write -g InitialKeyRepeat -int 10
+
 exit 0

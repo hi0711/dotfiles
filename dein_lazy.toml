@@ -6,9 +6,6 @@ hook_add= '''
   let g:markdown_syntax_conceal = 0
   let g:markdown_minlines = 100
 '''
-[[plugins]] # emmetプラグイン
-repo = 'mattn/emmet-vim'
-on_ft = 'html, css'
 [[plugins]] # postcssのsyntax
 repo = 'alexlafroscia/postcss-syntax.vim'
 on_ft = 'css'

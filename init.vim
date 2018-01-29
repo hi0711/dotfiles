@@ -28,8 +28,8 @@ let s:toml_file = fnamemodify(expand('<sfile>'), ':h').'/dein.toml'
 let s:lazy_toml = fnamemodify(expand('<sfile>'), ':h').'/dein_lazy.toml'
 if dein#load_state(s:dein_dir)
   call dein#begin(s:dein_dir)
-  call dein#load_toml(s:toml_file)
-  call dein#load_toml(s:lazy_toml)
+  call dein#load_toml(s:toml_file, {'lazy': 0})
+  call dein#load_toml(s:lazy_toml, {'lazy': 1})
   call dein#end()
   call dein#save_state()
 endif
@@ -381,6 +381,12 @@ let QFixHowm_Wiki = 1
   augroup END
 "}}}
 " ----------------------------------------
+" ----------------------------------------
+"  emmet vimの設定
+" ----------------------------------------
+"{{{
+  let g:user_emmet_leader_key='<C-e>'
+"}}}
 " ----------------------------------------
 "  色設定
 " ----------------------------------------

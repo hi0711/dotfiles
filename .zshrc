@@ -184,11 +184,9 @@ setopt extended_glob
 bindkey '^R' history-incremental-pattern-search-backward
 ########################################
 # Ctrl-^ で cd ..
-# https://github.com/arael/configs/blob/57650c837500ad916f7f7f18903070db354ec58b/zsh/zshrc.prezto#L140
 function cdup() {
   echo
   cd ..
-  prompt_${prompt_theme}_precmd
   zle reset-prompt
   return 0
 }
@@ -311,7 +309,7 @@ alias tx='tmux'
 # git-completionの設定
 fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
 # neovimの設定
-export XDG_CONFIG_HOME=$HOME/.config
+export XDG_CACHE_HOME=$HOME/.config
 # rangerの設定
 n ranger() {
   if [ -z "$RANGER_LEVEL" ]; then
