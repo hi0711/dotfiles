@@ -70,7 +70,9 @@ do
   [[ ${f} = "dein_lazy.toml" ]] && continue
 
   ln -snfv ${DOT_DIRECTORY}/${f} ${HOME}/${f}
-  mkdir -p ${NEOVIM_DIRECTORY}
+
+  if [ ! -d ${NEOVIM_DIRECTORY} ]; then
+  mkdir -p ${NEOVIM_DIRECTORY}/backup ${NEOVIM_DIRECTORY}/swap ${NEOVIM_DIRECTORY}/undo
   ln -fv ${HOME}/dotfiles/init.vim ${HOME}/.config/nvim
   ln -fv ${HOME}/dotfiles/dein.toml ${HOME}/.config/nvim
   ln -fv ${HOME}/dotfiles/dein_lazy.toml ${HOME}/.config/nvim
@@ -87,12 +89,6 @@ if [ ! -d ${VIM_RUNTIME} ]; then
   sh ${HOME}/.vim_runtime/install_basic_vimrc.sh
   echo $(tput setaf 2)Initialize vim settings complete! :)$(tput sgr0)
 fi
-
-# neovim settings
-mkdir -p ${NEOVIM_DIRECTORY}/backup
-mkdir -p ${NEOVIM_DIRECTORY}/swap
-mkdir -p ${NEOVIM_DIRECTORY}/undo
-echo $(tput setaf 2)Initialize neovim settings complete! :)$(tput sgr0)
 
 # zsh settings
 echo "$password" | sudo -S sh -c 'echo "/usr/local/bin/zsh" >> /etc/shells'
