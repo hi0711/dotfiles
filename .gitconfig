@@ -20,6 +20,7 @@
 	mylog = log --graph --name-status --pretty=format:\"%C(red)%h %C(green)%an %Creset%s %C(yellow)%d%Creset\"
   ae = commit --allow-empty
   rb = rebase -i
+	push-f = push --force-with-lease
 [pull]
 	ff = only
 [filter "lfs"]
