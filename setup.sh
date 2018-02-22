@@ -70,13 +70,14 @@ do
   [[ ${f} = "dein_lazy.toml" ]] && continue
 
   ln -snfv ${DOT_DIRECTORY}/${f} ${HOME}/${f}
+done
 
-  if [ ! -d ${NEOVIM_DIRECTORY} ]; then
+if [ ! -d ${NEOVIM_DIRECTORY} ]; then
   mkdir -p ${NEOVIM_DIRECTORY}/backup ${NEOVIM_DIRECTORY}/swap ${NEOVIM_DIRECTORY}/undo
   ln -fv ${HOME}/dotfiles/init.vim ${HOME}/.config/nvim
   ln -fv ${HOME}/dotfiles/dein.toml ${HOME}/.config/nvim
   ln -fv ${HOME}/dotfiles/dein_lazy.toml ${HOME}/.config/nvim
-done
+fi
 echo $(tput setaf 2)Deploy dotfiles complete! :)$(tput sgr0)
 
 ########################################
