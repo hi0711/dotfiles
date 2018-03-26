@@ -188,6 +188,7 @@ set write
   inoremap ( ()<ESC>i
   inoremap (<Enter> ()<Left><CR><ESC><S-o>
   inoremap [ []<ESC>i
+  inoremap [<Enter> []<Left><CR><ESC><S-o>
   inoremap < <><ESC>i
 " スペースキー + . で.vimrcを開く
   nnoremap <Leader>. :<C-u>tabedit ~/.config/nvim/init.vim<CR>
