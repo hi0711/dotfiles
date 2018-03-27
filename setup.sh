@@ -41,12 +41,12 @@ shift $((OPTIND - 1))
 ########################################
 # Downloads                            #
 ########################################
-if [ ! -d ${DOT_DIRECTORY} ]; then
+if [ ! -d ${DOT_DIRECTORY} ] ; then
   echo "Downloading dotfiles..."
   rm -rf ${DOT_DIRECTORY}
   mkdir -v ${DOT_DIRECTORY}
 
-  if type "git" > /dev/null 2>&1; then
+  if type "git" > /dev/null 2>&1 ; then
     git clone --recursive "${REMOTE_URL}" "${DOT_DIRECTORY}"
   else
     curl -fsSLo ${HOME}/dotfiles.tar.gz ${DOT_TARBALL}
@@ -72,7 +72,7 @@ do
   ln -snfv ${DOT_DIRECTORY}/${f} ${HOME}/${f}
 done
 
-if [ ! -d ${NEOVIM_DIRECTORY} ]; then
+if [ ! -d ${NEOVIM_DIRECTORY} ] ; then
   mkdir -p ${NEOVIM_DIRECTORY}/backup ${NEOVIM_DIRECTORY}/swap ${NEOVIM_DIRECTORY}/undo
   ln -fv ${HOME}/dotfiles/init.vim ${HOME}/.config/nvim
   ln -fv ${HOME}/dotfiles/dein.toml ${HOME}/.config/nvim
@@ -85,20 +85,20 @@ echo "$(tput setaf 2)Deploy dotfiles complete! :)$(tput sgr0)"
 ########################################
 echo "Start Initialize ..."
 # homebrew settings
-if has "brew"; then
+if has "brew" ; then
   echo "$(tput setaf 2)Already installed Homebrew :)$(tput sgr0)"
 else
   echo "Installing Homebrew ..."
   echo "$password" | sudo -S ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   echo "$password" | sudo -S brew bundle
 fi
-if has"brew"; then
+if has"brew" ; then
   echo "Updating Homebrew ..."
   brew update && brew upgrede
 fi
 echo "$(tput setaf 2)Update Homebrew complete :)$(tput sgr0)"
 # vim settings
-if [ ! -d ${VIM_RUNTIME} ]; then
+if [ ! -d ${VIM_RUNTIME} ] ; then
   git clone --depth=1 git://github.com/amix/vimrc.git ${HOME}/.vim_runtime
   sh ${HOME}/.vim_runtime/install_basic_vimrc.sh
   echo "$(tput setaf 2)Initialize vim settings complete! :)$(tput sgr0)"
@@ -108,7 +108,7 @@ echo "$password" | sudo -S sh -c 'echo "/usr/local/bin/zsh" >> /etc/shells'
 echo "$password" | sudo -S chsh -s /usr/local/bin/zsh
 echo "$(tput setaf 2)Initialize zsh settings complete! :)$(tput sgr0)"
 # node install
-if has "ndenv"; then
+if has "ndenv" ; then
   lts=`ndenv install -ls | grep v8. | tail -n 1`
   ndenv install ${lts}
   ndenv global ${lts}
