@@ -53,7 +53,7 @@ if [ ! -d ${DOT_DIRECTORY} ]; then
     tar -zxf ${HOME}/dotfiles.tar.gz --strip-components 1 -C ${DOT_DIRECTORY}
     rm -f ${HOME}/dotfiles.tar.gz
   fi
-  echo $(tput setaf 2)Download dotfiles complete! :)$(tput sgr0)
+  echo "$(tput setaf 2)Download dotfiles complete! :)$(tput sgr0)"
 fi
 
 ########################################
@@ -78,32 +78,42 @@ if [ ! -d ${NEOVIM_DIRECTORY} ]; then
   ln -fv ${HOME}/dotfiles/dein.toml ${HOME}/.config/nvim
   ln -fv ${HOME}/dotfiles/dein_lazy.toml ${HOME}/.config/nvim
 fi
-echo $(tput setaf 2)Deploy dotfiles complete! :)$(tput sgr0)
+echo "$(tput setaf 2)Deploy dotfiles complete! :)$(tput sgr0)"
 
 ########################################
 # Initialize                           #
 ########################################
 echo "Start Initialize ..."
+# homebrew settings
+if has "brew"; then
+  echo "$(tput setaf 2)Already installed Homebrew :)$(tput sgr0)"
+else
+  echo "Installing Homebrew ..."
+  echo "$password" | sudo -S ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  echo "$password" | sudo -S brew bundle
+fi
+if has"brew"; then
+  echo "Updating Homebrew ..."
+  brew update && brew upgrede
+fi
+echo "$(tput setaf 2)Update Homebrew complete :)$(tput sgr0)"
 # vim settings
 if [ ! -d ${VIM_RUNTIME} ]; then
   git clone --depth=1 git://github.com/amix/vimrc.git ${HOME}/.vim_runtime
   sh ${HOME}/.vim_runtime/install_basic_vimrc.sh
-  echo $(tput setaf 2)Initialize vim settings complete! :)$(tput sgr0)
+  echo "$(tput setaf 2)Initialize vim settings complete! :)$(tput sgr0)"
 fi
-
 # zsh settings
 echo "$password" | sudo -S sh -c 'echo "/usr/local/bin/zsh" >> /etc/shells'
 echo "$password" | sudo -S chsh -s /usr/local/bin/zsh
-echo $(tput setaf 2)Initialize zsh settings complete! :)$(tput sgr0)
-
+echo "$(tput setaf 2)Initialize zsh settings complete! :)$(tput sgr0)"
 # node install
 if has "ndenv"; then
   lts=`ndenv install -ls | grep v8. | tail -n 1`
   ndenv install ${lts}
   ndenv global ${lts}
 fi
-echo $(tput setaf 2)Initialize ndenv settings complete! :)$(tput sgr0)
-
+echo "$(tput setaf 2)Initialize ndenv settings complete! :)$(tput sgr0)"
 # key repeat
 defaults write -g KeyRepeat -int 1
 defaults write -g InitialKeyRepeat -int 10
