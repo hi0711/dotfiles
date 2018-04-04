@@ -60,7 +60,8 @@ build = 'make'
 repo = 'kassio/neoterm'
 if = "has('nvim')"
 hook_add = '''
-let g:neoterm_position = 'horizontal'
+"let g:neoterm_position = 'horizontal'
+let g:neoterm_default_mod = 'botright'
 nnoremap <silent> ,rc :TREPLSendFile<cr>
 nnoremap <silent> ,rl :TREPLSendLine<cr>
 vnoremap <silent> ,rl :TREPLSendSelection<cr>
