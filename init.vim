@@ -397,7 +397,7 @@ let QFixHowm_Wiki = 1
     "hi DiffChange cterm=bold ctermfg=10 ctermbg=17
     "hi DiffText   cterm=bold ctermfg=10 ctermbg=21
 " カーソルライン設定
-  "set cursorline
+  set cursorline
   "augroup cch
     "autocmd WinLeave * set nocursorline
     "autocmd WinEnter,BufRead * set cursorline
