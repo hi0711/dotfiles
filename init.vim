@@ -399,8 +399,8 @@ let QFixHowm_Wiki = 1
 " カーソルライン設定
   set cursorline
   "augroup cch
-    "autocmd WinLeave * set nocursorline
-    "autocmd WinEnter,BufRead * set cursorline
+    autocmd WinLeave * set nocursorline
+    autocmd WinEnter,BufRead * set cursorline
   "augroup END
     "au MyAutoCmd VimEnter,BufRead * hi clear CursorLine
     "au MyAutoCmd VimEnter,BufRead * hi CursorLine cterm=underline ctermfg=NONE ctermbg=NONE
