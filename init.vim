@@ -392,10 +392,10 @@ let QFixHowm_Wiki = 1
   set t_Co=256
   syntax enable
 " vimdiffの色設定
-  hi clear Diff
-  hi DiffDelete cterm=bold ctermfg=10 ctermbg=52
-  hi DiffChange cterm=bold ctermfg=10 ctermbg=17
-  hi DiffText   cterm=bold ctermfg=10 ctermbg=21
+  "hi clear Diff
+  "hi DiffDelete cterm=bold ctermfg=10 ctermbg=52
+  "hi DiffChange cterm=bold ctermfg=10 ctermbg=17
+  "hi DiffText   cterm=bold ctermfg=10 ctermbg=21
 " カーソルライン設定
   set cursorline
   "augroup cch
