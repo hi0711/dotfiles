@@ -393,27 +393,27 @@ let QFixHowm_Wiki = 1
   syntax enable
 " vimdiffの色設定
   "hi clear Diff
-  "hi DiffDelete cterm=bold ctermfg=10 ctermbg=52
-  "hi DiffChange cterm=bold ctermfg=10 ctermbg=17
-  "hi DiffText   cterm=bold ctermfg=10 ctermbg=21
+    "hi DiffDelete cterm=bold ctermfg=10 ctermbg=52
+    "hi DiffChange cterm=bold ctermfg=10 ctermbg=17
+    "hi DiffText   cterm=bold ctermfg=10 ctermbg=21
 " カーソルライン設定
-  set cursorline
+  "set cursorline
   "augroup cch
-  autocmd WinLeave * set nocursorline
-  autocmd WinEnter,BufRead * set cursorline
+    "autocmd WinLeave * set nocursorline
+    "autocmd WinEnter,BufRead * set cursorline
   "augroup END
-  au MyAutoCmd VimEnter,BufRead * hi clear CursorLine
-  au MyAutoCmd VimEnter,BufRead * hi CursorLine cterm=underline ctermfg=NONE ctermbg=NONE
+    "au MyAutoCmd VimEnter,BufRead * hi clear CursorLine
+    "au MyAutoCmd VimEnter,BufRead * hi CursorLine cterm=underline ctermfg=NONE ctermbg=NONE
 " エラー表示
-  hi clear SpellBad
-  au MyAutoCmd VimEnter,BufRead * hi SpellBad cterm=bold ctermfg=219 ctermbg=NONE
+    "hi clear SpellBad
+    "au MyAutoCmd VimEnter,BufRead * hi SpellBad cterm=bold ctermfg=219 ctermbg=NONE
 " 改行文字とタブ文字の色設定
-  au MyAutoCmd VimEnter,BufRead * hi SpecialKey ctermfg=237 guifg=#3a3a3a
-  au MyAutoCmd VimEnter,BufRead * hi NonText ctermfg=66 guifg=#5f8787
+  "au MyAutoCmd VimEnter,BufRead * hi SpecialKey ctermfg=237 guifg=#3a3a3a
+  "au MyAutoCmd VimEnter,BufRead * hi NonText ctermfg=66 guifg=#5f8787
 " ビジュアルモード色設定
-  hi clear Visual
-  au MyAutoCmd VimEnter,BufRead * hi Visual term=reverse ctermfg=16 ctermbg=225
+  "hi clear Visual
+  "au MyAutoCmd VimEnter,BufRead * hi Visual term=reverse ctermfg=16 ctermbg=225
 " 行番号色設定
-  hi clear LineNr
-  au MyAutoCmd VimEnter,BufRead * hi LineNr ctermfg=252
+  "hi clear LineNr
+  "au MyAutoCmd VimEnter,BufRead * hi LineNr ctermfg=252
 "}}}
