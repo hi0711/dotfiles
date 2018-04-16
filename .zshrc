@@ -285,6 +285,9 @@ alias brew-upgrade='brew upgrade --all'
 alias cask='brew cask'
 alias cask-upgrade='brew file cask_upgrade -C'
 
+# docker-compose
+alias fig='docker-compose'
+
 # HomeBrew file関連
 if [ -f $(brew --prefix)/etc/brew-wrap ];then
   source $(brew --prefix)/etc/brew-wrap
