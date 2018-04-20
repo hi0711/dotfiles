@@ -89,12 +89,12 @@ if has "brew" ; then
   echo "$(tput setaf 2)Already installed Homebrew :)$(tput sgr0)"
 else
   echo "Installing Homebrew ..."
-  echo "$password" | sudo -S ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-  echo "$password" | sudo -S brew bundle
+  ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  brew bundle
 fi
 if has"brew" ; then
   echo "Updating Homebrew ..."
-  brew update && brew upgrede
+  brew update && brew upgrade
 fi
 echo "$(tput setaf 2)Update Homebrew complete :)$(tput sgr0)"
 # vim settings
