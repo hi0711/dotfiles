@@ -169,9 +169,10 @@ set write
 " ----------------------------------------
 "{{{
   augroup filetypeset
-    au BufRead, BufNewFile *.py setfiletype python
-    au BufRead, BufNewFile *.rb setfiletype ruby
-    au BufRead, BufNewFile *.php setlocal tabstop=4 softtabstop=4 shiftwidth=4 et
+    au BufRead,BufNewFile *.py set filetype=python
+    au BufRead,BufNewFile *.rb set filetype=ruby
+    au BufRead,BufNewFile *.ejs set filetype=html
+    au BufRead,BufNewFile *.php setlocal tabstop=4 softtabstop=4 shiftwidth=4 et
   augroup END
 "}}}
 " ----------------------------------------
