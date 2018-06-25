@@ -109,13 +109,13 @@ echo "$password" | sudo -S chsh -s /usr/local/bin/zsh
 echo "$(tput setaf 2)Initialize zsh settings complete! :)$(tput sgr0)"
 # node install
 if has "ndenv" ; then
-  lts=`ndenv install -ls | grep v8. | tail -n 1`
+  lts=`ndenv install -ls | grep v10. | tail -n 1`
   ndenv install ${lts}
   ndenv global ${lts}
 fi
 echo "$(tput setaf 2)Initialize ndenv settings complete! :)$(tput sgr0)"
 # key repeat
 defaults write -g KeyRepeat -int 1
-defaults write -g InitialKeyRepeat -int 10
+defaults write -g InitialKeyRepeat -int 9
 
 exit 0
