@@ -236,7 +236,6 @@ alias desktop='cd ~/desktop'
 alias home='cd ~'
 alias pw='pwgen -y'
 
-
 alias la='ls -aG'
 alias ll='ls -lG'
 alias ls='ls -laG'
