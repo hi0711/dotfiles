@@ -71,7 +71,7 @@ set nrformats-=octal
 set nu
 set pumheight=10
 set ruler
-set scrolloff=6
+set so=7
 set sh=zsh
 set shiftwidth=2
 set showcmd
