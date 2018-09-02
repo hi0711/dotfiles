@@ -106,17 +106,13 @@ hook_add = '''
     \}
 '''
 
-[[plugins]]
-repo = 'soramugi/auto-ctags.vim'
-hook_add = '''
-  let g:auto_ctags = 1
-  let g:auto_ctags_directory_list = ['.git']
-'''
-
-[[plugins]]
-repo = 'ctrlpvim/ctrlp.vim'
-hook_add = '''
-'''
+ [[plugins]]
+ repo = 'soramugi/auto-ctags.vim'
+ on_ft = 'php'
+ hook_add = '''
+   let g:auto_ctags = 1
+   let g:auto_ctags_directory_list = ['.git']
+ '''
 
 [[plugins]]
 repo = 'vim-scripts/surround.vim'
@@ -157,3 +153,13 @@ hook_add = '''
 
 [[plugins]]
 repo = 'mattn/emmet-vim'
+on_ft = 'html, pug, css'
+
+[[plugins]]
+repo = 'junegunn/fzf'
+build = './install --bin'
+merged = '0'
+
+[[plugins]]
+repo = 'junegunn/fzf.vim'
+depends = 'fzf'
