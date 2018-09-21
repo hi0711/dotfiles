@@ -1,45 +1,45 @@
 [user]
-	name = hi0711
-	email = hiroshi_sato@life-technology.jp
+  name = hiroshi
+  email = sato@wiredgroup.co.jp
 [color]
-	ui = auto
+  ui = auto
 [push]
-	default = current
+  default = current
 [core]
-	excludesfile = /Users/ww5mviw1/.gitignore_global
-	editor = nvim
+  excludesfile = /Users/sato_hiroshi/.gitignore_global
+  editor = nvim
 [merge]
-	ff = false
-	conflictsstyle = diff3
-	tool = vimdiff
+  ff = false
+  conflictsstyle = diff3
+  tool = vimdiff
 [deff]
-	renames = true
+  renames = true
 [branch]
-	autosetuprebase = always
+  autosetuprebase = always
 [alias]
-	mylog = log --graph --name-status --pretty=format:\"%C(red)%h %C(green)%an %Creset%s %C(yellow)%d%Creset\"
+  mylog = log --graph --name-status --pretty=format:\"%C(red)%h %C(green)%an %Creset%s %C(yellow)%d%Creset\"
   ae = commit --allow-empty
   rb = rebase -i
-	push-f = push --force-with-lease
+  push-f = push --force-with-lease
 [pull]
-	ff = only
+  ff = only
 [filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
-	required = true
+  clean = git-lfs clean %f
+  smudge = git-lfs smudge %f
+  required = true
 [pager]
-	log = diff-highlight | less
-	show = diff-highlight | less
-	diff = diff-highlight | less
+  log = diff-highlight | less
+  show = diff-highlight | less
+  diff = diff-highlight | less
 [branch "master"]
-	remote = origin
-	merge = refs/heads/master
-	rebase = true
+  remote = origin
+  merge = refs/heads/master
+  rebase = true
 [branch "develop"]
-	remote = origin
-	merge = refs/heads/develop
-	rebase = true
+  remote = origin
+  merge = refs/heads/develop
+  rebase = true
 [mergetool]
-	path = nvim
+  path = nvim
 [rebase]
-	autosquash = true
+  autosquash = true
