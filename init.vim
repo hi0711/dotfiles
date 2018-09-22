@@ -252,8 +252,6 @@ set write
 " 置換操作
   nnoremap gs :<C-u>%s///g<Left><Left><Left>
   vnoremap gs :s///g<Left><Left><Left>
-" ハードタブ置換
-  vnoremap <silent> <Leader>tab :s/,/\t/g<CR>
 " 同単語検索設定
   nnoremap * *N
 " タブ操作
