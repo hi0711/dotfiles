@@ -172,7 +172,6 @@ set write
     au BufRead,BufNewFile *.py set filetype=python
     au BufRead,BufNewFile *.rb set filetype=ruby
     au BufRead,BufNewFile *.ejs set filetype=mason
-    au BufRead,BufNewFile *.php setlocal tabstop=4 softtabstop=4 shiftwidth=4 et
   augroup END
 "}}}
 " ----------------------------------------
@@ -389,7 +388,7 @@ let QFixHowm_Wiki = 1
 "{{{
   nnoremap <silent>: <C-u>:Buffers<CR>
   nnoremap <silent>t <C-u>:Files<CR>
-  nnoremap <silent>r <C-u>:Tags<CR>
+  "nnoremap <silent>r <C-u>:Tags<CR>
 "}}}
 " ----------------------------------------
 "  色設定
