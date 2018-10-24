@@ -173,6 +173,11 @@ set write
     au BufRead,BufNewFile *.rb set filetype=ruby
     au BufRead,BufNewFile *.ejs set filetype=mason
   augroup END
+  augroup cssIndent
+    autocmd!
+    autocmd BufNewFile,BufRead *.css setlocal tabstop=4 shiftwidth=4
+    autocmd BufNewFile,BufRead *.scss setlocal tabstop=4 shiftwidth=4
+  augroup END
 "}}}
 " ----------------------------------------
 "  キーマッピング設定
@@ -322,30 +327,30 @@ set write
 " Qfixhowmの設定
 " ----------------------------------------
 "{{{
-let QFixHowm_key = 'g'
-let howm_dir = '~/Gdrive/howm'
-let howm_filename = '%Y/%m/%Y-%m-%d-%H%M%S.md'
-let howm_fileencoding = 'utf-8'
+  let QFixHowm_key = 'g'
+  let howm_dir = '~/howm'
+  let howm_filename = '%Y/%m/%Y-%m-%d-%H%M%S.md'
+  let howm_fileencoding = 'utf-8'
 
-" プレビューや絞り込みをQuickFix/ロケーションリストの両方で有効化
-let QFixWin_EnableMode = 1
+  " プレビューや絞り込みをQuickFix/ロケーションリストの両方で有効化
+  let QFixWin_EnableMode = 1
 
-" QFixHowmのファイルタイプ
-let QFixHowm_FileType = 'markdown'
+  " QFixHowmのファイルタイプ
+  let QFixHowm_FileType = 'markdown'
 
-" タイトル記号を#に変更する
-let QFixHowm_Title = '#'
+  " タイトル記号を#に変更する
+  let QFixHowm_Title = '#'
 
-" QFixHowm/QFixGrepの結果表示にロケーションリストを使用する/しない
-let Qfix_UseLocationList = 1
+  " QFixHowm/QFixGrepの結果表示にロケーションリストを使用する/しない
+  let Qfix_UseLocationList = 1
 
-set shellslash
+  set shellslash
 
-" textwidthの再セット
-au Filetype qfix_memo setlocal textwidth = 0
+  " textwidthの再セット
+  au Filetype qfix_memo setlocal textwidth = 0
 
-" オートリンクでファイルを開く
-let QFixHowm_Wiki = 1
+  " オートリンクでファイルを開く
+  let QFixHowm_Wiki = 1
 "}}}
 " ----------------------------------------
 " vim easymotionの設定

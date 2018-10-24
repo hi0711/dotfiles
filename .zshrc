@@ -239,6 +239,7 @@ alias pw='pwgen -y'
 alias la='ls -aG'
 alias ll='ls -lG'
 alias ls='ls -laG'
+alias sl='ls -laG'
 
 alias rm='rm -i'
 alias cp='cp -i'
