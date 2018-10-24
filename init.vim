@@ -337,24 +337,17 @@ set write
   let howm_dir = '~/howm'
   let howm_filename = '%Y/%m/%Y-%m-%d-%H%M%S.md'
   let howm_fileencoding = 'utf-8'
-
   " プレビューや絞り込みをQuickFix/ロケーションリストの両方で有効化
   let QFixWin_EnableMode = 1
-
   " QFixHowmのファイルタイプ
   let QFixHowm_FileType = 'markdown'
-
   " タイトル記号を#に変更する
   let QFixHowm_Title = '#'
-
   " QFixHowm/QFixGrepの結果表示にロケーションリストを使用する/しない
   let Qfix_UseLocationList = 1
-
   set shellslash
-
   " textwidthの再セット
   au Filetype qfix_memo setlocal textwidth = 0
-
   " オートリンクでファイルを開く
   let QFixHowm_Wiki = 1
 "}}}
@@ -408,29 +401,9 @@ set write
 " カラースキーム決定
   set t_Co=256
   syntax enable
-" vimdiffの色設定
-  "hi clear Diff
-    "hi DiffDelete cterm=bold ctermfg=10 ctermbg=52
-    "hi DiffChange cterm=bold ctermfg=10 ctermbg=17
-    "hi DiffText   cterm=bold ctermfg=10 ctermbg=21
 " カーソルライン設定
   set cursorline
   "augroup cch
     autocmd WinLeave * set nocursorline
     autocmd WinEnter,BufRead * set cursorline
-  "augroup END
-    "au MyAutoCmd VimEnter,BufRead * hi clear CursorLine
-    "au MyAutoCmd VimEnter,BufRead * hi CursorLine cterm=underline ctermfg=NONE ctermbg=NONE
-" エラー表示
-    "hi clear SpellBad
-    "au MyAutoCmd VimEnter,BufRead * hi SpellBad cterm=bold ctermfg=219 ctermbg=NONE
-" 改行文字とタブ文字の色設定
-  "au MyAutoCmd VimEnter,BufRead * hi SpecialKey ctermfg=237 guifg=#3a3a3a
-  "au MyAutoCmd VimEnter,BufRead * hi NonText ctermfg=66 guifg=#5f8787
-" ビジュアルモード色設定
-  "hi clear Visual
-  "au MyAutoCmd VimEnter,BufRead * hi Visual term=reverse ctermfg=16 ctermbg=225
-" 行番号色設定
-  "hi clear LineNr
-  "au MyAutoCmd VimEnter,BufRead * hi LineNr ctermfg=252
 "}}}
