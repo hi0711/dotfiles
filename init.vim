@@ -174,9 +174,15 @@ set write
     au BufRead,BufNewFile *.ejs set filetype=mason
   augroup END
   augroup cssIndent
-    autocmd!
-    autocmd BufNewFile,BufRead *.css setlocal tabstop=4 shiftwidth=4
-    autocmd BufNewFile,BufRead *.scss setlocal tabstop=4 shiftwidth=4
+    au!
+    au BufNewFile,BufRead *.css setlocal tabstop=4 shiftwidth=4
+    au BufNewFile,BufRead *.scss setlocal tabstop=4 shiftwidth=4
+  augroup END
+  augroup filetypeIndent
+    au!
+    au BufNewFile,BufRead *.php setlocal tabstop=4 shiftwidth=4
+    au BufNewFile,BufRead *.go setlocal tabstop=4 shiftwidth=4 noexpandtab
+    au BufNewFile,BufRead *.js setlocal tabstop=4 shiftwidth=4
   augroup END
 "}}}
 " ----------------------------------------
