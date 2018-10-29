@@ -300,12 +300,3 @@ alias tx='tmux'
 fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
 # neovimの設定
 export XDG_CACHE_HOME=$HOME/.config
-# rangerの設定
-n ranger() {
-  if [ -z "$RANGER_LEVEL" ]; then
-      /usr/local/bin/ranger $@
-  else
-      exit
-  fi
-}
-[ -n "$RANGER_LEVEL" ] && PS1="$PS1"'(in ranger) '
