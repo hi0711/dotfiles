@@ -21,6 +21,7 @@
   ae = commit --allow-empty
   rb = rebase -i
   push-f = push --force-with-lease
+  cb = rev-parse --abbrev-ref HEAD
 [pull]
   ff = only
 [filter "lfs"]
