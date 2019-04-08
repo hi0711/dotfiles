@@ -1,12 +1,12 @@
 [user]
-  name = hiroshi
-  email = sato@wiredgroup.co.jp
+  name = hi0711
+  email = admin@hi0711.xyz
 [color]
   ui = auto
 [push]
   default = current
 [core]
-  excludesfile = /Users/sato_hiroshi/.gitignore_global
+  excludesfile = ~/.gitignore_global
   editor = nvim
 [merge]
   ff = false
