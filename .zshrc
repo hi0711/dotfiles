@@ -282,6 +282,7 @@ fi
 
 # tmux関連
 alias tx='tmux'
+alias T='tmux new -s'
 
 # cntrl-z の設定
  fancy-ctrl-z () {
@@ -295,6 +296,10 @@ alias tx='tmux'
   }
   zle -N fancy-ctrl-z
   bindkey '^Z' fancy-ctrl-z
+
+# globalエイリアス
+alias -g C='| pbcopy'
+alias -g X='| xargs'
 
 # git-completionの設定
 fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
