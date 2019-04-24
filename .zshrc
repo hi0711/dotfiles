@@ -283,6 +283,7 @@ fi
 # tmux関連
 alias tx='tmux'
 alias T='tmux new -s'
+alias TA='tmux a -t'
 
 # cntrl-z の設定
  fancy-ctrl-z () {
