@@ -83,6 +83,7 @@ set tabstop=2
 set textwidth=0
 set title
 set ttyfast
+set updatetime=250
 set virtualedit+=all
 set visualbell t_vb=
 set wildchar=<TAB>
@@ -122,7 +123,6 @@ set write
   endfunction
   if has('syntax')
     augroup ZenkakuSpace
-        autocmd!
         autocmd ColorScheme       * call ZenkakuSpace()
         autocmd VimEnter,WinEnter * match ZenkakuSpace /　/
     augroup END
@@ -169,20 +169,22 @@ set write
 " ----------------------------------------
 "{{{
   augroup filetypeset
+    au!
     au BufRead,BufNewFile *.py set filetype=python
     au BufRead,BufNewFile *.rb set filetype=ruby
     au BufRead,BufNewFile *.ejs set filetype=mason
   augroup END
   augroup cssIndent
     au!
-    au BufNewFile,BufRead *.css setlocal tabstop=4 shiftwidth=4
-    au BufNewFile,BufRead *.scss setlocal tabstop=4 shiftwidth=4
+    au BufNewFile,BufRead *.scss set tabstop=4 shiftwidth=4
+    au BufNewFile,BufRead *.css set tabstop=2 shiftwidth=2
   augroup END
   augroup filetypeIndent
     au!
     au BufNewFile,BufRead *.php setlocal tabstop=4 shiftwidth=4
     au BufNewFile,BufRead *.go setlocal tabstop=4 shiftwidth=4 noexpandtab
     au BufNewFile,BufRead *.js setlocal tabstop=4 shiftwidth=4
+    au BufNewFile,BufRead *.pug setlocal tabstop=2 shiftwidth=2
   augroup END
 "}}}
 " ----------------------------------------
@@ -306,8 +308,8 @@ set write
   nnoremap X "_X
   vnoremap X "_X
 " vimgrep時の候補移動
-  nnoremap <silent>[q :cprevious<CR>zz
-  nnoremap <silent>]q :cnext<CR>zz
+  nnoremap <silent>[q :cprevious<CR>
+  nnoremap <silent>]q :cnext<CR>
   nnoremap <silent>[Q :<C-u>cfirst<CR>
   nnoremap <silent>]Q :<C-u>clast<CR>
 " .vimrcの再読み込み
@@ -379,7 +381,6 @@ set write
 " ----------------------------------------
 "{{{
   augroup MyTag
-    autocmd!
     autocmd Filetype xml inoremap <buffer> </ </<C-x><C-o>
     autocmd Filetype html inoremap <buffer> </ </<C-x><C-o>
     autocmd Filetype eruby inoremap <buffer> </ </<C-x><C-o>
