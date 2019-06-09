@@ -158,3 +158,10 @@ merged = '0'
 [[plugins]]
 repo = 'junegunn/fzf.vim'
 depends = 'fzf'
+
+[[plugins]]
+repo = 'terryma/vim-expand-region'
+hook_add = '''
+  vmap v <Plug>(expand_region_expand)
+  vmap <C-v> <Plug>(expand_region_shrink)
+'''
