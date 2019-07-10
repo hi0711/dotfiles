@@ -254,6 +254,7 @@ alias uu='cd ../../'
 alias uuu='cd ../../../'
 
 alias q='exit'
+alias kaf='killall Finder'
 
 # ctagsの設定
 alias ctags='`brew --prefix`/bin/ctags'
@@ -307,3 +308,4 @@ alias -g X='| xargs'
 fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
 # neovimの設定
 export XDG_CACHE_HOME=$HOME/.config
+export PATH="/usr/local/sbin:$PATH"
