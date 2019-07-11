@@ -354,6 +354,25 @@ set write
   let QFixHowm_Wiki = 1
 "}}}
 " ----------------------------------------
+" deniteの設定
+" ----------------------------------------
+"{{{
+  "call denite#custom#option('_', 'start_filter', v:true)
+  autocmd FileType denite call s:denite_my_settings()
+  function! s:denite_my_settings() abort
+    nnoremap <silent><buffer><expr> <CR>  denite#do_map('do_action')
+    nnoremap <silent><buffer><expr> <Tab> denite#do_map('choose_action')
+    nnoremap <silent><buffer><expr> <C-g> denite#do_map('quit')
+    nnoremap <silent><buffer><expr> i     denite#do_map('open_filter_buffer')
+  endfunction
+  nnoremap <silent> <C-k><C-f> :<C-u>Denite file/rec -start-filter<CR>
+  nnoremap <silent> <C-k><C-g> :<C-u>Denite grep -start-filter<CR>
+  nnoremap <silent> <C-k><C-l> :<C-u>Denite line -start-filter<CR>
+  nnoremap <silent> <C-k><C-u> :<C-u>Denite file_mru -start-filter<CR>
+  nnoremap <silent> <C-k><C-y> :<C-u>Denite neoyank -start-filter<CR>
+  nnoremap <silent> <C-k><C-]> :<C-u>DeniteCursorWord grep -start-filter<CR>
+"}}}
+" ----------------------------------------
 " vim easymotionの設定
 " ----------------------------------------
 "{{{
