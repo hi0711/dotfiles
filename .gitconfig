@@ -22,6 +22,7 @@
   rb = rebase -i
   push-f = push --force-with-lease
   cb = rev-parse --abbrev-ref HEAD
+  delete-merged-branch = !f () { git checkout $1; git branch --merged|egrep -v '\*|develop|master'|xargs git branch -d; };f
 [pull]
   ff = only
 [filter "lfs"]
