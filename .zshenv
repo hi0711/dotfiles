@@ -33,3 +33,5 @@ fi
 ### git diff-highlighterのパスを通す
 export PATH=$PATH:/usr/local/share/git-core/contrib/diff-highlight
 
+PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
+MANPATH="/usr/local/opt/grep/libexec/gnuman:$MANPATH"
