@@ -26,6 +26,7 @@
   delete-merged-branch = "!f () { git checkout $1; git branch --merged|egrep -v '\\*|develop|master'|xargs git branch -d; };f"
   delete-remote-merged-branch = "!f () { git checkout $1; git branch --merged|egrep -v '\\*|develop|master'|xargs -J% git push -d origin %; };f"
   refresh= !git fetch origin && git remote prune origin
+  checkout-merge= checkout --conflict=merge
 [pull]
   ff = only
 [filter "lfs"]
@@ -48,3 +49,6 @@
   path = nvim
 [rebase]
   autosquash = true
+[rerere]
+  enabled = true
+  autoupdate = true
