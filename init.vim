@@ -378,8 +378,7 @@ set write
 "{{{
   let g:EasyMotion_do_mapping = 0
   map f <Plug>(easymotion-bd-fl)
-  map t <Plug>(easymotion-bd-tl)
-  nmap s <Plug>(easymotion-s2)
+  map s <Plug>(easymotion-s2)
   omap z <Plug>(easymotion-s2)
   vmap s <Plug>(easymotion-bd-f2)
   let g:EasyMotion_smartcase = 1
@@ -396,7 +395,11 @@ set write
   nmap g/ <Plug>(easymotion-sn)
   xmap g/ <Plug>(easymotion-sn)
   omap g/ <Plug>(easymotion-tn)
-  nmap ww <Plug>(easymotion-w)
+  " nmap ww <Plug>(easymotion-w)
+  nmap WW <Plug>(easymotion-bd-w)
+  " Jump to first match with enter & space
+  let g:EasyMotion_enter_jump_first = 1
+  let g:EasyMotion_space_jump_first = 1
 "}}}
 " ----------------------------------------
 " HTML閉じタグ自動補完
