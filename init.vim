@@ -376,16 +376,16 @@ set write
 " vim easymotionの設定
 " ----------------------------------------
 "{{{
-  let g:EasyMotion_do_mapping = 0
   map f <Plug>(easymotion-bd-fl)
-  map s <Plug>(easymotion-s2)
+  nmap s <Plug>(easymotion-s2)
   omap z <Plug>(easymotion-s2)
-  vmap s <Plug>(easymotion-bd-f2)
-  let g:EasyMotion_smartcase = 1
+  vmap f <Plug>(easymotion-bd-f2)
   nmap <Leader>j <Plug>(easymotion-j)
   nmap <Leader>k <Plug>(easymotion-k)
   vmap <Leader>j <Plug>(easymotion-j)
   vmap <Leader>k <Plug>(easymotion-k)
+  let g:EasyMotion_do_mapping = 0
+  let g:EasyMotion_smartcase = 1
   let g:EasyMotion_startofline = 0
   let g:EasyMotion_keys = ';HKLYUIOPNM,QWERTASDGZXCVBJF'
   let g:EasyMotion_use_upper = 1
@@ -397,9 +397,6 @@ set write
   omap g/ <Plug>(easymotion-tn)
   " nmap ww <Plug>(easymotion-w)
   nmap WW <Plug>(easymotion-bd-w)
-  " Jump to first match with enter & space
-  let g:EasyMotion_enter_jump_first = 1
-  let g:EasyMotion_space_jump_first = 1
 "}}}
 " ----------------------------------------
 " HTML閉じタグ自動補完
