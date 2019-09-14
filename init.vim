@@ -377,8 +377,11 @@ set write
 " ----------------------------------------
 "{{{
   let g:EasyMotion_do_mapping = 0
+  map f <Plug>(easymotion-bd-fl)
+  map t <Plug>(easymotion-bd-tl)
   nmap s <Plug>(easymotion-s2)
   omap z <Plug>(easymotion-s2)
+  vmap s <Plug>(easymotion-bd-f2)
   let g:EasyMotion_smartcase = 1
   nmap <Leader>j <Plug>(easymotion-j)
   nmap <Leader>k <Plug>(easymotion-k)
