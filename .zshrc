@@ -309,3 +309,6 @@ fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
 # neovimの設定
 export XDG_CACHE_HOME=$HOME/.config
 export PATH="/usr/local/sbin:$PATH"
+# grepの設定
+PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
+MANPATH="/usr/local/opt/grep/libexec/gnuman:$MANPATH"
