@@ -91,7 +91,7 @@ else
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   brew bundle
 fi
-if has"brew" ; then
+if has "brew" ; then
   echo "Updating Homebrew ..."
   brew update && brew upgrade
 fi
@@ -106,13 +106,6 @@ fi
 echo "$password" | sudo -S sh -c 'echo "/usr/local/bin/zsh" >> /etc/shells'
 echo "$password" | sudo -S chsh -s /usr/local/bin/zsh
 echo "$(tput setaf 2)Initialize zsh settings complete! :)$(tput sgr0)"
-# node install
-if has "ndenv" ; then
-  lts=`ndenv install -ls | grep v10. | tail -n 1`
-  ndenv install ${lts}
-  ndenv global ${lts}
-fi
-echo "$(tput setaf 2)Initialize ndenv settings complete! :)$(tput sgr0)"
 # key repeat
 defaults write -g KeyRepeat -int 1
 defaults write -g InitialKeyRepeat -int 9
