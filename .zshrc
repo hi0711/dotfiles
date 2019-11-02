@@ -27,10 +27,10 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 # 単語の区切り文字を指定する
 autoload -Uz select-word-style
 select-word-style default
-# ここで指定した文字は単語区切りとみなされる
-# / も区切りと扱うので、^W でディレクトリ１つ分を削除できる
-zstyle ':zle:*' word-chars " /=;@:{},|"
-zstyle ':zle:*' word-style unspecified
+  # ここで指定した文字は単語区切りとみなされる
+  # / も区切りと扱うので、^W でディレクトリ１つ分を削除できる
+  zstyle ':zle:*' word-chars " /=;@:{},|"
+  zstyle ':zle:*' word-style unspecified
 
 ########################################
 # 補完
@@ -46,7 +46,7 @@ zstyle ':completion:*' ignore-parents parent pwd ..
 
 # sudo の後ろでコマンド名を補完する
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
-                   /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
+  /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
 
 # ps コマンドのプロセス名補完
 zstyle ':completion:*:processes' command 'ps x -o pid,s,args'
@@ -131,8 +131,8 @@ zstyle ':vcs_info:*' formats '%F{magenta}(%s)-[%b]%f'
 zstyle ':vcs_info:*' actionformats '%F{red}(%s)-[%b|%a]%f'
 
 function _update_vcs_info_msg() {
-    LANG=en_US.UTF-8 vcs_info
-    RPROMPT="${vcs_info_msg_0_}"
+  LANG=en_US.UTF-8 vcs_info
+  RPROMPT="${vcs_info_msg_0_}"
 }
 add-zsh-hook precmd _update_vcs_info_msg
 
@@ -196,14 +196,14 @@ bindkey '^\^' cdup
 # エイリアス
 # finderで開いているディレクトリに移動
 cdf () {
-        target=`osascript -e 'tell application "Finder" to if (count of Finder windows) > 0 then get POSIX path of (target of front Finder window as text)'`
-        if [ "$target" != "" ]
-        then
-                cd "$target"
-                pwd
-        else
-                echo 'No Finder window found' >&2
-        fi
+  target=`osascript -e 'tell application "Finder" to if (count of Finder windows) > 0 then get POSIX path of (target of front Finder window as text)'`
+  if [ "$target" != "" ]
+  then
+    cd "$target"
+    pwd
+  else
+    echo 'No Finder window found' >&2
+  fi
 }
 
 # git関連コマンド
@@ -269,11 +269,6 @@ alias sudo='sudo '
 alias -g L='| less'
 alias -g G='| grep'
 
-# HomeBrew関連
-alias brew-upgrade='brew upgrade --all'
-alias cask='brew cask'
-alias cask-upgrade='brew file cask_upgrade -C'
-
 # docker-compose
 alias fig='docker-compose'
 
@@ -288,17 +283,17 @@ alias T='tmux new -s'
 alias TA='tmux a -t'
 
 # cntrl-z の設定
- fancy-ctrl-z () {
-  if [[ $#BUFFER -eq 0 ]]; then
-    BUFFER="fg"
-    zle accept-line
-  else
-    zle push-input
-    zle clear-screen
-  fi
-  }
-  zle -N fancy-ctrl-z
-  bindkey '^Z' fancy-ctrl-z
+fancy-ctrl-z () {
+if [[ $#BUFFER -eq 0 ]]; then
+  BUFFER="fg"
+  zle accept-line
+else
+  zle push-input
+  zle clear-screen
+fi
+}
+zle -N fancy-ctrl-z
+bindkey '^Z' fancy-ctrl-z
 
 # globalエイリアス
 alias -g C='| pbcopy'
@@ -310,9 +305,9 @@ alias -g X='| xargs'
 fd() {
   local dir
   dir=$(find ${1:-.} -path '*/\.*' -prune \
-                  -o -type d -print 2> /dev/null | fzf +m) &&
-  cd "$dir"
-}
+    -o -type d -print 2> /dev/null | fzf +m) &&
+    cd "$dir"
+  }
 # fda - including hidden directories
 fda() {
   local dir
@@ -321,14 +316,14 @@ fda() {
 # fshow - git commit browser
 fshow() {
   git log --graph --color=always \
-      --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |
-  fzf --ansi --no-sort --reverse --tiebreak=index --bind=ctrl-s:toggle-sort \
-      --bind "ctrl-m:execute:
-                (grep -o '[a-f0-9]\{7\}' | head -1 |
-                xargs -I % sh -c 'git show --color=always % | less -R') << 'FZF-EOF'
-                {}
-FZF-EOF"
-}
+    --format="%C(auto)%h%d %s %C(black)%C(bold)%cr" "$@" |
+    fzf --ansi --no-sort --reverse --tiebreak=index --bind=ctrl-s:toggle-sort \
+    --bind "ctrl-m:execute:
+      (grep -o '[a-f0-9]\{7\}' | head -1 |
+        xargs -I % sh -c 'git show --color=always % | less -R') << 'FZF-EOF'
+              {}
+              FZF-EOF"
+            }
 # tm - create new tmux session, or switch to existing one. Works from within tmux too. (@bag-man)
 # `tm` will allow you to select your tmux session via fzf.
 # `tm irc` will attach to the irc session (if it exists), else it will create it.
@@ -344,9 +339,11 @@ tm() {
 
 # git-completionの設定
 fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
+
 # neovimの設定
 export XDG_CACHE_HOME=$HOME/.config
 export PATH="/usr/local/sbin:$PATH"
+
 # grepの設定
 PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
 MANPATH="/usr/local/opt/grep/libexec/gnuman:$MANPATH"
