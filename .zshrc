@@ -302,6 +302,7 @@ bindkey '^Z' fancy-ctrl-z
 # globalエイリアス
 alias -g C='| pbcopy'
 alias -g X='| xargs'
+alias -g F='| fzf'
 
 # fzf設定
 # {{{
