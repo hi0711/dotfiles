@@ -8,6 +8,10 @@ typeset -U path PATH
 autoload -Uz colors
 colors
 
+# zmv有効化
+autoload -Uz zmv
+alias zmv='noglob zmv -W'
+
 # ヒストリの設定
 HISTFILE=~/.zsh_history
 HISTSIZE=1000000
