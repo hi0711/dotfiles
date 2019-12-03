@@ -89,7 +89,7 @@ if has "brew" ; then
 else
   echo "Installing Homebrew ..."
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-  brew bundle
+  brew bundle --global
 fi
 if has "brew" ; then
   echo "Updating Homebrew ..."
