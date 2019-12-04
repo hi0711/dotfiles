@@ -54,7 +54,7 @@ set diffopt=vertical
 set display=lastline
 set expandtab
 set fdm=marker
-set fenc=utf-8
+set fencs=utf-8,sjis,euc-jp
 set formatoptions+=t
 set hidden
 set history=1000
@@ -315,7 +315,7 @@ set write
 " .vimrcの再読み込み
   nnoremap <silent><Leader><Leader>so :<C-u>source ~/.config/nvim/init.vim<CR>
 "文字コード変更して再読み込み
-  nnoremap <silent> eu :<C-u>e ++enc=utf-8<CR>
+  nnoremap <silent> es :<C-u>e! ++enc=sjis<CR>
 " コマンドライン設定
   cnoremap <C-a> <Home>
   cnoremap <C-b> <Left>

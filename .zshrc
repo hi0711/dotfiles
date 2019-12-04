@@ -232,6 +232,7 @@ alias gst='git status --short --branch'
 
 # その他エイリアス
 alias nv='nvim'
+alias nvsjis='nvim -c ":e ++enc=sjis" -c ":setlocal fenc=sjis"'
 alias NV='nvim -c "call dein#update()" -c "UpdateRemotePlugins"'
 alias vi='vim'
 
