@@ -20,7 +20,7 @@ SAVEHIST=1000000
 # プロンプト
 # 2行表示
 PROMPT="%{${fg[green]}%}[%n@%m]%{${reset_color}%} %~
-🤘 > "
+🤘> "
 
 # fpathの設定
 fpath=($(brew --prefix)/share/zsh/functions $fpath)
