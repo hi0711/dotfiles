@@ -168,23 +168,20 @@ set write
 "  filetype settings
 " ----------------------------------------
 "{{{
-  augroup filetypeset
+  augroup filetypeSet
     au!
     au BufRead,BufNewFile *.py set filetype=python
     au BufRead,BufNewFile *.rb set filetype=ruby
     au BufRead,BufNewFile *.ejs set filetype=mason
   augroup END
-  augroup cssIndent
+  augroup filetypeIndent
     au!
     au BufNewFile,BufRead *.scss set tabstop=4 shiftwidth=4
     au BufNewFile,BufRead *.css set tabstop=2 shiftwidth=2
-  augroup END
-  augroup filetypeIndent
-    au!
-    au BufNewFile,BufRead *.php setlocal tabstop=4 shiftwidth=4
-    au BufNewFile,BufRead *.go setlocal tabstop=4 shiftwidth=4 noexpandtab
-    au BufNewFile,BufRead *.js setlocal tabstop=4 shiftwidth=4
-    au BufNewFile,BufRead *.pug setlocal tabstop=2 shiftwidth=2
+    au BufNewFile,BufRead *.php set tabstop=4 shiftwidth=4
+    au BufNewFile,BufRead *.go set tabstop=4 shiftwidth=4 noexpandtab
+    au BufNewFile,BufRead *.js set tabstop=4 shiftwidth=4
+    au BufNewFile,BufRead *.pug set tabstop=2 shiftwidth=2
   augroup END
 "}}}
 " ----------------------------------------
