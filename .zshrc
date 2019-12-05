@@ -17,10 +17,9 @@ HISTFILE=~/.zsh_history
 HISTSIZE=1000000
 SAVEHIST=1000000
 
-# プロンプト
-# 2行表示
-PROMPT="%{${fg[green]}%}[%n@%m]%{${reset_color}%} %~
-🤘> "
+### pure-prompt 使用 ###
+autoload -U promptinit; promptinit
+prompt pure
 
 # fpathの設定
 fpath=($(brew --prefix)/share/zsh/functions $fpath)
@@ -127,18 +126,24 @@ bindkey "^P" history-beginning-search-backward-end
 bindkey "^N" history-beginning-search-forward-end
 
 ########################################
+# プロンプト旧設定
+# 2行表示
+#PROMPT="%{${fg[green]}%}[%n@%m]%{${reset_color}%} %~
+#🤘> "
+
+########################################
 # vcs_info
-autoload -Uz vcs_info
-autoload -Uz add-zsh-hook
-
-zstyle ':vcs_info:*' formats '%F{magenta}(%s)-[%b]%f'
-zstyle ':vcs_info:*' actionformats '%F{red}(%s)-[%b|%a]%f'
-
-function _update_vcs_info_msg() {
-  LANG=en_US.UTF-8 vcs_info
-  RPROMPT="${vcs_info_msg_0_}"
-}
-add-zsh-hook precmd _update_vcs_info_msg
+#autoload -Uz vcs_info
+#autoload -Uz add-zsh-hook
+#
+#zstyle ':vcs_info:*' formats '%F{magenta}(%s)-[%b]%f'
+#zstyle ':vcs_info:*' actionformats '%F{red}(%s)-[%b|%a]%f'
+#
+#function _update_vcs_info_msg() {
+#  LANG=en_US.UTF-8 vcs_info
+#  RPROMPT="${vcs_info_msg_0_}"
+#}
+#add-zsh-hook precmd _update_vcs_info_msg
 
 
 ########################################
