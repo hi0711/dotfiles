@@ -1,0 +1,16 @@
+defutf8 on
+defencoding utf8
+encoding utf8 utf8
+startup_message off
+vbell off
+### エスケープキー設定 ###
+escape ^Tt
+### スクロール行数 ###
+defscrollback 10000
+### vimのバッファを消す###
+altscreen on
+### 256色対応 ###
+defbce on
+term xterm-256color
+### デフォルトのshell設定 ###
+shell $SHELL
