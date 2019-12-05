@@ -119,14 +119,14 @@ bindkey "^I" menu-complete   # 展開する前に補完候補を出させる(Ctr
 #local LIGHT_BLUE=$'%{^[[1;36m%}'$
 #local WHITE=$'%{^[[1;37m%}'$
 
-
 ### 履歴の検索 ###
+# {{{
 autoload history-search-end
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
 bindkey "^P" history-beginning-search-backward-end
 bindkey "^N" history-beginning-search-forward-end
-
+# }}}
 
 ### オプション###
 # {{{
