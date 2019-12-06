@@ -214,6 +214,7 @@ alias tx='tmux'
 # screen関連
 alias s='screen'
 alias ss='screen -S'
+alias sr='screen -r'
 alias sls='screen -ls'
 alias kas='screen -r -X quit'
 #}}}
