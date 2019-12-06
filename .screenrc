@@ -13,4 +13,4 @@ altscreen on
 defbce on
 term xterm-256color
 ### デフォルトのshell設定 ###
-shell $SHELL
+shell /usr/local/bin/zsh
