@@ -8,5 +8,13 @@
     "hg",
     "jobs",
     "root"
-  ]
+  ],
+  "mode": "flat",
+  "cwd": {
+    "max_dir_size": 3,
+    "full_cwd": true
+  },
+  "vcs": {
+    "show_symbol": true
+  }
 }
