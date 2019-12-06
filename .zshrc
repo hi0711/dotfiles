@@ -1,3 +1,5 @@
+### global setting ###
+# {{{
 # 環境変数
 export LANG=ja_JP.UTF-8
 
@@ -16,6 +18,7 @@ alias zmv='noglob zmv -W'
 HISTFILE=~/.zsh_history
 HISTSIZE=1000000
 SAVEHIST=1000000
+# }}}
 
 ### pure-prompt 使用 ###
 # {{{
@@ -37,7 +40,10 @@ if ! zplug check --verbose; then
 fi
 # コマンドをリンクして、PATH に追加し、プラグインは読み込む
 zplug load --verbose
-# 関数
+# }}}
+
+### powerline-shellの設定 ###
+# {{{
 function powerline_precmd() {
     PS1="$(powerline-shell --shell zsh $?)"
 }
@@ -53,20 +59,6 @@ if [ "$TERM" != "linux" ]; then
     install_powerline_precmd
 fi
 # }}}
-
-# fpathの設定
-fpath=($(brew --prefix)/share/zsh/functions $fpath)
-
-#for zsh-completions
-fpath=(/usr/local/share/zsh-completions $fpath)
-
-# 単語の区切り文字を指定する
-autoload -Uz select-word-style
-select-word-style default
-  # ここで指定した文字は単語区切りとみなされる
-  # / も区切りと扱うので、^W でディレクトリ１つ分を削除できる
-  zstyle ':zle:*' word-chars " /=;@:{},|"
-  zstyle ':zle:*' word-style unspecified
 
 ### 補完 ###
 # {{{
@@ -108,16 +100,6 @@ setopt extended_glob  # 拡張グロブで補完(~とか^とか。例えばless 
 setopt globdots # 明確なドットの指定なしで.から始まるファイルをマッチ
 bindkey "^I" menu-complete   # 展開する前に補完候補を出させる(Ctrl-iで補完するようにする)
 # }}}
-
-# 色の定義
-#local DEFAULT=$'%{^[[m%}'$
-#local RED=$'%{^[[1;31m%}'$
-#local GREEN=$'%{^[[1;32m%}'$
-#local YELLOW=$'%{^[[1;33m%}'$
-#local BLUE=$'%{^[[1;34m%}'$
-#local PURPLE=$'%{^[[1;35m%}'$
-#local LIGHT_BLUE=$'%{^[[1;36m%}'$
-#local WHITE=$'%{^[[1;37m%}'$
 
 ### 履歴の検索 ###
 # {{{
@@ -175,17 +157,6 @@ bindkey '^\^' cdup
 
 ### エイリアス ###
 # {{{
-# finderで開いているディレクトリに移動
-cdf () {
-  target=`osascript -e 'tell application "Finder" to if (count of Finder windows) > 0 then get POSIX path of (target of front Finder window as text)'`
-  if [ "$target" != "" ]
-  then
-    cd "$target"
-    pwd
-  else
-    echo 'No Finder window found' >&2
-  fi
-}
 # git関連コマンド
 alias g='git'
 alias gf='git flow'
@@ -205,8 +176,6 @@ alias gmy='git mylog'
 alias gme='git merge'
 alias gre='git rebase'
 alias gst='git status --short --branch'
-# git-completionの設定
-fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
 # その他エイリアス
 alias nv='nvim'
 alias nvsjis='nvim -c ":e ++enc=sjis" -c ":setlocal fenc=sjis"'
@@ -297,7 +266,6 @@ fshow() {
 # tm - create new tmux session, or switch to existing one. Works from within tmux too. (@bag-man)
 # `tm` will allow you to select your tmux session via fzf.
 # `tm irc` will attach to the irc session (if it exists), else it will create it.
-
 tm() {
   [[ -n "$TMUX" ]] && change="switch-client" || change="attach-session"
   if [ $1 ]; then
@@ -305,7 +273,6 @@ tm() {
   fi
   session=$(tmux list-sessions -F "#{session_name}" 2>/dev/null | fzf --exit-0) &&  tmux $change -t "$session" || echo "No sessions found."
 }
-
 # select-history - historyをfzfで絞り込んで標準出力として返す
 function select-history() {
   BUFFER=$(history -n -r 1 | fzf --no-sort +m --query "$LBUFFER" --prompt="History > ")
@@ -317,6 +284,19 @@ bindkey '^r' select-history
 
 ### その他設定 ###
 # {{{
+# fpathの設定
+fpath=($(brew --prefix)/share/zsh/functions $fpath)
+#for zsh-completions
+fpath=(/usr/local/share/zsh-completions $fpath)
+# git-completionの設定
+fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
+# 単語の区切り文字を指定する
+autoload -Uz select-word-style
+select-word-style default
+# ここで指定した文字は単語区切りとみなされる
+# / も区切りと扱うので、^W でディレクトリ１つ分を削除できる
+zstyle ':zle:*' word-chars " /=;@:{},|"
+zstyle ':zle:*' word-style unspecified
 # 範囲指定できるようにする
 # 例 : mkdir {1-3} で フォルダ1, 2, 3を作れる
 setopt brace_ccl
@@ -328,6 +308,17 @@ zstyle ':completion:*:*:-subscript-:*' tag-order indexes parameters
 zstyle ':completion:*' use-cache true
 # オブジェクトファイルとか中間ファイルとかはfileとして補完させない
 zstyle ':completion:*:*files' ignored-patterns '*?.o' '*?~' '*\#'
+# finderで開いているディレクトリに移動
+cdf () {
+  target=`osascript -e 'tell application "Finder" to if (count of Finder windows) > 0 then get POSIX path of (target of front Finder window as text)'`
+  if [ "$target" != "" ]
+  then
+    cd "$target"
+    pwd
+  else
+    echo 'No Finder window found' >&2
+  fi
+}
 # HomeBrew file関連
 if [ -f $(brew --prefix)/etc/brew-wrap ];then
   source $(brew --prefix)/etc/brew-wrap
