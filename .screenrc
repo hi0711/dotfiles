@@ -7,7 +7,7 @@ bind q only
 # 設定ファイル読み込み
 bind t eval 'source ~/.screenrc' 'echo "source ~/.screenrc"'
 # スクロール行数
-defscrollback 10000
+defscrollback 100000
 # autodetachの設定
 autodetach on
 # message設定
@@ -28,6 +28,7 @@ encoding utf8 utf8
 startup_message off
 vbell off
 defmousetrack on
+termcapinfo xterm* ti@:te@
 hardstatus alwayslastline "[%02c] %`%-w%{=b bw}%n %t%{-}%+w"
 # }}}
 
