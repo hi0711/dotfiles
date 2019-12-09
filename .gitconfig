@@ -6,7 +6,7 @@
 [push]
   default = current
 [core]
-  excludesfile = ~/.gitignore_global
+  excludesfile = ~/.gitignore
   editor = nvim
 [diff]
   tool = nvimdiff
