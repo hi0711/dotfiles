@@ -185,3 +185,11 @@ hook_add = '''
     endif
   endfunction
 '''
+[[plugins]]
+repo ='vim-scripts/taglist.vim'
+hook_add='''
+  let Tlist_Highlight_Tag_On_BufEnter = 1
+  let Tlist_Show_One_File = 1
+'''
+[[plugins]]
+repo = 'jwalton512/vim-blade'

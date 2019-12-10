@@ -39,6 +39,7 @@ if has('vim_starting') && dein#check_install()
 endif
 filetype plugin indent on
 " }}}
+
 " ----------------------------------------
 "  Basic Settings
 " ----------------------------------------
@@ -164,6 +165,7 @@ set write
 " Rename {新しいファイル名}
   command! -nargs=1 -complete=file Rename file <args> | call delete(expand('#'))
 "}}}
+
 " ----------------------------------------
 "  filetype settings
 " ----------------------------------------
@@ -184,6 +186,7 @@ set write
     au BufNewFile,BufRead *.pug set tabstop=2 shiftwidth=2
   augroup END
 "}}}
+
 " ----------------------------------------
 "  キーマッピング設定
 " ----------------------------------------
@@ -323,11 +326,14 @@ set write
   cnoremap <C-p> <Up>
 " control lの設定
   nnoremap <Leader>l :nohlsearch<cr>:diffupdate<cr>:syntax sync fromstart<cr><c-l>
+" ctagsのタグジャンプ
+  nnoremap <C-]> g<C-]>
 " ターミナルモードの設定(nvim限定)
   if has('nvim')
     tnoremap <silent><C-[> <C-\><C-n>
   endif
 "}}}
+
 " ----------------------------------------
 " Qfixhowmの設定
 " ----------------------------------------
@@ -350,6 +356,7 @@ set write
   " オートリンクでファイルを開く
   let QFixHowm_Wiki = 1
 "}}}
+
 " ----------------------------------------
 " deniteの設定
 " ----------------------------------------
@@ -369,6 +376,7 @@ set write
   nnoremap <silent> <C-k><C-y> :<C-u>Denite neoyank -start-filter<CR>
   nnoremap <silent> <C-k><C-]> :<C-u>DeniteCursorWord grep -start-filter<CR>
 "}}}
+
 " ----------------------------------------
 " vim easymotionの設定
 " ----------------------------------------
@@ -395,6 +403,7 @@ set write
   " nmap ww <Plug>(easymotion-w)
   nmap WW <Plug>(easymotion-bd-w)
 "}}}
+
 " ----------------------------------------
 " HTML閉じタグ自動補完
 " ----------------------------------------
@@ -405,6 +414,7 @@ set write
     autocmd Filetype eruby inoremap <buffer> </ </<C-x><C-o>
   augroup END
 "}}}
+
 " ----------------------------------------
 " ----------------------------------------
 " fzfの設定
@@ -414,6 +424,7 @@ set write
   nnoremap <silent>t <C-u>:Files<CR>
   "nnoremap <silent>r <C-u>:Tags<CR>
 "}}}
+
 " ----------------------------------------
 "  色設定
 " ----------------------------------------
@@ -427,3 +438,4 @@ set write
     autocmd WinLeave * set nocursorline
     autocmd WinEnter,BufRead * set cursorline
 "}}}
+
