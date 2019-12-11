@@ -188,6 +188,18 @@ set write
 "}}}
 
 " ----------------------------------------
+"  コード別aleの設定
+" ----------------------------------------
+
+let g:ale_linters = {
+    \ 'php': ['phpcs'],
+\}
+
+let g:ale_php_phpcs_executable = '/usr/local/bin/phpcs'
+let g:ale_php_phpcs_standard = 'PSR2'
+let g:ale_php_phpcs_use_global = 1
+
+" ----------------------------------------
 "  キーマッピング設定
 " ----------------------------------------
 "{{{

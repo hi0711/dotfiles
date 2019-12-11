@@ -1,3 +1,11 @@
+--exclude=*min.js
+--input-encoding=UTF-8
+--recurse=yes
+
+--langdef=php
+--langmap=PHP:+.php.inc.tpl
+--pattern-length-limit=300
+
 --langdef=scss
 --langmap=scss:.scss
 --regex-scss=/^[ \t]*@mixin ([A-Za-z0-9_-]+)/\1/m,mixin,mixins/

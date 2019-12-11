@@ -193,3 +193,15 @@ hook_add='''
 '''
 [[plugins]]
 repo = 'jwalton512/vim-blade'
+[[plugins]]
+repo ='dense-analysis/ale'
+[[plugins]]
+repo = 'tomtom/tcomment_vim'
+hook_add = '''
+  if !exists('g:tcomment_types')
+      let g:tcomment_types = {}
+  endif
+  let g:tcomment_types['blade'] = '{{-- %s --}}'
+'''
+[[plugins]]
+repo = 'noahfrederick/vim-laravel'
