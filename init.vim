@@ -190,7 +190,7 @@ set write
 " ----------------------------------------
 "  コード別aleの設定
 " ----------------------------------------
-
+"{{{
 let g:ale_linters = {
     \ 'php': ['phpcs'],
 \}
@@ -198,6 +198,7 @@ let g:ale_linters = {
 let g:ale_php_phpcs_executable = '/usr/local/bin/phpcs'
 let g:ale_php_phpcs_standard = 'PSR2'
 let g:ale_php_phpcs_use_global = 1
+"}}}
 
 " ----------------------------------------
 "  キーマッピング設定
@@ -337,7 +338,7 @@ let g:ale_php_phpcs_use_global = 1
   cnoremap <C-n> <Down>
   cnoremap <C-p> <Up>
 " control lの設定
-  nnoremap <Leader>l :nohlsearch<cr>:diffupdate<cr>:syntax sync fromstart<cr><c-l>
+  nnoremap <Leader>l :nohlsearch<cr>:diffupdate<cr>:syntax sync fromstart<cr><c-l>zz
 " ctagsのタグジャンプ
   nnoremap <C-]> g<C-]>
 " ターミナルモードの設定(nvim限定)
