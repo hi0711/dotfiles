@@ -9,8 +9,7 @@ depend = ['neomru.vim']
 on_event = 'Bufread'
 hook_post_source = '''
   call denite#custom#var('file_rec', 'command',
-        \ ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
-  call denite#custom#var('grep', 'command', ['ag'])
+        \ ['--follow', '--nocolor', '--nogroup', '-g', ''])
   call denite#custom#var('grep', 'recursive_opts', [])
   call denite#custom#var('grep', 'final_opts', [])
   call denite#custom#var('grep', 'separator', [])
@@ -27,9 +26,6 @@ on_path = '.*'
 repo = 'Shougo/neoyank.vim'
 depends = 'denite.nvim'
 on_event = 'TextYankPost'
-
-[[plugins]]
-repo = 'rking/ag.vim'
 
 # [[plugins]]
 # repo = 'Shougo/deoplete.nvim'
@@ -178,7 +174,6 @@ hook_add = '''
       let g:tcomment_types = {}
   endif
   let g:tcomment_types['blade'] = '{{-- %s --}}'
-  let g:tcomment_types['eruby'] = '<%# %s %>'
 '''
 
 [[plugins]]

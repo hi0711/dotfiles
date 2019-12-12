@@ -478,9 +478,11 @@ nnoremap <silent> gh :<C-u>call CocAction('doHover')<CR>
   syntax enable
 " カーソルライン設定
   set cursorline
-  "augroup cch
+  augroup cch
     autocmd WinLeave * set nocursorline
     autocmd WinEnter,BufRead * set cursorline
+  hi clear Visual
+  hi Visual ctermfg=255 ctermbg=240 guifg=#eff0f4 guibg=#5b6389
 "}}}
 
 " vim: set ts=2 sw=2 :

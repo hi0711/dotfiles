@@ -30,3 +30,8 @@ Temporary Items
 
 .vimrc.local
 tags
+.githooks/post-checkout
+Vagrantfile
+mutagen.yml*
+ubuntu-*.log
+.vagrant/*

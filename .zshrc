@@ -186,7 +186,7 @@ alias s='screen'
 alias ss='screen -S'
 alias sr='screen -r'
 alias sls='screen -ls'
-alias kas='find /tmp/uscreens/S-hi0711 -exec rm -rf {} +'
+alias kas='find /tmp/uscreens/S-c02w61dthv2h -exec rm -rf {} +'
 #}}}
 
 ### グローバルエイリアス ###
@@ -366,4 +366,9 @@ export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46
 if [ ~/.zshrc -nt ~/.zshrc.zwc ]; then
   zcompile ~/.zshrc
 fi
+# }}}
+
+### zコマンド###
+# {{{
+. ~/z/z.sh
 # }}}
