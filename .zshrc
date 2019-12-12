@@ -216,7 +216,7 @@ alias s='screen'
 alias ss='screen -S'
 alias sr='screen -r'
 alias sls='screen -ls'
-alias kas='find /tmp/uscreens/S-c02w61dthv2h -exec rm -rf {} +'
+alias kas='find /tmp/uscreens/S-hi0711 -exec rm -rf {} +'
 #}}}
 
 ### グローバルエイリアス ###
