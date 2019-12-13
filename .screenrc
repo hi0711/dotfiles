@@ -11,10 +11,10 @@ defscrollback 100000
 # autodetachの設定
 autodetach on
 # message設定
-# Time (second) to wait new message
-msgminwait 0
-# Time (second) to show message
-msgwait 5
+  # Time (second) to wait new message
+  msgminwait 0
+  # Time (second) to show message
+  msgwait 5
 # 検索設定
 ignorecase on
 # デフォルトのshell設定
@@ -58,6 +58,59 @@ bind -c resize ^j eval 'command -c resize' 'resize -v +1'
 bind -c resize ^k eval 'command -c resize' 'resize -v -1'
 # windowのkill
 bind x kill
+# Layout
+  # Layoutコマンド
+  bind ^w eval 'command -c layout' 'layout show'
+  bind -c layout ^w eval 'command -c layout' 'layout show'
+  # Layoutの作成/削除
+  bind -c layout c eval 'command -c layout' 'layout new' 'layout show'
+  bind -c layout x eval 'command -c layout' 'layout remove' 'layout show'
+  # Layoutのタイトルと番号入力
+  bind -c layout T colon 'layout title '
+  bind -c layout N colon 'layout number '
+  # Layoutの移動
+  bind -c layout n eval 'layout next' 'layout show'
+  bind -c layout p eval 'layout prev' 'layout show'
+  bind -c layout ^N eval 'command -c layout' 'layout next' 'layout show'
+  bind -c layout ^P eval 'command -c layout' 'layout prev' 'layout show'
+  # Layoutの番号選択
+  bind -c layout 0 eval 'command -c layout' 'layout select 0' 'layout show'
+  bind -c layout 1 eval 'command -c layout' 'layout select 1' 'layout show'
+  bind -c layout 2 eval 'command -c layout' 'layout select 2' 'layout show'
+  bind -c layout 3 eval 'command -c layout' 'layout select 3' 'layout show'
+  bind -c layout 4 eval 'command -c layout' 'layout select 4' 'layout show'
+  bind -c layout 5 eval 'command -c layout' 'layout select 5' 'layout show'
+  bind -c layout 6 eval 'command -c layout' 'layout select 6' 'layout show'
+  bind -c layout 7 eval 'command -c layout' 'layout select 7' 'layout show'
+  bind -c layout 8 eval 'command -c layout' 'layout select 8' 'layout show'
+  bind -c layout 9 eval 'command -c layout' 'layout select 9' 'layout show'
+  # Layoutの初期化
+  bind -c layout i eval 'screen' 'screen' 'screen' 'source $HOME/.screen/all.layout'
+  bind -c layout ^i eval 'screen' 'screen' 'screen' 'source $HOME/.screen/all.layout'
+  # Layoutのリセット
+  bind -c layout r eval 'source $HOME/.screen/all.layout'
+  bind -c layout ^r eval 'source $HOME/.screen/all.layout'
+  # Layoutの適用
+  bind -c layout m eval 'command -c layoutm' 'echo "0 only, l 4-windows, 2 3-win_1-top, 3 3-win_1-top, 4 monitor (1 top, 3 small bottoms), 5 split, 6 vsplit, "'
+  bind -c layoutm 0 eval 'source $HOME/.screen/only.layout'
+  bind -c layoutm 1 eval 'source $HOME/.screen/4-windows.layout'
+  bind -c layoutm 2 eval 'source $HOME/.screen/3-win_1-top.layout'
+  bind -c layoutm 3 eval 'source $HOME/.screen/3-win_1-left.layout'
+  bind -c layoutm 4 eval 'source $HOME/.screen/monitor.layout'
+  bind -c layoutm 5 eval 'source $HOME/.screen/split.layout'
+  bind -c layoutm 6 eval 'source $HOME/.screen/vsplit.layout'
+  # Layoutの保存
+  bind -c layout s eval 'command -c layouts' 'layout show'
+  bind -c layouts 0 eval 'layout save 0' 'echo "save to 0"'
+  bind -c layouts 1 eval 'layout save 1' 'echo "save to 1"'
+  bind -c layouts 2 eval 'layout save 2' 'echo "save to 2"'
+  bind -c layouts 3 eval 'layout save 3' 'echo "save to 3"'
+  bind -c layouts 4 eval 'layout save 4' 'echo "save to 4"'
+  bind -c layouts 5 eval 'layout save 5' 'echo "save to 5"'
+  bind -c layouts 6 eval 'layout save 6' 'echo "save to 6"'
+  bind -c layouts 7 eval 'layout save 7' 'echo "save to 7"'
+  bind -c layouts 8 eval 'layout save 8' 'echo "save to 8"'
+  bind -c layouts 9 eval 'layout save 9' 'echo "save to 9"'
 # }}}
 
 ### focus操作 ###
