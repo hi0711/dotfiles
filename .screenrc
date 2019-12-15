@@ -1,3 +1,11 @@
+### 色の設定 ###
+# {{{
+defbce on
+attrcolor b ".I"
+truecolor on
+term xterm-256color
+# }}}
+
 ### 基本設定 ###
 # {{{
 # エスケープキー設定
@@ -5,7 +13,7 @@ escape ^Tt
 # Onlyのキー
 bind q only
 # 設定ファイル読み込み
-bind t eval 'source ~/.screenrc' 'echo "source ~/.screenrc"'
+bind ^t eval 'source ~/.screenrc' 'echo "source ~/.screenrc"'
 # スクロール行数
 defscrollback 100000
 # autodetachの設定
@@ -35,13 +43,13 @@ hardstatus alwayslastline "[%02c] %`%-w%{=b bw}%n %t%{-}%+w"
 ### window操作 ###
 # {{{
 # windowの移動
-bind e eval 'command -c window' 'echo Move window'
 bind ^n eval 'next'
 bind ^p eval 'prev'
+bind ^e eval 'command -c window' 'echo Move window'
 bind ^n eval 'command -c next'
 bind ^p eval 'command -c prev'
-bind -c window n eval 'next'
-bind -c window p eval 'prev'
+# bind -c window n eval 'next'
+# bind -c window p eval 'prev'
 bind -c window ^n eval 'command -c window' 'next'
 bind -c window ^p eval 'command -c window' 'prev'
 bind -c window ^q eval 'command -c window'
@@ -126,11 +134,4 @@ bind ^j eval    'focus down'
 bind \015  eval 'focus down' # Enter
 bind ^k eval    'focus up'
 bind ^l eval    'focus right'
-# }}}
-
-### 色の設定 ###
-# {{{
-defbce on
-truecolor on
-term xterm-256color
 # }}}
