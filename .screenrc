@@ -1,15 +1,7 @@
-### 色の設定 ###
-# {{{
-defbce on
-attrcolor b ".I"
-truecolor on
-term xterm-256color
-# }}}
-
 ### 基本設定 ###
 # {{{
 # エスケープキー設定
-escape ^Tt
+escape ^Ww
 # Onlyのキー
 bind q only
 # 設定ファイル読み込み
@@ -38,6 +30,14 @@ vbell off
 defmousetrack on
 termcapinfo xterm* ti@:te@
 hardstatus alwayslastline "[%02c] %`%-w%{=b bw}%n %t%{-}%+w"
+# }}}
+
+### 色の設定 ###
+# {{{
+defbce on
+attrcolor b ".I"
+truecolor on
+term xterm-256color
 # }}}
 
 ### window操作 ###

@@ -285,6 +285,10 @@ function select-history() {
 }
 zle -N select-history
 bindkey '^r' select-history
+# fgc - gitのcheckoutにfzfを使う
+alias fgc='git branch -a | fzf | xargs git checkout'
+# fgd - gitのdiffにfzfを使う
+alias fgd='git branch -a | fzf | xargs git diff'
 # }}}
 
 ### その他設定 ###
