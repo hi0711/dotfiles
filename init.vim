@@ -206,6 +206,8 @@ let g:ale_php_phpcs_use_global = 1
 "{{{
 " Yを行末までのヤンクにする
   nnoremap Y y$
+" タグジャンプがscreenと競合するので変更
+  nnoremap <C-t> <C-b>
 " 閉じ括弧補完
   inoremap " ""<ESC>i
   inoremap ' ''<ESC>i
