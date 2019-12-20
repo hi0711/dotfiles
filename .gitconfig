@@ -9,14 +9,12 @@
   excludesfile = ~/.gitignore
   editor = nvim
 [diff]
-  tool = nvimdiff
-[difftool]
-  cmd = "nvim -R -d -c \"wincmd l\" -d \"$LOCAL\" \"$REMOTE\""
+  tool = vimdiff
 [merge]
   ff = false
   conflictsstyle = diff3
-[mergetool "nvimdiff"]
-  cmd = nvim -f -c \"Gdiff\" \"$MERGED\"
+[mergetool]
+  tool = vimdiff
 [deff]
   renames = true
 [branch]

@@ -1,7 +1,7 @@
 ### 基本設定 ###
 # {{{
 # エスケープキー設定
-escape ^Ww
+escape ^Tt
 # Onlyのキー
 bind q only
 # 設定ファイル読み込み
