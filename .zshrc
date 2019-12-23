@@ -291,6 +291,35 @@ alias fgc='git branch -a | fzf | xargs git checkout'
 alias fgd='git branch -a | fzf | xargs git diff'
 # }}}
 
+### multi_clipboard設定 ###
+# {{{
+export SCREENEXCHANGE=$HOME/.screen-exchange
+export SCREEN_MSGMINWAIT=1
+export CLIPBOARD=$HOME/.clipboard
+export CLMAXHIST=20
+export CLSEP=$'\x07'
+export CLX=""
+if [[ "$OSTYPE" =~ "linux" ]];then
+  if which -s xsel;then
+    export CLXOS="xsel"
+  elif which -s xsel;then
+    export CLXOS="xclip"
+  fi
+elif [[ "$OSTYPE" =~ "cygwin" ]];then
+  if which -s putclip;then
+    export CLXOS="putclip"
+  elif which -s xsel;then
+    export CLXOS="xsel"
+  elif which -s xsel;then
+    export CLXOS="xclip"
+  fi
+elif [[ "$OSTYPE" =~ "darwin" ]];then
+  if which -s pbcopy;then
+    export CLXOS="pbcopy"
+  fi
+fi
+# }}}
+
 ### その他設定 ###
 # {{{
 # fpathの設定

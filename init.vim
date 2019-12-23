@@ -51,6 +51,7 @@ let g:yankring_clipboard_monitor=0
 set ambiwidth=double
 set backspace=2
 set clipboard=unnamed
+set cmdheight=2
 set diffopt=vertical
 set display=lastline
 set expandtab
@@ -75,8 +76,10 @@ set ruler
 set so=7
 set sh=zsh
 set shiftwidth=2
+set shortmess+=c
 set showcmd
 set showmatch
+set signcolumn=yes
 set smartcase
 set smartindent
 set smarttab
@@ -202,13 +205,15 @@ nmap <leader>rn <Plug>(coc-rename)
 autocmd CursorHold * silent call CocActionAsync('highlight')
 " Use K for show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
-function! s:show_documentation()
-  if &filetype == 'vim'
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
+" Hover表示
+nnoremap <silent> gh :<C-u>call CocAction('doHover')<cr>
+" function! s:show_documentation()
+"   if &filetype == 'vim'
+"     execute 'h '.expand('<cword>')
+"   else
+"     call CocAction('doHover')
+"   endif
+" endfunction
 "}}}
 
 " ----------------------------------------
@@ -230,8 +235,6 @@ let g:ale_php_phpcs_use_global = 1
 "{{{
 " Yを行末までのヤンクにする
   nnoremap Y y$
-" タグジャンプがscreenと競合するので変更
-  nnoremap <C-t> <C-b>
 " 閉じ括弧補完
   inoremap " ""<ESC>i
   inoremap ' ''<ESC>i
