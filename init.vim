@@ -226,7 +226,7 @@ let g:ale_linters = {
 
 let g:ale_php_phpcs_executable = '/usr/local/bin/phpcs'
 let g:ale_php_phpcs_standard = 'PSR2'
-let g:ale_php_phpcs_use_global = 1
+let g:ale_php_phpcs_use_global = 0
 "}}}
 
 " ----------------------------------------
@@ -235,6 +235,8 @@ let g:ale_php_phpcs_use_global = 1
 "{{{
 " Yを行末までのヤンクにする
   nnoremap Y y$
+" screenコマンドとバッティングするので変更
+  nnoremap <silent><C-b> :<C-u>pop<CR>
 " 閉じ括弧補完
   inoremap " ""<ESC>i
   inoremap ' ''<ESC>i
