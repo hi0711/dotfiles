@@ -465,10 +465,11 @@ let g:ale_php_phpcs_use_global = 0
 " fzfの設定
 " ----------------------------------------
 "{{{
-  nnoremap <silent>: <C-u>:Buffers<CR>
-  nnoremap <silent>t <C-u>:Files<CR>
-  nnoremap q: <C-u>:History:<CR>
-  nnoremap <silent><Leader>? <C-u>:GFiles?<CR>
+  nnoremap <silent>: <C-u>:Buffers<CR>'
+  nnoremap <silent>t <C-u>:Files<CR>'
+  nnoremap q: <C-u>:History:<CR>'
+  nnoremap <silent><Leader>? <C-u>:GFiles?<CR>'
+  nnoremap <silent><Leader>f <C-u>:GFiles<CR>'
   "nnoremap <silent>r <C-u>:Tags<CR>
 "}}}
 

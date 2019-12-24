@@ -253,6 +253,7 @@ fd() {
     -o -type d -print 2> /dev/null | fzf +m) &&
     cd "$dir"
   }
+export FZF_DEFAULT_COMMAND='fd --ignore .git -g ""'
 # fda - including hidden directories
 fda() {
   local dir
