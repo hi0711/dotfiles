@@ -1,31 +1,23 @@
 #!/bin/bash -ex
 
 BRANCH_NAME='master'
-
 branch=`git rev-parse --abbrev-ref HEAD` || exit
 
-if [ $# != 1 ]; then
-  if [ ${branch} = ${BRANCH_NAME} ]; then
-    git add .
-    git commit -m "updated files"
-    git push -u origin master
-  else
-    echo "$(tput setaf 2)not master branch!$(tput sgr0)"
-    git checkout master
-    git add .
-    git commit -m "updated files"
-    git push -u origin master
-  fi
+echo "commit message:"
+read mess
+
+if [ ${branch} != ${BRANCH_NAME} ]; then
+  echo "$(tput setaf 1)not master branch!$(tput sgr0)"
+  sleep 3
+  git stash && git checkout master && git stash pop
+  git add .
 else
-  if [ ${branch} = ${BRANCH_NAME} ]; then
-    git add .
-    git commit -m $1
-    git push -u origin master
-  else
-    echo "$(tput setaf 2)not master branch!$(tput sgr0)"
-    git checkout master
-    git add .
-    git commit -m $1
-    git push -u origin master
-  fi
+  git add .
 fi
+
+case "$mess" in
+  "") git commit -m "Updated files";;
+  *) git commit -m $mess;;
+esac
+
+git push -u origin master
