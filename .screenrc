@@ -164,15 +164,15 @@ bind -c mc p eval 'command -c mc' 'exec multi_clipboard -S -p'
 bind -c mc ^p eval 'command -c mc' 'exec multi_clipboard -S -p'
 
 # Quit
-bind -c mc q eval 'exec multi_clipboard -S -q'
-bind -c mc ^q eval 'exec multi_clipboard -S -q'
+# bind -c mc q eval 'exec multi_clipboard -S -q'
+# bind -c mc ^q eval 'exec multi_clipboard -S -q'
 
 # Choose and Quit
 bind -c mc ' ' eval 'exec multi_clipboard -S -s'
 
 # Launch selection window
 # C-a q : default is xon (Send a control-q to the current window.)
-bind q screen -t multi_clipboard -p - multi_clipboard -W
+# bind q screen -t multi_clipboard -p - multi_clipboard -W
 
 # OS clipboard
 bind A eval 'exec /bin/sh -c "if type multi_clipboard >/dev/null 2>&1;then multi_clipboard -x;fi"' 'echo "copied to OS clipboard"'

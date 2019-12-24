@@ -290,6 +290,8 @@ bindkey '^r' select-history
 alias fgc='git branch -a | fzf | xargs git checkout'
 # fgd - gitのdiffにfzfを使う
 alias fgd='git branch -a | fzf | xargs git diff'
+# fnv - neovimの引数をfzfする
+alias fnv='nvim $(find . | fzf )'
 # }}}
 
 ### multi_clipboard設定 ###
