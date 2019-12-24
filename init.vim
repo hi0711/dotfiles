@@ -206,7 +206,7 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 " Use K for show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 " Hover表示
-nnoremap <silent> gh :<C-u>call CocAction('doHover')<cr>
+nnoremap <silent> gh :<C-u>call CocAction('doHover')<CR>
 " function! s:show_documentation()
 "   if &filetype == 'vim'
 "     execute 'h '.expand('<cword>')
@@ -235,8 +235,6 @@ let g:ale_php_phpcs_use_global = 0
 "{{{
 " Yを行末までのヤンクにする
   nnoremap Y y$
-" screenコマンドとバッティングするので変更
-  nnoremap <silent><C-b> :<C-u>pop<CR>
 " 閉じ括弧補完
   inoremap " ""<ESC>i
   inoremap ' ''<ESC>i
@@ -261,8 +259,9 @@ let g:ale_php_phpcs_use_global = 0
 " 行の最後尾に移動
   nnoremap <Leader>e $
 " insertモードから抜ける
-  inoremap jj <ESC>:up<CR>
-  inoremap <C-j> <ESC>:up<CR>
+  inoremap <silent>jk <ESC>:up<CR>
+  inoremap <silent>kj <ESC>:up<CR>
+  inoremap <silent><C-j> <ESC>:up<CR>
 " カーソル操作
   inoremap <C-a> <Home>
   inoremap <C-e> <End>
@@ -280,8 +279,8 @@ let g:ale_php_phpcs_use_global = 0
   noremap gj j
   noremap gk k
 " 現在行を入れ替える
-  nnoremap [e  :<c-u>execute 'move -1-'. v:count1<cr>
-  nnoremap ]e  :<c-u>execute 'move +'. v:count1<cr>
+  nnoremap [e  :<C-u>execute 'move -1-'. v:count1<CR>
+  nnoremap ]e  :<C-u>execute 'move +'. v:count1<CR>
 " 半ページ移動(中央維持
   noremap H <C-u>zz
   noremap L <C-d>zz
@@ -369,9 +368,11 @@ let g:ale_php_phpcs_use_global = 0
   cnoremap <C-n> <Down>
   cnoremap <C-p> <Up>
 " control lの設定
-  nnoremap <Leader>l :nohlsearch<cr>:diffupdate<cr>:syntax sync fromstart<cr><c-l>zz
+  nnoremap <Leader>l :nohlsearch<CR>:diffupdate<CR>:syntax sync fromstart<CR><C-l>zz
 " ctagsのタグジャンプ
   nnoremap <C-]> g<C-]>
+" screenコマンドとタグジャンプがバッティングするので変更
+  nnoremap <silent><C-b> :<C-u>pop<CR>
 " ターミナルモードの設定(nvim限定)
   if has('nvim')
     tnoremap <silent><C-[> <C-\><C-n>
@@ -466,6 +467,7 @@ let g:ale_php_phpcs_use_global = 0
 "{{{
   nnoremap <silent>: <C-u>:Buffers<CR>
   nnoremap <silent>t <C-u>:Files<CR>
+  nnoremap q: <C-u>:History:<CR>
   "nnoremap <silent>r <C-u>:Tags<CR>
 "}}}
 
