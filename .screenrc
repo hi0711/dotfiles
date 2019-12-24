@@ -30,6 +30,7 @@ vbell off
 defmousetrack on
 termcapinfo xterm* ti@:te@
 hardstatus alwayslastline "[%02c] %`%-w%{=b bw}%n %t%{-}%+w"
+wrap on
 # }}}
 
 ### 色の設定 ###

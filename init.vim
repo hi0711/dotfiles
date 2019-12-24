@@ -73,7 +73,6 @@ set nrformats-=octal
 set nu
 set pumheight=10
 set ruler
-set so=7
 set sh=zsh
 set shiftwidth=2
 set shortmess+=c
@@ -83,6 +82,7 @@ set signcolumn=yes
 set smartcase
 set smartindent
 set smarttab
+set so=7
 set tabstop=2
 set textwidth=0
 set title
