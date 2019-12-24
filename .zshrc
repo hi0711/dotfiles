@@ -226,6 +226,7 @@ alias -g G='| grep'
 alias -g C='| pbcopy'
 alias -g X='| xargs'
 alias -g F='| fzf'
+alias -g S='| sentaku'
 # }}}
 
 ### cntrl-z の設定 ###

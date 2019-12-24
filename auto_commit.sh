@@ -3,9 +3,6 @@
 BRANCH_NAME='master'
 branch=`git rev-parse --abbrev-ref HEAD` || exit
 
-echo "commit message:"
-read mess
-
 if [ ${branch} != ${BRANCH_NAME} ]; then
   echo "$(tput setaf 1)not master branch!$(tput sgr0)"
   sleep 3
@@ -14,6 +11,9 @@ if [ ${branch} != ${BRANCH_NAME} ]; then
 else
   git add .
 fi
+
+echo "$(tput setaf 3)commit message:$(tput sgr0)"
+read mess
 
 case "$mess" in
   "") git commit -m "Updated files";;
