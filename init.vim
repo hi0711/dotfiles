@@ -369,6 +369,8 @@ let g:ale_php_phpcs_use_global = 0
   cnoremap <C-p> <Up>
 " control lの設定
   nnoremap <Leader>l :nohlsearch<CR>:diffupdate<CR>:syntax sync fromstart<CR><C-l>zz
+" very magicの設定
+  nnoremap / /\v
 " ctagsのタグジャンプ
   nnoremap <C-]> g<C-]>
 " screenコマンドとタグジャンプがバッティングするので変更
@@ -467,9 +469,10 @@ let g:ale_php_phpcs_use_global = 0
 "{{{
   nnoremap <silent>: <C-u>:Buffers<CR>'
   nnoremap <silent>t <C-u>:Files<CR>'
-  nnoremap q: <C-u>:History:<CR>'
+  nnoremap <silent>q: <C-u>:History:<CR>'
   nnoremap <silent><Leader>? <C-u>:GFiles?<CR>'
   nnoremap <silent><Leader>f <C-u>:GFiles<CR>'
+  nnoremap <silent><Leader>h <C-u>:History<CR>'
   "nnoremap <silent>r <C-u>:Tags<CR>
 "}}}
 
