@@ -123,10 +123,10 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'lambdalisue/gina.vim'
+repo = 'airblade/vim-gitgutter'
 
 [[plugins]]
-repo = 'airblade/vim-gitgutter'
+repo = 'tpope/vim-fugitive'
 
 [[plugins]]
 repo = 'easymotion/vim-easymotion'
