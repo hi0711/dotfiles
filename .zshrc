@@ -292,7 +292,11 @@ alias fgc='git branch -a | fzf | xargs git checkout'
 # fgd - gitのdiffにfzfを使う
 alias fgd='git branch -a | fzf | xargs git diff'
 # fnv - neovimの引数をfzfする
-alias fnv='nvim $(find . | fzf )'
+fnv() {
+  files=$(git ls-files) &&
+  selected_files=$(echo "$files" | fzf -m --preview 'head -100 {}') &&
+  nvim $selected_files
+}
 # }}}
 
 ### multi_clipboard設定 ###
