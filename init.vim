@@ -58,6 +58,7 @@ set expandtab
 set fdm=marker
 set fencs=utf-8,sjis,euc-jp
 set formatoptions+=t
+set grepprg=rg\ --vimgrep\ --no-heading
 set hidden
 set history=1000
 set hlsearch
@@ -187,6 +188,10 @@ set write
     au BufNewFile,BufRead *.go set tabstop=4 shiftwidth=4 noexpandtab
     au BufNewFile,BufRead *.js set tabstop=4 shiftwidth=4
     au BufNewFile,BufRead *.pug set tabstop=2 shiftwidth=2
+  augroup END
+  augroup diffwrap
+    au!
+    au FilterWritePre * if &diff | setlocal wrap< | endif
   augroup END
 "}}}
 
