@@ -58,7 +58,7 @@ set expandtab
 set fdm=marker
 set fencs=utf-8,sjis,euc-jp
 set formatoptions+=t
-set grepprg=rg\ --vimgrep\ --no-heading
+set grepprg=rg\ --vimgrep\ --no-heading\ -i
 set hidden
 set history=1000
 set hlsearch
@@ -473,7 +473,7 @@ let g:ale_php_phpcs_use_global = 0
 " ----------------------------------------
 "{{{
   nnoremap <silent>: <C-u>:Buffers<CR>'
-  nnoremap <silent>t <C-u>:Files<CR>'
+  nnoremap <silent>t <C-u>:Files<CR>
   nnoremap <silent>q: <C-u>:History:<CR>'
   nnoremap <silent><Leader>? <C-u>:GFiles?<CR>'
   nnoremap <silent><Leader>f <C-u>:GFiles<CR>'
