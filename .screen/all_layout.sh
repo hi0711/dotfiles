@@ -30,5 +30,5 @@ for i in $(seq 0 $((${#LAYOUTS[@]}-1)));do
   $HOME/.screen/layout.sh ${LAYOUTS[$i]} $SET_LAYOUT ${AUTOSAVE[$i]} $WIN_PREPARE
 done
 
-screen -X layout select 4-windows >>$log 2>&1
+screen -X layout select monitor >>$log 2>&1
 

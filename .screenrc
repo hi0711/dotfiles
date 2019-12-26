@@ -41,7 +41,7 @@ truecolor on
 term xterm-256color
 # }}}
 
-### window操作 ###
+### window, layout操作 ###
 # {{{
 # windowの移動
 bind ^n eval 'next'
