@@ -26,7 +26,7 @@
   rb = rebase -i
   push-f = push --force-with-lease
   cb = rev-parse --abbrev-ref HEAD
-  delete-merged-branch = "!f () { git checkout $1; git branch --merged|egrep -v '\\*|develop|master'|xargs git branch -d; };f"
+  delete-merged-branch = "!f () { git checkout $1; git branch --merged|egrep -v '\\*|develop|master|stg'|xargs git branch -d; };f"
   refresh= !git fetch origin && git remote prune origin
   checkout-merge= checkout --conflict=merge
 [pull]
