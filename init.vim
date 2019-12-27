@@ -183,15 +183,13 @@ set write
   augroup filetypeIndent
     au!
     au BufNewFile,BufRead *.scss set tabstop=4 shiftwidth=4
-    au BufNewFile,BufRead *.css set tabstop=2 shiftwidth=2
     au BufNewFile,BufRead *.php set tabstop=4 shiftwidth=4
     au BufNewFile,BufRead *.go set tabstop=4 shiftwidth=4 noexpandtab
     au BufNewFile,BufRead *.js set tabstop=4 shiftwidth=4
-    au BufNewFile,BufRead *.pug set tabstop=2 shiftwidth=2
   augroup END
-  augroup diffwrap
+  augroup diffWrap
     au!
-    au FilterWritePre * if &diff | setlocal wrap< | endif
+    au FilterWritePre * if &diff | setlocal wrap | endif
   augroup END
 "}}}
 
@@ -309,9 +307,6 @@ let g:ale_php_phpcs_use_global = 0
 " ファイルエクスプローラー系
   nnoremap <silent><Leader><Leader>ex :<C-u>e .<CR>
   nnoremap <silent><Leader><Leader>sex :<C-u>Sex<CR>
-" 置換操作
-  nnoremap gs :<C-u>%s///g<Left><Left><Left>
-  vnoremap gs :s///g<Left><Left><Left>
 " 同単語検索設定
   nnoremap * *N
 " タブ操作
@@ -387,7 +382,7 @@ let g:ale_php_phpcs_use_global = 0
 "}}}
 
 " ----------------------------------------
-" Qfixhowmの設定
+"  Qfixhowmの設定
 " ----------------------------------------
 "{{{
   let QFixHowm_key = 'g'
@@ -410,7 +405,7 @@ let g:ale_php_phpcs_use_global = 0
 "}}}
 
 " ----------------------------------------
-" deniteの設定
+"  deniteの設定
 " ----------------------------------------
 "{{{
   "call denite#custom#option('_', 'start_filter', v:true)
@@ -430,7 +425,7 @@ let g:ale_php_phpcs_use_global = 0
 "}}}
 
 " ----------------------------------------
-" vim easymotionの設定
+"  vim easymotionの設定
 " ----------------------------------------
 "{{{
   map f <Plug>(easymotion-bd-fl)
@@ -457,7 +452,7 @@ let g:ale_php_phpcs_use_global = 0
 "}}}
 
 " ----------------------------------------
-" HTML閉じタグ自動補完
+"  HTML閉じタグ自動補完
 " ----------------------------------------
 "{{{
   augroup MyTag
@@ -468,8 +463,7 @@ let g:ale_php_phpcs_use_global = 0
 "}}}
 
 " ----------------------------------------
-" ----------------------------------------
-" fzfの設定
+"  fzfの設定
 " ----------------------------------------
 "{{{
   nnoremap <silent>: <C-u>:Buffers<CR>'
