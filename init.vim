@@ -368,7 +368,7 @@ let g:ale_php_phpcs_use_global = 0
   cnoremap <C-n> <Down>
   cnoremap <C-p> <Up>
 " control lの設定
-  nnoremap <Leader>l :nohlsearch<CR>:diffupdate<CR>:syntax sync fromstart<CR><C-l>zz
+  nnoremap <Leader>l :nohlsearch<CR>:diffupdate<CR>:syntax sync fromstart<CR><C-l>
 " very magicの設定
   nnoremap / /\v
 " ctagsのタグジャンプ
