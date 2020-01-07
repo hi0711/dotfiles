@@ -273,11 +273,11 @@ fshow() {
   FZF-EOF"
 }
 # fgc - gitのcheckoutにfzfを使う
-alias fgc='git checkout $(git branch -a | fzf)'
+alias fgc='git branch -a | fzf | xargs git checkout'
 # fgd - gitのdiffにfzfを使う
-alias fgd='git diff $(git branch -a | fzf)'
-# flog - gitのlogにfzfを使う
-alias flog='git mylog $(git branch -a | fzf)'
+alias fgd='git branch -a | fzf | xargs git diff'
+# flog - gitのmylogにfzfを使う
+alias flog='git branch -a | fzf | xargs git mylog'
 # tm - create new tmux session, or switch to existing one. Works from within tmux too. (@bag-man)
 # `tm` will allow you to select your tmux session via fzf.
 # `tm irc` will attach to the irc session (if it exists), else it will create it.
