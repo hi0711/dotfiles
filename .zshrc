@@ -293,6 +293,8 @@ bindkey '^r' select-history
 alias fgc='git branch -a | fzf | xargs git checkout'
 # fgd - gitのdiffにfzfを使う
 alias fgd='git branch -a | fzf | xargs git diff'
+# flog - gitのlogにfzfを使う
+alias flog='git branch -a | fzf | xargs git mylog'
 # fnv - neovimの引数をfzfする
 fnv() {
   files=$(git ls-files) &&
