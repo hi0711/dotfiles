@@ -358,7 +358,7 @@ let g:ale_php_phpcs_use_global = 0
 " .vimrcの再読み込み
   nnoremap <silent><Leader><Leader>so :<C-u>source ~/.config/nvim/init.vim<CR>
 "文字コード変更して再読み込み
-  nnoremap <silent> es :<C-u>e! ++enc=sjis<CR>
+  " nnoremap <silent> es :<C-u>e! ++enc=sjis<CR>
 " コマンドライン設定
   cnoremap <C-a> <Home>
   cnoremap <C-b> <Left>
@@ -379,6 +379,9 @@ let g:ale_php_phpcs_use_global = 0
   if has('nvim')
     tnoremap <silent><C-[> <C-\><C-n>
   endif
+" Visualモードでインデントした時の範囲解除を避ける
+  vnoremap < <gv
+  vnoremap > >gv
 "}}}
 
 " ----------------------------------------
