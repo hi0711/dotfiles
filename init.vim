@@ -369,8 +369,8 @@ let g:ale_php_phpcs_use_global = 0
   cnoremap <C-p> <Up>
 " control lの設定
   nnoremap <Leader>l :nohlsearch<CR>:diffupdate<CR>:syntax sync fromstart<CR><C-l>
-" very magicの設定
-  nnoremap / /\v
+" very nomagicの設定
+  nnoremap / /\V
 " ctagsのタグジャンプ
   nnoremap <C-]> g<C-]>
 " screenコマンドとタグジャンプがバッティングするので変更
