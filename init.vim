@@ -166,8 +166,6 @@ set write
   command! -bar -nargs=+ -complete=file Diff  call s:vimdiff_in_newtab(<f-args>)
 " grep後にcwinを表示
   autocmd QuickFixCmdPost make,grep,grepadd,vimgrep,vimgrepadd cwin
-" Rename {新しいファイル名}
-  command! -nargs=1 -complete=file Rename file <args> | call delete(expand('#'))
 "}}}
 
 " ----------------------------------------
@@ -356,7 +354,7 @@ let g:ale_php_phpcs_use_global = 0
   nnoremap <silent>[Q :<C-u>cfirst<CR>
   nnoremap <silent>]Q :<C-u>clast<CR>
 " .vimrcの再読み込み
-  nnoremap <silent><Leader><Leader>so :<C-u>source ~/.config/nvim/init.vim<CR>
+  nnoremap <silent><F6> :<C-u>source $MYVIMRC<CR>
 "文字コード変更して再読み込み
   " nnoremap <silent> es :<C-u>e! ++enc=sjis<CR>
 " コマンドライン設定
@@ -482,11 +480,13 @@ let g:ale_php_phpcs_use_global = 0
 "  set commands
 " ----------------------------------------
 "{{{
-" 現在開いているファイルのディレクトリに移動
+" 現在開いているファイルのディレクトリに移動(バッファ限定)
   function SetLcd()
     lcd %:h
   endfunction
   command! -nargs=0 Lcd :call SetLcd()
+" Rename {新しいファイル名}
+  command! -nargs=1 -complete=file Rename file <args> | call delete(expand('#'))
 "}}}
 
 " ----------------------------------------
