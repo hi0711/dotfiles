@@ -1,0 +1,18 @@
+# カスタムタイプ
+--type-add
+blade:*.blade.php
+
+# 除外ディレクトリ
+--glob=!{node_modules,vendor,storage}
+
+# 除外ファイルタイプ
+--glob=!*.{lock}
+
+# 除外ファイル
+--glob=!{package-lock.json}
+
+# ソート順
+--sort=path
+
+# smart case
+--smart-case
