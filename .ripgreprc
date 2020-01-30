@@ -3,7 +3,7 @@
 blade:*.blade.php
 
 # 除外ディレクトリ
---glob=!{node_modules,vendor,storage}
+--glob=!{node_modules,vendor,storage,tests}
 
 # 除外ファイルタイプ
 --glob=!*.{lock}
