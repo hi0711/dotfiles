@@ -1,6 +1,5 @@
 # カスタムタイプ
---type-add
-blade:*.blade.php,
+--type-add=blade:*.blade.php
 
 # 除外ディレクトリ
 --glob=!{node_modules,vendor,storage,tests}
