@@ -6,7 +6,7 @@ blade:*.blade.php
 --glob=!{node_modules,vendor,storage,tests}
 
 # 除外ファイルタイプ
---glob=!*.{lock}
+--glob=!*.{lock,svg,jpg,png,pdf}
 
 # 除外ファイル
 --glob=!{package-lock.json}
