@@ -176,4 +176,4 @@ bind -c mc ' ' eval 'exec multi_clipboard -S -s'
 
 # OS clipboard
 bind A eval 'exec /bin/sh -c "if type multi_clipboard >/dev/null 2>&1;then multi_clipboard -x;fi"' 'echo "copied to OS clipboard"'
-}}}
+#}}}
