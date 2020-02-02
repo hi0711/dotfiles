@@ -31,4 +31,5 @@ export PATH="$HOME/.anyenv/bin:$PATH"
 fi
 ### git diff-highlighterのパスを通す
 export PATH=$PATH:/usr/local/share/git-core/contrib/diff-highlight
-
+# ripgreprcのパスを通す
+export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
