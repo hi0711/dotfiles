@@ -56,3 +56,5 @@
   autoupdate = true
 [ghq]
   root = ~/workspace
+[ghq "CODECOMMIT-URL"]
+  vcs=git
