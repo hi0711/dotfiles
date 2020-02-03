@@ -1,0 +1,14 @@
+# 一番はじめのpane選択
+select-pane -t 1
+# window分割
+split-window -v
+select-pane -t 2
+split-window -h
+select-pane -t 3
+split-window -h
+select-pane -t 1
+# メインウィンドウの大きさ
+setw main-pane-height 30
+select-layout main-horizontal
+# pane表示
+display-panes
