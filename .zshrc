@@ -213,6 +213,8 @@ alias fig='docker-compose'
 alias T='tmux new -s'
 alias TA='tmux a -t'
 alias tx='tmux'
+alias tls='tmux ls'
+alias kat='killall tmux'
 # screen関連
 alias s='screen'
 alias ss='screen -S'
