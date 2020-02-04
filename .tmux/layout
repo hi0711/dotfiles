@@ -6,6 +6,7 @@ select-pane -t 2
 split-window -h
 select-pane -t 3
 split-window -h
+select-pane -t 2
 select-pane -t 1
 # メインウィンドウの大きさ
 setw main-pane-height 30
