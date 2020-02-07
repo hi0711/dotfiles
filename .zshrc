@@ -211,6 +211,7 @@ alias sudo='sudo '
 alias fig='docker-compose'
 # tmux関連
 alias T='tmux new -s'
+alias TK='tmux kill-session -t'
 alias TA='tmux a -t'
 alias tx='tmux'
 alias tls='tmux ls'
