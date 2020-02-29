@@ -184,6 +184,8 @@ set write
     au BufNewFile,BufRead *.php set tabstop=4 shiftwidth=4
     au BufNewFile,BufRead *.go set tabstop=4 shiftwidth=4 noexpandtab
     au BufNewFile,BufRead *.js set tabstop=4 shiftwidth=4
+    au BufNewFile,BufRead *.vue set tabstop=2 shiftwidth=2
+    au BufNewFile,BufRead *.json set tabstop=2 shiftwidth=2
   augroup END
   augroup diffWrap
     au!
