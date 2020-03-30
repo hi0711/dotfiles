@@ -69,6 +69,7 @@ set lazyredraw
 set list
 set listchars=tab:»-,trail:-,eol:↲,extends:>,precedes:<,nbsp:%
 set matchtime=1
+set modeline
 set modifiable
 set nrformats-=octal
 set nu
