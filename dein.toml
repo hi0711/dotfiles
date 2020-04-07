@@ -31,17 +31,17 @@ on_event = 'TextYankPost'
 [[plugins]]
 repo = 'rking/ag.vim'
 
-[[plugins]]
-repo = 'Shougo/deoplete.nvim'
-depend = 'context_filetype.vim'
-on_event = 'InsertEnter'
-hook_source = '''
-    let g:deoplete#enable_at_startup = 1
-    let g:deoplete#enable_ignore_case = 1
-    let g:deoplete#enable_smart_case = 1
-    " <S-TAB>: completion back.
-    inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<C-h>"
-'''
+# [[plugins]]
+# repo = 'Shougo/deoplete.nvim'
+# depend = 'context_filetype.vim'
+# on_event = 'InsertEnter'
+# hook_source = '''
+#     let g:deoplete#enable_at_startup = 1
+#     let g:deoplete#enable_ignore_case = 1
+#     let g:deoplete#enable_smart_case = 1
+#     " <S-TAB>: completion back.
+#     inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<C-h>"
+# '''
 
 [[plugins]]
 repo = 'Shougo/vimproc.vim'
