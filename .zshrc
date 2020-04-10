@@ -226,7 +226,7 @@ alias kas='find /tmp/uscreens/S-hi0711 -exec rm -rf {} +'
 
 ### グローバルエイリアス ###
 # {{{
-alias -g L='| less'
+alias -g L='| less -R'
 alias -g G='| grep'
 alias -g C='| pbcopy'
 alias -g X='| xargs'
