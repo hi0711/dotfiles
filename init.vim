@@ -511,3 +511,4 @@ let g:ale_php_phpcs_use_global = 0
     autocmd WinEnter,BufRead * set cursorline
 "}}}
 
+" vim: set ts=2 sw=2
