@@ -490,6 +490,11 @@ let g:ale_php_phpcs_use_global = 0
   command! -nargs=0 Lcd :call SetLcd()
 " Rename {新しいファイル名}
   command! -nargs=1 -complete=file Rename file <args> | call delete(expand('#'))
+" CocList grepを実行する
+  function CocGrep()
+    CocList grep
+  endfunction
+  command! -nargs=0 Grep :call CocGrep()
 "}}}
 
 " ----------------------------------------
