@@ -75,7 +75,7 @@ set nrformats-=octal
 set nu
 set pumheight=10
 set ruler
-set sh=zsh
+set sh=bash
 set shiftwidth=2
 set shortmess+=c
 set showcmd
