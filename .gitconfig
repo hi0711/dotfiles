@@ -8,6 +8,8 @@
 [core]
   excludesfile = ~/.gitignore
   editor = nvim
+  pager = LESSCHARSET=utf-8 less
+  quotepath = false
 [diff]
   tool = vimdiff
 [merge]
