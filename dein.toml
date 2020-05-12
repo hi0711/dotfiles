@@ -158,7 +158,8 @@ hook_add = '''
 
 [[plugins]]
 repo = 'neoclide/coc.nvim'
-build = './install.sh nightly'
+rev = 'release'
+merged = '0'
 
 [[plugins]]
 repo ='vim-scripts/taglist.vim'
