@@ -263,8 +263,6 @@ let g:ale_php_phpcs_use_global = 0
 " 行の最後尾に移動
   nnoremap <Leader>e $
 " insertモードから抜ける
-  inoremap <silent>jk <ESC>:up<CR>
-  inoremap <silent>kj <ESC>:up<CR>
   inoremap <silent><C-j> <ESC>:up<CR>
 " カーソル操作
   inoremap <C-a> <Home>
