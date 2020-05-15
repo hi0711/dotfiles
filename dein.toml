@@ -139,7 +139,7 @@ hook_add = '''
 
 [[plugins]]
 repo = 'mattn/emmet-vim'
-on_ft = [ 'html', 'css', 'pug', 'markdown' ]
+on_ft = [ 'html', 'css', 'pug', 'markdown', 'blade' ]
 
 [[plugins]]
 repo = 'junegunn/fzf'

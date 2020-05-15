@@ -1,3 +1,6 @@
+# zprofの実行
+zmodload zsh/zprof && zprof
+
 PATH=/usr/local/bin:$PATH
 
 ### FDKのPATHを通す
