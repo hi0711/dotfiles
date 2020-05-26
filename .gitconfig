@@ -30,7 +30,8 @@
   cb = rev-parse --abbrev-ref HEAD
   delete-merged-branch = "!f () { git checkout $1; git branch --merged|egrep -v '\\*|develop|master|stg|test'|xargs git branch -d; };f"
   refresh= !git fetch origin && git remote prune origin
-  checkout-merge= checkout --conflict=merge
+  brlog = !git --no-pager reflog | awk '$3 == \"checkout:\" && /moving from/ {print $8}' | uniq | head
+  checkout-merge = !git checkout --conflict=merge
 [pull]
   ff = only
 [filter "lfs"]
