@@ -9,7 +9,7 @@ split-window -h
 select-pane -t 2
 select-pane -t 1
 # メインウィンドウの大きさ
-setw main-pane-height 30
+setw main-pane-height 40
 select-layout main-horizontal
 # pane表示
 display-panes
