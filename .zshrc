@@ -26,40 +26,6 @@ autoload -U promptinit; promptinit
 prompt pure
 # }}}
 
-### zplugの設定###
-# {{{
-export ZPLUG_HOME=/usr/local/opt/zplug
-source $ZPLUG_HOME/init.zsh
-zplug "b-ryan/powerline-shell"
-# 未インストール項目をインストールする
-if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    fi
-fi
-# コマンドをリンクして、PATH に追加し、プラグインは読み込む
-zplug load --verbose
-# }}}
-
-### powerline-shellの設定 ###
-# {{{
-function powerline_precmd() {
-    PS1="$(powerline-shell --shell zsh $?)"
-}
-function install_powerline_precmd() {
-  for s in ${precmd_functions[@]}; do
-    if [ "$s" = "powerline_precmd" ]; then
-      return
-    fi
-  done
-  precmd_functions+=(powerline_precmd)
-}
-if [ "$TERM" != "linux" ]; then
-    install_powerline_precmd
-fi
-# }}}
-
 ### 補完 ###
 # {{{
 # 補完機能を有効にする
@@ -308,31 +274,31 @@ fnv() {
 
 ### multi_clipboard設定 ###
 # {{{
-export SCREENEXCHANGE=$HOME/.screen-exchange
-export SCREEN_MSGMINWAIT=1
-export CLIPBOARD=$HOME/.clipboard
-export CLMAXHIST=20
-export CLSEP=$'\x07'
-export CLX=""
-if [[ "$OSTYPE" =~ "linux" ]];then
-  if which -s xsel;then
-    export CLXOS="xsel"
-  elif which -s xsel;then
-    export CLXOS="xclip"
-  fi
-elif [[ "$OSTYPE" =~ "cygwin" ]];then
-  if which -s putclip;then
-    export CLXOS="putclip"
-  elif which -s xsel;then
-    export CLXOS="xsel"
-  elif which -s xsel;then
-    export CLXOS="xclip"
-  fi
-elif [[ "$OSTYPE" =~ "darwin" ]];then
-  if which -s pbcopy;then
-    export CLXOS="pbcopy"
-  fi
-fi
+# export SCREENEXCHANGE=$HOME/.screen-exchange
+# export SCREEN_MSGMINWAIT=1
+# export CLIPBOARD=$HOME/.clipboard
+# export CLMAXHIST=20
+# export CLSEP=$'\x07'
+# export CLX=""
+# if [[ "$OSTYPE" =~ "linux" ]];then
+#   if which -s xsel;then
+#     export CLXOS="xsel"
+#   elif which -s xsel;then
+#     export CLXOS="xclip"
+#   fi
+# elif [[ "$OSTYPE" =~ "cygwin" ]];then
+#   if which -s putclip;then
+#     export CLXOS="putclip"
+#   elif which -s xsel;then
+#     export CLXOS="xsel"
+#   elif which -s xsel;then
+#     export CLXOS="xclip"
+#   fi
+# elif [[ "$OSTYPE" =~ "darwin" ]];then
+#   if which -s pbcopy;then
+#     export CLXOS="pbcopy"
+#   fi
+# fi
 # }}}
 
 ### その他設定 ###
