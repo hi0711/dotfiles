@@ -113,8 +113,8 @@ hook_add = '''
   nmap ga <Plug>(EasyAlign)
 '''
 
-[[plugins]]  # qfixhowmプラグイン
-repo = 'fuenor/qfixhowm'
+# [[plugins]]  # qfixhowmプラグイン
+# repo = 'fuenor/qfixhowm'
 
 [[plugins]]
 repo = 'cocopon/vaffle.vim'

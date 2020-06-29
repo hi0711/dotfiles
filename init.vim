@@ -387,23 +387,24 @@ let g:ale_php_phpcs_use_global = 0
 "  Qfixhowmの設定
 " ----------------------------------------
 "{{{
-  let QFixHowm_key = 'm'
-  let howm_dir = '~/howm'
-  let howm_filename = '%Y/%m/%Y-%m-%d-%H%M%S.md'
-  let howm_fileencoding = 'utf-8'
-  " プレビューや絞り込みをQuickFix/ロケーションリストの両方で有効化
-  let QFixWin_EnableMode = 1
-  " QFixHowmのファイルタイプ
-  let QFixHowm_FileType = 'markdown'
-  " タイトル記号を#に変更する
-  let QFixHowm_Title = '#'
-  " QFixHowm/QFixGrepの結果表示にロケーションリストを使用する/しない
-  let Qfix_UseLocationList = 1
-  set shellslash
-  " textwidthの再セット
-  au Filetype qfix_memo setlocal textwidth = 0
-  " オートリンクでファイルを開く
-  let QFixHowm_Wiki = 1
+  " let QFixHowm_Key = 'm'
+  " let QFixHowm_KeyB = '.'
+  " let howm_dir = '~/howm'
+  " let howm_filename = '%Y/%m/%Y-%m-%d-%H%M%S.md'
+  " let howm_fileencoding = 'utf-8'
+  " " プレビューや絞り込みをQuickFix/ロケーションリストの両方で有効化
+  " let QFixWin_EnableMode = 1
+  " " QFixHowmのファイルタイプ
+  " let QFixHowm_FileType = 'markdown'
+  " " タイトル記号を#に変更する
+  " let QFixHowm_Title = '#'
+  " " QFixHowm/QFixGrepの結果表示にロケーションリストを使用する/しない
+  " let Qfix_UseLocationList = 1
+  " set shellslash
+  " " textwidthの再セット
+  " au Filetype qfix_memo setlocal textwidth = 0
+  " " オートリンクでファイルを開く
+  " let QFixHowm_Wiki = 1
 "}}}
 
 " ----------------------------------------
