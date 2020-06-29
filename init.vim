@@ -387,7 +387,7 @@ let g:ale_php_phpcs_use_global = 0
 "  Qfixhowmの設定
 " ----------------------------------------
 "{{{
-  let QFixHowm_key = 'g'
+  let QFixHowm_key = 'm'
   let howm_dir = '~/howm'
   let howm_filename = '%Y/%m/%Y-%m-%d-%H%M%S.md'
   let howm_fileencoding = 'utf-8'
