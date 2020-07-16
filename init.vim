@@ -494,6 +494,7 @@ let g:ale_php_phpcs_use_global = 0
     CocList grep
   endfunction
   command! -nargs=0 Grep :call CocGrep()
+  nnoremap <ESC><ESC>g <C-u>:Grep<CR>
 " terminalを分割して開く
   if (has('nvim'))
     command! -nargs=* Term split | terminal <args>
