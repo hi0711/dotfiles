@@ -38,6 +38,8 @@ if has('vim_starting') && dein#check_install()
   call dein#install()
 endif
 filetype plugin indent on
+" 自動更新
+let g:dein#auto_recache = 1
 " }}}
 
 " ----------------------------------------
