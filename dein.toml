@@ -180,3 +180,6 @@ hook_add = '''
   let g:tcomment_types['blade'] = '{{-- %s --}}'
   let g:tcomment_types['eruby'] = '<%# %s %>'
 '''
+
+[[plugins]]
+repo = 'peitalin/vim-jsx-typescript'
