@@ -243,6 +243,8 @@ fshow() {
 }
 # fgc - gitのcheckoutにfzfを使う
 alias fgc='git branch -a | fzf | xargs git checkout'
+# fremo - gitのremoteブランチをupstreamに設定する
+alias fremo='git branch -a | fzf | xargs git branch -u'
 # fgd - gitのdiffにfzfを使う
 alias fgd='git branch -a | fzf | xargs git diff'
 # flog - gitのmylogにfzfを使う
