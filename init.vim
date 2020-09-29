@@ -3,42 +3,66 @@
 "  | | | | |   |  /    |  |
 " _| |_|_|\___/ _/    _| _|
 " ----------------------------------------
-" Start dein settings
+" Start vim-plug settings
 " ----------------------------------------
-if !&compatible
-  set nocompatible
-endif
-
-" reset augroup
-augroup MyAutoCmd
-  autocmd!
-augroup END
-
-" dein settings {{{
-" dein自体の自動インストール
-let s:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
-let s:dein_dir = s:cache_home . '/dein'
-let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
-if !isdirectory(s:dein_repo_dir)
-  call system('git clone https://github.com/Shougo/dein.vim ' . shellescape(s:dein_repo_dir))
-endif
-let &runtimepath = s:dein_repo_dir .",". &runtimepath
-" プラグイン読み込み＆キャッシュ作成
-let s:toml_file = fnamemodify(expand('<sfile>'), ':h').'/dein.toml'
-let s:lazy_toml = fnamemodify(expand('<sfile>'), ':h').'/dein_lazy.toml'
-if dein#load_state(s:dein_dir)
-  call dein#begin(s:dein_dir)
-  call dein#load_toml(s:toml_file)
-  call dein#load_toml(s:lazy_toml)
-  call dein#end()
-  call dein#save_state()
-endif
-" 不足プラグインの自動インストール
-if has('vim_starting') && dein#check_install()
-  call dein#install()
+"{{{
+call plug#begin('~/.config/nvim/plugged')
+Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+Plug 'rking/ag.vim'
+Plug 'cespare/vim-toml'
+Plug 'cocopon/iceberg.vim'
+  au MyAutoCmd VimEnter * nested colorscheme iceberg
+Plug 'digitaltoad/vim-pug'
+Plug 'posva/vim-vue'
+Plug 'tpope/vim-markdown'
+  let g:markdown_fenced_languages = ['html', 'python', 'bash=sh']
+  let g:markdown_minlines = 100
+Plug 'noahfrederick/vim-laravel'
+Plug 'jwalton512/vim-blade'
+Plug 'tmhedberg/matchit'
+Plug 'itchyny/lightline.vim'
+  let g:lightline = { 
+  \   'colorscheme': 'wombat'
+  \}
+Plug 'vim-scripts/surround.vim'
+Plug 'Yggdroot/indentLine'
+  let g:indentLine_char = '|'
+Plug 'junegunn/vim-easy-align'
+  vmap <Enter> <Plug>(EasyAlign)
+  nmap ga <Plug>(EasyAlign)
+Plug 'cocopon/vaffle.vim'
+  let g:vaffle_auto_cd = 1
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+Plug 'easymotion/vim-easymotion'
+Plug 'fuenor/JpFormat.vim'
+  nnoremap gL :JpFormatAll!<CR>
+Plug 'mattn/emmet-vim'
+  let g:user_emmet_install_global = 0
+  autocmd FileType html,css,blade,markdown EmmetInstall
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+  let g:fzf_preview_window = ''
+  let g:fzf_buffers_jump = 1
+  let g:fzf_layout = { 'down': '40%' }
+Plug 'terryma/vim-expand-region'
+  vmap v <Plug>(expand_region_expand)
+  vmap <C-v> <Plug>(expand_region_shrink)
+Plug 'neoclide/coc.nvim'
+Plug 'tomtom/tcomment_vim'
+  if !exists('g:tcomment_types')
+    let g:tcomment_types = {}
+  endif
+  let g:tcomment_types['blade'] = '{{-- %s --}}'
+  let g:tcomment_types['eruby'] = '<%# %s %>'
+Plug 'peitalin/vim-jsx-typescript'
+call plug#end()
+" colorsheme
+if filereadable(expand("~/.config/nvim/plugged/iceberg.vim/colors/iceberg.vim"))
+  colorscheme iceberg
 endif
 filetype plugin indent on
-" }}}
+"}}}
 
 " ----------------------------------------
 "  Basic Settings
@@ -88,6 +112,7 @@ set so=7
 set tabstop=2
 set textwidth=0
 set title
+set tm=500
 set ttyfast
 set updatetime=250
 set virtualedit+=all
@@ -122,7 +147,7 @@ set write
     call setpos(".", cursor)
     unlet cursor
   endfunction
-  autocmd BufWritePre *.html,*.css,*.scss,*.sass,*.less,*.php,*.rb,*.js,*.haml,*.erb,*.txt,*.ejs,*.jade,*.pug call <SID>remove_dust()
+  autocmd BufWritePre *.html,*.css,*.scss,*.sass,*.less,*.php,*.rb,*.js,*.haml,*.erb,*.txt,*.ejs,*.jade,*.pug,*.ts call <SID>remove_dust()
 " 全角スペースの設定
   function! ZenkakuSpace()
       highlight ZenkakuSpace cterm=reverse ctermfg=darkgray gui=reverse guifg=darkgray
@@ -178,6 +203,7 @@ set write
     au BufRead,BufNewFile *.py set filetype=python
     au BufRead,BufNewFile *.rb set filetype=ruby
     au BufRead,BufNewFile *.ejs set filetype=mason
+    au BufRead,BufNewFile *.blade.php set filetype=blade
   augroup END
   augroup filetypeIndent
     au!
@@ -187,6 +213,7 @@ set write
     au BufNewFile,BufRead *.js set tabstop=4 shiftwidth=4
     au BufNewFile,BufRead *.vue set tabstop=2 shiftwidth=2
     au BufNewFile,BufRead *.json set tabstop=2 shiftwidth=2
+    au BufNewFile,BufRead *.blade.php set tabstop=4 shiftwidth=4
   augroup END
   augroup diffWrap
     au!
@@ -218,19 +245,6 @@ nnoremap <silent> gh :<C-u>call CocAction('doHover')<CR>
 "     call CocAction('doHover')
 "   endif
 " endfunction
-"}}}
-
-" ----------------------------------------
-"  コード別aleの設定
-" ----------------------------------------
-"{{{
-let g:ale_linters = {
-    \ 'php': ['phpcs'],
-\}
-
-let g:ale_php_phpcs_executable = '/usr/local/bin/phpcs'
-let g:ale_php_phpcs_standard = 'PSR2'
-let g:ale_php_phpcs_use_global = 0
 "}}}
 
 " ----------------------------------------
@@ -381,50 +395,6 @@ let g:ale_php_phpcs_use_global = 0
 " Visualモードでインデントした時の範囲解除を避ける
   vnoremap < <gv
   vnoremap > >gv
-"}}}
-
-" ----------------------------------------
-"  Qfixhowmの設定
-" ----------------------------------------
-"{{{
-  " let QFixHowm_Key = 'm'
-  " let QFixHowm_KeyB = '.'
-  " let howm_dir = '~/howm'
-  " let howm_filename = '%Y/%m/%Y-%m-%d-%H%M%S.md'
-  " let howm_fileencoding = 'utf-8'
-  " " プレビューや絞り込みをQuickFix/ロケーションリストの両方で有効化
-  " let QFixWin_EnableMode = 1
-  " " QFixHowmのファイルタイプ
-  " let QFixHowm_FileType = 'markdown'
-  " " タイトル記号を#に変更する
-  " let QFixHowm_Title = '#'
-  " " QFixHowm/QFixGrepの結果表示にロケーションリストを使用する/しない
-  " let Qfix_UseLocationList = 1
-  " set shellslash
-  " " textwidthの再セット
-  " au Filetype qfix_memo setlocal textwidth = 0
-  " " オートリンクでファイルを開く
-  " let QFixHowm_Wiki = 1
-"}}}
-
-" ----------------------------------------
-"  deniteの設定
-" ----------------------------------------
-"{{{
-  "call denite#custom#option('_', 'start_filter', v:true)
-  autocmd FileType denite call s:denite_my_settings()
-  function! s:denite_my_settings() abort
-    nnoremap <silent><buffer><expr> <CR>  denite#do_map('do_action')
-    nnoremap <silent><buffer><expr> <Tab> denite#do_map('choose_action')
-    nnoremap <silent><buffer><expr> <C-g> denite#do_map('quit')
-    nnoremap <silent><buffer><expr> i     denite#do_map('open_filter_buffer')
-  endfunction
-  nnoremap <silent> <C-k><C-f> :<C-u>Denite file/rec -start-filter<CR>
-  nnoremap <silent> <C-k><C-g> :<C-u>Denite grep -start-filter<CR>
-  nnoremap <silent> <C-k><C-l> :<C-u>Denite line -start-filter<CR>
-  nnoremap <silent> <C-k><C-u> :<C-u>Denite file_mru -start-filter<CR>
-  nnoremap <silent> <C-k><C-y> :<C-u>Denite neoyank -start-filter<CR>
-  nnoremap <silent> <C-k><C-]> :<C-u>DeniteCursorWord grep -start-filter<CR>
 "}}}
 
 " ----------------------------------------
