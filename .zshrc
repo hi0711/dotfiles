@@ -145,7 +145,6 @@ alias gst='git status --short --branch'
 # ghqのエイリアス
 alias repo='cd $(ghq list -p | fzf)'
 # その他エイリアス
-alias NV='nvim -c "call dein#update()" -c "UpdateRemotePlugins"'
 alias cp='cp -ip'
 alias desktop='cd ~/desktop'
 alias f='open .'

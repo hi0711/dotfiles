@@ -11,7 +11,6 @@ Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'rking/ag.vim'
 Plug 'cespare/vim-toml'
 Plug 'cocopon/iceberg.vim'
-  au MyAutoCmd VimEnter * nested colorscheme iceberg
 Plug 'digitaltoad/vim-pug'
 Plug 'posva/vim-vue'
 Plug 'tpope/vim-markdown'
@@ -421,7 +420,7 @@ nnoremap <silent> gh :<C-u>call CocAction('doHover')<CR>
   xmap g/ <Plug>(easymotion-sn)
   omap g/ <Plug>(easymotion-tn)
   " nmap ww <Plug>(easymotion-w)
-  nmap WW <Plug>(easymotion-bd-w)
+  " nmap WW <Plug>(easymotion-bd-w)
 "}}}
 
 " ----------------------------------------
