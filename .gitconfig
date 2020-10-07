@@ -32,6 +32,7 @@
   refresh= !git fetch origin && git remote prune origin
   brlog = !git --no-pager reflog | awk '$3 == \"checkout:\" && /moving from/ {print $8}' | uniq | head
   checkout-merge = !git checkout --conflict=merge
+  ft-imp = !read BNAME && git branch --show-current | grep -oP "feature.*" | sed -e "s:$:--$BNAME:g" | xargs git checkout -b
 [pull]
   ff = only
 [filter "lfs"]
