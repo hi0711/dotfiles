@@ -276,7 +276,7 @@ nnoremap <silent> gh :<C-u>call CocAction('doHover')<CR>
 " 行の最後尾に移動
   nnoremap <Leader>e $
 " insertモードから抜ける
-  inoremap <silent><C-j> <ESC>:up<CR>
+  inoremap <silent><C-j> <ESC>
 " カーソル操作
   inoremap <C-a> <Home>
   inoremap <C-e> <End>
