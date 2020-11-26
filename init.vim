@@ -30,7 +30,6 @@ Plug 'junegunn/vim-easy-align'
   vmap <Enter> <Plug>(EasyAlign)
   nmap ga <Plug>(EasyAlign)
 Plug 'cocopon/vaffle.vim'
-  let g:vaffle_auto_cd = 1
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'easymotion/vim-easymotion'
