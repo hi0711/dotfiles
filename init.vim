@@ -73,7 +73,7 @@ let g:yankring_clipboard_monitor=0
 set ambiwidth=double
 set backspace=2
 set clipboard=unnamed
-set cmdheight=2
+set cmdheight=1
 set diffopt=vertical
 set display=lastline
 set expandtab
@@ -223,26 +223,37 @@ set write
 "  cocの設定
 " ----------------------------------------
 "{{{
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-nmap <silent> gfo <Plug>(coc-format)
-" Remap for rename current word
-nmap <leader>rn <Plug>(coc-rename)
-" Highlight symbol under cursor on CursorHold
-autocmd CursorHold * silent call CocActionAsync('highlight')
-" Use K for show documentation in preview window
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-" Hover表示
-nnoremap <silent> gh :<C-u>call CocAction('doHover')<CR>
-" function! s:show_documentation()
-"   if &filetype == 'vim'
-"     execute 'h '.expand('<cword>')
-"   else
-"     call CocAction('doHover')
-"   endif
-" endfunction
+  let g:coc_global_extentions = [
+    \  'coc-lists'
+    \, 'coc-json'
+    \, 'coc-sh'
+    \, 'coc-phpls'
+    \, 'coc-html'
+    \, 'coc-css'
+    \, 'coc-tsserver'
+    \, 'coc-solargraph'
+    \, 'coc-docker'
+    \]
+  nmap <silent> gd <Plug>(coc-definition)
+  nmap <silent> gy <Plug>(coc-type-definition)
+  nmap <silent> gi <Plug>(coc-implementation)
+  nmap <silent> gr <Plug>(coc-references)
+  nmap <silent> gfo <Plug>(coc-format)
+  " Remap for rename current word
+  nmap <leader>rn <Plug>(coc-rename)
+  " Highlight symbol under cursor on CursorHold
+  autocmd CursorHold * silent call CocActionAsync('highlight')
+  " Use K for show documentation in preview window
+  nnoremap <silent> K :call <SID>show_documentation()<CR>
+  " Hover表示
+  nnoremap <silent> gh :<C-u>call CocAction('doHover')<CR>
+  " function! s:show_documentation()
+  "   if &filetype == 'vim'
+  "     execute 'h '.expand('<cword>')
+  "   else
+  "     call CocAction('doHover')
+  "   endif
+  " endfunction
 "}}}
 
 " ----------------------------------------
