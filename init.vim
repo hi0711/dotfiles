@@ -324,7 +324,7 @@ set write
   nnoremap <silent><Left>  <C-w><
   nnoremap <silent><Right> <C-w>>
 " ファイル操作
-  nnoremap <Leader>w :<C-u>w<CR>
+  nnoremap <Leader>, :<C-u>w<CR>
   nnoremap <Leader>Q :<C-u>q!<CR>
 " ファイルエクスプローラー系
   nnoremap <silent><Leader><Leader>ex :<C-u>e .<CR>
@@ -494,6 +494,25 @@ set write
     autocmd WinEnter,BufRead * set cursorline
   hi clear Visual
   hi Visual ctermfg=255 ctermbg=240 guifg=#eff0f4 guibg=#5b6389
+"}}}
+
+" Dovorak 設定
+"{{{
+nnoremap d h
+nnoremap h j
+nnoremap t k
+nnoremap n l
+nnoremap e d
+nnoremap ee dd
+
+vnoremap d h
+vnoremap h j
+vnoremap t k
+vnoremap n l
+
+nnoremap r n
+nnoremap R N
+nnoremap l /
 "}}}
 
 " vim: set ts=2 sw=2 :
