@@ -498,6 +498,8 @@ set write
 
 " Dovorak 設定
 "{{{
+  nnoremap J E
+  nnoremap K B
   nnoremap d h
   nnoremap e d
   nnoremap ee dd
@@ -505,10 +507,11 @@ set write
   nnoremap gt k
   nnoremap h gj
   nnoremap j e
-  nnoremap k b
   nnoremap n l
   nnoremap t gk
 
+  vnoremap J E
+  vnoremap K B
   vnoremap d h
   vnoremap e d
   vnoremap h gj
@@ -519,7 +522,6 @@ set write
 
   nnoremap r n
   nnoremap R N
-  nnoremap l /
 "}}}
 
 " vim: set ts=2 sw=2 :
