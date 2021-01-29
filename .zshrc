@@ -199,6 +199,11 @@ alias -g F='| fzf'
 alias -g S='| sentaku'
 # }}}
 
+### zコマンド ###
+# {{{
+. ~/z/z.sh
+# }}}
+
 ### cntrl-z の設定 ###
 # {{{
 fancy-ctrl-z () {
