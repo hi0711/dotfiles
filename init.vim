@@ -67,6 +67,10 @@ filetype plugin indent on
 " ----------------------------------------
 "{{{
 nnoremap s <Nop>
+nnoremap d <Nop>
+nnoremap h <Nop>
+nnoremap t <Nop>
+nnoremap n <Nop>
 nnoremap <Space> <Nop>
 let mapleader="\<Space>"
 let g:yankring_clipboard_monitor=0
@@ -293,11 +297,11 @@ set write
   inoremap <C-f> <Right>
   inoremap <C-b> <Left>
 " テキストオブジェクト操作
-  onoremap id i"
-  onoremap is i'
-  onoremap ia i>
-  onoremap ir i]
-  onoremap ib i)
+  " onoremap id i"
+  " onoremap is i'
+  " onoremap ia i>
+  " onoremap ir i]
+  " onoremap ib i)
 " 移動を表示行単位に
   noremap j gj
   noremap k gk
@@ -307,8 +311,8 @@ set write
   nnoremap [e  :<C-u>execute 'move -1-'. v:count1<CR>
   nnoremap ]e  :<C-u>execute 'move +'. v:count1<CR>
 " 半ページ移動(中央維持
-  noremap H <C-u>zz
-  noremap L <C-d>zz
+  " noremap H <C-u>zz
+  " noremap L <C-d>zz
 " insertモードで次の行に直接改行
   inoremap <C-o> <Esc>o
 " cntrl + n キーで改行
@@ -316,8 +320,8 @@ set write
 " relativenumberのトグル
   nnoremap <Leader>nu :setlocal rnu!<CR>
 " バッファの分割
-  noremap <silent><Leader><Leader>sp :<C-u>split<CR>
-  noremap <silent><Leader><Leader>vs :<C-u>vsplit<CR>
+  " noremap <silent><Leader><Leader>sp :<C-u>split<CR>
+  " noremap <silent><Leader><Leader>vs :<C-u>vsplit<CR>
 " カーソルキーでバッファのサイズ変更
   nnoremap <silent><Down>  <C-w>-
   nnoremap <silent><Up>    <C-w>+
@@ -414,10 +418,10 @@ set write
   nmap s <Plug>(easymotion-s2)
   omap z <Plug>(easymotion-s2)
   vmap f <Plug>(easymotion-bd-f2)
-  nmap <Leader>j <Plug>(easymotion-j)
-  nmap <Leader>k <Plug>(easymotion-k)
-  vmap <Leader>j <Plug>(easymotion-j)
-  vmap <Leader>k <Plug>(easymotion-k)
+  nmap <Leader>h <Plug>(easymotion-j)
+  nmap <Leader>t <Plug>(easymotion-k)
+  vmap <Leader>d <Plug>(easymotion-j)
+  vmap <Leader>t <Plug>(easymotion-k)
   let g:EasyMotion_do_mapping = 0
   let g:EasyMotion_smartcase = 1
   let g:EasyMotion_startofline = 0
@@ -426,9 +430,9 @@ set write
   let g:EasyMotion_enter_jump_first = 1
   let g:EasyMotion_space_jump_first = 1
   let g:EasyMotion_use_migemo = 1
-  nmap g/ <Plug>(easymotion-sn)
-  xmap g/ <Plug>(easymotion-sn)
-  omap g/ <Plug>(easymotion-tn)
+  nmap g\ <Plug>(easymotion-sn)
+  xmap g\ <Plug>(easymotion-sn)
+  omap g\ <Plug>(easymotion-tn)
   " nmap ww <Plug>(easymotion-w)
   " nmap WW <Plug>(easymotion-bd-w)
 "}}}
@@ -453,7 +457,7 @@ set write
   nnoremap <silent>q: <C-u>:History:<CR>'
   nnoremap <silent><Leader>? <C-u>:GFiles?<CR>'
   nnoremap <silent><Leader>f <C-u>:GFiles<CR>'
-  nnoremap <silent><Leader>h <C-u>:History<CR>'
+  nnoremap <silent><Leader>d <C-u>:History<CR>'
   "nnoremap <silent>r <C-u>:Tags<CR>
 "}}}
 
@@ -507,6 +511,7 @@ set write
   nnoremap gt k
   nnoremap h gj
   nnoremap j e
+  nnoremap k b
   nnoremap n l
   nnoremap t gk
 
@@ -522,6 +527,8 @@ set write
 
   nnoremap r n
   nnoremap R N
+  nnoremap zh zj
+  nnoremap zt zk
 "}}}
 
 " vim: set ts=2 sw=2 :
