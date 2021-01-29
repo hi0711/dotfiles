@@ -504,13 +504,15 @@ set write
   nnoremap gh j
   nnoremap gt k
   nnoremap h gj
-  nnoremap j t
+  nnoremap j e
   nnoremap k b
   nnoremap n l
   nnoremap t gk
 
   vnoremap d h
+  vnoremap e d
   vnoremap h gj
+  vnoremap j e
   vnoremap k b
   vnoremap n l
   vnoremap t gk
