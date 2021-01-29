@@ -46,7 +46,7 @@ module.exports = {
     },
     docs: {
       description: 'ドキュメントの変更のみ',
-      emoji: '✏️',
+      emoji: '✏️ ',
       value: 'docs',
     },
     feat: {
@@ -88,7 +88,7 @@ module.exports = {
     // 以下、独自で追加したtypes
     config: {
       description: '設定ファイルの追加・修正',
-      emoji: '⚙️',
+      emoji: '⚙️ ',
       value: 'config',
     },
     package: {
