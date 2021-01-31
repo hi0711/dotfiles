@@ -308,8 +308,8 @@ set write
   noremap gj j
   noremap gk k
 " 現在行を入れ替える
-  nnoremap [e  :<C-u>execute 'move -1-'. v:count1<CR>
-  nnoremap ]e  :<C-u>execute 'move +'. v:count1<CR>
+  nnoremap [.  :<C-u>execute 'move -1-'. v:count1<CR>
+  nnoremap ].  :<C-u>execute 'move +'. v:count1<CR>
 " 半ページ移動(中央維持
   " noremap H <C-u>zz
   " noremap L <C-d>zz
@@ -456,9 +456,9 @@ set write
   nnoremap <silent>t <C-u>:Files<CR>
   nnoremap <silent>q: <C-u>:History:<CR>'
   nnoremap <silent><Leader>? <C-u>:GFiles?<CR>'
-  nnoremap <silent><Leader>f <C-u>:GFiles<CR>'
+  nnoremap <silent><Leader>u <C-u>:GFiles<CR>'
   nnoremap <silent><Leader>d <C-u>:History<CR>'
-  "nnoremap <silent>r <C-u>:Tags<CR>
+  nnoremap <silent>r <C-u>:Tags<CR>
 "}}}
 
 " ----------------------------------------
