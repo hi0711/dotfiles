@@ -420,7 +420,7 @@ set write
   vmap f <Plug>(easymotion-bd-f2)
   nmap <Leader>h <Plug>(easymotion-j)
   nmap <Leader>t <Plug>(easymotion-k)
-  vmap <Leader>d <Plug>(easymotion-j)
+  vmap <Leader>h <Plug>(easymotion-j)
   vmap <Leader>t <Plug>(easymotion-k)
   let g:EasyMotion_do_mapping = 0
   let g:EasyMotion_smartcase = 1
