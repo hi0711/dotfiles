@@ -502,6 +502,7 @@ set write
 
 " Dovorak 設定
 "{{{
+  nnoremap H J
   nnoremap J E
   nnoremap K B
   nnoremap d h
@@ -515,6 +516,7 @@ set write
   nnoremap n l
   nnoremap t gk
 
+  vnoremap H J
   vnoremap J E
   vnoremap K B
   vnoremap d h
