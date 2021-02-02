@@ -20,10 +20,9 @@ HISTSIZE=1000000
 SAVEHIST=1000000
 # }}}
 
-### pure-prompt 使用 ###
+### prompt ###
 # {{{
-autoload -U promptinit; promptinit
-prompt pure
+  eval "$(starship init zsh)"
 # }}}
 
 ### 補完 ###
