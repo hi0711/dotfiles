@@ -66,134 +66,130 @@ filetype plugin indent on
 "  Basic Settings
 " ----------------------------------------
 "{{{
-nnoremap s <Nop>
-nnoremap d <Nop>
-nnoremap h <Nop>
-nnoremap t <Nop>
-nnoremap n <Nop>
-nnoremap <Space> <Nop>
-let mapleader="\<Space>"
-let g:yankring_clipboard_monitor=0
-set ambiwidth=double
-set backspace=2
-set clipboard=unnamed
-set cmdheight=1
-set diffopt=vertical
-set display=lastline
-set expandtab
-set fdm=marker
-set fencs=utf-8,sjis,euc-jp
-set formatoptions+=t
-set grepprg=rg\ --vimgrep\ --no-heading\ -i
-set hidden
-set history=1000
-set hlsearch
-set ignorecase
-set incsearch
-set laststatus=2
-set lazyredraw
-set list
-set listchars=tab:»-,trail:-,eol:↲,extends:>,precedes:<,nbsp:%
-set matchtime=1
-set modeline
-set modifiable
-set nrformats-=octal
-set nu
-set pumheight=10
-set ruler
-set sh=bash
-set shiftwidth=2
-set shortmess+=c
-set showcmd
-set showmatch
-set signcolumn=yes
-set smartcase
-set smartindent
-set smarttab
-set so=7
-set tabstop=2
-set textwidth=0
-set title
-set tm=500
-set ttyfast
-set updatetime=250
-set virtualedit+=all
-set visualbell t_vb=
-set wildchar=<TAB>
-set wildmenu
-set wildmode=longest:full,full
-set wrap
-set wrapscan
-set write
-" breakindent設定
-  if exists('+breakindent')
-    set breakindent
-  endif
-" netrwは常にtree view
-  let g:netrw_liststyle=3
-" 改行時の設定
-  autocmd FileType * setlocal formatoptions-=ro
-" backupファイルとスワップファイルの設定
-  set backup
-  set backupdir=~/.config/nvim/backup
-  set swapfile
-  set directory=~/.config/nvim/swap
-  set backupskip=/tmp/*,/private/tmp/*
-" insertモードでカーソルの形を変える
-  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-" 保存時に行末の空白を除去する
-  function! s:remove_dust()
-    let cursor = getpos(".")
-    %s/\s\+$//ge
-    call setpos(".", cursor)
-    unlet cursor
-  endfunction
-  autocmd BufWritePre *.html,*.css,*.scss,*.sass,*.less,*.php,*.rb,*.js,*.haml,*.erb,*.txt,*.ejs,*.jade,*.pug,*.ts call <SID>remove_dust()
-" 全角スペースの設定
-  function! ZenkakuSpace()
-      highlight ZenkakuSpace cterm=reverse ctermfg=darkgray gui=reverse guifg=darkgray
-  endfunction
-  if has('syntax')
-    augroup ZenkakuSpace
-        autocmd ColorScheme       * call ZenkakuSpace()
-        autocmd VimEnter,WinEnter * match ZenkakuSpace /　/
-    augroup END
-    call ZenkakuSpace()
-  endif
-"virtualモードの時にスターで選択位置のコードを検索するようにする
-  xnoremap * :<C-u>call <SID>VSetSearch()<CR>/<C-R>=@/<CR><CR>
-  xnoremap # :<C-u>call <SID>VSetSearch()<CR>?<C-R>=@/<CR><CR>
-  function! s:VSetSearch()
-    let temp = @s
-    norm! gv"sy
-    let @/ = '\V' . substitute(escape(@s, '/\'), '\n', '\\n', 'g')
-    let @s = temp
-  endfunction
-"ステータスラインに情報を表示する
-  set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
-" undo記憶、undoファイルの生成
-  if has('persistent_undo')
-    set undodir=~/.config/nvim/undo
-    set undofile
-  endif
-" ファイルを閉じた時の位置から再編集
-  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\""
-" vimdiffの設定
-  function! s:vimdiff_in_newtab(...)
-    if a:0 == 1
-      tabedit %:p
-      exec 'rightbelow vertical diffsplit ' . a:1
-    else
-      exec 'tabedit ' . a:1
-      for l:file in a:000[1 :]
-        exec 'rightbelow vertical diffsplit ' . l:file
-      endfor
+  nnoremap s <Nop>
+  nnoremap <Space> <Nop>
+  let mapleader="\<Space>"
+  let g:yankring_clipboard_monitor=0
+  set ambiwidth=double
+  set backspace=2
+  set clipboard=unnamed
+  set cmdheight=1
+  set diffopt=vertical
+  set display=lastline
+  set expandtab
+  set fdm=marker
+  set fencs=utf-8,sjis,euc-jp
+  set formatoptions+=t
+  set grepprg=rg\ --vimgrep\ --no-heading\ -i
+  set hidden
+  set history=1000
+  set hlsearch
+  set ignorecase
+  set incsearch
+  set laststatus=2
+  set lazyredraw
+  set list
+  set listchars=tab:»-,trail:-,eol:↲,extends:>,precedes:<,nbsp:%
+  set matchtime=1
+  set modeline
+  set modifiable
+  set nrformats-=octal
+  set nu
+  set pumheight=10
+  set ruler
+  set sh=bash
+  set shiftwidth=2
+  set shortmess+=c
+  set showcmd
+  set showmatch
+  set signcolumn=yes
+  set smartcase
+  set smartindent
+  set smarttab
+  set so=7
+  set tabstop=2
+  set textwidth=0
+  set title
+  set tm=500
+  set ttyfast
+  set updatetime=250
+  set virtualedit+=all
+  set visualbell t_vb=
+  set wildchar=<TAB>
+  set wildmenu
+  set wildmode=longest:full,full
+  set wrap
+  set wrapscan
+  set write
+  " breakindent設定
+    if exists('+breakindent')
+      set breakindent
     endif
-  endfunction
-  command! -bar -nargs=+ -complete=file Diff  call s:vimdiff_in_newtab(<f-args>)
-" grep後にcwinを表示
-  autocmd QuickFixCmdPost make,grep,grepadd,vimgrep,vimgrepadd cwin
+  " netrwは常にtree view
+    let g:netrw_liststyle=3
+  " 改行時の設定
+    autocmd FileType * setlocal formatoptions-=ro
+  " backupファイルとスワップファイルの設定
+    set backup
+    set backupdir=~/.config/nvim/backup
+    set swapfile
+    set directory=~/.config/nvim/swap
+    set backupskip=/tmp/*,/private/tmp/*
+  " insertモードでカーソルの形を変える
+    let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+    let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+  " 保存時に行末の空白を除去する
+    function! s:remove_dust()
+      let cursor = getpos(".")
+      %s/\s\+$//ge
+      call setpos(".", cursor)
+      unlet cursor
+    endfunction
+    autocmd BufWritePre *.html,*.css,*.scss,*.sass,*.less,*.php,*.rb,*.js,*.haml,*.erb,*.txt,*.ejs,*.jade,*.pug,*.ts call <SID>remove_dust()
+  " 全角スペースの設定
+    function! ZenkakuSpace()
+        highlight ZenkakuSpace cterm=reverse ctermfg=darkgray gui=reverse guifg=darkgray
+    endfunction
+    if has('syntax')
+      augroup ZenkakuSpace
+          autocmd ColorScheme       * call ZenkakuSpace()
+          autocmd VimEnter,WinEnter * match ZenkakuSpace /　/
+      augroup END
+      call ZenkakuSpace()
+    endif
+  "virtualモードの時にスターで選択位置のコードを検索するようにする
+    xnoremap * :<C-u>call <SID>VSetSearch()<CR>/<C-R>=@/<CR><CR>
+    xnoremap # :<C-u>call <SID>VSetSearch()<CR>?<C-R>=@/<CR><CR>
+    function! s:VSetSearch()
+      let temp = @s
+      norm! gv"sy
+      let @/ = '\V' . substitute(escape(@s, '/\'), '\n', '\\n', 'g')
+      let @s = temp
+    endfunction
+  "ステータスラインに情報を表示する
+    set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
+  " undo記憶、undoファイルの生成
+    if has('persistent_undo')
+      set undodir=~/.config/nvim/undo
+      set undofile
+    endif
+  " ファイルを閉じた時の位置から再編集
+    au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\""
+  " vimdiffの設定
+    function! s:vimdiff_in_newtab(...)
+      if a:0 == 1
+        tabedit %:p
+        exec 'rightbelow vertical diffsplit ' . a:1
+      else
+        exec 'tabedit ' . a:1
+        for l:file in a:000[1 :]
+          exec 'rightbelow vertical diffsplit ' . l:file
+        endfor
+      endif
+    endfunction
+    command! -bar -nargs=+ -complete=file Diff  call s:vimdiff_in_newtab(<f-args>)
+  " grep後にcwinを表示
+    autocmd QuickFixCmdPost make,grep,grepadd,vimgrep,vimgrepadd cwin
 "}}}
 
 " ----------------------------------------
@@ -425,7 +421,7 @@ set write
   let g:EasyMotion_do_mapping = 0
   let g:EasyMotion_smartcase = 1
   let g:EasyMotion_startofline = 0
-  let g:EasyMotion_keys = ';HKLYUIOPNM,QWERTASDGZXCVBJF'
+  let g:EasyMotion_keys = 'aoeuidhtns-,.pyfgcrl;qjkxbmwvz'
   let g:EasyMotion_use_upper = 1
   let g:EasyMotion_enter_jump_first = 1
   let g:EasyMotion_space_jump_first = 1
@@ -502,6 +498,10 @@ set write
 
 " Dovorak 設定
 "{{{
+  nnoremap d <Nop>
+  nnoremap h <Nop>
+  nnoremap t <Nop>
+  nnoremap n <Nop>
   nnoremap H J
   nnoremap J E
   nnoremap K B
