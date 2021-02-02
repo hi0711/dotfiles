@@ -38,3 +38,5 @@ export PATH=$PATH:/usr/local/share/git-core/contrib/diff-highlight
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 # awscliのパスを通す
 export PATH="/usr/local/opt/awscli@1/bin:$PATH"
+# cargoのパスを通す
+source "$HOME/.cargo/env"
