@@ -1,5 +1,5 @@
 # プロンプトの先頭に改行を表示しません
-add_newline = false
+# add_newline = false
 
 # プロンプトの「❯」記号を「➜」に置き換えます
 # [character]                            # 設定しているモジュールの名前は「character」です
