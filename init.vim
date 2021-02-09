@@ -282,7 +282,7 @@ filetype plugin indent on
   nmap g* g*zz
   nmap g# g#zz
 " 行の真ん中に移動
-  nnoremap <Leader>c :call cursor(0,strlen(getline("."))/2)<CR>
+  nnoremap <Leader><silent>c :call cursor(0,strlen(getline("."))/2)<CR>
 " 行の最後尾に移動
   nnoremap <Leader>e $
 " insertモードから抜ける
@@ -332,10 +332,10 @@ filetype plugin indent on
 " 同単語検索設定
   nnoremap * *N
 " タブ操作
-  nnoremap <silent> <Leader>ta :<C-u>tabe<CR>
-  nnoremap <silent> <Leader>tn gt
-  nnoremap <silent> <Leader>tp gT
-  nnoremap <silent> <Leader>tc :<C-u>tabc<CR>
+  " nnoremap <silent> <Leader>ta :<C-u>tabe<CR>
+  " nnoremap <silent> <Leader>tn gt
+  " nnoremap <silent> <Leader>tp gT
+  " nnoremap <silent> <Leader>tc :<C-u>tabc<CR>
 " 全角で書かないようにする
   inoremap （ (
   inoremap ） )
@@ -498,34 +498,34 @@ filetype plugin indent on
 
 " Dovorak 設定
 "{{{
-  nnoremap d <Nop>
-  nnoremap h <Nop>
-  nnoremap t <Nop>
-  nnoremap n <Nop>
   nnoremap H J
   nnoremap J E
   nnoremap K B
-  nnoremap d h
   nnoremap e d
   nnoremap ee dd
-  nnoremap gh j
-  nnoremap gt k
-  nnoremap h gj
   nnoremap j e
   nnoremap k b
-  nnoremap n l
-  nnoremap t gk
+
+  au Filetype * nnoremap <silent><nowait>d h
+  au Filetype * nnoremap <silent><nowait>gh j
+  au Filetype * nnoremap <silent><nowait>h gj
+  au Filetype * nnoremap <silent><nowait>gt k
+  au Filetype * nnoremap <silent><nowait>t gk
+  au Filetype * nnoremap <silent><nowait>n l
 
   vnoremap H J
   vnoremap J E
   vnoremap K B
-  vnoremap d h
   vnoremap e d
-  vnoremap h gj
   vnoremap j e
   vnoremap k b
-  vnoremap n l
-  vnoremap t gk
+
+  au Filetype * vnoremap <silent><nowait>d h
+  au Filetype * vnoremap <silent><nowait>gh j
+  au Filetype * vnoremap <silent><nowait>h gj
+  au Filetype * vnoremap <silent><nowait>gt k
+  au Filetype * vnoremap <silent><nowait>t gk
+  au Filetype * vnoremap <silent><nowait>n l
 
   nnoremap r n
   nnoremap R N
