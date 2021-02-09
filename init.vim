@@ -193,33 +193,6 @@ filetype plugin indent on
 "}}}
 
 " ----------------------------------------
-"  filetype settings
-" ----------------------------------------
-"{{{
-  augroup filetypeSet
-    au!
-    au BufRead,BufNewFile *.py set filetype=python
-    au BufRead,BufNewFile *.rb set filetype=ruby
-    au BufRead,BufNewFile *.ejs set filetype=mason
-    au BufRead,BufNewFile *.blade.php set filetype=blade
-  augroup END
-  augroup filetypeIndent
-    au!
-    au BufNewFile,BufRead *.scss set tabstop=4 shiftwidth=4
-    au BufNewFile,BufRead *.php set tabstop=4 shiftwidth=4
-    au BufNewFile,BufRead *.go set tabstop=4 shiftwidth=4 noexpandtab
-    au BufNewFile,BufRead *.js set tabstop=4 shiftwidth=4
-    au BufNewFile,BufRead *.vue set tabstop=2 shiftwidth=2
-    au BufNewFile,BufRead *.json set tabstop=2 shiftwidth=2
-    au BufNewFile,BufRead *.blade.php set tabstop=4 shiftwidth=4
-  augroup END
-  augroup diffWrap
-    au!
-    au FilterWritePre * if &diff | setlocal wrap | endif
-  augroup END
-"}}}
-
-" ----------------------------------------
 "  cocの設定
 " ----------------------------------------
 "{{{
@@ -404,6 +377,33 @@ filetype plugin indent on
 " Visualモードでインデントした時の範囲解除を避ける
   vnoremap < <gv
   vnoremap > >gv
+"}}}
+
+" ----------------------------------------
+"  filetype settings
+" ----------------------------------------
+"{{{
+  augroup filetypeSet
+    au!
+    au BufRead,BufNewFile *.py set filetype=python
+    au BufRead,BufNewFile *.rb set filetype=ruby
+    au BufRead,BufNewFile *.ejs set filetype=mason
+    au BufRead,BufNewFile *.blade.php set filetype=blade
+  augroup END
+  augroup filetypeIndent
+    au!
+    au BufNewFile,BufRead *.scss set tabstop=4 shiftwidth=4
+    au BufNewFile,BufRead *.php set tabstop=4 shiftwidth=4
+    au BufNewFile,BufRead *.go set tabstop=4 shiftwidth=4 noexpandtab
+    au BufNewFile,BufRead *.js set tabstop=4 shiftwidth=4
+    au BufNewFile,BufRead *.vue set tabstop=2 shiftwidth=2
+    au BufNewFile,BufRead *.json set tabstop=2 shiftwidth=2
+    au BufNewFile,BufRead *.blade.php set tabstop=4 shiftwidth=4
+  augroup END
+  augroup diffWrap
+    au!
+    au FilterWritePre * if &diff | setlocal wrap | endif
+  augroup END
 "}}}
 
 " ----------------------------------------
