@@ -126,6 +126,7 @@ bindkey '^\^' cdup
 alias g='git'
 alias gad='git add'
 alias gbr='git branch'
+alias gbru='git branch -u `git branch -r | fzf`'
 alias gch='git checkout'
 alias gcl='git clone'
 alias gco='git commit -a'
