@@ -166,6 +166,7 @@ alias up='cd ..; ls -lG'
 alias uu='cd ../../'
 alias uuu='cd ../../../'
 alias vi='vim'
+alias dox='docker exec -it `docker ps --format "{{.Names}}" | fzf` /bin/bash'
 # ctagsの設定
 alias ctags='`brew --prefix`/bin/ctags'
 # purgeの設定
