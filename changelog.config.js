@@ -17,6 +17,7 @@ module.exports = {
     'perf',
     'config',
     'package',
+    'docker',
   ],
 
   // コミットメッセージの最大文字数
@@ -110,6 +111,11 @@ module.exports = {
       description: 'パッケージの追加・更新・削除',
       emoji: '📦',
       value: 'package',
+    },
+    docker: {
+      description: 'dockerの設定周り変更',
+      emoji: '🐳',
+      value: 'docker',
     },
   },
 };
