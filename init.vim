@@ -54,6 +54,7 @@ Plug 'tomtom/tcomment_vim'
   let g:tcomment_types['blade'] = '{{-- %s --}}'
   let g:tcomment_types['eruby'] = '<%# %s %>'
 Plug 'peitalin/vim-jsx-typescript'
+Plug 'haya14busa/vim-migemo'
 call plug#end()
 " colorsheme
 if filereadable(expand("~/.config/nvim/plugged/iceberg.vim/colors/iceberg.vim"))
@@ -476,7 +477,11 @@ filetype plugin indent on
   nnoremap <silent><Leader>? <C-u>:GFiles?<CR>'
   nnoremap <silent><Leader>u <C-u>:GFiles<CR>'
   nnoremap <silent><Leader>d <C-u>:History<CR>'
-  nnoremap <silent>r <C-u>:Tags<CR>
+  " Insert mode completion
+  imap <c-x><c-k> <plug>(fzf-complete-word)
+  imap <c-x><c-f> <plug>(fzf-complete-path)
+  imap <c-x><c-j> <plug>(fzf-complete-file-ag)
+  imap <c-x><c-l> <plug>(fzf-complete-line) nnoremap <silent>r <C-u>:Tags<CR>
 "}}}
 
 " ----------------------------------------
