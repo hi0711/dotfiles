@@ -40,3 +40,6 @@ export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 export PATH="/usr/local/opt/awscli@1/bin:$PATH"
 # cargoのパスを通す
 source "$HOME/.cargo/env"
+# phpのパスを通す
+export PATH="/usr/local/opt/php@7.4/sbin:$PATH"
+export PATH="/usr/local/opt/php@7.4/bin:$PATH"
