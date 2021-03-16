@@ -388,7 +388,7 @@ filetype plugin indent on
     au!
     au BufRead,BufNewFile,BufEnter *.py set filetype=python
     au BufRead,BufNewFile,BufEnter *.rb set filetype=ruby
-    au BufRead,BufNewFile,BufEnter *.ejs set filetype=mason
+    au BufRead,BufNewFile,BufEnter *.ejs set filetype=html
     au BufRead,BufNewFile,BufEnter *.blade.php set filetype=blade
   augroup END
   augroup filetypeIndent
@@ -530,6 +530,7 @@ filetype plugin indent on
   nnoremap J E
   nnoremap K B
   nnoremap e d
+  nnoremap E D
   nnoremap ee dd
   nnoremap j e
   nnoremap k b
