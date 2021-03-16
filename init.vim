@@ -220,7 +220,7 @@ filetype plugin indent on
   " Use K for show documentation in preview window
   nnoremap <silent> K :call <SID>show_documentation()<CR>
   " Hover表示
-  nnoremap <silent> gh :<C-u>call CocAction('doHover')<CR>
+  nnoremap <silent> gf :<C-u>call CocAction('doHover')<CR>
   " function! s:show_documentation()
   "   if &filetype == 'vim'
   "     execute 'h '.expand('<cword>')
@@ -386,20 +386,20 @@ filetype plugin indent on
 "{{{
   augroup filetypeSet
     au!
-    au BufRead,BufNewFile *.py set filetype=python
-    au BufRead,BufNewFile *.rb set filetype=ruby
-    au BufRead,BufNewFile *.ejs set filetype=mason
-    au BufRead,BufNewFile *.blade.php set filetype=blade
+    au BufRead,BufNewFile,BufEnter *.py set filetype=python
+    au BufRead,BufNewFile,BufEnter *.rb set filetype=ruby
+    au BufRead,BufNewFile,BufEnter *.ejs set filetype=html
+    au BufRead,BufNewFile,BufEnter *.blade.php set filetype=blade
   augroup END
   augroup filetypeIndent
     au!
-    au BufNewFile,BufRead *.scss set tabstop=4 shiftwidth=4
-    au BufNewFile,BufRead *.php set tabstop=4 shiftwidth=4
-    au BufNewFile,BufRead *.go set tabstop=4 shiftwidth=4 noexpandtab
-    au BufNewFile,BufRead *.js set tabstop=4 shiftwidth=4
-    au BufNewFile,BufRead *.vue set tabstop=2 shiftwidth=2
-    au BufNewFile,BufRead *.json set tabstop=2 shiftwidth=2
-    au BufNewFile,BufRead *.blade.php set tabstop=4 shiftwidth=4
+    au BufNewFile,BufRead,BufEnter *.scss set tabstop=4 shiftwidth=4
+    au BufNewFile,BufRead,BufEnter *.php set tabstop=4 shiftwidth=4
+    au BufNewFile,BufRead,BufEnter *.go set tabstop=4 shiftwidth=4 noexpandtab
+    au BufNewFile,BufRead,BufEnter *.js set tabstop=4 shiftwidth=4
+    au BufNewFile,BufRead,BufEnter *.vue set tabstop=2 shiftwidth=2
+    au BufNewFile,BufRead,BufEnter *.json set tabstop=2 shiftwidth=2
+    au BufNewFile,BufRead,BufEnter *.blade.php set tabstop=4 shiftwidth=4
   augroup END
   augroup diffWrap
     au!
@@ -530,6 +530,7 @@ filetype plugin indent on
   nnoremap J E
   nnoremap K B
   nnoremap e d
+  nnoremap E D
   nnoremap ee dd
   nnoremap j e
   nnoremap k b

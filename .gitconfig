@@ -28,7 +28,6 @@
   rb = rebase -i
   rb-r = rebase -r
   push-f = push --force-with-lease
-  cb = rev-parse --abbrev-ref HEAD
   delete-merged-branch = "!f () { git checkout $1; git branch --merged|egrep -v '\\*|develop|master|stg|test'|xargs git branch -d; };f"
   delete-force = !CURRENT=`git branch --show-current | head -n 1` && git branch | egrep -v '\\*|master|stg|$CURRENT' | xargs -p -I % git branch -D %
   refresh= !git fetch origin && git remote prune origin
@@ -59,7 +58,6 @@
   autosquash = true
 [rerere]
   enabled = true
-  autoupdate = true
 [ghq]
   root = ~/workspace
 [ghq "CODECOMMIT-URL"]
