@@ -28,8 +28,8 @@
   rb = rebase -i
   rb-r = rebase -r
   push-f = push --force-with-lease
-  delete-merged-branch = "!f () { git checkout $1; git branch --merged|egrep -v '\\*|develop|master|stg|test'|xargs git branch -d; };f"
-  delete-force = !CURRENT=`git branch --show-current | head -n 1` && git branch | egrep -v '\\*|master|stg|$CURRENT' | xargs -p -I % git branch -D %
+  delete-merged-branch = "!f () { git checkout $1; git branch --merged|egrep -v '\\*|main|develop|master|stg|test'|xargs git branch -d; };f"
+  delete-force = !CURRENT=`git branch --show-current | head -n 1` && git branch | egrep -v '\\*|main|master|stg|$CURRENT' | xargs -p -I % git branch -D %
   refresh= !git fetch origin && git remote prune origin
   brlog = !git --no-pager reflog | awk '$3 == \"checkout:\" && /moving from/ {print $8}' | uniq | head
   checkout-merge = !git checkout --conflict=merge
