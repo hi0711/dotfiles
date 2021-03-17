@@ -256,7 +256,7 @@ alias fgc='git branch | fzf | xargs git checkout'
 # fgcr - gitのremetoブランチへのcheckoutにfzfを使う
 alias fgcr='git branch -r | grep -ioP "feature.*" | fzf | xargs git checkout'
 # fremo - gitのremoteブランチをupstreamに設定する
-alias fremo='git branch -a | fzf | xargs git branch -u'
+alias fremo='git branch -r | fzf | xargs git branch -u'
 # fgd - gitのdiffにfzfを使う
 alias fgd='git branch -a | fzf | xargs git diff'
 # flog - gitのmylogにfzfを使う

@@ -393,13 +393,11 @@ filetype plugin indent on
   augroup END
   augroup filetypeIndent
     au!
-    au BufNewFile,BufRead,BufEnter *.scss set tabstop=4 shiftwidth=4
-    au BufNewFile,BufRead,BufEnter *.php set tabstop=4 shiftwidth=4
-    au BufNewFile,BufRead,BufEnter *.go set tabstop=4 shiftwidth=4 noexpandtab
-    au BufNewFile,BufRead,BufEnter *.js set tabstop=4 shiftwidth=4
-    au BufNewFile,BufRead,BufEnter *.vue set tabstop=2 shiftwidth=2
-    au BufNewFile,BufRead,BufEnter *.json set tabstop=2 shiftwidth=2
-    au BufNewFile,BufRead,BufEnter *.blade.php set tabstop=4 shiftwidth=4
+    au BufNewFile,BufRead,BufEnter *.scss setlocal tabstop=4 shiftwidth=4
+    au BufNewFile,BufRead,BufEnter *.php setlocal tabstop=4 shiftwidth=4
+    au BufNewFile,BufRead,BufEnter *.go setlocal tabstop=4 shiftwidth=4 noexpandtab
+    au BufNewFile,BufRead,BufEnter *.js setlocal tabstop=4 shiftwidth=4
+    au BufNewFile,BufRead,BufEnter *.blade.php setlocal tabstop=4 shiftwidth=4
   augroup END
   augroup diffWrap
     au!
