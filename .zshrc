@@ -253,6 +253,8 @@ fshow() {
 }
 # fgc - gitのcheckoutにfzfを使う
 alias fgc='git branch | fzf | xargs git checkout'
+# fgcr - gitのremetoブランチへのcheckoutにfzfを使う
+alias fgcr='git branch -r | grep -ioP "feature.*" | fzf | xargs git checkout'
 # fremo - gitのremoteブランチをupstreamに設定する
 alias fremo='git branch -a | fzf | xargs git branch -u'
 # fgd - gitのdiffにfzfを使う
