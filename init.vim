@@ -207,6 +207,8 @@ filetype plugin indent on
     \, 'coc-tsserver'
     \, 'coc-solargraph'
     \, 'coc-docker'
+    \, 'coc-words'
+    \, 'coc-tabnine'
     \]
   nmap <silent> gd <Plug>(coc-definition)
   nmap <silent> gy <Plug>(coc-type-definition)
