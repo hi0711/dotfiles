@@ -81,7 +81,6 @@ filetype plugin indent on
   set fdm=marker
   set fencs=utf-8,sjis,euc-jp
   set formatoptions+=t
-  set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
   set hidden
   set history=1000
   set hlsearch
@@ -122,6 +121,11 @@ filetype plugin indent on
   set wrap
   set wrapscan
   set write
+  " ripgrep
+    if executable('rg')
+      set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
+      set grepformat=%f:%l:%c:%m
+    endif
   " breakindent設定
     if exists('+breakindent')
       set breakindent
