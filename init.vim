@@ -37,7 +37,7 @@ Plug 'fuenor/JpFormat.vim'
   nnoremap gL :JpFormatAll!<CR>
 Plug 'mattn/emmet-vim'
   let g:user_emmet_install_global = 0
-  autocmd FileType html,css,blade,markdown EmmetInstall
+  autocmd FileType html,css,php,markdown EmmetInstall
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
   let g:fzf_preview_window = ''
@@ -81,7 +81,6 @@ filetype plugin indent on
   set fdm=marker
   set fencs=utf-8,sjis,euc-jp
   set formatoptions+=t
-  set grepprg=rg\ --vimgrep\ --no-heading\ -i
   set hidden
   set history=1000
   set hlsearch
@@ -122,6 +121,11 @@ filetype plugin indent on
   set wrap
   set wrapscan
   set write
+  " ripgrep
+    if executable('rg')
+      set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
+      set grepformat=%f:%l:%c:%m
+    endif
   " breakindent設定
     if exists('+breakindent')
       set breakindent
@@ -456,16 +460,6 @@ filetype plugin indent on
     imap      <C-G>S <Plug>ISurround
   endif
 "}}}
-" ----------------------------------------
-"  HTML閉じタグ自動補完
-" ----------------------------------------
-"{{{
-  augroup MyTag
-    autocmd Filetype xml inoremap <buffer> </ </<C-x><C-o>
-    autocmd Filetype html inoremap <buffer> </ </<C-x><C-o>
-    autocmd Filetype eruby inoremap <buffer> </ </<C-x><C-o>
-  augroup END
-"}}}
 
 " ----------------------------------------
 "  fzfの設定
@@ -506,6 +500,11 @@ filetype plugin indent on
   if (has('nvim'))
     command! -nargs=* Term split | terminal <args>
   endif
+" git blameコマンド実行
+  function Gblame()
+    Git blame
+  endfunction
+  command! Gblame :call Gblame()
 "}}}
 
 " ----------------------------------------
