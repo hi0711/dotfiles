@@ -384,6 +384,9 @@ filetype plugin indent on
 " Visualモードでインデントした時の範囲解除を避ける
   vnoremap < <gv
   vnoremap > >gv
+" cwin操作
+  nnoremap <silent><Leader>op :<C-u>copen<CR>
+  nnoremap <silent><Leader>cl :<C-u>cclose<CR>
 "}}}
 
 " ----------------------------------------
@@ -533,6 +536,7 @@ filetype plugin indent on
   nnoremap ee dd
   nnoremap j e
   nnoremap k b
+  nnoremap l <Nop>
 
   au Filetype * nnoremap <silent><nowait>d h
   au Filetype * nnoremap <silent><nowait>gh j
@@ -547,6 +551,7 @@ filetype plugin indent on
   vnoremap e d
   vnoremap j e
   vnoremap k b
+  vnoremap l <Nop>
 
   au Filetype * vnoremap <silent><nowait>d h
   au Filetype * vnoremap <silent><nowait>gh j
