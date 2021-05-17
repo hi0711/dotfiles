@@ -11,13 +11,13 @@ Plug 'Shougo/vimproc.vim', { 'do': 'make' }
 Plug 'rking/ag.vim'
 Plug 'cespare/vim-toml'
 Plug 'cocopon/iceberg.vim'
-Plug 'digitaltoad/vim-pug'
-Plug 'posva/vim-vue'
-Plug 'tpope/vim-markdown'
+Plug 'digitaltoad/vim-pug', { 'for': 'pug' }
+Plug 'posva/vim-vue', { 'for': 'vue' }
+Plug 'tpope/vim-markdown', { 'for': 'md' }
   let g:markdown_fenced_languages = ['html', 'python', 'bash=sh']
   let g:markdown_minlines = 100
-Plug 'noahfrederick/vim-laravel'
-Plug 'jwalton512/vim-blade'
+Plug 'noahfrederick/vim-laravel', { 'for': 'php' }
+Plug 'jwalton512/vim-blade', { 'for': 'php' }
 Plug 'tmhedberg/matchit'
 Plug 'itchyny/lightline.vim'
   let g:lightline = { 
@@ -53,8 +53,10 @@ Plug 'tomtom/tcomment_vim'
   endif
   let g:tcomment_types['blade'] = '{{-- %s --}}'
   let g:tcomment_types['eruby'] = '<%# %s %>'
-Plug 'peitalin/vim-jsx-typescript'
+Plug 'peitalin/vim-jsx-typescript', { 'for': 'ts' }
 Plug 'haya14busa/vim-migemo'
+Plug 'ElmCast/elm-vim', { 'for': 'elm' }
+  let g:elm_setup_keybindings = 0
 call plug#end()
 " colorsheme
 if filereadable(expand("~/.config/nvim/plugged/iceberg.vim/colors/iceberg.vim"))
