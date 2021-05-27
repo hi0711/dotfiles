@@ -28,14 +28,14 @@ symbol = " "
 [elixir]
 symbol = " "
 
+[elm]
+symbol = " "
+
 [git_branch]
 symbol = " "
 
 [golang]
 symbol = " "
-
-# [haskell]
-# symbol = " "
 
 [hg_branch]
 symbol = " "
@@ -75,6 +75,3 @@ symbol = " "
 
 [rust]
 symbol = " "
-
-[swift]
-symbol = "ﯣ "
