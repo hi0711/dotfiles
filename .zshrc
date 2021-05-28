@@ -218,10 +218,6 @@ bindkey '^Z' fancy-ctrl-z
 
 ### fzf設定###
 # {{{
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-0=${(%):-%N}
-source $HOME/fzf-preview.zsh/fzf-preview.zsh
-bindkey '^i' fzf-or-normal-completion
 # fd - cd to selected directory
 fd() {
   local dir
