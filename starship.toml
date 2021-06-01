@@ -9,6 +9,10 @@
 # [package]
 # disabled = true
 
+# タイムアウトの設定
+scan_timeout = 1000
+command_timeout = 1000
+
 # 記号類
 [aws]
 symbol = " "
