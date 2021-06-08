@@ -37,7 +37,7 @@ Plug 'fuenor/JpFormat.vim'
   nnoremap gL :JpFormatAll!<CR>
 Plug 'mattn/emmet-vim'
   let g:user_emmet_install_global = 0
-  autocmd FileType html,css,php,markdown EmmetInstall
+  autocmd FileType html,css,php,markdown,javascript EmmetInstall
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
   let g:fzf_preview_window = ''
@@ -53,10 +53,16 @@ Plug 'tomtom/tcomment_vim'
   endif
   let g:tcomment_types['blade'] = '{{-- %s --}}'
   let g:tcomment_types['eruby'] = '<%# %s %>'
-Plug 'peitalin/vim-jsx-typescript', { 'for': 'ts' }
+Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 Plug 'haya14busa/vim-migemo'
 Plug 'ElmCast/elm-vim', { 'for': 'elm' }
   let g:elm_setup_keybindings = 0
+Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'othree/es.next.syntax.vim', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'othree/javascript-libraries-syntax.vim', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'HerringtonDarkholme/yats.vim', { 'for': ['typescript','typescript.tsx']}
+Plug 'maxmellon/vim-jsx-pretty'
 call plug#end()
 " colorsheme
 if filereadable(expand("~/.config/nvim/plugged/iceberg.vim/colors/iceberg.vim"))
@@ -159,6 +165,7 @@ filetype plugin indent on
     endfunction
     if has('syntax')
       augroup ZenkakuSpace
+          au!
           autocmd ColorScheme       * call ZenkakuSpace()
           autocmd VimEnter,WinEnter * match ZenkakuSpace /　/
       augroup END
@@ -400,14 +407,16 @@ filetype plugin indent on
     au BufRead,BufNewFile,BufEnter *.py set filetype=python
     au BufRead,BufNewFile,BufEnter *.rb set filetype=ruby
     au BufRead,BufNewFile,BufEnter *.ejs set filetype=html
-    au BufRead,BufNewFile,BufEnter *.blade.php set filetype=blade
+    au BufRead,BufNewFile,BufEnter *.{ts,tsx} set filetype=typescript
+    au BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
+    au BufLeave *.{js,jsx,ts,tsx} :syntax sync clear   
   augroup END
   augroup filetypeIndent
     au!
     au BufNewFile,BufRead,BufEnter *.scss setlocal tabstop=4 shiftwidth=4
     au BufNewFile,BufRead,BufEnter *.php setlocal tabstop=4 shiftwidth=4
     au BufNewFile,BufRead,BufEnter *.go setlocal tabstop=4 shiftwidth=4 noexpandtab
-    au BufNewFile,BufRead,BufEnter *.js setlocal tabstop=4 shiftwidth=4
+    au BufNewFile,BufRead,BufEnter *.{js,jsx,ts,tsx} setlocal tabstop=4 shiftwidth=4
     au BufNewFile,BufRead,BufEnter *.blade.php setlocal tabstop=4 shiftwidth=4
   augroup END
   augroup diffWrap
@@ -485,6 +494,28 @@ filetype plugin indent on
 "}}}
 
 " ----------------------------------------
+"  js関連の設定
+" ----------------------------------------
+"{{{
+function! EnableJavascript()
+  " Setup used libraries
+  let g:used_javascript_libs = 'jquery,underscore,react,flux,jasmine,d3'
+  let b:javascript_lib_use_jquery = 1
+  let b:javascript_lib_use_underscore = 1
+  let b:javascript_lib_use_react = 1
+  let b:javascript_lib_use_flux = 1
+  let b:javascript_lib_use_jasmine = 1
+  let b:javascript_lib_use_d3 = 1
+endfunction
+
+augroup MyVimrc
+  au!
+augroup END
+
+autocmd MyVimrc FileType javascript,javascript.jsx call EnableJavascript()
+"}}}
+
+" ----------------------------------------
 "  set commands
 " ----------------------------------------
 "{{{
@@ -522,6 +553,7 @@ filetype plugin indent on
 " カーソルライン設定
   set cursorline
   augroup cch
+    au!
     autocmd WinLeave * set nocursorline
     autocmd WinEnter,BufRead * set cursorline
   hi clear Visual
