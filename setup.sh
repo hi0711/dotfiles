@@ -3,28 +3,34 @@
 ########################################
 # Password                             #
 ########################################
+#{{{
 printf "password: "
 read password
+#}}}
 
 ########################################
 # Commands                             #
 ########################################
+#{{{
 has() {
   type "$1" > /dev/null 2>&1
 }
+#}}}
 
 ########################################
 # Vars                                 #
 ########################################
+#{{{
 DOT_DIRECTORY="${HOME}/dotfiles"
 DOT_TARBALL="https://github.com/hi0711/dotfiles"
 REMOTE_URL="https://github.com/hi0711/dotfiles.git"
-VIM_RUNTIME="${HOME}/.vim_runtime"
 NEOVIM_DIRECTORY="${HOME}/.config/nvim"
+#}}}
 
 ########################################
 # Options                              #
 ########################################
+#{{{
 while getopts :f:h opt; do
   case ${opt} in
     f)
@@ -36,10 +42,12 @@ while getopts :f:h opt; do
   esac
 done
 shift $((OPTIND - 1))
+#}}}
 
 ########################################
 # Downloads                            #
 ########################################
+#{{{
 if [ ! -d ${DOT_DIRECTORY} ] ; then
   echo "Downloading dotfiles..."
   rm -rf ${DOT_DIRECTORY}
@@ -54,10 +62,12 @@ if [ ! -d ${DOT_DIRECTORY} ] ; then
   fi
   echo "$(tput setaf 2)Download dotfiles complete! :)$(tput sgr0)"
 fi
+#}}}
 
 ########################################
 # Deploy                               #
 ########################################
+#{{{
 echo "Start Deploy ..."
 cd ${DOT_DIRECTORY}
 for f in .??*
@@ -68,6 +78,7 @@ do
   [[ ${f} = "dein.toml" ]] && continue
   [[ ${f} = "dein_lazy.toml" ]] && continue
   [[ ${f} = ".Brewfile" ]] && continue
+  [[ ${f} = "starship.toml" ]] && continue
 
   ln -snfv ${DOT_DIRECTORY}/${f} ${HOME}/${f}
 done
@@ -79,11 +90,16 @@ if [ ! -d ${NEOVIM_DIRECTORY} ] ; then
   cp -fv ${HOME}/dotfiles/dein_lazy.toml ${HOME}/.config/nvim
   cp -fv ${HOME}/dotfiles/.Brewfile ${HOME}/.Brewfile
 fi
+
+cp -fv ${HOME}/dotfiles/starship.toml ${HOME}/.config/
+
 echo "$(tput setaf 2)Deploy dotfiles complete! :)$(tput sgr0)"
+#}}}
 
 ########################################
 # Initialize                           #
 ########################################
+#{{{
 echo "Start Initialize ..."
 # homebrew settings
 if has "brew" ; then
@@ -99,16 +115,19 @@ if has "brew" ; then
 fi
 echo "$(tput setaf 2)Update Homebrew complete :)$(tput sgr0)"
 # vim settings
-if [ ! -d ${VIM_RUNTIME} ] ; then
-  git clone --depth=1 git://github.com/amix/vimrc.git ${HOME}/.vim_runtime
-  sh ${HOME}/.vim_runtime/install_basic_vimrc.sh
-  echo "$(tput setaf 2)Initialize vim settings complete! :)$(tput sgr0)"
-fi
+sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs 
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+echo "$(tput setaf 2)vim settings complete :)$(tput sgr0)"
 # zsh settings
 echo "$password" | sudo -S sh -c 'echo "/usr/local/bin/zsh" >> /etc/shells'
 echo "$password" | sudo -S chsh -s /usr/local/bin/zsh
 echo "$(tput setaf 2)Initialize zsh settings complete! :)$(tput sgr0)"
-# defaults settings
+#}}}
+
+########################################
+# Defaults settings                    #
+########################################
+#{{{
 defaults write -g NSAutomaticWindowAnimationsEnabled -bool false
 defaults write -g NSDocumentRevisionsWindowTransformAnimation -bool false
 defaults write -g NSInitialToolTipDelay -integer 0
@@ -143,5 +162,6 @@ defaults write com.apple.screencapture disable-shadow -bool true
 defaults write com.apple.screencapture type -string "jpg"
 defaults write com.apple.terminal StringEncodings -array 4
 echo "$(tput setaf 2)Initialize defaults settings complete! :)$(tput sgr0)"
+#}}}
 
 exit 0
