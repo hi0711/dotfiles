@@ -210,7 +210,7 @@ filetype plugin indent on
 "  cocの設定
 " ----------------------------------------
 "{{{
-  let g:coc_global_extentions = [
+  let g:coc_global_extensions = [
     \  'coc-lists'
     \, 'coc-json'
     \, 'coc-sh'
@@ -220,9 +220,10 @@ filetype plugin indent on
     \, 'coc-tsserver'
     \, 'coc-solargraph'
     \, 'coc-docker'
-    \, 'coc-words'
+    \, 'coc-word'
     \, 'coc-tabnine'
     \, 'coc-pairs'
+    \, 'coc-styled-components'
     \]
   nmap <silent> gd <Plug>(coc-definition)
   nmap <silent> gy <Plug>(coc-type-definition)
