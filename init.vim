@@ -222,6 +222,7 @@ filetype plugin indent on
     \, 'coc-docker'
     \, 'coc-words'
     \, 'coc-tabnine'
+    \, 'coc-pairs'
     \]
   nmap <silent> gd <Plug>(coc-definition)
   nmap <silent> gy <Plug>(coc-type-definition)
@@ -236,13 +237,15 @@ filetype plugin indent on
   nnoremap <silent> K :call <SID>show_documentation()<CR>
   " Hover表示
   nnoremap <silent> gf :<C-u>call CocAction('doHover')<CR>
-  " function! s:show_documentation()
-  "   if &filetype == 'vim'
-  "     execute 'h '.expand('<cword>')
-  "   else
-  "     call CocAction('doHover')
-  "   endif
-  " endfunction
+  function! s:show_documentation()
+    if &filetype == 'vim'
+      execute 'h '.expand('<cword>')
+    else
+      call CocAction('doHover')
+    endif
+  endfunction
+  " coc-pairsの設定
+  inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 "}}}
 
 " ----------------------------------------
@@ -251,16 +254,6 @@ filetype plugin indent on
 "{{{
 " Yを行末までのヤンクにする
   nnoremap Y y$
-" 閉じ括弧補完
-  inoremap " ""<ESC>i
-  inoremap ' ''<ESC>i
-  inoremap { {}<ESC>i
-  inoremap {<Enter> {}<Left><CR><ESC><S-o>
-  inoremap ( ()<ESC>i
-  inoremap (<Enter> ()<Left><CR><ESC><S-o>
-  inoremap [ []<ESC>i
-  inoremap [<Enter> []<Left><CR><ESC><S-o>
-  inoremap < <><ESC>i
 " スペースキー + . で.vimrcを開く
   nnoremap <Leader>. :<C-u>tabedit ~/.config/nvim/init.vim<CR>
 " 検索語が画面の真ん中に来るようにする
