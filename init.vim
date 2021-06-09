@@ -400,7 +400,6 @@ filetype plugin indent on
     au BufRead,BufNewFile,BufEnter *.py set filetype=python
     au BufRead,BufNewFile,BufEnter *.rb set filetype=ruby
     au BufRead,BufNewFile,BufEnter *.ejs set filetype=html
-    au BufRead,BufNewFile,BufEnter *.{ts,tsx} set filetype=typescript
     au BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
     au BufLeave *.{js,jsx,ts,tsx} :syntax sync clear   
   augroup END

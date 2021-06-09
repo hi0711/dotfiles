@@ -314,6 +314,8 @@ fpath=($(brew --prefix)/share/zsh/functions $fpath)
 fpath=(/usr/local/share/zsh-completions $fpath)
 # git-completionの設定
 fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
+# ghの設定
+eval "$(gh completion -s zsh)"
 # 単語の区切り文字を指定する
 autoload -Uz select-word-style
 select-word-style default
