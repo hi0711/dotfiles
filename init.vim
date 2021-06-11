@@ -409,7 +409,7 @@ filetype plugin indent on
     au BufNewFile,BufRead,BufEnter *.scss setlocal tabstop=4 shiftwidth=4
     au BufNewFile,BufRead,BufEnter *.php setlocal tabstop=4 shiftwidth=4
     au BufNewFile,BufRead,BufEnter *.go setlocal tabstop=4 shiftwidth=4 noexpandtab
-    au BufNewFile,BufRead,BufEnter *.{js,jsx,ts,tsx} setlocal tabstop=4 shiftwidth=4
+    au BufNewFile,BufRead,BufEnter *.{js,jsx,ts,tsx} setlocal tabstop=2 shiftwidth=2
     au BufNewFile,BufRead,BufEnter *.blade.php setlocal tabstop=4 shiftwidth=4
   augroup END
   augroup diffWrap
