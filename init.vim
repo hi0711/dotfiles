@@ -398,15 +398,12 @@ filetype plugin indent on
 "{{{
   augroup filetypeSet
     au!
-    au BufRead,BufNewFile,BufEnter *.py set filetype=python
-    au BufRead,BufNewFile,BufEnter *.rb set filetype=ruby
     au BufRead,BufNewFile,BufEnter *.ejs set filetype=html
     au BufEnter *.{js,jsx,ts,tsx} :syntax sync fromstart
     au BufLeave *.{js,jsx,ts,tsx} :syntax sync clear   
   augroup END
   augroup filetypeIndent
     au!
-    au BufNewFile,BufRead,BufEnter *.scss setlocal tabstop=4 shiftwidth=4
     au BufNewFile,BufRead,BufEnter *.php setlocal tabstop=4 shiftwidth=4
     au BufNewFile,BufRead,BufEnter *.go setlocal tabstop=4 shiftwidth=4 noexpandtab
     au BufNewFile,BufRead,BufEnter *.{js,jsx,ts,tsx} setlocal tabstop=2 shiftwidth=2
