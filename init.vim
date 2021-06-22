@@ -13,7 +13,7 @@ Plug 'cespare/vim-toml'
 Plug 'cocopon/iceberg.vim'
 Plug 'digitaltoad/vim-pug', { 'for': 'pug' }
 Plug 'posva/vim-vue', { 'for': 'vue' }
-Plug 'tpope/vim-markdown', { 'for': 'md' }
+Plug 'tpope/vim-markdown', { 'for': 'markdown' }
   let g:markdown_fenced_languages = ['html', 'python', 'bash=sh']
   let g:markdown_minlines = 100
 Plug 'noahfrederick/vim-laravel', { 'for': 'php' }
@@ -63,6 +63,7 @@ Plug 'othree/es.next.syntax.vim', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'othree/javascript-libraries-syntax.vim', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'HerringtonDarkholme/yats.vim', { 'for': ['typescript','typescript.tsx']}
 Plug 'maxmellon/vim-jsx-pretty'
+Plug 'tyru/columnskip.vim'
 call plug#end()
 " colorsheme
 if filereadable(expand("~/.config/nvim/plugged/iceberg.vim/colors/iceberg.vim"))
@@ -94,6 +95,7 @@ filetype plugin indent on
   set hlsearch
   set ignorecase
   set incsearch
+  set inccommand=split
   set laststatus=2
   set lazyredraw
   set list
@@ -368,6 +370,7 @@ filetype plugin indent on
   cnoremap <C-a> <Home>
   cnoremap <C-b> <Left>
   cnoremap <C-f> <Right>
+  cnoremap <C-h> <BackSpace>
   cnoremap <C-d> <Del>
   cnoremap <C-e> <End>
   cnoremap <C-n> <Down>
@@ -470,7 +473,6 @@ filetype plugin indent on
 " ----------------------------------------
 "{{{
   nnoremap <silent>: <C-u>:Buffers<CR>'
-  nnoremap <silent>t <C-u>:Files<CR>
   nnoremap <silent>q: <C-u>:History:<CR>'
   nnoremap <silent><Leader>? <C-u>:GFiles?<CR>'
   nnoremap <silent><Leader>u <C-u>:GFiles<CR>'
@@ -481,6 +483,18 @@ filetype plugin indent on
   imap <c-x><c-j> <plug>(fzf-complete-file-ag)
   imap <c-x><c-l> <plug>(fzf-complete-line) 
   nnoremap <silent>r <C-u>:Tags<CR>
+"}}}
+
+" ----------------------------------------
+"  columnskipの設定
+" ----------------------------------------
+"{{{
+  nmap <silent>\h <Plug>(columnskip:nonblank:next)
+  omap <silent>\h <Plug>(columnskip:nonblank:next)
+  xmap <silent>\h <Plug>(columnskip:nonblank:next)
+  nmap <silent>\t <Plug>(columnskip:nonblank:prev)
+  omap <silent>\t <Plug>(columnskip:nonblank:prev)
+  xmap <silent>\t <Plug>(columnskip:nonblank:prev)
 "}}}
 
 " ----------------------------------------

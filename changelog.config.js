@@ -28,24 +28,24 @@ module.exports = {
 
   // 質問の種類
   questions: [
-      'type',
-      'scope',
-      'subject',
-      'body',
-      'breaking',
-      'issues',
-      'lerna',
+    'type',
+    'scope',
+    'subject',
+    'body',
+    'breaking',
+    'issues',
+    'lerna',
   ],
 
   // scopesの種類
   // 一つも指定されてない場合、scopeの質問は行われなくなる
   scopes: [
-      '',
-      '無し',
-      'API',
-      '機能',
-      '環境構築',
-      '*',
+    '',
+    '無し',
+    'API',
+    '機能',
+    '環境構築',
+    '*',
   ],
 
   // typesの種類を設定する
