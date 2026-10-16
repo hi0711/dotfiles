@@ -12,7 +12,7 @@ local function setup()
       "svelte", "python", "go", "rust",
       "astro",
     },
-    auto_install = false,
+    auto_install = true,
   }
 
   -- treesitter-contextの設定
@@ -50,11 +50,29 @@ local function setup()
     callback = function(args)
       local ft = args.match
       local lang = vim.treesitter.language.get_lang(ft) or ft
-      pcall(vim.treesitter.start, args.buf, lang)
+      local ok = pcall(vim.treesitter.start, args.buf, lang)
 
       if not disabled_ft[ft] then
         vim.opt_local.foldmethod = "expr"
         vim.opt_local.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+
+        -- injection 内のfoldが反映されない問題への回避策
+        -- nvim本体の _fold.lua の injection 対応 TODO が解消されたら削除
+        if ok then
+          vim.defer_fn(function()
+            if not vim.api.nvim_buf_is_valid(args.buf) then return end
+            local parser = vim.treesitter.get_parser(args.buf, nil, { error = false })
+            if not parser then return end
+            parser:parse(true)
+            for _, win in ipairs(vim.fn.win_findbuf(args.buf)) do
+              vim.api.nvim_win_call(win, function()
+                local m = vim.wo.foldminlines
+                vim.wo.foldminlines = m + 1
+                vim.wo.foldminlines = m
+              end)
+            end
+          end, 50)
+        end
       end
     end,
   })
