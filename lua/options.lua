@@ -48,6 +48,8 @@ local function setup()
   vim.opt.tabstop = 2
   vim.opt.textwidth = 0
   vim.opt.title = true
+  -- keep the fzf terminal command line out of the window title
+  vim.opt.titlestring = "%{&buftype ==# 'terminal' ? 'fzf' : expand('%:t')} - Nvim"
   vim.opt.timeoutlen = 500
   vim.opt.updatetime = 250
   vim.opt.virtualedit = "block"
