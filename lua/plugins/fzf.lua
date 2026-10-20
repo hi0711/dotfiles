@@ -4,7 +4,7 @@
 local function setup()
   vim.opt.rtp:append("/opt/homebrew/opt/fzf")
   vim.keymap.set("n", ":", ":Buffers<CR>'", { silent = true })
-  vim.keymap.set("n", "q:", ":History:<CR>'", { silent = true })
+  vim.keymap.set("n", "q:", "<Cmd>History:<CR>'", { silent = true })
   vim.keymap.set("n", "<Leader>?", ":GFiles?<CR>'", { silent = true })
   vim.keymap.set("n", "<Leader>u", ":GFiles<CR>'", { silent = true })
   vim.keymap.set("n", "<Leader>d", ":History<CR>'", { silent = true })
